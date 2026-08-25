@@ -1,3 +1,3 @@
 import type { Metadata } from 'next';import { Suspense } from 'react';import { CompareClient } from '@/components/CompareClient';import { getServices } from '@/lib/services';
-export const metadata:Metadata={title:'AIゲーム開発ツール比較',description:'最大4つのAIゲーム開発ツールを料金、無料枠、商用利用、API、対応環境で比較。',alternates:{canonical:'/compare'},robots:{index:false,follow:true}};
+export const metadata:Metadata={title:'AIゲーム開発ツール比較',description:'最大4つのAIゲーム開発ツールを料金、無料枠、商用利用、API、対応環境で比較。',alternates:{canonical:'/compare'},openGraph:{url:'/compare'},robots:{index:false,follow:true}};
 export default function ComparePage(){return <section><p className="eyebrow">SIDE-BY-SIDE</p><h1>ツール比較</h1><p className="lead">最大4件。黄色の行は選択したサービス間に差がある項目です。</p><Suspense fallback={<p>比較表を読み込んでいます…</p>}><CompareClient services={getServices()}/></Suspense></section>}
