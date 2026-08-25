@@ -1,0 +1,1 @@
+import { getServices } from '../lib/services';for(const s of getServices()){if(s.affiliateUrl){if(s.affiliateAvailable!=='yes')throw new Error(`${s.slug}: URL present without availability`);if(!s.sources.some(x=>x.type==='terms'))throw new Error(`${s.slug}: affiliate requires terms source`)}}console.log('Affiliate links are centrally managed and consistent');
