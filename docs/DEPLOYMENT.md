@@ -26,14 +26,14 @@ Production DeploymentはVercelで完了している。本番URLは **https://gam
 4. sitemap、robots、canonical、404を本番URLで確認する。
 5. 独自ドメイン・解析はOWNER_ACTIONSの承認後に接続する。
 
-Affiliate未承認のサービスは`affiliateUrl`を空のままにし、`officialUrl` fallbackを使う。Analyticsはイベントをブラウザ内CustomEventとして発火するだけなので、外部adapterやIDがなくても公開を妨げない。
+Affiliate未承認のサービスは`affiliateUrl`を空のままにし、`officialUrl` fallbackを使う。Analyticsはブラウザ内CustomEventに加え、productionではGA4へ送る。`gtag`初期化前のイベントは`dataLayer`へqueueされる。
 
 ## 公開後QA
 
-- `/`, `/tools`, `/compare`, `/methodology`, `/affiliate-disclosure`, `/privacy`, `/sitemap.xml`, `/robots.txt` が200で表示される。
+- `/`, `/builder`, `/stacks`, `/tools`, `/compare`, `/methodology`, `/affiliate-disclosure`, `/privacy`, `/sitemap.xml`, `/robots.txt` が200で表示される。
 - 8件すべての `/tools/[slug]` が200で表示され、一次情報、確認日、CTAを確認できる。
 - 各HTMLのcanonicalと`og:url`が `https://game-ai-hub.vercel.app` の自己参照URLである。
-- `/sitemap.xml` の14 URLがProduction originを使い、`/robots.txt`が同じoriginのsitemapを参照する。
+- `/sitemap.xml` の公開canonical URLがProduction originと末尾スラッシュを使い、noindexの`/compare`を含まず、`/robots.txt`が同じoriginのsitemapを参照する。
 - 未承認サービスのCTAは`officialUrl`へ遷移し、架空または未承認のaffiliate URLがない。
 - HTTPS、404ページ、外部リンクの遷移、desktop/mobileの主要導線を実機で確認する。
 

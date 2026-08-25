@@ -1,70 +1,28 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getServices } from '@/lib/services';
+import { stackTemplates } from '@/data/stack-templates';
 
-const intents=[
-  ['AIでコーディング','AIコーディング','実装・補完・デバッグ'],
-  ['キャラ・背景を生成','AI画像','2Dアセット制作'],
-  ['BGM・効果音を生成','AI BGM / SFX','サウンド制作'],
-  ['AI音声を導入','AI音声','ボイス・ナレーション'],
-  ['3Dモデルを生成','AI 3D','3Dアセット制作'],
-  ['ゲームを丸ごと生成','AIゲーム生成','プロトタイプ制作']
-];
+export const metadata:Metadata={title:'作りたいゲームからAI開発構成を決める',description:'ゲームの条件を入力すると、必要な制作工程、AIツール候補、順番、代替案、費用と商用利用の確認事項を整理します。',alternates:{canonical:'/'},openGraph:{url:'/'}};
 
 export default function Home(){
-  const services=getServices();
-  const verified=services.filter(s=>s.verificationStatus==='verified').length;
   return <>
-    <section className="home-hero">
-      <div className="hero-copy">
-        <p className="eyebrow">AI GAME DEVELOPMENT TOOL FINDER</p>
-        <h1>ゲーム開発AIを、<br/><span>条件で選ぶ。</span></h1>
-        <p className="lead">宣伝文句ではなく、料金・商用利用・無料枠・API・対応環境を同じ基準で比較。制作工程から最短で候補を絞れます。</p>
-        <div className="hero-actions">
-          <Link className="button" href="/tools">ツールを探す</Link>
-          <Link className="button ghost" href="/compare">横並びで比較</Link>
-        </div>
-        <div className="hero-stats" aria-label="サイト情報">
-          <div><strong>{services.length}</strong><span>掲載ツール</span></div>
-          <div><strong>{verified}</strong><span>検証済み</span></div>
-          <div><strong>4</strong><span>最大同時比較</span></div>
-        </div>
+    <section className="decision-hero">
+      <div>
+        <p className="eyebrow">AI GAME DEVELOPMENT DECISION BUILDER</p>
+        <h1>何を作りたい<br/>ですか？</h1>
+        <p className="lead">ゲームの種類、予算、経験、必要な素材を選ぶと、制作工程ごとのAIツール候補と採用理由、代替案、確認すべき制約を順番に整理します。</p>
+        <div className="hero-actions"><Link className="button" href="/builder">AI開発構成を作る</Link><Link className="button ghost" href="/compare">ツールを比較する</Link></div>
+        <p className="decision-note">推薦順位をアフィリエイト報酬で変更しません。未確認の料金・商用条件は「不明」として残します。</p>
       </div>
-      <aside className="hero-panel">
-        <p className="panel-kicker">DECISION FLOW</p>
-        <h2>「何を作るか」から選ぶ</h2>
-        <ol>
-          <li><span>01</span><div><strong>制作工程を選択</strong><small>コード・画像・音声・3Dなど</small></div></li>
-          <li><span>02</span><div><strong>条件を確認</strong><small>無料枠・商用利用・API</small></div></li>
-          <li><span>03</span><div><strong>公式情報へ進む</strong><small>出典と最終確認日を表示</small></div></li>
-        </ol>
+      <aside className="decision-output" aria-label="Builderで得られる内容">
+        <p className="panel-kicker">YOUR OUTPUT</p><h2>調査結果ではなく、制作の開始手順</h2>
+        <ol><li><span>01</span><strong>必要な制作工程</strong></li><li><span>02</span><strong>工程ごとの候補と理由</strong></li><li><span>03</span><strong>代替案・制約・未確認事項</strong></li><li><span>04</span><strong>次に着手する順番</strong></li></ol>
       </aside>
     </section>
-
-    <section className="intent-section">
-      <div className="section-head">
-        <div><p className="eyebrow">CHOOSE YOUR WORKFLOW</p><h2>制作工程から探す</h2></div>
-        <Link className="text-link" href="/tools">すべてのツールを見る →</Link>
-      </div>
-      <div className="intent-grid">{intents.map(([label,category,desc],index)=><Link key={category} href={`/tools?category=${encodeURIComponent(category)}`}>
-        <span className="intent-no">0{index+1}</span>
-        <div><strong>{label}</strong><p>{desc}</p></div>
-        <b>{services.filter(s=>s.category===category).length}件 →</b>
-      </Link>)}</div>
+    <section className="stack-preview">
+      <div className="section-head"><div><p className="eyebrow">QUICK START</p><h2>近いゲームから工程を見る</h2><p className="lead">既成Stackは完成品のランキングではなく、Builderへ条件を引き継ぐためのクイックスタートです。</p></div><Link className="text-link" href="/stacks">8つのStackを見る →</Link></div>
+      <div className="stack-mini-grid">{stackTemplates.slice(0,4).map(stack=><Link key={stack.slug} href={`/stacks/${stack.slug}`}><span>{stack.workflow.length}工程</span><h3>{stack.title}</h3><p>{stack.summary}</p><b>工程案を確認 →</b></Link>)}</div>
     </section>
-
-    <section className="compare-promo">
-      <div><p className="eyebrow">COMPARE WITH CONTEXT</p><h2>違いだけを、すぐ見つける。</h2><p>最大4サービスを同じ軸で比較。値が異なる行を視覚的に示し、「不明」は不明のまま表示します。</p></div>
-      <Link className="button light" href="/compare">比較を始める</Link>
-    </section>
-
-    <section className="principles">
-      <div className="section-head"><div><p className="eyebrow">EDITORIAL PRINCIPLES</p><h2>判断材料を、広告より上に置く</h2></div></div>
-      <div className="principle-grid">
-        <article><span>01</span><h3>報酬で順位を変えない</h3><p>アフィリエイトの有無を評価や掲載順位に使用しません。</p></article>
-        <article><span>02</span><h3>確認日と出典を明示</h3><p>各ツールページから公式情報へ辿れるようにしています。</p></article>
-        <article><span>03</span><h3>分からないことは「不明」</h3><p>推測で埋めず、確認できない情報はそのまま表示します。</p></article>
-      </div>
-      <Link className="text-link" href="/methodology">調査・評価方法を読む →</Link>
-    </section>
+    <section className="decision-paths"><div><p className="eyebrow">OTHER PATHS</p><h2>候補をすでに知っている場合</h2><p>ツール詳細と比較表は、Builderで得た候補を検証するために利用できます。</p></div><div className="hero-actions"><Link className="button ghost" href="/compare">ツールを比較する</Link><Link className="text-link" href="/tools">ツール一覧を見る →</Link></div></section>
   </>
 }

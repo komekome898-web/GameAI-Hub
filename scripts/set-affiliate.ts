@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { assertAffiliateSlug, assertApprovalDate } from './affiliate-validation';
 
 type AffiliateStatus='active'|'pending'|'rejected'|'inactive'|'unknown';
 type AffiliateProgram={status:AffiliateStatus;affiliateUrl:string|null;network:string|null;approvedAt:string|null};
@@ -11,10 +12,11 @@ const network=(process.env.AFFILIATE_NETWORK?.trim()||'');
 const approvedAt=(process.env.AFFILIATE_APPROVED_AT?.trim()||'');
 const validStatuses=new Set<AffiliateStatus>(['active','pending','rejected','inactive','unknown']);
 if(!slug) throw new Error('AFFILIATE_SERVICE is required');
+assertAffiliateSlug(slug);
 if(!validStatuses.has(status)) throw new Error(`Invalid AFFILIATE_STATUS: ${status}`);
 if(status==='active'&&!url) throw new Error('AFFILIATE_URL is required when status=active');
 if(url){const parsed=new URL(url);if(parsed.protocol!=='https:')throw new Error('Affiliate URL must use https');}
-if(approvedAt&&!/^\d{4}-\d{2}-\d{2}$/.test(approvedAt))throw new Error('AFFILIATE_APPROVED_AT must be YYYY-MM-DD');
+if(approvedAt)assertApprovalDate(approvedAt);
 
 const registryPath=path.join(process.cwd(),'data/affiliate-programs.json');
 const registry=JSON.parse(fs.readFileSync(registryPath,'utf8')) as Record<string,AffiliateProgram>;

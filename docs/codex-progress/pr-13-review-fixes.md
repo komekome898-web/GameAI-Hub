@@ -1,0 +1,25 @@
+# PR #13 review fixes
+
+- Task: Address the three required review findings on PR #13.
+- Working branch: `work` (push target: `ipadwf-codex/native-subagents`)
+- Latest checkpoint / final code commit: `9f630bddfeeac2fc0ca61394d15e484b5bfc718d`
+- Completed phases:
+  - Fetched and audited the PR review.
+  - Rebased PR #13 onto current `origin/main`.
+  - Preserved the full main `AGENTS.md` protocol and safely appended the Next.js generated block.
+  - Updated commercial recommendation policy: `conditional` remains eligible with explicit warnings; `no` and `unknown` are manual-review candidates for commercial projects.
+  - Restored protected production GA behavior and removed the consent gate/UI from this PR.
+  - Added primary and alternative commercial-conditional notices, official terms links, manual checks, and regression tests.
+  - Completed independent review, then fixed its alternative-display P2 finding.
+- In-progress phase: none.
+- Remaining phases: push commits to the existing PR branch and confirm GitHub mergeability (blocked in this container).
+- Unresolved P0/P1/P2 findings: none known.
+- Quality-gate status:
+  - `npm run quality`: passed (11 files / 70 tests plus data, affiliate, and sitemap validation).
+  - `npm run build`: passed (28 static pages).
+  - `npm run test:e2e`: passed (6/6 after installing Playwright Chromium and host dependencies).
+  - 375px mobile QA: passed via Playwright journeys and inspected screenshot `/tmp/pr13-commercial-375.png`.
+- Preservation checks: ElevenLabs/Meshy URLs and fallback/rel/disclosure passed; Search Console token and GA4 ID are unchanged; commercial conditional candidates render with terms warnings.
+- Known blockers / assumptions: this container has no GitHub HTTPS credentials and SSH port 22 is unavailable, so push and server-side mergeability verification remain external actions.
+- Files currently edited: none outside this ledger.
+- Exact next action on resume: push `work` with `--force-with-lease` to `ipadwf-codex/native-subagents`, then verify PR #13 reports mergeable.
