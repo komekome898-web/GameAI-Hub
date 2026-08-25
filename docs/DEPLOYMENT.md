@@ -1,8 +1,8 @@
 # Deployment
 
-## 推奨: Vercel無料枠
+## Production
 
-`output: 'export'` のNext.jsアプリであり、VercelはGitHub連携、Preview Deploy、HTTPS、Next.jsのbuild設定を最小構成で提供するため初回公開先に適する。GitHub Pagesも`out/`を配信できるが、Project Pagesではrepository名の`basePath`対応やActions workflowが別途必要になるため、現構成ではVercelを優先する。
+Production DeploymentはVercelで完了している。本番URLは **https://game-ai-hub.vercel.app**、Production Branchは **main** である。このURLを唯一の本番originとして扱う。`output: 'export'` のNext.jsアプリであり、成果物は静的に配信される。
 
 ### Project settings
 
@@ -20,9 +20,9 @@
 
 ## 公開手順
 
-1. `npm ci && npm run quality && npm run build` を実行する。
+1. `npm ci && npm run quality && NEXT_PUBLIC_SITE_URL=https://game-ai-hub.vercel.app npm run build` を実行する。
 2. `out/` を静的ホスティングへ公開する（NodeサーバーやDBは不要）。
-3. `NEXT_PUBLIC_SITE_URL` を本番のHTTPS originに設定して再buildする。
+3. `NEXT_PUBLIC_SITE_URL=https://game-ai-hub.vercel.app` をProduction環境に設定してbuildする。
 4. sitemap、robots、canonical、404を本番URLで確認する。
 5. 独自ドメイン・解析はOWNER_ACTIONSの承認後に接続する。
 
@@ -30,7 +30,7 @@ Affiliate未承認のサービスは`affiliateUrl`を空のままにし、`offic
 
 ## 公開後QA
 
-- `/`, `/tools`, `/compare`, `/methodology`, `/affiliate-disclosure`, `/privacy` が200で表示され、ナビゲーションとmobile表示に崩れがない。
+- `/`, `/tools`, `/compare`, `/methodology`, `/affiliate-disclosure`, `/privacy`, `/sitemap.xml`, `/robots.txt` が200で表示される。
 - 8件すべての `/tools/[slug]` が200で表示され、一次情報、確認日、CTAを確認できる。
 - 各HTMLのcanonicalと`og:url`が `https://game-ai-hub.vercel.app` の自己参照URLである。
 - `/sitemap.xml` の14 URLがProduction originを使い、`/robots.txt`が同じoriginのsitemapを参照する。

@@ -1,4 +1,4 @@
-const productionUrl = 'https://game-ai-hub.vercel.app';
+export const productionUrl = 'https://game-ai-hub.vercel.app';
 
 export const site = {
   name: 'GameAI Hub',
