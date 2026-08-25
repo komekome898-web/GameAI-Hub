@@ -2,16 +2,19 @@
 
 Codexで実行できない契約・本人確認・秘密情報・法的最終判断だけをまとめる。
 
-| Action | Reason | URL | Cost | Required Now | Blocking | Exact Steps |
-|---|---|---|---|---|---|---|
-| 公開先と独自ドメインを決定 | 検索流入を得る本番originが必要 | 任意の静的ホスト/レジストラ | 無料枠〜（要確認） | Yes | 公開にはBlocking | 1. ホストを選ぶ 2. ドメインを購入/接続 3. `NEXT_PUBLIC_SITE_URL`を設定 4. build/deploy |
-| Search Console所有権確認 | Organic Clickを測る | https://search.google.com/search-console/ | 無料 | 公開直後 | No | 1. プロパティ追加 2. DNSまたはHTMLで確認 3. sitemap送信 |
-| Analytics接続を承認 | 匿名ファネル実測 | 未選定 | 無料候補あり | 公開直後 | No | 1. 事業者/データ所在地を選定 2. アカウント作成 3. IDをsecretとして登録 4. privacy更新 |
-| 公式アフィリエイト制度を再調査・申請 | 初回affiliate click/conversion検証 | `docs/DATA_SOURCES.md`記載の各公式サイト | 通常無料（要規約確認） | Yes | 収益化にはBlocking | 1. 公式partner/referralページ確認 2. 条件を記録 3. 優先P0へ申請 4. 本人確認/口座登録 5. 承認URLのみaffiliateUrlへ追加 |
-| 銀行・税務情報登録 | 報酬受取に必要 | 採用ASP管理画面 | unknown | 承認後 | 売上受取にはBlocking | ASPの本人確認手順に従い、リポジトリへ情報を保存しない |
-| 公開文書の法的最終確認 | 運営主体・地域・解析構成に合わせる | 専門家または社内担当 | unknown | 公開前推奨 | リスク判断はOwner | privacy/広告開示/商用利用免責を確認し、運営者情報を追加 |
-| Git remote設定とpush | 現在remote未設定 | 利用するGitホスト | 無料候補あり | Yes | デプロイ方法次第 | 1. repository作成 2. remote追加 3. 認証設定 4. `git push -u origin work` |
+| Priority | Action | Required owner operation |
+|---|---|---|
+| P0 | GitHub接続 | `gh auth login`を実行し、このcloneに正しい`origin`を設定する（現在は認証・remoteとも未設定）。その後`work`をpushし、`main`向けPRをreview/mergeする。 |
+| P0 | Vercel接続と初回公開 | VercelへGitHubでログインし、このrepositoryをImportする。Productionの`NEXT_PUBLIC_SITE_URL`を割当URLに設定し、`npm ci` / `npm run build` / `out`でDeployする。 |
+| P0 | 公開URL確認 | `/`, `/tools/`, `/compare/`, `/sitemap.xml`, `/robots.txt`を実機（特にmobile）で確認し、公開URLを記録する。 |
+| P1 | ElevenLabs Affiliate申請 | 公開URLを用意した後、公式programの最新条件を確認して申請する。承認後のみ`affiliateUrl`を追加する。 |
+| P1 | Unity Affiliate申請 | 公開URLを用意した後、公式programの最新条件を確認して申請する。承認後のみ`affiliateUrl`を追加する。 |
+| P1 | Search Console | 公開URLのpropertyを追加・所有権確認し、`/sitemap.xml`を送信する。 |
+| P1 | Analytics | 事業者・データ所在地・同意要件を決定して接続し、Privacy文書を実構成に合わせて更新する。未接続でもサイトは動作する。 |
+| P2 | 独自ドメイン | 必要になった時点で取得・Vercelへ接続し、`NEXT_PUBLIC_SITE_URL`更新後に再Deployする。 |
+| P2 | その他Affiliate | `docs/DATA_SOURCES.md`の公式制度を再確認し、優先サービスから申請する。 |
+| P2 | 振込・税務情報 | 採用した各programの管理画面で登録し、秘密情報をrepositoryへ保存しない。 |
 
 ## 調査制約
 
-2026-08-25、Web検索APIは401 Unauthorizedだったためアフィリエイト条件は全件unknown。ネットワーク回復後も公式情報だけで確定する。
+2026-08-25時点。Affiliateの条件・可用性は申請時に公式情報だけで再確認する。
