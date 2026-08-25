@@ -17,7 +17,7 @@ Phase 1はJSON + Zodの8サービス、詳細、最大4件比較、中央CTA、�
 
 1. Vercelで **Add New → Project** を選び、このGitHubリポジトリをImportする。
 2. Framework Presetを **Next.js**、Root Directoryをリポジトリルートにする。
-3. Production環境変数 `NEXT_PUBLIC_SITE_URL` に、割り当てられた本番URL（例: `https://gameai-hub.vercel.app`、末尾 `/` なし）を設定する。
+3. Production環境変数 `NEXT_PUBLIC_SITE_URL` に `https://game-ai-hub.vercel.app`（末尾 `/` なし）を設定する。
 4. Build Commandは `npm run build`、Install Commandは `npm ci`、Output Directoryは `out` を使用する。
 5. Deploy後に本番URLの `/`, `/tools/`, `/compare/`, `/sitemap.xml`, `/robots.txt` を確認する。URLを変更した場合は環境変数を更新して再Deployする。
 
