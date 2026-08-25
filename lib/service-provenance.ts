@@ -1,0 +1,3 @@
+import type { Service } from './schema';
+export function serviceProvenanceIssues(service:Service){const types=new Set(service.sources.map(source=>source.type));const issues:string[]=[];if(!types.has('official')&&!types.has('docs'))issues.push('product claim requires an official or docs source');if(!types.has('terms'))issues.push('commercial-use claim requires a terms source');const explicitlyUnpriced=/公式.*確認|要確認|不明/.test(service.pricing);if(!types.has('pricing')&&!explicitlyUnpriced)issues.push('pricing claim requires a pricing source');return issues}
+export function resultEvidenceSources(service:Service){return service.sources.filter(source=>['official','docs','pricing','terms'].includes(source.type))}

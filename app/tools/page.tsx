@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { ToolsExplorer } from '@/components/ToolsExplorer';
 import { getServices } from '@/lib/services';
+import { Suspense } from 'react';
 
-export const metadata:Metadata={title:'AIゲーム開発ツール一覧',description:'AIゲーム開発ツールを用途・料金・商用利用条件から探せます。',alternates:{canonical:'/tools'},openGraph:{url:'/tools'}};
+export const metadata:Metadata={title:'AIゲーム開発ツール一覧',description:'AIゲーム開発ツールを用途・料金・商用利用条件から探せます。',alternates:{canonical:'/tools/'},openGraph:{url:'/tools/'}};
 
 export default function ToolsPage(){
   const services=getServices();
@@ -13,6 +14,6 @@ export default function ToolsPage(){
       <p className="lead">用途、無料枠、商用利用条件を確認しながら、制作フローに合う候補を絞り込めます。</p>
       <div className="directory-meta"><span>{services.length} tools</span><span>公式情報ベース</span><span>最終確認日を掲載</span></div>
     </div>
-    <ToolsExplorer services={services}/>
+    <Suspense fallback={<div className="loading-panel">ツールを読み込んでいます…</div>}><ToolsExplorer services={services}/></Suspense>
   </section>
 }

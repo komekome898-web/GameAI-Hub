@@ -10,6 +10,10 @@ import { metadata as methodologyMetadata } from '@/app/methodology/page';
 import { metadata as affiliateMetadata } from '@/app/affiliate-disclosure/page';
 import { metadata as privacyMetadata } from '@/app/privacy/page';
 import { generateMetadata } from '@/app/tools/[slug]/page';
+import { metadata as stacksMetadata } from '@/app/stacks/page';
+import { generateMetadata as generateStackMetadata } from '@/app/stacks/[slug]/page';
+import { stackTemplates } from '@/data/stack-templates';
+import { metadata as builderMetadata } from '@/app/builder/page';
 
 describe('SEO', () => {
   it('uses the permanent production origin', () => {
@@ -20,11 +24,13 @@ describe('SEO', () => {
   it('uses self-referencing canonical and Open Graph URLs for every public page', async () => {
     const pages = [
       ['/', rootMetadata],
-      ['/tools', toolsMetadata],
-      ['/compare', compareMetadata],
-      ['/methodology', methodologyMetadata],
-      ['/affiliate-disclosure', affiliateMetadata],
-      ['/privacy', privacyMetadata],
+      ['/tools/', toolsMetadata],
+      ['/stacks/', stacksMetadata],
+      ['/compare/', compareMetadata],
+      ['/builder/', builderMetadata],
+      ['/methodology/', methodologyMetadata],
+      ['/affiliate-disclosure/', affiliateMetadata],
+      ['/privacy/', privacyMetadata],
     ] as const;
 
     for (const [path, metadata] of pages) {
@@ -33,8 +39,14 @@ describe('SEO', () => {
     }
 
     for (const service of getServices()) {
-      const path = `/tools/${service.slug}`;
+      const path = `/tools/${service.slug}/`;
       const metadata = await generateMetadata({ params: Promise.resolve({ slug: service.slug }) });
+      expect(new URL(String(metadata.alternates?.canonical), productionUrl).href).toBe(`${productionUrl}${path}`);
+      expect(new URL(String(metadata.openGraph?.url), productionUrl).href).toBe(`${productionUrl}${path}`);
+    }
+    for (const stack of stackTemplates) {
+      const path = `/stacks/${stack.slug}/`;
+      const metadata = await generateStackMetadata({ params: Promise.resolve({ slug: stack.slug }) });
       expect(new URL(String(metadata.alternates?.canonical), productionUrl).href).toBe(`${productionUrl}${path}`);
       expect(new URL(String(metadata.openGraph?.url), productionUrl).href).toBe(`${productionUrl}${path}`);
     }
@@ -42,12 +54,16 @@ describe('SEO', () => {
 
   it('sitemap has all public routes, detail pages, and no query pages', () => {
     const map = sitemap();
-    expect(map).toHaveLength(14);
+    expect(map).toHaveLength(7 + getServices().length + stackTemplates.length);
     expect(map.every(({ url }) => url.startsWith(`${site.url}/`) || url === site.url)).toBe(true);
     expect(map.some(({ url }) => url.includes('?'))).toBe(false);
-    expect(map.some(({ url }) => url.endsWith('/compare'))).toBe(true);
+    expect(map.some(({ url }) => url.includes('/compare'))).toBe(false);
+    expect(map.every(({url})=>url.endsWith('/'))).toBe(true);
     for (const service of getServices()) {
-      expect(map.some(({ url }) => url.endsWith(`/tools/${service.slug}`))).toBe(true);
+      expect(map.some(({ url }) => url.endsWith(`/tools/${service.slug}/`))).toBe(true);
+    }
+    for (const stack of stackTemplates) {
+      expect(map.some(({ url }) => url.endsWith(`/stacks/${stack.slug}/`))).toBe(true);
     }
   });
 

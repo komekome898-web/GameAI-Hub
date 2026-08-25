@@ -1,0 +1,5 @@
+import { describe,expect,it } from 'vitest';
+import type { Service } from '@/lib/schema';
+import { resultEvidenceSources,serviceProvenanceIssues } from '@/lib/service-provenance';
+import services from '@/data/services.json';
+describe('service claim provenance',()=>{it('keeps product, terms, and pricing claims traceable for every service',()=>{for(const service of services as Service[])expect(serviceProvenanceIssues(service),service.slug).toEqual([])});it('rejects an unsupported concrete pricing claim',()=>{const service=structuredClone(services[0]) as Service;service.pricing='$10 / month';service.sources=service.sources.filter(source=>source.type!=='pricing');expect(serviceProvenanceIssues(service)).toContain('pricing claim requires a pricing source')});it('provides linkable evidence for result candidates',()=>{for(const service of services as Service[]){const evidence=resultEvidenceSources(service);expect(evidence.length,service.slug).toBeGreaterThan(1);expect(evidence.every(source=>/^https?:\/\//.test(source.url))).toBe(true)}})});

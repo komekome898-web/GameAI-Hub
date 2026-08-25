@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import { CompareClient } from '@/components/CompareClient';
 import { getServices } from '@/lib/services';
 
-export const metadata:Metadata={title:'AIゲーム開発ツール比較',description:'最大4つのAIゲーム開発ツールを料金、無料枠、商用利用、API、対応環境で比較。',alternates:{canonical:'/compare'},openGraph:{url:'/compare'},robots:{index:false,follow:true}};
+export const metadata:Metadata={title:'AIゲーム開発ツール比較',description:'最大4つのAIゲーム開発ツールを料金、無料枠、商用利用、API、対応環境で比較。',alternates:{canonical:'/compare/'},openGraph:{url:'/compare/'},robots:{index:false,follow:true}};
 
 export default function ComparePage(){return <section className="compare-page">
   <div className="page-hero compact">
