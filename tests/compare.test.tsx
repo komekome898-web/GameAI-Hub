@@ -1,0 +1,3 @@
+import { render,screen } from '@testing-library/react';import { describe,expect,it,vi } from 'vitest';import { CompareClient } from '@/components/CompareClient';import { getServices } from '@/lib/services';
+vi.mock('next/navigation',()=>({useSearchParams:()=>new URLSearchParams()}));
+describe('compare',()=>{it('renders minimum comparison fields and selected tools',()=>{render(<CompareClient services={getServices()} initial={['github-copilot','cursor']}/>);expect(screen.getAllByText('GitHub Copilot').length).toBeGreaterThan(0);for(const label of ['料金','無料枠','商用利用','API','ゲームエンジン','プラットフォーム','主用途','長所','弱点','最終確認日'])expect(screen.getByText(label)).toBeTruthy()})});

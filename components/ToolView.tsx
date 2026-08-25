@@ -1,0 +1,1 @@
+'use client';import { useEffect } from 'react';import { track } from '@/lib/analytics';export function ToolView({slug}:{slug:string}){useEffect(()=>track('tool_view',{service:slug,page:`/tools/${slug}`}),[slug]);return null;}

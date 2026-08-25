@@ -1,0 +1,2 @@
+import { describe,expect,it } from 'vitest';import sitemap from '@/app/sitemap';import robots from '@/app/robots';import { getServices } from '@/lib/services';
+describe('SEO',()=>{it('sitemap has all detail pages and no query pages',()=>{const map=sitemap();expect(map.some(x=>x.url.includes('?'))).toBe(false);for(const s of getServices())expect(map.some(x=>x.url.endsWith(`/tools/${s.slug}`))).toBe(true)});it('robots points to sitemap and blocks parameters',()=>{const r=robots();expect(r.sitemap).toContain('/sitemap.xml');expect(JSON.stringify(r.rules)).toContain('/*?*')})});

@@ -1,0 +1,1 @@
+import { getServices } from '../lib/services';const now=new Date();const stale=getServices().filter(s=>(now.getTime()-new Date(s.lastVerified).getTime())/864e5>60);if(stale.length){console.warn('Stale:',stale.map(s=>s.slug).join(', '));process.exitCode=1}else console.log('No service data older than 60 days');

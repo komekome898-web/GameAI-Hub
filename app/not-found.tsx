@@ -1,0 +1,1 @@
+import Link from 'next/link';export default function NotFound(){return <section className="empty"><p className="eyebrow">404</p><h1>ページが見つかりません</h1><p>URLが変更されたか、ページが公開されていません。</p><Link className="button" href="/tools">ツールを探す</Link></section>}

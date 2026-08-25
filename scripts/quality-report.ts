@@ -1,0 +1,1 @@
+import { getServices } from '../lib/services';const s=getServices();console.table({services:s.length,verified:s.filter(x=>x.verificationStatus==='verified').length,unknownAffiliate:s.filter(x=>x.affiliateAvailable==='unknown').length});
