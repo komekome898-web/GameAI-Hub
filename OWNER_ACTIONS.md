@@ -4,9 +4,9 @@ Codexで実行できない契約・本人確認・秘密情報・法的最終判
 
 | Priority | Action | Required owner operation |
 |---|---|---|
-| P0 | GitHub接続 | `gh auth login`を実行し、このcloneに正しい`origin`を設定する（現在は認証・remoteとも未設定）。その後`work`をpushし、`main`向けPRをreview/mergeする。 |
-| P0 | Vercel接続と初回公開 | VercelへGitHubでログインし、このrepositoryをImportする。Productionの`NEXT_PUBLIC_SITE_URL`を割当URLに設定し、`npm ci` / `npm run build` / `out`でDeployする。 |
-| P0 | 公開URL確認 | `/`, `/tools/`, `/compare/`, `/sitemap.xml`, `/robots.txt`を実機（特にmobile）で確認し、公開URLを記録する。 |
+| P0 | GitHub認証と反映 | GitHub CLIだけが未認証。`gh auth login`で`komekome898-web`へ認証後、Codexに再実行を依頼する（repositoryと既存の`main` / `work`は確認済み）。 |
+| P0 | Vercel接続と初回公開 | iPhoneのVercelで **Add New → Project → Continue with GitHub → GameAI-Hub → Import**。Framework Presetが **Next.js**、Production Branchが **main** であることを確認し、`NEXT_PUBLIC_SITE_URL=https://<割当予定URL>`を追加して **Deploy**。初回割当URLが入力値と異なる場合は値を実URLへ直してRedeployする。 |
+| P0 | 公開URL確認 | `/`, `/tools/`, tool detail, `/compare/`, `/methodology/`, `/affiliate-disclosure/`, `/privacy/`, `/sitemap.xml`, `/robots.txt`を実機（特にmobile）で確認し、公開URLを記録する。 |
 | P1 | ElevenLabs Affiliate申請 | 公開URLを用意した後、公式programの最新条件を確認して申請する。承認後のみ`affiliateUrl`を追加する。 |
 | P1 | Unity Affiliate申請 | 公開URLを用意した後、公式programの最新条件を確認して申請する。承認後のみ`affiliateUrl`を追加する。 |
 | P1 | Search Console | 公開URLのpropertyを追加・所有権確認し、`/sitemap.xml`を送信する。 |
