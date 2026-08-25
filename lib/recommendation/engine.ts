@@ -29,8 +29,8 @@ function eligibility(service: Service, input: ProjectInput): Eligibility {
   const checks: string[] = [];
   if (input.budget === 'free' && service.freePlan !== 'yes') checks.push(`無料限定条件を満たすと確認できません（無料プラン: ${service.freePlan === 'no' ? 'なし' : '不明'}）`);
   if (input.integrationImportance === 'high' && service.api !== 'yes') checks.push(`API重視条件を満たすと確認できません（API: ${service.api === 'no' ? 'なし' : '不明'}）`);
-  if (input.commercialIntent === 'commercial' && service.commercialUse !== 'yes') {
-    checks.push(`商用利用を確定できません（${service.commercialUse === 'no' ? '不可' : service.commercialUse === 'conditional' ? '条件付き' : '不明'}）。契約プランと最新規約を確認してください`);
+  if (input.commercialIntent === 'commercial' && (service.commercialUse === 'no' || service.commercialUse === 'unknown')) {
+    checks.push(`商用利用を確定できません（${service.commercialUse === 'no' ? '不可' : '不明'}）。契約プランと最新規約を確認してください`);
   }
   return { eligible: checks.length === 0, checks };
 }
@@ -63,6 +63,10 @@ function tool(service: Service, reason: string, input: ProjectInput, constraintC
   if (service.freePlan === 'yes') evidence.push('無料プラン: あり（上限・対象機能は要確認）');
   else if (input.budget === 'free') unknowns.push(`無料プラン: ${service.freePlan === 'no' ? 'なし' : '確認できていません'}`);
   if (input.commercialIntent === 'commercial' && service.commercialUse === 'yes') evidence.push('商用利用: 掲載情報では可');
+  if (input.commercialIntent === 'commercial' && service.commercialUse === 'conditional') {
+    unknowns.push('商用利用: 条件付き（無条件の商用利用可ではありません）');
+    manualChecks.push('商用利用は条件付きです。公式規約で対象プラン、生成時点の契約・利用条件、用途ごとの許諾範囲を採用前に確認してください');
+  }
   if (input.integrationImportance === 'high' && service.api === 'yes') evidence.push('API: あり');
   if (service.verificationStatus !== 'verified') unknowns.push(`情報の検証状態: ${service.verificationStatus}`);
   manualChecks.push(`採用前に公式情報を再確認（掲載確認日: ${service.lastVerified}）`);
@@ -159,5 +163,5 @@ export function recommendProject(rawInput: ProjectInput, catalog: readonly Servi
   });
   const used = stages.flatMap(stage=>stage.primary ? [stage.primary.service] : []);
   const review = [...new Map(stages.flatMap(stage=>stage.reviewCandidates).map(candidate=>[candidate.service.slug,candidate.service])).values()];
-  return { input, stages, productionOrder:stages.filter(stage=>stage.requirement!=='excluded').map(stage=>stage.stage), costSummary:{ freePlanConfirmed:used.filter(s=>s.freePlan==='yes').length, freePlanUnknown:used.filter(s=>s.freePlan==='unknown').length, pricingAmountKnown:0, pricingAmountUnknown:used.length, reviewFreePlanConfirmed:review.filter(s=>s.freePlan==='yes').length, reviewFreePlanUnknown:review.filter(s=>s.freePlan==='unknown').length, reviewPricingAmountKnown:0, reviewPricingAmountUnknown:review.length, note:'掲載データには確定金額がないため合計額は算出しません。手動確認候補は推薦候補と分けて集計しています。無料プランも上限・商用条件を公式ページで確認してください。' }, projectGuidance:[input.experience==='beginner'?'初心者向け: 一度に全工程を進めず、各工程の代表成果物を1つ作ってから次へ進んでください。':input.experience==='advanced'?'上級者向け: 評価基準を自動テストやアセット検証へ落とし込み、生成差分を追跡してください。':'経験者向け: 工程ごとに小さな検証ビルドを固定し、次工程への受け渡し条件を記録してください。',input.platform==='multi-platform'?'複数プラットフォームは最も制約の強い対象端末を先に決め、各実機で検証してください。':`公開先「${input.platform}」への対応は、サービスの利用環境だけでは断定できません。出力形式とゲームエンジン側の公開要件を確認してください。`,input.budget==='free'?'無料プランありと確認できた候補だけを推薦します。上限と対象機能は別途確認してください。':input.budget==='low'?'低予算条件のため、小さな試作で利用量を測ってから有料契約を判断してください。':'品質優先条件でも価格額は推測しません。候補を実素材で比較し、公式見積もりを確認してください。',input.commercialIntent==='commercial'?'商用利用可を確認できない候補は推薦から外し、手動確認候補として分離しています。':input.commercialIntent==='undecided'?'公開形態が未定のため、販売へ切り替える前に商用条件を再判定してください。':'非商用条件です。後から販売する場合は全候補の規約を再確認してください。',input.integrationImportance==='high'?'APIありと確認できた候補だけを推薦します。':'APIは必須条件にしていません。将来必要になる場合はBuilder条件を変更してください。'] };
+  return { input, stages, productionOrder:stages.filter(stage=>stage.requirement!=='excluded').map(stage=>stage.stage), costSummary:{ freePlanConfirmed:used.filter(s=>s.freePlan==='yes').length, freePlanUnknown:used.filter(s=>s.freePlan==='unknown').length, pricingAmountKnown:0, pricingAmountUnknown:used.length, reviewFreePlanConfirmed:review.filter(s=>s.freePlan==='yes').length, reviewFreePlanUnknown:review.filter(s=>s.freePlan==='unknown').length, reviewPricingAmountKnown:0, reviewPricingAmountUnknown:review.length, note:'掲載データには確定金額がないため合計額は算出しません。手動確認候補は推薦候補と分けて集計しています。無料プランも上限・商用条件を公式ページで確認してください。' }, projectGuidance:[input.experience==='beginner'?'初心者向け: 一度に全工程を進めず、各工程の代表成果物を1つ作ってから次へ進んでください。':input.experience==='advanced'?'上級者向け: 評価基準を自動テストやアセット検証へ落とし込み、生成差分を追跡してください。':'経験者向け: 工程ごとに小さな検証ビルドを固定し、次工程への受け渡し条件を記録してください。',input.platform==='multi-platform'?'複数プラットフォームは最も制約の強い対象端末を先に決め、各実機で検証してください。':`公開先「${input.platform}」への対応は、サービスの利用環境だけでは断定できません。出力形式とゲームエンジン側の公開要件を確認してください。`,input.budget==='free'?'無料プランありと確認できた候補だけを推薦します。上限と対象機能は別途確認してください。':input.budget==='low'?'低予算条件のため、小さな試作で利用量を測ってから有料契約を判断してください。':'品質優先条件でも価格額は推測しません。候補を実素材で比較し、公式見積もりを確認してください。',input.commercialIntent==='commercial'?'商用利用「不可」「不明」の候補は推薦から外します。「条件付き」の候補は無条件の許可と扱わず、対象プラン・生成時点の条件・用途を公式規約で確認してください。':input.commercialIntent==='undecided'?'公開形態が未定のため、販売へ切り替える前に商用条件を再判定してください。':'非商用条件です。後から販売する場合は全候補の規約を再確認してください。',input.integrationImportance==='high'?'APIありと確認できた候補だけを推薦します。':'APIは必須条件にしていません。将来必要になる場合はBuilder条件を変更してください。'] };
 }

@@ -73,6 +73,35 @@ describe('builder',()=>{
     expect(pair.getAttribute('href')).not.toContain('services=');
   });
 
+  it('labels conditional commercial-use primaries and links directly to their official terms',()=>{
+    render(<BuilderClient/>);
+    for(let i=0;i<3;i++) fireEvent.click(screen.getByRole('button',{name:'次へ'}));
+    fireEvent.click(screen.getByLabelText('販売・商用'));
+    fireEvent.click(screen.getByRole('button',{name:'構成を作る'}));
+    expect(screen.getAllByText('商用利用: 条件付き').length).toBeGreaterThan(0);
+    const termsLinks=screen.getAllByRole('link',{name:/公式規約で対象プランと生成時点の条件を確認/});
+    expect(termsLinks.length).toBeGreaterThan(0);
+    expect(termsLinks.every(link=>link.getAttribute('href')?.startsWith('https://'))).toBe(true);
+    expect(screen.getAllByText(/無条件の商用利用可ではありません/).length).toBeGreaterThan(0);
+  });
+
+  it('shows conditional-use warnings, terms, and manual checks on an alternative',()=>{
+    render(<BuilderClient/>);
+    for(let i=0;i<3;i++) fireEvent.click(screen.getByRole('button',{name:'次へ'}));
+    fireEvent.click(screen.getByLabelText('販売・商用'));
+    fireEvent.click(screen.getByRole('button',{name:'構成を作る'}));
+    const alternativeLink=screen.getAllByRole('link',{name:/Cursor/})[0];
+    const alternative=alternativeLink.closest('.alternative');
+    expect(alternative).toBeTruthy();
+    expect(alternative?.textContent).toContain('商用利用: 条件付き');
+    expect(alternative?.textContent).toContain('無条件の商用利用可ではありません');
+    expect(alternative?.textContent).toContain('商用利用の確認事項:');
+    expect(alternative?.textContent).toContain('対象プラン');
+    expect(alternative?.textContent).toContain('生成時点');
+    const terms=alternative?.querySelector<HTMLAnchorElement>('a[href*="cursor.com/terms"]');
+    expect(terms?.textContent).toContain('公式規約');
+  });
+
   it('shows assumptions, requirement groups and candidate verification before action',()=>{
     render(<BuilderClient/>);
     for(let i=0;i<3;i++) fireEvent.click(screen.getByRole('button',{name:'次へ'}));

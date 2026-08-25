@@ -52,11 +52,28 @@ describe('recommendProject', () => {
     expect(result.stages.find(item => item.stage === 'concept')?.manualFallback).toBeTruthy();
   });
 
+  it('keeps conditional commercial use eligible but clearly requires plan and generation-time verification', () => {
+    const result = stage(make({ codingPreference:'assisted', commercialIntent:'commercial' }), 'code');
+    expect(result.primary?.service.slug).toBe('github-copilot');
+    expect(result.primary?.unknowns.join(' ')).toContain('条件付き');
+    expect(result.primary?.unknowns.join(' ')).toContain('無条件の商用利用可ではありません');
+    expect(result.primary?.manualChecks.join(' ')).toContain('対象プラン');
+    expect(result.primary?.manualChecks.join(' ')).toContain('生成時点');
+    expect(result.primary?.evidence.join(' ')).not.toContain('商用利用: 掲載情報では可');
+  });
+
   it('requires manual verification for unknown commercial-use data', () => {
     const result = stage(make({ codingPreference:'no-code', commercialIntent:'commercial' }), 'prototype');
     expect(result.primary).toBeNull();
     expect(result.reviewCandidates[0]?.manualChecks.join(' ')).toContain('商用利用を確定できません');
     expect(result.reviewCandidates[0]?.evidence.join(' ')).not.toContain('商用利用: 掲載情報では可');
+  });
+
+  it('makes commercial-use no ineligible even when other required conditions match', () => {
+    const catalog = getServices().map(service => service.slug === 'github-copilot' ? { ...service, commercialUse:'no' as const } : service);
+    const result = recommendProject(make({ codingPreference:'assisted', commercialIntent:'commercial' }), catalog).stages.find(item=>item.stage==='code')!;
+    expect(result.primary?.service.slug).not.toBe('github-copilot');
+    expect(result.reviewCandidates.find(candidate=>candidate.service.slug==='github-copilot')?.manualChecks.join(' ')).toContain('不可');
   });
 
   it('only makes verified API services primary when API is important', () => {
