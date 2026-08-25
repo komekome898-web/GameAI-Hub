@@ -1,0 +1,69 @@
+name: Register affiliate link
+
+on:
+  workflow_dispatch:
+    inputs:
+      service:
+        description: Service slug from data/affiliate-programs.json
+        required: true
+        type: string
+      status:
+        description: Affiliate program status
+        required: true
+        default: active
+        type: choice
+        options:
+          - active
+          - pending
+          - rejected
+          - inactive
+          - unknown
+      affiliate_url:
+        description: HTTPS referral URL (required for active)
+        required: false
+        type: string
+      network:
+        description: Affiliate network/program name
+        required: false
+        type: string
+      approved_at:
+        description: Approval date YYYY-MM-DD (optional)
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Update affiliate registry and service data
+        env:
+          AFFILIATE_SERVICE: ${{ inputs.service }}
+          AFFILIATE_STATUS: ${{ inputs.status }}
+          AFFILIATE_URL: ${{ inputs.affiliate_url }}
+          AFFILIATE_NETWORK: ${{ inputs.network }}
+          AFFILIATE_APPROVED_AT: ${{ inputs.approved_at }}
+        run: npm run affiliate:set
+      - name: Quality gate
+        run: npm run quality
+      - name: Commit and deploy through main
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/affiliate-programs.json data/services.json
+          git commit -m "chore: update affiliate program for ${{ inputs.service }}"
+          git push origin HEAD:main
