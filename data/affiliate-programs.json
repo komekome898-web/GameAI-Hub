@@ -1,0 +1,20 @@
+{
+  "elevenlabs": {
+    "status": "active",
+    "affiliateUrl": "https://try.elevenlabs.io/jlxoxtxe9768",
+    "network": "PartnerStack",
+    "approvedAt": "2026-08-25"
+  },
+  "meshy": {
+    "status": "active",
+    "affiliateUrl": "https://www.meshy.ai?via=gameaihub",
+    "network": "Meshy Direct",
+    "approvedAt": "2026-08-25"
+  },
+  "unity": {
+    "status": "pending",
+    "affiliateUrl": null,
+    "network": "Partnerize",
+    "approvedAt": null
+  }
+}
