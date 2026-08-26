@@ -12,6 +12,18 @@
 | Meshy | AI 3D | https://www.meshy.ai/ | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | https://www.meshy.ai/terms | 2026-08-25 | Official product/pricing/terms pages |
 | Inworld AI | AI NPC | https://inworld.ai/ | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | https://inworld.ai/terms | 2026-08-25 | Official product/docs/terms pages |
 | Rosebud AI | AI game generation | https://rosebud.ai/ | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | https://rosebud.ai/terms | 2026-08-25 | Official product/terms pages; partial verification |
+| DeepL API | AI localization | https://developers.deepl.com/docs | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | https://www.deepl.com/en/pro-license | 2026-08-26 | Official API docs/plans/license pages |
+| modl.ai | AI game testing | https://modl.ai/ | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | https://modl.ai/terms-of-service/ | 2026-08-26 | Official product/terms pages; pricing, API and engine support remain unknown |
+
+## Capability coverage workflow
+
+`capabilities` は自由記述カテゴリではなく `lib/schema.ts` の列挙値を使う。各能力には、掲載済みの `sources` と同じ公式URL、確認状態、限定的な説明を必須とする。
+
+1. Project Planで不足している工程を先に特定し、掲載数を増やす目的だけで候補を追加しない。
+2. 公式製品ページまたは公式ドキュメントで工程との適合を確認する。第三者レビューだけを能力根拠にしない。
+3. 料金、無料枠、API、対応エンジン、商用条件を個別に確認し、確認できない値は `unknown` または空配列のまま残す。
+4. `capabilities[].sourceUrl` を `sources[].url` にも登録する。`npm run validate:data` は未掲載ソース、能力の重複、基本的な出典不足を拒否する。
+5. 推薦ルールへの追加は別判断とする。サービス掲載やアフィリエイト状態だけでは推薦対象にしない。
 
 ## Research backlog
 

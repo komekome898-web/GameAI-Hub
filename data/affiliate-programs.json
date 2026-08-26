@@ -7,5 +7,7 @@
   "meshy": {"status":"active","affiliateUrl":"https://www.meshy.ai?via=gameaihub","network":"Meshy Direct","approvedAt":"2026-08-25"},
   "inworld": {"status":"unknown","affiliateUrl":null,"network":"Inworld Referral","approvedAt":null},
   "rosebud-ai": {"status":"inactive","affiliateUrl":null,"network":"Rosebud Referral","approvedAt":null},
-  "unity": {"status":"pending","affiliateUrl":null,"network":"Partnerize","approvedAt":null}
+  "unity": {"status":"pending","affiliateUrl":null,"network":"Partnerize","approvedAt":null},
+  "deepl-api": {"status":"unknown","affiliateUrl":null,"network":null,"approvedAt":null},
+  "modl-ai": {"status":"unknown","affiliateUrl":null,"network":null,"approvedAt":null}
 }

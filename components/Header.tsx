@@ -8,11 +8,12 @@ export function Header(){
         <span className="brand-copy"><strong>GameAI Hub</strong><small>AI GAME DEV GUIDE</small></span>
       </Link>
       <nav className="main-nav" aria-label="メインナビゲーション">
-        <Link href="/builder">構成を作る</Link>
-        <Link href="/stacks">Stack</Link>
-        <Link href="/compare">比較する</Link>
+        <Link href="/project">作る</Link>
+        <Link href="/guides">ガイド</Link>
+        <Link href="/tools">ツール</Link>
+        <Link href="/compare">比較</Link>
       </nav>
-      <Link className="header-cta" href="/builder">AI開発構成を作る</Link>
+      <Link className="header-cta" href="/project">Project Planを作る</Link>
     </div>
   </header>
 }
