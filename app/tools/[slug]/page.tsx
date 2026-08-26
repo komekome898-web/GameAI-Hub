@@ -5,7 +5,7 @@ import { getAlternatives,getService,getServices } from '@/lib/services';
 import { OutboundLink } from '@/components/OutboundLink';
 import { ToolView } from '@/components/ToolView';
 import { serializeJsonLd } from '@/lib/json-ld';
-import { site } from '@/lib/site';
+import { absoluteSiteUrl } from '@/lib/site';
 
 const label=(v:string)=>({yes:'あり',no:'なし',conditional:'条件付き',unknown:'不明',not_applicable:'対象外'}[v]??v);
 
@@ -18,7 +18,7 @@ export async function generateMetadata({params}:{params:Promise<{slug:string}>})
 
 export default async function ToolPage({params}:{params:Promise<{slug:string}>}){
   const {slug}=await params;const s=getService(slug);if(!s)notFound();const alternatives=getAlternatives(s);
-  const crumbs={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":`${site.url}/`},{"@type":"ListItem","position":2,"name":"ツール","item":`${site.url}/tools/`},{"@type":"ListItem","position":3,"name":s.name,"item":`${site.url}/tools/${s.slug}/`}]};
+  const crumbs={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":absoluteSiteUrl('/')},{"@type":"ListItem","position":2,"name":"ツール","item":absoluteSiteUrl('/tools/')},{"@type":"ListItem","position":3,"name":s.name,"item":absoluteSiteUrl(`/tools/${encodeURIComponent(s.slug)}/`)}]};
   return <article className="detail">
     <ToolView slug={s.slug}/>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:serializeJsonLd(crumbs)}}/>

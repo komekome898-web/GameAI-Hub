@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import sitemap from '@/app/sitemap';
 import robots from '@/app/robots';
 import { getServices } from '@/lib/services';
-import { productionUrl, site } from '@/lib/site';
+import { absoluteSiteUrl, productionUrl, site } from '@/lib/site';
 import { metadata as rootMetadata } from '@/app/layout';
 import { metadata as toolsMetadata } from '@/app/tools/page';
 import { metadata as compareMetadata } from '@/app/compare/page';
@@ -22,6 +22,17 @@ describe('SEO', () => {
   it('uses the permanent production origin', () => {
     expect(productionUrl).toBe('https://game-ai-hub.vercel.app');
     expect(site.url).toBe(productionUrl);
+  });
+
+  it('builds valid absolute HTTPS URLs for structured data', () => {
+    const paths = ['/', '/tools/', '/stacks/', ...getServices().map(service => `/tools/${encodeURIComponent(service.slug)}/`)];
+    for (const path of paths) {
+      const value = absoluteSiteUrl(path);
+      const parsed = new URL(value);
+      expect(parsed.protocol).toBe('https:');
+      expect(parsed.origin).toBe(productionUrl);
+      expect(value).toBe(`${productionUrl}${path}`);
+    }
   });
 
   it('uses self-referencing canonical and Open Graph URLs for every public page', async () => {
