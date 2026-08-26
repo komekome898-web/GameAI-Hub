@@ -13,7 +13,10 @@ import { generateMetadata } from '@/app/tools/[slug]/page';
 import { metadata as stacksMetadata } from '@/app/stacks/page';
 import { generateMetadata as generateStackMetadata } from '@/app/stacks/[slug]/page';
 import { stackTemplates } from '@/data/stack-templates';
-import { metadata as builderMetadata } from '@/app/builder/page';
+import { metadata as projectMetadata } from '@/app/project/page';
+import { metadata as guidesMetadata } from '@/app/guides/page';
+import { generateMetadata as generateGuideMetadata } from '@/app/guides/[slug]/page';
+import { guides } from '@/data/guides';
 
 describe('SEO', () => {
   it('uses the permanent production origin', () => {
@@ -27,7 +30,8 @@ describe('SEO', () => {
       ['/tools/', toolsMetadata],
       ['/stacks/', stacksMetadata],
       ['/compare/', compareMetadata],
-      ['/builder/', builderMetadata],
+      ['/project/', projectMetadata],
+      ['/guides/', guidesMetadata],
       ['/methodology/', methodologyMetadata],
       ['/affiliate-disclosure/', affiliateMetadata],
       ['/privacy/', privacyMetadata],
@@ -50,11 +54,17 @@ describe('SEO', () => {
       expect(new URL(String(metadata.alternates?.canonical), productionUrl).href).toBe(`${productionUrl}${path}`);
       expect(new URL(String(metadata.openGraph?.url), productionUrl).href).toBe(`${productionUrl}${path}`);
     }
+    for (const guide of guides) {
+      const path = `/guides/${guide.slug}/`;
+      const metadata = await generateGuideMetadata({ params: Promise.resolve({ slug: guide.slug }) });
+      expect(new URL(String(metadata.alternates?.canonical), productionUrl).href).toBe(`${productionUrl}${path}`);
+      expect(new URL(String(metadata.openGraph?.url), productionUrl).href).toBe(`${productionUrl}${path}`);
+    }
   });
 
   it('sitemap has all public routes, detail pages, and no query pages', () => {
     const map = sitemap();
-    expect(map).toHaveLength(7 + getServices().length + stackTemplates.length);
+    expect(map).toHaveLength(8 + getServices().length + stackTemplates.length + guides.length);
     expect(map.every(({ url }) => url.startsWith(`${site.url}/`) || url === site.url)).toBe(true);
     expect(map.some(({ url }) => url.includes('?'))).toBe(false);
     expect(map.some(({ url }) => url.includes('/compare'))).toBe(false);
@@ -64,6 +74,9 @@ describe('SEO', () => {
     }
     for (const stack of stackTemplates) {
       expect(map.some(({ url }) => url.endsWith(`/stacks/${stack.slug}/`))).toBe(true);
+    }
+    for (const guide of guides) {
+      expect(map.some(({ url }) => url.endsWith(`/guides/${guide.slug}/`))).toBe(true);
     }
   });
 

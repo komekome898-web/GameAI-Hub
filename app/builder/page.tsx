@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import { BuilderClient } from '@/components/BuilderClient';
+import { ProjectGeneratorClient } from '@/components/ProjectGeneratorClient';
 
 export const metadata: Metadata = {
-  title: 'AIゲーム開発構成を作る',
-  description: '作りたいゲームと制作条件から、工程順・AIツール候補・代替案・確認事項を組み立てます。',
+  title: 'AI Game Project Generator',
+  description: 'ゲームのアイデアから、最初のプレイ可能範囲、制作ロードマップ、Codex向け指示、素材とリスクを組み立てます。',
   alternates: { canonical: '/builder/' },
-  openGraph: { title: 'AIゲーム開発構成を作る | GameAI Hub', description: '4つの短い質問から、必要な制作工程、AIツール候補、代替案、確認事項を組み立てます。', url: '/builder/' },
+  openGraph: { title: 'AI Game Project Generator | GameAI Hub', description: 'ゲームのアイデアを実行可能なProject Planへ変えます。', url: '/builder/' },
 };
 
 export default function BuilderPage() {
-  return <BuilderClient />;
+  return <ProjectGeneratorClient />;
 }

@@ -62,6 +62,14 @@
         "url": "https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features",
         "type": "terms"
       }
+    ],
+    "capabilities": [
+      {
+        "id": "coding",
+        "status": "verified",
+        "sourceUrl": "https://github.com/features/copilot",
+        "note": "コード補完、チャット、コードレビューは公式ページで確認。"
+      }
     ]
   },
   {
@@ -126,6 +134,14 @@
         "url": "https://www.cursor.com/terms-of-service",
         "type": "terms"
       }
+    ],
+    "capabilities": [
+      {
+        "id": "coding",
+        "status": "verified",
+        "sourceUrl": "https://www.cursor.com/",
+        "note": "コード生成とコードベースを扱うエディター機能は公式ページで確認。"
+      }
     ]
   },
   {
@@ -184,6 +200,14 @@
         "label": "利用規約",
         "url": "https://www.scenario.com/terms",
         "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "2d-art",
+        "status": "verified",
+        "sourceUrl": "https://www.scenario.com/",
+        "note": "ゲーム向け2Dアセット生成は公式ページで確認。"
       }
     ]
   },
@@ -245,6 +269,14 @@
         "url": "https://elevenlabs.io/terms-of-use",
         "type": "terms"
       }
+    ],
+    "capabilities": [
+      {
+        "id": "voice",
+        "status": "verified",
+        "sourceUrl": "https://elevenlabs.io/",
+        "note": "音声生成と音声APIは公式ページで確認。"
+      }
     ]
   },
   {
@@ -301,6 +333,14 @@
         "label": "利用規約",
         "url": "https://suno.com/terms",
         "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "music",
+        "status": "verified",
+        "sourceUrl": "https://suno.com/",
+        "note": "楽曲生成は公式ページで確認。"
       }
     ]
   },
@@ -362,6 +402,20 @@
         "label": "利用規約",
         "url": "https://www.meshy.ai/terms",
         "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "3d-modeling",
+        "status": "verified",
+        "sourceUrl": "https://www.meshy.ai/",
+        "note": "3Dモデル生成は公式ページで確認。"
+      },
+      {
+        "id": "texture-material",
+        "status": "verified",
+        "sourceUrl": "https://www.meshy.ai/",
+        "note": "テクスチャ生成は公式ページで確認。"
       }
     ]
   },
@@ -425,6 +479,14 @@
         "url": "https://inworld.ai/terms",
         "type": "terms"
       }
+    ],
+    "capabilities": [
+      {
+        "id": "npc-dialogue",
+        "status": "verified",
+        "sourceUrl": "https://docs.inworld.ai/",
+        "note": "ゲーム向けAIキャラクターと会話統合は公式ドキュメントで確認。"
+      }
     ]
   },
   {
@@ -473,6 +535,141 @@
       {
         "label": "利用規約",
         "url": "https://rosebud.ai/terms",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "prototype",
+        "status": "verified",
+        "sourceUrl": "https://rosebud.ai/",
+        "note": "プロンプト起点のゲームプロトタイプ制作は公式ページで確認。"
+      }
+    ]
+  },
+  {
+    "id": "deepl-api",
+    "slug": "deepl-api",
+    "name": "DeepL API",
+    "category": "AIローカライゼーション",
+    "summary": "テキストや文書の翻訳をアプリケーションへ組み込むためのAPI。",
+    "conclusion": "ゲーム内文字列の翻訳工程を自動化する候補ですが、文脈・用語・UI収まりは人が検品する必要があります。",
+    "officialUrl": "https://developers.deepl.com/docs",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "APIプラン別。文字数上限と最新料金は公式料金ページで確認してください。",
+    "freePlan": "yes",
+    "commercialUse": "conditional",
+    "api": "yes",
+    "platforms": [
+      "API"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "ゲーム内文字列の翻訳",
+      "用語集を使った翻訳",
+      "ローカライゼーション工程のAPI連携"
+    ],
+    "capabilities": [
+      {
+        "id": "localization",
+        "status": "verified",
+        "sourceUrl": "https://developers.deepl.com/docs",
+        "note": "翻訳APIと用語集の利用方法は公式ドキュメントで確認。"
+      }
+    ],
+    "recommendedFor": [
+      "外部化したゲーム内文字列をAPIで翻訳し、人手で品質確認できるチーム"
+    ],
+    "notRecommendedFor": [
+      "翻訳結果を文脈・UI・文化面の確認なしで公開したい人"
+    ],
+    "strengths": [
+      "APIと用語集を使う翻訳ワークフローを公式ドキュメントで案内している"
+    ],
+    "weaknesses": [
+      "ゲーム文脈、文字幅、固有名詞、文化的適合性は別途レビューが必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "verified",
+    "lastVerified": "2026-08-26",
+    "sources": [
+      {
+        "label": "DeepL API ドキュメント",
+        "url": "https://developers.deepl.com/docs",
+        "type": "docs"
+      },
+      {
+        "label": "DeepL API プラン",
+        "url": "https://www.deepl.com/en/pro-api",
+        "type": "pricing"
+      },
+      {
+        "label": "DeepL Pro 利用条件",
+        "url": "https://www.deepl.com/en/pro-license",
+        "type": "terms"
+      }
+    ]
+  },
+  {
+    "id": "modl-ai",
+    "slug": "modl-ai",
+    "name": "modl.ai",
+    "category": "AIゲームテスト",
+    "summary": "ゲーム開発向けのAI駆動テストサービス。",
+    "conclusion": "反復的なゲームテストを補助する候補ですが、対応環境、導入条件、検出範囲は採用前の個別確認が必要です。",
+    "officialUrl": "https://modl.ai/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "公開ページでは確定額を確認できないため、公式窓口で要確認。",
+    "freePlan": "unknown",
+    "commercialUse": "conditional",
+    "api": "unknown",
+    "platforms": [
+      "不明"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "ゲームプレイテストの自動化",
+      "不具合探索の補助"
+    ],
+    "capabilities": [
+      {
+        "id": "testing-qa",
+        "status": "verified",
+        "sourceUrl": "https://modl.ai/product/",
+        "note": "ゲーム向けAIテスト製品であることは公式製品ページで確認。"
+      }
+    ],
+    "recommendedFor": [
+      "自動ゲームテストの適合性を公式窓口と検証できる開発チーム"
+    ],
+    "notRecommendedFor": [
+      "人による操作感・アクセシビリティ・受け入れテストを完全に置き換えたい人"
+    ],
+    "strengths": [
+      "ゲーム開発向けAIテストを製品の中心用途としている"
+    ],
+    "weaknesses": [
+      "価格、対応エンジン、導入形態、検出可能な問題範囲は掲載情報だけでは確定できない"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-26",
+    "sources": [
+      {
+        "label": "modl.ai 公式",
+        "url": "https://modl.ai/",
+        "type": "official"
+      },
+      {
+        "label": "製品情報",
+        "url": "https://modl.ai/product/",
+        "type": "docs"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://modl.ai/terms-of-service/",
         "type": "terms"
       }
     ]
