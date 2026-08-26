@@ -8,8 +8,7 @@ export function encodeProjectState(brief:ProjectBrief):string {
   const value=ProjectBriefSchema.parse(brief);
   // Raw free text must never enter page_location/referrers or analytics via a
   // shared query. A shared plan contains confirmed structured conditions only.
-  const safe:Omit<ProjectBrief,'idea'>={...value};
-  delete (safe as Partial<ProjectBrief>).idea;
+  const safe:Omit<ProjectBrief,'idea'|'details'>=Object.fromEntries(Object.entries(value).filter(([key])=>key!=='idea'&&key!=='details')) as Omit<ProjectBrief,'idea'|'details'>;
   return new URLSearchParams({v:'1',p:JSON.stringify(safe)}).toString();
 }
 export function decodeProjectState(raw:string|URLSearchParams):ProjectBrief|null {
@@ -18,5 +17,5 @@ export function decodeProjectState(raw:string|URLSearchParams):ProjectBrief|null
   const params=typeof raw==='string'?new URLSearchParams(raw.replace(/^[?#]/,'')):raw;
   if(params.get('v')!=='1')return null;
   const encoded=params.get('p'); if(!encoded)return null;
-  try{return ProjectBriefSchema.parse({...JSON.parse(encoded),idea:'共有されたプロジェクト（元の自由文はプライバシー保護のため含まれません）'});}catch{return null;}
+  try{return ProjectBriefSchema.parse({...JSON.parse(encoded),idea:'共有されたプロジェクト（元の自由文はプライバシー保護のため含まれません）',details:[]});}catch{return null;}
 }

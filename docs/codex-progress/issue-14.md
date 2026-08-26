@@ -1,17 +1,17 @@
 # Issue #14 — AI Game Project Generator
 
 - **Task:** GitHub Issue #14, transform the decision directory into an executable game-project generator.
-- **Working branch:** `feature/issue-14-project-generator`
+- **Working branch:** `h2ava9-codex/issue-#14agents.md`
 - **Base:** PR #13 result at `605fb71`.
-- **Latest checkpoint:** `422b51e` (adversarial review fixes).
-- **Completed phases:** independent discovery; typed intent/interpreter/share/plan foundation; project UI/export; stage tool evidence and protected outbound links; catalogue capability/provenance expansion; guide/SEO exemplars.
+- **Latest checkpoint:** `d78103e` (PR #15 review fixes); final E2E cleanup pending commit.
+- **Completed phases:** original Issue #14 work plus PR #15 review response: independent specificity/E2E/trust discovery, approved-detail extraction and six-artifact propagation, stable production E2E, adversarial review, and two fix/re-review loops.
 - **In progress:** complete; final ledger/PR handoff.
-- **Remaining:** create PR only.
-- **Unresolved P0/P1/P2:** none. Independent final technical/trust review reports no P0, P1, or high-impact P2; conservative parsing of some compound commercial phrases and unused optional section analytics remain low-priority observations.
-- **Quality gates:** `npm run quality` passes (100 tests); `npm run build` passes with 34 static pages; `npm run test:e2e` passes 6/6 including 375px, 320px at 200% zoom, Project Generator, Stacks, and Compare. Screenshot: `test-results/project-generator-375.png` (test artifact, intentionally untracked).
+- **Remaining:** commit final E2E cleanup and push this review response to the existing PR #15 branch.
+- **Unresolved P0/P1/high-impact P2:** none after independent final product, E2E, and trust re-reviews. Presentation-class coupling in E2E and inherent advisory prompt-injection residual are low-priority observations.
+- **Quality gates:** `npm run quality` passes (116 tests); `npm run build` passes with 34 static pages; `npm run test:e2e` passes 7/7; stabilization `npm run test:e2e -- --repeat-each=3` passes 21/21. 375px and 320px/200% zoom screenshots are generated as untracked test artifacts.
 - **Assumptions/blockers:** no paid LLM/API is authorized; deterministic local interpretation is the production implementation. GitHub CLI is unauthenticated and the checkout initially had no remote; Issue body was read through the public GitHub API.
-- **Areas being edited:** project domain/generator, project client/routes, analytics, CSS, content/data/tests.
-- **Resume next action:** inspect `git log -1`, confirm a PR exists for `feature/issue-14-project-generator`, and create it if absent. The commit containing this ledger is the final task commit.
+- **Areas edited:** project detail schema/interpreter/generator/share, confirmation UI/CSS, unit/component tests, Playwright configuration and journeys.
+- **Resume next action:** inspect `git status` and PR #15. If local commits are ahead, push HEAD to `h2ava9-codex/issue-#14agents.md`; do not create a new PR or merge main.
 
 ## Internal product thesis
 

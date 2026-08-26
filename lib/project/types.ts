@@ -4,6 +4,16 @@ export const projectCapabilities = ['coding','art-2d','assets-3d','animation','v
 export const ProjectCapabilitySchema = z.enum(projectCapabilities);
 export type ProjectCapability = z.infer<typeof ProjectCapabilitySchema>;
 
+export const projectDetailKinds = ['player-role','setting','core-mechanic','entity','tone','constraint'] as const;
+export const ProjectDetailSchema = z.object({
+  id: z.string().regex(/^detail-[a-z0-9-]+$/).max(80),
+  kind: z.enum(projectDetailKinds),
+  text: z.string().trim().min(1).max(80),
+  provenance: z.enum(['explicit_text','confirmed']),
+  evidence: z.string().trim().max(100).optional(),
+});
+export type ProjectDetail = z.infer<typeof ProjectDetailSchema>;
+
 export const ProjectBriefSchema = z.object({
   idea: z.string().trim().min(1).max(1200),
   genre: z.enum(['rpg','monster-collection','visual-novel','horror','action','puzzle','other','unknown']),
@@ -16,12 +26,14 @@ export const ProjectBriefSchema = z.object({
   commercialIntent: z.enum(['personal','commercial','undecided','unknown']),
   capabilities: z.array(ProjectCapabilitySchema).max(projectCapabilities.length),
   locale: z.enum(['ja','ja-en','multi','unknown']),
+  details: z.array(ProjectDetailSchema).max(20).default([]),
 });
 export type ProjectBrief = z.infer<typeof ProjectBriefSchema>;
 
 export type FieldProvenance = 'explicit_text' | 'confirmed' | 'unknown';
 export type InferredField = { field: keyof ProjectBrief; value: string | string[]; provenance: FieldProvenance; evidence?: string };
-export type Interpretation = { idea: string; fields: InferredField[]; unresolved: (keyof ProjectBrief)[]; conflicts: string[] };
+export type DetailCandidate = Omit<ProjectDetail,'provenance'> & { provenance:'explicit_text' };
+export type Interpretation = { idea: string; fields: InferredField[]; detailCandidates: DetailCandidate[]; unresolved: (keyof ProjectBrief)[]; conflicts: string[] };
 
 export type VerticalSliceItem = { id:string; title:string; why:string; outOfScope:string[]; doneWhen:string[] };
 export type PlanTool = {

@@ -1,131 +1,150 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Page, type TestInfo } from '@playwright/test';
+
 const mobile = { width: 375, height: 812 };
+const defaults = {
+  ジャンル: 'other',
+  '2D / 3D': '2d',
+  公開先: 'web',
+  ゲームエンジン: 'undecided',
+  予算: 'low',
+  制作経験: 'beginner',
+  チーム規模: 'solo',
+  利用目的: 'undecided',
+  対応言語: 'ja',
+} as const;
+
 async function expectNoHorizontalOverflow(page: Page) {
+  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
   const sizes = await page.evaluate(() => ({
     viewport: document.documentElement.clientWidth,
     content: document.documentElement.scrollWidth,
   }));
-  expect(
-    sizes.content,
-    `content width ${sizes.content}px exceeds ${sizes.viewport}px viewport`,
-  ).toBeLessThanOrEqual(sizes.viewport);
+  expect(sizes.content, `content width ${sizes.content}px exceeds ${sizes.viewport}px viewport`).toBeLessThanOrEqual(sizes.viewport);
 }
+
 async function generateProject(page: Page, idea: string) {
-  await page.getByLabel("どんなゲームを作りたいですか？").fill(idea);
-  await page.getByRole("button", { name: "条件を確認する" }).click();
-  const defaults = [
-    "other",
-    "2d",
-    "web",
-    "undecided",
-    "low",
-    "beginner",
-    "solo",
-    "undecided",
-    "ja",
-  ];
-  const selects = await page.locator(".clarify-form select").all();
-  for (const [index, select] of selects.entries()) {
-    if ((await select.inputValue()) === "unknown")
-      await select.selectOption(defaults[index]);
-    await expect(select).not.toHaveValue("unknown");
+  await page.getByLabel('どんなゲームを作りたいですか？').fill(idea);
+  await page.getByRole('button', { name: '条件を確認する' }).click();
+  const form = page.locator('.clarify-form');
+  await expect(form).toBeVisible();
+  await expect(form.locator('select')).toHaveCount(Object.keys(defaults).length);
+
+  const detailCards = form.locator('.project-detail-card');
+  for (let index = 0, count = await detailCards.count(); index < count; index += 1) {
+    const card = detailCards.nth(index);
+    const include = card.getByRole('button', { name: '計画に含める' });
+    await include.click();
+    await expect(include).toHaveAttribute('aria-pressed', 'true');
   }
-  await page.waitForTimeout(100);
-  await page.getByRole("button", { name: "Project Planを作る" }).click();
+
+  for (const [label, fallback] of Object.entries(defaults)) {
+    const select = form.getByLabel(new RegExp(`^${label}`));
+    await expect(select).toBeVisible();
+    if ((await select.inputValue()) === 'unknown') await select.selectOption(fallback);
+    await expect(select).not.toHaveValue('unknown');
+  }
+
+  await page.getByRole('button', { name: 'Project Planを作る' }).click();
+  await expect(page.getByRole('heading', { name: /最初に作るものが/ })).toBeVisible();
+  await expect(page).toHaveURL(/\/project\?v=1&p=/);
 }
-test("375px: homeからno voice/no 3DのProject Planを完走できる", async ({
-  page,
-}) => {
+
+test('375px: homeからno voice/no 3DのProject Planを完走できる', async ({ page }, testInfo) => {
   await page.setViewportSize(mobile);
-  await page.goto("/");
+  await page.goto('/');
   await expectNoHorizontalOverflow(page);
-  const button = page.getByRole("button", { name: "条件を確認する" });
+  const button = page.getByRole('button', { name: '条件を確認する' });
   const box = await button.boundingBox();
   expect(box?.height).toBeGreaterThanOrEqual(44);
-  await generateProject(
-    page,
-    "2Dパズル。ブラウザゲーム。一人開発。初心者。無料で作る。個人利用。Godot。音声なし。3Dなし。",
-  );
-  await expect(
-    page.getByRole("heading", { name: /最初に作るものが/ }),
-  ).toBeVisible();
-  await expect(
-    page.getByRole("heading", { name: "最初のプレイ可能範囲" }),
-  ).toBeVisible();
-  await expect(page.locator(".project-result")).not.toContainText(
-    "権利記録付き音声ファイル",
-  );
-  await expect(page.locator(".project-result")).not.toContainText(
-    "エンジン取込済み3Dアセット",
-  );
+  await generateProject(page, '2Dパズル。ブラウザゲーム。一人開発。初心者。無料で作る。個人利用。Godot。音声なし。3Dなし。');
+  await expect(page.getByRole('heading', { name: '最初のプレイ可能範囲' })).toBeVisible();
+  const result = page.locator('.project-result');
+  await expect(result).not.toContainText('台詞ID・話者同意・音声ファイル');
+  await expect(result).not.toContainText('3Dモデル');
   await expectNoHorizontalOverflow(page);
-  await page.screenshot({
-    path: "test-results/project-generator-375.png",
-    fullPage: true,
-  });
+  await page.screenshot({ path: testInfo.outputPath('project-generator-375.png'), fullPage: true });
 });
-test("375px: 2候補比較と差分のみ表示を操作できる", async ({ page }) => {
+
+test('自由文のゲーム固有情報が主要な制作成果物すべてに反映される', async ({ page }, testInfo: TestInfo) => {
+  await page.goto('/project');
+  const idea = 'Steam向け2D RPG。Godot。主人公は灯台守ミナ。沈没図書館を舞台に、光る種を育成して記憶の番人と戦闘する。一人開発。初心者。低予算。商用。日本語のみ。絵はAIで作りたい。';
+  await generateProject(page, idea);
+
+  const checks: Array<{ name: string; locator: string; details?: string }> = [
+    { name: 'Vertical Slice', locator: '#vertical-slice .slice-grid' },
+    { name: 'Assets', locator: '#assets .checklist' },
+    { name: 'Master Brief', locator: '#handoff', details: 'Master implementation brief' },
+    { name: 'First Task', locator: '#handoff', details: 'First task prompt' },
+    { name: 'Prompt Kit', locator: '#assets .prompt-grid' },
+    { name: 'Risks', locator: '#risks .risk-list' },
+  ];
+  for (const check of checks) {
+    const section = page.locator(check.locator);
+    const summary = check.details ? section.locator('summary').filter({ hasText: check.details }) : null;
+    if (summary) await summary.click();
+    const target = summary ? summary.locator('..') : section;
+    await expect(target, `${check.name}に固有情報が必要`).toContainText(/灯台守ミナ|沈没図書館|光る種|記憶の番人/);
+  }
+  await expect(page.locator('#vertical-slice')).toContainText('育成');
+  await expect(page.locator('#assets')).toContainText(/灯台守ミナ|沈没図書館/);
+  await page.screenshot({ path: testInfo.outputPath('project-specific-plan.png'), fullPage: true });
+});
+
+test('375px: 2候補比較と差分のみ表示を操作できる', async ({ page }) => {
   await page.setViewportSize(mobile);
-  await page.goto("/compare?ids=github-copilot,cursor");
-  await expect(page.getByText("2 / 4")).toBeVisible();
-  await page.getByLabel("差分のみ表示").check();
+  await page.goto('/compare?ids=github-copilot,cursor');
+  await expect(page.getByText('2 / 4', { exact: true })).toBeVisible();
+  await page.getByLabel('差分のみ表示').check();
   await expect(page.getByText(/差分のみ表示中/)).toBeVisible();
-  await expect(page.locator(".compare-mobile article")).toHaveCount(2);
+  await expect(page.locator('.compare-mobile article')).toHaveCount(2);
   await expectNoHorizontalOverflow(page);
 });
-test("375px: Stacksを補助ルートとして閲覧できる", async ({ page }) => {
+
+test('375px: Stacksを補助ルートとして閲覧できる', async ({ page }) => {
   await page.setViewportSize(mobile);
-  await page.goto("/stacks/2d-rpg");
-  await expect(page.getByRole("heading", { name: /2D RPG/ })).toBeVisible();
+  await page.goto('/stacks/2d-rpg');
+  await expect(page.getByRole('heading', { name: /2D RPG/ })).toBeVisible();
   await expectNoHorizontalOverflow(page);
 });
 
-test("Project Generatorのエンジン条件が計画と共有stateへ反映される", async ({
-  page,
-}) => {
-  await page.goto("/project");
-  await generateProject(
-    page,
-    "Steam向け3Dホラー。Unity。プログラミング中級。一人開発。低予算。商用。",
-  );
-  await expect(
-    page.getByRole("heading", { name: /最初に作るものが/ }),
-  ).toBeVisible();
-  await expect(page.locator(".project-result")).toContainText("Unity");
-  await expect(page).toHaveURL(/\?v=1&p=/);
+test('Project Generatorのエンジン条件が計画と共有stateへ反映される', async ({ page }) => {
+  await page.goto('/project');
+  await generateProject(page, 'Steam向け3Dホラー。Unity。プログラミング中級。一人開発。低予算。商用。');
+  await expect(page.locator('.project-result')).toContainText('Unity');
 });
 
-test("320pxかつ200% zoomでも主要画面に横方向の文書overflowがない", async ({
-  page,
-}) => {
+test('320pxかつ200% zoomでも主要画面に横方向の文書overflowがない', async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 320, height: 640 });
-  for (const route of ["/", "/builder", "/compare?ids=github-copilot,cursor"]) {
-    await page.goto(route);
-    await expectNoHorizontalOverflow(page);
-    const session = await page.context().newCDPSession(page);
-    await session.send("Emulation.setPageScaleFactor", { pageScaleFactor: 2 });
-    await expectNoHorizontalOverflow(page);
-    await session.send("Emulation.setPageScaleFactor", { pageScaleFactor: 1 });
+  const session = await page.context().newCDPSession(page);
+  try {
+    for (const route of ['/', '/builder', '/compare?ids=github-copilot,cursor']) {
+      await page.goto(route);
+      await expectNoHorizontalOverflow(page);
+      await session.send('Emulation.setPageScaleFactor', { pageScaleFactor: 2 });
+      await expect.poll(() => page.evaluate(() => window.visualViewport?.scale ?? 1)).toBeGreaterThanOrEqual(1.9);
+      await expectNoHorizontalOverflow(page);
+      await page.screenshot({ path: testInfo.outputPath(`zoom-${route.replace(/\W+/g, '-') || 'home'}.png`), fullPage: true });
+      await session.send('Emulation.setPageScaleFactor', { pageScaleFactor: 1 });
+    }
+  } finally {
+    await session.send('Emulation.setPageScaleFactor', { pageScaleFactor: 1 });
+    await session.detach();
   }
 });
 
-test("4ツール比較、差分絞り込み、キーボードfocusを維持する", async ({
-  page,
-}) => {
-  await page.goto("/compare?ids=github-copilot,cursor,elevenlabs,meshy");
-  await expect(page.getByText("4 / 4")).toBeVisible();
-  const differences = page.getByLabel("差分のみ表示");
+test('4ツール比較、差分絞り込み、キーボードfocusを維持する', async ({ page }) => {
+  await page.goto('/compare?ids=github-copilot,cursor,elevenlabs,meshy');
+  await expect(page.getByText('4 / 4', { exact: true })).toBeVisible();
+  const differences = page.getByLabel('差分のみ表示');
   await differences.focus();
   await expect(differences).toBeFocused();
-  await page.keyboard.press("Space");
+  await page.keyboard.press('Space');
   await expect(differences).toBeChecked();
   await expect(page.getByText(/差分のみ表示中/)).toBeVisible();
-  const remove = page.getByRole("button", { name: "Meshyを比較から解除" });
+  const remove = page.getByRole('button', { name: 'Meshyを比較から解除' });
   await remove.focus();
   await expect(remove).toBeFocused();
-  await page.keyboard.press("Enter");
-  await expect(page.getByText("3 / 4")).toBeVisible();
-  await expect(page).toHaveURL(
-    /ids=github-copilot%2Ccursor%2Celevenlabs|ids=github-copilot,cursor,elevenlabs/,
-  );
+  await page.keyboard.press('Enter');
+  await expect(page.getByText('3 / 4', { exact: true })).toBeVisible();
+  await expect(page).toHaveURL(/ids=github-copilot%2Ccursor%2Celevenlabs|ids=github-copilot,cursor,elevenlabs/);
 });
