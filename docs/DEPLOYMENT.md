@@ -2,7 +2,7 @@
 
 ## Production
 
-Production DeploymentはVercelで完了している。本番URLは **https://game-ai-hub.vercel.app**、Production Branchは **main** である。このURLを唯一の本番originとして扱う。`output: 'export'` のNext.jsアプリであり、成果物は静的に配信される。
+Production DeploymentはVercelで完了している。本番URLは **https://game-ai-hub.vercel.app**、Production Branchは **main** である。このURLを唯一の本番originとして扱う。Next.jsサーバーランタイムでRoute Handlerを提供する。
 
 ### Project settings
 
@@ -12,7 +12,7 @@ Production DeploymentはVercelで完了している。本番URLは **https://gam
 | Root Directory | `.` |
 | Install Command | `npm ci` |
 | Build Command | `npm run build` |
-| Output Directory | `out` |
+| Output Directory | Vercel既定（指定なし） |
 | Production Branch | `main` |
 | Production Environment | `NEXT_PUBLIC_SITE_URL=https://game-ai-hub.vercel.app` |
 
@@ -21,7 +21,7 @@ Production DeploymentはVercelで完了している。本番URLは **https://gam
 ## 公開手順
 
 1. `npm ci && npm run quality && NEXT_PUBLIC_SITE_URL=https://game-ai-hub.vercel.app npm run build` を実行する。
-2. `out/` を静的ホスティングへ公開する（NodeサーバーやDBは不要）。
+2. VercelのNext.jsランタイムへデプロイする（DBは不要）。
 3. `NEXT_PUBLIC_SITE_URL=https://game-ai-hub.vercel.app` をProduction環境に設定してbuildする。
 4. sitemap、robots、canonical、404を本番URLで確認する。
 5. 独自ドメイン・解析はOWNER_ACTIONSの承認後に接続する。

@@ -49,6 +49,55 @@ async function generateProject(page: Page, idea: string) {
   await expect(page).toHaveURL(/\/project\?v=1&p=/);
 }
 
+const providerInterpretation=(mode:'provider'|'deterministic',fallbackReason?:'not_configured'|'provider_error'|'timeout'|'rate_limited')=>({
+  interpretation:{idea:'2D RPG',fields:[
+    {field:'genre',value:'rpg',provenance:'explicit_text'},{field:'dimension',value:'2d',provenance:'explicit_text'},
+    {field:'platform',value:'web',provenance:'explicit_text'},{field:'engine',value:'godot',provenance:'explicit_text'},
+    {field:'budget',value:'low',provenance:'explicit_text'},{field:'experience',value:'beginner',provenance:'explicit_text'},
+    {field:'team',value:'solo',provenance:'explicit_text'},{field:'commercialIntent',value:'undecided',provenance:'explicit_text'},
+    {field:'locale',value:'ja',provenance:'explicit_text'},{field:'capabilities',value:['coding'],provenance:'explicit_text'},
+  ],detailCandidates:[],unresolved:[],conflicts:[]},
+  status:{providerName:mode==='provider'?'E2E Provider':'ローカル判定',mode,...(fallbackReason?{fallbackReason}:{})},
+  confirmationRequired:mode==='provider'?['genre','dimension','platform','engine','budget','experience','team','commercialIntent','locale','capabilities']:[],
+});
+
+test.describe('Project Interpreter provider states',()=>{
+  test('provider successは全AI候補の確認後にのみ計画を生成する',async({page})=>{
+    await page.setViewportSize(mobile);
+    await page.route('**/api/project/interpret',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(providerInterpretation('provider'))}));
+    await page.goto('/project');await page.getByLabel('どんなゲームを作りたいですか？').fill('2D RPG');
+    await page.getByRole('button',{name:'条件を確認する'}).click();
+    await expect(page.getByText('E2E Provider が条件候補を抽出しました',{exact:false})).toBeVisible();
+    await page.getByRole('button',{name:'Project Planを作る'}).click();
+    await expect(page.locator('#clarify-error')).toContainText('AIが抽出した候補を確認してください');
+    for(const label of Object.keys(defaults))await page.getByRole('button',{name:`${label}のAI候補を確認`}).click();
+    await page.getByRole('button',{name:'選択された制作工程を確認'}).click();
+    await page.getByRole('button',{name:'Project Planを作る'}).click();
+    await expect(page.getByRole('heading',{name:'今日やること'})).toBeVisible();
+    await expectNoHorizontalOverflow(page);
+  });
+
+  test('provider未設定は実Route Handlerから決定ルールへフォールバックする',async({page})=>{
+    await page.setViewportSize(mobile);await page.goto('/project');
+    const responsePromise=page.waitForResponse(response=>response.url().includes('/api/project/interpret')&&response.status()===200);
+    await page.getByLabel('どんなゲームを作りたいですか？').fill('2D RPG');await page.getByRole('button',{name:'条件を確認する'}).click();
+    const response=await responsePromise;expect(response.status()).toBe(200);
+    expect((await response.json()).status).toMatchObject({mode:'deterministic',fallbackReason:'not_configured'});
+    await expect(page.getByText('外部AIは設定されていません',{exact:false})).toBeVisible();await expectNoHorizontalOverflow(page);
+  });
+
+  for(const scenario of [
+    {name:'provider error',reason:'provider_error' as const,copy:'安全なフォールバックを使用しました'},
+    {name:'provider timeout',reason:'timeout' as const,copy:'安全なフォールバックを使用しました'},
+    {name:'rate limited',reason:'rate_limited' as const,copy:'利用集中のため外部AIを呼ばず'},
+  ])test(`${scenario.name} fallbackを375pxで正直に表示する`,async({page})=>{
+    await page.setViewportSize(mobile);
+    await page.route('**/api/project/interpret',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(providerInterpretation('deterministic',scenario.reason))}));
+    await page.goto('/project');await page.getByLabel('どんなゲームを作りたいですか？').fill('2D RPG');await page.getByRole('button',{name:'条件を確認する'}).click();
+    await expect(page.getByText(scenario.copy,{exact:false})).toBeVisible();await expect(page.locator('.clarify-form')).toBeVisible();await expectNoHorizontalOverflow(page);
+  });
+});
+
 test('375px: homeからno voice/no 3DのProject Planを完走できる', async ({ page }, testInfo) => {
   await page.setViewportSize(mobile);
   await page.goto('/');

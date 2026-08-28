@@ -4,7 +4,7 @@ export const projectCapabilities = ['coding','art-2d','assets-3d','animation','v
 export const ProjectCapabilitySchema = z.enum(projectCapabilities);
 export type ProjectCapability = z.infer<typeof ProjectCapabilitySchema>;
 
-export const projectDetailKinds = ['player-role','setting','core-mechanic','entity','tone','constraint'] as const;
+export const projectDetailKinds = ['player-role','setting','core-loop','core-mechanic','entity','requested-asset','audio-requirement','runtime-ai','tone','constraint'] as const;
 export const ProjectDetailSchema = z.object({
   id: z.string().regex(/^detail-[a-z0-9-]+$/).max(80),
   kind: z.enum(projectDetailKinds),
@@ -34,6 +34,22 @@ export type FieldProvenance = 'explicit_text' | 'confirmed' | 'unknown';
 export type InferredField = { field: keyof ProjectBrief; value: string | string[]; provenance: FieldProvenance; evidence?: string };
 export type DetailCandidate = Omit<ProjectDetail,'provenance'> & { provenance:'explicit_text' };
 export type Interpretation = { idea: string; fields: InferredField[]; detailCandidates: DetailCandidate[]; unresolved: (keyof ProjectBrief)[]; conflicts: string[] };
+
+export const InterpretationSchema = z.object({
+  idea: z.string().trim().min(1).max(1200),
+  fields: z.array(z.object({
+    field: z.enum(['genre','dimension','platform','engine','budget','experience','team','commercialIntent','capabilities','locale']),
+    value: z.union([z.string().max(80),z.array(ProjectCapabilitySchema).max(projectCapabilities.length)]),
+    provenance: z.enum(['explicit_text','confirmed','unknown']),
+    evidence: z.string().trim().max(100).optional(),
+  })).max(10),
+  detailCandidates: z.array(z.object({
+    id:z.string().regex(/^detail-[a-z0-9-]+$/).max(80), kind:z.enum(projectDetailKinds),
+    text:z.string().trim().min(1).max(80), provenance:z.literal('explicit_text'), evidence:z.string().trim().max(100).optional(),
+  })).max(20),
+  unresolved:z.array(z.enum(['genre','dimension','platform','engine','budget','experience','team','commercialIntent','capabilities','locale'])).max(10),
+  conflicts:z.array(z.string().trim().min(1).max(160)).max(10),
+});
 
 export type VerticalSliceItem = { id:string; title:string; why:string; outOfScope:string[]; doneWhen:string[] };
 export type PlanTool = {

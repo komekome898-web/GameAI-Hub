@@ -18,6 +18,8 @@ import {
   type ProjectBrief,
   type ProjectPlan,
   type BuildChecklistStep,
+  type ProviderInterpretation,
+  InterpretationSchema,
 } from "@/lib/project";
 
 const examples = [
@@ -190,13 +192,12 @@ export function ProjectIdeaForm({
   );
 }
 
-function initialBrief(idea: string): {
+function initialBrief(idea: string, parsed = interpretProjectIdea(idea)): {
   brief: ProjectBrief;
   evidence: Set<Field>;
   conflicts: string[];
   detailCandidates: DetailCandidate[];
 } {
-  const parsed = interpretProjectIdea(idea);
   const brief: ProjectBrief = {
     idea,
     genre: "unknown",
@@ -229,6 +230,12 @@ function initialBrief(idea: string): {
   };
 }
 
+function isProviderInterpretation(value:unknown):value is ProviderInterpretation{
+  if(!value||typeof value!=="object")return false;
+  const item=value as Partial<ProviderInterpretation>;
+  return Boolean(item.interpretation&&Array.isArray(item.interpretation.fields)&&Array.isArray(item.interpretation.detailCandidates)&&Array.isArray(item.interpretation.conflicts)&&item.status&&(item.status.mode==='provider'||item.status.mode==='deterministic')&&Array.isArray(item.confirmationRequired));
+}
+
 export function ProjectGeneratorClient() {
   const [brief, setBrief] = useState<ProjectBrief | null>(null);
   const [evidence, setEvidence] = useState<Set<Field>>(new Set());
@@ -243,6 +250,9 @@ export function ProjectGeneratorClient() {
   const [plan, setPlan] = useState<ProjectPlan | null>(null);
   const [ready, setReady] = useState(false);
   const [error, setError] = useState("");
+  const [interpretationStatus, setInterpretationStatus] = useState<ProviderInterpretation["status"] | null>(null);
+  const [providerConfirmation, setProviderConfirmation] = useState<Set<string>>(new Set());
+  const [interpreting, setInterpreting] = useState(false);
   const resultHeading = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
     const shared = decodeProjectState(location.search);
@@ -255,16 +265,27 @@ export function ProjectGeneratorClient() {
         setPlan(generateProjectPlan(shared));
     } else {
       const idea = sessionStorage.getItem("gameai:project-idea");
-      if (idea) {
-        const start = initialBrief(idea);
-        setBrief(start.brief);
-        setEvidence(start.evidence);
-        setConflicts(start.conflicts);
-        setDetailCandidates(start.detailCandidates);
-      }
+      if (idea) void beginInterpretation(idea);
     }
     setReady(true);
   }, []);
+  async function beginInterpretation(idea:string) {
+    setInterpreting(true); setError("");
+    let outcome:ProviderInterpretation;
+    try{
+      const response=await fetch('/api/project/interpret',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({idea})});
+      if(!response.ok)throw new Error('interpretation request failed');
+      const candidate:unknown=await response.json(); if(!isProviderInterpretation(candidate))throw new Error('invalid interpretation response');
+      const parsed=InterpretationSchema.safeParse(candidate.interpretation); if(!parsed.success)throw new Error('invalid interpretation response'); outcome={...candidate,interpretation:parsed.data};
+    }catch{
+      outcome={interpretation:interpretProjectIdea(idea),status:{providerName:'ローカル判定',mode:'deterministic',fallbackReason:'provider_error'},confirmationRequired:[]};
+    }
+    const start=initialBrief(idea,outcome.interpretation);
+    setBrief(start.brief); setEvidence(outcome.status.mode==='provider'?new Set():start.evidence);
+    setConflicts(start.conflicts); setDetailCandidates(start.detailCandidates); setDetailDecisions({});
+    setProviderConfirmation(new Set(outcome.confirmationRequired.filter(field=>fields.includes(field as Field)||field==='capabilities')));
+    setInterpretationStatus(outcome.status); setInterpreting(false);
+  }
   useEffect(() => {
     if (plan) resultHeading.current?.focus();
   }, [plan]);
@@ -274,6 +295,7 @@ export function ProjectGeneratorClient() {
         プロジェクト条件を読み込んでいます…
       </p>
     );
+  if (!brief&&interpreting)return <p className="builder-loading" role="status">条件を安全に整理しています…</p>;
   if (!brief)
     return (
       <div className="project-start-page">
@@ -290,14 +312,7 @@ export function ProjectGeneratorClient() {
         </header>
         <ProjectIdeaForm
           location="project"
-          onIdea={(idea) => {
-            const start = initialBrief(idea);
-            setBrief(start.brief);
-            setEvidence(start.evidence);
-            setConflicts(start.conflicts);
-            setDetailCandidates(start.detailCandidates);
-            setDetailDecisions({});
-          }}
+          onIdea={(idea) => { void beginInterpretation(idea); }}
         />
       </div>
     );
@@ -319,7 +334,7 @@ export function ProjectGeneratorClient() {
       (item) => !detailDecisions[item.id],
     );
     const invalidDetail = brief.details.find((item) => !item.text.trim());
-    if (missing.length || pending.length || invalidDetail) {
+    if (missing.length || pending.length || invalidDetail || providerConfirmation.size) {
       setError(
         [
           missing.length
@@ -328,6 +343,7 @@ export function ProjectGeneratorClient() {
           pending.length
             ? `ゲーム固有情報を「計画に含める」または「今回は含めない」で確認してください（残り${pending.length}件）`
             : "",
+          providerConfirmation.size ? `AIが抽出した候補を確認してください（残り${providerConfirmation.size}件）` : "",
           invalidDetail
             ? "計画に含めるゲーム固有情報を1文字以上入力してください"
             : "",
@@ -337,7 +353,7 @@ export function ProjectGeneratorClient() {
       );
       track("project_clarify", {
         missing_count:
-          missing.length + pending.length + (invalidDetail ? 1 : 0),
+          missing.length + pending.length + providerConfirmation.size + (invalidDetail ? 1 : 0),
       });
       if (invalidDetail)
         document.getElementById(`project-detail-${invalidDetail.id}`)?.focus();
@@ -405,6 +421,10 @@ export function ProjectGeneratorClient() {
           自由文に明記された条件だけを選択済みにしました。「未確認」は選び直してから計画を作ります。
         </p>
       </header>
+      {interpretationStatus&&<p className="shared-draft-note" role="status">
+        <strong>{interpretationStatus.mode==='provider'?`${interpretationStatus.providerName} が条件候補を抽出しました`:'外部AIは使用せず、決定ルールで条件を抽出しました'}</strong>{' '}
+        {interpretationStatus.mode==='provider'?'候補は未確定です。各項目を確認してください。':interpretationStatus.fallbackReason==='not_configured'?'外部AIは設定されていません。Project Generatorはそのまま利用できます。':interpretationStatus.fallbackReason==='rate_limited'?'利用集中のため外部AIを呼ばず、安全なルール判定を使用しました。':'外部AIを利用できなかったため、安全なフォールバックを使用しました。'}
+      </p>}
       {sharedDraft && (
         <p className="shared-draft-note" role="status">
           共有された構造化条件を読み込みました。元の自由文は共有URLに含まれません。未確認項目を選んでください。
@@ -451,7 +471,7 @@ export function ProjectGeneratorClient() {
               ゲーム固有情報 <small>すべて確認必須</small>
             </legend>
             <p className="detail-privacy">
-              入力文からそのまま抜き出した候補です。内容を確認し、計画へ含めるか選んでください。固有情報はアクセス解析・共有URLには含まれませんが、コピーやMarkdown保存には含まれます。
+              入力文から抽出した未確定の候補です。AI利用時は要約候補の場合があります。原文と内容を確認し、計画へ含めるか選んでください。固有情報はアクセス解析・共有URLには含まれませんが、コピーやMarkdown保存には含まれます。
             </p>
             {detailCandidates.map((candidate) => {
               const decision = detailDecisions[candidate.id];
@@ -525,6 +545,7 @@ export function ProjectGeneratorClient() {
                   old.filter((item) => !item.startsWith(`${field}:`)),
                 );
                 setError("");
+                setProviderConfirmation((old)=>{const next=new Set(old);next.delete(field);return next;});
               }}
             >
               {Object.entries(labels[field]).map(([value, label]) => (
@@ -536,12 +557,15 @@ export function ProjectGeneratorClient() {
             <span
               className={`provenance ${evidence.has(field) ? "explicit" : brief[field] === "unknown" ? "unknown" : "confirmed"}`}
             >
-              {evidence.has(field)
+              {providerConfirmation.has(field)
+                ? "AI抽出・要確認"
+                : evidence.has(field)
                 ? "入力文に明記"
                 : brief[field] === "unknown"
                   ? "未確認"
                   : "ここで確認"}
             </span>
+            {providerConfirmation.has(field)&&<button type="button" aria-label={`${fieldLabel(field)}のAI候補を確認`} onClick={()=>setProviderConfirmation(old=>{const next=new Set(old);next.delete(field);return next;})}>この候補を確認</button>}
           </label>
         ))}
         <fieldset className="capability-picker">
@@ -565,6 +589,7 @@ export function ProjectGeneratorClient() {
               {capabilityLabels[item]}
             </label>
           ))}
+          {providerConfirmation.has('capabilities')&&<button type="button" onClick={()=>setProviderConfirmation(old=>{const next=new Set(old);next.delete('capabilities');return next;})}>選択された制作工程を確認</button>}
         </fieldset>
         {error && (
           <p id="clarify-error" className="form-error" role="alert">
