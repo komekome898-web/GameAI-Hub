@@ -186,23 +186,23 @@ npm run quality
 npm run build
 ```
 
-Also run available targeted tests, lint, and typecheck when helpful.
+Also run available targeted tests, lint, typecheck, and E2E when relevant.
 If a command fails: diagnose → fix → rerun. Do not report completion with a failing required gate.
 
 ## 6. Anti-gaming rules for quality loops
 
 Do not satisfy quality thresholds through self-congratulation.
 
-Independent evaluators must support ratings with concrete evidence from routes, components, data behavior, or user journeys.
+Independent evaluators must support ratings with concrete evidence from routes, components, data behavior, rendered screens, or user journeys.
 Avoid unsupported phrases such as:
 - “looks professional”
 - “production-ready”
 - “clean and modern”
 - “great UX”
 
-A score without evidence is invalid.
+A score without evidence is invalid. A score must never substitute for an acceptance criterion.
 
-For large product changes, final evaluators should score:
+For large product changes, final evaluators should assess:
 - product usefulness
 - differentiation
 - decision/recommendation usefulness
@@ -214,8 +214,144 @@ For large product changes, final evaluators should score:
 - monetization naturalness (when applicable)
 - technical quality
 
-If a material category is below 8/10, fix the concrete defects and re-evaluate, up to 3 review/fix loops.
-Trust/factuality and recommendation explainability should target 9/10 or better.
+Do not stop after an arbitrary maximum number of review loops. Repeat review → fix → re-review until blocking acceptance criteria pass. If runtime or tooling prevents that, checkpoint as incomplete/blocked instead of declaring success.
+
+## 6.1 Codex must own final acceptance
+
+For substantial product/UI/UX work, the Codex task must be self-sufficient through final acceptance.
+
+External ChatGPT review, owner inspection, or post-merge discovery must not be part of the intended defect-detection process. Owner review may still happen, but Codex must assume obvious defects that survive to owner review are failures of the Codex acceptance process.
+
+The parent agent must not hand off a PR merely because:
+- tests pass
+- build passes
+- no horizontal overflow is detected
+- code review looks reasonable
+- CSS appears responsive
+- subagents said “looks good”
+- a progress ledger says P0/P1 are zero
+
+The rendered product itself is the acceptance target.
+
+## 6.2 Mandatory rendered visual QA for UI work
+
+Any task that materially changes UI, layout, typography, navigation, responsive behavior, Home, Project result, Tools, Compare, or user-facing flows must launch the real app and inspect actual rendered output.
+
+DOM/CSS inspection, source diff review, automated overflow assertions, and accessibility trees are necessary but not sufficient.
+
+Capture durable evidence at minimum for relevant routes at:
+- 375px mobile
+- 320px mobile at 200% zoom
+- long Japanese copy
+- at least one desktop width
+
+For major GameAI Hub product changes, also capture:
+- Home first view
+- Home output preview
+- Project result
+- expanded Build Quest
+- Tools
+- Compare
+
+Commit screenshots or equivalent durable rendered evidence under `docs/screenshots/` so another reviewer can inspect the result after the Codex session ends.
+
+A text note saying “screenshot QA passed” without reviewable screenshots is invalid evidence.
+
+## 6.3 Immediate visual failure conditions
+
+Treat these as P0/P1 for user-facing mobile work:
+
+- ordinary Japanese body copy collapses to 1–3 characters per line
+- a content column becomes obviously too narrow to read comfortably
+- large dead/unused space coexists with cramped adjacent content
+- headings wrap in visibly broken or accidental ways
+- mobile looks like a squeezed desktop composition
+- controls/panels/accordions visibly collide, misalign, clip, or create confusing hierarchy
+- ordinary content requires horizontal panning
+- horizontal overflow is avoided only because text is pathologically wrapping
+- large avoidable whitespace pushes important actions far below the fold
+- the screen is technically functional but obviously exhausting, generic, or unfinished
+
+`scrollWidth <= clientWidth` is not proof of mobile usability.
+
+## 6.4 First-view acceptance
+
+For Home at 375px, inspect the rendered first view as a new visitor. Within 3–5 seconds the screen must communicate:
+
+1. what the product is
+2. what the user should enter/do
+3. what output they will receive
+4. why this is more useful than a generic AI-tool directory or random chatbot/tool suggestions
+
+If the answer depends on scrolling through explanatory sections, redesign and re-test.
+
+## 6.5 Visual quality and originality
+
+Do not approve visual work merely because it is consistent, dark, responsive, or “professional.”
+
+Review actual rendered screens for:
+- Japanese typography and line length
+- whitespace balance
+- information density
+- hierarchy
+- scanability
+- visual rhythm
+- interaction affordances
+- stage/progress/artifact relationships
+- whether Today / Roadmap / Quest feel like one production workflow
+
+If hiding the GameAI Hub name/logo leaves a screen that looks indistinguishable from a generic dark AI SaaS/dashboard template, differentiation is insufficient.
+
+Avoid using repeated cards, borders, pills, monospace labels, neon, gradients, or cyberpunk decoration as a substitute for product-specific visual structure.
+
+## 6.6 Mandatory screenshot review loop
+
+For substantial UI work:
+
+1. implement
+2. render the real app
+3. capture screenshots
+4. have independent visual/mobile/product critics inspect those screenshots
+5. classify findings P0/P1/P2/P3
+6. fix all P0, all P1, and high-impact P2
+7. render again
+8. capture new screenshots
+9. use a different reviewer to verify fixes and search for regressions
+10. repeat until blocking criteria pass
+
+The implementer must not be the only person/agent judging its own rendered result.
+
+## 6.7 Functional regression audit
+
+Visual redesign must not silently remove useful behavior.
+
+Before completion, explicitly check existing behavior relevant to the changed surfaces, including where applicable:
+- URL/deep-link filter state
+- browser back/forward behavior
+- share/export flows
+- local progress persistence
+- query/context propagation
+- deterministic fallback
+- project-specific information surviving into outputs
+- analytics
+- affiliate behavior
+- accessibility and keyboard interaction
+
+If useful behavior is removed without an explicit owner-approved migration, treat it as P1.
+
+## 6.8 Evidence package before handoff
+
+For substantial product/UI changes, the PR or repository must retain enough evidence to audit Codex’s work without reopening the Codex conversation:
+- screenshots with viewport/zoom noted
+- reviewer findings and severity
+- fixes for P0/P1/high-impact P2
+- second-pass visual verification
+- functional-regression checklist
+- E2E results
+- quality/build results
+- unresolved P2/P3, if any
+
+If evidence disappears when the task ends, acceptance is incomplete.
 
 ## 7. Builder and recommendation rules
 
@@ -440,7 +576,9 @@ For substantial work, report only actionable completion evidence:
 - Issue implemented
 - subagents used
 - review loops completed
+- rendered screenshot evidence
 - P0/P1/P2 findings fixed
+- functional regressions checked
 - major product changes
 - routes/data/schema changed
 - analytics verification
@@ -448,11 +586,13 @@ For substantial work, report only actionable completion evidence:
 - SEO verification
 - tests / quality / build
 - 375px mobile result
+- 320px / 200% result when relevant
 - known limitations
 - branch
 - commit
 
 Do not pad the final report with generic praise.
+Do not claim visual acceptance without durable rendered evidence.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
