@@ -19,3 +19,7 @@
 ## First experiment
 
 比較ページへの到達があるのに外部CTRが低い場合、CTA直前の「向く条件/注意点」の理解度を改善する。サンプル不足では勝敗を断定しない。
+
+## Project Interpreter provider guardrails
+
+External interpretation is disabled unless `PROJECT_INTERPRETER_PROVIDER=cloudflare` and all server-only Cloudflare values are configured. Before enabling it, the owner must configure provider spending/quota limits and a Vercel-side rate limit for `POST /api/project/interpret`; the repository does not pretend an in-memory limiter is durable across serverless instances. The handler rejects non-JSON, declared bodies over 5 KB, and ideas over 1,200 characters, uses a hard timeout, and falls back to deterministic rules. Never add provider secrets to `NEXT_PUBLIC_*` variables.
