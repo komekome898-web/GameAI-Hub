@@ -257,3 +257,51 @@ describe('versioned share state',()=>{
     expect(decodeProjectState(state)).toBeNull();
   });
 });
+
+import { buildChecklist } from '@/lib/project/checklist';
+import { projectProgressIdentity, projectProgressKey } from '@/lib/project/progress';
+
+describe('action-first build checklist',()=>{
+  it('creates manual setup actions and only requested capability steps',()=>{
+    const plan=generateProjectPlan(brief({genre:'puzzle',dimension:'2d',platform:'web',engine:'godot',capabilities:['coding','art-2d']}));
+    const actions=buildChecklist(plan);
+    expect(actions.map(item=>item.id)).toEqual(['environment','repository','core-loop','save','ui-prototype','required-assets','assets-2d','qa','store-assets','release']);
+    expect(actions.filter(item=>['environment','repository'].includes(item.id)).every(item=>item.tools.length===0)).toBe(true);
+    expect(actions.find(item=>item.id==='environment')?.usageInstructions.join(' ')).toContain('公式導入手順');
+    expect(actions.every(item=>item.substeps.length>=3&&item.why&&item.prompt&&item.doneWhen.length)).toBe(true);
+    expect(new Set(actions.map(item=>item.prompt)).size).toBe(actions.length);
+    expect(JSON.stringify(actions)).not.toContain('affiliateUrl');
+  });
+  it('keeps every requested production capability in its own exact workflow',()=>{
+    const plan=generateProjectPlan(brief({dimension:'3d',capabilities:['coding','art-2d','assets-3d','animation','voice','music','sfx','npc-dialogue','localization']}));
+    const actions=buildChecklist(plan); const byId=(id:string)=>actions.find(item=>item.id===id)!;
+    expect(actions.map(item=>item.id)).toEqual(expect.arrayContaining(['assets-2d','assets-3d','animation','voice','music','sfx','npc-dialogue','localization']));
+    expect(byId('assets-2d').usageInstructions.join(' ')).toMatch(/サイズ.*透過.*ゲーム/);
+    expect(byId('assets-3d').usageInstructions.join(' ')).toMatch(/スケール.*UV.*collision/);
+    expect(byId('voice').prompt).toMatch(/台詞ID.*発音.*音量/);
+    expect(byId('music').prompt).toMatch(/cue sheet.*loop.*音量/);
+    expect(byId('sfx').tools).toEqual([]);
+    expect(byId('localization').tools).toEqual([]);
+  });
+});
+
+describe('project progress identity',()=>{
+  it('separates approved details when every other project field is identical',async()=>{
+    const base={genre:'rpg' as const,dimension:'2d' as const,platform:'desktop' as const,engine:'godot' as const};
+    const first=generateProjectPlan(brief({...base,idea:'同じ入力文',details:[{id:'detail-setting-a',kind:'setting',text:'沈没図書館',provenance:'confirmed'}]}));
+    const firstEquivalent=generateProjectPlan(brief({...base,idea:'別の未承認文',details:[{id:'detail-setting-other-id',kind:'setting',text:'沈没図書館',provenance:'explicit_text'}]}));
+    const second=generateProjectPlan(brief({...base,idea:'同じ入力文',details:[{id:'detail-setting-b',kind:'setting',text:'空飛ぶ島',provenance:'confirmed'}]}));
+    const [firstKey,equivalentKey,secondKey]=await Promise.all([projectProgressKey(first),projectProgressKey(firstEquivalent),projectProgressKey(second)]);
+    expect(firstKey).toMatch(/^gameai:build-progress:v2:[a-f0-9]{64}$/);
+    expect(firstKey).not.toBe(secondKey);
+    expect(firstKey).toBe(equivalentKey);
+    expect(firstKey+secondKey).not.toMatch(/同じ入力文|別の未承認文|沈没図書館|空飛ぶ島/);
+  });
+  it('is stable when equivalent capabilities and approved details are reordered',()=>{
+    const detailA={id:'detail-setting-a',kind:'setting' as const,text:'島',provenance:'confirmed' as const};
+    const detailB={id:'detail-entity-b',kind:'entity' as const,text:'精霊',provenance:'confirmed' as const};
+    const one=generateProjectPlan(brief({capabilities:['coding','voice'],details:[detailA,detailB]}));
+    const two=generateProjectPlan(brief({capabilities:['voice','coding'],details:[detailB,detailA]}));
+    expect(projectProgressIdentity(one)).toBe(projectProgressIdentity(two));
+  });
+});

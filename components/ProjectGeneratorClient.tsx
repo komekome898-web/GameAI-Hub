@@ -8,6 +8,8 @@ import { getService } from "@/lib/services";
 import {
   decodeProjectState,
   encodeProjectState,
+  buildChecklist,
+  projectProgressKey,
   generateProjectPlan,
   interpretProjectIdea,
   projectCapabilities,
@@ -15,6 +17,7 @@ import {
   type PlanTool,
   type ProjectBrief,
   type ProjectPlan,
+  type BuildChecklistStep,
 } from "@/lib/project";
 
 const examples = [
@@ -620,6 +623,76 @@ const phaseLabels: Record<string, string> = {
   publishing: "公開",
   localization: "ローカライズ",
 };
+function BuildChecklist({steps,plan,onCopy}:{steps:BuildChecklistStep[];plan:ProjectPlan;onCopy:(content:string,artifact:string)=>void}){
+  const [completed,setCompleted]=useState<Set<string>>(new Set());
+  const [loaded,setLoaded]=useState(false);
+  const [key,setKey]=useState("");
+  useEffect(()=>{
+    let cancelled=false;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setLoaded(false); setCompleted(new Set()); setKey("");
+    projectProgressKey(plan).then(nextKey=>{
+      if(cancelled)return;
+      const alias=`gameai:project-progress-alias:v2:${encodeProjectState(plan.brief)}`;
+      let resolvedKey=nextKey;
+      let next=new Set<string>();
+      try{
+        const isSharedPlaceholder=plan.brief.idea.startsWith("共有されたプロジェクト");
+        resolvedKey=isSharedPlaceholder?(sessionStorage.getItem(alias)??nextKey):nextKey;
+        if(!isSharedPlaceholder||!sessionStorage.getItem(alias))sessionStorage.setItem(alias,resolvedKey);
+        const raw=localStorage.getItem(resolvedKey); const parsed=raw?JSON.parse(raw):null;
+        if(parsed?.version===2&&Array.isArray(parsed.completed)){
+          const allowed=new Set(steps.map(item=>item.id));
+          next=new Set(parsed.completed.filter((id:unknown):id is string=>typeof id==='string'&&allowed.has(id)));
+        }
+      }catch{/* Malformed or unavailable storage fails closed. */}
+      setKey(resolvedKey); setCompleted(next); setLoaded(true);
+    }).catch(()=>{if(!cancelled)setLoaded(true);});
+    return()=>{cancelled=true;};
+  },[plan,steps]);
+  useEffect(()=>{
+    if(!loaded||!key)return;
+    try{localStorage.setItem(key,JSON.stringify({version:2,completed:[...completed]}));}catch{/* In-memory progress remains usable. */}
+  },[completed,key,loaded]);
+  const currentIndex=steps.findIndex(item=>!completed.has(item.id));
+  const active=steps[currentIndex<0?steps.length-1:currentIndex];
+  const primaryTool=active?.tools.find(tool=>tool.role==="primary")??active?.tools[0];
+  const toggle=(id:string)=>setCompleted(old=>{const next=new Set(old);if(next.has(id))next.delete(id);else next.add(id);return next;});
+  return <section className="build-checklist" aria-labelledby="build-progress-title">
+    <div className="build-progress">
+      <div><strong id="build-progress-title">プロジェクト進捗</strong><span aria-live="polite">{completed.size} / {steps.length} 完了</span></div>
+      <progress value={completed.size} max={steps.length}>{completed.size} / {steps.length}</progress>
+      <small>完了状態はこの端末だけに保存されます。</small>
+    </div>
+    {active&&<article className="active-action" aria-labelledby={`active-${active.id}`} aria-live="polite">
+      <p>{currentIndex<0?`${steps.length} / ${steps.length} 完了`:`STEP ${currentIndex+1} / ${steps.length} · 今日の最優先`}</p>
+      <h2 id={`active-${active.id}`}>{currentIndex<0?'チェックリスト完了':active.title}</h2>
+      {currentIndex>=0&&<>
+        <strong className="action-outcome">作るもの：{active.outcome}</strong>
+        <ol>{active.substeps.slice(0,3).map(value=><li key={value}>{value}</li>)}</ol>
+        <p className="active-tool"><strong>最初に使うもの：</strong>{primaryTool?<Link href={`/tools/${primaryTool.serviceSlug}`}>{primaryTool.name}</Link>:'手動（AIツール不要）'}</p>
+        <div className="active-done"><strong>完了条件</strong><ul>{active.doneWhen.map(value=><li key={value}>{value}</li>)}</ul></div>
+        <div className="action-buttons"><button className="button" onClick={()=>onCopy(active.prompt,`checklist_${active.id}`)}>プロンプトをコピー</button><button className="button ghost" disabled={!loaded} onClick={()=>toggle(active.id)}>このステップを完了にする</button></div>
+      </>}
+    </article>}
+    <h2 className="checklist-heading">制作チェックリスト</h2>
+    <div className="action-list">{steps.map((item,index)=>{
+      const done=completed.has(item.id); const next=steps[index+1];
+      return <details className={`action-step ${done?'is-done':''}`} key={item.id} open={!done&&index===currentIndex}>
+        <summary><span>{done?'完了':'未完了'}</span><strong>{index+1}. {item.title}</strong><small>{item.outcome}</small></summary>
+        <div className="action-detail">
+          <section><h3>何を作るか</h3><ol>{item.substeps.map(value=><li key={value}>{value}</li>)}</ol></section>
+          <section><h3>なぜ必要か</h3><p>{item.why}</p></section>
+          <section><h3>AI / ツール</h3>{item.tools.length?<PhaseTools tools={item.tools} phase={item.id}/>:<p>この工程は手動で進められます。AIツールは必須ではありません。</p>}</section>
+          <section><h3>使い方</h3><ol>{item.usageInstructions.map(value=><li key={value}>{value}</li>)}</ol></section>
+          <section className="action-prompt"><h3>このプロジェクト用プロンプト</h3><pre>{item.prompt}</pre><button onClick={()=>onCopy(item.prompt,`checklist_${item.id}`)}>プロンプトをコピー</button></section>
+          <section className="active-done"><h3>完了条件</h3><ul>{item.doneWhen.map(value=><li key={value}>{value}</li>)}</ul></section>
+          <p className="next-action"><strong>次：</strong>{next?.title??'チェックリスト完了。公開前の未確認事項を再確認する'}</p>
+          <label className="completion-control"><input type="checkbox" checked={done} disabled={!loaded} onChange={()=>toggle(item.id)}/><span>{item.title}を完了として記録</span></label>
+        </div>
+      </details>})}</div>
+  </section>;
+}
 function ProjectResult({
   plan,
   onEdit,
@@ -630,9 +703,7 @@ function ProjectResult({
   headingRef: React.RefObject<HTMLHeadingElement | null>;
 }) {
   const [status, setStatus] = useState("");
-  const firstTool = plan.phases
-    .flatMap((phase) => phase.tools)
-    .find((tool) => tool.role === "primary");
+  const steps = useMemo(() => buildChecklist(plan), [plan]);
   const markdown = useMemo(() => planMarkdown(plan), [plan]);
   const copy = async (content: string, artifact: string) => {
     try {
@@ -669,41 +740,12 @@ function ProjectResult({
   return (
     <article className="project-result">
       <header className="project-result-top">
-        <p className="eyebrow">YOUR GAME PROJECT PLAN</p>
+        <p className="eyebrow">YOUR BUILD CHECKLIST</p>
         <h1 ref={headingRef} tabIndex={-1}>
-          最初に作るものが
-          <br />
-          決まりました
+          今日やること
         </h1>
-        <section className="today-card">
-          <p>今日の最優先</p>
-          <h2>{plan.verticalSlice[0].title}</h2>
-          <ul>
-            {plan.today.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <div className="hero-actions">
-            <button
-              className="button"
-              onClick={() => copy(plan.firstTask.content, "first_task")}
-            >
-              最初のタスクをコピー
-            </button>
-            <a className="button ghost" href="#vertical-slice">
-              完了条件を見る
-            </a>
-          </div>
-        </section>
-        {firstTool && (
-          <p className="first-tool">
-            <strong>最初のAIツール経路:</strong>{" "}
-            <Link href={`/tools/${firstTool.serviceSlug}`}>
-              {firstTool.name}
-            </Link>{" "}
-            — {firstTool.reason}
-          </p>
-        )}
+        <p className="result-intro">上から一つずつ進めます。完了条件を確認してから、この端末で完了を記録してください。</p>
+        <BuildChecklist steps={steps} plan={plan} onCopy={copy} />
         <p className="share-scope-note">
           共有URLには確認済みの構造化条件だけを含み、元の自由文や固有の物語設定は含みません。完全な計画はMarkdownで共有してください。
         </p>

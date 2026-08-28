@@ -45,7 +45,7 @@ async function generateProject(page: Page, idea: string) {
   }
 
   await page.getByRole('button', { name: 'Project Planを作る' }).click();
-  await expect(page.getByRole('heading', { name: /最初に作るものが/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '今日やること' })).toBeVisible();
   await expect(page).toHaveURL(/\/project\?v=1&p=/);
 }
 
@@ -61,6 +61,10 @@ test('375px: homeからno voice/no 3DのProject Planを完走できる', async (
   const result = page.locator('.project-result');
   await expect(result).not.toContainText('台詞ID・話者同意・音声ファイル');
   await expect(result).not.toContainText('3Dモデル');
+  await page.getByRole('button', { name: 'このステップを完了にする' }).click();
+  await expect(page.locator('.build-progress span')).toContainText(/1 \/ \d+ 完了/);
+  await page.reload();
+  await expect(page.locator('.build-progress span')).toContainText(/1 \/ \d+ 完了/);
   await expectNoHorizontalOverflow(page);
   await page.screenshot({ path: testInfo.outputPath('project-generator-375.png'), fullPage: true });
 });
@@ -114,6 +118,7 @@ test('Project Generatorのエンジン条件が計画と共有stateへ反映さ�
 });
 
 test('320pxかつ200% zoomでも主要画面に横方向の文書overflowがない', async ({ page }, testInfo) => {
+  test.setTimeout(90_000);
   await page.setViewportSize({ width: 320, height: 640 });
   const session = await page.context().newCDPSession(page);
   try {
@@ -126,6 +131,12 @@ test('320pxかつ200% zoomでも主要画面に横方向の文書overflowがな�
       await page.screenshot({ path: testInfo.outputPath(`zoom-${route.replace(/\W+/g, '-') || 'home'}.png`), fullPage: true });
       await session.send('Emulation.setPageScaleFactor', { pageScaleFactor: 1 });
     }
+    await page.goto('/project');
+    await generateProject(page, '2Dパズル。ブラウザ。一人開発。初心者。低予算。個人利用。Godot。音声なし。3Dなし。');
+    await session.send('Emulation.setPageScaleFactor', { pageScaleFactor: 2 });
+    await expectNoHorizontalOverflow(page);
+    const completion = page.getByRole('button', { name: 'このステップを完了にする' });
+    expect((await completion.boundingBox())?.height).toBeGreaterThanOrEqual(44);
   } finally {
     await session.send('Emulation.setPageScaleFactor', { pageScaleFactor: 1 });
     await session.detach();
