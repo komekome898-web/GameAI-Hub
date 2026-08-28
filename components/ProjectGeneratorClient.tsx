@@ -9,6 +9,7 @@ import {
   decodeProjectState,
   encodeProjectState,
   buildChecklist,
+  projectProgressKey,
   generateProjectPlan,
   interpretProjectIdea,
   projectCapabilities,
@@ -622,34 +623,36 @@ const phaseLabels: Record<string, string> = {
   publishing: "公開",
   localization: "ローカライズ",
 };
-const progressKey=(plan:ProjectPlan)=>{
-  // Share encoding contains only confirmed structured fields, never raw prose/details.
-  const source=encodeProjectState(plan.brief);
-  let hash=2166136261;
-  for(let index=0;index<source.length;index+=1){hash^=source.charCodeAt(index);hash=Math.imul(hash,16777619);}
-  return `gameai:build-progress:v1:${(hash>>>0).toString(36)}`;
-};
-
 function BuildChecklist({steps,plan,onCopy}:{steps:BuildChecklistStep[];plan:ProjectPlan;onCopy:(content:string,artifact:string)=>void}){
   const [completed,setCompleted]=useState<Set<string>>(new Set());
   const [loaded,setLoaded]=useState(false);
-  const key=useMemo(()=>progressKey(plan),[plan]);
+  const [key,setKey]=useState("");
   useEffect(()=>{
-    let next=new Set<string>();
-    try{
-      const raw=localStorage.getItem(key); const parsed=raw?JSON.parse(raw):null;
-      if(parsed?.version===1&&Array.isArray(parsed.completed)){
-        const allowed=new Set(steps.map(item=>item.id));
-        next=new Set(parsed.completed.filter((id:unknown):id is string=>typeof id==='string'&&allowed.has(id)));
-      }
-    }catch{/* Malformed or unavailable storage fails closed. */}
-    // Browser storage is intentionally applied only after hydration.
+    let cancelled=false;
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setCompleted(next); setLoaded(true);
-  },[key,steps]);
+    setLoaded(false); setCompleted(new Set()); setKey("");
+    projectProgressKey(plan).then(nextKey=>{
+      if(cancelled)return;
+      const alias=`gameai:project-progress-alias:v2:${encodeProjectState(plan.brief)}`;
+      let resolvedKey=nextKey;
+      let next=new Set<string>();
+      try{
+        const isSharedPlaceholder=plan.brief.idea.startsWith("共有されたプロジェクト");
+        resolvedKey=isSharedPlaceholder?(sessionStorage.getItem(alias)??nextKey):nextKey;
+        if(!isSharedPlaceholder||!sessionStorage.getItem(alias))sessionStorage.setItem(alias,resolvedKey);
+        const raw=localStorage.getItem(resolvedKey); const parsed=raw?JSON.parse(raw):null;
+        if(parsed?.version===2&&Array.isArray(parsed.completed)){
+          const allowed=new Set(steps.map(item=>item.id));
+          next=new Set(parsed.completed.filter((id:unknown):id is string=>typeof id==='string'&&allowed.has(id)));
+        }
+      }catch{/* Malformed or unavailable storage fails closed. */}
+      setKey(resolvedKey); setCompleted(next); setLoaded(true);
+    }).catch(()=>{if(!cancelled)setLoaded(true);});
+    return()=>{cancelled=true;};
+  },[plan,steps]);
   useEffect(()=>{
-    if(!loaded)return;
-    try{localStorage.setItem(key,JSON.stringify({version:1,completed:[...completed]}));}catch{/* In-memory progress remains usable. */}
+    if(!loaded||!key)return;
+    try{localStorage.setItem(key,JSON.stringify({version:2,completed:[...completed]}));}catch{/* In-memory progress remains usable. */}
   },[completed,key,loaded]);
   const currentIndex=steps.findIndex(item=>!completed.has(item.id));
   const active=steps[currentIndex<0?steps.length-1:currentIndex];

@@ -1,13 +1,13 @@
 # Issue #17 progress
 
-- Task: Issue #17 — AI Game Build Copilot Phase 1: Action-first checklist UX
+- Task: Issue #17 / PR #25 — action-first checklist and review fixes
 - Branch: `feat/issue-17-action-checklist`
-- Latest checkpoint: `bfc3fc6`; final commit recorded in Git history
-- Completed: discovery; action-first typed checklist; device-local progress; mobile/accessibility styling; adversarial product/mobile/engineering review; P1 and high-impact P2 fixes; 375px and 320px/200% scenarios; final QA
+- Latest checkpoint: `f807317`; PR review fixes are in the latest Git commit
+- Completed: original implementation; PR #25 owner review audit (one review, zero inline comments); SHA-256 project signature including approved detail identity; manual environment/repository tool mapping; capability-specific steps, prompts, and exact usage; independent post-fix review; final QA
 - In progress: complete
-- Remaining: none
-- Unresolved P0/P1/P2 findings: none required for Issue acceptance; storage-unavailable state remains an in-memory graceful fallback
-- Quality gates: `npm run quality`, `npm run build`, and `npm run test:e2e` pass (119 unit/component tests; 7 E2E journeys)
-- Assumptions: no account/cloud sync; publishing steps allow an explicit not-publishing outcome; supporting routes and detailed plan remain available
-- Files/areas edited: checklist types/derivation, Project result UI, responsive CSS, project tests, E2E journeys
-- Resume next action: no implementation work remains; review the PR
+- Remaining: update PR #25 body/status through GitHub after pushing this commit
+- Unresolved P0/P1/P2 findings: none required by the owner review
+- Quality gates: `npm run quality`, `npm run build`, and `npm run test:e2e` pass (121 unit/component tests; 7 E2E journeys)
+- Assumptions: v1 progress is not migrated because its project identity was ambiguous; sanitized shared URLs use a session-scoped alias solely to restore the most recent local project's progress after reload
+- Files/areas edited: progress identity/persistence, checklist derivation, checklist tests, progress ledger
+- Resume next action: push the latest commit and update PR #25 body to state that all 7 E2E journeys pass
