@@ -423,7 +423,7 @@ export function ProjectGeneratorClient() {
       </header>
       {interpretationStatus&&<p className="shared-draft-note" role="status">
         <strong>{interpretationStatus.mode==='provider'?`${interpretationStatus.providerName} が条件候補を抽出しました`:'外部AIは使用せず、決定ルールで条件を抽出しました'}</strong>{' '}
-        {interpretationStatus.mode==='provider'?'候補は未確定です。各項目を確認してください。':interpretationStatus.fallbackReason==='not_configured'?'外部AIは設定されていません。Project Generatorはそのまま利用できます。':'外部AIを利用できなかったため、安全なフォールバックを使用しました。'}
+        {interpretationStatus.mode==='provider'?'候補は未確定です。各項目を確認してください。':interpretationStatus.fallbackReason==='not_configured'?'外部AIは設定されていません。Project Generatorはそのまま利用できます。':interpretationStatus.fallbackReason==='rate_limited'?'利用集中のため外部AIを呼ばず、安全なルール判定を使用しました。':'外部AIを利用できなかったため、安全なフォールバックを使用しました。'}
       </p>}
       {sharedDraft && (
         <p className="shared-draft-note" role="status">

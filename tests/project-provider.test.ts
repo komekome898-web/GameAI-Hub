@@ -62,4 +62,11 @@ describe('project interpreter provider orchestration',()=>{
     expect(sent).toBe(idea); expect(result.interpretation.idea).toBe(idea);
     expect(JSON.stringify({fields:result.interpretation.fields,details:result.interpretation.detailCandidates})).not.toContain('ランキング');
   });
+  it('does not return contact details or URLs echoed by a provider',async()=>{
+    const raw={...valid,fields:[{field:'genre',value:'rpg',evidence:'test@example.com'}],details:[{kind:'constraint',text:'test@example.comへ送る'},{kind:'setting',text:'https://example.com'}],conflicts:['連絡先 test@example.com','genre: rpg, horror']};
+    const result=await interpretWithFallback('RPG',{provider:provider(async()=>raw)});
+    expect(result.interpretation.detailCandidates).toEqual([]);
+    expect(result.interpretation.fields[0].evidence).toBeUndefined();
+    expect(result.interpretation.conflicts).toEqual(['genre: rpg, horror']);
+  });
 });

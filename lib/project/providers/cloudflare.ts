@@ -27,3 +27,4 @@ export function cloudflareProviderFromEnv(){
   const enabled=process.env.PROJECT_INTERPRETER_PROVIDER==='cloudflare';
   return new CloudflareWorkersAIProvider({accountId:enabled?process.env.CLOUDFLARE_ACCOUNT_ID??'':'',apiToken:enabled?process.env.CLOUDFLARE_AI_API_TOKEN??'':'',model:enabled?process.env.CLOUDFLARE_AI_MODEL??'@cf/meta/llama-3.1-8b-instruct':''});
 }
+export function externalInterpreterReady(){return cloudflareProviderFromEnv().isReady();}

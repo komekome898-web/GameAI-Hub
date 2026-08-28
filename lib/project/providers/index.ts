@@ -18,19 +18,20 @@ function validatedInterpretation(idea:string,raw:unknown):Interpretation{
     if(seen.has(item.field))throw new z.ZodError([]); seen.add(item.field);
     if(item.field==='capabilities'){
       const checked=z.array(z.enum(['coding','art-2d','assets-3d','animation','voice','music','sfx','npc-dialogue','localization','trailer'])).safeParse(item.value);
-      if(checked.success&&checked.data.length)fields.push({...item,value:[...new Set(checked.data)],provenance:'explicit_text'});
-    }else if(typeof item.value==='string'&&(scalarValues[item.field] as readonly string[]).includes(item.value)) fields.push({...item,value:item.value,provenance:'explicit_text'});
+      if(checked.success&&checked.data.length)fields.push({field:item.field,value:[...new Set(checked.data)],provenance:'explicit_text'});
+    }else if(typeof item.value==='string'&&(scalarValues[item.field] as readonly string[]).includes(item.value)) fields.push({field:item.field,value:item.value,provenance:'explicit_text'});
     else throw new z.ZodError([]);
   }
   const unique=new Map(fields.map(item=>[item.field,item]));
-  const details=parsed.details.map((item,index)=>ProjectDetailSchema.parse({...item,id:`detail-${item.kind}-ai-${index}`,provenance:'explicit_text'}));
+  const unsafeContact=/(?:https?:\/\/|\bwww\.|\S+@\S+)/i;
+  const details=parsed.details.filter(item=>!unsafeContact.test(item.text)&&!unsafeContact.test(item.evidence??'')).map((item,index)=>ProjectDetailSchema.parse({...item,id:`detail-${item.kind}-ai-${index}`,provenance:'explicit_text'}));
   const known=new Set(unique.keys());
-  return InterpretationSchema.parse({idea,fields:[...unique.values()],detailCandidates:details,unresolved:Object.keys(scalarValues).filter(field=>!known.has(field as never)),conflicts:parsed.conflicts});
+  return InterpretationSchema.parse({idea,fields:[...unique.values()],detailCandidates:details,unresolved:Object.keys(scalarValues).filter(field=>!known.has(field as never)),conflicts:parsed.conflicts.filter(value=>!unsafeContact.test(value))});
 }
 
 export async function interpretWithFallback(idea:string,options:{provider?:ProjectInterpreterProvider;timeoutMs?:number}={}):Promise<ProviderInterpretation>{
   const bounded=idea.trim().slice(0,1200); const provider=options.provider??cloudflareProviderFromEnv();
-  const fallback=(reason:InterpreterFallbackReason):ProviderInterpretation=>({interpretation:interpretProjectIdea(bounded),status:{providerName:'ローカル判定',mode:'deterministic',fallbackReason:reason},confirmationRequired:[]});
+  const fallback=(reason:InterpreterFallbackReason)=>deterministicInterpretation(bounded,reason);
   if(!provider.isReady())return fallback('not_configured');
   const controller=new AbortController(); let rejectTimeout:(reason?:unknown)=>void=()=>{};
   const timeout=new Promise<never>((_,reject)=>{rejectTimeout=reject});
@@ -46,4 +47,5 @@ export async function interpretWithFallback(idea:string,options:{provider?:Proje
   }catch(error){return fallback(error instanceof z.ZodError||error instanceof SyntaxError?'invalid_output':controller.signal.aborted?'timeout':'provider_error');}
   finally{clearTimeout(timer);}
 }
+export function deterministicInterpretation(idea:string,reason:InterpreterFallbackReason):ProviderInterpretation{return {interpretation:interpretProjectIdea(idea.trim().slice(0,1200)),status:{providerName:'ローカル判定',mode:'deterministic',fallbackReason:reason},confirmationRequired:[]};}
 export type { ProjectInterpreterProvider, ProviderInterpretation } from './types';
