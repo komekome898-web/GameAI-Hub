@@ -30,3 +30,11 @@
 1. 各社公式サイトで affiliate / partner / referral の規約ページを再探索する。
 2. 公式プログラムが見つかった場合だけ料率・Cookie・対象国・sub ID可否を登録する。
 3. 価格や商用条件は短い要約に留め、法的判断は公式規約を優先する。
+
+## Issue #18: catalog and project-fit method (2026-08-28)
+
+The catalog uses the closed `serviceCategoryIds` taxonomy in `lib/schema.ts`; validation fails when any production category has no candidate. New general-model and specialist entries were checked from the official product and terms URLs recorded on each entry. A homepage confirms only the narrowly worded capability attached to that URL. It does not prove game-output quality, engine compatibility, commercial permission, or pricing. Those facts remain `unknown` unless their own official evidence is recorded.
+
+Project fit is deterministic and uses 5-point increments: a verified stage capability contributes 40; an explicit input rule contributes 25; a recorded selected-engine relationship, free-plan match, verified API requirement, or recorded commercial-use match contributes at most 10 each; a beginner/no-code match contributes 5. Scores are capped at 100 and sorted by score, rule priority, then slug. `75–100` is `strong`, `50–70` is `good`, and lower values are review-only. Free-only projects without a confirmed free plan, API-required projects without confirmed API access, and commercial projects with `no` or `unknown` commercial state are separated as manual-review candidates. Conditional commercial use always produces a warning and terms check.
+
+The score means project-condition fit against recorded fields, not output quality, popularity, a review rating, legal clearance, or a universal ranking. Platform strings describe how a service is accessed and are never scored as game export support. Affiliate URL and availability are not read by the scoring function and cannot add points, change selection, ordering, or explanation copy.

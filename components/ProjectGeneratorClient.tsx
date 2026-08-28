@@ -987,6 +987,7 @@ function PhaseTools({ tools, phase }: { tools: PlanTool[]; phase: string }) {
   return (
     <section className="phase-tools">
       <h4>AI / ツール候補</h4>
+      <p className="fit-disclaimer">適合度は入力条件と確認済み製品情報の決定論的な一致です。品質、人気、法的許諾の評価ではありません。</p>
       {primary && (
         <PlanToolCard
           tool={primary}
@@ -1026,7 +1027,9 @@ function PlanToolCard({
         <h5>
           <Link href={`/tools/${tool.serviceSlug}`}>{tool.name}</Link>
         </h5>
+        <p><strong>プロジェクト適合度: {tool.fitScore}/100（{tool.fitBand === "strong" ? "強い適合" : tool.fitBand === "good" ? "適合" : "要確認"}）</strong></p>
         <p>{tool.reason}</p>
+        {tool.hardExclusions.length > 0 && <p className="phase-warning"><strong>必須条件未確認—推薦対象外:</strong> {tool.hardExclusions.join(" / ")}</p>}
       </header>
       <dl>
         <div>
@@ -1054,6 +1057,13 @@ function PlanToolCard({
           <dd>{tool.engineRelevance.join(" / ") || "未確認"}</dd>
         </div>
       </dl>
+      <details className="fit-details">
+        <summary>適合度の根拠を見る</summary>
+        <Fact title="スコアに影響した入力" values={tool.affectedInputs} />
+        <Fact title="一致した条件" values={tool.positiveMatches} />
+        <Fact title="警告" values={tool.warnings} warning />
+        <Fact title="必須条件による除外" values={tool.hardExclusions} warning />
+      </details>
       {tool.limitations.length > 0 && (
         <p>
           <strong>既知の制約:</strong> {tool.limitations.join(" / ")}

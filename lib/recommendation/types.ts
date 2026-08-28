@@ -11,6 +11,12 @@ export interface ToolRecommendation {
   unknowns: string[];
   manualChecks: string[];
   costVisibility: string;
+  fitScore: number;
+  fitBand: 'strong' | 'good' | 'review';
+  inputEffects: string[];
+  positiveMatches: string[];
+  hardExclusions: string[];
+  warnings: string[];
 }
 
 export interface StageRecommendation {

@@ -3,7 +3,7 @@
     "id": "github-copilot",
     "slug": "github-copilot",
     "name": "GitHub Copilot",
-    "category": "AIコーディング",
+    "category": "ide-ai",
     "summary": "IDEやGitHub上で開発を支援するAIコーディングツール。",
     "conclusion": "既存のコード中心ワークフローでAI支援を試したい開発者の比較候補です。",
     "officialUrl": "https://github.com/features/copilot",
@@ -76,7 +76,7 @@
     "id": "cursor",
     "slug": "cursor",
     "name": "Cursor",
-    "category": "AIコーディング",
+    "category": "ide-ai",
     "summary": "コードベースを扱うAI機能を備えたコードエディター。",
     "conclusion": "AI機能を中心にしたエディターへ移行できる開発者向けの候補です。",
     "officialUrl": "https://www.cursor.com/",
@@ -148,7 +148,7 @@
     "id": "scenario",
     "slug": "scenario",
     "name": "Scenario",
-    "category": "AI画像",
+    "category": "character-consistency",
     "summary": "ゲーム向けの画像アセット制作ワークフローを提供する生成AIサービス。",
     "conclusion": "ゲームアセットのスタイル一貫性や制作ワークフローを比較したい人向けです。",
     "officialUrl": "https://www.scenario.com/",
@@ -215,7 +215,7 @@
     "id": "elevenlabs",
     "slug": "elevenlabs",
     "name": "ElevenLabs",
-    "category": "AI音声",
+    "category": "voice",
     "summary": "音声生成、音声変換、APIを提供するAI音声プラットフォーム。",
     "conclusion": "ゲームの台詞や多言語音声を試作・実装したいチームの比較候補です。",
     "officialUrl": "https://elevenlabs.io/",
@@ -283,7 +283,7 @@
     "id": "suno",
     "slug": "suno",
     "name": "Suno",
-    "category": "AI BGM / SFX",
+    "category": "music",
     "summary": "テキスト等から楽曲を生成できる音楽生成サービス。",
     "conclusion": "ゲーム用BGMのラフ制作候補ですが、商用条件は契約プランと生成時点を必ず確認してください。",
     "officialUrl": "https://suno.com/",
@@ -348,7 +348,7 @@
     "id": "meshy",
     "slug": "meshy",
     "name": "Meshy",
-    "category": "AI 3D",
+    "category": "texture-material",
     "summary": "テキストや画像から3Dモデル・テクスチャを生成するサービス。",
     "conclusion": "3Dプロトタイプ用アセットを素早く作り、エンジンへ持ち込みたい人向けです。",
     "officialUrl": "https://www.meshy.ai/",
@@ -423,7 +423,7 @@
     "id": "inworld",
     "slug": "inworld",
     "name": "Inworld AI",
-    "category": "AI NPC",
+    "category": "npc-dialogue",
     "summary": "ゲーム向けAIキャラクターとランタイム機能を提供する開発プラットフォーム。",
     "conclusion": "会話・振る舞いを持つNPCをゲームに統合したい開発者向けの候補です。",
     "officialUrl": "https://inworld.ai/",
@@ -493,7 +493,7 @@
     "id": "rosebud-ai",
     "slug": "rosebud-ai",
     "name": "Rosebud AI",
-    "category": "AIゲーム生成",
+    "category": "game-generator",
     "summary": "プロンプトからゲーム制作を始められるAIゲーム作成サービス。",
     "conclusion": "アイデアから遊べるプロトタイプまでの速さを重視する初心者の候補です。",
     "officialUrl": "https://rosebud.ai/",
@@ -551,7 +551,7 @@
     "id": "deepl-api",
     "slug": "deepl-api",
     "name": "DeepL API",
-    "category": "AIローカライゼーション",
+    "category": "localization",
     "summary": "テキストや文書の翻訳をアプリケーションへ組み込むためのAPI。",
     "conclusion": "ゲーム内文字列の翻訳工程を自動化する候補ですが、文脈・用語・UI収まりは人が検品する必要があります。",
     "officialUrl": "https://developers.deepl.com/docs",
@@ -615,7 +615,7 @@
     "id": "modl-ai",
     "slug": "modl-ai",
     "name": "modl.ai",
-    "category": "AIゲームテスト",
+    "category": "qa-testing",
     "summary": "ゲーム開発向けのAI駆動テストサービス。",
     "conclusion": "反復的なゲームテストを補助する候補ですが、対応環境、導入条件、検出範囲は採用前の個別確認が必要です。",
     "officialUrl": "https://modl.ai/",
@@ -671,6 +671,1175 @@
         "label": "利用規約",
         "url": "https://modl.ai/terms-of-service/",
         "type": "terms"
+      }
+    ]
+  },
+  {
+    "id": "openai-gpt",
+    "slug": "openai-gpt",
+    "name": "GPT (OpenAI)",
+    "category": "general-llm",
+    "summary": "企画整理、会話文案、コード支援に使える汎用モデル/API。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://openai.com/api/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "企画整理、会話文案、コード支援に使える汎用モデル/API"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "GPT (OpenAI) 公式",
+        "url": "https://openai.com/api/",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://openai.com/policies/terms-of-use/",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "general-llm",
+        "status": "verified",
+        "sourceUrl": "https://openai.com/api/",
+        "note": "企画整理、会話文案、コード支援に使える汎用モデル/API。"
+      },
+      {
+        "id": "coding",
+        "status": "verified",
+        "sourceUrl": "https://openai.com/api/",
+        "note": "企画整理、会話文案、コード支援に使える汎用モデル/API。"
+      }
+    ]
+  },
+  {
+    "id": "anthropic-claude",
+    "slug": "anthropic-claude",
+    "name": "Claude",
+    "category": "general-llm",
+    "summary": "企画文書、コード、長い制作資料を扱う汎用AIアシスタント。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://www.anthropic.com/claude",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "企画文書、コード、長い制作資料を扱う汎用AIアシスタント"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Claude 公式",
+        "url": "https://www.anthropic.com/claude",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://www.anthropic.com/legal/consumer-terms",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "general-llm",
+        "status": "verified",
+        "sourceUrl": "https://www.anthropic.com/claude",
+        "note": "企画文書、コード、長い制作資料を扱う汎用AIアシスタント。"
+      },
+      {
+        "id": "coding",
+        "status": "verified",
+        "sourceUrl": "https://www.anthropic.com/claude",
+        "note": "企画文書、コード、長い制作資料を扱う汎用AIアシスタント。"
+      }
+    ]
+  },
+  {
+    "id": "google-gemini",
+    "slug": "google-gemini",
+    "name": "Gemini",
+    "category": "general-llm",
+    "summary": "企画、文章、コードなどを扱うGoogleの汎用AI。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://gemini.google.com/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "企画、文章、コードなどを扱うGoogleの汎用AI"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Gemini 公式",
+        "url": "https://gemini.google.com/",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://policies.google.com/terms/generative-ai",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "general-llm",
+        "status": "verified",
+        "sourceUrl": "https://gemini.google.com/",
+        "note": "企画、文章、コードなどを扱うGoogleの汎用AI。"
+      },
+      {
+        "id": "coding",
+        "status": "verified",
+        "sourceUrl": "https://gemini.google.com/",
+        "note": "企画、文章、コードなどを扱うGoogleの汎用AI。"
+      }
+    ]
+  },
+  {
+    "id": "xai-grok",
+    "slug": "xai-grok",
+    "name": "Grok",
+    "category": "general-llm",
+    "summary": "企画や調査の下書きに使えるxAIの汎用AI。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://x.ai/grok",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "企画や調査の下書きに使えるxAIの汎用AI"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Grok 公式",
+        "url": "https://x.ai/grok",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://x.ai/legal/terms-of-service",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "general-llm",
+        "status": "verified",
+        "sourceUrl": "https://x.ai/grok",
+        "note": "企画や調査の下書きに使えるxAIの汎用AI。"
+      }
+    ]
+  },
+  {
+    "id": "deepseek",
+    "slug": "deepseek",
+    "name": "DeepSeek",
+    "category": "general-llm",
+    "summary": "文章とコードを扱う汎用AIサービス。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://www.deepseek.com/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "文章とコードを扱う汎用AIサービス"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "DeepSeek 公式",
+        "url": "https://www.deepseek.com/",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://cdn.deepseek.com/policies/en-US/deepseek-terms-of-use.html",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "general-llm",
+        "status": "verified",
+        "sourceUrl": "https://www.deepseek.com/",
+        "note": "文章とコードを扱う汎用AIサービス。"
+      },
+      {
+        "id": "coding",
+        "status": "verified",
+        "sourceUrl": "https://www.deepseek.com/",
+        "note": "文章とコードを扱う汎用AIサービス。"
+      }
+    ]
+  },
+  {
+    "id": "qwen",
+    "slug": "qwen",
+    "name": "Qwen",
+    "category": "general-llm",
+    "summary": "文章やコードを扱うAlibaba Cloud系の汎用モデルサービス。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://qwen.ai/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "文章やコードを扱うAlibaba Cloud系の汎用モデルサービス"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Qwen 公式",
+        "url": "https://qwen.ai/",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://qwen.ai/termsservice",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "general-llm",
+        "status": "verified",
+        "sourceUrl": "https://qwen.ai/",
+        "note": "文章やコードを扱うAlibaba Cloud系の汎用モデルサービス。"
+      },
+      {
+        "id": "coding",
+        "status": "verified",
+        "sourceUrl": "https://qwen.ai/",
+        "note": "文章やコードを扱うAlibaba Cloud系の汎用モデルサービス。"
+      }
+    ]
+  },
+  {
+    "id": "openai-codex",
+    "slug": "openai-codex",
+    "name": "Codex",
+    "category": "coding-agent",
+    "summary": "リポジトリ内の実装、編集、テストを支援するコーディングエージェント。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://openai.com/codex/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "リポジトリ内の実装、編集、テストを支援するコーディングエージェント"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Codex 公式",
+        "url": "https://openai.com/codex/",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://openai.com/policies/terms-of-use/",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "coding",
+        "status": "verified",
+        "sourceUrl": "https://openai.com/codex/",
+        "note": "リポジトリ内の実装、編集、テストを支援するコーディングエージェント。"
+      }
+    ]
+  },
+  {
+    "id": "claude-code",
+    "slug": "claude-code",
+    "name": "Claude Code",
+    "category": "coding-agent",
+    "summary": "ターミナルからコードベースの作業を支援するコーディングエージェント。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://www.anthropic.com/claude-code",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "ターミナルからコードベースの作業を支援するコーディングエージェント"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Claude Code 公式",
+        "url": "https://www.anthropic.com/claude-code",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://www.anthropic.com/legal/commercial-terms",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "coding",
+        "status": "verified",
+        "sourceUrl": "https://www.anthropic.com/claude-code",
+        "note": "ターミナルからコードベースの作業を支援するコーディングエージェント。"
+      }
+    ]
+  },
+  {
+    "id": "midjourney",
+    "slug": "midjourney",
+    "name": "Midjourney",
+    "category": "2d-image",
+    "summary": "コンセプト探索や2D画像制作に使える画像生成サービス。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://www.midjourney.com/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "コンセプト探索や2D画像制作に使える画像生成サービス"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Midjourney 公式",
+        "url": "https://www.midjourney.com/",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/32083055291277-Terms-of-Service",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "2d-art",
+        "status": "verified",
+        "sourceUrl": "https://www.midjourney.com/",
+        "note": "コンセプト探索や2D画像制作に使える画像生成サービス。"
+      },
+      {
+        "id": "concept-art",
+        "status": "verified",
+        "sourceUrl": "https://www.midjourney.com/",
+        "note": "コンセプト探索や2D画像制作に使える画像生成サービス。"
+      }
+    ]
+  },
+  {
+    "id": "adobe-firefly",
+    "slug": "adobe-firefly",
+    "name": "Adobe Firefly",
+    "category": "concept-art",
+    "summary": "コンセプト画像やストア素材の制作候補となる生成AI機能群。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://www.adobe.com/products/firefly.html",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "コンセプト画像やストア素材の制作候補となる生成AI機能群"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Adobe Firefly 公式",
+        "url": "https://www.adobe.com/products/firefly.html",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://www.adobe.com/legal/terms.html",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "2d-art",
+        "status": "verified",
+        "sourceUrl": "https://www.adobe.com/products/firefly.html",
+        "note": "コンセプト画像やストア素材の制作候補となる生成AI機能群。"
+      },
+      {
+        "id": "concept-art",
+        "status": "verified",
+        "sourceUrl": "https://www.adobe.com/products/firefly.html",
+        "note": "コンセプト画像やストア素材の制作候補となる生成AI機能群。"
+      },
+      {
+        "id": "marketing-assets",
+        "status": "verified",
+        "sourceUrl": "https://www.adobe.com/products/firefly.html",
+        "note": "コンセプト画像やストア素材の制作候補となる生成AI機能群。"
+      }
+    ]
+  },
+  {
+    "id": "leonardo-ai",
+    "slug": "leonardo-ai",
+    "name": "Leonardo.Ai",
+    "category": "character-consistency",
+    "summary": "画像生成と一貫したビジュアル制作ワークフローを提供するサービス。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://leonardo.ai/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "画像生成と一貫したビジュアル制作ワークフローを提供するサービス"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Leonardo.Ai 公式",
+        "url": "https://leonardo.ai/",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://leonardo.ai/terms-of-service/",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "2d-art",
+        "status": "verified",
+        "sourceUrl": "https://leonardo.ai/",
+        "note": "画像生成と一貫したビジュアル制作ワークフローを提供するサービス。"
+      },
+      {
+        "id": "concept-art",
+        "status": "verified",
+        "sourceUrl": "https://leonardo.ai/",
+        "note": "画像生成と一貫したビジュアル制作ワークフローを提供するサービス。"
+      },
+      {
+        "id": "character-consistency",
+        "status": "verified",
+        "sourceUrl": "https://leonardo.ai/",
+        "note": "画像生成と一貫したビジュアル制作ワークフローを提供するサービス。"
+      }
+    ]
+  },
+  {
+    "id": "tripo-ai",
+    "slug": "tripo-ai",
+    "name": "Tripo AI",
+    "category": "3d-model",
+    "summary": "テキストや画像から3Dモデルを作る制作候補。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://www.tripo3d.ai/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "テキストや画像から3Dモデルを作る制作候補"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Tripo AI 公式",
+        "url": "https://www.tripo3d.ai/",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://www.tripo3d.ai/terms-of-service",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "3d-modeling",
+        "status": "verified",
+        "sourceUrl": "https://www.tripo3d.ai/",
+        "note": "テキストや画像から3Dモデルを作る制作候補。"
+      }
+    ]
+  },
+  {
+    "id": "adobe-mixamo",
+    "slug": "adobe-mixamo",
+    "name": "Mixamo",
+    "category": "animation",
+    "summary": "3Dキャラクターの自動リグとアニメーション素材を扱うサービス。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://www.mixamo.com/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "3Dキャラクターの自動リグとアニメーション素材を扱うサービス"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Mixamo 公式",
+        "url": "https://www.mixamo.com/",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://www.adobe.com/legal/terms.html",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "rigging",
+        "status": "verified",
+        "sourceUrl": "https://www.mixamo.com/",
+        "note": "3Dキャラクターの自動リグとアニメーション素材を扱うサービス。"
+      },
+      {
+        "id": "animation",
+        "status": "verified",
+        "sourceUrl": "https://www.mixamo.com/",
+        "note": "3Dキャラクターの自動リグとアニメーション素材を扱うサービス。"
+      }
+    ]
+  },
+  {
+    "id": "runway",
+    "slug": "runway",
+    "name": "Runway",
+    "category": "video-trailer",
+    "summary": "ゲーム紹介映像の試作候補となる映像生成・編集サービス。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://runwayml.com/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "ゲーム紹介映像の試作候補となる映像生成・編集サービス"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Runway 公式",
+        "url": "https://runwayml.com/",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://runwayml.com/terms-of-use/",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "trailer-video",
+        "status": "verified",
+        "sourceUrl": "https://runwayml.com/",
+        "note": "ゲーム紹介映像の試作候補となる映像生成・編集サービス。"
+      }
+    ]
+  },
+  {
+    "id": "stable-audio",
+    "slug": "stable-audio",
+    "name": "Stable Audio",
+    "category": "sfx",
+    "summary": "音楽や効果音素材の生成候補となる音声サービス。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://www.stableaudio.com/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "音楽や効果音素材の生成候補となる音声サービス"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Stable Audio 公式",
+        "url": "https://www.stableaudio.com/",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://www.stableaudio.com/terms-of-service",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "music",
+        "status": "verified",
+        "sourceUrl": "https://www.stableaudio.com/",
+        "note": "音楽や効果音素材の生成候補となる音声サービス。"
+      },
+      {
+        "id": "sfx",
+        "status": "verified",
+        "sourceUrl": "https://www.stableaudio.com/",
+        "note": "音楽や効果音素材の生成候補となる音声サービス。"
+      }
+    ]
+  },
+  {
+    "id": "convai",
+    "slug": "convai",
+    "name": "Convai",
+    "category": "npc-dialogue",
+    "summary": "ゲーム内キャラクター会話の実装候補となるサービス。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://www.convai.com/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "ゲーム内キャラクター会話の実装候補となるサービス"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Convai 公式",
+        "url": "https://www.convai.com/",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://www.convai.com/terms-of-service",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "npc-dialogue",
+        "status": "verified",
+        "sourceUrl": "https://www.convai.com/",
+        "note": "ゲーム内キャラクター会話の実装候補となるサービス。"
+      }
+    ]
+  },
+  {
+    "id": "ludo-ai",
+    "slug": "ludo-ai",
+    "name": "Ludo.ai",
+    "category": "no-code-low-code",
+    "summary": "ゲーム企画とプロトタイプ検討を支援する制作プラットフォーム。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://ludo.ai/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "ゲーム企画とプロトタイプ検討を支援する制作プラットフォーム"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Ludo.ai 公式",
+        "url": "https://ludo.ai/",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://ludo.ai/terms",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "prototype",
+        "status": "verified",
+        "sourceUrl": "https://ludo.ai/",
+        "note": "ゲーム企画とプロトタイプ検討を支援する制作プラットフォーム。"
+      },
+      {
+        "id": "no-code",
+        "status": "verified",
+        "sourceUrl": "https://ludo.ai/",
+        "note": "ゲーム企画とプロトタイプ検討を支援する制作プラットフォーム。"
+      }
+    ]
+  },
+  {
+    "id": "canva-magic-studio",
+    "slug": "canva-magic-studio",
+    "name": "Canva Magic Studio",
+    "category": "marketing-store-assets",
+    "summary": "ストア画像や告知素材の制作候補となるデザイン機能群。",
+    "conclusion": "ゲーム制作工程との適合を、公式情報と実素材で比較するための候補です。",
+    "officialUrl": "https://www.canva.com/magic-studio/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "ストア画像や告知素材の制作候補となるデザイン機能群"
+    ],
+    "recommendedFor": [
+      "該当工程で複数候補を比較したいゲーム制作者"
+    ],
+    "notRecommendedFor": [
+      "利用条件を確認せず生成物を公開したい人"
+    ],
+    "strengths": [
+      "公式ページで記載された用途を制作候補として検討できる"
+    ],
+    "weaknesses": [
+      "ゲーム固有の品質、費用、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Canva Magic Studio 公式",
+        "url": "https://www.canva.com/magic-studio/",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://www.canva.com/policies/terms-of-use/",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "marketing-assets",
+        "status": "verified",
+        "sourceUrl": "https://www.canva.com/magic-studio/",
+        "note": "ストア画像や告知素材の制作候補となるデザイン機能群。"
+      }
+    ]
+  },
+  {
+    "id": "anything-world",
+    "slug": "anything-world",
+    "name": "Anything World",
+    "category": "rigging",
+    "summary": "3Dキャラクターのリグとアニメーション制作を支援するサービス。",
+    "conclusion": "3D素材を動かす工程で公式情報と実素材を比較する候補です。",
+    "officialUrl": "https://anything.world/",
+    "affiliateUrl": null,
+    "affiliateAvailable": "unknown",
+    "pricing": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "freePlan": "unknown",
+    "commercialUse": "unknown",
+    "api": "unknown",
+    "platforms": [
+      "Web"
+    ],
+    "engines": [],
+    "primaryUses": [
+      "3Dキャラクターのリグとアニメーション"
+    ],
+    "recommendedFor": [
+      "3D素材を動かす工程を比較したい制作者"
+    ],
+    "notRecommendedFor": [
+      "ゲーム向け取込を未検証のまま公開したい人"
+    ],
+    "strengths": [
+      "3Dキャラクターを動かす制作工程を対象にしている"
+    ],
+    "weaknesses": [
+      "モデル適合、出力形式、権利、エンジン連携は個別検証が必要"
+    ],
+    "alternatives": [
+      "adobe-mixamo"
+    ],
+    "verificationStatus": "partially_verified",
+    "lastVerified": "2026-08-28",
+    "sources": [
+      {
+        "label": "Anything World 公式",
+        "url": "https://anything.world/",
+        "type": "official"
+      },
+      {
+        "label": "利用規約",
+        "url": "https://anything.world/terms-and-conditions",
+        "type": "terms"
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "rigging",
+        "status": "verified",
+        "sourceUrl": "https://anything.world/",
+        "note": "3Dキャラクターを動かす制作機能は公式ページで確認。"
+      },
+      {
+        "id": "animation",
+        "status": "verified",
+        "sourceUrl": "https://anything.world/",
+        "note": "キャラクターアニメーション用途は公式ページで確認。"
       }
     ]
   }

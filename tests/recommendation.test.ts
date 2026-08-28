@@ -16,10 +16,12 @@ describe('recommendProject', () => {
 
   it('deduplicates a blocked tool within one stage and combines its matching reasons', () => {
     const visual = stage(make({ budget:'free', assetRequirements:['2d-assets','concept-art'] }), 'visuals');
-    expect(visual.reviewCandidates.map(candidate=>candidate.service.slug)).toEqual(['scenario']);
-    expect(visual.reviewCandidates[0].reason).toContain('2Dアセット');
-    expect(visual.reviewCandidates[0].reason).toContain('コンセプト画像');
-    expect(new Set(visual.reviewCandidates[0].manualChecks).size).toBe(visual.reviewCandidates[0].manualChecks.length);
+    const scenario=visual.reviewCandidates.find(candidate=>candidate.service.slug==='scenario')!;
+    expect(visual.reviewCandidates.filter(candidate=>candidate.service.slug==='scenario')).toHaveLength(1);
+    expect(visual.reviewCandidates.length).toBeGreaterThan(1);
+    expect(scenario.reason).toContain('2Dアセット');
+    expect(scenario.reason).toContain('コンセプト画像');
+    expect(new Set(scenario.manualChecks).size).toBe(scenario.manualChecks.length);
   });
 
   it('builds a quality-oriented 3D plan and requires the 3D stage', () => {
@@ -135,6 +137,14 @@ describe('recommendProject', () => {
   it('is deterministic', () => {
     const input = make({ genre:'rpg', integrationImportance:'high', voiceRequirement:'optional' });
     expect(recommendProject(input)).toEqual(recommendProject(input));
+  });
+
+  it('exposes auditable five-point fit bands and affected inputs', () => {
+    const code=stage(make({codingPreference:'assisted',engine:'unity',budget:'free'}),'code').primary!;
+    expect(code.fitScore % 5).toBe(0);
+    expect(['strong','good','review']).toContain(code.fitBand);
+    expect(code.inputEffects).toContain('codingPreference: assisted');
+    expect(code.positiveMatches.length).toBeGreaterThan(0);
   });
 
   it('keeps selected slugs neutral when affiliate data changes', () => {

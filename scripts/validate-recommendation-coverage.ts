@@ -1,4 +1,3 @@
-import { recommendationRules } from '../data/recommendation-rules';
 import { defaultProjectInput, productionStageIds, type ProjectInput } from '../lib/domain';
 import { recommendProject } from '../lib/recommendation';
 
@@ -14,7 +13,6 @@ const scenarios: Array<{ name: string; input: ProjectInput }> = [
 ];
 
 const fail=(message:string):never=>{throw new Error(message)};
-const knownReasons=new Set(recommendationRules.map(rule=>rule.reasonTemplate));
 for(const {name,input} of scenarios){
   const result=recommendProject(input);
   if(result.stages.length!==productionStageIds.length)fail(`${name}: not every production stage is represented`);
@@ -29,8 +27,9 @@ for(const {name,input} of scenarios){
       if(!decision.service.lastVerified)fail(`${name}/${stage.stage}/${decision.service.slug}: missing verification date`);
       if(!decision.service.sources.length)fail(`${name}/${stage.stage}/${decision.service.slug}: missing official source`);
       if(!decision.service.sources.every(source=>source.url&&source.label))fail(`${name}/${stage.stage}/${decision.service.slug}: incomplete source`);
-      const isPrimary=stage.primary?.service.slug===decision.service.slug;
-      if(isPrimary&&!knownReasons.has(decision.reason))fail(`${name}/${stage.stage}/${decision.service.slug}: reason is not from validated recommendation rules`);
+      if(decision.fitScore%5!==0||decision.fitScore<0||decision.fitScore>100)fail(`${name}/${stage.stage}/${decision.service.slug}: invalid fit score`);
+      if(!decision.positiveMatches.length)fail(`${name}/${stage.stage}/${decision.service.slug}: fit has no positive match`);
+      if(decision.hardExclusions.length&&stage.primary?.service.slug===decision.service.slug)fail(`${name}/${stage.stage}/${decision.service.slug}: excluded tool became primary`);
       if(!decision.manualChecks.some(check=>check.includes(decision.service.lastVerified)))fail(`${name}/${stage.stage}/${decision.service.slug}: decision omits source freshness check`);
       if(decision.costVisibility!==decision.service.pricing)fail(`${name}/${stage.stage}/${decision.service.slug}: unsupported pricing transformation`);
       if(decision.limitations.some(item=>!decision.service.weaknesses.includes(item)))fail(`${name}/${stage.stage}/${decision.service.slug}: unsupported limitation`);
