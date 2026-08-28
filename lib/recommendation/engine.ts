@@ -40,16 +40,21 @@ const stageCapabilities: Record<ProductionStageId, readonly Service['capabilitie
   animation:['animation','rigging'], '3d':['3d-modeling','texture-material','rigging'], voice:['voice'], 'music-sfx':['music','sfx'],
   'npc-dialogue':['npc-dialogue'], integration:[], testing:['testing-qa'], publishing:['trailer-video','marketing-assets'],
 };
-export const fitRubric = { verifiedCapability:40, conditionalCapability:20, explicitRule:25, engine:10, freePlan:10, api:10, commercial:10, beginnerNoCode:5, primaryMinimum:50, strongMinimum:75 } as const;
+export const fitRubric = { verifiedCapability:40, conditionalCapability:20, requiredStage:10, explicitRule:25, engine:10, freePlan:10, api:10, commercial:10, beginnerNoCode:5, primaryMinimum:50, goodMinimum:50, strongMinimum:75 } as const;
+
+function hasVerifiedStageCapability(service: Service, stage: ProductionStageId): boolean {
+  return service.capabilities.some(capability => stageCapabilities[stage].includes(capability.id) && capability.status === 'verified');
+}
 
 type Fit = { score:number; band:'strong'|'good'|'review'; inputEffects:string[]; positiveMatches:string[]; hardExclusions:string[]; warnings:string[] };
-function fitFor(service: Service, stage: ProductionStageId, input: ProjectInput, rule?: RecommendationRule): Fit {
+function fitFor(service: Service, stage: ProductionStageId, input: ProjectInput, rules: readonly RecommendationRule[] = []): Fit {
   let score=0; const inputEffects:string[]=[]; const positiveMatches:string[]=[]; const warnings:string[]=[];
   const relevant=service.capabilities.filter(capability=>stageCapabilities[stage].includes(capability.id));
   if(relevant.some(item=>item.status==='verified')) { score+=fitRubric.verifiedCapability; positiveMatches.push(`${stage}工程の能力が公式情報で確認済み`); }
   else if(relevant.some(item=>item.status==='conditional')) { score+=fitRubric.conditionalCapability; warnings.push(`${stage}工程の能力は条件付き`); }
   else if(relevant.length) warnings.push(`${stage}工程の能力は未確認`);
-  if(rule) { score+=fitRubric.explicitRule; inputEffects.push(...rule.conditions.map(condition=>`${condition.field}: ${condition.value}`)); positiveMatches.push('入力条件に一致する明示ルール'); }
+  if(requirementFor(stage,input)==='required') { score+=fitRubric.requiredStage; inputEffects.push(`requiredStage: ${stage}`); positiveMatches.push(`${stage}工程がプロジェクト入力から必須`); }
+  if(rules.length) { score+=fitRubric.explicitRule; inputEffects.push(...rules.flatMap(rule=>rule.conditions.map(condition=>`${condition.field}: ${condition.value}`))); positiveMatches.push(`入力条件に一致する明示ルール: ${rules.map(rule=>rule.id).join('、')}`); }
   if(input.engine!=='undecided'&&input.engine!=='other') { const wanted=input.engine==='unity'?'Unity':input.engine==='unreal'?'Unreal Engine':'Godot'; inputEffects.push(`engine: ${input.engine}`); if(service.engines.some(item=>item.toLowerCase()===wanted.toLowerCase())) {score+=10;positiveMatches.push(`${wanted}関連情報あり`);} else warnings.push(`${wanted}連携は未確認`); }
   if(input.budget==='free') { inputEffects.push('budget: free'); if(service.freePlan==='yes'){score+=10;positiveMatches.push('無料プランあり');} }
   if(input.integrationImportance==='high') { inputEffects.push('integrationImportance: high'); if(service.api==='yes'){score+=10;positiveMatches.push('APIあり');} }
@@ -57,7 +62,7 @@ function fitFor(service: Service, stage: ProductionStageId, input: ProjectInput,
   if(input.experience==='beginner'&&service.category==='no-code-low-code'){score+=5;inputEffects.push('experience: beginner');positiveMatches.push('初心者条件とノーコード用途が一致');}
   const hardExclusions=eligibility(service,input).checks;
   score=Math.min(100,Math.max(0,Math.round(score/5)*5));
-  return {score,band:score>=75?'strong':score>=50?'good':'review',inputEffects:[...new Set(inputEffects)],positiveMatches,warnings,hardExclusions};
+  return {score,band:score>=fitRubric.strongMinimum?'strong':score>=fitRubric.goodMinimum?'good':'review',inputEffects:[...new Set(inputEffects)],positiveMatches,warnings,hardExclusions};
 }
 
 function platformEvidence(service: Service, input: ProjectInput): { evidence?: string; check?: string } {
@@ -168,15 +173,15 @@ export function recommendProject(rawInput: ProjectInput, catalog: readonly Servi
     const plan = getStagePlan(stage,input);
     if (requirement === 'excluded') return { stage, requirement, primary:null, alternatives:[], reviewCandidates:[], manualFallback:null, ...plan, nextAction:'この工程は入力条件により省略します。' };
     const matchingRules = recommendationRules.filter(rule => rule.stage === stage && matches(rule,input));
-    const ruleBySlug=new Map(matchingRules.map(rule=>[rule.serviceSlug,rule]));
-    const selected = catalog.filter(service=>service.capabilities.some(capability=>stageCapabilities[stage].includes(capability.id))).map(service=>({service,rule:ruleBySlug.get(service.slug),fit:fitFor(service,stage,input,ruleBySlug.get(service.slug))})).filter(item=>item.fit.score>=20).sort((a,b)=>b.fit.score-a.fit.score||(b.rule?.priority??0)-(a.rule?.priority??0)||a.service.slug.localeCompare(b.service.slug));
+    const rulesBySlug=new Map<string,RecommendationRule[]>();
+    for(const rule of matchingRules) rulesBySlug.set(rule.serviceSlug,[...(rulesBySlug.get(rule.serviceSlug)??[]),rule].sort((a,b)=>b.priority-a.priority||a.id.localeCompare(b.id)));
+    const selected = catalog.filter(service=>service.capabilities.some(capability=>stageCapabilities[stage].includes(capability.id))).map(service=>{const rules=rulesBySlug.get(service.slug)??[];return {service,rules,rule:rules[0],fit:fitFor(service,stage,input,rules)}}).filter(item=>item.fit.score>=20).sort((a,b)=>b.fit.score-a.fit.score||(b.rule?.priority??0)-(a.rule?.priority??0)||a.service.slug.localeCompare(b.service.slug));
     const eligible = selected.filter(item=>item.fit.hardExclusions.length===0);
     const blocked = selected.filter(item=>item.fit.hardExclusions.length>0);
-    const first = eligible[0];
-    const primary = first && first.rule && first.fit.score>=fitRubric.primaryMinimum ? tool(first.service,first.rule.reasonTemplate,input,[],first.fit) : null;
-    const alternativeSlugs = new Set([...(first?.service.alternatives ?? []),...eligible.slice(1).map(item=>item.service.slug)]);
-    if(first) alternativeSlugs.delete(first.service.slug);
-    const alternatives = primary ? eligible.filter(item=>item.service.slug!==first?.service.slug&&item.fit.score>=40).slice(0,2).map(item=>tool(item.service,`${first?.service.name ?? '主要候補'}と同じ工程を対象にした代替候補です。`,input,[],item.fit)) : [];
+    const primaryItem = eligible.find(item=>hasVerifiedStageCapability(item.service,stage)&&item.fit.score>=fitRubric.primaryMinimum);
+    const primaryReason = primaryItem?.rule?.reasonTemplate ?? `公式資料で確認済みの${stage}工程向け能力が、選択した工程要件に一致する候補です。品質や最終成果を保証する評価ではありません。`;
+    const primary = primaryItem ? tool(primaryItem.service,primaryReason,input,[],primaryItem.fit) : null;
+    const alternatives = primaryItem ? eligible.filter(item=>item.service.slug!==primaryItem.service.slug&&hasVerifiedStageCapability(item.service,stage)&&item.fit.score>=fitRubric.primaryMinimum).slice(0,2).map(item=>tool(item.service,`${primaryItem.service.name}と同じ工程向けの確認済み能力を持つ代替候補です。`,input,[],item.fit)) : [];
     const blockedBySlug = new Map<string,{service:Service;reasons:string[];checks:string[]}>();
     for (const {rule,service,fit} of blocked) {
       const existing=blockedBySlug.get(service.slug)??{service,reasons:[],checks:[]};
@@ -184,8 +189,8 @@ export function recommendProject(rawInput: ProjectInput, catalog: readonly Servi
       existing.checks.push(...fit.hardExclusions);
       blockedBySlug.set(service.slug,existing);
     }
-    const eligibleReviews = primary ? [] : eligible.filter(item=>item.fit.score>=40).slice(0,2).map(item=>tool(item.service,`${stage}工程の能力は確認済みですが、入力条件に一致する明示ルールがないため手動比較候補です。`,input,[],item.fit));
-    const blockedReviews = [...blockedBySlug.values()].slice(0,Math.max(0,2-eligibleReviews.length)).map(({service,reasons,checks})=>tool(service,`${[...new Set(reasons)].join('。')} ただし必須条件が未確認のため推薦ではなく、手動確認候補です。`,input,[...new Set(checks)],fitFor(service,stage,input,ruleBySlug.get(service.slug))));
+    const eligibleReviews = eligible.filter(item=>item.service.slug!==primaryItem?.service.slug&&!alternatives.some(candidate=>candidate.service.slug===item.service.slug)&&(!hasVerifiedStageCapability(item.service,stage)||item.fit.score<fitRubric.primaryMinimum)).slice(0,2).map(item=>tool(item.service,`${stage}工程との関連は条件付きまたは未確認のため、推薦ではなく手動確認候補です。`,input,[],item.fit));
+    const blockedReviews = [...blockedBySlug.values()].slice(0,Math.max(0,2-eligibleReviews.length)).map(({service,reasons,checks})=>tool(service,`${[...new Set(reasons)].join('。')} ただし必須条件が未確認のため推薦ではなく、手動確認候補です。`,input,[...new Set(checks)],fitFor(service,stage,input,rulesBySlug.get(service.slug)??[])));
     const reviewCandidates = [...eligibleReviews,...blockedReviews];
     return { stage, requirement, primary, alternatives, reviewCandidates, manualFallback:primary ? null : fallback[stage], ...plan };
   });

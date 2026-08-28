@@ -720,20 +720,35 @@
         "label": "利用規約",
         "url": "https://openai.com/policies/terms-of-use/",
         "type": "terms"
+      },
+      {
+        "label": "GPT (OpenAI) 公式機能資料",
+        "url": "https://platform.openai.com/docs/overview",
+        "type": "docs"
+      },
+      {
+        "label": "GPT (OpenAI) 公式機能資料",
+        "url": "https://developers.openai.com/api/docs/guides/text-generation",
+        "type": "docs"
+      },
+      {
+        "label": "GPT (OpenAI) 公式機能資料",
+        "url": "https://developers.openai.com/api/docs/guides/code-generation",
+        "type": "docs"
       }
     ],
     "capabilities": [
       {
         "id": "general-llm",
         "status": "verified",
-        "sourceUrl": "https://openai.com/api/",
-        "note": "企画整理、会話文案、コード支援に使える汎用モデル/API。"
+        "sourceUrl": "https://developers.openai.com/api/docs/guides/text-generation",
+        "note": "OpenAI APIのモデル利用は公式ドキュメントで確認。"
       },
       {
         "id": "coding",
-        "status": "verified",
-        "sourceUrl": "https://openai.com/api/",
-        "note": "企画整理、会話文案、コード支援に使える汎用モデル/API。"
+        "status": "conditional",
+        "sourceUrl": "https://developers.openai.com/api/docs/guides/code-generation",
+        "note": "コード支援への利用可否はモデル、プロンプト、評価条件ごとに検証が必要。"
       }
     ]
   },
@@ -783,20 +798,35 @@
         "label": "利用規約",
         "url": "https://www.anthropic.com/legal/consumer-terms",
         "type": "terms"
+      },
+      {
+        "label": "Claude 公式機能資料",
+        "url": "https://docs.anthropic.com/en/docs/intro-to-claude",
+        "type": "docs"
+      },
+      {
+        "label": "Claude 公式機能資料",
+        "url": "https://docs.anthropic.com/en/docs/about-claude/overview",
+        "type": "docs"
+      },
+      {
+        "label": "Claude 公式機能資料",
+        "url": "https://platform.claude.com/docs/en/intro",
+        "type": "docs"
       }
     ],
     "capabilities": [
       {
         "id": "general-llm",
         "status": "verified",
-        "sourceUrl": "https://www.anthropic.com/claude",
-        "note": "企画文書、コード、長い制作資料を扱う汎用AIアシスタント。"
+        "sourceUrl": "https://platform.claude.com/docs/en/intro",
+        "note": "Claudeのモデルと利用方法は公式ドキュメントで確認。"
       },
       {
         "id": "coding",
-        "status": "verified",
-        "sourceUrl": "https://www.anthropic.com/claude",
-        "note": "企画文書、コード、長い制作資料を扱う汎用AIアシスタント。"
+        "status": "conditional",
+        "sourceUrl": "https://docs.anthropic.com/en/docs/intro-to-claude",
+        "note": "コード用途の適合は対象コードと評価手順ごとに検証が必要。"
       }
     ]
   },
@@ -846,20 +876,30 @@
         "label": "利用規約",
         "url": "https://policies.google.com/terms/generative-ai",
         "type": "terms"
+      },
+      {
+        "label": "Gemini 公式機能資料",
+        "url": "https://ai.google.dev/gemini-api/docs",
+        "type": "docs"
+      },
+      {
+        "label": "Gemini 公式機能資料",
+        "url": "https://ai.google.dev/gemini-api/docs/text-generation",
+        "type": "docs"
       }
     ],
     "capabilities": [
       {
         "id": "general-llm",
         "status": "verified",
-        "sourceUrl": "https://gemini.google.com/",
-        "note": "企画、文章、コードなどを扱うGoogleの汎用AI。"
+        "sourceUrl": "https://ai.google.dev/gemini-api/docs/text-generation",
+        "note": "Gemini APIのモデル利用は公式ドキュメントで確認。"
       },
       {
         "id": "coding",
-        "status": "verified",
-        "sourceUrl": "https://gemini.google.com/",
-        "note": "企画、文章、コードなどを扱うGoogleの汎用AI。"
+        "status": "conditional",
+        "sourceUrl": "https://ai.google.dev/gemini-api/docs",
+        "note": "コード用途の適合は対象コードと評価手順ごとに検証が必要。"
       }
     ]
   },
@@ -909,14 +949,24 @@
         "label": "利用規約",
         "url": "https://x.ai/legal/terms-of-service",
         "type": "terms"
+      },
+      {
+        "label": "Grok 公式機能資料",
+        "url": "https://docs.x.ai/overview",
+        "type": "docs"
+      },
+      {
+        "label": "Grok 公式機能資料",
+        "url": "https://docs.x.ai/developers/model-capabilities/text/generate-text",
+        "type": "docs"
       }
     ],
     "capabilities": [
       {
         "id": "general-llm",
         "status": "verified",
-        "sourceUrl": "https://x.ai/grok",
-        "note": "企画や調査の下書きに使えるxAIの汎用AI。"
+        "sourceUrl": "https://docs.x.ai/developers/model-capabilities/text/generate-text",
+        "note": "xAI APIのモデル利用は公式ドキュメントで確認。"
       }
     ]
   },
@@ -966,20 +1016,30 @@
         "label": "利用規約",
         "url": "https://cdn.deepseek.com/policies/en-US/deepseek-terms-of-use.html",
         "type": "terms"
+      },
+      {
+        "label": "DeepSeek 公式機能資料",
+        "url": "https://api-docs.deepseek.com/",
+        "type": "docs"
+      },
+      {
+        "label": "DeepSeek 公式機能資料",
+        "url": "https://api-docs.deepseek.com/api/create-chat-completion",
+        "type": "docs"
       }
     ],
     "capabilities": [
       {
         "id": "general-llm",
         "status": "verified",
-        "sourceUrl": "https://www.deepseek.com/",
-        "note": "文章とコードを扱う汎用AIサービス。"
+        "sourceUrl": "https://api-docs.deepseek.com/api/create-chat-completion",
+        "note": "DeepSeek APIのモデル利用は公式ドキュメントで確認。"
       },
       {
         "id": "coding",
-        "status": "verified",
-        "sourceUrl": "https://www.deepseek.com/",
-        "note": "文章とコードを扱う汎用AIサービス。"
+        "status": "conditional",
+        "sourceUrl": "https://api-docs.deepseek.com/",
+        "note": "コード用途の適合は対象コードと評価手順ごとに検証が必要。"
       }
     ]
   },
@@ -1034,15 +1094,15 @@
     "capabilities": [
       {
         "id": "general-llm",
-        "status": "verified",
+        "status": "conditional",
         "sourceUrl": "https://qwen.ai/",
-        "note": "文章やコードを扱うAlibaba Cloud系の汎用モデルサービス。"
+        "note": "公式製品ページは確認済み。モデル範囲とホスト形態は採用前に確認が必要。"
       },
       {
         "id": "coding",
-        "status": "verified",
+        "status": "conditional",
         "sourceUrl": "https://qwen.ai/",
-        "note": "文章やコードを扱うAlibaba Cloud系の汎用モデルサービス。"
+        "note": "コード用途を直接裏付ける掲載ソースは未登録のため条件付き。"
       }
     ]
   },
@@ -1092,6 +1152,11 @@
         "label": "利用規約",
         "url": "https://openai.com/policies/terms-of-use/",
         "type": "terms"
+      },
+      {
+        "label": "Codex 公式機能資料",
+        "url": "https://developers.openai.com/codex/",
+        "type": "docs"
       }
     ],
     "capabilities": [
@@ -1099,7 +1164,7 @@
         "id": "coding",
         "status": "verified",
         "sourceUrl": "https://openai.com/codex/",
-        "note": "リポジトリ内の実装、編集、テストを支援するコーディングエージェント。"
+        "note": "Codexのコーディングエージェント機能は公式機能ページで確認。"
       }
     ]
   },
@@ -1149,14 +1214,24 @@
         "label": "利用規約",
         "url": "https://www.anthropic.com/legal/commercial-terms",
         "type": "terms"
+      },
+      {
+        "label": "Claude Code 公式機能資料",
+        "url": "https://docs.anthropic.com/en/docs/claude-code/overview",
+        "type": "docs"
+      },
+      {
+        "label": "Claude Code 公式機能資料",
+        "url": "https://code.claude.com/docs/en/overview",
+        "type": "docs"
       }
     ],
     "capabilities": [
       {
         "id": "coding",
         "status": "verified",
-        "sourceUrl": "https://www.anthropic.com/claude-code",
-        "note": "ターミナルからコードベースの作業を支援するコーディングエージェント。"
+        "sourceUrl": "https://code.claude.com/docs/en/overview",
+        "note": "Claude Codeのコーディングワークフローは公式ドキュメントで確認。"
       }
     ]
   },
@@ -1206,20 +1281,30 @@
         "label": "利用規約",
         "url": "https://docs.midjourney.com/hc/en-us/articles/32083055291277-Terms-of-Service",
         "type": "terms"
+      },
+      {
+        "label": "Midjourney 公式機能資料",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/33329261836941-Create-Images",
+        "type": "docs"
+      },
+      {
+        "label": "Midjourney 公式機能資料",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/32162917505293-Image-Prompts",
+        "type": "docs"
       }
     ],
     "capabilities": [
       {
         "id": "2d-art",
         "status": "verified",
-        "sourceUrl": "https://www.midjourney.com/",
-        "note": "コンセプト探索や2D画像制作に使える画像生成サービス。"
+        "sourceUrl": "https://docs.midjourney.com/hc/en-us/articles/32162917505293-Image-Prompts",
+        "note": "画像生成機能は公式ヘルプで確認。"
       },
       {
         "id": "concept-art",
-        "status": "verified",
-        "sourceUrl": "https://www.midjourney.com/",
-        "note": "コンセプト探索や2D画像制作に使える画像生成サービス。"
+        "status": "conditional",
+        "sourceUrl": "https://docs.midjourney.com/hc/en-us/articles/33329261836941-Create-Images",
+        "note": "コンセプトアートへの適合はスタイル・反復編集要件ごとに検証が必要。"
       }
     ]
   },
@@ -1269,26 +1354,36 @@
         "label": "利用規約",
         "url": "https://www.adobe.com/legal/terms.html",
         "type": "terms"
+      },
+      {
+        "label": "Adobe Firefly 公式機能資料",
+        "url": "https://helpx.adobe.com/firefly/generate-images-with-text-to-image/generate-images-using-text-prompts.html",
+        "type": "docs"
+      },
+      {
+        "label": "Adobe Firefly 公式機能資料",
+        "url": "https://www.adobe.com/products/firefly/features/text-to-image.html",
+        "type": "docs"
       }
     ],
     "capabilities": [
       {
         "id": "2d-art",
         "status": "verified",
-        "sourceUrl": "https://www.adobe.com/products/firefly.html",
-        "note": "コンセプト画像やストア素材の制作候補となる生成AI機能群。"
+        "sourceUrl": "https://www.adobe.com/products/firefly/features/text-to-image.html",
+        "note": "テキストからの画像生成は公式機能ページで確認。"
       },
       {
         "id": "concept-art",
-        "status": "verified",
-        "sourceUrl": "https://www.adobe.com/products/firefly.html",
-        "note": "コンセプト画像やストア素材の制作候補となる生成AI機能群。"
+        "status": "conditional",
+        "sourceUrl": "https://helpx.adobe.com/firefly/generate-images-with-text-to-image/generate-images-using-text-prompts.html",
+        "note": "コンセプト用途の適合は制作要件ごとに検証が必要。"
       },
       {
         "id": "marketing-assets",
-        "status": "verified",
-        "sourceUrl": "https://www.adobe.com/products/firefly.html",
-        "note": "コンセプト画像やストア素材の制作候補となる生成AI機能群。"
+        "status": "conditional",
+        "sourceUrl": "https://helpx.adobe.com/firefly/generate-images-with-text-to-image/generate-images-using-text-prompts.html",
+        "note": "ストア・マーケティング素材への適合は配布先要件ごとに検証が必要。"
       }
     ]
   },
@@ -1338,26 +1433,31 @@
         "label": "利用規約",
         "url": "https://leonardo.ai/terms-of-service/",
         "type": "terms"
+      },
+      {
+        "label": "Leonardo.Ai 公式機能資料",
+        "url": "https://docs.leonardo.ai/docs/generate-images-using-image-to-image-guidance",
+        "type": "docs"
       }
     ],
     "capabilities": [
       {
         "id": "2d-art",
-        "status": "verified",
-        "sourceUrl": "https://leonardo.ai/",
-        "note": "画像生成と一貫したビジュアル制作ワークフローを提供するサービス。"
+        "status": "conditional",
+        "sourceUrl": "https://docs.leonardo.ai/docs/generate-images-using-image-to-image-guidance",
+        "note": "画像からの画像生成は公式ドキュメントで確認。"
       },
       {
         "id": "concept-art",
-        "status": "verified",
-        "sourceUrl": "https://leonardo.ai/",
-        "note": "画像生成と一貫したビジュアル制作ワークフローを提供するサービス。"
+        "status": "conditional",
+        "sourceUrl": "https://docs.leonardo.ai/docs/generate-images-using-image-to-image-guidance",
+        "note": "コンセプト用途の適合はスタイル・反復編集要件ごとに検証が必要。"
       },
       {
         "id": "character-consistency",
-        "status": "verified",
+        "status": "conditional",
         "sourceUrl": "https://leonardo.ai/",
-        "note": "画像生成と一貫したビジュアル制作ワークフローを提供するサービス。"
+        "note": "キャラクター一貫性を直接裏付ける掲載ソースは未登録。"
       }
     ]
   },
@@ -1407,14 +1507,24 @@
         "label": "利用規約",
         "url": "https://www.tripo3d.ai/terms-of-service",
         "type": "terms"
+      },
+      {
+        "label": "Tripo AI 公式機能資料",
+        "url": "https://platform.tripo3d.ai/docs",
+        "type": "docs"
+      },
+      {
+        "label": "Tripo AI 公式機能資料",
+        "url": "https://www.tripo3d.ai/features/image-to-3d",
+        "type": "docs"
       }
     ],
     "capabilities": [
       {
         "id": "3d-modeling",
         "status": "verified",
-        "sourceUrl": "https://www.tripo3d.ai/",
-        "note": "テキストや画像から3Dモデルを作る制作候補。"
+        "sourceUrl": "https://www.tripo3d.ai/features/image-to-3d",
+        "note": "画像からの3D生成機能は公式機能ページで確認。"
       }
     ]
   },
@@ -1464,20 +1574,25 @@
         "label": "利用規約",
         "url": "https://www.adobe.com/legal/terms.html",
         "type": "terms"
+      },
+      {
+        "label": "Mixamo 公式機能資料",
+        "url": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+        "type": "docs"
       }
     ],
     "capabilities": [
       {
         "id": "rigging",
         "status": "verified",
-        "sourceUrl": "https://www.mixamo.com/",
-        "note": "3Dキャラクターの自動リグとアニメーション素材を扱うサービス。"
+        "sourceUrl": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+        "note": "自動リギングはAdobe公式FAQで確認。"
       },
       {
         "id": "animation",
         "status": "verified",
-        "sourceUrl": "https://www.mixamo.com/",
-        "note": "3Dキャラクターの自動リグとアニメーション素材を扱うサービス。"
+        "sourceUrl": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+        "note": "キャラクターアニメーションはAdobe公式FAQで確認。"
       }
     ]
   },
@@ -1527,14 +1642,19 @@
         "label": "利用規約",
         "url": "https://runwayml.com/terms-of-use/",
         "type": "terms"
+      },
+      {
+        "label": "Runway 公式機能資料",
+        "url": "https://help.runwayml.com/hc/en-us/categories/20023232657939-Generative-Video",
+        "type": "docs"
       }
     ],
     "capabilities": [
       {
         "id": "trailer-video",
-        "status": "verified",
-        "sourceUrl": "https://runwayml.com/",
-        "note": "ゲーム紹介映像の試作候補となる映像生成・編集サービス。"
+        "status": "conditional",
+        "sourceUrl": "https://help.runwayml.com/hc/en-us/categories/20023232657939-Generative-Video",
+        "note": "映像制作機能の公式製品ページは確認済み。ゲームトレーラー適合は個別検証が必要。"
       }
     ]
   },
@@ -1584,20 +1704,30 @@
         "label": "利用規約",
         "url": "https://www.stableaudio.com/terms-of-service",
         "type": "terms"
+      },
+      {
+        "label": "Stable Audio 公式機能資料",
+        "url": "https://stableaudio.com/docs",
+        "type": "docs"
+      },
+      {
+        "label": "Stable Audio 公式機能資料",
+        "url": "https://stability.ai/stable-audio",
+        "type": "docs"
       }
     ],
     "capabilities": [
       {
         "id": "music",
         "status": "verified",
-        "sourceUrl": "https://www.stableaudio.com/",
-        "note": "音楽や効果音素材の生成候補となる音声サービス。"
+        "sourceUrl": "https://stability.ai/stable-audio",
+        "note": "音楽・音声生成は公式ドキュメントで確認。"
       },
       {
         "id": "sfx",
-        "status": "verified",
-        "sourceUrl": "https://www.stableaudio.com/",
-        "note": "音楽や効果音素材の生成候補となる音声サービス。"
+        "status": "conditional",
+        "sourceUrl": "https://stability.ai/stable-audio",
+        "note": "ゲーム用SFXの適合は音種・編集・ループ要件ごとに検証が必要。"
       }
     ]
   },
@@ -1647,14 +1777,24 @@
         "label": "利用規約",
         "url": "https://www.convai.com/terms-of-service",
         "type": "terms"
+      },
+      {
+        "label": "Convai 公式機能資料",
+        "url": "https://docs.convai.com/",
+        "type": "docs"
+      },
+      {
+        "label": "Convai 公式機能資料",
+        "url": "https://docs.convai.com/api-docs/plugins-and-integrations/unreal-engine",
+        "type": "docs"
       }
     ],
     "capabilities": [
       {
         "id": "npc-dialogue",
-        "status": "verified",
-        "sourceUrl": "https://www.convai.com/",
-        "note": "ゲーム内キャラクター会話の実装候補となるサービス。"
+        "status": "conditional",
+        "sourceUrl": "https://docs.convai.com/api-docs/plugins-and-integrations/unreal-engine",
+        "note": "公式ドキュメントは確認済み。ゲーム内会話統合は対象SDK・エンジンごとに検証が必要。"
       }
     ]
   },
@@ -1709,15 +1849,15 @@
     "capabilities": [
       {
         "id": "prototype",
-        "status": "verified",
+        "status": "conditional",
         "sourceUrl": "https://ludo.ai/",
-        "note": "ゲーム企画とプロトタイプ検討を支援する制作プラットフォーム。"
+        "note": "公式製品ページは確認済み。実行可能プロトタイプ出力を直接裏付けるソースは未登録。"
       },
       {
         "id": "no-code",
-        "status": "verified",
+        "status": "conditional",
         "sourceUrl": "https://ludo.ai/",
-        "note": "ゲーム企画とプロトタイプ検討を支援する制作プラットフォーム。"
+        "note": "ノーコード工程を直接裏付ける掲載ソースは未登録。"
       }
     ]
   },
@@ -1772,9 +1912,9 @@
     "capabilities": [
       {
         "id": "marketing-assets",
-        "status": "verified",
+        "status": "conditional",
         "sourceUrl": "https://www.canva.com/magic-studio/",
-        "note": "ストア画像や告知素材の制作候補となるデザイン機能群。"
+        "note": "公式製品ページは確認済み。ゲームストア素材の要件適合は個別検証が必要。"
       }
     ]
   },
@@ -1826,20 +1966,25 @@
         "label": "利用規約",
         "url": "https://anything.world/terms-and-conditions",
         "type": "terms"
+      },
+      {
+        "label": "Anything World 公式機能資料",
+        "url": "https://anything-world.gitbook.io/anything-world",
+        "type": "docs"
       }
     ],
     "capabilities": [
       {
         "id": "rigging",
-        "status": "verified",
-        "sourceUrl": "https://anything.world/",
-        "note": "3Dキャラクターを動かす制作機能は公式ページで確認。"
+        "status": "conditional",
+        "sourceUrl": "https://anything-world.gitbook.io/anything-world",
+        "note": "公式ドキュメントは確認済み。対象モデルでのリグ適合は個別検証が必要。"
       },
       {
         "id": "animation",
-        "status": "verified",
-        "sourceUrl": "https://anything.world/",
-        "note": "キャラクターアニメーション用途は公式ページで確認。"
+        "status": "conditional",
+        "sourceUrl": "https://anything-world.gitbook.io/anything-world",
+        "note": "公式ドキュメントは確認済み。対象モデルとエンジンでの動作は個別検証が必要。"
       }
     ]
   }

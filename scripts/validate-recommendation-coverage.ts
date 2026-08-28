@@ -28,7 +28,8 @@ for(const {name,input} of scenarios){
       if(!decision.service.sources.length)fail(`${name}/${stage.stage}/${decision.service.slug}: missing official source`);
       if(!decision.service.sources.every(source=>source.url&&source.label))fail(`${name}/${stage.stage}/${decision.service.slug}: incomplete source`);
       if(decision.fitScore%5!==0||decision.fitScore<0||decision.fitScore>100)fail(`${name}/${stage.stage}/${decision.service.slug}: invalid fit score`);
-      if(!decision.positiveMatches.length)fail(`${name}/${stage.stage}/${decision.service.slug}: fit has no positive match`);
+      if(stage.primary?.service.slug===decision.service.slug&&!decision.positiveMatches.length)fail(`${name}/${stage.stage}/${decision.service.slug}: primary fit has no positive match`);
+      if(stage.primary?.service.slug!==decision.service.slug&&!decision.positiveMatches.length&&!decision.warnings.length)fail(`${name}/${stage.stage}/${decision.service.slug}: review has no match or warning`);
       if(decision.hardExclusions.length&&stage.primary?.service.slug===decision.service.slug)fail(`${name}/${stage.stage}/${decision.service.slug}: excluded tool became primary`);
       if(!decision.manualChecks.some(check=>check.includes(decision.service.lastVerified)))fail(`${name}/${stage.stage}/${decision.service.slug}: decision omits source freshness check`);
       if(decision.costVisibility!==decision.service.pricing)fail(`${name}/${stage.stage}/${decision.service.slug}: unsupported pricing transformation`);

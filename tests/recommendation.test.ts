@@ -48,10 +48,37 @@ describe('recommendProject', () => {
     expect(result.reviewCandidates[0]?.evidence.join(' ')).not.toContain('無料プラン: あり');
   });
 
-  it('accepts empty optional fields and supplies manual fallbacks', () => {
+  it('accepts empty optional fields and can select a verified ruleless catalog candidate', () => {
     const result = recommendProject(make({ assetRequirements:[] }));
     expect(result.stages).toHaveLength(12);
-    expect(result.stages.find(item => item.stage === 'concept')?.manualFallback).toBeTruthy();
+    const concept=result.stages.find(item => item.stage === 'concept')!;
+    expect(concept.primary?.service.slug).toBe('anthropic-claude');
+    expect(concept.primary?.fitScore).toBe(50);
+    expect(concept.primary?.inputEffects).toContain('requiredStage: concept');
+    expect(concept.primary?.reason).toContain('公式資料で確認済み');
+  });
+
+  it('classifies new verified, conditional, and alternative candidates by evidence', () => {
+    const result=recommendProject(make());
+    const concept=result.stages.find(item=>item.stage==='concept')!;
+    expect(concept.primary?.service.slug).toBe('anthropic-claude');
+    expect(concept.alternatives.map(item=>item.service.slug)).toEqual(['deepseek','google-gemini']);
+    expect(concept.reviewCandidates.map(item=>item.service.slug)).toContain('qwen');
+    expect(concept.reviewCandidates.find(item=>item.service.slug==='qwen')?.warnings.join(' ')).toContain('条件付き');
+    const code=result.stages.find(item=>item.stage==='code')!;
+    expect(code.alternatives.map(item=>item.service.slug)).toContain('claude-code');
+  });
+
+  it('never promotes an unverified core capability through ancillary fit points', () => {
+    const source=getServices().find(service=>service.slug==='openai-codex')!;
+    const conditional={...source,slug:'conditional-code',id:'conditional-code',category:'coding-agent' as const,freePlan:'yes' as const,api:'yes' as const,commercialUse:'yes' as const,engines:['Unity'],capabilities:source.capabilities.map(capability=>({...capability,status:'conditional' as const}))};
+    const verified={...source,slug:'verified-code',id:'verified-code',freePlan:'yes' as const,api:'yes' as const,commercialUse:'yes' as const,engines:['Unity']};
+    const code=recommendProject(make({budget:'free',integrationImportance:'high',commercialIntent:'commercial',engine:'unity'}),[conditional,verified]).stages.find(item=>item.stage==='code')!;
+    const conditionalReview=code.reviewCandidates.find(item=>item.service.slug==='conditional-code')!;
+    expect(conditionalReview.hardExclusions).toEqual([]);
+    expect(conditionalReview.fitScore).toBeGreaterThanOrEqual(50);
+    expect(code.primary?.service.slug).toBe('verified-code');
+    expect(code.reviewCandidates.map(item=>item.service.slug)).toContain('conditional-code');
   });
 
   it('keeps conditional commercial use eligible but clearly requires plan and generation-time verification', () => {
@@ -152,6 +179,13 @@ describe('recommendProject', () => {
     const altered = getServices().map(service => ({ ...service, affiliateUrl: service.affiliateUrl ? null : 'https://example.com/ref', affiliateAvailable:'yes' as const }));
     const slugs = (catalog = getServices()) => recommendProject(input, catalog).stages.map(item => item.primary?.service.slug ?? null);
     expect(slugs(altered)).toEqual(slugs());
+  });
+
+  it('keeps full fit classification and explanation neutral when affiliate data changes', () => {
+    const input=make({assetRequirements:['3d-assets','animation'],voiceRequirement:'required'});
+    const altered=getServices().map(service=>({...service,affiliateUrl:service.affiliateUrl?null:'https://example.com/ref',affiliateAvailable:'yes' as const}));
+    const project=(catalog=getServices())=>recommendProject(input,catalog).stages.map(stage=>({stage:stage.stage,primary:stage.primary&&{slug:stage.primary.service.slug,score:stage.primary.fitScore,band:stage.primary.fitBand,reason:stage.primary.reason,matches:stage.primary.positiveMatches,warnings:stage.primary.warnings},alternatives:stage.alternatives.map(item=>({slug:item.service.slug,score:item.fitScore,band:item.fitBand,reason:item.reason})),review:stage.reviewCandidates.map(item=>({slug:item.service.slug,score:item.fitScore,band:item.fitBand,reason:item.reason,warnings:item.warnings,exclusions:item.hardExclusions}))}));
+    expect(project(altered)).toEqual(project());
   });
 
   it('never repeats the primary tool as its own alternative', () => {
