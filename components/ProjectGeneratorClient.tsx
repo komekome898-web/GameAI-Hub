@@ -171,7 +171,7 @@ export function ProjectIdeaForm({
         </p>
       )}
       <button className="button" type="submit">
-        条件を確認する
+        制作ロードマップを作る
       </button>
       <fieldset className="idea-examples">
         <legend>入力例を使う</legend>
@@ -264,7 +264,7 @@ export function ProjectGeneratorClient() {
       if (!critical.some((field) => shared[field] === "unknown"))
         setPlan(generateProjectPlan(shared));
     } else {
-      const idea = sessionStorage.getItem("gameai:project-idea");
+      const idea = new URLSearchParams(location.search).get("idea")?.slice(0,1200) || sessionStorage.getItem("gameai:project-idea");
       if (idea) void beginInterpretation(idea);
     }
     setReady(true);
@@ -633,6 +633,13 @@ function conflictLabel(conflict: string) {
   const [field, values] = conflict.split(": ");
   return `${fieldLabel(field as Field) ?? field}: ${values}`;
 }
+function projectName(brief:ProjectBrief){
+  const engine=brief.engine==='unknown'||brief.engine==='undecided'?'':`${labels.engine[brief.engine]} `;
+  const dimension=brief.dimension==='unknown'?'':`${labels.dimension[brief.dimension]} `;
+  const genre=brief.genre==='unknown'||brief.genre==='other'?'ゲーム制作':labels.genre[brief.genre];
+  return `${engine}${dimension}${genre}プロジェクト`;
+}
+const questPhase:Record<string,string>={environment:'concept',repository:'concept','required-assets':'concept','core-loop':'code',save:'integration','ui-prototype':'integration','assets-2d':'visuals','assets-3d':'3d',animation:'animation',voice:'voice',music:'music-sfx',sfx:'music-sfx','npc-dialogue':'npc-dialogue',localization:'localization',qa:'testing','store-assets':'publishing',release:'publishing'};
 const phaseLabels: Record<string, string> = {
   concept: "企画・スコープ",
   prototype: "プロトタイプ",
@@ -680,8 +687,9 @@ function BuildChecklist({steps,plan,onCopy}:{steps:BuildChecklistStep[];plan:Pro
     try{localStorage.setItem(key,JSON.stringify({version:2,completed:[...completed]}));}catch{/* In-memory progress remains usable. */}
   },[completed,key,loaded]);
   const currentIndex=steps.findIndex(item=>!completed.has(item.id));
-  const active=steps[currentIndex<0?steps.length-1:currentIndex];
-  const primaryTool=active?.tools.find(tool=>tool.role==="primary")??active?.tools[0];
+  const today=steps.filter(item=>!completed.has(item.id)).slice(0,3);
+  const activeStep=steps.find(item=>!completed.has(item.id));
+  const currentPhase=activeStep?questPhase[activeStep.id]:null;
   const toggle=(id:string)=>setCompleted(old=>{const next=new Set(old);if(next.has(id))next.delete(id);else next.add(id);return next;});
   return <section className="build-checklist" aria-labelledby="build-progress-title">
     <div className="build-progress">
@@ -689,22 +697,13 @@ function BuildChecklist({steps,plan,onCopy}:{steps:BuildChecklistStep[];plan:Pro
       <progress value={completed.size} max={steps.length}>{completed.size} / {steps.length}</progress>
       <small>完了状態はこの端末だけに保存されます。</small>
     </div>
-    {active&&<article className="active-action" aria-labelledby={`active-${active.id}`} aria-live="polite">
-      <p>{currentIndex<0?`${steps.length} / ${steps.length} 完了`:`STEP ${currentIndex+1} / ${steps.length} · 今日の最優先`}</p>
-      <h2 id={`active-${active.id}`}>{currentIndex<0?'チェックリスト完了':active.title}</h2>
-      {currentIndex>=0&&<>
-        <strong className="action-outcome">作るもの：{active.outcome}</strong>
-        <ol>{active.substeps.slice(0,3).map(value=><li key={value}>{value}</li>)}</ol>
-        <p className="active-tool"><strong>最初に使うもの：</strong>{primaryTool?<Link href={`/tools/${primaryTool.serviceSlug}`}>{primaryTool.name}</Link>:'手動（AIツール不要）'}</p>
-        <div className="active-done"><strong>完了条件</strong><ul>{active.doneWhen.map(value=><li key={value}>{value}</li>)}</ul></div>
-        <div className="action-buttons"><button className="button" onClick={()=>onCopy(active.prompt,`checklist_${active.id}`)}>プロンプトをコピー</button><button className="button ghost" disabled={!loaded} onClick={()=>toggle(active.id)}>このステップを完了にする</button></div>
-      </>}
-    </article>}
-    <h2 className="checklist-heading">制作チェックリスト</h2>
+    <section className="today-queue" aria-labelledby="today-title"><div className="queue-heading"><span>今日の優先作業</span><h2 id="today-title">今日やること</h2><p>上から最大3件。成果物を作り、完了条件を満たしたら次へ進みます。</p></div>{today.length?<div className="today-grid">{today.map((item,index)=>{const tool=item.tools.find(value=>value.role==='primary');const stepNumber=steps.findIndex(value=>value.id===item.id)+1;return <article className={index===0?'is-primary':''} key={item.id}><header><b>{String(stepNumber).padStart(2,'0')}</b><span>{index===0?'今やる':'この次'}</span></header><h3>{item.title}</h3><p className="today-why"><strong>なぜ今：</strong>{item.why}</p><dl><div><dt>使用</dt><dd>{tool?<Link href={`/tools/${tool.serviceSlug}`}>{tool.name}</Link>:item.tools.length?'候補を要確認':'Manual'}</dd></div><div><dt>成果物</dt><dd>{item.outcome}</dd></div><div><dt>完了条件</dt><dd>{item.doneWhen[0]}</dd></div></dl><div className="today-actions">{tool?<button className={index===0?'button':'button ghost'} onClick={()=>onCopy(item.prompt,`today_${item.id}`)}>Promptをコピー</button>:<a className={index===0?'button':'button ghost'} href={`#quest-${item.id}`}>具体的操作を見る</a>}<a href={`#quest-${item.id}`}>Questを開く</a></div></article>})}</div>:<p className="quest-complete">全Quest完了。公開前のリスクと商用条件を再確認してください。</p>}</section>
+    <section className="build-roadmap" aria-labelledby="roadmap-overview-title"><div><span>つながる制作工程</span><h2 id="roadmap-overview-title">Build Roadmap</h2><p>現在地と、次に受け渡す成果物を確認します。</p></div><ol>{plan.phases.map((phase,index)=>{const currentPhaseIndex=plan.phases.findIndex(item=>item.id===currentPhase);const related=steps.filter(item=>questPhase[item.id]===phase.id);const state=!activeStep?'complete':phase.id===currentPhase?'current':index<currentPhaseIndex?'complete':related.length>0&&related.every(item=>completed.has(item.id))?'complete':'upcoming';return <li className={state} key={phase.id}><span>{String(index+1).padStart(2,'0')}</span><div><strong>{phaseLabels[phase.title]??phase.title}</strong><small>{state==='complete'?(related.length?'完了':'通過'):state==='current'?'現在の工程':'この先'}</small><em>{phase.deliverables[0]}</em></div></li>})}</ol></section>
+    <h2 className="checklist-heading">Build Quest</h2><p className="section-intro">各Questは必要なときだけ開きます。AI候補、具体的操作、Prompt、完了条件が一つにつながっています。</p>
     <div className="action-list">{steps.map((item,index)=>{
       const done=completed.has(item.id); const next=steps[index+1];
-      return <details className={`action-step ${done?'is-done':''}`} key={item.id} open={!done&&index===currentIndex}>
-        <summary><span>{done?'完了':'未完了'}</span><strong>{index+1}. {item.title}</strong><small>{item.outcome}</small></summary>
+      return <details id={`quest-${item.id}`} className={`action-step ${done?'is-done':''}`} key={item.id} open={!done&&index===currentIndex}>
+        <summary><span>{done?'COMPLETE':index===currentIndex?'CURRENT':'UPCOMING'}</span><strong>{index+1}. {item.title}</strong><small>{(item.tools.find(tool=>tool.role==='primary')?.name??(item.tools.length?'候補を要確認':'Manual'))} → {item.outcome}</small></summary>
         <div className="action-detail">
           <section><h3>何を作るか</h3><ol>{item.substeps.map(value=><li key={value}>{value}</li>)}</ol></section>
           <section><h3>なぜ必要か</h3><p>{item.why}</p></section>
@@ -765,26 +764,14 @@ function ProjectResult({
   return (
     <article className="project-result">
       <header className="project-result-top">
-        <p className="eyebrow">YOUR BUILD CHECKLIST</p>
+        <p className="eyebrow">PROJECT BUILD COCKPIT</p>
         <h1 ref={headingRef} tabIndex={-1}>
-          今日やること
+          {projectName(plan.brief)}
         </h1>
-        <p className="result-intro">上から一つずつ進めます。完了条件を確認してから、この端末で完了を記録してください。</p>
+        <p className="result-intro">{labels.dimension[plan.brief.dimension]}・{labels.genre[plan.brief.genre]}を、最初のプレイ可能なbuildから順に作る計画です。</p>
         <BuildChecklist steps={steps} plan={plan} onCopy={copy} />
         <p className="share-scope-note">
           共有URLには確認済みの構造化条件だけを含み、元の自由文や固有の物語設定は含みません。完全な計画はMarkdownで共有してください。
-        </p>
-        <div className="project-result-actions">
-          <button onClick={onEdit}>条件を編集</button>
-          <button onClick={() => copy(markdown, "markdown")}>
-            Markdownをコピー
-          </button>
-          <button onClick={download}>.md保存</button>
-          <button onClick={() => window.print()}>印刷</button>
-          <button onClick={share}>共有URL</button>
-        </div>
-        <p className="copy-status" role="status" aria-live="polite">
-          {status}
         </p>
       </header>
       <section className="assumption-strip">
@@ -800,9 +787,13 @@ function ProjectResult({
         )}
         <p>{plan.assumptions.join(" / ")}</p>
       </section>
+      <details className="result-utilities"><summary>共有・書き出し・条件編集</summary><div className="project-result-actions">
+          <button onClick={onEdit}>条件を編集</button><button onClick={() => copy(markdown, "markdown")}>Markdownをコピー</button><button onClick={download}>.md保存</button><button onClick={() => window.print()}>印刷</button><button onClick={share}>共有URL</button>
+        </div><p className="copy-status" role="status" aria-live="polite">{status}</p></details>
+      <details className="secondary-plan"><summary>工程・Prompt・リスクの詳細を見る</summary><div>
       <nav className="project-section-nav" aria-label="Project Plan内">
         <a href="#vertical-slice">最初の範囲</a>
-        <a href="#roadmap">ロードマップ</a>
+        <a href="#roadmap">工程詳細</a>
         <a href="#handoff">Codex向け</a>
         <a href="#assets">素材</a>
         <a href="#risks">リスク</a>
@@ -839,7 +830,7 @@ function ProjectResult({
       <PlanSection
         id="roadmap"
         eyebrow="PRODUCTION ROADMAP"
-        title="制作ロードマップ"
+        title="工程の詳細"
         intro="各工程は、主成果物を先に、ツールの根拠やリスクを後から確認できます。"
       >
         <div className="phase-list">
@@ -959,6 +950,7 @@ function ProjectResult({
           </Link>
         </div>
       </section>
+      </div></details>
     </article>
   );
 }
