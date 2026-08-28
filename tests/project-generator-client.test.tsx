@@ -70,7 +70,7 @@ describe("Project Generator client", () => {
     });
     fireEvent.click(screen.getByRole("button", { name: "Project Planを作る" }));
     expect(
-      screen.getByRole("heading", { name: /最初に作るもの/ }),
+      screen.getByRole("heading", { name: /今日やること/ }),
     ).toBeTruthy();
     expect(
       screen.getByRole("heading", { name: "最初のプレイ可能範囲" }),
@@ -79,7 +79,7 @@ describe("Project Generator client", () => {
       screen.getByRole("heading", { name: /モンスター3体と図鑑/ }),
     ).toBeTruthy();
     expect(
-      screen.getByRole("button", { name: "最初のタスクをコピー" }),
+      screen.getAllByRole("button", { name: "プロンプトをコピー" })[0],
     ).toBeTruthy();
     expect(location.search).toContain("v=1");
   });
@@ -127,7 +127,7 @@ describe("Project Generator client", () => {
     });
     fireEvent.click(screen.getByRole("button", { name: "Project Planを作る" }));
     expect(
-      screen.getByRole("heading", { name: /最初に作るもの/ }),
+      screen.getByRole("heading", { name: /今日やること/ }),
     ).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "条件を編集" }));
     expect(
@@ -169,7 +169,7 @@ describe("Project Generator client", () => {
     ).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "Project Planを作る" }));
     expect(
-      screen.getByRole("heading", { name: /最初に作るもの/ }),
+      screen.getByRole("heading", { name: /今日やること/ }),
     ).toBeTruthy();
     expect(location.search).not.toContain(encodeURIComponent("盲目の怪物"));
   });

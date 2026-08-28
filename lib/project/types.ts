@@ -57,6 +57,17 @@ export type PlanPhase = { id:string; title:string; objective:string; deliverable
 export type AgentArtifact = { title:string; content:string };
 export type ProjectRisk = { id:string; title:string; why:string; mitigation:string; verification:string };
 export type PromptArtifact = { id:string; taskId:string; title:string; content:string };
+export type BuildChecklistStep = {
+  id:string;
+  title:string;
+  outcome:string;
+  why:string;
+  substeps:string[];
+  tools:PlanTool[];
+  usageInstructions:string[];
+  prompt:string;
+  doneWhen:string[];
+};
 export type ProjectPlan = {
   version: 1;
   brief: ProjectBrief;

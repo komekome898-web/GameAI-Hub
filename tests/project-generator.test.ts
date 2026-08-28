@@ -257,3 +257,21 @@ describe('versioned share state',()=>{
     expect(decodeProjectState(state)).toBeNull();
   });
 });
+
+import { buildChecklist } from '@/lib/project/checklist';
+
+describe('action-first build checklist',()=>{
+  it('creates an ordered practical checklist and omits unrequested audio',()=>{
+    const plan=generateProjectPlan(brief({genre:'puzzle',dimension:'2d',platform:'web',engine:'godot',capabilities:['coding','art-2d']}));
+    const actions=buildChecklist(plan);
+    expect(actions.map(item=>item.id)).toEqual(['environment','repository','core-loop','save','ui-prototype','required-assets','qa','store-assets','release']);
+    expect(actions.every(item=>item.substeps.length>=3&&item.why&&item.prompt&&item.doneWhen.length)).toBe(true);
+    expect(new Set(actions.map(item=>item.prompt)).size).toBe(actions.length);
+    expect(actions.find(item=>item.id==='environment')?.doneWhen.join(' ')).toContain('起動');
+    expect(JSON.stringify(actions)).not.toContain('affiliateUrl');
+  });
+  it('adds audio only when the generated workflow requires it',()=>{
+    const plan=generateProjectPlan(brief({capabilities:['coding','voice','music','npc-dialogue','localization']}));
+    expect(buildChecklist(plan).map(item=>item.id)).toEqual(expect.arrayContaining(['audio','dialogue-localization']));
+  });
+});
