@@ -32,7 +32,7 @@ describe("Project Generator client", () => {
     fireEvent.change(screen.getByLabelText(/どんなゲームを作りたいですか？/), {
       target: { value: idea },
     });
-    fireEvent.click(screen.getByRole("button", { name: "条件を確認する" }));
+    fireEvent.click(screen.getByRole("button", { name: "制作ロードマップを作る" }));
     expect(sessionStorage.getItem("gameai:project-idea")).toBe(idea);
     expect(push).toHaveBeenCalledWith("/project");
     const detail = (listener.mock.calls[0][0] as CustomEvent).detail;

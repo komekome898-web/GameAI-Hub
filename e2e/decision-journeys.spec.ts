@@ -24,7 +24,7 @@ async function expectNoHorizontalOverflow(page: Page) {
 
 async function generateProject(page: Page, idea: string) {
   await page.getByLabel('どんなゲームを作りたいですか？').fill(idea);
-  await page.getByRole('button', { name: '条件を確認する' }).click();
+  await page.getByRole('button', { name: '制作ロードマップを作る' }).click();
   const form = page.locator('.clarify-form');
   await expect(form).toBeVisible();
   await expect(form.locator('select')).toHaveCount(Object.keys(defaults).length);
@@ -66,7 +66,7 @@ test.describe('Project Interpreter provider states',()=>{
     await page.setViewportSize(mobile);
     await page.route('**/api/project/interpret',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(providerInterpretation('provider'))}));
     await page.goto('/project');await page.getByLabel('どんなゲームを作りたいですか？').fill('2D RPG');
-    await page.getByRole('button',{name:'条件を確認する'}).click();
+    await page.getByRole('button',{name:'制作ロードマップを作る'}).click();
     await expect(page.getByText('E2E Provider が条件候補を抽出しました',{exact:false})).toBeVisible();
     await page.getByRole('button',{name:'Project Planを作る'}).click();
     await expect(page.locator('#clarify-error')).toContainText('AIが抽出した候補を確認してください');
@@ -80,7 +80,7 @@ test.describe('Project Interpreter provider states',()=>{
   test('provider未設定は実Route Handlerから決定ルールへフォールバックする',async({page})=>{
     await page.setViewportSize(mobile);await page.goto('/project');
     const responsePromise=page.waitForResponse(response=>response.url().includes('/api/project/interpret')&&response.status()===200);
-    await page.getByLabel('どんなゲームを作りたいですか？').fill('2D RPG');await page.getByRole('button',{name:'条件を確認する'}).click();
+    await page.getByLabel('どんなゲームを作りたいですか？').fill('2D RPG');await page.getByRole('button',{name:'制作ロードマップを作る'}).click();
     const response=await responsePromise;expect(response.status()).toBe(200);
     expect((await response.json()).status).toMatchObject({mode:'deterministic',fallbackReason:'not_configured'});
     await expect(page.getByText('外部AIは設定されていません',{exact:false})).toBeVisible();await expectNoHorizontalOverflow(page);
@@ -93,7 +93,7 @@ test.describe('Project Interpreter provider states',()=>{
   ])test(`${scenario.name} fallbackを375pxで正直に表示する`,async({page})=>{
     await page.setViewportSize(mobile);
     await page.route('**/api/project/interpret',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(providerInterpretation('deterministic',scenario.reason))}));
-    await page.goto('/project');await page.getByLabel('どんなゲームを作りたいですか？').fill('2D RPG');await page.getByRole('button',{name:'条件を確認する'}).click();
+    await page.goto('/project');await page.getByLabel('どんなゲームを作りたいですか？').fill('2D RPG');await page.getByRole('button',{name:'制作ロードマップを作る'}).click();
     await expect(page.getByText(scenario.copy,{exact:false})).toBeVisible();await expect(page.locator('.clarify-form')).toBeVisible();await expectNoHorizontalOverflow(page);
   });
 });
@@ -102,15 +102,16 @@ test('375px: homeからno voice/no 3DのProject Planを完走できる', async (
   await page.setViewportSize(mobile);
   await page.goto('/');
   await expectNoHorizontalOverflow(page);
-  const button = page.getByRole('button', { name: '条件を確認する' });
+  const button = page.getByRole('button', { name: '制作ロードマップを作る' });
   const box = await button.boundingBox();
   expect(box?.height).toBeGreaterThanOrEqual(44);
   await generateProject(page, '2Dパズル。ブラウザゲーム。一人開発。初心者。無料で作る。個人利用。Godot。音声なし。3Dなし。');
+  await page.getByText('工程・Prompt・リスクの詳細を見る').click();
   await expect(page.getByRole('heading', { name: '最初のプレイ可能範囲' })).toBeVisible();
   const result = page.locator('.project-result');
   await expect(result).not.toContainText('台詞ID・話者同意・音声ファイル');
   await expect(result).not.toContainText('3Dモデル');
-  await page.getByRole('button', { name: 'このステップを完了にする' }).click();
+  await page.getByLabel('制作環境を起動するを完了として記録').check();
   await expect(page.locator('.build-progress span')).toContainText(/1 \/ \d+ 完了/);
   await page.reload();
   await expect(page.locator('.build-progress span')).toContainText(/1 \/ \d+ 完了/);
@@ -122,6 +123,7 @@ test('自由文のゲーム固有情報が主要な制作成果物すべてに�
   await page.goto('/project');
   const idea = 'Steam向け2D RPG。Godot。主人公は灯台守ミナ。沈没図書館を舞台に、光る種を育成して記憶の番人と戦闘する。一人開発。初心者。低予算。商用。日本語のみ。絵はAIで作りたい。';
   await generateProject(page, idea);
+  await page.getByText('工程・Prompt・リスクの詳細を見る').click();
 
   const checks: Array<{ name: string; locator: string; details?: string }> = [
     { name: 'Vertical Slice', locator: '#vertical-slice .slice-grid' },
@@ -184,7 +186,7 @@ test('320pxかつ200% zoomでも主要画面に横方向の文書overflowがな�
     await generateProject(page, '2Dパズル。ブラウザ。一人開発。初心者。低予算。個人利用。Godot。音声なし。3Dなし。');
     await session.send('Emulation.setPageScaleFactor', { pageScaleFactor: 2 });
     await expectNoHorizontalOverflow(page);
-    const completion = page.getByRole('button', { name: 'このステップを完了にする' });
+    const completion = page.locator('.completion-control').first();
     expect((await completion.boundingBox())?.height).toBeGreaterThanOrEqual(44);
   } finally {
     await session.send('Emulation.setPageScaleFactor', { pageScaleFactor: 1 });
