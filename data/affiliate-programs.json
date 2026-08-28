@@ -1,13 +1,182 @@
 {
-  "github-copilot": {"status":"unknown","affiliateUrl":null,"network":null,"approvedAt":null},
-  "cursor": {"status":"inactive","affiliateUrl":null,"network":"Cursor","approvedAt":null},
-  "scenario": {"status":"pending","affiliateUrl":null,"network":"Scenario Creator Partner Program","approvedAt":null},
-  "elevenlabs": {"status":"active","affiliateUrl":"https://try.elevenlabs.io/jlxoxtxe9768","network":"PartnerStack","approvedAt":"2026-08-25"},
-  "suno": {"status":"unknown","affiliateUrl":null,"network":"Suno Spark","approvedAt":null},
-  "meshy": {"status":"active","affiliateUrl":"https://www.meshy.ai?via=gameaihub","network":"Meshy Direct","approvedAt":"2026-08-25"},
-  "inworld": {"status":"unknown","affiliateUrl":null,"network":"Inworld Referral","approvedAt":null},
-  "rosebud-ai": {"status":"inactive","affiliateUrl":null,"network":"Rosebud Referral","approvedAt":null},
-  "unity": {"status":"pending","affiliateUrl":null,"network":"Partnerize","approvedAt":null},
-  "deepl-api": {"status":"unknown","affiliateUrl":null,"network":null,"approvedAt":null},
-  "modl-ai": {"status":"unknown","affiliateUrl":null,"network":null,"approvedAt":null}
+  "github-copilot": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "cursor": {
+    "status": "inactive",
+    "affiliateUrl": null,
+    "network": "Cursor",
+    "approvedAt": null
+  },
+  "scenario": {
+    "status": "pending",
+    "affiliateUrl": null,
+    "network": "Scenario Creator Partner Program",
+    "approvedAt": null
+  },
+  "elevenlabs": {
+    "status": "active",
+    "affiliateUrl": "https://try.elevenlabs.io/jlxoxtxe9768",
+    "network": "PartnerStack",
+    "approvedAt": "2026-08-25"
+  },
+  "suno": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": "Suno Spark",
+    "approvedAt": null
+  },
+  "meshy": {
+    "status": "active",
+    "affiliateUrl": "https://www.meshy.ai?via=gameaihub",
+    "network": "Meshy Direct",
+    "approvedAt": "2026-08-25"
+  },
+  "inworld": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": "Inworld Referral",
+    "approvedAt": null
+  },
+  "rosebud-ai": {
+    "status": "inactive",
+    "affiliateUrl": null,
+    "network": "Rosebud Referral",
+    "approvedAt": null
+  },
+  "unity": {
+    "status": "pending",
+    "affiliateUrl": null,
+    "network": "Partnerize",
+    "approvedAt": null
+  },
+  "deepl-api": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "modl-ai": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "openai-gpt": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "anthropic-claude": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "google-gemini": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "xai-grok": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "deepseek": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "qwen": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "openai-codex": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "claude-code": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "midjourney": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "adobe-firefly": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "leonardo-ai": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "tripo-ai": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "adobe-mixamo": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "runway": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "stable-audio": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "convai": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "ludo-ai": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "canva-magic-studio": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  },
+  "anything-world": {
+    "status": "unknown",
+    "affiliateUrl": null,
+    "network": null,
+    "approvedAt": null
+  }
 }

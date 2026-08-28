@@ -52,6 +52,12 @@ export type PlanTool = {
   manualChecks:string[];
   lastVerified:string;
   sources:{label:string;url:string;type:'official'|'terms'|'pricing'|'docs'}[];
+  fitScore:number;
+  fitBand:'strong'|'good'|'review';
+  affectedInputs:string[];
+  positiveMatches:string[];
+  hardExclusions:string[];
+  warnings:string[];
 };
 export type PlanPhase = { id:string; title:string; objective:string; deliverables:string[]; toolPath:string[]; tools:PlanTool[]; alternatives:string[]; manualWork:string[]; dependencies:string[]; risks:string[]; doneWhen:string[]; handoff:string };
 export type AgentArtifact = { title:string; content:string };

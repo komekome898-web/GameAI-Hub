@@ -20,11 +20,12 @@ const inputRefsFor=(stage:string,brief:ProjectBrief):string[]=>{
   if(stage==='code')refs.push(`制作経験: ${label(brief.experience)}`);
   return refs;
 };
-const planTool=(candidate:{service:import('@/lib/schema').Service;reason:string;evidence:string[];limitations:string[];unknowns:string[];manualChecks:string[]},role:PlanTool['role'],stage:string,brief:ProjectBrief):PlanTool=>({
+const planTool=(candidate:import('@/lib/recommendation/types').ToolRecommendation,role:PlanTool['role'],stage:string,brief:ProjectBrief):PlanTool=>({
   serviceSlug:candidate.service.slug,name:candidate.service.name,role,reason:candidate.reason,inputRefs:inputRefsFor(stage,brief),evidence:candidate.evidence,
   commercialUse:candidate.service.commercialUse,freePlan:candidate.service.freePlan,api:candidate.service.api,engineRelevance:candidate.service.engines,
   limitations:candidate.limitations,unknowns:candidate.unknowns,manualChecks:candidate.manualChecks,lastVerified:candidate.service.lastVerified,
   sources:candidate.service.sources.map(({label,url,type})=>({label,url,type})),
+  fitScore:candidate.fitScore,fitBand:candidate.fitBand,affectedInputs:candidate.inputEffects,positiveMatches:candidate.positiveMatches,hardExclusions:candidate.hardExclusions,warnings:candidate.warnings,
 });
 
 export function generateProjectPlan(raw:ProjectBrief):ProjectPlan {
