@@ -61,8 +61,12 @@ export function ArticleAffiliateCtas(){
       }
     }
 
-    setMounts({disclosure,first,second});
+    const frame=requestAnimationFrame(()=>{
+      setMounts({disclosure,first,second});
+    });
+
     return ()=>{
+      cancelAnimationFrame(frame);
       [disclosure,first,second].forEach(node=>node?.remove());
     };
   },[pathname]);

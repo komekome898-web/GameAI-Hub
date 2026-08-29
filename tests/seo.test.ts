@@ -75,11 +75,13 @@ describe('SEO', () => {
 
   it('sitemap has all public routes, detail pages, and no query pages', () => {
     const map = sitemap();
-    expect(map).toHaveLength(8 + getServices().length + stackTemplates.length + guides.length);
+    expect(map).toHaveLength(10 + getServices().length + stackTemplates.length + guides.length);
     expect(map.every(({ url }) => url.startsWith(`${site.url}/`) || url === site.url)).toBe(true);
     expect(map.some(({ url }) => url.includes('?'))).toBe(false);
     expect(map.some(({ url }) => url.includes('/compare'))).toBe(false);
     expect(map.every(({url})=>url.endsWith('/'))).toBe(true);
+    expect(map.some(({ url }) => url.endsWith('/articles/ai-fantasy/'))).toBe(true);
+    expect(map.some(({ url }) => url.endsWith('/articles/ai-usage-guide/'))).toBe(true);
     for (const service of getServices()) {
       expect(map.some(({ url }) => url.endsWith(`/tools/${service.slug}/`))).toBe(true);
     }
