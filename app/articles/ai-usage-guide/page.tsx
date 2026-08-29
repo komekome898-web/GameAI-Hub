@@ -102,18 +102,21 @@ export default function AiUsageGuideArticle(){return <article className="page-sh
     <h2>用途別に、どのAIを使うか</h2>
     <p>これは2026年8月時点の私の使い分け方だ。モデル名や提供状況はすぐ変わるので、「永遠のランキング」だと思わないでほしい。</p>
     <h3>複雑な調査・設計・長い仕事</h3>
-    <p><strong>GPT-5.6 Sol</strong>。複雑な知識作業、コーディング、調査、コンピューター操作など幅広い仕事を一つの流れで扱いたいときに使いやすい。私は「何を使えばいいか分からない複雑な仕事」の最初の候補にする。</p>
+    <p><strong>GPT-5.6 Sol</strong>。複雑な知識作業、コーディング、調査、コンピューター操作など幅広い仕事を一つの流れで扱いたいときの候補。私は「何を使えばいいか分からない複雑な仕事」の最初に試しやすいと思っている。</p>
     <h3>大きなコードベースを触る開発</h3>
-    <p><strong>Claude Code / Claude系</strong>。リポジトリを読ませて、複数ファイルをまたぐ修正、長めの実装、リファクタをさせる用途では有力な候補。特に実装作業では、チャットだけでなくエージェント環境そのものを選ぶ方が重要だと思っている。</p>
-    <h3>長い資料・画像・動画も含めた理解</h3>
-    <p><strong>Gemini 2.5 Pro</strong>。長いコンテキストやマルチモーダル情報をまとめて扱いたいときの候補。大量の資料や映像も含めて考えさせたい用途では試す価値がある。</p>
-    <h3>安く大量に回す</h3>
-    <p><strong>各社の軽量モデル、DeepSeek系、Qwen系など</strong>。毎回最高性能が必要なわけではない。分類、変換、下書き、候補出しなどは、安い・速いモデルへ逃がした方が合理的なことが多い。</p>
+    <p><strong>Claude Code + Claude Opus 5などのClaude系</strong>。リポジトリを読ませて、複数ファイルをまたぐ修正、長めの実装、リファクタをさせる用途では有力な候補。特に開発では、モデル名だけでなく、リポジトリ・ターミナル・テストへアクセスできるエージェント環境そのものを選ぶ方が重要だと思っている。</p>
+    <h3>画像・動画・長い資料をまとめて理解させる</h3>
+    <p><strong>Gemini 3系</strong>。GoogleはGemini 3を推論・マルチモーダル・コーディングを強化した世代として展開している。画像、資料、動画など複数形式をまとめて扱いたいときは候補に入れる。</p>
+    <h3>速度を優先する日常作業</h3>
+    <p><strong>Gemini 3.5 Flashや各社の軽量モデル</strong>。分類、変換、下書き、候補出しなどは毎回フラッグシップを使う必要はない。速いモデルへ逃がした方が合理的なことが多い。</p>
+    <h3>安く大量に回す・自前運用も検討する</h3>
+    <p><strong>DeepSeek系、Qwen系、その他のオープン／低コストモデル</strong>も候補になる。ただし、モデル名よりも必要な精度、データの扱い、実行環境、料金を見て選ぶ。</p>
     <h3>画像生成</h3>
     <p>文章モデルと同じ感覚で選ばない。キャラクターの一貫性、ロゴ、UI素材、コンセプトアートでは必要な能力が違う。1回の見栄えより、<strong>同じデザインを何度再現できるか</strong>まで見る。</p>
     <h3>音声</h3>
     <p>自然さだけでなく、商用条件、声の権利、API、同じ声を大量生成できるかを見る。ゲーム用途では、1本のデモ音声が良いだけでは足りない。</p>
     <p>要するに「一番強いAIを1個契約して全部やらせる」より、<strong>仕事ごとにモデルを変える</strong>方が私は現実的だと思っている。</p>
+    <p><small>モデル情報は2026年8月時点。提供状況は変わるため、利用前に各社の公式情報を確認してください。</small></p>
   </section>
 
   <section>
@@ -163,6 +166,16 @@ export default function AiUsageGuideArticle(){return <article className="page-sh
     <p>コードや文章の最初の70%を、圧倒的な速さで作らせられることだ。</p>
     <p>そして残り30%をどう詰めるかは、仕事によってAIと人間の分担を変える。</p>
     <p>私はこれくらいの期待値が、一番AIを強く使えると思っている。</p>
+  </section>
+
+  <section>
+    <h2>モデル情報の確認先</h2>
+    <p>モデルは更新が速いので、記事内の名前を鵜呑みにせず、実際に使う前に公式情報を見る。</p>
+    <ul>
+      <li><a href="https://help.openai.com/en/articles/20001354-gpt-56-in-chatgpt/" target="_blank" rel="noopener">OpenAI: GPT-5.6 in ChatGPT ↗</a></li>
+      <li><a href="https://www.anthropic.com/news/claude-opus-5" target="_blank" rel="noopener">Anthropic: Claude Opus 5 ↗</a></li>
+      <li><a href="https://blog.google/products-and-platforms/products/gemini/gemini-3/" target="_blank" rel="noopener">Google: Gemini 3 ↗</a></li>
+    </ul>
   </section>
 
   <section className="result-next">
