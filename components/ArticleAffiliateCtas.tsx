@@ -20,7 +20,7 @@ export function ArticleAffiliateCtas(){
   const isUsage=pathname==='/articles/ai-usage-guide';
   const heading=isUsage?'実際にAIを試すなら、用途を絞って使う':'幻想を捨てた上で、実際の道具として試す';
   const intro=isUsage
-    ?'「一番強いAIを全部に使う」のではなく、仕事ごとに選ぶ。今このサイトで紹介料が発生するリンクを持っている中では、音声はElevenLabs、3D生成はMeshyを確認できる。'
+    ?'「一番強いAIを全部に使う」のではなく、仕事ごとに選ぶ。音声ならElevenLabs、3D生成ならMeshyのように、用途を絞って実際の制作工程で試す。'
     :'AIそのものを否定したいわけではない。用途を限定し、出力を自分で確認する前提ならかなり強い。具体例として、音声生成と3D生成の入口を置いておく。';
 
   const click=(offer:Offer,index:number)=>{
@@ -30,6 +30,7 @@ export function ArticleAffiliateCtas(){
   };
 
   return <section className="page-shell article-affiliate" aria-labelledby="article-affiliate-title">
+    <p className="affiliate-disclosure-note"><small>この記事にはプロモーションを含みます。</small></p>
     <p className="section-label">TOOLS I WOULD ACTUALLY TEST</p>
     <h2 id="article-affiliate-title">{heading}</h2>
     <p>{intro}</p>
@@ -40,6 +41,5 @@ export function ArticleAffiliateCtas(){
         <a href={offer.href} target="_blank" rel="sponsored nofollow noopener" onClick={()=>click(offer,index)}>{offer.cta}</a>
       </article>)}
     </div>
-    <p className="affiliate-disclosure-note"><small>※ 上記2リンクはアフィリエイトリンクです。リンク経由の申込み等で当サイトに紹介料が発生する場合があります。紹介料の有無は、記事の評価やおすすめ順位には影響させません。</small></p>
   </section>;
 }
