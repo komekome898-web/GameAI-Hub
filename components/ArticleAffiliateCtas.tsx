@@ -11,7 +11,7 @@ const MESHY='https://www.meshy.ai?via=gameaihub';
 type Mounts={disclosure:HTMLElement|null;first:HTMLElement|null;second:HTMLElement|null};
 
 function makeMount(after:Element,key:string){
-  const mount=document.createElement('span');
+  const mount=document.createElement('div');
   mount.dataset.articleAffiliateMount=key;
   after.insertAdjacentElement('afterend',mount);
   return mount;
