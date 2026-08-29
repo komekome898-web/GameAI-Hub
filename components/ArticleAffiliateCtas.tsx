@@ -23,7 +23,8 @@ function click(service:string,page:string,placement:string){
 }
 
 export function ArticleAffiliateCtas(){
-  const pathname=usePathname();
+  const rawPathname=usePathname();
+  const pathname=rawPathname.length>1?rawPathname.replace(/\/$/,''):rawPathname;
   const [mounts,setMounts]=useState<Mounts>({disclosure:null,first:null,second:null});
 
   useEffect(()=>{
