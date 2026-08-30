@@ -67,6 +67,7 @@ export type PlanTool = {
   unknowns:string[];
   manualChecks:string[];
   lastVerified:string;
+  verificationStatus:'verified'|'partially_verified'|'unknown'|'stale';
   sources:{label:string;url:string;type:'official'|'terms'|'pricing'|'docs'}[];
   fitScore:number;
   fitBand:'strong'|'good'|'review';

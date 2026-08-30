@@ -8,6 +8,7 @@ function canonical(value:unknown):string {
 
 export function projectProgressIdentity(plan:ProjectPlan):string {
   const {idea: _unconfirmedProse, details, capabilities, ...fields}=plan.brief;
+  void _unconfirmedProse;
   return canonical({
     version:plan.version,
     brief:{

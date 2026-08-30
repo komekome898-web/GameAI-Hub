@@ -1,6 +1,7 @@
 import { recommendationRules } from '@/data/recommendation-rules';
 import { productionStageIds, ProjectInputSchema, type ProductionStageId, type ProjectInput, type RecommendationRule } from '@/lib/domain';
 import type { Service } from '@/lib/schema';
+import { verificationStatusLabel } from '@/lib/verification-status';
 import { getServices } from '@/lib/services';
 import type { RecommendationResult, StageRequirement, ToolRecommendation } from './types';
 
@@ -98,7 +99,7 @@ function tool(service: Service, reason: string, input: ProjectInput, constraintC
     manualChecks.push('商用利用は条件付きです。公式規約で対象プラン、生成時点の契約・利用条件、用途ごとの許諾範囲を採用前に確認してください');
   }
   if (input.integrationImportance === 'high' && service.api === 'yes') evidence.push('API: あり');
-  if (service.verificationStatus !== 'verified') unknowns.push(`情報の検証状態: ${service.verificationStatus}`);
+  if (service.verificationStatus !== 'verified') unknowns.push(`公式資料の確認状態: ${verificationStatusLabel(service.verificationStatus)}`);
   manualChecks.push(`採用前に公式情報を再確認（掲載確認日: ${service.lastVerified}）`);
   return { service, reason, evidence, limitations:[...service.weaknesses], unknowns, manualChecks, costVisibility:service.pricing, fitScore:fit.hardExclusions.length?0:fit.score, fitBand:fit.hardExclusions.length?'review':fit.band, inputEffects:fit.inputEffects, positiveMatches:fit.positiveMatches, hardExclusions:fit.hardExclusions, warnings:fit.warnings };
 }

@@ -25,7 +25,9 @@ const guidance:Record<string,{usage:string[];request:string}>={
 function step(plan:ProjectPlan,id:string,title:string,outcome:string,why:string,phase:PlanPhase|undefined,substeps:string[],doneWhen:string[],forceManual=false):BuildChecklistStep {
   const tools=forceManual?[]:phase?.tools??[];
   const guide=guidance[id];
-  const primary=tools.find(tool=>tool.role==='primary')??tools[0];
+  // Review-only candidates remain visible as research leads, but must never
+  // become the adopted tool in generated instructions or prompts.
+  const primary=tools.find(tool=>tool.role==='primary')??tools.find(tool=>tool.role==='alternative');
   const usageInstructions=guide.usage.map((instruction,index)=>index===0&&primary?`${primary.name}: ${instruction.replace('推薦された','')}`:instruction);
   return {id,title,outcome,why,substeps,tools,usageInstructions,prompt:`あなたはゲーム制作アシスタントです。次の一工程だけを支援してください。\n${projectContext(plan)}\n工程: ${title}\n成果物: ${outcome}\n${primary?`使用候補: ${primary.name}\n`:''}依頼: ${guide.request}\n未確認の価格、権利、形式、寸法、期間を推測せず「要確認」と明記してください。`,doneWhen};
 }

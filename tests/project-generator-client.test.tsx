@@ -17,7 +17,9 @@ vi.mock("next/navigation", () => ({ useRouter: () => ({ push }) }));
 
 afterEach(() => {
   cleanup();
+  vi.restoreAllMocks();
   sessionStorage.clear();
+  localStorage.clear();
   history.replaceState(null, "", "/project");
   push.mockClear();
 });
@@ -42,6 +44,29 @@ describe("Project Generator client", () => {
     });
     expect(JSON.stringify(detail)).not.toContain("秘密の企画名");
     window.removeEventListener("gameai:event", listener);
+  });
+
+  it("continues to the project route when session storage is unavailable", () => {
+    vi.spyOn(Storage.prototype, "setItem").mockImplementation(function (this: Storage) {
+      if (this === window.sessionStorage) throw new Error("storage blocked");
+    });
+    render(<ProjectIdeaForm location="home" />);
+    fireEvent.change(screen.getByLabelText(/どんなゲームを作りたいですか？/), {
+      target: { value: "小さな2Dゲーム" },
+    });
+    expect(() =>
+      fireEvent.click(screen.getByRole("button", { name: "制作ロードマップを作る" })),
+    ).not.toThrow();
+    expect(push).toHaveBeenCalledWith("/project");
+  });
+
+  it("collapses home examples until requested", () => {
+    render(<ProjectIdeaForm location="home" />);
+    const summary = screen.getByText("入力例を見る");
+    expect(summary.closest("details")?.open).toBe(false);
+    fireEvent.click(summary);
+    expect(summary.closest("details")?.open).toBe(true);
+    expect(screen.getAllByRole("button", { name: /モンスター収集|Steam向け3Dホラー|ビジュアルノベル/ })).toHaveLength(3);
   });
 
   it("shows inferred provenance, blocks unknown critical fields, then creates an actionable plan", async () => {
@@ -172,5 +197,70 @@ describe("Project Generator client", () => {
       screen.getByRole("heading", { name: /今日やること/ }),
     ).toBeTruthy();
     expect(location.search).not.toContain(encodeURIComponent("盲目の怪物"));
+  });
+
+  it("blocks implementation while the engine is unresolved and regenerates after adoption", async () => {
+    const shared: ProjectBrief = {
+      idea: "エンジン比較中の小規模ゲーム",
+      genre: "puzzle",
+      dimension: "2d",
+      platform: "desktop",
+      engine: "undecided",
+      budget: "low",
+      experience: "beginner",
+      team: "solo",
+      commercialIntent: "personal",
+      capabilities: ["coding"],
+      locale: "ja",
+      details: [],
+    };
+    history.replaceState(null, "", `/project?${encodeProjectState(shared)}`);
+    render(<ProjectGeneratorClient />);
+    expect(await screen.findByRole("heading", { name: "実装前にゲームエンジンを決める" })).toBeTruthy();
+    expect(screen.getAllByText("エンジン決定待ち").length).toBeGreaterThan(0);
+    fireEvent.click(screen.getByRole("button", { name: "今回は保留する" }));
+    expect(screen.getByRole("status").textContent).toContain("比較以外のQuestはブロック");
+    fireEvent.change(screen.getByLabelText("採用候補"), { target: { value: "godot" } });
+    vi.spyOn(Storage.prototype, "setItem").mockImplementation(function (this: Storage) {
+      if (this === window.localStorage) throw new Error("quota exceeded");
+    });
+    fireEvent.click(screen.getByRole("button", { name: "このエンジンを採用して計画を再生成" }));
+    await waitFor(() =>
+      expect(screen.queryByRole("heading", { name: "実装前にゲームエンジンを決める" })).toBeNull(),
+    );
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toContain("Godot");
+    expect(screen.getByText(/非公開下書きをこの端末に保存できませんでした/)).toBeTruthy();
+    expect(screen.getByRole("button", { name: "Markdownを今すぐ保存" })).toBeTruthy();
+  });
+
+  it("deletes all local project data and keeps the live status outside the collapsed utility", async () => {
+    const shared: ProjectBrief = {
+      idea: "削除確認用ゲーム",
+      genre: "puzzle",
+      dimension: "2d",
+      platform: "web",
+      engine: "other",
+      budget: "free",
+      experience: "beginner",
+      team: "solo",
+      commercialIntent: "personal",
+      capabilities: ["coding"],
+      locale: "ja",
+      details: [],
+    };
+    localStorage.setItem("gameai:project-private-draft:v1:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "private");
+    localStorage.setItem("gameai:build-progress:v2:test", "progress");
+    sessionStorage.setItem("gameai:project-idea", "元の秘密文");
+    history.replaceState(null, "", `/project?${encodeProjectState(shared)}`);
+    render(<ProjectGeneratorClient />);
+    await screen.findByRole("heading", { name: /今日やること/ });
+    const summary = screen.getByText("共有・書き出し・条件編集");
+    fireEvent.click(summary);
+    fireEvent.click(screen.getByRole("button", { name: "この端末の非公開データをすべて削除" }));
+    fireEvent.click(summary);
+    expect(localStorage.getItem("gameai:project-private-draft:v1:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")).toBeNull();
+    expect(localStorage.getItem("gameai:build-progress:v2:test")).toBeNull();
+    expect(sessionStorage.getItem("gameai:project-idea")).toBeNull();
+    expect(screen.getByRole("status").textContent).toContain("すべて削除しました");
   });
 });
