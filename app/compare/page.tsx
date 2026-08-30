@@ -8,9 +8,9 @@ export const metadata:Metadata={title:'AIゲーム開発ツール比較',descrip
 export default function ComparePage(){return <section className="compare-page">
   <div className="page-hero compact">
     <p className="eyebrow">PRODUCTION DECISION</p>
-    <h1>この工程なら、<br/>どちらを使う？</h1>
-    <p className="lead">まず制作工程に対する判断材料を確認し、その後で料金・権利・APIなどの詳細差分を検証します。</p>
-    <div className="directory-meta"><span>最大4ツール</span><span>差分を強調</span><span>公式確認日を表示</span></div>
+    <h1>候補を、根拠から比べる。</h1>
+    <p className="lead">選んだ候補の注意点を先に確認。その後で料金・権利・APIなどの差分を、公式情報への導線つきで検証します。</p>
+    <div className="directory-meta"><span>最大4ツール</span><span>判断を先に表示</span><span>公式資料の確認状態</span></div>
   </div>
   <Suspense fallback={<div className="loading-panel">比較表を読み込んでいます…</div>}><CompareClient services={getServices()}/></Suspense>
 </section>}

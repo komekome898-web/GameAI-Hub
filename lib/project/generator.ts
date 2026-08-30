@@ -23,7 +23,7 @@ const inputRefsFor=(stage:string,brief:ProjectBrief):string[]=>{
 const planTool=(candidate:import('@/lib/recommendation/types').ToolRecommendation,role:PlanTool['role'],stage:string,brief:ProjectBrief):PlanTool=>({
   serviceSlug:candidate.service.slug,name:candidate.service.name,role,reason:candidate.reason,inputRefs:inputRefsFor(stage,brief),evidence:candidate.evidence,
   commercialUse:candidate.service.commercialUse,freePlan:candidate.service.freePlan,api:candidate.service.api,engineRelevance:candidate.service.engines,
-  limitations:candidate.limitations,unknowns:candidate.unknowns,manualChecks:candidate.manualChecks,lastVerified:candidate.service.lastVerified,
+  limitations:candidate.limitations,unknowns:candidate.unknowns,manualChecks:candidate.manualChecks,lastVerified:candidate.service.lastVerified,verificationStatus:candidate.service.verificationStatus,
   sources:candidate.service.sources.map(({label,url,type})=>({label,url,type})),
   fitScore:candidate.fitScore,fitBand:candidate.fitBand,affectedInputs:candidate.inputEffects,positiveMatches:candidate.positiveMatches,hardExclusions:candidate.hardExclusions,warnings:candidate.warnings,
 });

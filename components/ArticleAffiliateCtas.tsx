@@ -5,10 +5,8 @@ import { createPortal } from 'react-dom';
 import { usePathname } from 'next/navigation';
 import { buildSubId, track } from '@/lib/analytics';
 
-const ELEVENLABS='https://try.elevenlabs.io/jlxoxtxe9768';
-const MESHY='https://www.meshy.ai?via=gameaihub';
-
 type Mounts={disclosure:HTMLElement|null;first:HTMLElement|null;second:HTMLElement|null};
+export type ArticleServiceLink={slug:string;name:string;url:string;affiliate:boolean};
 
 function makeMount(after:Element,key:string){
   const mount=document.createElement('div');
@@ -17,12 +15,21 @@ function makeMount(after:Element,key:string){
   return mount;
 }
 
-function click(service:string,page:string,placement:string){
-  const sub_id=buildSubId(service,page,placement);
-  track('affiliate_click',{service,page,placement,sub_id});
+function ArticleServiceAnchor({service,page,placement,disclosureId}:{service:ArticleServiceLink;page:string;placement:string;disclosureId:string}){
+  return <a
+    href={service.url}
+    target="_blank"
+    rel={service.affiliate?'sponsored nofollow noopener':'noopener'}
+    aria-describedby={service.affiliate?disclosureId:undefined}
+    onClick={()=>{
+      const properties={service:service.slug,page,placement,sub_id:buildSubId(service.slug,page,placement)};
+      track('outbound_click',properties);
+      if(service.affiliate)track('affiliate_click',properties);
+    }}
+  >{service.name}</a>;
 }
 
-export function ArticleAffiliateCtas(){
+export function ArticleAffiliateCtas({meshy,elevenlabs}:{meshy:ArticleServiceLink|null;elevenlabs:ArticleServiceLink|null}){
   const rawPathname=usePathname();
   const pathname=rawPathname.length>1?rawPathname.replace(/\/$/,''):rawPathname;
   const [mounts,setMounts]=useState<Mounts>({disclosure:null,first:null,second:null});
@@ -61,22 +68,28 @@ export function ArticleAffiliateCtas(){
       }
     }
 
-    setMounts({disclosure,first,second});
+    let active=true;
+    queueMicrotask(()=>{
+      if(active)setMounts({disclosure,first,second});
+    });
     return ()=>{
+      active=false;
       [disclosure,first,second].forEach(node=>node?.remove());
     };
   },[pathname]);
 
   if(pathname!=='/articles/ai-fantasy'&&pathname!=='/articles/ai-usage-guide')return null;
   const usage=pathname==='/articles/ai-usage-guide';
+  const disclosureId=`article-affiliate-disclosure-${usage?'usage':'fantasy'}`;
+  const hasAffiliate=Boolean(meshy?.affiliate||elevenlabs?.affiliate);
 
   return <>
-    {mounts.disclosure&&createPortal(<p className="affiliate-disclosure-note"><small>この記事にはプロモーションを含みます。</small></p>,mounts.disclosure)}
-    {mounts.first&&createPortal(usage
-      ? <p>3Dモデル生成までAIに任せたいなら、私はまず小さな素材を1つ作って品質と修正のしやすさを見る。候補の一つが <a href={MESHY} target="_blank" rel="sponsored nofollow noopener" onClick={()=>click('meshy',pathname,'usage_visuals_inline')}>Meshy</a> だ。いきなり量産せず、ゲームへ持ち込めるかまで確認してから広げる。</p>
-      : <p>この距離感で試すなら、3D生成では <a href={MESHY} target="_blank" rel="sponsored nofollow noopener" onClick={()=>click('meshy',pathname,'fantasy_tools_inline')}>Meshy</a> のような専用ツールを、小さな素材1つから試す方がいい。出力が派手かではなく、実際の制作で修正して使えるかを見る。</p>,mounts.first)}
-    {mounts.second&&createPortal(usage
-      ? <p>音声も同じで、デモの自然さだけでは決めない。台詞を数本作り、同じ声を安定して出せるか、運用しやすいかまで試す。私なら <a href={ELEVENLABS} target="_blank" rel="sponsored nofollow noopener" onClick={()=>click('elevenlabs',pathname,'usage_voice_inline')}>ElevenLabs</a> を候補に入れる。</p>
-      : <p>音声なら <a href={ELEVENLABS} target="_blank" rel="sponsored nofollow noopener" onClick={()=>click('elevenlabs',pathname,'fantasy_voice_inline')}>ElevenLabs</a> のようなサービスを、台詞数本だけで試してみる。AIを信じるのではなく、実際の成果物を見て採用するか決める。</p>,mounts.second)}
+    {mounts.disclosure&&hasAffiliate&&createPortal(<p id={disclosureId} className="affiliate-disclosure-note"><small><strong>広告について:</strong> この記事には本文と分離した広告枠があります。対象リンク経由の申込み等により、当サイトが報酬を受け取る場合があります。広告の有無は本文の結論や比較結果に影響しません。</small></p>,mounts.disclosure)}
+    {mounts.first&&meshy&&createPortal(usage
+      ? <aside className="article-ad-slot" aria-label={meshy.affiliate?'広告':'関連する公式リンク'}><strong>{meshy.affiliate?'広告':'関連する公式リンク'}</strong><p><ArticleServiceAnchor service={meshy} page={pathname} placement="usage_visuals_inline" disclosureId={disclosureId}/> の公式ページで、3D生成の機能・料金・利用条件を確認できます。本文とは独立した案内です。</p></aside>
+      : <aside className="article-ad-slot" aria-label={meshy.affiliate?'広告':'関連する公式リンク'}><strong>{meshy.affiliate?'広告':'関連する公式リンク'}</strong><p><ArticleServiceAnchor service={meshy} page={pathname} placement="fantasy_tools_inline" disclosureId={disclosureId}/> の公式ページで、3D生成の機能・料金・利用条件を確認できます。本文とは独立した案内です。</p></aside>,mounts.first)}
+    {mounts.second&&elevenlabs&&createPortal(usage
+      ? <aside className="article-ad-slot" aria-label={elevenlabs.affiliate?'広告':'関連する公式リンク'}><strong>{elevenlabs.affiliate?'広告':'関連する公式リンク'}</strong><p><ArticleServiceAnchor service={elevenlabs} page={pathname} placement="usage_voice_inline" disclosureId={disclosureId}/> の公式ページで、音声生成の機能・料金・利用条件を確認できます。本文とは独立した案内です。</p></aside>
+      : <aside className="article-ad-slot" aria-label={elevenlabs.affiliate?'広告':'関連する公式リンク'}><strong>{elevenlabs.affiliate?'広告':'関連する公式リンク'}</strong><p><ArticleServiceAnchor service={elevenlabs} page={pathname} placement="fantasy_voice_inline" disclosureId={disclosureId}/> の公式ページで、音声生成の機能・料金・利用条件を確認できます。本文とは独立した案内です。</p></aside>,mounts.second)}
   </>;
 }

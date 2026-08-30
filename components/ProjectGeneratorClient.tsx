@@ -20,7 +20,9 @@ import {
   type BuildChecklistStep,
   type ProviderInterpretation,
   InterpretationSchema,
+  ProjectBriefSchema,
 } from "@/lib/project";
+import { verificationStatusLabel } from "@/lib/verification-status";
 
 const examples = [
   "2Dのモンスター収集ゲーム。iPhone向け。一人開発。AIを最大限使いたい。月1万円以内。",
@@ -119,6 +121,142 @@ const critical: Field[] = [
   "commercialIntent",
 ];
 
+const privateDraftPrefix = "gameai:project-private-draft:v1:";
+const privateDraftParam = "draft";
+const privateDraftIndexKey = "gameai:project-private-draft-index:v1";
+const privateDraftTtlMs = 1000 * 60 * 60 * 24 * 30;
+const privateDraftCap = 10;
+const originalIdeaSessionKey = "gameai:project-idea";
+const privateProjectKeyPrefixes = [
+  privateDraftPrefix,
+  "gameai:build-progress:",
+  "gameai:project-progress-alias:",
+];
+
+type PrivateDraftIndexItem = { id: string; updatedAt: number };
+
+function browserStorage(kind: "local" | "session") {
+  try {
+    if (typeof window === "undefined") return null;
+    return kind === "local" ? window.localStorage ?? null : window.sessionStorage ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function privateDraftId(params = new URLSearchParams(location.search)) {
+  const value = params.get(privateDraftParam);
+  return value && /^[a-f0-9]{32}$/.test(value) ? value : null;
+}
+
+function readPrivateDraft(params: URLSearchParams): ProjectBrief | null {
+  const id = privateDraftId(params);
+  if (!id) return null;
+  try {
+    const raw = browserStorage("local")?.getItem(`${privateDraftPrefix}${id}`);
+    if (!raw) return null;
+    const stored: unknown = JSON.parse(raw);
+    if (!stored || typeof stored !== "object") return null;
+    const value = stored as {
+      version?: unknown;
+      brief?: unknown;
+      updatedAt?: unknown;
+    };
+    if (value.version !== 1 && value.version !== 2) return null;
+    if (
+      value.version === 2 &&
+      (typeof value.updatedAt !== "number" ||
+        Date.now() - value.updatedAt > privateDraftTtlMs)
+    ) {
+      browserStorage("local")?.removeItem(`${privateDraftPrefix}${id}`);
+      return null;
+    }
+    const parsed = ProjectBriefSchema.safeParse(value.brief);
+    return parsed.success ? parsed.data : null;
+  } catch {
+    return null;
+  }
+}
+
+function savePrivateDraft(brief: ProjectBrief) {
+  try {
+    const existing = privateDraftId();
+    let id = existing;
+    if (!id) {
+      const bytes = new Uint8Array(16);
+      crypto.getRandomValues(bytes);
+      id = Array.from(bytes, (byte) =>
+        byte.toString(16).padStart(2, "0"),
+      ).join("");
+    }
+    const storage = browserStorage("local");
+    if (!storage) return null;
+    const updatedAt = Date.now();
+    storage.setItem(
+      `${privateDraftPrefix}${id}`,
+      JSON.stringify({ version: 2, updatedAt, brief }),
+    );
+    let index: PrivateDraftIndexItem[] = [];
+    try {
+      const parsed: unknown = JSON.parse(storage.getItem(privateDraftIndexKey) ?? "[]");
+      if (Array.isArray(parsed)) {
+        index = parsed.filter(
+          (item): item is PrivateDraftIndexItem =>
+            Boolean(
+              item &&
+                typeof item === "object" &&
+                typeof (item as PrivateDraftIndexItem).id === "string" &&
+                /^[a-f0-9]{32}$/.test((item as PrivateDraftIndexItem).id) &&
+                typeof (item as PrivateDraftIndexItem).updatedAt === "number",
+            ),
+        );
+      }
+    } catch {
+      index = [];
+    }
+    const keep = [
+      { id, updatedAt },
+      ...index.filter(
+        (item) =>
+          item.id !== id && updatedAt - item.updatedAt <= privateDraftTtlMs,
+      ),
+    ]
+      .sort((a, b) => b.updatedAt - a.updatedAt)
+      .slice(0, privateDraftCap);
+    const keptIds = new Set(keep.map((item) => item.id));
+    for (const item of index) {
+      if (!keptIds.has(item.id))
+        storage.removeItem(`${privateDraftPrefix}${item.id}`);
+    }
+    storage.setItem(privateDraftIndexKey, JSON.stringify(keep));
+    return id;
+  } catch {
+    return null;
+  }
+}
+
+function deleteAllPrivateProjectData() {
+  try {
+    for (const storage of [browserStorage("local"), browserStorage("session")]) {
+      if (!storage) continue;
+      const keys: string[] = [];
+      for (let index = 0; index < storage.length; index += 1) {
+        const key = storage.key(index);
+        if (
+          key &&
+          (key === originalIdeaSessionKey ||
+            privateProjectKeyPrefixes.some((prefix) => key.startsWith(prefix)))
+        )
+          keys.push(key);
+      }
+      for (const key of keys) storage.removeItem(key);
+      storage.removeItem(privateDraftIndexKey);
+    }
+  } catch {
+    // The visible plan remains usable when browser storage is unavailable.
+  }
+}
+
 export function ProjectIdeaForm({
   location,
   onIdea,
@@ -136,7 +274,11 @@ export function ProjectIdeaForm({
       setError("作りたいゲームを1文以上で入力してください。");
       return;
     }
-    sessionStorage.setItem("gameai:project-idea", value);
+    try {
+      browserStorage("session")?.setItem(originalIdeaSessionKey, value);
+    } catch {
+      // Navigation and the in-memory form remain usable without session storage.
+    }
     track("project_start", { page: location === "home" ? "/" : "/project" });
     if (onIdea) onIdea(value);
     else router.push("/project");
@@ -156,7 +298,7 @@ export function ProjectIdeaForm({
           setIdea(event.target.value.slice(0, 1200));
           setError("");
         }}
-        rows={7}
+        rows={location === "home" ? 4 : 5}
         maxLength={1200}
         aria-describedby={`idea-help-${location} ${error ? `idea-error-${location}` : ""}`}
         placeholder="例：Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。"
@@ -173,22 +315,28 @@ export function ProjectIdeaForm({
       <button className="button" type="submit">
         制作ロードマップを作る
       </button>
-      <fieldset className="idea-examples">
-        <legend>入力例を使う</legend>
-        {examples.map((example) => (
-          <button
-            key={example}
-            type="button"
-            onClick={() => {
-              setIdea(example);
-              setError("");
-            }}
-          >
-            {example}
-          </button>
-        ))}
-      </fieldset>
+      {location === "home" ? (
+        <details className="idea-examples-panel">
+          <summary>入力例を見る</summary>
+          <IdeaExamples onSelect={(value) => { setIdea(value); setError(""); }} />
+        </details>
+      ) : (
+        <IdeaExamples onSelect={(value) => { setIdea(value); setError(""); }} />
+      )}
     </form>
+  );
+}
+
+function IdeaExamples({ onSelect }: { onSelect: (value: string) => void }) {
+  return (
+    <fieldset className="idea-examples">
+      <legend>入力例を使う</legend>
+      {examples.map((example) => (
+        <button key={example} type="button" onClick={() => onSelect(example)}>
+          {example}
+        </button>
+      ))}
+    </fieldset>
   );
 }
 
@@ -248,26 +396,44 @@ export function ProjectGeneratorClient() {
   >({});
   const [sharedDraft, setSharedDraft] = useState(false);
   const [plan, setPlan] = useState<ProjectPlan | null>(null);
-  const [ready, setReady] = useState(false);
   const [error, setError] = useState("");
   const [interpretationStatus, setInterpretationStatus] = useState<ProviderInterpretation["status"] | null>(null);
   const [providerConfirmation, setProviderConfirmation] = useState<Set<string>>(new Set());
   const [interpreting, setInterpreting] = useState(false);
+  const [privateSaveFailed, setPrivateSaveFailed] = useState(false);
   const resultHeading = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
-    const shared = decodeProjectState(location.search);
-    if (shared) {
-      // URL/session state is browser input and is intentionally applied after hydration.
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setBrief(shared);
-      setSharedDraft(true);
-      if (!critical.some((field) => shared[field] === "unknown"))
-        setPlan(generateProjectPlan(shared));
-    } else {
-      const idea = new URLSearchParams(location.search).get("idea")?.slice(0,1200) || sessionStorage.getItem("gameai:project-idea");
-      if (idea) void beginInterpretation(idea);
-    }
-    setReady(true);
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      try {
+        const params = new URLSearchParams(location.search);
+        const localDraft = readPrivateDraft(params);
+        const shared = decodeProjectState(params);
+        if (localDraft) {
+          setBrief(localDraft);
+          if (!critical.some((field) => localDraft[field] === "unknown"))
+            setPlan(generateProjectPlan(localDraft));
+        } else if (shared) {
+          setBrief(shared);
+          setSharedDraft(true);
+          if (!critical.some((field) => shared[field] === "unknown"))
+            setPlan(generateProjectPlan(shared));
+        } else {
+          const idea =
+            params.get("idea")?.slice(0, 1200) ||
+            browserStorage("session")?.getItem(originalIdeaSessionKey);
+          if (idea) {
+            void beginInterpretation(idea);
+          }
+        }
+      } catch {
+        // The start form remains usable when URL or browser storage is blocked.
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
   async function beginInterpretation(idea:string) {
     setInterpreting(true); setError("");
@@ -289,12 +455,6 @@ export function ProjectGeneratorClient() {
   useEffect(() => {
     if (plan) resultHeading.current?.focus();
   }, [plan]);
-  if (!ready)
-    return (
-      <p className="builder-loading" role="status">
-        プロジェクト条件を読み込んでいます…
-      </p>
-    );
   if (!brief&&interpreting)return <p className="builder-loading" role="status">条件を安全に整理しています…</p>;
   if (!brief)
     return (
@@ -302,9 +462,7 @@ export function ProjectGeneratorClient() {
         <header className="builder-head">
           <p className="eyebrow">AI GAME PROJECT GENERATOR</p>
           <h1>
-            ゲームのアイデアを
-            <br />
-            実行計画へ
+            ゲームのアイデアを実行計画へ
           </h1>
           <p className="lead">
             決まっていないことを推測で埋めず、必要な条件だけ確認します。
@@ -322,6 +480,17 @@ export function ProjectGeneratorClient() {
         plan={plan}
         headingRef={resultHeading}
         onEdit={() => setPlan(null)}
+        privateSaveFailed={privateSaveFailed}
+        onAdoptEngine={(engine) => {
+          const nextBrief = { ...plan.brief, engine };
+          setBrief(nextBrief);
+          setPlan(generateProjectPlan(nextBrief));
+          const draftId = savePrivateDraft(nextBrief);
+          setPrivateSaveFailed(!draftId);
+          const params = new URLSearchParams(encodeProjectState(nextBrief));
+          if (draftId) params.set(privateDraftParam, draftId);
+          history.replaceState(null, "", `/project?${params.toString()}`);
+        }}
       />
     );
   const update = <K extends keyof ProjectBrief>(
@@ -357,6 +526,10 @@ export function ProjectGeneratorClient() {
       });
       if (invalidDetail)
         document.getElementById(`project-detail-${invalidDetail.id}`)?.focus();
+      else if (missing[0])
+        queueMicrotask(() =>
+          document.getElementById(`project-field-${missing[0]}`)?.focus(),
+        );
       return;
     }
     setError("");
@@ -365,7 +538,11 @@ export function ProjectGeneratorClient() {
       budget: brief.budget,
     });
     setPlan(generateProjectPlan(brief));
-    history.replaceState(null, "", `/project?${encodeProjectState(brief)}`);
+    const draftId = savePrivateDraft(brief);
+    setPrivateSaveFailed(!draftId);
+    const params = new URLSearchParams(encodeProjectState(brief));
+    if (draftId) params.set(privateDraftParam, draftId);
+    history.replaceState(null, "", `/project?${params.toString()}`);
   };
   const decideDetail = (
     candidate: DetailCandidate,
@@ -413,9 +590,7 @@ export function ProjectGeneratorClient() {
       <header className="builder-head">
         <p className="eyebrow">CONFIRM THE BRIEF</p>
         <h1>
-          読み取った条件を
-          <br />
-          確認してください
+          読み取った条件を確認してください
         </h1>
         <p className="lead">
           自由文に明記された条件だけを選択済みにしました。「未確認」は選び直してから計画を作ります。
@@ -533,6 +708,7 @@ export function ProjectGeneratorClient() {
             {fieldLabel(field)}
             {critical.includes(field) && <small>必須</small>}
             <select
+              id={`project-field-${field}`}
               value={brief[field]}
               onChange={(event) => {
                 update(field, event.target.value as never);
@@ -604,7 +780,8 @@ export function ProjectGeneratorClient() {
             className="button ghost"
             type="button"
             onClick={() => {
-              sessionStorage.removeItem("gameai:project-idea");
+              deleteAllPrivateProjectData();
+              history.replaceState(null, "", "/project");
               setBrief(null);
             }}
           >
@@ -639,7 +816,6 @@ function projectName(brief:ProjectBrief){
   const genre=brief.genre==='unknown'||brief.genre==='other'?'ゲーム制作':labels.genre[brief.genre];
   return `${engine}${dimension}${genre}プロジェクト`;
 }
-const questPhase:Record<string,string>={environment:'concept',repository:'concept','required-assets':'concept','core-loop':'code',save:'integration','ui-prototype':'integration','assets-2d':'visuals','assets-3d':'3d',animation:'animation',voice:'voice',music:'music-sfx',sfx:'music-sfx','npc-dialogue':'npc-dialogue',localization:'localization',qa:'testing','store-assets':'publishing',release:'publishing'};
 const phaseLabels: Record<string, string> = {
   concept: "企画・スコープ",
   prototype: "プロトタイプ",
@@ -655,14 +831,82 @@ const phaseLabels: Record<string, string> = {
   publishing: "公開",
   localization: "ローカライズ",
 };
-function BuildChecklist({steps,plan,onCopy}:{steps:BuildChecklistStep[];plan:ProjectPlan;onCopy:(content:string,artifact:string)=>void}){
+
+function projectWorkflowSteps(plan: ProjectPlan): BuildChecklistStep[] {
+  let steps = buildChecklist(plan);
+  const engineNeedsDecision =
+    plan.brief.engine === "unknown" || plan.brief.engine === "undecided";
+
+  if (engineNeedsDecision) {
+    steps = steps.map((item) =>
+      item.id === "environment"
+        ? {
+            ...item,
+            title: "エンジン候補を比較して決める",
+            outcome: "比較記録と採用・保留の判断がある",
+            why: "エンジン未決定のまま制作環境や本番向け実装へ進まないため。",
+            substeps: [
+              "対象プラットフォームとコアループの検証項目を固定する",
+              "候補を2つまでに絞り、同じ最小spikeで比較する",
+              "採用・保留の理由と未解決事項をdecision recordへ残す",
+            ],
+            tools: [],
+            usageInstructions: [
+              "候補ごとの公式対応環境と導入条件を確認する",
+              "本番プロジェクトは作らず、破棄できる最小spikeで入力・ビルド・素材取込を比べる",
+              "比較結果から採用・保留を判断し、次工程へ渡す",
+            ],
+            prompt: `あなたはゲーム制作の技術選定アシスタントです。次の一工程だけを支援してください。\nゲーム条件: platform=${plan.brief.platform}, dimension=${plan.brief.dimension}, experience=${plan.brief.experience}, team=${plan.brief.team}\n工程: エンジン候補の比較\n成果物: 比較表とdecision record\n候補を2つまでに限定し、同じコアループ操作・対象環境ビルド・素材取込の最小spikeで比較してください。本番環境や大量実装へは進まず、未確認事項は「要確認」と明記してください。`,
+            doneWhen: [
+              "同じ検証項目で2候補以下を比較している",
+              "採用または保留の理由と未解決事項を記録している",
+            ],
+          }
+        : item,
+    );
+  }
+
+  steps = steps.map((item) => {
+    const review = item.tools.filter((tool) => tool.role === "review");
+    const hasAdoptableCandidate = item.tools.some(
+      (tool) => tool.role === "primary" || tool.role === "alternative",
+    );
+    if (!review.length || hasAdoptableCandidate) return item;
+    const names = review.map((tool) => tool.name).join(" / ");
+    return {
+      ...item,
+      usageInstructions: [
+        "調査候補を採用済みとして扱わず、まず手動工程と確認条件を固定する",
+        ...item.usageInstructions.map((instruction) =>
+          instruction.startsWith(`${review[0].name}:`)
+            ? instruction.slice(review[0].name.length + 1).trimStart()
+            : instruction,
+        ),
+      ],
+      prompt: item.prompt.replace(
+        /使用候補: [^\n]+\n/,
+        `未採用の調査候補: ${names}（推薦ではないため、採用前に必須条件を手動確認）\n`,
+      ),
+    };
+  });
+
+  const setupOrder = ["environment", "repository", "required-assets"];
+  return [
+    ...setupOrder.flatMap((id) => steps.filter((item) => item.id === id)),
+    ...steps.filter((item) => !setupOrder.includes(item.id)),
+  ];
+}
+
+function BuildChecklist({steps,plan,onCopy,engineBlocked}:{steps:BuildChecklistStep[];plan:ProjectPlan;onCopy:(content:string,artifact:string)=>void;engineBlocked:boolean}){
   const [completed,setCompleted]=useState<Set<string>>(new Set());
+  const [criteria,setCriteria]=useState<Set<string>>(new Set());
+  const [evidenceNotes,setEvidenceNotes]=useState<Record<string,string>>({});
   const [loaded,setLoaded]=useState(false);
   const [key,setKey]=useState("");
   useEffect(()=>{
     let cancelled=false;
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setLoaded(false); setCompleted(new Set()); setKey("");
+    setLoaded(false); setCompleted(new Set()); setCriteria(new Set()); setEvidenceNotes({}); setKey("");
     projectProgressKey(plan).then(nextKey=>{
       if(cancelled)return;
       const alias=`gameai:project-progress-alias:v2:${encodeProjectState(plan.brief)}`;
@@ -670,12 +914,22 @@ function BuildChecklist({steps,plan,onCopy}:{steps:BuildChecklistStep[];plan:Pro
       let next=new Set<string>();
       try{
         const isSharedPlaceholder=plan.brief.idea.startsWith("共有されたプロジェクト");
-        resolvedKey=isSharedPlaceholder?(sessionStorage.getItem(alias)??nextKey):nextKey;
-        if(!isSharedPlaceholder||!sessionStorage.getItem(alias))sessionStorage.setItem(alias,resolvedKey);
-        const raw=localStorage.getItem(resolvedKey); const parsed=raw?JSON.parse(raw):null;
-        if(parsed?.version===2&&Array.isArray(parsed.completed)){
+        const session=browserStorage("session");
+        const local=browserStorage("local");
+        resolvedKey=isSharedPlaceholder?(session?.getItem(alias)??nextKey):nextKey;
+        if(session&&(!isSharedPlaceholder||!session.getItem(alias)))session.setItem(alias,resolvedKey);
+        const raw=local?.getItem(resolvedKey); const parsed=raw?JSON.parse(raw):null;
+        if((parsed?.version===2||parsed?.version===3)&&Array.isArray(parsed.completed)){
           const allowed=new Set(steps.map(item=>item.id));
           next=new Set(parsed.completed.filter((id:unknown):id is string=>typeof id==='string'&&allowed.has(id)));
+          if(parsed.version===3&&Array.isArray(parsed.criteria)){
+            const allowedCriteria=new Set(steps.flatMap(item=>item.doneWhen.map((_,index)=>`${item.id}:${index}`)));
+            setCriteria(new Set(parsed.criteria.filter((id:unknown):id is string=>typeof id==='string'&&allowedCriteria.has(id))));
+          }
+          if(parsed.version===3&&parsed.evidenceNotes&&typeof parsed.evidenceNotes==='object'){
+            const allowedNotes=Object.fromEntries(Object.entries(parsed.evidenceNotes).filter(([id,value])=>allowed.has(id)&&typeof value==='string').map(([id,value])=>[id,(value as string).slice(0,160)]));
+            setEvidenceNotes(allowedNotes);
+          }
         }
       }catch{/* Malformed or unavailable storage fails closed. */}
       setKey(resolvedKey); setCompleted(next); setLoaded(true);
@@ -684,35 +938,74 @@ function BuildChecklist({steps,plan,onCopy}:{steps:BuildChecklistStep[];plan:Pro
   },[plan,steps]);
   useEffect(()=>{
     if(!loaded||!key)return;
-    try{localStorage.setItem(key,JSON.stringify({version:2,completed:[...completed]}));}catch{/* In-memory progress remains usable. */}
-  },[completed,key,loaded]);
+    try{browserStorage("local")?.setItem(key,JSON.stringify({version:3,completed:[...completed],criteria:[...criteria],evidenceNotes}));}catch{/* In-memory progress remains usable. */}
+  },[completed,criteria,evidenceNotes,key,loaded]);
   const currentIndex=steps.findIndex(item=>!completed.has(item.id));
-  const today=steps.filter(item=>!completed.has(item.id)).slice(0,3);
-  const activeStep=steps.find(item=>!completed.has(item.id));
-  const currentPhase=activeStep?questPhase[activeStep.id]:null;
-  const toggle=(id:string)=>setCompleted(old=>{const next=new Set(old);if(next.has(id))next.delete(id);else next.add(id);return next;});
+  const remaining=steps.filter(item=>!completed.has(item.id));
+  const today=(engineBlocked?remaining.filter(item=>item.id==='environment'):remaining).slice(0,3);
+  const toggle=(id:string)=>setCompleted(old=>{
+    const next=new Set(old);
+    const wasDone=next.has(id);
+    if(wasDone)next.delete(id);else next.add(id);
+    if(!wasDone){
+      const index=steps.findIndex(item=>item.id===id);
+      const nextId=steps[index+1]?.id;
+      requestAnimationFrame(()=>{
+        const target=nextId
+          ? document.querySelector<HTMLElement>(`#quest-${nextId} > summary`)
+          : document.getElementById('build-progress-title');
+        target?.focus();
+      });
+    }
+    return next;
+  });
   return <section className="build-checklist" aria-labelledby="build-progress-title">
     <div className="build-progress">
-      <div><strong id="build-progress-title">プロジェクト進捗</strong><span aria-live="polite">{completed.size} / {steps.length} 完了</span></div>
+      <div><strong id="build-progress-title" tabIndex={-1}>プロジェクト進捗</strong><span aria-live="polite">{completed.size} / {steps.length} 完了</span></div>
       <progress value={completed.size} max={steps.length}>{completed.size} / {steps.length}</progress>
       <small>完了状態はこの端末だけに保存されます。</small>
     </div>
-    <section className="today-queue" aria-labelledby="today-title"><div className="queue-heading"><span>今日の優先作業</span><h2 id="today-title">今日やること</h2><p>上から最大3件。成果物を作り、完了条件を満たしたら次へ進みます。</p></div>{today.length?<div className="today-grid">{today.map((item,index)=>{const tool=item.tools.find(value=>value.role==='primary');const stepNumber=steps.findIndex(value=>value.id===item.id)+1;return <article className={index===0?'is-primary':''} key={item.id}><header><b>{String(stepNumber).padStart(2,'0')}</b><span>{index===0?'今やる':'この次'}</span></header><h3>{item.title}</h3><p className="today-why"><strong>なぜ今：</strong>{item.why}</p><dl><div><dt>使用</dt><dd>{tool?<Link href={`/tools/${tool.serviceSlug}`}>{tool.name}</Link>:item.tools.length?'候補を要確認':'Manual'}</dd></div><div><dt>成果物</dt><dd>{item.outcome}</dd></div><div><dt>完了条件</dt><dd>{item.doneWhen[0]}</dd></div></dl><div className="today-actions">{tool?<button className={index===0?'button':'button ghost'} onClick={()=>onCopy(item.prompt,`today_${item.id}`)}>Promptをコピー</button>:<a className={index===0?'button':'button ghost'} href={`#quest-${item.id}`}>具体的操作を見る</a>}<a href={`#quest-${item.id}`}>Questを開く</a></div></article>})}</div>:<p className="quest-complete">全Quest完了。公開前のリスクと商用条件を再確認してください。</p>}</section>
-    <section className="build-roadmap" aria-labelledby="roadmap-overview-title"><div><span>つながる制作工程</span><h2 id="roadmap-overview-title">Build Roadmap</h2><p>現在地と、次に受け渡す成果物を確認します。</p></div><ol>{plan.phases.map((phase,index)=>{const currentPhaseIndex=plan.phases.findIndex(item=>item.id===currentPhase);const related=steps.filter(item=>questPhase[item.id]===phase.id);const state=!activeStep?'complete':phase.id===currentPhase?'current':index<currentPhaseIndex?'complete':related.length>0&&related.every(item=>completed.has(item.id))?'complete':'upcoming';return <li className={state} key={phase.id}><span>{String(index+1).padStart(2,'0')}</span><div><strong>{phaseLabels[phase.title]??phase.title}</strong><small>{state==='complete'?(related.length?'完了':'通過'):state==='current'?'現在の工程':'この先'}</small><em>{phase.deliverables[0]}</em></div></li>})}</ol></section>
+    <section className="today-queue" aria-labelledby="today-title">
+      <div className="queue-heading"><span>今日の優先作業</span><h2 id="today-title">今日やること</h2><p>上から最大3件。前の成果物を受け取り、完了条件を満たしたものだけ次へ渡します。</p></div>
+      {today.length ? <div className="today-grid">{today.map((item,index)=>{
+        const tool=item.tools.find(value=>value.role==='primary');
+        const stepNumber=steps.findIndex(value=>value.id===item.id)+1;
+        const previous=steps[stepNumber-2];
+        return <article className={index===0?'is-primary':''} key={item.id}>
+          <header><b>{String(stepNumber).padStart(2,'0')}</b><span>{index===0?'今やる':'この次'}</span></header>
+          <h3>{item.title}</h3><p className="today-why"><strong>なぜ今：</strong>{item.why}</p>
+          <dl>
+            <div><dt>受け取る</dt><dd>{previous?.outcome??'確認済みのゲーム条件'}</dd></div>
+            <div><dt>使用</dt><dd>{tool?<Link href={`/tools/${tool.serviceSlug}`}>{tool.name}</Link>:item.tools.length?'未採用の調査候補あり':'Manual'}</dd></div>
+            <div><dt>次へ渡す</dt><dd>{item.outcome}</dd></div>
+            <div><dt>完了条件</dt><dd>{item.doneWhen[0]}</dd></div>
+          </dl>
+          <div className="today-actions">{tool?<button className={index===0?'button':'button ghost'} onClick={()=>onCopy(item.prompt,`today_${item.id}`)}>Promptをコピー</button>:<a className={index===0?'button':'button ghost'} href={`#quest-${item.id}`}>具体的操作を見る</a>}<a href={`#quest-${item.id}`}>Questを開く</a></div>
+        </article>})}</div> : <p className="quest-complete">全Quest完了。公開前のリスクと商用条件を再確認してください。</p>}
+    </section>
+    <section className="build-roadmap" aria-labelledby="roadmap-overview-title">
+      <div><span>成果物でつながる制作順</span><h2 id="roadmap-overview-title">Build Roadmap</h2><p>下のQuestと同じ順番です。各工程の成果物が、次工程の開始条件になります。</p></div>
+      <ol>{steps.map((item,index)=>{const done=completed.has(item.id);const blocked=engineBlocked&&item.id!=='environment';const state=done?'complete':blocked?'blocked':index===currentIndex?'current':'upcoming';return <li className={state} key={item.id}><span>{String(index+1).padStart(2,'0')}</span><div><strong>{item.title}</strong><small>{done?'完了':blocked?'エンジン決定待ち':index===currentIndex?'現在の工程':'この先'}</small><em>{item.outcome}</em></div></li>})}</ol>
+    </section>
     <h2 className="checklist-heading">Build Quest</h2><p className="section-intro">各Questは必要なときだけ開きます。AI候補、具体的操作、Prompt、完了条件が一つにつながっています。</p>
     <div className="action-list">{steps.map((item,index)=>{
       const done=completed.has(item.id); const next=steps[index+1];
-      return <details id={`quest-${item.id}`} className={`action-step ${done?'is-done':''}`} key={item.id} open={!done&&index===currentIndex}>
-        <summary><span>{done?'COMPLETE':index===currentIndex?'CURRENT':'UPCOMING'}</span><strong>{index+1}. {item.title}</strong><small>{(item.tools.find(tool=>tool.role==='primary')?.name??(item.tools.length?'候補を要確認':'Manual'))} → {item.outcome}</small></summary>
+      const predecessorComplete=index===0||completed.has(steps[index-1].id);
+      const blocked=(engineBlocked&&item.id!=='environment')||(!done&&!predecessorComplete);
+      const criteriaComplete=item.doneWhen.every((_,criterionIndex)=>criteria.has(`${item.id}:${criterionIndex}`));
+      const evidenceReady=(evidenceNotes[item.id]??'').trim().length>=3;
+      return <details id={`quest-${item.id}`} className={`action-step ${done?'is-done':''} ${blocked?'is-blocked':''}`} key={item.id} open={!blocked&&!done&&index===currentIndex}>
+        <summary><span>{done?'COMPLETE':blocked?'BLOCKED':index===currentIndex?'CURRENT':'UPCOMING'}</span><strong>{index+1}. {item.title}</strong><small>{blocked?(engineBlocked&&item.id!=='environment'?'先にエンジンを採用してください':'前のQuestの成果物を完了してください'):`${(item.tools.find(tool=>tool.role==='primary')?.name??(item.tools.length?'未採用の調査候補あり':'Manual'))} → ${item.outcome}`}</small></summary>
         <div className="action-detail">
+          <section className="artifact-handoff"><h3>成果物の受け渡し</h3><dl><div><dt>受け取る</dt><dd>{steps[index-1]?.outcome??'確認済みのゲーム条件'}</dd></div><div><dt>次へ渡す</dt><dd>{item.outcome}</dd></div></dl></section>
           <section><h3>何を作るか</h3><ol>{item.substeps.map(value=><li key={value}>{value}</li>)}</ol></section>
           <section><h3>なぜ必要か</h3><p>{item.why}</p></section>
           <section><h3>AI / ツール</h3>{item.tools.length?<PhaseTools tools={item.tools} phase={item.id}/>:<p>この工程は手動で進められます。AIツールは必須ではありません。</p>}</section>
           <section><h3>使い方</h3><ol>{item.usageInstructions.map(value=><li key={value}>{value}</li>)}</ol></section>
           <section className="action-prompt"><h3>このプロジェクト用プロンプト</h3><pre>{item.prompt}</pre><button onClick={()=>onCopy(item.prompt,`checklist_${item.id}`)}>プロンプトをコピー</button></section>
-          <section className="active-done"><h3>完了条件</h3><ul>{item.doneWhen.map(value=><li key={value}>{value}</li>)}</ul></section>
-          <p className="next-action"><strong>次：</strong>{next?.title??'チェックリスト完了。公開前の未確認事項を再確認する'}</p>
-          <label className="completion-control"><input type="checkbox" checked={done} disabled={!loaded} onChange={()=>toggle(item.id)}/><span>{item.title}を完了として記録</span></label>
+          <section className="active-done"><h3>完了条件を確認</h3><div className="done-criteria">{item.doneWhen.map((value,criterionIndex)=>{const criterionKey=`${item.id}:${criterionIndex}`;return <label key={criterionKey}><input type="checkbox" checked={criteria.has(criterionKey)} disabled={done} onChange={()=>setCriteria(old=>{const nextCriteria=new Set(old);if(nextCriteria.has(criterionKey))nextCriteria.delete(criterionKey);else nextCriteria.add(criterionKey);return nextCriteria;})}/><span>{value}</span></label>})}</div><label className="artifact-evidence"><span>成果物の場所・確認メモ</span><input value={evidenceNotes[item.id]??''} disabled={done} maxLength={160} onChange={event=>setEvidenceNotes(old=>({...old,[item.id]:event.target.value.slice(0,160)}))} placeholder="例：docs/core-loop.md / 動作確認済み"/><small>3文字以上。次工程へ渡せる成果物の場所または確認内容を残します。</small></label></section>
+          <p className="next-action"><strong>完了後：</strong>{next?`「${item.outcome}」を渡して ${next.title} へ進む`:'チェックリスト完了。公開前の未確認事項を再確認する'}</p>
+          <label className="completion-control"><input type="checkbox" checked={done} disabled={!loaded||blocked||(!done&&(!criteriaComplete||!evidenceReady))} onChange={()=>toggle(item.id)}/><span>{blocked?'前工程またはエンジン決定の完了後に開始できます':!done&&(!criteriaComplete||!evidenceReady)?'完了条件と成果物メモを満たすと記録できます':`${item.title}を完了として記録`}</span></label>
         </div>
       </details>})}</div>
   </section>;
@@ -721,14 +1014,21 @@ function ProjectResult({
   plan,
   onEdit,
   headingRef,
+  privateSaveFailed,
+  onAdoptEngine,
 }: {
   plan: ProjectPlan;
   onEdit: () => void;
   headingRef: React.RefObject<HTMLHeadingElement | null>;
+  privateSaveFailed: boolean;
+  onAdoptEngine: (engine: "unity" | "unreal" | "godot" | "other") => void;
 }) {
   const [status, setStatus] = useState("");
-  const steps = useMemo(() => buildChecklist(plan), [plan]);
+  const [engineChoice, setEngineChoice] = useState<"unity" | "unreal" | "godot" | "other">("unity");
+  const [engineHeld, setEngineHeld] = useState(false);
+  const steps = useMemo(() => projectWorkflowSteps(plan), [plan]);
   const markdown = useMemo(() => planMarkdown(plan), [plan]);
+  const engineBlocked = plan.brief.engine === "unknown" || plan.brief.engine === "undecided";
   const copy = async (content: string, artifact: string) => {
     try {
       await navigator.clipboard.writeText(content);
@@ -761,6 +1061,11 @@ function ProjectResult({
     track("project_export", { format: "markdown" });
     setStatus("Markdownをダウンロードしました");
   };
+  const forgetPrivateDraft = () => {
+    deleteAllPrivateProjectData();
+    history.replaceState(null, "", `/project?${encodeProjectState(plan.brief)}`);
+    setStatus("この端末の元の入力文と非公開下書きをすべて削除しました。表示中の計画は閉じるまで利用できます。");
+  };
   return (
     <article className="project-result">
       <header className="project-result-top">
@@ -769,9 +1074,35 @@ function ProjectResult({
           {projectName(plan.brief)}
         </h1>
         <p className="result-intro">{labels.dimension[plan.brief.dimension]}・{labels.genre[plan.brief.genre]}を、最初のプレイ可能なbuildから順に作る計画です。</p>
-        <BuildChecklist steps={steps} plan={plan} onCopy={copy} />
+        {engineBlocked && (
+          <section className="engine-decision-gate" aria-labelledby="engine-gate-title">
+            <h2 id="engine-gate-title">実装前にゲームエンジンを決める</h2>
+            <p>比較Questは進められますが、採用するまで実装工程は開始できません。保留にすると計画は閲覧専用のまま残ります。</p>
+            <label>
+              採用候補
+              <select value={engineChoice} onChange={(event)=>setEngineChoice(event.target.value as typeof engineChoice)}>
+                <option value="unity">Unity</option>
+                <option value="unreal">Unreal Engine</option>
+                <option value="godot">Godot</option>
+                <option value="other">その他</option>
+              </select>
+            </label>
+            <div>
+              <button className="button" onClick={()=>onAdoptEngine(engineChoice)}>このエンジンを採用して計画を再生成</button>
+              <button className="button ghost" onClick={()=>setEngineHeld(true)}>今回は保留する</button>
+            </div>
+            {engineHeld && <p role="status">保留しました。エンジンを採用するまで、比較以外のQuestはブロックされます。</p>}
+          </section>
+        )}
+        <BuildChecklist steps={steps} plan={plan} onCopy={copy} engineBlocked={engineBlocked} />
+        {privateSaveFailed && (
+          <div className="form-error" role="status">
+            <p>非公開下書きをこの端末に保存できませんでした。ページを閉じる前にMarkdownで計画を退避してください。</p>
+            <button type="button" onClick={download}>Markdownを今すぐ保存</button>
+          </div>
+        )}
         <p className="share-scope-note">
-          共有URLには確認済みの構造化条件だけを含み、元の自由文や固有の物語設定は含みません。完全な計画はMarkdownで共有してください。
+          ブラウザの保存機能が使える場合、元の自由文と確認済みの固有設定はこの端末の非公開下書きとして保存され、再読み込み時に復元されます。コピーする共有URLには含まれません。完全な計画を人へ渡す場合はMarkdownを使ってください。
         </p>
       </header>
       <section className="assumption-strip">
@@ -788,8 +1119,9 @@ function ProjectResult({
         <p>{plan.assumptions.join(" / ")}</p>
       </section>
       <details className="result-utilities"><summary>共有・書き出し・条件編集</summary><div className="project-result-actions">
-          <button onClick={onEdit}>条件を編集</button><button onClick={() => copy(markdown, "markdown")}>Markdownをコピー</button><button onClick={download}>.md保存</button><button onClick={() => window.print()}>印刷</button><button onClick={share}>共有URL</button>
-        </div><p className="copy-status" role="status" aria-live="polite">{status}</p></details>
+          <button onClick={onEdit}>条件を編集</button><button onClick={() => copy(markdown, "markdown")}>Markdownをコピー</button><button onClick={download}>.md保存</button><button onClick={() => window.print()}>印刷</button><button onClick={share}>共有URL</button><button onClick={forgetPrivateDraft}>この端末の非公開データをすべて削除</button>
+        </div></details>
+      {status && <p className="copy-status" role="status" aria-live="polite">{status}</p>}
       <details className="secondary-plan"><summary>工程・Prompt・リスクの詳細を見る</summary><div>
       <nav className="project-section-nav" aria-label="Project Plan内">
         <a href="#vertical-slice">最初の範囲</a>
@@ -1015,9 +1347,17 @@ function PhaseTools({ tools, phase }: { tools: PlanTool[]; phase: string }) {
       {alternatives.map((tool) => (
         <PlanToolCard key={tool.serviceSlug} tool={tool} phase={phase} />
       ))}
-      {review.map((tool) => (
-        <PlanToolCard key={tool.serviceSlug} tool={tool} phase={phase} />
-      ))}
+      {review.length > 0 && (
+        <section className="review-only-tools" aria-label="未採用の調査候補">
+          <h5>未採用の調査候補</h5>
+          <p>
+            必須条件を確認できていないため、作業手順やPromptの使用候補には採用していません。
+          </p>
+          {review.map((tool) => (
+            <PlanToolCard key={tool.serviceSlug} tool={tool} phase={phase} />
+          ))}
+        </section>
+      )}
     </section>
   );
 }
@@ -1036,7 +1376,7 @@ function PlanToolCard({
       ? "条件一致候補"
       : tool.role === "alternative"
         ? "代替候補"
-        : "要手動確認（推薦ではありません）";
+        : "未採用の調査候補（推薦ではありません）";
   return (
     <article className={`plan-tool-card ${tool.role}`}>
       <header>
@@ -1054,8 +1394,12 @@ function PlanToolCard({
           <dd>{tool.inputRefs.join(" / ") || "工程要件"}</dd>
         </div>
         <div>
-          <dt>検証済み情報</dt>
+          <dt>判断に使った掲載情報</dt>
           <dd>{tool.evidence.join(" / ") || "登録用途との一致"}</dd>
+        </div>
+        <div>
+          <dt>公式資料の確認状態</dt>
+          <dd>{verificationStatusLabel(tool.verificationStatus)}</dd>
         </div>
         <div>
           <dt>商用利用</dt>

@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
-import sitemap from '@/app/sitemap';
+import { describe, expect, it, vi } from 'vitest';
+import sitemap, { publicSitemapPaths } from '@/app/sitemap';
 import robots from '@/app/robots';
 import { getServices } from '@/lib/services';
 import { absoluteSiteUrl, productionUrl, site } from '@/lib/site';
@@ -17,6 +17,11 @@ import { metadata as projectMetadata } from '@/app/project/page';
 import { metadata as guidesMetadata } from '@/app/guides/page';
 import { generateMetadata as generateGuideMetadata } from '@/app/guides/[slug]/page';
 import { guides } from '@/data/guides';
+
+vi.mock('next/font/google',()=>({
+  Noto_Sans_JP:()=>({className:'',variable:'--font-sans'}),
+  Noto_Serif_JP:()=>({className:'',variable:'--font-serif'}),
+}));
 
 describe('SEO', () => {
   it('uses the permanent production origin', () => {
@@ -75,7 +80,19 @@ describe('SEO', () => {
 
   it('sitemap has all public routes, detail pages, and no query pages', () => {
     const map = sitemap();
-    expect(map).toHaveLength(8 + getServices().length + stackTemplates.length + guides.length);
+    expect(map.find(({url})=>url===absoluteSiteUrl('/privacy/'))?.lastModified).toBe('2026-08-30');
+    const expectedPaths=[
+      ...publicSitemapPaths,
+      ...getServices().map(service=>`/tools/${service.slug}`),
+      ...stackTemplates.map(stack=>`/stacks/${stack.slug}`),
+      ...guides.map(guide=>`/guides/${guide.slug}`),
+    ];
+    expect(map).toHaveLength(expectedPaths.length);
+    expect(new Set(map.map(({url})=>url)).size).toBe(expectedPaths.length);
+    for(const path of expectedPaths){
+      const canonicalPath=path==='/'?'/':`${path}/`;
+      expect(map.some(({url})=>url===absoluteSiteUrl(canonicalPath))).toBe(true);
+    }
     expect(map.every(({ url }) => url.startsWith(`${site.url}/`) || url === site.url)).toBe(true);
     expect(map.some(({ url }) => url.includes('?'))).toBe(false);
     expect(map.some(({ url }) => url.includes('/compare'))).toBe(false);

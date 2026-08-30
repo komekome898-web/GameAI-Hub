@@ -159,7 +159,7 @@ describe('project plan generation',()=>{
   it('exposes auditable stage tools without affiliate metadata',()=>{
     const plan=generateProjectPlan(brief({genre:'visual-novel',dimension:'2d',platform:'desktop',engine:'unity',budget:'low',experience:'intermediate',team:'solo',commercialIntent:'commercial',capabilities:['coding','voice']}));
     const voice=plan.phases.find(phase=>phase.id==='voice')?.tools.find(tool=>tool.role==='primary');
-    expect(voice).toEqual(expect.objectContaining({serviceSlug:'elevenlabs',commercialUse:'conditional',lastVerified:expect.any(String)}));
+    expect(voice).toEqual(expect.objectContaining({serviceSlug:'elevenlabs',commercialUse:'conditional',lastVerified:expect.any(String),verificationStatus:'verified'}));
     expect(voice?.inputRefs).toEqual(expect.arrayContaining(['必要工程: 音声','利用目的: commercial']));
     expect(voice?.evidence.length).toBeGreaterThan(0);
     expect(voice?.unknowns.join(' ')).toContain('条件付き');
