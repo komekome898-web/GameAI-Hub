@@ -21,6 +21,7 @@ Production-first audit of Home, game idea entry, Project generation, Today, Road
 - Restored mobile Today context and single-column paired comparison fields.
 - Added in-memory Home-to-Project fallback and updated Project Generator links/disclosure.
 - Production re-audit found generic `画像` was still omitted from 2D art; added the exact production phrase as a regression case.
+- Production re-audit reproduced the Tools click race after the first fix; removed the delayed URL write rather than merely changing its router API.
 
 ## In progress
 
