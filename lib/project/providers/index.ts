@@ -40,10 +40,14 @@ export async function interpretWithFallback(idea:string,options:{provider?:Proje
     const providerWork=provider.interpret(bounded,controller.signal); providerWork.catch(()=>{});
     const interpretation=validatedInterpretation(bounded,await Promise.race([providerWork,timeout]));
     const local=interpretProjectIdea(bounded);
+    const providerFields=new Set(interpretation.fields.map(item=>String(item.field)));
     const conflicted=new Set(local.conflicts.map(item=>item.split(':')[0]));
-    for(const localField of local.fields){const remote=interpretation.fields.find(item=>item.field===localField.field);if(remote&&JSON.stringify(remote.value)!==JSON.stringify(localField.value))conflicted.add(String(localField.field));}
+    const comparable=(value:unknown)=>Array.isArray(value)?JSON.stringify([...value].sort()):JSON.stringify(value);
+    for(const localField of local.fields){const remote=interpretation.fields.find(item=>item.field===localField.field);if(remote&&comparable(remote.value)!==comparable(localField.value))conflicted.add(String(localField.field));else if(!remote&&!conflicted.has(String(localField.field)))interpretation.fields.push(localField);}
     if(conflicted.size){interpretation.fields=interpretation.fields.filter(item=>!conflicted.has(String(item.field)));interpretation.unresolved=[...new Set([...interpretation.unresolved,...conflicted])] as Interpretation['unresolved'];interpretation.conflicts=[...new Set([...interpretation.conflicts,...local.conflicts,...[...conflicted].map(field=>`${field}: 入力の明示条件とAI候補が一致しません`)])];}
-    return {interpretation,status:{providerName:provider.providerName,mode:'provider'},confirmationRequired:interpretation.fields.map(item=>item.field)};
+    const localFields=new Map(local.fields.map(item=>[String(item.field),item]));
+    const confirmationRequired=interpretation.fields.filter(item=>providerFields.has(String(item.field))&&comparable(localFields.get(String(item.field))?.value)!==comparable(item.value)).map(item=>item.field);
+    return {interpretation,status:{providerName:provider.providerName,mode:'provider'},confirmationRequired};
   }catch(error){return fallback(error instanceof z.ZodError||error instanceof SyntaxError?'invalid_output':controller.signal.aborted?'timeout':'provider_error');}
   finally{clearTimeout(timer);}
 }

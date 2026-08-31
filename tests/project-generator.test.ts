@@ -17,6 +17,24 @@ describe('deterministic project interpreter',()=>{
     expect(result.fields.some(field=>field.field==='commercialIntent')).toBe(false);
   });
 
+  it('recognizes the natural wording used in the production mobile journey',()=>{
+    const result=interpretProjectIdea('スマートフォン向けの2Dモンスター収集RPG。個人開発。日本語対応。月額予算1万円。2D画像・音声・コーディングにAIを活用したい。');
+    expect(result.fields).toEqual(expect.arrayContaining([
+      expect.objectContaining({field:'genre',value:'monster-collection'}),
+      expect.objectContaining({field:'platform',value:'mobile'}),
+      expect.objectContaining({field:'budget',value:'low'}),
+      expect.objectContaining({field:'locale',value:'ja'}),
+      expect.objectContaining({field:'capabilities',value:expect.arrayContaining(['coding','art-2d','voice'])}),
+    ]));
+    expect(result.conflicts.join(' ')).not.toContain('genre');
+  });
+
+  it('does not misread a positive monthly budget as zero yen',()=>{
+    const result=interpretProjectIdea('月5000円まで使える個人開発');
+    expect(result.fields).toContainEqual(expect.objectContaining({field:'budget',value:'low'}));
+    expect(result.fields).not.toContainEqual(expect.objectContaining({field:'budget',value:'free'}));
+  });
+
   it('keeps conflicting statements unresolved instead of silently choosing one',()=>{
     const result=interpretProjectIdea('UnityかGodotで2Dまたは3Dのゲーム');
     expect(result.conflicts.join(' ')).toContain('engine');
@@ -265,7 +283,8 @@ describe('action-first build checklist',()=>{
   it('creates manual setup actions and only requested capability steps',()=>{
     const plan=generateProjectPlan(brief({genre:'puzzle',dimension:'2d',platform:'web',engine:'godot',capabilities:['coding','art-2d']}));
     const actions=buildChecklist(plan);
-    expect(actions.map(item=>item.id)).toEqual(['environment','repository','core-loop','save','ui-prototype','required-assets','assets-2d','qa','store-assets','release']);
+    expect(actions.map(item=>item.id)).toEqual(['concept','environment','repository','core-loop','save','ui-prototype','required-assets','assets-2d','qa','store-assets','release']);
+    expect(actions[0].doneWhen.join(' ')).toMatch(/コアループ|最小/);
     expect(actions.filter(item=>['environment','repository'].includes(item.id)).every(item=>item.tools.length===0)).toBe(true);
     expect(actions.find(item=>item.id==='environment')?.usageInstructions.join(' ')).toContain('公式導入手順');
     expect(actions.every(item=>item.substeps.length>=3&&item.why&&item.prompt&&item.doneWhen.length)).toBe(true);

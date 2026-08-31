@@ -60,6 +60,20 @@ describe("Project Generator client", () => {
     expect(push).toHaveBeenCalledWith("/project");
   });
 
+  it("keeps the idea in memory when session storage is unavailable", async () => {
+    vi.spyOn(Storage.prototype, "setItem").mockImplementation(function (this: Storage) {
+      if (this === window.sessionStorage) throw new Error("storage blocked");
+    });
+    render(<ProjectIdeaForm location="home" />);
+    fireEvent.change(screen.getByLabelText(/どんなゲームを作りたいですか？/), {
+      target: { value: "スマートフォン向け2Dパズル" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "制作ロードマップを作る" }));
+    cleanup();
+    render(<ProjectGeneratorClient />);
+    expect(await screen.findByText("スマートフォン向け2Dパズル")).toBeTruthy();
+  });
+
   it("collapses home examples until requested", () => {
     render(<ProjectIdeaForm location="home" />);
     const summary = screen.getByText("入力例を見る");

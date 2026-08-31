@@ -149,6 +149,7 @@ function CompareClientState({
     () => params.get('diff') === '1',
   );
   const [pickerQuery, setPickerQuery] = useState('');
+  const [pickerOpen, setPickerOpen] = useState(ids.length < 2);
 
   const selected = useMemo(
     () =>
@@ -226,7 +227,7 @@ function CompareClientState({
     else next.delete('diff');
     const href = next.size ? `${pathname}?${next}` : pathname;
     const current = `${pathname}${paramsKey ? `?${paramsKey}` : ''}`;
-    if (href !== current) router.replace(href, { scroll: false });
+    if (href !== current) router.push(href, { scroll: false });
   }
 
   const lastViewed = useRef('');
@@ -347,8 +348,8 @@ function CompareClientState({
 
       <details
         className="compare-picker-panel"
-        key={selected.length < 2 ? 'selection-required' : 'selection-ready'}
-        open={selected.length < 2 || undefined}
+        open={selected.length < 2 || pickerOpen}
+        onToggle={(event) => setPickerOpen(event.currentTarget.open)}
       >
         <summary>
           比較候補を{selected.length >= 2 ? '変更する' : '選ぶ'}

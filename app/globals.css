@@ -32,6 +32,9 @@
   .compare-mobile article{min-width:0}.compare-mobile header button{flex:0 0 auto}
   .stage-strip{gap:8px}.stage-strip span{padding:7px 9px}
 }
+
+.detail-bulk-actions{display:flex;flex-wrap:wrap;gap:8px}
+.detail-bulk-actions button{min-height:44px;padding:8px 12px;border:1px solid #8bbeb5;border-radius:8px;background:#fff;color:var(--accent-strong);font-weight:800;cursor:pointer}
 @media(max-width:380px){
   main{padding-inline:14px}.header-inner{padding-inline:12px;gap:12px}.brand{gap:0}.brand-copy{display:none}.main-nav{gap:4px}.main-nav a{padding-inline:5px;font-size:.72rem}
   h1{font-size:2.4rem}.page-hero.compact h1{font-size:2.3rem}.builder-head h1{font-size:2.55rem}.result-hero h1{font-size:2.65rem}.stack-hero h1{font-size:2.55rem}
@@ -84,7 +87,7 @@
 @media(max-width:680px){.header-inner{min-height:58px}.brand-copy{display:grid!important}.brand-copy small{display:none}.cockpit-hero{padding:34px 0 55px}.hero-command h1{font-size:2.65rem}.hero-command .lead{font-size:1rem}.hero-command .project-idea-card{margin-top:20px;padding:16px 13px}.project-idea-card textarea{min-height:128px}.idea-examples{max-height:150px;overflow:auto}.roadmap-preview{margin:4px 4px 0 0;box-shadow:7px 7px 0 #080c10}.preview-stages{overflow-x:auto}.home-flow,.example-projects,.roadmap-explainer,.home-resources,.final-project-cta{padding-block:48px}.home-flow>ol,.example-projects,.roadmap-explainer,.home-resources{grid-template-columns:1fr}.home-flow li{border-right:0;border-bottom:1px solid var(--line)}.example-list a{grid-template-columns:35px 1fr}.example-list small{grid-column:2}.blueprint-line{grid-template-columns:1fr}.blueprint-line span{min-height:65px}.blueprint-line span:not(:last-child):after{content:'↓';right:50%;top:auto;bottom:-13px}.today-grid{grid-template-columns:1fr}.today-grid article{border-right:0;border-bottom:1px solid var(--line)}.today-grid h3,.today-why{min-height:0}.build-roadmap ol{display:grid;grid-template-columns:1fr;padding-left:8px}.build-roadmap li{grid-template-columns:34px 1fr;padding:15px 10px 15px 20px;border-top:0;border-left:3px solid #34424c}.build-roadmap li:before{top:20px;left:-8px}.tool-rows article{grid-template-columns:44px minmax(0,1fr);gap:10px}.tool-rows dl{grid-template-columns:1fr 1fr}.goal-picker{padding:16px 10px}.goal-picker button{flex:1 0 calc(33% - 8px)}.secondary-filters>div{display:grid}.secondary-filters label{justify-content:space-between}.compare-decision{padding:18px 14px}}
 @media(max-width:340px){main{padding-inline:10px}.brand-copy strong{font-size:.86rem}.hero-command h1{font-size:2.2rem}.goal-picker button{flex-basis:calc(50% - 8px)}}
 .secondary-plan{margin-top:25px;border:1px solid var(--line);background:#0c1218}.secondary-plan>summary{display:flex;align-items:center;min-height:58px;padding:12px 18px;cursor:pointer;color:var(--accent);font-weight:900}.secondary-plan>div{padding-inline:18px}
-@media(max-width:680px){.secondary-plan>div{padding-inline:10px}.today-grid article:not(:first-child) .today-why,.today-grid article:not(:first-child) dl>div:nth-child(3){display:none}.goal-picker button{flex-basis:calc(50% - 8px)}}
+@media(max-width:680px){.secondary-plan>div{padding-inline:10px}.goal-picker button{flex-basis:calc(50% - 8px)}.paired-fields>section>div{grid-template-columns:1fr}.paired-fields>section dl+dl{padding-top:10px;border-top:1px solid var(--line)}}
 .mobile-menu[hidden]{display:none!important}
 
 /* UI UX Pro Max 2026 — Japanese production workbench.

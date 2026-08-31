@@ -11,18 +11,18 @@ import { getServices } from '@/lib/services';
 
 const navigation = vi.hoisted(() => ({
   params: new URLSearchParams(),
-  replace: vi.fn(),
+  push: vi.fn(),
 }));
 vi.mock('next/navigation', () => ({
   useSearchParams: () => navigation.params,
   usePathname: () => '/compare',
-  useRouter: () => ({ replace: navigation.replace }),
+  useRouter: () => ({ push: navigation.push }),
 }));
 
 afterEach(() => {
   cleanup();
   navigation.params = new URLSearchParams();
-  navigation.replace.mockReset();
+  navigation.push.mockReset();
 });
 
 describe('compare', () => {
@@ -88,7 +88,7 @@ describe('compare', () => {
     fireEvent.click(screen.getByRole('button', { name: 'すべて解除' }));
     expect(screen.getByText('0 / 4')).toBeTruthy();
     expect(screen.getByText(/あと2件/)).toBeTruthy();
-    expect(navigation.replace).toHaveBeenCalledWith('/compare', {
+    expect(navigation.push).toHaveBeenCalledWith('/compare', {
       scroll: false,
     });
   });
@@ -101,7 +101,7 @@ describe('compare', () => {
     const checkbox = screen.getByRole('checkbox', { name: 'Meshy' });
     checkbox.focus();
     fireEvent.click(checkbox);
-    expect(navigation.replace).toHaveBeenCalledWith(
+    expect(navigation.push).toHaveBeenCalledWith(
       '/compare?ids=github-copilot%2Ccursor%2Cmeshy',
       { scroll: false },
     );
