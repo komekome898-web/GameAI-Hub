@@ -73,7 +73,7 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
       else next.set(key, value);
     });
     const nextQuery = next.toString();
-    startTransition(() => router.replace(nextQuery ? `${pathname}?${nextQuery}` : pathname, { scroll: false }));
+    startTransition(() => router.push(nextQuery ? `${pathname}?${nextQuery}` : pathname, { scroll: false }));
   }, [pathname, router, searchParams]);
 
   useEffect(() => {
@@ -84,16 +84,21 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
 
   useEffect(() => {
     if (query === queryParam) return;
-    const timeout = window.setTimeout(() => replaceFilters({ q: query }), 180);
+    const timeout = window.setTimeout(() => {
+      const next = new URLSearchParams(window.location.search);
+      const bounded = query.trim().slice(0, 120);
+      if (bounded) next.set('q', bounded); else next.delete('q');
+      window.history.replaceState(null, '', next.size ? `${pathname}?${next}` : pathname);
+    }, 180);
     return () => window.clearTimeout(timeout);
-  }, [query, queryParam, replaceFilters]);
+  }, [pathname, query, queryParam]);
 
   function reset() {
     setQuery('');
     const next = new URLSearchParams(searchParams.toString());
     filterKeys.forEach((key) => next.delete(key));
     const nextQuery = next.toString();
-    startTransition(() => router.replace(nextQuery ? `${pathname}?${nextQuery}` : pathname, { scroll: false }));
+    startTransition(() => router.push(nextQuery ? `${pathname}?${nextQuery}` : pathname, { scroll: false }));
   }
 
   const shown = useMemo(

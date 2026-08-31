@@ -127,6 +127,7 @@ const privateDraftIndexKey = "gameai:project-private-draft-index:v1";
 const privateDraftTtlMs = 1000 * 60 * 60 * 24 * 30;
 const privateDraftCap = 10;
 const originalIdeaSessionKey = "gameai:project-idea";
+let pendingProjectIdea = "";
 const privateProjectKeyPrefixes = [
   privateDraftPrefix,
   "gameai:build-progress:",
@@ -275,6 +276,7 @@ export function ProjectIdeaForm({
       return;
     }
     try {
+      pendingProjectIdea = value;
       browserStorage("session")?.setItem(originalIdeaSessionKey, value);
     } catch {
       // Navigation and the in-memory form remain usable without session storage.
@@ -305,7 +307,7 @@ export function ProjectIdeaForm({
       />
       <div id={`idea-help-${location}`} className="idea-meta">
         <span>{idea.length} / 1200</span>
-        <span>入力文をアクセス解析へ送信しません</span>
+        <span>アクセス解析へは送信しません。外部AI設定時は条件整理に使用します</span>
       </div>
       {error && (
         <p id={`idea-error-${location}`} className="form-error" role="alert">
@@ -422,8 +424,10 @@ export function ProjectGeneratorClient() {
         } else {
           const idea =
             params.get("idea")?.slice(0, 1200) ||
-            browserStorage("session")?.getItem(originalIdeaSessionKey);
+            browserStorage("session")?.getItem(originalIdeaSessionKey) ||
+            pendingProjectIdea;
           if (idea) {
+            pendingProjectIdea = "";
             void beginInterpretation(idea);
           }
         }
@@ -648,6 +652,10 @@ export function ProjectGeneratorClient() {
             <p className="detail-privacy">
               入力文から抽出した未確定の候補です。AI利用時は要約候補の場合があります。原文と内容を確認し、計画へ含めるか選んでください。固有情報はアクセス解析・共有URLには含まれませんが、コピーやMarkdown保存には含まれます。
             </p>
+            <div className="detail-bulk-actions" aria-label="ゲーム固有情報をまとめて確認">
+              <button type="button" onClick={() => detailCandidates.forEach((candidate) => decideDetail(candidate, "include"))}>すべて計画に含める</button>
+              <button type="button" onClick={() => detailCandidates.forEach((candidate) => decideDetail(candidate, "ignore"))}>すべて今回は含めない</button>
+            </div>
             {detailCandidates.map((candidate) => {
               const decision = detailDecisions[candidate.id];
               return (
@@ -808,10 +816,11 @@ function fieldLabel(field: Field) {
 }
 function conflictLabel(conflict: string) {
   const [field, values] = conflict.split(": ");
-  return `${fieldLabel(field as Field) ?? field}: ${values}`;
+  const readable=values?.split(', ').map(value=>field==='genre'?(labels.genre[value as keyof typeof labels.genre]??value):(value)).join(' / ');
+  return `${fieldLabel(field as Field) ?? field}: ${readable} の両方が見つかりました。計画の主軸を選んでください`;
 }
 function projectName(brief:ProjectBrief){
-  const engine=brief.engine==='unknown'||brief.engine==='undecided'?'':`${labels.engine[brief.engine]} `;
+  const engine=brief.engine==='unknown'||brief.engine==='undecided'||brief.engine==='other'?'':`${labels.engine[brief.engine]} `;
   const dimension=brief.dimension==='unknown'?'':`${labels.dimension[brief.dimension]} `;
   const genre=brief.genre==='unknown'||brief.genre==='other'?'ゲーム制作':labels.genre[brief.genre];
   return `${engine}${dimension}${genre}プロジェクト`;
@@ -890,7 +899,7 @@ function projectWorkflowSteps(plan: ProjectPlan): BuildChecklistStep[] {
     };
   });
 
-  const setupOrder = ["environment", "repository", "required-assets"];
+  const setupOrder = ["concept", "environment", "repository"];
   return [
     ...setupOrder.flatMap((id) => steps.filter((item) => item.id === id)),
     ...steps.filter((item) => !setupOrder.includes(item.id)),
@@ -1024,7 +1033,7 @@ function ProjectResult({
   onAdoptEngine: (engine: "unity" | "unreal" | "godot" | "other") => void;
 }) {
   const [status, setStatus] = useState("");
-  const [engineChoice, setEngineChoice] = useState<"unity" | "unreal" | "godot" | "other">("unity");
+  const [engineChoice, setEngineChoice] = useState<"" | "unity" | "unreal" | "godot" | "other">("");
   const [engineHeld, setEngineHeld] = useState(false);
   const steps = useMemo(() => projectWorkflowSteps(plan), [plan]);
   const markdown = useMemo(() => planMarkdown(plan), [plan]);
@@ -1073,7 +1082,7 @@ function ProjectResult({
         <h1 ref={headingRef} tabIndex={-1}>
           {projectName(plan.brief)}
         </h1>
-        <p className="result-intro">{labels.dimension[plan.brief.dimension]}・{labels.genre[plan.brief.genre]}を、最初のプレイ可能なbuildから順に作る計画です。</p>
+        <p className="result-intro">{labels.dimension[plan.brief.dimension]}・{plan.brief.genre==='other'?'複合・その他ジャンル':labels.genre[plan.brief.genre]}を、最初のプレイ可能なbuildから順に作る計画です。</p>
         {engineBlocked && (
           <section className="engine-decision-gate" aria-labelledby="engine-gate-title">
             <h2 id="engine-gate-title">実装前にゲームエンジンを決める</h2>
@@ -1081,6 +1090,7 @@ function ProjectResult({
             <label>
               採用候補
               <select value={engineChoice} onChange={(event)=>setEngineChoice(event.target.value as typeof engineChoice)}>
+                <option value="">選択してください</option>
                 <option value="unity">Unity</option>
                 <option value="unreal">Unreal Engine</option>
                 <option value="godot">Godot</option>
@@ -1088,7 +1098,7 @@ function ProjectResult({
               </select>
             </label>
             <div>
-              <button className="button" onClick={()=>onAdoptEngine(engineChoice)}>このエンジンを採用して計画を再生成</button>
+              <button className="button" disabled={!engineChoice} onClick={()=>{if(engineChoice)onAdoptEngine(engineChoice);}}>このエンジンを採用して計画を再生成</button>
               <button className="button ghost" onClick={()=>setEngineHeld(true)}>今回は保留する</button>
             </div>
             {engineHeld && <p role="status">保留しました。エンジンを採用するまで、比較以外のQuestはブロックされます。</p>}

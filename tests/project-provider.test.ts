@@ -14,9 +14,15 @@ describe('project interpreter provider orchestration',()=>{
   it('accepts only validated project-understanding candidates and requires confirmation',async()=>{
     const result=await interpretWithFallback('空飛ぶ島のRPG',{provider:provider(async()=>valid)});
     expect(result.status).toEqual({providerName:'Test AI',mode:'provider'});
-    expect(result.confirmationRequired).toEqual(['genre']);
+    expect(result.confirmationRequired).toEqual([]);
     expect(result.interpretation.fields[0]).toEqual(expect.objectContaining({field:'genre',value:'rpg'}));
     expect(result.interpretation.detailCandidates[0]).toEqual(expect.objectContaining({kind:'setting',text:'空飛ぶ島'}));
+  });
+  it('keeps a provider disagreement unresolved instead of presenting it as an adoptable candidate',async()=>{
+    const result=await interpretWithFallback('空飛ぶ島のパズル',{provider:provider(async()=>valid)});
+    expect(result.confirmationRequired).toEqual([]);
+    expect(result.interpretation.unresolved).toContain('genre');
+    expect(result.interpretation.conflicts.join(' ')).toContain('genre');
   });
   it.each([
     ['malformed',{fields:[{field:'pricing',value:'cheap'}],details:[],unresolved:[],conflicts:[]}],

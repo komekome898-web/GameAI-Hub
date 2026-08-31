@@ -30,11 +30,9 @@ async function generateProject(page: Page, idea: string) {
   await expect(form.locator('select')).toHaveCount(Object.keys(defaults).length);
 
   const detailCards = form.locator('.project-detail-card');
-  for (let index = 0, count = await detailCards.count(); index < count; index += 1) {
-    const card = detailCards.nth(index);
-    const include = card.getByRole('button', { name: '計画に含める' });
-    await include.click();
-    await expect(include).toHaveAttribute('aria-pressed', 'true');
+  if (await detailCards.count()) {
+    await form.getByRole('button', { name: 'すべて計画に含める' }).click();
+    await expect(detailCards.getByRole('button', { name: '計画に含める' }).first()).toHaveAttribute('aria-pressed', 'true');
   }
 
   for (const [label, fallback] of Object.entries(defaults)) {
@@ -111,7 +109,10 @@ test('375px: homeからno voice/no 3DのProject Planを完走できる', async (
   const result = page.locator('.project-result');
   await expect(result).not.toContainText('台詞ID・話者同意・音声ファイル');
   await expect(result).not.toContainText('3Dモデル');
-  await page.getByLabel('制作環境を起動するを完了として記録').check();
+  const currentQuest = page.locator('#quest-concept');
+  for (const criterion of await currentQuest.locator('.done-criteria input').all()) await criterion.check();
+  await currentQuest.locator('.artifact-evidence input').fill('docs/concept.md に確認結果を記録');
+  await currentQuest.locator('.completion-control input').check();
   await expect(page.locator('.build-progress span')).toContainText(/1 \/ \d+ 完了/);
   await page.reload();
   await expect(page.locator('.build-progress span')).toContainText(/1 \/ \d+ 完了/);
@@ -152,7 +153,53 @@ test('375px: 2候補比較と差分のみ表示を操作できる', async ({ pag
   await page.getByLabel('差分のみ表示').check();
   await expect(page.getByText(/差分のみ表示中/)).toBeVisible();
   await expect(page.locator('.compare-mobile article')).toHaveCount(2);
+  expect(await page.locator('.paired-fields > section > div').first().evaluate((node) => getComputedStyle(node).gridTemplateColumns.split(' ').length)).toBe(1);
   await expectNoHorizontalOverflow(page);
+});
+
+test('Toolsの検索直後クリックと履歴移動が競合しない', async ({ page }) => {
+  await page.goto('/tools');
+  const search = page.getByLabel('ツールを検索');
+  await search.fill('ElevenLabs');
+  await page.getByRole('heading', { name: 'ElevenLabs' }).getByRole('link').click();
+  await page.waitForTimeout(350);
+  await expect(page).toHaveURL(/\/tools\/elevenlabs$/);
+
+  await page.goBack();
+  await expect(page).toHaveURL(/\/tools\?q=ElevenLabs$/);
+  await expect(search).toHaveValue('ElevenLabs');
+
+  await page.goto('/tools');
+  await page.getByRole('button', { name: 'BGM' }).click();
+  await expect(page).toHaveURL(/goal=music/);
+  await page.goBack();
+  await expect(page).toHaveURL(/\/tools$/);
+  await page.goForward();
+  await expect(page).toHaveURL(/goal=music/);
+});
+
+test('Compare候補は2件選択後も開いたままでback/forwardに同期する', async ({ page }) => {
+  await page.goto('/compare');
+  const picker = page.locator('.compare-picker-panel');
+  await expect(picker).toHaveAttribute('open', '');
+  await page.getByLabel('ElevenLabs').check();
+  await expect(picker).toHaveAttribute('open', '');
+  await page.getByLabel('Suno').check();
+  await expect(page.getByText('2 / 4', { exact: true })).toBeVisible();
+  await expect(picker).toHaveAttribute('open', '');
+  await page.goBack();
+  await expect(page.getByText('1 / 4', { exact: true })).toBeVisible();
+  await page.goForward();
+  await expect(page.getByText('2 / 4', { exact: true })).toBeVisible();
+});
+
+test('affiliate CTAは広告表示と安全な外部リンク属性を保つ', async ({ page }) => {
+  await page.goto('/tools/elevenlabs');
+  const cta = page.getByRole('link', { name: /ElevenLabs公式サイト/ }).first();
+  await expect(cta).toHaveAttribute('href', 'https://try.elevenlabs.io/jlxoxtxe9768');
+  await expect(cta).toHaveAttribute('target', '_blank');
+  await expect(cta).toHaveAttribute('rel', 'sponsored nofollow noopener');
+  await expect(page.getByText('広告リンク', { exact: true }).first()).toBeVisible();
 });
 
 test('375px: Stacksを補助ルートとして閲覧できる', async ({ page }) => {
