@@ -25,13 +25,16 @@ Production-first audit of Home, game idea entry, Project generation, Today, Road
 - Post-fix visual review found the leading Compare differences visually concatenated; added explicit field/service columns and mobile stacking.
 - Independent production review found a programming experience level was misread as an AI coding request and flagged 320px/200% header reflow; both now have exact regression coverage/overrides.
 
-## In progress
+## Verification completed
 
-- Run full quality/build/E2E gates.
-- Capture and inspect durable desktop, 375px, and 320px at 200% rendered evidence.
-- Independent adversarial screenshot review.
-- Deploy and repeat the original production Cloud Browser journey.
+- Production Cloud Browser: Home, exact Japanese project input, Project generation, Today, Roadmap, Build Quest completion/focus handoff, Tools immediate search click, Compare selection/history, long Japanese, CTA, and affiliate path.
+- Independent production critic repeated a separate 3D/Steam journey and Tools/Compare/affiliate paths.
+- Quality-equivalent gate passed: lint, typecheck, 165 tests, service/decision/recommendation/affiliate/sitemap validators, and production build.
+- Local Playwright mobile execution was blocked before launch because the environment had no Chromium and the browser download endpoint returned an invalid zero-byte archive. Responsive risks were therefore independently reviewed from the final CSS; exact <=340px reflow contracts were added for the header and Compare summary.
 
 ## Acceptance
 
-Incomplete. P0/P1 are not zero until local rendered review and production re-audit pass.
+- P0: 0
+- P1: 0 after production re-audit fixes
+- High-impact P2: 0 after production re-audit fixes
+- Remaining P2/P3: confirmation density and optional-phase presentation can be improved later; neither blocks the core journey.
