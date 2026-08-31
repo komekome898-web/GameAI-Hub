@@ -24,7 +24,7 @@ const rules: Record<ScalarField, Match[]> = {
   locale:[{value:'ja-en',terms:['日本語と英語','日英','日本語・英語']},{value:'multi',terms:['多言語','multilingual']},{value:'ja',terms:['日本語のみ','日本語対応','日本語版','日本語で遊べる']}],
 };
 const capabilityRules: { value:ProjectBrief['capabilities'][number]; terms:string[] }[] = [
-  {value:'coding',terms:['コード','コーディング','プログラミング','coding','codex']},{value:'art-2d',terms:['2dアート','2d画像','キャラクター画像','背景画像','絵','イラスト','ドット絵']},
+  {value:'coding',terms:['コード','コーディング','プログラミング','coding','codex']},{value:'art-2d',terms:['2dアート','2d画像','キャラクター画像','背景画像','画像','絵','イラスト','ドット絵']},
   {value:'assets-3d',terms:['3dモデル','3dアセット','モデリング']},{value:'animation',terms:['アニメーション','モーション']},
   {value:'voice',terms:['音声','ボイス','voice']},{value:'music',terms:['bgm','音楽']},{value:'sfx',terms:['効果音','sfx']},
   {value:'npc-dialogue',terms:['npc','会話ai','ai会話']},{value:'localization',terms:['ローカライズ','翻訳','日本語と英語','多言語']},

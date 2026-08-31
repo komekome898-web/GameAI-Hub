@@ -18,7 +18,7 @@ describe('deterministic project interpreter',()=>{
   });
 
   it('recognizes the natural wording used in the production mobile journey',()=>{
-    const result=interpretProjectIdea('スマートフォン向けの2Dモンスター収集RPG。個人開発。日本語対応。月額予算1万円。2D画像・音声・コーディングにAIを活用したい。');
+    const result=interpretProjectIdea('スマートフォン向けの2Dモンスター収集RPG。個人開発。日本語対応。月額予算1万円。画像・音声・コード制作にAIを活用したい。');
     expect(result.fields).toEqual(expect.arrayContaining([
       expect.objectContaining({field:'genre',value:'monster-collection'}),
       expect.objectContaining({field:'platform',value:'mobile'}),
