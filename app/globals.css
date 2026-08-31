@@ -375,3 +375,12 @@ article.page-shell .stage-decision>summary strong{
   .compare-view-options{background:#fff}
   .empty{margin-top:28px;padding:52px 18px}
 }
+
+@media(max-width:340px){
+  .header-inner{padding-inline:8px;gap:4px}
+  .brand{min-width:30px;gap:0}
+  .brand-copy{display:none!important}
+  .brand-mark{width:30px;height:30px}
+  .menu-button{flex:0 0 44px;margin-left:auto}
+  .compare-picker-panel>summary{display:grid;grid-template-columns:minmax(0,1fr);gap:2px;overflow-wrap:anywhere}
+}

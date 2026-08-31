@@ -84,7 +84,8 @@ export function interpretProjectIdea(raw:string):Interpretation {
     if(values.length===1) fields.push({field,value:values[0],provenance:'explicit_text',evidence:hits.find(hit=>hit.value===values[0])?.term});
     else if(values.length>1) conflicts.push(`${field}: ${values.join(', ')}`);
   }
-  const capabilities=capabilityRules.filter(rule=>rule.terms.some(term=>text.includes(normalize(term))&&!explicitlyNegated(text,term))).map(rule=>rule.value);
+  const capabilityText=text.replace(/(?:プログラミング|コーディング|コード)(?:経験)?(?:は|が)?(?:初心者|未経験|中級|上級|熟練)/g,'');
+  const capabilities=capabilityRules.filter(rule=>rule.terms.some(term=>capabilityText.includes(normalize(term))&&!explicitlyNegated(capabilityText,term))).map(rule=>rule.value);
   if(capabilities.length) fields.push({field:'capabilities',value:[...new Set(capabilities)],provenance:'explicit_text',evidence:'自由文に明示された制作要件'});
   const present=new Set(fields.map(field=>field.field));
   return {idea,fields,detailCandidates:extractDetailCandidates(idea,text),unresolved:(Object.keys(rules) as ScalarField[]).filter(field=>!present.has(field)),conflicts};
