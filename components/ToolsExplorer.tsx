@@ -82,16 +82,13 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
     return () => window.removeEventListener('popstate', syncQueryFromHistory);
   }, []);
 
-  useEffect(() => {
-    if (query === queryParam) return;
-    const timeout = window.setTimeout(() => {
-      const next = new URLSearchParams(window.location.search);
-      const bounded = query.trim().slice(0, 120);
-      if (bounded) next.set('q', bounded); else next.delete('q');
-      window.history.replaceState(null, '', next.size ? `${pathname}?${next}` : pathname);
-    }, 180);
-    return () => window.clearTimeout(timeout);
-  }, [pathname, query, queryParam]);
+  function updateQuery(value: string) {
+    setQuery(value);
+    const next = new URLSearchParams(window.location.search);
+    const bounded = value.trim().slice(0, 120);
+    if (bounded) next.set('q', bounded); else next.delete('q');
+    window.history.replaceState(null, '', next.size ? `${pathname}?${next}` : pathname);
+  }
 
   function reset() {
     setQuery('');
@@ -151,7 +148,7 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
             id="tool-search"
             type="search"
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => updateQuery(event.target.value)}
             placeholder="例: Unity、音声、プロトタイプ"
             autoComplete="off"
             aria-describedby="tool-search-help"
