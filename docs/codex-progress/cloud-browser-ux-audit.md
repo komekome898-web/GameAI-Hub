@@ -23,6 +23,7 @@ Production-first audit of Home, game idea entry, Project generation, Today, Road
 - Production re-audit found generic `画像` was still omitted from 2D art; added the exact production phrase as a regression case.
 - Production re-audit reproduced the Tools click race after the first fix; removed the delayed URL write rather than merely changing its router API.
 - Post-fix visual review found the leading Compare differences visually concatenated; added explicit field/service columns and mobile stacking.
+- Independent production review found a programming experience level was misread as an AI coding request and flagged 320px/200% header reflow; both now have exact regression coverage/overrides.
 
 ## In progress
 

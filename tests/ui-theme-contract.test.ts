@@ -25,4 +25,11 @@ describe('unified light UI contract',()=>{
     expect(unifiedTheme).toContain('.affiliate-disclosure-note{');
     expect(unifiedTheme).toContain('.empty{');
   });
+
+  it('keeps the narrow zoom header and compare summary within one reflow column',()=>{
+    const narrow=unifiedTheme.slice(unifiedTheme.lastIndexOf('@media(max-width:340px)'));
+    expect(narrow).toContain('.brand-copy{display:none!important}');
+    expect(narrow).toContain('.menu-button{flex:0 0 44px');
+    expect(narrow).toContain('.compare-picker-panel>summary{display:grid;grid-template-columns:minmax(0,1fr)');
+  });
 });

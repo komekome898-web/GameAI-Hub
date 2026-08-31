@@ -50,6 +50,14 @@ describe('deterministic project interpreter',()=>{
     expect(result.fields).toContainEqual(expect.objectContaining({field:'locale',value:'ja-en'}));
   });
 
+  it('does not turn a programming experience level into an AI coding request',()=>{
+    const result=interpretProjectIdea('Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。');
+    const capabilities=result.fields.find(field=>field.field==='capabilities')?.value??[];
+    expect(capabilities).toEqual(expect.arrayContaining(['art-2d','voice']));
+    expect(capabilities).not.toContain('coding');
+    expect(result.fields).toContainEqual(expect.objectContaining({field:'experience',value:'intermediate'}));
+  });
+
   it('does not turn explicit exclusions into requirements',()=>{
     const result=interpretProjectIdea('音声なし、3D不要の2Dブラウザゲーム');
     const capabilities=result.fields.find(field=>field.field==='capabilities')?.value??[];
