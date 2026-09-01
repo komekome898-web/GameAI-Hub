@@ -97,7 +97,7 @@ test.describe('Beginner acceptance: current production journey contracts', () =>
       const help = page.locator('#beginner-stuck-panel');
       await expect(help.locator('pre')).toContainText(problem);
       await expect(help.locator('pre')).toContainText('現在の作業:');
-      await expect(help.locator('pre')).toContainText('使用ツール:');
+      await expect(help.locator('pre')).toContainText('相談先のAI:');
       await expect(help.locator('pre')).toContainText('完了条件:');
       await help.getByRole('button', { name: '相談文をコピー', exact: true }).click();
       expect(await page.evaluate(() => navigator.clipboard.readText())).toContain(problem);
