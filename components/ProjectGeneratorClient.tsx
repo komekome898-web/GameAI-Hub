@@ -25,7 +25,7 @@ import {
 import { verificationStatusLabel } from "@/lib/verification-status";
 
 const examples = [
-  "2Dのモンスター収集ゲーム。iPhone向け。一人開発。AIを最大限使いたい。月1万円以内。",
+  "モンスター収集とバトルのブラウザゲームを作りたい。ゲーム制作は初めてです。",
   "Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。",
   "ビジュアルノベル。日本語と英語。音声あり。できるだけ低予算。",
 ];
@@ -63,9 +63,9 @@ const labels = {
     unknown: "未確認",
   },
   experience: {
-    beginner: "初心者",
-    intermediate: "中級",
-    advanced: "上級",
+    beginner: "初めて（Beginner Mode）",
+    intermediate: "少し経験あり",
+    advanced: "開発経験あり",
     unknown: "未確認",
   },
   team: {
@@ -303,7 +303,7 @@ export function ProjectIdeaForm({
         rows={location === "home" ? 4 : 5}
         maxLength={1200}
         aria-describedby={`idea-help-${location} ${error ? `idea-error-${location}` : ""}`}
-        placeholder="例：Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。"
+        placeholder="例：モンスターを集めて戦うブラウザゲームを作りたい。ゲーム制作は初めてです。"
       />
       <div id={`idea-help-${location}`} className="idea-meta">
         <span>{idea.length} / 1200</span>
@@ -899,7 +899,9 @@ function projectWorkflowSteps(plan: ProjectPlan): BuildChecklistStep[] {
     };
   });
 
-  const setupOrder = ["concept", "environment", "repository"];
+  const setupOrder = plan.brief.experience === "beginner"
+    ? ["environment", "core-loop", "concept", "repository"]
+    : ["concept", "environment", "repository"];
   return [
     ...setupOrder.flatMap((id) => steps.filter((item) => item.id === id)),
     ...steps.filter((item) => !setupOrder.includes(item.id)),
@@ -912,6 +914,7 @@ function BuildChecklist({steps,plan,onCopy,engineBlocked}:{steps:BuildChecklistS
   const [evidenceNotes,setEvidenceNotes]=useState<Record<string,string>>({});
   const [loaded,setLoaded]=useState(false);
   const [key,setKey]=useState("");
+  const [stuckFor,setStuckFor]=useState<string | null>(null);
   useEffect(()=>{
     let cancelled=false;
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -952,6 +955,9 @@ function BuildChecklist({steps,plan,onCopy,engineBlocked}:{steps:BuildChecklistS
   const currentIndex=steps.findIndex(item=>!completed.has(item.id));
   const remaining=steps.filter(item=>!completed.has(item.id));
   const today=(engineBlocked?remaining.filter(item=>item.id==='environment'):remaining).slice(0,3);
+  const active=today[0];
+  const activeTool=active?.tools.find(tool=>tool.role==='primary');
+  const troublePrompt=active?`ゲーム制作で詰まっています。次の情報だけを使い、専門用語には短い説明を付け、次に試す操作を1つずつ案内してください。\n\nプロジェクト: ${projectName(plan.brief)}\n概要: ${plan.brief.idea}\n現在の作業: ${active.title}\n使用ツール: ${activeTool?.name??'手動（特定ツールなし）'}\n期待する成果物: ${active.outcome}\n完了条件:\n${active.doneWhen.map(value=>`- ${value}`).join('\n')}\n\n分からないことを推測せず、最初に確認すべき画面・エラー・操作を質問してください。`:'';
   const toggle=(id:string)=>setCompleted(old=>{
     const next=new Set(old);
     const wasDone=next.has(id);
@@ -974,6 +980,18 @@ function BuildChecklist({steps,plan,onCopy,engineBlocked}:{steps:BuildChecklistS
       <progress value={completed.size} max={steps.length}>{completed.size} / {steps.length}</progress>
       <small>完了状態はこの端末だけに保存されます。</small>
     </div>
+    <section className="artifact-progress" aria-labelledby="artifact-progress-title">
+      <h2 id="artifact-progress-title">完成までに作るもの</h2>
+      <ul>{steps.map((item,index)=><li className={completed.has(item.id)?'done':index===currentIndex?'current':''} key={item.id}><span aria-hidden="true">{completed.has(item.id)?'✓':index===currentIndex?'→':'□'}</span><span><strong>{item.outcome}</strong><small>{completed.has(item.id)?'できた':index===currentIndex?'次に作る':'この先'}</small></span></li>)}</ul>
+    </section>
+    {plan.brief.experience==='beginner'&&active&&<section className="beginner-action" aria-labelledby="beginner-action-title">
+      <p>BEGINNER MODE · 1画面1作業</p><h2 id="beginner-action-title">今はこれだけ：{active.title}</h2>
+      <div className="beginner-action-grid"><section><h3>今作るもの</h3><strong>{active.outcome}</strong><p>{active.why}</p></section><section><h3>{activeTool?'今回はこのAIを使う':'今回は手動で進める'}</h3><strong>{activeTool?.name??'AIツールはまだ不要'}</strong><p>{activeTool?.reason??'画面を開いて確認する作業です。新しいサービスを選ぶ必要はありません。'}</p>{activeTool&&<Link href={`/tools/${activeTool.serviceSlug}`}>このツールの開き方・根拠を見る</Link>}</section></div>
+      <section className="beginner-steps"><h3>上から順に操作</h3><ol>{active.usageInstructions.map(value=><li key={value}>{value}</li>)}</ol></section>
+      <section className="action-prompt"><h3>{activeTool?`${activeTool.name} にこれを送る`:'AIに手順を確認するなら、これを送る'}</h3><pre>{active.prompt}</pre><button onClick={()=>onCopy(active.prompt,`active_${active.id}`)}>この指示をコピー</button><p><strong>送った後の成功：</strong>{active.outcome}。下の完了条件を実際の画面やファイルで確認します。</p></section>
+      <div className="beginner-action-buttons"><a className="button" href={`#quest-${active.id}`}>完了条件を確認して「できた」へ</a><button className="button ghost" onClick={()=>setStuckFor(stuckFor===active.id?null:active.id)}>ここで詰まった</button></div>
+      {stuckFor===active.id&&<section className="stuck-panel" aria-live="polite"><h3>AIへ渡すトラブル相談</h3><p>Project概要・現在の作業・成果物・完了条件をまとめました。個人情報や入力内容をアクセス解析へ送りません。</p><pre>{troublePrompt}</pre><button onClick={()=>onCopy(troublePrompt,`trouble_${active.id}`)}>相談文をコピー</button></section>}
+    </section>}
     <section className="today-queue" aria-labelledby="today-title">
       <div className="queue-heading"><span>今日の優先作業</span><h2 id="today-title">今日やること</h2><p>上から最大3件。前の成果物を受け取り、完了条件を満たしたものだけ次へ渡します。</p></div>
       {today.length ? <div className="today-grid">{today.map((item,index)=>{

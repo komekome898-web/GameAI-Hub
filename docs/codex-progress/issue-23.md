@@ -11,3 +11,19 @@
 - Known blockers / assumptions: none
 - Areas currently being edited: discovery only
 - Exact next action on resume: read Issue #23, recent UI/UX PRs, existing evidence, Next.js docs, then run the current app and complete independent discovery.
+
+## Product thesis (2026-09-01)
+- Primary job: turn one plain-language idea into one executable action that ends in an observable game artifact, then advance one action at a time.
+- Value: the product supplies where to work, what to copy, what should happen, how to decide Done, and a safe troubleshooting question; it is not a tool ranking directory.
+- Journey: idea → plain-language experience confirmation → one current action → inline instruction/prompt → observable artifact and criteria → Done → next action.
+- Decision/data: retain typed project plan, stable checklist IDs, deterministic affiliate-neutral recommendations, verified service provenance, and conservative unknowns.
+- Trust: free text remains out of analytics/share URLs; affiliate payout never selects a tool; unsupported price/rights/time remain unknown.
+- Not building: a new payment system, affiliate ranking, guaranteed completion times, or a standalone prompt library.
+
+## Checkpoint update
+- Completed: independent product/UX/workflow/architecture/trust discovery; beginner-first Home copy; plain experience labels; beginner current-action surface; inline prompt success; local troubleshooting prompt; artifact-led progress; beginner workflow moves running setup/core loop ahead of planning governance.
+- In progress: tests and first rendered QA.
+- Remaining: fix test expectation if required; current/final screenshots; adversarial review/fixes; full quality/build/E2E; regression/protected audit; PR/checks/merge/production smoke.
+- Current findings: P0 none identified; P1 rendered review pending; engine-undecided beginner flow remains a review focus.
+- Targeted gate: typecheck passed; 55/56 targeted tests passed before copy compatibility fix.
+- Next action: rerun targeted tests, launch app and capture first rendered pass at required viewports.
