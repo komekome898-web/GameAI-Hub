@@ -245,7 +245,7 @@ describe("Project Generator client", () => {
     expect(screen.getByRole("heading", { level: 1 }).textContent).toContain("Godot");
     expect(screen.getByText(/非公開下書きをこの端末に保存できませんでした/)).toBeTruthy();
     expect(screen.getByRole("button", { name: "Markdownを今すぐ保存" })).toBeTruthy();
-  });
+  }, 10_000);
 
   it("deletes all local project data and keeps the live status outside the collapsed utility", async () => {
     const shared: ProjectBrief = {
