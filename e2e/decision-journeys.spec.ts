@@ -43,7 +43,7 @@ async function generateProject(page: Page, idea: string) {
   }
 
   await page.getByRole('button', { name: 'Project Planを作る' }).click();
-  await expect(page.getByRole('heading', { name: '今日やること' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /今はこれだけ/ })).toBeVisible();
   await expect(page).toHaveURL(/\/project\?v=1&p=/);
 }
 
@@ -71,7 +71,7 @@ test.describe('Project Interpreter provider states',()=>{
     for(const label of Object.keys(defaults))await page.getByRole('button',{name:`${label}のAI候補を確認`}).click();
     await page.getByRole('button',{name:'選択された制作工程を確認'}).click();
     await page.getByRole('button',{name:'Project Planを作る'}).click();
-    await expect(page.getByRole('heading',{name:'今日やること'})).toBeVisible();
+    await expect(page.getByRole('heading',{name:/今はこれだけ/})).toBeVisible();
     await expectNoHorizontalOverflow(page);
   });
 
@@ -109,9 +109,8 @@ test('375px: homeからno voice/no 3DのProject Planを完走できる', async (
   const result = page.locator('.project-result');
   await expect(result).not.toContainText('台詞ID・話者同意・音声ファイル');
   await expect(result).not.toContainText('3Dモデル');
-  const currentQuest = page.locator('#quest-concept');
+  const currentQuest = page.locator('.action-step[open]');
   for (const criterion of await currentQuest.locator('.done-criteria input').all()) await criterion.check();
-  await currentQuest.locator('.artifact-evidence input').fill('docs/concept.md に確認結果を記録');
   await currentQuest.locator('.completion-control input').check();
   await expect(page.locator('.build-progress span')).toContainText(/1 \/ \d+ 完了/);
   await page.reload();

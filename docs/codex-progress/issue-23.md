@@ -27,3 +27,10 @@
 - Current findings: P0 none identified; P1 rendered review pending; engine-undecided beginner flow remains a review focus.
 - Targeted gate: typecheck passed; 55/56 targeted tests passed before copy compatibility fix.
 - Next action: rerun targeted tests, launch app and capture first rendered pass at required viewports.
+
+## Adversarial pass 1 and fixes
+- Review coverage: beginner/product skeptic/information architecture/browser-back; mobile/visual/accessibility/game-production; Next.js/recommendation/trust/affiliate/monetization.
+- P1 fixes: beginner web starts with a genre-specific running slice; unknown engine no longer blocks vanilla-browser slice; alternatives/evidence and duplicate Today/Roadmap/future Quests are removed from beginner execution surface; criteria and Done now follow the active task; full artifact inventory is suppressed in beginner mode; Home preview now shows a running battle; troubleshooting text uses bounded confirmed details as quoted data rather than raw idea.
+- Quality: `npm run quality` passed (165 tests). `npm run build` passed (56 pages). E2E first rerun exposed obsolete expectations; selectors were migrated to the current task and beginner evidence behavior; final rerun pending.
+- Rendered pass 2 files are under `docs/screenshots/issue-23/`; a shorter final pass is still required after the latest CSS changes.
+- Remaining: final rendered capture/review, final E2E + repeat, regression/protected audit record, PR/checks/merge/deploy.
