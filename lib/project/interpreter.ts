@@ -18,7 +18,7 @@ const rules: Record<ScalarField, Match[]> = {
   ],
   engine:[{value:'unity',terms:['unity']},{value:'unreal',terms:['unreal','ue5','ue 5']},{value:'godot',terms:['godot']},{value:'undecided',terms:['エンジン未定','engine undecided']}],
   budget:[{value:'free',terms:['無料で','予算なし','予算0円','費用0円']},{value:'low',terms:['低予算','月1万円','月１万円','月額予算1万円','予算月額1万円','毎月1万円','1万円以内','１万円以内']},{value:'flexible',terms:['予算は柔軟','予算上限なし']}],
-  experience:[{value:'beginner',terms:['初心者','未経験']},{value:'intermediate',terms:['中級']},{value:'advanced',terms:['上級','熟練']}],
+  experience:[{value:'beginner',terms:['初心者','未経験','ゲーム制作は初めて','ゲーム開発は初めて','初めてゲームを作','ゲーム制作経験ゼロ','ゲーム開発経験ゼロ']},{value:'intermediate',terms:['中級']},{value:'advanced',terms:['上級','熟練']}],
   team:[{value:'solo',terms:['一人開発','1人開発','１人開発','個人開発','solo']},{value:'small-team',terms:['少人数','小規模チーム']},{value:'team',terms:['チーム開発']}],
   commercialIntent:[{value:'commercial',terms:['商用','販売したい','発売したい','販売','発売']},{value:'personal',terms:['非商用','個人利用']},{value:'undecided',terms:['商用未定','販売未定','発売未定']}],
   locale:[{value:'ja-en',terms:['日本語と英語','日英','日本語・英語']},{value:'multi',terms:['多言語','multilingual']},{value:'ja',terms:['日本語のみ','日本語対応','日本語版','日本語で遊べる']}],
@@ -34,7 +34,7 @@ const normalize=(text:string)=>text.normalize('NFKC').toLocaleLowerCase('ja-JP')
 const escapeRegExp=(value:string)=>value.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 const explicitlyNegated=(text:string,term:string)=>{
   const target=escapeRegExp(normalize(term));
-  const negative='(?:なし|不要|いらない|しない|使わず|使わない|生成しない)';
+  const negative='(?:なし|不要|いらない|しない|使わず|使わない|生成しない|ではない|ではありません|じゃない)';
   const direct=new RegExp(`${target}(?:は|を|も)?${negative}`);
   const coordinated=new RegExp(`${target}(?:(?:と|・|、|も)[^。．、,]{1,14})+(?:は|を|も)?${negative}`);
   return direct.test(text)||coordinated.test(text);
@@ -69,6 +69,11 @@ function extractDetailCandidates(source:string,text:string):DetailCandidate[] {
   // It remains a candidate and is never silently approved.
   const objective=source.split(/[。.!?\n]/).map(value=>value.trim()).find(value=>value.length>=6&&value.length<=80&&/(?:したい|目指す|救う|守る|脱出|届け|解決|生き残る)/.test(value)&&!/(?:予算|円|か月|ヶ月|AI|ＡＩ|コード|画像|音声|技術|Unity|Unreal|Godot)/i.test(value)&&!/https?:|\S+@\S+/.test(value));
   if(objective)add('constraint',objective,objective);
+  // Keep an explicitly bounded first playable goal separate from the overall
+  // game pitch. It remains a candidate until the user confirms it.
+  for(const sentence of source.split(/[。.!?\n]/).map(value=>value.trim())){
+    if(sentence.length>=6&&sentence.length<=80&&/^(?:まずは?|最初は|最初に)/.test(sentence)&&/(?:作りたい|まで作る|までにする)/.test(sentence)&&!/(?:予算|円|か月|ヶ月|AI|ＡＩ|コード|画像|音声|技術|Unity|Unreal|Godot)/i.test(sentence))add('constraint',sentence,sentence);
+  }
   const unique=new Map<string,{kind:ProjectDetail['kind'];text:string;evidence:string}>();
   for(const item of found)unique.set(`${item.kind}:${normalize(item.text)}`,item);
   return [...unique.values()].slice(0,20).map((item,index)=>({...item,id:detailId(item.kind,item.text,index),provenance:'explicit_text'}));
@@ -86,6 +91,13 @@ export function interpretProjectIdea(raw:string):Interpretation {
   }
   const capabilityText=text.replace(/(?:プログラミング|コーディング|コード)(?:経験)?(?:は|が)?(?:初心者|未経験|中級|上級|熟練)/g,'');
   const capabilities=capabilityRules.filter(rule=>rule.terms.some(term=>capabilityText.includes(normalize(term))&&!explicitlyNegated(capabilityText,term))).map(rule=>rule.value);
+  // A character appearing in a story is not itself an image-generation request.
+  // Infer art only when a sentence explicitly asks to make background/character
+  // artwork; ordinary fixed dialogue must never imply a runtime conversation AI.
+  const requestsArtwork=capabilityText.split(/[。.!?\n]/).some(sentence=>
+    /(?:背景|キャラクター|立ち絵)(?:[、・と](?:背景|キャラクター|立ち絵))*(?:を|は)(?:aiで)?(?:作りたい|描きたい|生成したい|用意したい)/.test(sentence)
+    &&!['背景','キャラクター','立ち絵'].some(term=>sentence.includes(term)&&explicitlyNegated(sentence,term)));
+  if(requestsArtwork&&!capabilities.includes('art-2d'))capabilities.push('art-2d');
   if(capabilities.length) fields.push({field:'capabilities',value:[...new Set(capabilities)],provenance:'explicit_text',evidence:'自由文に明示された制作要件'});
   const present=new Set(fields.map(field=>field.field));
   return {idea,fields,detailCandidates:extractDetailCandidates(idea,text),unresolved:(Object.keys(rules) as ScalarField[]).filter(field=>!present.has(field)),conflicts};

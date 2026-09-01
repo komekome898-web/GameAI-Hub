@@ -4,6 +4,40 @@ import { decodeProjectState, encodeProjectState, generateProjectPlan, interpretP
 const brief=(patch:Partial<ProjectBrief>={}):ProjectBrief=>({idea:'小さなゲームを作る',genre:'other',dimension:'unknown',platform:'unknown',engine:'unknown',budget:'unknown',experience:'unknown',team:'unknown',commercialIntent:'unknown',capabilities:['coding'],locale:'unknown',details:[],...patch});
 
 describe('deterministic project interpreter',()=>{
+  it.each([
+    'ゲーム制作は初めてです。ブラウザで遊べる簡単な2Dゲームを作りたいです。キャラクターを動かして、ゴールまで行けばクリアになるゲームにしたいです。',
+    'ゲーム制作は初めてです。モンスターを集めて育てて戦うゲームを作りたいです。まずは1体対1体で戦えるところまで作りたいです。',
+    'ゲーム制作は初めてです。ブラウザで遊べる恋愛ノベルゲームを作りたいです。背景、キャラクター、会話を表示して次へ進むゲームにしたいです。',
+  ])('recognizes first-time game creation in the acceptance scenarios: %s',idea=>{
+    const result=interpretProjectIdea(idea);
+    expect(result.fields).toContainEqual(expect.objectContaining({field:'experience',value:'beginner',provenance:'explicit_text',evidence:'ゲーム制作は初めて'}));
+    expect(result.unresolved).not.toContain('experience');
+  });
+
+  it.each(['初めて宇宙へ行くキャラクターのゲーム','ゲーム制作は初めてではありません。','ゲーム開発は初めてじゃないです。'])('does not infer beginner from unrelated or negated first-time wording: %s',idea=>{
+    expect(interpretProjectIdea(idea).fields).not.toContainEqual(expect.objectContaining({field:'experience',value:'beginner'}));
+  });
+
+  it('retains the explicitly limited first battle without inventing a platform or approving it',()=>{
+    const result=interpretProjectIdea('ゲーム制作は初めてです。モンスターを集めて育てて戦うゲームを作りたいです。まずは1体対1体で戦えるところまで作りたいです。');
+    expect(result.detailCandidates).toContainEqual(expect.objectContaining({kind:'constraint',text:'まずは1体対1体で戦えるところまで作りたい',provenance:'explicit_text'}));
+    expect(result.fields.some(field=>field.field==='details'||field.field==='platform')).toBe(false);
+    expect(interpretProjectIdea('まずは test@example.com を使うところまで作りたい。').detailCandidates).toEqual([]);
+  });
+
+  it('preserves fixed novel visuals and dialogue as requirements without adding runtime AI',()=>{
+    const result=interpretProjectIdea('ゲーム制作は初めてです。ブラウザで遊べる恋愛ノベルゲームを作りたいです。背景、キャラクター、会話を表示して次へ進むゲームにしたいです。');
+    expect(result.detailCandidates).toContainEqual(expect.objectContaining({kind:'constraint',text:'背景、キャラクター、会話を表示して次へ進むゲームにしたい'}));
+    expect(result.fields.find(field=>field.field==='capabilities')?.value??[]).not.toContain('npc-dialogue');
+  });
+
+  it('recognizes explicit artwork creation while leaving mere appearances and exclusions alone',()=>{
+    expect(interpretProjectIdea('恋愛ノベルの背景とキャラクターを作りたい。').fields).toContainEqual(expect.objectContaining({field:'capabilities',value:expect.arrayContaining(['art-2d'])}));
+    for(const idea of ['背景とキャラクターが登場する恋愛ノベル。','背景とキャラクターは不要。会話を作りたい。']){
+      expect(interpretProjectIdea(idea).fields.find(field=>field.field==='capabilities')?.value??[]).not.toContain('art-2d');
+    }
+  });
+
   it('extracts only facts explicitly present in realistic Japanese text',()=>{
     const result=interpretProjectIdea('2Dのモンスター収集ゲーム。iPhone向け。一人開発。月1万円以内。');
     expect(result.fields).toEqual(expect.arrayContaining([

@@ -22,10 +22,19 @@ async function expectNoHorizontalOverflow(page: Page) {
   expect(sizes.content, `content width ${sizes.content}px exceeds ${sizes.viewport}px viewport`).toBeLessThanOrEqual(sizes.viewport);
 }
 
+async function openDetailedConditions(page: Page) {
+  const details = page.locator('.beginner-confirm-details');
+  await expect(details).toBeAttached();
+  if (!(await details.evaluate(node => (node as HTMLDetailsElement).open))) {
+    await details.locator(':scope > summary').click();
+  }
+}
+
 async function generateProject(page: Page, idea: string) {
   await page.getByLabel('どんなゲームを作りたいですか？').fill(idea);
   await page.getByRole('button', { name: '制作ロードマップを作る' }).click();
   const form = page.locator('.clarify-form');
+  await openDetailedConditions(page);
   await expect(form).toBeVisible({ timeout: 20_000 });
   await expect(form.locator('select')).toHaveCount(Object.keys(defaults).length);
 
@@ -36,12 +45,14 @@ async function generateProject(page: Page, idea: string) {
   }
 
   for (const [label, fallback] of Object.entries(defaults)) {
+    await openDetailedConditions(page);
     const select = form.getByLabel(new RegExp(`^${label}`));
     await expect(select).toBeVisible();
     if ((await select.inputValue()) === 'unknown') await select.selectOption(fallback);
     await expect(select).not.toHaveValue('unknown');
   }
 
+  await openDetailedConditions(page);
   await page.getByRole('button', { name: 'Project Planを作る' }).click();
   await expect(page.locator('.project-result')).toBeVisible();
   await expect(page).toHaveURL(/\/project\?v=1&p=/);
@@ -96,7 +107,7 @@ test.describe('Project Interpreter provider states',()=>{
   });
 });
 
-test('375px: homeからno voice/no 3DのProject Planを完走できる', async ({ page }, testInfo) => {
+test('375px: 明示したGodotを保持しno voice/no 3Dの最初の工程を完了できる', async ({ page }, testInfo) => {
   await page.setViewportSize(mobile);
   await page.goto('/');
   await expectNoHorizontalOverflow(page);
@@ -109,12 +120,15 @@ test('375px: homeからno voice/no 3DのProject Planを完走できる', async (
   const result = page.locator('.project-result');
   await expect(result).not.toContainText('台詞ID・話者同意・音声ファイル');
   await expect(result).not.toContainText('3Dモデル');
-  const currentQuest = page.locator('.action-step[open]');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Godot');
+  await expect(page.locator('.beginner-workspace')).toHaveCount(0);
+  await expect(page.locator('.beginner-action')).toContainText('制作環境を起動する');
+  const currentQuest = page.locator('.action-step.is-current');
   for (const criterion of await currentQuest.locator('.done-criteria input').all()) await criterion.check();
   await currentQuest.locator('.completion-control input').check();
   await expect(page.locator('.build-progress span')).toContainText(/1 \/ \d+ 完了/);
-  await expect(page.getByRole('heading', { name: /開始から結果までの画面をつなぐ/ })).toBeVisible();
-  await expect(page.locator('.beginner-action').getByRole('link', { name: /公式サイト/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /今はこれだけ：コアループを通す/ })).toBeVisible();
+  await expect(page.locator('.beginner-action').getByRole('link', { name: /チャットを開く|公式サイト/ })).toBeVisible();
   await page.reload();
   await expect(page.locator('.build-progress span')).toContainText(/1 \/ \d+ 完了/);
   await expectNoHorizontalOverflow(page);
@@ -214,6 +228,15 @@ test('Project Generatorのエンジン条件が計画と共有stateへ反映さ�
   await page.goto('/project');
   await generateProject(page, 'Steam向け3Dホラー。Unity。プログラミング中級。一人開発。低予算。商用。');
   await expect(page.locator('.project-result')).toContainText('Unity');
+});
+
+test('3Dブラウザ初心者はHTML試作へ置き換えずエンジン決定を待つ', async ({ page }) => {
+  await page.goto('/project');
+  await generateProject(page, '3Dホラー。ブラウザ。初心者。一人開発。低予算。個人利用。');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('3D');
+  await expect(page.getByRole('heading', { name: '実装前にゲームエンジンを決める' })).toBeVisible();
+  await expect(page.locator('.beginner-workspace')).toHaveCount(0);
+  await expect(page.locator('#quest-core-loop .completion-control input')).toBeDisabled();
 });
 
 test('320pxかつ200% zoomでも主要画面に横方向の文書overflowがない', async ({ page }, testInfo) => {
