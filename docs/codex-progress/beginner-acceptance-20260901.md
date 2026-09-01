@@ -38,3 +38,12 @@
 - Cloud Browser provides no supported viewport resize. A local mobile harness URL was denied by browser URL security policy; no bypass attempted. 375/320 live manual check remains incomplete. E2E screenshots remain secondary evidence and must be inspected.
 - Browser session timed out during history operations; observed Tools state returned, remaining history test not yet accepted.
 - Preview / final visual A/B/C / affiliate destinations / all acceptance / production smoke: pending. Merge remains prohibited.
+
+## Cloud Preview recheck and supplemental asset correction
+- PR #39 head 81ecc2b: quality PASS (198 tests/build), E2E PASS (20 tests), Vercel Preview READY. User-authorized login now permits direct Cloud Preview interaction; no protection settings changed.
+- Direct Preview A/B/C: exact beginner wording works; genre-specific first actions/prompts/criteria and editable help copied successfully. A runner fixture (not external AI output) was pasted and played through movement, clear and retry. Three completion acknowledgements and reload persisted 3/6. B/C were newly generated at 0/6.
+- Tools code/search -> Compare Copilot/Cursor carries project context. Difference toggle URL/back/forward and return to the same C draft verified. Meshy and ElevenLabs disclosed affiliate CTAs opened their official destinations.
+- Supplemental requested-voice project exposed P1: wrong PNG->voice.mp3 instruction, speech generator shown procedural prompt as input, competing HTML workspace, and troubleshooting routed to the speech generator. Do not merge the previous head.
+- Corrected asset-specific filenames; voice uses only existing spoken dialogue, not procedural prompt. Retain the mounted game in a secondary disclosure to inspect dialogue and preserve running state. Asset troubleshooting uses the original coding chat and identifies the actual asset tool separately. Added image/voice 320px browser regressions.
+- Latest local edits await fresh quality/build/CI/Preview and direct asset+A/B/C recheck. Cloud Browser has no viewport resize; CI mobile screenshots are secondary evidence, reviewed separately. External AI generation is not claimed. Completion actions are UI acknowledgment tests.
+- Residual low-impact P2: bottom unresolved-condition strip exposes engine/commercialIntent identifiers. Main beginner action does not depend on these fields. Final production smoke remains pending; merge prohibited until new head passes.

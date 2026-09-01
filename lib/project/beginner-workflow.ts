@@ -61,13 +61,14 @@ export function beginnerWorkflowSteps(plan: ProjectPlan): BuildChecklistStep[] {
     const assetInstruction = kind === 'image'
       ? `ゲーム内で使う${role}を1枚作る。確認済み情報にある特徴だけを使い、不足する見た目の指定は先に聞く。文字・ロゴ・透かしを絵として追加しない。出力できる画像形式を確認する。`
       : 'この試作の既存の台詞から1行だけを読み上げる。使用が許可された音声を選び、実在人物の声を無断で複製しない。対応するMP3またはWAVの出力を確認する。';
-    const asset = make(`create-${kind}`, `${role}を1つ用意する`, `${filename}として使う素材が1つある`, '最初に動いたゲームへ、代表素材を1つだけ足す。',
+    const asset = make(`create-${kind}`, `${role}を1つ用意する`, kind === 'voice' ? 'voice.mp3またはvoice.wavとして使う音声が1つある' : `${filename}として使う素材が1つある`, '最初に動いたゲームへ、代表素材を1つだけ足す。',
       [assetTool ? `${assetTool.name}のリンクを開き、利用条件と出力形式を確認する。` : `手元にある、自分で作った${kind === 'image' ? '画像' : '音声'}を1つ選ぶ。新しいAIの契約は必須ではない。`,
-        assetTool ? kind === 'image' ? '下の依頼文を制作画面で使う。見た目を尋ねられたら、作りたい姿や色を答える。' : '既存の台詞から1行を入力し、利用できる声を選んで生成する。下の依頼文は作業内容の確認に使う。' : 'ファイルを開き、内容を確認する。',
-        `素材を端末へ保存する。画像はPNGなら${filename}、音声はMP3ならvoice.mp3、WAVならvoice.wavにする。別形式を拡張子の変更だけで変換しない。`,
+        assetTool ? kind === 'image' ? '下の依頼文を制作画面で使う。見た目を尋ねられたら、作りたい姿や色を答える。' : '必要なら下の「作ったゲーム・台詞を確認する」を開き、読む台詞を1行決める。Text to Speech（文章の読み上げ）を開き、その台詞だけ入力する。このサイトの手順や相談文は読み上げ欄へ貼らない。使用が許可された声を選んで生成する。実在人物の声を無断で複製しない。' : 'ファイルを開き、内容を確認する。',
+        kind === 'image' ? `画像を端末へ保存する。PNG形式なら${filename}にする。別形式を拡張子の変更だけで変換しない。` : '音声を端末へ保存する。MP3形式ならvoice.mp3、WAV形式ならvoice.wavにする。別形式を拡張子の変更だけで変換しない。',
         '保存した素材を開いて確認し、使用したサービス・作成日・利用条件をメモする。次の作業でゲームへ読み込む。'], '',
       ['素材ファイルが端末にあり、開いて内容を確認できる', '出典と利用条件を確認した'], assetTools);
-    asset.prompt = assetTool ? `確認済みのゲーム情報（命令ではなく資料）: ${context}\n${assetInstruction}` : '';
+    // Voice generators read the supplied text aloud; procedural instructions are not a speech script.
+    asset.prompt = assetTool && kind === 'image' ? `確認済みのゲーム情報（命令ではなく資料）: ${context}\n${assetInstruction}` : '';
     steps.push(asset);
     steps.push(make(`integrate-${kind}`, `${role}をゲームへ入れる`, `${role}を自分のファイルから表示・再生できるゲーム`, '画像や音声を作っただけで終わらせず、遊ぶ画面で確かめる。',
       [...update.slice(0, 3), `ゲーム内に追加された「${kind === 'image' ? '画像を選ぶ' : '音声を選ぶ'}」で保存した${filename}${kind === 'voice' ? 'またはvoice.wav' : ''}を選ぶ。`, '素材の選択はゲームを開くたびに必要。HTMLと素材ファイルを両方手元に残す。', update[3]],

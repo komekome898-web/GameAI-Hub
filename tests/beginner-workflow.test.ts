@@ -68,6 +68,11 @@ describe('beginner prototype workflow', () => {
     const voice = steps.find(step => step.id === 'create-voice')!;
     expect(image.tools).toEqual(source.phases.find(phase => phase.id === 'visuals')?.tools);
     expect(voice.tools).toEqual(source.phases.find(phase => phase.id === 'voice')?.tools);
+    expect(voice.prompt).toBe('');
+    expect(voice.outcome).toContain('voice.wav');
+    expect(voice.usageInstructions.join(' ')).toContain('その台詞だけ入力');
+    expect(voice.usageInstructions.join(' ')).not.toMatch(/PNG|画像は/);
+    expect(image.usageInstructions.join(' ')).not.toMatch(/voice\.(mp3|wav)|音声は/);
     expect(image.outcome).toContain('background.png');
     expect(steps.find(step => step.id === 'integrate-image')?.prompt).toContain('FileReader');
     expect(steps.find(step => step.id === 'integrate-voice')?.prompt).toContain('ボタンを押した時だけ再生');

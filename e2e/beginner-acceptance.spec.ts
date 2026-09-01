@@ -64,6 +64,54 @@ async function retainScreenshot(page: Page, testInfo: TestInfo, name: string) {
 }
 
 test.describe('Beginner acceptance: current production journey contracts', () => {
+  for (const kind of ['voice', 'image'] as const) {
+    test(`optional ${kind}: 素材の入力・保存・相談をコード制作から区別する`, async ({ page, context }, testInfo) => {
+      test.setTimeout(90_000);
+      await page.setViewportSize({ width: 320, height: 740 });
+      await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+      await beginFromHome(page, `ゲーム制作は初めてです。ブラウザで遊べる2Dの恋愛ノベルゲームを作りたいです。${kind === 'voice' ? '台詞の音声も生成したいです。' : '背景とキャラクターの画像を生成したいです。'}`);
+      const editor = page.getByLabel('ゲームのコード', { exact: true });
+      await editor.fill(runnerFixture);
+      await page.getByRole('button', { name: 'ゲームを表示', exact: true }).click();
+      for (let count = 1; count <= 4; count++) await completeCurrentTask(page, count);
+      const active = page.locator('.beginner-action');
+      await expect(page.locator('#beginner-action-title')).toContainText(kind === 'voice' ? '短い台詞の音声を1つ' : '背景を1つ');
+      await expect(editor).toBeHidden();
+      const steps = active.locator('.beginner-steps');
+      if (kind === 'voice') {
+        await expect(steps).toContainText('その台詞だけ入力');
+        await expect(steps).toContainText('voice.wav');
+        await expect(steps).not.toContainText('PNG');
+        await expect(active.locator('.action-prompt')).toHaveCount(0);
+        await expect(active.locator('.beginner-action-grid')).toContainText('広告リンク');
+        await expect(active.locator('.beginner-action-grid a').first()).toHaveAttribute('href', /^https:\/\/try\.elevenlabs\.io\//);
+      } else {
+        await expect(steps).toContainText('background.png');
+        await expect(steps).not.toContainText('voice.mp3');
+      }
+      await page.getByText('作ったゲーム・台詞を確認する', { exact: true }).click();
+      await expect(editor).toBeVisible();
+      await expect(editor).toHaveValue(runnerFixture);
+      await expect(page.frameLocator('iframe').getByText('開始できます', { exact: true })).toBeVisible();
+      await page.getByText('作ったゲーム・台詞を確認する', { exact: true }).click();
+      await active.getByRole('button', { name: 'ここで詰まった', exact: true }).click();
+      const help = page.locator('#beginner-stuck-panel');
+      await expect(help.getByRole('link', { name: 'GitHub Copilotのチャットを開く' })).toHaveAttribute('href', 'https://github.com/copilot');
+      await expect(help.locator('pre')).toContainText('相談先のAI: GitHub Copilot');
+      if (kind === 'voice') await expect(help.locator('pre')).toContainText('作業に使っているツール: ElevenLabs');
+      await page.getByLabel('困っていること・表示されたエラー', { exact: true }).fill('保存ボタンが見つかりません。');
+      await help.getByRole('button', { name: '相談文をコピー', exact: true }).click();
+      expect(await page.evaluate(() => navigator.clipboard.readText())).toContain('保存ボタンが見つかりません。');
+      await retainScreenshot(page, testInfo, `${kind}-320-help`);
+      await completeCurrentTask(page, 5);
+      await expect(page.locator('#beginner-action-title')).toContainText('ゲームへ入れる');
+      await expect(editor).toBeVisible();
+      await expect(editor).toHaveValue(runnerFixture);
+      await expect(page.getByRole('button', { name: 'index.htmlを保存', exact: true })).toBeEnabled();
+      await expect(page.frameLocator('iframe').getByText('開始できます', { exact: true })).toBeVisible();
+    });
+  }
+
   for (const scenario of scenarios) {
     test(`${scenario.id.toUpperCase()}: ${scenario.name}を新規状態から開始し3作業の進捗を保持する`, async ({ page, context }, testInfo) => {
       test.setTimeout(90_000);
