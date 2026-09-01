@@ -60,3 +60,13 @@
 - Done focus scrolls to the new current action heading. Mobile evidence capture disables sticky positioning only during full-page screenshot stitching to avoid Playwright duplicating the real sticky header; normal viewport behavior remains tested.
 - Fresh production-server evidence is in `docs/screenshots/issue-23/final/`, including three beginner genres, stuck, after-Done, 375px, 320px/200% zoom, desktop, Home, Tools and Compare.
 - Gates before the latest acceptance fix: E2E 15/15 and repeat-each=3 45/45; quality 165/165 and build passed. All must be rerun after this final behavior change.
+
+## Final acceptance — complete
+- E2E failure classifications: all five were stale rendered-contract locators/URL assumptions; substantive Compare, history, affiliate URL/rel/disclosure and Project assertions remain. Final added coverage verifies Done advances to the executable second task with its official tool CTA.
+- Final gates: `npm run quality` PASS (20 files, 165 tests); `npm run build` PASS (56 pages); `npm run test:e2e` PASS (15/15); `npm run test:e2e -- --repeat-each=3` PASS (45/45).
+- Final rendered evidence: `docs/screenshots/issue-23/final/` at Home 375 first/full, Home 320/200%, desktop, Project 375, Project 320/200%, expanded current work, stuck, after-Done, monster, visual novel, simple browser, Tools and Compare.
+- Independent final reviewers verified: matching prompt/artifact/Done criteria for all three beginner genres; explicit Copilot chat → one-file save → browser-run instructions; compact artifact progress; bounded troubleshooting; next-task focus and executable first three tasks; readable 320/200%; no dev overlay.
+- Functional regression audit: Project URL/deep link, Compare and Tools back/forward, share/export/private draft/progress persistence, project-specific details, provider fallback, mobile nav, keyboard focus and long Japanese remain covered.
+- Protected audit: GA4 `G-B9Q283QVER`, production gtag, outbound/affiliate events, safe sub_id, no free-text analytics, affiliate fallback/rel/disclosure, ElevenLabs/Meshy registry automation, recommendation neutrality, Search Console, metadata/canonical/robots/sitemap unchanged and passing tests/validation.
+- Remaining P0: none. Remaining P1: none. Remaining high-impact P2: none. Known lower P2/P3: Tools/Compare remain intentionally dense expert/secondary surfaces.
+- Exact next action: push final commit, wait for PR #38 quality/Vercel checks, merge if green, verify main SHA/production deployment, run production smoke.

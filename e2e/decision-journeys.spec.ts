@@ -113,6 +113,8 @@ test('375px: homeからno voice/no 3DのProject Planを完走できる', async (
   for (const criterion of await currentQuest.locator('.done-criteria input').all()) await criterion.check();
   await currentQuest.locator('.completion-control input').check();
   await expect(page.locator('.build-progress span')).toContainText(/1 \/ \d+ 完了/);
+  await expect(page.getByRole('heading', { name: /開始から結果までの画面をつなぐ/ })).toBeVisible();
+  await expect(page.locator('.beginner-action').getByRole('link', { name: /公式サイト/ })).toBeVisible();
   await page.reload();
   await expect(page.locator('.build-progress span')).toContainText(/1 \/ \d+ 完了/);
   await expectNoHorizontalOverflow(page);
