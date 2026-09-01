@@ -39,3 +39,9 @@
 - Full E2E rerun: 10 passed, 5 failed. One changed-flow expectation was corrected afterward; remaining failures include Compare mobile visibility, trailing-slash URL expectation, and affiliate CTA lookup in the current E2E environment. Required repeat-each=3 was not run because the base E2E gate is not green.
 - Acceptance remains incomplete: final post-fix screenshots and independent second-pass screenshot verification are still required.
 - Merge is blocked. Preserve this remote branch and PR; next action is diagnose the five E2E failures from traces, rerun all gates, capture final screenshots, and perform a different-agent second review.
+
+## Resume checkpoint — execution clarity fixes
+- Added a direct official-site launch CTA through the protected `OutboundLink` path, concrete sign-in/folder/file/open steps, project-specific confirmed details in the first playable prompt, compact artifact progress, next-task focus, and accessible stuck disclosure state.
+- Independent pre-fix critics identified P1 launch ambiguity, hidden artifact progress, wrong Done focus, and stale/failed screenshot evidence; these are implemented but require fresh rendering and independent verification.
+- Targeted tests reached 55/56 under concurrent Playwright/build load; the remaining test timed out rather than asserting a failure. Re-run without concurrent workers.
+- Next action: finish clean E2E diagnosis, fix classifications, rerun unit/quality/build/E2E, then capture production-server screenshots.
