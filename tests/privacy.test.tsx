@@ -13,6 +13,6 @@ describe('privacy disclosure', () => {
     expect(text).toContain('最大10件');
     expect(text).toContain('Questの完了状態には自動削除期限を設けていません');
     expect(text).toContain('この端末の非公開データをすべて削除');
-    expect(text).toContain('最終更新: 2026-08-30');
+    expect(text).toContain('最終更新: 2026-09-01');
   });
 });
