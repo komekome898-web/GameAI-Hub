@@ -34,3 +34,8 @@
 - Quality: `npm run quality` passed (165 tests). `npm run build` passed (56 pages). E2E first rerun exposed obsolete expectations; selectors were migrated to the current task and beginner evidence behavior; final rerun pending.
 - Rendered pass 2 files are under `docs/screenshots/issue-23/`; a shorter final pass is still required after the latest CSS changes.
 - Remaining: final rendered capture/review, final E2E + repeat, regression/protected audit record, PR/checks/merge/deploy.
+
+## Current blocking status
+- Full E2E rerun: 10 passed, 5 failed. One changed-flow expectation was corrected afterward; remaining failures include Compare mobile visibility, trailing-slash URL expectation, and affiliate CTA lookup in the current E2E environment. Required repeat-each=3 was not run because the base E2E gate is not green.
+- Acceptance remains incomplete: final post-fix screenshots and independent second-pass screenshot verification are still required.
+- Merge is blocked. Preserve this remote branch and PR; next action is diagnose the five E2E failures from traces, rerun all gates, capture final screenshots, and perform a different-agent second review.

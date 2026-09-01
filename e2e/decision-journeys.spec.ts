@@ -43,7 +43,7 @@ async function generateProject(page: Page, idea: string) {
   }
 
   await page.getByRole('button', { name: 'Project Planを作る' }).click();
-  await expect(page.getByRole('heading', { name: /今はこれだけ/ })).toBeVisible();
+  await expect(page.locator('.project-result')).toBeVisible();
   await expect(page).toHaveURL(/\/project\?v=1&p=/);
 }
 
