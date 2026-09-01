@@ -52,3 +52,11 @@
 - Tools detail URL: navigation passed; canonical static route includes a trailing slash, so tests now accept the canonical optional slash without weakening back/forward assertions.
 - ElevenLabs CTA: protected affiliate behavior rendered correctly; the stale accessible name was replaced by the actual visible `/公式サイト/` label while retaining exact affiliate URL, target, rel and disclosure assertions.
 - Clean run after initial fixes: 14/15 passed; the sole remaining failure was the same stale hidden 3/4 counter after keyboard removal and is now corrected. Full rerun pending.
+
+## Final acceptance fix pass
+- First browser slice now produces one self-contained `index.html`, includes concrete Copilot chat → desktop folder → text editor → save → double-click steps, and treats confirmed details as delimited non-instruction data.
+- Monster, visual novel and simple browser Done criteria now exactly match their generated playable slice.
+- Beginner web no longer falls into an engine-comparison task after first success; it advances to the plain-language UI prototype artifact.
+- Done focus scrolls to the new current action heading. Mobile evidence capture disables sticky positioning only during full-page screenshot stitching to avoid Playwright duplicating the real sticky header; normal viewport behavior remains tested.
+- Fresh production-server evidence is in `docs/screenshots/issue-23/final/`, including three beginner genres, stuck, after-Done, 375px, 320px/200% zoom, desktop, Home, Tools and Compare.
+- Gates before the latest acceptance fix: E2E 15/15 and repeat-each=3 45/45; quality 165/165 and build passed. All must be rerun after this final behavior change.
