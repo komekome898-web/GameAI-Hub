@@ -84,9 +84,10 @@ test.describe('Beginner acceptance: current production journey contracts', () =>
 
       // An accidental collapse must remain recoverable using the visible primary action.
       const current = page.locator('.action-step.is-current');
-      await current.locator('summary').click();
+      const currentSummary = current.locator(':scope > summary');
+      await currentSummary.click();
       await expect(current).not.toHaveAttribute('open', '');
-      await expect(current.locator('summary')).toBeVisible();
+      await expect(currentSummary).toBeVisible();
       await active.getByRole('button', { name: '完了条件を確認して「できた」へ', exact: true }).click();
       await expect(current).toHaveAttribute('open', '');
 
@@ -145,8 +146,9 @@ test.describe('Beginner acceptance: current production journey contracts', () =>
     await page.getByRole('button', { name: 'index.htmlを保存', exact: true }).click();
     const download = await downloadEvent;
     expect(download.suggestedFilename()).toBe('index.html');
-    const downloadedPath = await download.path();
-    expect(downloadedPath).not.toBeNull();
+    const downloadedPath = path.resolve('test-results', 'downloaded-index.html');
+    await mkdir(path.dirname(downloadedPath), { recursive: true });
+    await download.saveAs(downloadedPath);
     await editor.fill('');
     await page.getByLabel('保存したゲームを開く', { exact: true }).setInputFiles(downloadedPath!);
     await expect(editor).toHaveValue(runnerFixture);
