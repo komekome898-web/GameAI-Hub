@@ -45,3 +45,10 @@
 - Independent pre-fix critics identified P1 launch ambiguity, hidden artifact progress, wrong Done focus, and stale/failed screenshot evidence; these are implemented but require fresh rendering and independent verification.
 - Targeted tests reached 55/56 under concurrent Playwright/build load; the remaining test timed out rather than asserting a failure. Re-run without concurrent workers.
 - Next action: finish clean E2E diagnosis, fix classifications, rerun unit/quality/build/E2E, then capture production-server screenshots.
+
+## E2E failure classification and fixes
+- Project result heading: stale expectation already replaced with stable `.project-result`; journey and persistence pass.
+- Compare 2/4 and 4/4 (plus post-removal 3/4): stale locators targeted a hidden legacy counter; tests now assert the visible responsive picker summary while retaining comparison, keyboard, URL and diff checks.
+- Tools detail URL: navigation passed; canonical static route includes a trailing slash, so tests now accept the canonical optional slash without weakening back/forward assertions.
+- ElevenLabs CTA: protected affiliate behavior rendered correctly; the stale accessible name was replaced by the actual visible `/公式サイト/` label while retaining exact affiliate URL, target, rel and disclosure assertions.
+- Clean run after initial fixes: 14/15 passed; the sole remaining failure was the same stale hidden 3/4 counter after keyboard removal and is now corrected. Full rerun pending.

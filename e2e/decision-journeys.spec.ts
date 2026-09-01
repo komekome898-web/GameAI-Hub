@@ -26,7 +26,7 @@ async function generateProject(page: Page, idea: string) {
   await page.getByLabel('どんなゲームを作りたいですか？').fill(idea);
   await page.getByRole('button', { name: '制作ロードマップを作る' }).click();
   const form = page.locator('.clarify-form');
-  await expect(form).toBeVisible();
+  await expect(form).toBeVisible({ timeout: 20_000 });
   await expect(form.locator('select')).toHaveCount(Object.keys(defaults).length);
 
   const detailCards = form.locator('.project-detail-card');
@@ -148,7 +148,7 @@ test('自由文のゲーム固有情報が主要な制作成果物すべてに�
 test('375px: 2候補比較と差分のみ表示を操作できる', async ({ page }) => {
   await page.setViewportSize(mobile);
   await page.goto('/compare?ids=github-copilot,cursor');
-  await expect(page.getByText('2 / 4', { exact: true })).toBeVisible();
+  await expect(page.locator('.compare-picker-panel > summary')).toContainText('2 / 4件');
   await page.getByLabel('差分のみ表示').check();
   await expect(page.getByText(/差分のみ表示中/)).toBeVisible();
   await expect(page.locator('.compare-mobile article')).toHaveCount(2);
@@ -162,17 +162,17 @@ test('Toolsの検索直後クリックと履歴移動が競合しない', async 
   await search.fill('ElevenLabs');
   await page.getByRole('heading', { name: 'ElevenLabs' }).getByRole('link').click();
   await page.waitForTimeout(350);
-  await expect(page).toHaveURL(/\/tools\/elevenlabs$/);
+  await expect(page).toHaveURL(/\/tools\/elevenlabs\/?$/);
 
   await page.goBack();
-  await expect(page).toHaveURL(/\/tools\?q=ElevenLabs$/);
+  await expect(page).toHaveURL(/\/tools\/?\?q=ElevenLabs$/);
   await expect(search).toHaveValue('ElevenLabs');
 
   await page.goto('/tools');
   await page.getByRole('button', { name: 'BGM' }).click();
   await expect(page).toHaveURL(/goal=music/);
   await page.goBack();
-  await expect(page).toHaveURL(/\/tools$/);
+  await expect(page).toHaveURL(/\/tools\/?$/);
   await page.goForward();
   await expect(page).toHaveURL(/goal=music/);
 });
@@ -194,7 +194,7 @@ test('Compare候補は2件選択後も開いたままでback/forwardに同期す
 
 test('affiliate CTAは広告表示と安全な外部リンク属性を保つ', async ({ page }) => {
   await page.goto('/tools/elevenlabs');
-  const cta = page.getByRole('link', { name: /ElevenLabs公式サイト/ }).first();
+  const cta = page.getByRole('link', { name: /公式サイト/ }).first();
   await expect(cta).toHaveAttribute('href', 'https://try.elevenlabs.io/jlxoxtxe9768');
   await expect(cta).toHaveAttribute('target', '_blank');
   await expect(cta).toHaveAttribute('rel', 'sponsored nofollow noopener');
@@ -242,7 +242,7 @@ test('320pxかつ200% zoomでも主要画面に横方向の文書overflowがな�
 
 test('4ツール比較、差分絞り込み、キーボードfocusを維持する', async ({ page }) => {
   await page.goto('/compare?ids=github-copilot,cursor,elevenlabs,meshy');
-  await expect(page.getByText('4 / 4', { exact: true })).toBeVisible();
+  await expect(page.locator('.compare-picker-panel > summary')).toContainText('4 / 4件');
   const differences = page.getByLabel('差分のみ表示');
   await differences.focus();
   await expect(differences).toBeFocused();
@@ -253,6 +253,6 @@ test('4ツール比較、差分絞り込み、キーボードfocusを維持す�
   await remove.focus();
   await expect(remove).toBeFocused();
   await page.keyboard.press('Enter');
-  await expect(page.getByText('3 / 4', { exact: true })).toBeVisible();
+  await expect(page.locator('.compare-picker-panel > summary')).toContainText('3 / 4件');
   await expect(page).toHaveURL(/ids=github-copilot%2Ccursor%2Celevenlabs|ids=github-copilot,cursor,elevenlabs/);
 });
