@@ -42,3 +42,8 @@
 - Remaining nonblocking: split the article hub by populated user intent when pillar pages are actually published; consider stricter calendar-date parsing as content volume grows.
 - Local acceptance remains: quality PASS (204/204), build PASS (57 pages), full E2E PASS (25/25).
 - Exact next action: create/update PR, wait for GitHub/Vercel checks, merge only if green, then confirm origin/main and production smoke.
+
+## PR acceptance
+- PR: https://github.com/komekome898-web/GameAI-Hub/pull/41
+- GitHub checks: two quality/check jobs PASS; E2E PASS; Vercel Preview PASS.
+- Merge authorized by task prompt; merge next, followed by origin/main and Vercel Production verification.
