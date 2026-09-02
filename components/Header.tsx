@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useEffect,useRef,useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-const links=[['/project','プロジェクト'],['/tools','目的からAIを探す'],['/compare','比較'],['/guides','ガイド']] as const;
+const links=[['/project','プロジェクト'],['/articles','記事'],['/tools','目的からAIを探す'],['/compare','比較'],['/guides','ガイド']] as const;
 export function Header(){
   const [open,setOpen]=useState(false);const pathname=usePathname();const menuButton=useRef<HTMLButtonElement>(null);
   useEffect(()=>{if(!open)return;const onKeyDown=(event:KeyboardEvent)=>{if(event.key==='Escape'){setOpen(false);menuButton.current?.focus()}};window.addEventListener('keydown',onKeyDown);return()=>window.removeEventListener('keydown',onKeyDown)},[open]);
