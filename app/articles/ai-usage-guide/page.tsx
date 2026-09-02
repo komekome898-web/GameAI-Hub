@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { ArticleFrame } from '@/components/ArticleFrame';
 import { articleMetadata, getArticle } from '@/data/articles';
 

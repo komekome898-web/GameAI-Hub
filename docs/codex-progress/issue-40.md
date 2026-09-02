@@ -19,3 +19,10 @@
 - Targeted status: article/SEO/analytics tests PASS (15); typecheck PASS.
 - Remaining: full quality/build; browser/E2E and screenshots; independent adversarial review; fixes; PR/checks/Preview; merge/production verification.
 - Exact next action: run full quality/build, add the article navigation E2E, then capture required rendered evidence before independent screenshot review.
+
+## Rendered QA pass 1
+- Quality PASS: 24 files / 204 tests plus data, affiliate, and sitemap validation (50 canonical URLs).
+- Build PASS: 57 static/generated pages.
+- Targeted content E2E PASS: 3/3 (375px, 320px with 200% CSS zoom, desktop), including Article index → Article → Project → browser Back, JSON-LD count and overflow assertion.
+- Durable evidence: `docs/screenshots/issue-40/final/`.
+- Current phase: independent post-implementation screenshot/product/editorial/technical review.
