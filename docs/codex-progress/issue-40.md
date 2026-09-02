@@ -12,3 +12,10 @@
 - Deployment status: not started.
 - Blockers: Work-owned live SERP/Search Console research cannot be inferred and will remain explicit research briefs unless browser evidence is available.
 - Exact next action after resume: verify pushed checkpoint, finish current-route audit and independent discovery, then write the internal thesis before implementation.
+
+## Foundation checkpoint
+- Completed: independent SEO/IA, beginner/game-realism/editorial, Next.js/technical SEO/monetization discovery; written thesis/audit; typed article registry; shared metadata/Article+Breadcrumb JSON-LD/editorial/source/related/CTA shell; contextual CTA analytics; registry sitemap; `/articles/`; first 10 research briefs; existing article migration; removal of unconditional article-wide affiliate injection.
+- Findings fixed: P1 missing shared model/schema/navigation/measurement/date source; P1 unrelated automatic affiliate placements; P2 canonical structured-data tests and intentional related links.
+- Targeted status: article/SEO/analytics tests PASS (15); typecheck PASS.
+- Remaining: full quality/build; browser/E2E and screenshots; independent adversarial review; fixes; PR/checks/Preview; merge/production verification.
+- Exact next action: run full quality/build, add the article navigation E2E, then capture required rendered evidence before independent screenshot review.

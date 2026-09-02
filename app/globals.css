@@ -423,3 +423,6 @@ article.page-shell .stage-decision>summary strong{
   .beginner-action-grid>section,.beginner-steps{padding:12px}
   .beginner-action .action-prompt pre{font-size:.875rem}
 }
+
+/* Article engine: editorial context, evidence links, and a single build handoff. */
+.article-shell{max-width:900px}.article-shell>.breadcrumbs{margin-top:30px}.article-record{margin:18px 0 34px;padding:18px 0;border-block:1px solid var(--line);color:var(--muted)}.article-record p{margin:8px 0 0}.article-content>section{padding:42px 0}.article-related ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;list-style:none;padding:0}.article-related a{display:grid;gap:8px;height:100%;padding:18px;border:1px solid var(--line);border-radius:14px;text-decoration:none;background:var(--panel)}.article-related a span{color:var(--accent);font-size:.75rem;font-weight:800}.article-project-cta{margin-bottom:70px}@media(max-width:640px){.article-related ul{grid-template-columns:1fr}.article-shell>.breadcrumbs{margin-top:20px}.article-content>section{padding:34px 0}.article-record{font-size:.9rem}}

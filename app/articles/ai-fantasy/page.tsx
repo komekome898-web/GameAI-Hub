@@ -1,14 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ArticleFrame } from '@/components/ArticleFrame';
+import { articleMetadata, getArticle } from '@/data/articles';
 
-export const metadata:Metadata={
-  title:'AIに幻想を抱くあなたへ',
-  description:'AIに任せれば全部うまくいく、と思っていた私が、実際の開発で何度も失敗してわかったこと。AIは魔法ではない。使う側の検証と判断が必要だ。',
-  alternates:{canonical:'/articles/ai-fantasy/'},
-  openGraph:{title:'AIに幻想を抱くあなたへ | GameAI Hub',description:'AIに過度な期待をした結果、私が実際の開発で何度も痛い目を見て学んだこと。',url:'/articles/ai-fantasy/'}
-};
+const article=getArticle('ai-fantasy')!;
+export const metadata:Metadata=articleMetadata(article);
 
-export default function AiFantasyArticle(){return <article className="page-shell">
+export default function AiFantasyArticle(){return <ArticleFrame article={article}><div className="article-content">
   <header className="page-head">
     <p className="eyebrow">OPINION / FIELD NOTE</p>
     <h1>AIに幻想を抱くあなたへ</h1>
@@ -128,9 +126,4 @@ export default function AiFantasyArticle(){return <article className="page-shell
     <p>たぶん、これくらいの距離感が一番強い。</p>
   </section>
 
-  <section className="result-next">
-    <h2>AIを「丸投げ先」ではなく制作工程として使う</h2>
-    <p>GameAI Hubでは、AI名を並べるのではなく、ゲーム制作の工程・成果物・完了条件にAIを組み込む方法を整理しています。</p>
-    <Link className="button" href="/project">Project Generatorを試す</Link>
-  </section>
-</article>}
+</div></ArticleFrame>}

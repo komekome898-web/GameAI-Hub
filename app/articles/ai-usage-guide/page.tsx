@@ -1,14 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ArticleFrame } from '@/components/ArticleFrame';
+import { articleMetadata, getArticle } from '@/data/articles';
 
-export const metadata:Metadata={
-  title:'AIの正しい使い方',
-  description:'AIに期待しすぎて何度も失敗した私が、初めてAIを使う人に向けて、プロンプトの書き方、失敗時の対処法、用途別のAIの使い分けを実体験ベースで整理する。',
-  alternates:{canonical:'/articles/ai-usage-guide/'},
-  openGraph:{title:'AIの正しい使い方 | GameAI Hub',description:'AIは魔法ではない。でも、使い方を間違えなければ異常に強い。実際に失敗して学んだAIとの向き合い方。',url:'/articles/ai-usage-guide/'}
-};
+const article=getArticle('ai-usage-guide')!;
+export const metadata:Metadata=articleMetadata(article);
 
-export default function AiUsageGuideArticle(){return <article className="page-shell">
+export default function AiUsageGuideArticle(){return <ArticleFrame article={article}><div className="article-content">
   <header className="page-head">
     <p className="eyebrow">PRACTICAL GUIDE / FIELD NOTE</p>
     <h1>AIの正しい使い方</h1>
@@ -178,10 +176,4 @@ export default function AiUsageGuideArticle(){return <article className="page-sh
     </ul>
   </section>
 
-  <section className="result-next">
-    <h2>AIを使うなら、最初から「工程」にする</h2>
-    <p>AIを一発回答装置として使うより、調査、実装、検証、修正という工程の中に置いた方が強い。GameAI Hubでは、ゲーム制作を工程ごとに分け、どこでAIを使い、何を完成させるかまで整理できるようにしている。</p>
-    <Link className="button" href="/project">自分のゲーム制作計画を作る</Link>
-    <p><Link href="/articles/ai-fantasy">前の記事「AIに幻想を抱くあなたへ」も読む →</Link></p>
-  </section>
-</article>}
+</div></ArticleFrame>}
