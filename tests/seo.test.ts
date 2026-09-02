@@ -17,7 +17,7 @@ import { metadata as projectMetadata } from '@/app/project/page';
 import { metadata as guidesMetadata } from '@/app/guides/page';
 import { generateMetadata as generateGuideMetadata } from '@/app/guides/[slug]/page';
 import { guides } from '@/data/guides';
-import { articles } from '@/data/articles';
+import { publishedArticles } from '@/data/articles';
 import { metadata as articlesMetadata } from '@/app/articles/page';
 
 vi.mock('next/font/google',()=>({
@@ -89,7 +89,7 @@ describe('SEO', () => {
       ...getServices().map(service=>`/tools/${service.slug}`),
       ...stackTemplates.map(stack=>`/stacks/${stack.slug}`),
       ...guides.map(guide=>`/guides/${guide.slug}`),
-      ...articles.map(article=>`/articles/${article.slug}`),
+      ...publishedArticles.map(article=>`/articles/${article.slug}`),
     ];
     expect(map).toHaveLength(expectedPaths.length);
     expect(new Set(map.map(({url})=>url)).size).toBe(expectedPaths.length);
@@ -107,7 +107,7 @@ describe('SEO', () => {
     for (const stack of stackTemplates) {
       expect(map.some(({ url }) => url.endsWith(`/stacks/${stack.slug}/`))).toBe(true);
     }
-    for (const article of articles) {
+    for (const article of publishedArticles) {
       expect(map.find(({ url }) => url.endsWith(`/articles/${article.slug}/`))?.lastModified).toBe(article.updatedAt);
     }
     for (const guide of guides) {

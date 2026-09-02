@@ -16,6 +16,6 @@ for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'zoom-320'
   await expect(page).toHaveURL(/\/project\/?$/);
   await page.goBack();
   await expect(page.getByRole('heading',{name:'AIに幻想を抱くあなたへ',level:1})).toBeVisible();
-  await page.screenshot({path:`docs/screenshots/issue-40/final/e2e-${viewport.name}.png`,fullPage:true});
+  await page.screenshot({path:`docs/screenshots/issue-40/final/e2e-${viewport.name}.png`,fullPage:viewport.name!=='zoom-320'});
  });
 }

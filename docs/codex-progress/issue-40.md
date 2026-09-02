@@ -26,3 +26,13 @@
 - Targeted content E2E PASS: 3/3 (375px, 320px with 200% CSS zoom, desktop), including Article index → Article → Project → browser Back, JSON-LD count and overflow assertion.
 - Durable evidence: `docs/screenshots/issue-40/final/`.
 - Current phase: independent post-implementation screenshot/product/editorial/technical review.
+
+## Adversarial fixes and final local acceptance
+- Review pass 1 found: source-registry contradiction, missing publication fail-closed state, missing related-link rationale, 320/200% evidence/layout weakness, and affiliate placement context risk.
+- Fixed: official source/verification records; softened unsupported model naming; published/draft/research filtering; content validator in quality; related rationale; available/planned/conditional brief links; no promotion on either existing general article; 320 layout reflow and region-specific screenshots.
+- Independent review pass 2 prompted stronger date/source/related/draft validation and narrower 320 header/source/CTA layout; these are fixed and re-rendered.
+- Final gates: quality PASS (24 files, 204 tests, service/decision/recommendation/affiliate/sitemap/content validation); build PASS (57 pages); full E2E PASS (25/25).
+- Evidence: `docs/screenshots/issue-40/final/` includes index/article 375, article desktop, long usage article, and 320/200% top/body/related/sources/CTA viewports.
+- Functional regression: full E2E covers Project state, beginner scenarios, Tools/Compare history and keyboard behavior, provider fallbacks, and affiliate rel/disclosure; content E2E covers Article index → Article → Project → Back.
+- Protected audit: GA4 ID/production gtag, outbound/affiliate events/sub_id, affiliate registry/fallback/rel/disclosure, Search Console verification, canonical/robots/Compare noindex remain covered and unchanged.
+- Remaining: final independent verification response; commit/push; PR/CI/Vercel Preview; merge and production smoke if green.

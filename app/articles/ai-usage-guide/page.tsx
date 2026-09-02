@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ArticlePromotions } from '@/components/ArticlePromotions';
 import { ArticleFrame } from '@/components/ArticleFrame';
 import { articleMetadata, getArticle } from '@/data/articles';
 
@@ -105,7 +106,7 @@ export default function AiUsageGuideArticle(){return <ArticleFrame article={arti
     <h3>画像・動画・長い資料をまとめて理解させる</h3>
     <p><strong>Gemini 3系</strong>。GoogleはGemini 3を推論・マルチモーダル・コーディングを強化した世代として展開している。画像、資料、動画など複数形式をまとめて扱いたいときは候補に入れる。</p>
     <h3>速度を優先する日常作業</h3>
-    <p><strong>Gemini 3.5 Flashや各社の軽量モデル</strong>。分類、変換、下書き、候補出しなどは毎回フラッグシップを使う必要はない。速いモデルへ逃がした方が合理的なことが多い。</p>
+    <p><strong>各社の軽量モデル</strong>。分類、変換、下書き、候補出しなどは毎回フラッグシップを使う必要はない。速いモデルへ逃がした方が合理的なことが多い。</p>
     <h3>安く大量に回す・自前運用も検討する</h3>
     <p><strong>DeepSeek系、Qwen系、その他のオープン／低コストモデル</strong>も候補になる。ただし、モデル名よりも必要な精度、データの扱い、実行環境、料金を見て選ぶ。</p>
     <h3>画像生成</h3>
@@ -115,6 +116,7 @@ export default function AiUsageGuideArticle(){return <ArticleFrame article={arti
     <p>要するに「一番強いAIを1個契約して全部やらせる」より、<strong>仕事ごとにモデルを変える</strong>方が私は現実的だと思っている。</p>
     <p><small>モデル情報は2026年8月時点。提供状況は変わるため、利用前に各社の公式情報を確認してください。</small></p>
   </section>
+  <ArticlePromotions article={article} placement="production_tools"/>
 
   <section>
     <h2>初めてAIを使う人に、最初に覚えてほしいプロンプトの型</h2>

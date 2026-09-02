@@ -3,13 +3,17 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
 import { ArticleFrame } from '@/components/ArticleFrame';
 import { ArticleProjectCta } from '@/components/ArticleProjectCta';
-import { articleMetadata, articlePath, articles } from '@/data/articles';
+import { articleMetadata, articlePath, articles, validateArticles } from '@/data/articles';
 import { absoluteSiteUrl } from '@/lib/site';
 
 vi.mock('next/link',()=>({default:({href,children,...props}:React.AnchorHTMLAttributes<HTMLAnchorElement>&{href:string})=><a href={href} {...props}>{children}</a>}));
 
 describe('article content engine',()=>{
  it('keeps article identity, metadata and dates unique and canonical',()=>{
+  expect(validateArticles(articles)).toEqual([]);
+  expect(validateArticles([{...articles[0],slug:'Bad Slug'}])).toContain('invalid slug: Bad Slug');
+  expect(validateArticles([{...articles[0],category:'tool',sources:[],lastVerifiedAt:undefined}])).toContain('unverified factual article: ai-fantasy');
+  expect(validateArticles([{...articles[0],related:[{...articles[0].related[0],href:'/articles/draft-page/'}]},{...articles[1],slug:'draft-page',publicationStatus:'draft'}])).toContain('related article is not published: ai-fantasy');
   expect(new Set(articles.map(x=>x.slug)).size).toBe(articles.length);
   expect(new Set(articles.map(x=>x.title)).size).toBe(articles.length);
   expect(new Set(articles.map(x=>x.description)).size).toBe(articles.length);
