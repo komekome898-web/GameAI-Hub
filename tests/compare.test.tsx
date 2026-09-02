@@ -8,6 +8,8 @@ import {
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { CompareClient } from '@/components/CompareClient';
 import { getServices } from '@/lib/services';
+import { saveProjectNavigationContext } from '@/lib/project/navigation-context';
+import { ProjectBriefSchema } from '@/lib/project/types';
 
 const navigation = vi.hoisted(() => ({
   params: new URLSearchParams(),
@@ -23,9 +25,23 @@ afterEach(() => {
   cleanup();
   navigation.params = new URLSearchParams();
   navigation.push.mockReset();
+  window.sessionStorage.clear();
 });
 
 describe('compare', () => {
+  it('explains beginner browser versus desktop setup and returns to the same draft', () => {
+    const route = `/project?draft=${'c'.repeat(32)}`;
+    saveProjectNavigationContext(ProjectBriefSchema.parse({ idea: 'Private pitch', genre: 'action', dimension: '2d', platform: 'web', engine: 'unknown', budget: 'unknown', experience: 'beginner', team: 'unknown', commercialIntent: 'unknown', capabilities: ['coding'], locale: 'unknown' }), route);
+    navigation.params = new URLSearchParams('ids=github-copilot,cursor&goal=code&stage=code');
+    render(<CompareClient services={getServices()} />);
+    expect(screen.getByRole('heading', { name: '今回の選び方：ブラウザでAIへ依頼する' })).toBeTruthy();
+    expect(screen.getByText(/掲載情報はパソコンに入れる開発ツールです/)).toBeTruthy();
+    expect(screen.getByRole('link', { name: '制作中のゲームに戻る →' }).getAttribute('href')).toBe(`${route}#beginner-action-title`);
+    expect(screen.getByLabelText('主要な差分').textContent).not.toContain('契約前に公式料金ページ');
+    fireEvent.click(screen.getByLabelText('差分のみ表示'));
+    expect(navigation.push).toHaveBeenCalledWith('/compare?ids=github-copilot%2Ccursor&goal=code&stage=code&diff=1', { scroll: false });
+  });
+
   it('starts direct /compare without silently preselecting products', () => {
     render(<CompareClient services={getServices()} />);
     expect(screen.getByText('0 / 4')).toBeTruthy();

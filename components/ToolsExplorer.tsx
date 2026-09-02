@@ -7,6 +7,7 @@ import { track } from '@/lib/analytics';
 import type { Service } from '@/lib/schema';
 import { serviceCategoryLabels as categoryLabels } from '@/lib/service-labels';
 import { hasDocumentedCommercialUse, verificationStatusLabel } from '@/lib/verification-status';
+import { beginnerBrowserToolDecision, stageForToolGoal, useProjectNavigationContext } from '@/lib/project/navigation-context';
 
 const goalGroups = [
   {
@@ -48,6 +49,8 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
+  const projectContext = useProjectNavigationContext();
+  const beginnerBrowser = projectContext?.brief.experience === 'beginner' && projectContext.brief.platform === 'web';
   const [isPending, startTransition] = useTransition();
   const engines = useMemo(() => [...new Set(services.flatMap((service) => service.engines))].sort(), [services]);
   const categories = useMemo(() => [...new Set(services.map((service) => service.category))].sort(), [services]);
@@ -137,9 +140,18 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
   ].filter((item): item is { id: string; label: string; clear: () => void } => Boolean(item));
 
   const hasAdvancedFilters = category !== 'all' || engine !== 'all' || free || commercial || api || verified;
+  function compareHref(slug: string) {
+    const params = new URLSearchParams({ ids: slug });
+    if (goal !== 'all') params.set('goal', goal);
+    const sourceStage = searchParams.get('stage');
+    const stage = stageForToolGoal[goal] ?? (sourceStage && Object.values(stageForToolGoal).includes(sourceStage) ? sourceStage : null);
+    if (stage) params.set('stage', stage);
+    return `/compare?${params}`;
+  }
 
   return (
     <>
+      {projectContext && <div className="compare-context"><strong>{beginnerBrowser ? '制作中のブラウザゲームに使うツールを確認しています。' : '制作中のゲームに使うツールを確認しています。'}</strong><Link href={`${projectContext.returnUrl}#${beginnerBrowser ? 'beginner-action-title' : 'build-progress-title'}`}>制作中のゲームに戻る →</Link></div>}
       <div className="filter-panel tool-search-panel">
         <div className="filter-copy"><span>QUICK SEARCH</span><strong>名前・用途からすぐ探す</strong></div>
         <label htmlFor="tool-search">
@@ -221,7 +233,7 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
         {shown.map((service) => (
           <article key={service.id}>
             <div className="tool-rank"><span>{categoryLabels[service.category]}</span><small>{goal === 'all' ? '調査候補' : '用途カテゴリ一致'}</small></div>
-            <div><h2><Link href={`/tools/${service.slug}`}>{service.name}</Link></h2><p>{service.summary}</p></div>
+            <div><h2><Link href={`/tools/${service.slug}`}>{service.name}</Link></h2><p>{service.summary}</p>{beginnerBrowser && goal === 'code' && <p><strong>今回の始め方：</strong>{beginnerBrowserToolDecision(service).reason}</p>}</div>
             <dl>
               <div><dt>無料</dt><dd>{label(service.freePlan)}</dd></div>
               <div><dt>商用</dt><dd>{label(service.commercialUse)}</dd></div>
@@ -230,7 +242,7 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
             </dl>
             <div className="tool-row-actions">
               <Link href={`/tools/${service.slug}`}>根拠と制約</Link>
-              <Link href={`/compare?ids=${service.slug}`} onClick={() => track('compare_start', { services: [service.slug], page: '/tools' })}>比較する</Link>
+              <Link href={compareHref(service.slug)} onClick={() => track('compare_start', { services: [service.slug], page: '/tools' })}>比較する</Link>
             </div>
           </article>
         ))}

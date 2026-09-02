@@ -7,6 +7,7 @@ import type { Service } from '@/lib/schema';
 import { track } from '@/lib/analytics';
 import { label } from './ToolsExplorer';
 import { OutboundLink } from './OutboundLink';
+import { beginnerBrowserToolDecision, stageForToolGoal, useProjectNavigationContext } from '@/lib/project/navigation-context';
 
 const verificationLabel = (status: Service['verificationStatus']) => {
   if (status === 'verified') return '公式資料確認済み';
@@ -136,6 +137,7 @@ function CompareClientState({
 }) {
   const router = useRouter();
   const pathname = usePathname();
+  const projectContext = useProjectNavigationContext();
   const paramsKey = params.toString();
   const raw = params.get('ids');
   const defaults = useMemo(() => initial ?? [], [initial]);
@@ -166,6 +168,7 @@ function CompareClientState({
     () =>
       rows
         .filter(([, get]) => new Set(selected.map(get)).size > 1)
+        .filter(([name, get]) => name !== '料金' || selected.some(service => /[¥￥$€]\s*\d|[0-9][0-9,.]*\s*(?:円|USD|ドル)/i.test(get(service))))
         .slice(0, 3)
         .map(([name, get]) => ({ name, values: selected.map(get) })),
     [selected],
@@ -189,8 +192,11 @@ function CompareClientState({
     );
   }, [pickerQuery, services]);
 
-  const stage = params.get('stage');
+  const stage = params.get('stage') ?? stageForToolGoal[params.get('goal') ?? ''];
   const validStage = stage && compareStageCategories[stage] ? stage : null;
+  const beginnerBrowser = projectContext?.brief.experience === 'beginner' && projectContext.brief.platform === 'web';
+  const showBeginnerDecision = beginnerBrowser && (validStage === 'code' || (!validStage && selected.some(service => service.capabilities.some(item => item.id === 'coding'))));
+  const browserCandidates = showBeginnerDecision ? selected.filter(service => beginnerBrowserToolDecision(service).status === 'browser') : [];
   const stageMatches = validStage
     ? selected.filter((service) =>
         compareStageCategories[validStage].includes(service.category),
@@ -255,15 +261,22 @@ function CompareClientState({
 
   return (
     <>
-      {validStage && (
+      {(validStage || projectContext) && (
         <div className="compare-context">
           <strong>
-            Projectの「{phaseLabelsForCompare(validStage)}
-            」工程から比較しています。
+            {validStage ? `制作中の「${phaseLabelsForCompare(validStage)}」工程で使う候補を比較しています。` : '制作中のゲームで使う候補を比較しています。'}
           </strong>
-          <a href="/project">Projectへ戻る →</a>
+          <Link href={projectContext ? `${projectContext.returnUrl}#${beginnerBrowser ? 'beginner-action-title' : 'build-progress-title'}` : '/project'}>{projectContext ? '制作中のゲームに戻る →' : 'Projectへ戻る →'}</Link>
         </div>
       )}
+
+      {showBeginnerDecision && selected.length > 0 && <section className="compare-decision" aria-labelledby="beginner-compare-title">
+        <h2 id="beginner-compare-title">今回の選び方：ブラウザでAIへ依頼する</h2>
+        <p>今は最初の index.html を作る段階です。AIを使う場所と、完成したゲームを遊ぶ場所は別です。</p>
+        <p>{browserCandidates.length ? <><strong>{browserCandidates.map(service => service.name).join(' / ')}</strong>は、掲載情報でブラウザ利用とコード支援を確認できる候補です。制作中の作業へ戻り、案内されているAIへの指示を使えます。</> : '選択中の候補には、ブラウザ利用とコード支援の両方を公式確認できたものがありません。作業へ戻って案内されているAIを確認してください。'}</p>
+        <ul>{selected.map(service => <li key={service.id}><strong>{service.name}：</strong>{beginnerBrowserToolDecision(service).reason} <EvidenceLinks service={service} row="主用途" /></li>)}</ul>
+        <p>スマートフォンだけでの制作可否や無料枠の上限は、ブラウザ対応だけでは判断できません。</p>
+      </section>}
 
       {selected.length >= 2 ? (
         <section
@@ -305,7 +318,7 @@ function CompareClientState({
               </ul>
             </div>
           )}
-          {validStage && stageMatches.length ? (
+          {showBeginnerDecision ? <p>始め方の違いは上の「今回の選び方」で確認できます。以下は利用条件と機能を詳しく確認するための差分です。</p> : validStage && stageMatches.length ? (
             <p>
               登録カテゴリがこの工程と一致する候補：
               <strong>

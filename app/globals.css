@@ -81,7 +81,7 @@
 .build-checklist button:focus-visible,.build-checklist summary:focus-visible,.build-checklist a:focus-visible,.completion-control:focus-within{outline:3px solid var(--blue);outline-offset:3px}
 .artifact-progress{margin:20px 0;padding:20px;border-left:5px solid var(--accent);background:#f8fcfb}.artifact-progress h2{font-size:1.25rem}.artifact-progress ul{display:flex;gap:10px;overflow-x:auto;padding:0 0 8px;list-style:none}.artifact-progress li{display:flex;flex:0 0 210px;gap:10px;padding:11px;color:var(--muted)}.artifact-progress li.current{background:#eaf7f3;color:var(--text)}.artifact-progress li.done{color:var(--accent-strong)}.artifact-progress li>span:last-child{display:grid;gap:4px}.artifact-progress small{font-size:.72rem}.beginner-action{margin:24px 0;padding:clamp(20px,4vw,38px);border:2px solid #4b9b8c;border-radius:24px;background:#fff}.beginner-action>p{color:var(--accent-strong);font-size:.75rem;font-weight:900;letter-spacing:.06em}.beginner-action>h2{font-size:clamp(1.7rem,4vw,2.8rem)}.beginner-action-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.beginner-action-grid>section,.beginner-steps{padding:18px;background:#f3faf8}.beginner-action h3{font-size:1rem}.beginner-action-buttons{display:flex;gap:10px;margin-top:18px}.stuck-panel{margin-top:16px;padding:18px;border:2px solid #d7b36d;background:#fff8eb}.stuck-panel pre{max-height:360px;overflow:auto;padding:14px;background:#173c37;color:#fff;white-space:pre-wrap;overflow-wrap:anywhere}.stuck-panel button{min-height:44px}
 @media(max-width:680px){.beginner-action-grid{grid-template-columns:1fr}.beginner-action-buttons{display:grid}.beginner-action{padding:20px 15px}.beginner-action .action-prompt pre{font-size:.7rem}}
-.build-checklist.is-beginner .today-queue,.build-checklist.is-beginner .build-roadmap,.build-checklist.is-beginner>.checklist-heading,.build-checklist.is-beginner>.section-intro{display:none}.build-checklist.is-beginner .artifact-progress{margin-top:12px}.build-checklist.is-beginner .artifact-progress ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible}.build-checklist.is-beginner .artifact-progress li{min-width:0}.build-checklist.is-beginner .action-step:not([open]){display:none}.build-checklist.is-beginner .artifact-evidence,.build-checklist.is-beginner .action-detail>section:not(.active-done){display:none}.build-checklist.is-beginner .completion-control{justify-content:center;min-height:54px;background:#e4f4f0;font-size:1rem}
+.build-checklist.is-beginner .today-queue,.build-checklist.is-beginner .build-roadmap,.build-checklist.is-beginner>.checklist-heading,.build-checklist.is-beginner>.section-intro{display:none}.build-checklist.is-beginner .artifact-progress{margin-top:12px}.build-checklist.is-beginner .artifact-progress ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible}.build-checklist.is-beginner .artifact-progress li{min-width:0}.build-checklist.is-beginner .action-step:not(.is-current){display:none}.build-checklist.is-beginner .artifact-evidence,.build-checklist.is-beginner .action-detail>section:not(.active-done){display:none}.build-checklist.is-beginner .completion-control{justify-content:center;min-height:54px;background:#e4f4f0;font-size:1rem}
 @media(max-width:680px){.build-checklist.is-beginner .artifact-progress ul{grid-template-columns:1fr}.build-checklist.is-beginner .artifact-progress li{flex-basis:auto}}
 @media(max-width:680px){.project-result-top{padding-top:24px}.project-result-top>h1{font-size:2.45rem}.active-action{padding:18px 14px}.action-buttons{display:grid}.action-step>summary{grid-template-columns:auto 1fr;min-height:72px}.action-step>summary small{grid-column:1/-1}.action-detail{padding-inline:14px}.action-detail .phase-tools{grid-template-columns:1fr}.build-progress>div{align-items:end}.build-progress>div span{white-space:nowrap}}
 @media(max-width:340px){.project-result-top>h1{font-size:2.1rem}.active-action{padding-inline:11px}.action-detail{padding-inline:10px}.build-progress>div{display:grid}.action-buttons .button{width:100%;padding-inline:10px}}
@@ -387,4 +387,39 @@ article.page-shell .stage-decision>summary strong{
   .brand-mark{width:30px;height:30px}
   .menu-button{flex:0 0 44px;margin-left:auto}
   .compare-picker-panel>summary{display:grid;grid-template-columns:minmax(0,1fr);gap:2px;overflow-wrap:anywhere}
+}
+
+/* Beginner acceptance: readable actions and a real place to run the first game. */
+.beginner-starter{margin:24px 0;padding:clamp(16px,3vw,28px);border:2px solid #4b9b8c;border-radius:16px;background:#fff}
+.beginner-starter h2{font-size:clamp(1.4rem,3vw,2rem);text-wrap:balance}
+.beginner-starter-conditions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0;list-style:none}
+.beginner-confirm-details{margin:20px 0}
+.beginner-confirm-details>summary{padding:14px 0;cursor:pointer;font-weight:750}
+.beginner-workspace{margin:22px 0;padding:18px;border:1px solid #bad5ce;border-radius:12px;background:#f3faf8;min-width:0}
+.beginner-workspace h3{margin-top:0}
+.beginner-code-editor,.stuck-panel textarea{display:block;width:100%;min-width:0;min-height:150px;padding:12px;border:1px solid #719c92;border-radius:8px;background:white;color:#173c37;font:16px/1.6 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;resize:vertical}
+.beginner-workspace-actions,.beginner-workspace-recovery{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.beginner-workspace button,.beginner-file-label{min-height:44px;padding:10px 14px;border:1px solid #719c92;border-radius:8px;background:#fff;color:#173c37;font:inherit;font-weight:700;cursor:pointer}
+.beginner-workspace button:disabled{opacity:.55;cursor:default}
+.beginner-game-file{max-width:100%;font:inherit}
+.beginner-game-preview{margin-top:16px;min-width:0}
+.beginner-game-preview iframe{display:block;width:100%;min-height:430px;border:1px solid #719c92;border-radius:8px;background:white}
+.beginner-workspace-status,.beginner-copy-feedback{font-weight:750;color:#176b59}
+.beginner-workspace-warning{padding:12px;background:#fff2da;color:#694300;border-left:3px solid #a87415}
+.beginner-action .action-prompt pre{font-size:.9rem;line-height:1.7;max-height:240px}
+.beginner-action .action-prompt{margin-top:18px}
+.beginner-action .beginner-action-buttons{margin-top:16px}
+.beginner-action-grid a{display:inline-flex;align-items:center;min-height:44px}
+.beginner-action-grid section{min-width:0}
+.beginner-action-grid section p{margin-bottom:10px}
+@media(max-width:680px){
+  .beginner-starter-conditions{grid-template-columns:1fr}
+  .beginner-workspace{padding:12px 10px}
+  .beginner-workspace-actions,.beginner-workspace-recovery{display:grid;grid-template-columns:1fr}
+  .beginner-workspace button,.beginner-file-label{width:100%;overflow-wrap:anywhere}
+  .project-result-top>h1{font-size:1.8rem;line-height:1.3;overflow-wrap:anywhere}
+  .beginner-action{margin-top:16px;padding:16px 12px}
+  .beginner-action>h2{font-size:1.5rem;line-height:1.4}
+  .beginner-action-grid>section,.beginner-steps{padding:12px}
+  .beginner-action .action-prompt pre{font-size:.875rem}
 }
