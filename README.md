@@ -6,10 +6,13 @@ GameAI Hubは、日本語のAIゲーム開発ユーザーが「どのAIを使う
 
 - **成長戦略 / SEO / コンテンツ / 収益化 / Chat・Work・Codexの役割分担:** [`docs/GROWTH_STRATEGY.md`](docs/GROWTH_STRATEGY.md)
 - **Codexの恒久実行ルール:** [`AGENTS.md`](AGENTS.md)
+- **Codex Cloud Taskの環境復元・checkpoint・PR・merge・復旧手順:** [`CODEX_CLOUD_TASK.md`](CODEX_CLOUD_TASK.md)
 - **運用上の人間作業:** [`OWNER_ACTIONS.md`](OWNER_ACTIONS.md)
 - **デプロイ / ロールバック:** [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md)
 
 次の大型プロジェクトは **GameAI Hub Content & SEO Engine — Phase 1** です。記事数の量産を先に行わず、SEO監査・キーワードマップ・コンテンツ設計・内部リンク・構造化データ・計測・最初の柱記事群を先に整備します。
+
+Codex Cloud Taskを新しく開始する場合、長いGit/GitHub手順を毎回プロンプトへ再記載せず、`AGENTS.md`、`CODEX_CLOUD_TASK.md`、対象Issueを正本として参照してください。
 
 ```bash
 npm install
