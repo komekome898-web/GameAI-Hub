@@ -75,7 +75,22 @@ test.describe('Beginner acceptance: current production journey contracts', () =>
       await page.getByRole('button', { name: 'ゲームを表示', exact: true }).click();
       for (let count = 1; count <= 4; count++) await completeCurrentTask(page, count);
       const active = page.locator('.beginner-action');
-      await expect(page.locator('#beginner-action-title')).toContainText(kind === 'voice' ? '短い台詞の音声を1つ' : '背景を1つ');
+      if (kind === 'image') {
+        await expect(page.locator('#beginner-action-title')).toContainText('背景の仮表示をゲーム内に作る');
+        await expect(active).toContainText('完成イラストは後で差し替え');
+        await expect(active).toContainText('新しい画像ファイルは不要');
+        await expect(active).not.toContainText('background.png');
+        await expect(editor).toBeVisible();
+        await expect(editor).toHaveValue(runnerFixture);
+        await active.getByRole('button', { name: 'この指示をコピー', exact: true }).click();
+        expect(await page.evaluate(() => navigator.clipboard.readText())).toContain('画像ファイルや外部サービスを要求しない');
+        await retainScreenshot(page, testInfo, 'image-fallback-320');
+        await completeCurrentTask(page, 5);
+        await expect(page.locator('#beginner-action-title')).toContainText('最初から最後まで遊んで確かめる');
+        await expect(editor).toHaveValue(runnerFixture);
+        return;
+      }
+      await expect(page.locator('#beginner-action-title')).toContainText('短い台詞の音声を1つ');
       await expect(editor).toBeHidden();
       const steps = active.locator('.beginner-steps');
       if (kind === 'voice') {
@@ -85,9 +100,6 @@ test.describe('Beginner acceptance: current production journey contracts', () =>
         await expect(active.locator('.action-prompt')).toHaveCount(0);
         await expect(active.locator('.beginner-action-grid')).toContainText('広告リンク');
         await expect(active.locator('.beginner-action-grid a').first()).toHaveAttribute('href', /^https:\/\/try\.elevenlabs\.io\//);
-      } else {
-        await expect(steps).toContainText('background.png');
-        await expect(steps).not.toContainText('voice.mp3');
       }
       await page.getByText('作ったゲーム・台詞を確認する', { exact: true }).click();
       await expect(editor).toBeVisible();

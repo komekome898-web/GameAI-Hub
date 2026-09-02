@@ -58,6 +58,14 @@ export function beginnerWorkflowSteps(plan: ProjectPlan): BuildChecklistStep[] {
     const assetTool = chosen(assetTools);
     const filename = kind === 'image' ? novel ? 'background.png' : 'character.png' : 'voice.mp3';
     const role = kind === 'image' ? novel ? '背景' : 'キャラクター' : '短い台詞の音声';
+    if (kind === 'image' && !assetTool) {
+      steps.push(make('placeholder-image', `${role}の仮表示をゲーム内に作る`, `素材ファイルなしで確認できる${role}の仮表示`,
+        '今回の条件で利用条件を確認できる画像生成AIはまだ選べていません。完成イラストは後で差し替え、いまは色や図形の仮表示で制作を続けます。',
+        [...update.slice(0, 3), '新しい画像ファイルは不要です。ゲーム内の仮表示を確認する。完成イラストが用意できたら、同じAIへ差し替えを頼めます。', update[3]],
+        `確認済み情報に合う${role}を、同じindex.html内のCSSの色・図形だけで仮表示する。既に仮表示があればその確認方法を示す。完成イラストを生成したとは説明しない。画像ファイルや外部サービスを要求しない。人物の固有デザインを勝手に決めず、台詞・文字・操作を隠さない。後で画像へ差し替えられるようにする。`,
+        [`${role}の仮表示がゲーム画面で分かる`, '画像ファイルを選ばなくてもゲームを遊べる', novel ? '元の台詞・操作・終わり・やり直しが動く' : '元の操作・終わり・やり直しが動く']));
+      continue;
+    }
     const assetInstruction = kind === 'image'
       ? `ゲーム内で使う${role}を1枚作る。確認済み情報にある特徴だけを使い、不足する見た目の指定は先に聞く。文字・ロゴ・透かしを絵として追加しない。出力できる画像形式を確認する。`
       : 'この試作の既存の台詞から1行だけを読み上げる。使用が許可された音声を選び、実在人物の声を無断で複製しない。対応するMP3またはWAVの出力を確認する。';

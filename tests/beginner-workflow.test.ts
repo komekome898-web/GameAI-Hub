@@ -79,4 +79,17 @@ describe('beginner prototype workflow', () => {
     expect(steps.find(step => step.id === 'integrate-voice')?.usageInstructions.join(' ')).toContain('voice.wav');
     expect(beginnerWorkflowSteps(plan()).some(step => step.id.includes('image') || step.id.includes('voice'))).toBe(false);
   });
+
+  it.each(['visual-novel', 'action'] as const)('keeps %s users without images moving when no image generator is selected', genre => {
+    const source = plan({ genre, capabilities: ['coding', 'art-2d'] });
+    source.phases = source.phases.map(phase => phase.id === 'visuals' ? { ...phase, tools: [] } : phase);
+    const steps = beginnerWorkflowSteps(source);
+    const fallback = steps.find(step => step.id === 'placeholder-image')!;
+    expect(fallback.tools).toEqual(source.phases.find(phase => phase.id === 'code')?.tools);
+    expect(fallback.why).toContain('完成イラストは後で差し替え');
+    expect(fallback.prompt).toContain('画像ファイルや外部サービスを要求しない');
+    expect(fallback.usageInstructions.join(' ')).toContain('新しい画像ファイルは不要');
+    expect(steps.some(step => step.id === 'create-image' || step.id === 'integrate-image')).toBe(false);
+    if (genre === 'action') expect(fallback.doneWhen.join(' ')).not.toContain('台詞');
+  });
 });
