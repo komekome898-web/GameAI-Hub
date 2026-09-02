@@ -1,14 +1,12 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { ArticlePromotions } from '@/components/ArticlePromotions';
+import { ArticleFrame } from '@/components/ArticleFrame';
+import { articleMetadata, getArticle } from '@/data/articles';
 
-export const metadata:Metadata={
-  title:'AIの正しい使い方',
-  description:'AIに期待しすぎて何度も失敗した私が、初めてAIを使う人に向けて、プロンプトの書き方、失敗時の対処法、用途別のAIの使い分けを実体験ベースで整理する。',
-  alternates:{canonical:'/articles/ai-usage-guide/'},
-  openGraph:{title:'AIの正しい使い方 | GameAI Hub',description:'AIは魔法ではない。でも、使い方を間違えなければ異常に強い。実際に失敗して学んだAIとの向き合い方。',url:'/articles/ai-usage-guide/'}
-};
+const article=getArticle('ai-usage-guide')!;
+export const metadata:Metadata=articleMetadata(article);
 
-export default function AiUsageGuideArticle(){return <article className="page-shell">
+export default function AiUsageGuideArticle(){return <ArticleFrame article={article}><div className="article-content">
   <header className="page-head">
     <p className="eyebrow">PRACTICAL GUIDE / FIELD NOTE</p>
     <h1>AIの正しい使い方</h1>
@@ -108,7 +106,7 @@ export default function AiUsageGuideArticle(){return <article className="page-sh
     <h3>画像・動画・長い資料をまとめて理解させる</h3>
     <p><strong>Gemini 3系</strong>。GoogleはGemini 3を推論・マルチモーダル・コーディングを強化した世代として展開している。画像、資料、動画など複数形式をまとめて扱いたいときは候補に入れる。</p>
     <h3>速度を優先する日常作業</h3>
-    <p><strong>Gemini 3.5 Flashや各社の軽量モデル</strong>。分類、変換、下書き、候補出しなどは毎回フラッグシップを使う必要はない。速いモデルへ逃がした方が合理的なことが多い。</p>
+    <p><strong>各社の軽量モデル</strong>。分類、変換、下書き、候補出しなどは毎回フラッグシップを使う必要はない。速いモデルへ逃がした方が合理的なことが多い。</p>
     <h3>安く大量に回す・自前運用も検討する</h3>
     <p><strong>DeepSeek系、Qwen系、その他のオープン／低コストモデル</strong>も候補になる。ただし、モデル名よりも必要な精度、データの扱い、実行環境、料金を見て選ぶ。</p>
     <h3>画像生成</h3>
@@ -118,6 +116,7 @@ export default function AiUsageGuideArticle(){return <article className="page-sh
     <p>要するに「一番強いAIを1個契約して全部やらせる」より、<strong>仕事ごとにモデルを変える</strong>方が私は現実的だと思っている。</p>
     <p><small>モデル情報は2026年8月時点。提供状況は変わるため、利用前に各社の公式情報を確認してください。</small></p>
   </section>
+  <ArticlePromotions article={article} placement="production_tools"/>
 
   <section>
     <h2>初めてAIを使う人に、最初に覚えてほしいプロンプトの型</h2>
@@ -178,10 +177,4 @@ export default function AiUsageGuideArticle(){return <article className="page-sh
     </ul>
   </section>
 
-  <section className="result-next">
-    <h2>AIを使うなら、最初から「工程」にする</h2>
-    <p>AIを一発回答装置として使うより、調査、実装、検証、修正という工程の中に置いた方が強い。GameAI Hubでは、ゲーム制作を工程ごとに分け、どこでAIを使い、何を完成させるかまで整理できるようにしている。</p>
-    <Link className="button" href="/project">自分のゲーム制作計画を作る</Link>
-    <p><Link href="/articles/ai-fantasy">前の記事「AIに幻想を抱くあなたへ」も読む →</Link></p>
-  </section>
-</article>}
+</div></ArticleFrame>}
