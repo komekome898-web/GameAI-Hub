@@ -36,3 +36,9 @@
 - Functional regression: full E2E covers Project state, beginner scenarios, Tools/Compare history and keyboard behavior, provider fallbacks, and affiliate rel/disclosure; content E2E covers Article index → Article → Project → Back.
 - Protected audit: GA4 ID/production gtag, outbound/affiliate events/sub_id, affiliate registry/fallback/rel/disclosure, Search Console verification, canonical/robots/Compare noindex remain covered and unchanged.
 - Remaining: final independent verification response; commit/push; PR/CI/Vercel Preview; merge and production smoke if green.
+
+## Final independent verification
+- Final independent screenshot/product/IA reviewer: P0 0, P1 0, high-impact P2 0 after 320 reflow and fail-closed validation fixes.
+- Remaining nonblocking: split the article hub by populated user intent when pillar pages are actually published; consider stricter calendar-date parsing as content volume grows.
+- Local acceptance remains: quality PASS (204/204), build PASS (57 pages), full E2E PASS (25/25).
+- Exact next action: create/update PR, wait for GitHub/Vercel checks, merge only if green, then confirm origin/main and production smoke.
