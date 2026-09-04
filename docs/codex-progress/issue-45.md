@@ -8,8 +8,8 @@
 - Remaining phases: adoption thesis; atomic article + registry implementation; bounded intent preservation; analytics; tests; rendered QA; adversarial review/fixes; PR/Preview; merge/Production smoke.
 - Blocking findings: P0: 0. P1: external-AI returned HTML evidence remains unavailable (GitHub Models HTTP 410 retirement brownout); P1 visual zoom issue fixed and recaptured. High-impact P2: 0 known.
 - Quality gates: quality PASS (208 tests); build PASS; content E2E PASS (3); exact battle journey E2E PASS (1); structured data/content/sitemap validation PASS.
-- GitHub/PR: authenticated write path to be proven; PR pending creation.
-- Deployment: Preview pending PR.
+- GitHub/PR: PR #48 open; Vercel Preview ready and HTTP 200 smoke passed.
+- Deployment: Preview ready; Production not merged because live external-AI evidence remains blocked.
 - Assumptions/blockers: provider-specific claims will be limited to current primary sources; no affiliate promotion is needed for the first slice.
 - Areas being audited: `app/articles`, `data/articles.ts`, `components/ProjectGeneratorClient.tsx`, `lib/project`, analytics, E2E.
 - Exact next action: create PR, inspect CI/Preview; do not merge unless external-AI handoff acceptance can be completed or owner accepts the documented provider limitation.
