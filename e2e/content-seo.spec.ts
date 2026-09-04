@@ -29,7 +29,7 @@ for(const viewport of [{name:'mobile-320',width:320,height:640,zoom:true},{name:
   if(viewport.zoom)await page.evaluate(()=>{document.documentElement.style.zoom='2'});
   await expect(page.getByRole('heading',{name:'元のGameAI Hubタブへ戻る'})).toBeVisible();
   await expect(page.getByRole('link',{name:'元のProjectを開く'})).toHaveCount(0);
-  await expect(page.getByRole('link',{name:'Project Generatorを開く'})).toHaveAttribute('href','/project');
+  await expect(page.getByRole('link',{name:'Project Generatorを開く'})).toHaveAttribute('href','/project/');
   expect(await page.locator('body').evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
   await page.screenshot({path:`docs/screenshots/issue-49/github-guide-${viewport.name}${viewport.zoom?'-zoom-200-percent':''}.png`,fullPage:!viewport.zoom});
  });

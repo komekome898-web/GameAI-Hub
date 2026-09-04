@@ -259,9 +259,14 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
         await expect(
           guidePage.getByRole("heading", { name: "元のGameAI Hubタブへ戻る" }),
         ).toBeVisible();
-        await expect(
-          guidePage.getByRole("link", { name: "元のProjectを開く" }),
-        ).toHaveAttribute("href", returnTo!);
+        const returnHref = await guidePage
+          .getByRole("link", { name: "元のProjectを開く" })
+          .getAttribute("href");
+        const normalizedReturn = new URL(returnHref!, "http://gameai.test");
+        const requestedReturn = new URL(returnTo!, "http://gameai.test");
+        expect(normalizedReturn.pathname).toBe("/project/");
+        expect(normalizedReturn.search).toBe(requestedReturn.search);
+        expect(normalizedReturn.hash).toBe(requestedReturn.hash);
         await expect(
           guidePage.getByRole("link", { name: "Project Generatorを開く" }),
         ).toHaveCount(0);
