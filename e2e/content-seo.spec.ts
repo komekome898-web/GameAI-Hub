@@ -26,11 +26,13 @@ for(const viewport of [{name:'mobile-320',width:320,height:640,zoom:true},{name:
   await mkdir('docs/screenshots/issue-49',{recursive:true});
   await page.setViewportSize({width:viewport.width,height:viewport.height});
   await page.goto('/articles/github-beginner-game-development/?returnTo=https%3A%2F%2Fevil.example%2Fproject');
-  if(viewport.zoom)await page.evaluate(()=>{document.documentElement.style.zoom='2'});
+  const session=viewport.zoom?await page.context().newCDPSession(page):null;
+  if(session){await session.send('Emulation.setPageScaleFactor',{pageScaleFactor:2});await expect.poll(()=>page.evaluate(()=>window.visualViewport?.scale??1)).toBeGreaterThanOrEqual(1.9)}
   await expect(page.getByRole('heading',{name:'元のGameAI Hubタブへ戻る'})).toBeVisible();
   await expect(page.getByRole('link',{name:'元のProjectを開く'})).toHaveCount(0);
   await expect(page.getByRole('link',{name:'Project Generatorを開く'})).toHaveAttribute('href','/project/');
   expect(await page.locator('body').evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
   await page.screenshot({path:`docs/screenshots/issue-49/github-guide-${viewport.name}${viewport.zoom?'-zoom-200-percent':''}.png`,fullPage:!viewport.zoom});
+  if(session){await session.send('Emulation.setPageScaleFactor',{pageScaleFactor:1});await session.detach()}
  });
 }
