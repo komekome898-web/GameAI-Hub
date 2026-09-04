@@ -82,6 +82,18 @@ export const articles = [
         verifiedAt: "2026-09-04",
       },
       {
+        label: "GitHub Docs: About repositories and visibility",
+        url: "https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories",
+        kind: "primary",
+        verifiedAt: "2026-09-04",
+      },
+      {
+        label: "GitHub Docs: Licensing a repository",
+        url: "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository",
+        kind: "primary",
+        verifiedAt: "2026-09-04",
+      },
+      {
         label: "GitHub Docs: Adding a file to a repository",
         url: "https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository",
         kind: "primary",

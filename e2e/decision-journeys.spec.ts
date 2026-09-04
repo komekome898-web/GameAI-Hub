@@ -131,7 +131,7 @@ test('375px: 明示したGodotを保持しno voice/no 3Dの最初の工程を完
   const preflight=page.locator('.beginner-action .copilot-preflight').first();
   await preflight.getByText('GitHub Copilotを開く前に確認',{exact:true}).click();
   await expect(preflight.getByRole('link',{name:'GitHubを使ったことがある — Copilotへ',exact:true})).toHaveAttribute('href','https://github.com/copilot');
-  await expect(preflight.getByRole('link',{name:'GitHubが初めて — 登録ガイド',exact:true})).toHaveAttribute('href',/\/articles\/github-beginner-game-development\/\?returnTo=/);
+  await expect(preflight.getByRole('link',{name:'GitHubが初めて — 登録ガイド',exact:true})).toHaveAttribute('href','/articles/github-beginner-game-development/');
   await page.reload();
   await expect(page.locator('.build-progress span')).toContainText(/1 \/ \d+ 完了/);
   await expectNoHorizontalOverflow(page);

@@ -74,14 +74,11 @@ async function expectCopilotPreflight(scope: Locator) {
   await expect(copilot).toHaveAttribute("href", "https://github.com/copilot");
   await expect(guide).toBeVisible();
   const guideHref = await guide.getAttribute("href");
-  expect(guideHref).toMatch(
-    /^\/articles\/github-beginner-game-development\/\?returnTo=/,
+  expect(new URL(guideHref!, "http://gameai.test").pathname).toBe(
+    "/articles/github-beginner-game-development/",
   );
-  const returnTo = new URL(guideHref!, "http://gameai.test").searchParams.get(
-    "returnTo",
-  );
-  expect(returnTo).toMatch(/^\/project#quest-/);
-  return { guide, returnTo };
+  expect(new URL(guideHref!, "http://gameai.test").search).toBe("");
+  return { guide };
 }
 
 async function completeCurrentTask(page: Page, expectedCount: number) {
@@ -119,6 +116,48 @@ async function retainScreenshot(page: Page, testInfo: TestInfo, name: string) {
 }
 
 test.describe("Beginner acceptance: current production journey contracts", () => {
+  test("ProjectからGitHub guideを読み、元タブの同じidea・task・進捗へ戻る", async ({
+    page,
+    context,
+  }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    const scenario = scenarios[0];
+    await beginFromHome(page, scenario.idea);
+    const editor = page.getByLabel("ゲームのコード", { exact: true });
+    await editor.fill(runnerFixture);
+    await page.getByRole("button", { name: "ゲームを表示", exact: true }).click();
+    await completeCurrentTask(page, 1);
+
+    const expectedTask = await page.locator("#beginner-action-title").innerText();
+    const expectedProgress = await page.locator(".build-progress").innerText();
+    const retainsExactIdea = () =>
+      page.evaluate(
+        (idea) => {
+          const draft = new URL(location.href).searchParams.get("draft");
+          if (!draft) return false;
+          const raw = localStorage.getItem(`gameai:project-private-draft:v1:${draft}`);
+          if (!raw) return false;
+          return (JSON.parse(raw) as { brief?: { idea?: string } }).brief?.idea === idea;
+        },
+        scenario.idea,
+      );
+    expect(await retainsExactIdea()).toBe(true);
+    const { guide } = await expectCopilotPreflight(page.locator(".beginner-action"));
+    const guidePagePromise = context.waitForEvent("page");
+    await guide.click();
+    const guidePage = await guidePagePromise;
+    await guidePage.waitForLoadState();
+    await expect(guidePage.locator(".article-return-to-project")).toHaveCount(2);
+    await expect(guidePage.getByRole("link", { name: /元のProject/ })).toHaveCount(0);
+    await guidePage.close();
+    await page.bringToFront();
+
+    expect(await retainsExactIdea()).toBe(true);
+    await expect(page.locator("body")).toContainText("キャラクターを動かして、ゴールまで行けばクリア");
+    await expect(page.locator("#beginner-action-title")).toHaveText(expectedTask);
+    expect(await page.locator(".build-progress").innerText()).toBe(expectedProgress);
+  });
+
   for (const kind of ["voice", "image"] as const) {
     test(`optional ${kind}: 素材の入力・保存・相談をコード制作から区別する`, async ({
       page,
@@ -242,7 +281,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
       for (const content of scenario.requiredPrompt)
         await expect(prompt).toContainText(content);
       await expect(prompt).toContainText("index.html");
-      const { guide, returnTo } = await expectCopilotPreflight(
+      const { guide } = await expectCopilotPreflight(
         active.locator(".beginner-action-grid"),
       );
       if (scenario.id === "a") {
@@ -254,21 +293,13 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
         const guidePage = await guidePagePromise;
         await guidePage.waitForLoadState();
         await expect(guidePage).toHaveURL(
-          /\/articles\/github-beginner-game-development\/\?returnTo=/,
+          /\/articles\/github-beginner-game-development\/$/,
         );
         await expect(
-          guidePage.getByRole("heading", { name: "元のGameAI Hubタブへ戻る" }),
-        ).toBeVisible();
-        const returnHref = await guidePage
-          .getByRole("link", { name: "元のProjectを開く" })
-          .getAttribute("href");
-        const normalizedReturn = new URL(returnHref!, "http://gameai.test");
-        const requestedReturn = new URL(returnTo!, "http://gameai.test");
-        expect(normalizedReturn.pathname).toBe("/project/");
-        expect(normalizedReturn.search).toBe(requestedReturn.search);
-        expect(normalizedReturn.hash).toBe(requestedReturn.hash);
+          guidePage.getByRole("heading", { name: "Projectからこの記事を開いた人" }),
+        ).toHaveCount(2);
         await expect(
-          guidePage.getByRole("link", { name: "Project Generatorを開く" }),
+          guidePage.getByRole("link", { name: /Project|元のProject/ }),
         ).toHaveCount(0);
         await retainScreenshot(guidePage, testInfo, "github-guide-return-375");
         await guidePage.close();
@@ -400,7 +431,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
       .getByRole("button", { name: "現在のコード＋変更指示をコピー" })
       .click();
     expect(await page.evaluate(() => navigator.clipboard.readText())).toContain(
-      "--- 現在動いているindex.html ---",
+      "--- 編集中のindex.html ---",
     );
     await retainScreenshot(page, testInfo, "combined-copy-320");
     await game.getByRole("button", { name: "やり直す" }).click();

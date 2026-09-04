@@ -82,7 +82,7 @@ export default function AiBrowserGameHowTo() {
               className="button"
               href="/project?source=ai-browser-game-how-to"
             >
-              この条件を確認してProjectを始める
+              Project入力画面を開いて、この例文を貼る
             </Link>
           </p>
         </section>
