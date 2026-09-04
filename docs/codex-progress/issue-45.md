@@ -4,15 +4,15 @@
 - Working branch: `feat/issue-45-browser-game-pillar`
 - Latest pushed checkpoint: implementation checkpoint pending commit
 - Completed phases: environment/auth/origin/main recovery; governing docs and Issues #44/#45/#47 loaded; independent discovery started.
-- Current phase: first implementation checkpoint.
+- Current phase: PR/Preview verification; external GitHub Models handoff blocked by provider retirement brownout.
 - Remaining phases: adoption thesis; atomic article + registry implementation; bounded intent preservation; analytics; tests; rendered QA; adversarial review/fixes; PR/Preview; merge/Production smoke.
-- Blocking findings: P0: 0 known after bounded intent fix; P1: rendered/external handoff acceptance remains; high-impact P2: battle outcome determinism requires rendered verification.
-- Quality gates: targeted Vitest PASS (68); typecheck PASS; lint PASS; content registry validation PASS; full quality/build/E2E pending.
-- GitHub/PR: authenticated write path to be proven; no PR yet.
-- Deployment: not started.
+- Blocking findings: P0: 0. P1: external-AI returned HTML evidence remains unavailable (GitHub Models HTTP 410 retirement brownout); P1 visual zoom issue fixed and recaptured. High-impact P2: 0 known.
+- Quality gates: quality PASS (208 tests); build PASS; content E2E PASS (3); exact battle journey E2E PASS (1); structured data/content/sitemap validation PASS.
+- GitHub/PR: authenticated write path to be proven; PR pending creation.
+- Deployment: Preview pending PR.
 - Assumptions/blockers: provider-specific claims will be limited to current primary sources; no affiliate promotion is needed for the first slice.
 - Areas being audited: `app/articles`, `data/articles.ts`, `components/ProjectGeneratorClient.tsx`, `lib/project`, analytics, E2E.
-- Exact next action: finish independent discovery, reproduce the task-selection mismatch in tests/code, and write the competitive adoption matrix before implementation.
+- Exact next action: create PR, inspect CI/Preview; do not merge unless external-AI handoff acceptance can be completed or owner accepts the documented provider limitation.
 
 ## Internal thesis
 

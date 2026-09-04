@@ -40,6 +40,8 @@ export async function interpretWithFallback(idea:string,options:{provider?:Proje
     const providerWork=provider.interpret(bounded,controller.signal); providerWork.catch(()=>{});
     const interpretation=validatedInterpretation(bounded,await Promise.race([providerWork,timeout]));
     const local=interpretProjectIdea(bounded);
+    const detailKeys=new Set(interpretation.detailCandidates.map(item=>`${item.kind}:${item.text.normalize('NFKC').toLocaleLowerCase('ja-JP')}`));
+    for(const detail of local.detailCandidates){const key=`${detail.kind}:${detail.text.normalize('NFKC').toLocaleLowerCase('ja-JP')}`;if(!detailKeys.has(key)){interpretation.detailCandidates.push(detail);detailKeys.add(key);}}
     const providerFields=new Set(interpretation.fields.map(item=>String(item.field)));
     const conflicted=new Set(local.conflicts.map(item=>item.split(':')[0]));
     const comparable=(value:unknown)=>Array.isArray(value)?JSON.stringify([...value].sort()):JSON.stringify(value);
