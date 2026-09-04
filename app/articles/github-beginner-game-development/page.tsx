@@ -1,7 +1,5 @@
-import Link from "next/link";
 import { ArticleFrame } from "@/components/ArticleFrame";
 import { getArticle, articleMetadata } from "@/data/articles";
-import { safeProjectReturn } from "@/lib/safe-project-return";
 const article = getArticle("github-beginner-game-development")!;
 export const metadata = articleMetadata(article);
 const Success = ({ children }: { children: React.ReactNode }) => (
@@ -10,45 +8,30 @@ const Success = ({ children }: { children: React.ReactNode }) => (
     {children}
   </p>
 );
-function ReturnToProject({ returnTo }: { returnTo: string | null }) {
+function ReturnToProject({ position }: { position: "start" | "end" }) {
+  const titleId = `return-to-project-${position}-title`;
   return (
     <section
       className="article-return-to-project"
-      aria-labelledby="return-to-project-title"
+      aria-labelledby={titleId}
     >
       <p className="eyebrow">RETURN TO YOUR TASK</p>
-      <h2 id="return-to-project-title">元のGameAI Hubタブへ戻る</h2>
+      <h2 id={titleId}>Projectからこの記事を開いた人</h2>
+      <p><strong>元のGameAI Hubタブへ戻ります。</strong>新しいProjectを作る必要はありません。</p>
+      <ol>
+        <li>このGitHub記事のタブを閉じる。</li>
+        <li>元のGameAI Hubタブを選ぶ。</li>
+        <li>ゲーム案・現在のtask・進捗が残っていることを確認する。</li>
+        <li>「GitHubを使ったことがある — Copilotへ」から制作を続ける。</li>
+      </ol>
       <p>
-        <strong>このタブを閉じて、元のGameAI Hubタブへ戻ってください。</strong>{" "}
-        それがゲーム案・task・進捗を保つ最優先の戻り方です。ブラウザから別タブを確実に選択する操作は、このページから自動化できません。
+        このガイドには元のProjectを特定する情報がないため、ここからProject画面を開き直しても同じ制作状態は復元できません。
       </p>
-      {returnTo ? (
-        <>
-          <p>元のタブを閉じた場合だけ、次の補助リンクを使えます。</p>
-          <Link className="button ghost" href={returnTo}>
-            元のProjectを開く
-          </Link>
-        </>
-      ) : (
-        <>
-          <p>
-            この記事を単独で開き、元のProjectタブがない場合だけ新しいProjectを開いてください。
-          </p>
-          <Link className="button ghost" href="/project">
-            Project Generatorを開く
-          </Link>
-        </>
-      )}
     </section>
   );
 }
 
-export default async function Page({
-  searchParams,
-}: {
-  searchParams: Promise<{ returnTo?: string | string[] }>;
-}) {
-  const returnTo = safeProjectReturn((await searchParams).returnTo);
+export default function Page() {
   return (
     <ArticleFrame article={article} showProjectCta={false}>
       <div className="article-content">
@@ -89,10 +72,7 @@ export default async function Page({
           <p>
             全部を最初に設定する必要はありません。保存するときにrepository、公開するときにPagesへ進みます。
           </p>
-          <p>
-            <strong>Projectから別タブで開いた場合：</strong>
-            このタブを閉じ、元のGameAI Hubタブへ切り替えると同じtaskが残ります。
-          </p>
+          <ReturnToProject position="start" />
         </section>
         <section>
           <h2>1. GitHubとは</h2>
@@ -161,20 +141,48 @@ export default async function Page({
               右上の <strong>+</strong> または <strong>New repository</strong>{" "}
               を押す。
             </li>
-            <li>
-              <strong>Owner</strong> が自分のusernameか確認する。
-            </li>
+            <li><strong>Owner</strong> は、通常は自分のusernameを選ぶ。</li>
             <li>
               <strong>Repository name</strong> に例として{" "}
               <code>my-first-browser-game</code> を入力する。
             </li>
-            <li>
-              公開範囲を自分で選び、必要ならREADME追加を選ぶ。意味が分からない設定は公式説明を確認する。
-            </li>
+            <li><strong>Description</strong> は任意。最初は空でもよい。</li>
+            <li>次の説明を見て <strong>Public</strong> または <strong>Private</strong> を選ぶ。</li>
+            <li>README、<code>.gitignore</code>、Licenseは次の推奨例どおりに選ぶ。</li>
             <li>
               <strong>Create repository</strong> を押す。
             </li>
           </ol>
+          <h3>Public / Privateは誰が見られるかの設定</h3>
+          <dl>
+            <div>
+              <dt>Public</dt>
+              <dd>インターネット上の誰でもrepository内容を見られます。公開予定の練習ゲームに使えますが、パスワード、API key、個人情報などの秘密情報は絶対に入れません。</dd>
+            </div>
+            <div>
+              <dt>Private</dt>
+              <dd>自分と、許可した人だけが見られます。制作途中や非公開にしたいゲーム、公開前の練習に向きます。</dd>
+            </div>
+          </dl>
+          <p><strong>迷うなら制作中はPrivate</strong>を選び、公開したい段階でvisibilityと公開方法をあらためて確認します。GitHub FreeでPagesを使う場合、公式DocsではPublic repositoryが対象です。PrivateのままPagesを使えるプランもあるため、公開時点のプラン条件を確認してください。</p>
+          <h3>残りの初期設定はこう判断する</h3>
+          <ul>
+            <li><strong>Add a README file：</strong>READMEはゲームの説明を書く文書です。追加しても構いませんが、最初の<code>index.html</code>が動くかどうかには関係しません。追加すると最初からファイル一覧が表示され、<strong>Add file</strong>から進めます。</li>
+            <li><strong>Add .gitignore：</strong>今回は<code>index.html</code> 1つなので <strong>None</strong> のままで構いません。Nodeやゲームエンジンを使い始め、repositoryへ含めない生成物や依存ファイルができた段階で必要になることがあります。秘密情報はPublic／Privateにかかわらずrepositoryへ保存・commitしません。</li>
+            <li><strong>Choose a license：</strong>最初は <strong>None</strong> で構いません。Licenseは他人がコードをどう利用できるか示すものです。Publicでも「見える＝自由に再利用してよい」ではありません。ゲーム制作を始めるために今すぐ決める必要はありません。</li>
+          </ul>
+          <aside className="article-callout" aria-labelledby="first-repository-example">
+            <h3 id="first-repository-example">初心者はこの設定から始める</h3>
+            <ul>
+              <li><strong>Owner：</strong>自分のusername</li>
+              <li><strong>Repository name：</strong><code>my-first-browser-game</code></li>
+              <li><strong>Description：</strong>空でよい</li>
+              <li><strong>Visibility：</strong>制作中ならPrivate。今すぐ公開する練習ならPublic（秘密情報は入れない）</li>
+              <li><strong>README：</strong>追加する（最初のAdd fileを見つけやすくするため）</li>
+              <li><strong>.gitignore：</strong>None</li>
+              <li><strong>License：</strong>None／後で決める</li>
+            </ul>
+          </aside>
           <Success>
             上部に <code>username / my-first-browser-game</code> と表示される。
           </Success>
@@ -286,7 +294,7 @@ export default async function Page({
             同じtask、ゲーム案、完了条件が残った画面へ戻れている。
           </Success>
         </section>
-        <ReturnToProject returnTo={returnTo} />
+        <ReturnToProject position="end" />
       </div>
     </ArticleFrame>
   );

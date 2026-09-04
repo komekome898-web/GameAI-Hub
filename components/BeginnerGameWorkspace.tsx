@@ -323,8 +323,9 @@ export function BeginnerGameWorkspace({
               <p>{runtimeError.message}</p>
               {runtimeError.line && (
                 <p>
-                  場所: {runtimeError.line}行
+                  プレビュー内の参考位置: {runtimeError.line}行
                   {runtimeError.column ? ` ${runtimeError.column}文字目` : ""}
+                  （貼ったコードの行とずれる場合があります）
                 </p>
               )}
               <button
@@ -332,7 +333,7 @@ export function BeginnerGameWorkspace({
                 onClick={async () => {
                   try {
                     await navigator.clipboard.writeText(
-                      `ゲーム内エラー: ${runtimeError.message}${runtimeError.line ? `（${runtimeError.line}行）` : ""}`,
+                      `ゲーム内エラー: ${runtimeError.message}${runtimeError.line ? `（プレビュー内の参考位置: ${runtimeError.line}行。貼ったコードの行とずれる場合があります）` : ""}`,
                     );
                     setErrorCopyStatus("エラー概要をコピーしました。");
                   } catch {
