@@ -18,6 +18,13 @@ describe('project interpreter provider orchestration',()=>{
     expect(result.interpretation.fields[0]).toEqual(expect.objectContaining({field:'genre',value:'rpg'}));
     expect(result.interpretation.detailCandidates[0]).toEqual(expect.objectContaining({kind:'setting',text:'空飛ぶ島'}));
   });
+  it('retains deterministic battle intent when the configured provider omits details',async()=>{
+    const idea='モンスターと1対1で戦う2Dブラウザゲームを作りたい。ゲーム制作は初めてです。まず画像と音声なしで、たたかう・勝敗・やり直しを作りたい。';
+    const raw={fields:[{field:'platform',value:'web'},{field:'dimension',value:'2d'},{field:'experience',value:'beginner'}],details:[],unresolved:[],conflicts:[]};
+    const result=await interpretWithFallback(idea,{provider:provider(async()=>raw)});
+    expect(result.status.mode).toBe('provider');
+    expect(result.interpretation.detailCandidates).toContainEqual(expect.objectContaining({kind:'core-mechanic',text:'戦闘'}));
+  });
   it('keeps a provider disagreement unresolved instead of presenting it as an adoptable candidate',async()=>{
     const result=await interpretWithFallback('空飛ぶ島のパズル',{provider:provider(async()=>valid)});
     expect(result.confirmationRequired).toEqual([]);

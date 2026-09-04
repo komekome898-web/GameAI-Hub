@@ -54,6 +54,11 @@ function extractDetailCandidates(source:string,text:string):DetailCandidate[] {
   const mechanics=['捕獲','育成','編成','探索','戦闘','会話','料理','建築','ステルス','推理','経営'] as const;
   for(const match of source.matchAll(/(?:主人公|プレイヤー)は([^、。.!?\n]{1,30})を探索(?:して|する|し)/g))add('setting',match[1],match[0]);
   for(const mechanic of mechanics)if(text.includes(mechanic)&&!explicitlyNegated(text,mechanic))add('core-mechanic',mechanic,mechanic);
+  // Preserve a narrowly stated battle loop without misclassifying every battle
+  // game as the "monster collection" genre. This remains a visible candidate
+  // that the user must confirm before it reaches a task contract.
+  const explicitBattle=/(?:モンスター|敵|相手).{0,16}(?:1\s*対\s*1|一対一|たたかう|戦う|バトル|攻撃)|(?:たたかう|戦う|バトル|攻撃).{0,16}(?:勝敗|勝ち|負け|HP)/.test(text);
+  if(explicitBattle&&!['戦闘','戦う','たたかう','バトル','攻撃'].some(term=>explicitlyNegated(text,term)))add('core-mechanic','戦闘',source.match(/[^。.!?\n]*(?:1\s*対\s*1|一対一|たたかう|戦う|バトル|攻撃)[^。.!?\n]*/)?.[0]??'戦闘');
   const mechanicGroup=mechanics.join('|');
   for(const match of source.matchAll(new RegExp(`([^。.!?\\n、]{1,40})を(?:${mechanicGroup})(?:して|する|できる|し)`, 'g'))){
     const value=match[1].split(/(?:は|が)/).at(-1)??match[1];
