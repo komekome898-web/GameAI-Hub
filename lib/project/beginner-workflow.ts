@@ -3,7 +3,8 @@ import type { BuildChecklistStep, PlanTool, ProjectPlan } from './types';
 /** A complete small browser prototype, using the site's sandboxed HTML workspace. */
 export function beginnerWorkflowSteps(plan: ProjectPlan): BuildChecklistStep[] {
   const novel = plan.brief.genre === 'visual-novel';
-  const battle = plan.brief.genre === 'monster-collection';
+  const battle = plan.brief.genre === 'monster-collection'
+    || plan.brief.details.some(detail => detail.kind === 'core-mechanic' && detail.text === '戦闘');
   const codingTools = plan.phases.find(phase => phase.id === 'code')?.tools
     ?? plan.phases.find(phase => phase.id === 'prototype')?.tools ?? [];
   const chosen = (tools: PlanTool[]) => tools.find(tool => tool.role === 'primary')

@@ -1,9 +1,26 @@
 import { describe, expect, it } from 'vitest';
 import { decodeProjectState, encodeProjectState, generateProjectPlan, interpretProjectIdea, type ProjectBrief, type ProjectPlan } from '@/lib/project';
+import { beginnerWorkflowSteps } from '@/lib/project/beginner-workflow';
 
 const brief=(patch:Partial<ProjectBrief>={}):ProjectBrief=>({idea:'小さなゲームを作る',genre:'other',dimension:'unknown',platform:'unknown',engine:'unknown',budget:'unknown',experience:'unknown',team:'unknown',commercialIntent:'unknown',capabilities:['coding'],locale:'unknown',details:[],...patch});
 
 describe('deterministic project interpreter',()=>{
+  it('retains the Issue 44 one-on-one monster battle as a confirmed mechanic candidate',()=>{
+    const idea='モンスターと1対1で戦うブラウザゲームを作りたい。まず画像と音声なしで、たたかう・勝敗・やり直しを作りたい。';
+    const interpreted=interpretProjectIdea(idea);
+    expect(interpreted.fields).toContainEqual(expect.objectContaining({field:'platform',value:'web'}));
+    expect(interpreted.detailCandidates).toContainEqual(expect.objectContaining({kind:'core-mechanic',text:'戦闘'}));
+    const battle=interpreted.detailCandidates.find(detail=>detail.kind==='core-mechanic'&&detail.text==='戦闘')!;
+    const plan=generateProjectPlan(brief({idea,genre:'other',dimension:'2d',platform:'web',engine:'undecided',experience:'beginner',details:[battle]}));
+    const first=beginnerWorkflowSteps(plan)[0];
+    expect(`${first.title} ${first.prompt} ${first.doneWhen.join(' ')}`).toMatch(/1対1.*HP.*勝敗.*もう一度/s);
+    expect(`${first.title} ${first.prompt}`).not.toMatch(/移動してゴール|プレイヤーとゴール/);
+  });
+
+  it('does not infer battle from a negated or unrelated use of fighting',()=>{
+    expect(interpretProjectIdea('モンスターは出るが戦闘なしの会話ゲーム').detailCandidates).not.toContainEqual(expect.objectContaining({text:'戦闘'}));
+    expect(interpretProjectIdea('日常を戦う主人公の物語').detailCandidates).not.toContainEqual(expect.objectContaining({text:'戦闘'}));
+  });
   it.each([
     'ゲーム制作は初めてです。ブラウザで遊べる簡単な2Dゲームを作りたいです。キャラクターを動かして、ゴールまで行けばクリアになるゲームにしたいです。',
     'ゲーム制作は初めてです。モンスターを集めて育てて戦うゲームを作りたいです。まずは1体対1体で戦えるところまで作りたいです。',

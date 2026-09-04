@@ -286,7 +286,8 @@ export function ProjectIdeaForm({
     } catch {
       // Navigation and the in-memory form remain usable without session storage.
     }
-    track("project_start", { page: location === "home" ? "/" : "/project" });
+    const source = location === "project" ? new URLSearchParams(window.location.search).get("source") : null;
+    track("project_start", { page: location === "home" ? "/" : "/project", ...(source && /^[a-z0-9-]{1,80}$/.test(source) ? { source } : {}) });
     if (onIdea) onIdea(value);
     else router.push("/project");
   };
@@ -984,6 +985,8 @@ function BuildChecklist({steps,plan,onCopy,engineBlocked}:{steps:BuildChecklistS
   const [problem,setProblem]=useState<Record<string,string>>({});
   const [copyNotice,setCopyNotice]=useState<{id:string;text:string}|null>(null);
   const [progressSaveFailed,setProgressSaveFailed]=useState(false);
+  const viewedTasks=useRef(new Set<string>());
+  const reachedSecond=useRef(false);
   const copyHere = async (content:string, id:string) => { const copied = await onCopy(content,id); setCopyNotice({id,text:copied ? "コピーしました。AIのチャットへ貼り付けて送ってください。" : "コピーできませんでした。上の文章を長押しして選択し、コピーしてください。"}); };
   const revealCompletion = (id:string) => { const target=document.getElementById(`quest-${id}`) as HTMLDetailsElement|null; if(target){target.open=true; const heading=target.querySelector('summary'); heading?.focus(); target.scrollIntoView?.({block:'start'});} };
   useEffect(()=>{
@@ -1028,6 +1031,17 @@ function BuildChecklist({steps,plan,onCopy,engineBlocked}:{steps:BuildChecklistS
   const remaining=steps.filter(item=>!completed.has(item.id));
   const today=(engineBlocked?remaining.filter(item=>item.id==='environment'):remaining).slice(0,3);
   const active=today[0];
+  useEffect(()=>{
+    if(!loaded||!active)return;
+    if(!viewedTasks.current.has(active.id)){
+      viewedTasks.current.add(active.id);
+      track("project_task_viewed",{task:active.id});
+    }
+    if(currentIndex===1&&!reachedSecond.current){
+      reachedSecond.current=true;
+      track("project_second_task_reached",{task:active.id});
+    }
+  },[active,currentIndex,loaded]);
   const activeTool=active?.tools.find(tool=>tool.role==='primary')??active?.tools.find(tool=>tool.role==='alternative');
   const creatingAsset=active?.id==='create-image'||active?.id==='create-voice';
   const codingHelpTool=steps.find(item=>item.id==='core-loop')?.tools.find(tool=>tool.role==='primary'||tool.role==='alternative');
@@ -1039,6 +1053,7 @@ function BuildChecklist({steps,plan,onCopy,engineBlocked}:{steps:BuildChecklistS
     const wasDone=next.has(id);
     if(wasDone){const index=steps.findIndex(item=>item.id===id); steps.slice(index).forEach(item=>next.delete(item.id));}else next.add(id);
     if(!wasDone){
+      track("project_task_completed",{task:id});
       const index=steps.findIndex(item=>item.id===id);
       const nextId=steps[index+1]?.id;
       requestAnimationFrame(()=>{
