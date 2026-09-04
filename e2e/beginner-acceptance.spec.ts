@@ -1,6 +1,12 @@
 import { mkdir } from "node:fs/promises";
 import path from "node:path";
-import { expect, test, type Page, type TestInfo } from "@playwright/test";
+import {
+  expect,
+  test,
+  type Locator,
+  type Page,
+  type TestInfo,
+} from "@playwright/test";
 
 // This is a runner fixture, not an AI response or proof that an AI generated a game.
 // Its only purpose is to exercise paste → play → save → reopen in the real UI.
@@ -47,6 +53,35 @@ async function beginFromHome(page: Page, idea: string) {
   await expect(
     page.getByLabel("ゲームのコード", { exact: true }),
   ).toBeVisible();
+}
+
+async function expectCopilotPreflight(scope: Locator) {
+  const preflight = scope.locator(".copilot-preflight").first();
+  const summary = preflight.getByText("GitHub Copilotを開く前に確認", {
+    exact: true,
+  });
+  await expect(summary).toBeVisible();
+  await summary.click();
+  const copilot = preflight.getByRole("link", {
+    name: "GitHubを使ったことがある — Copilotへ",
+    exact: true,
+  });
+  const guide = preflight.getByRole("link", {
+    name: "GitHubが初めて — 登録ガイド",
+    exact: true,
+  });
+  await expect(copilot).toBeVisible();
+  await expect(copilot).toHaveAttribute("href", "https://github.com/copilot");
+  await expect(guide).toBeVisible();
+  const guideHref = await guide.getAttribute("href");
+  expect(guideHref).toMatch(
+    /^\/articles\/github-beginner-game-development\/\?returnTo=/,
+  );
+  const returnTo = new URL(guideHref!, "http://gameai.test").searchParams.get(
+    "returnTo",
+  );
+  expect(returnTo).toMatch(/^\/project#quest-/);
+  return { guide, returnTo };
 }
 
 async function completeCurrentTask(page: Page, expectedCount: number) {
@@ -159,9 +194,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
         .getByRole("button", { name: "ここで詰まった", exact: true })
         .click();
       const help = page.locator("#beginner-stuck-panel");
-      await expect(
-        help.getByRole("link", { name: "GitHub Copilotのチャットを開く" }),
-      ).toHaveAttribute("href", "https://github.com/copilot");
+      await expectCopilotPreflight(help);
       await expect(help.locator("pre")).toContainText(
         "相談先のAI: GitHub Copilot",
       );
@@ -209,11 +242,39 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
       for (const content of scenario.requiredPrompt)
         await expect(prompt).toContainText(content);
       await expect(prompt).toContainText("index.html");
-      const launch = active
-        .locator('.beginner-action-grid a[target="_blank"]')
-        .first();
-      await expect(launch).toBeVisible();
-      await expect(launch).toHaveAttribute("href", /^https:\/\//);
+      const { guide, returnTo } = await expectCopilotPreflight(
+        active.locator(".beginner-action-grid"),
+      );
+      if (scenario.id === "a") {
+        const originalTask = await page
+          .locator("#beginner-action-title")
+          .innerText();
+        const guidePagePromise = context.waitForEvent("page");
+        await guide.click();
+        const guidePage = await guidePagePromise;
+        await guidePage.waitForLoadState();
+        await expect(guidePage).toHaveURL(
+          /\/articles\/github-beginner-game-development\/\?returnTo=/,
+        );
+        await expect(
+          guidePage.getByRole("heading", { name: "元のGameAI Hubタブへ戻る" }),
+        ).toBeVisible();
+        await expect(
+          guidePage.getByRole("link", { name: "元のProjectを開く" }),
+        ).toHaveAttribute("href", returnTo!);
+        await expect(
+          guidePage.getByRole("link", { name: "Project Generatorを開く" }),
+        ).toHaveCount(0);
+        await retainScreenshot(guidePage, testInfo, "github-guide-return-375");
+        await guidePage.close();
+        await page.bringToFront();
+        await expect(page.locator("#beginner-action-title")).toHaveText(
+          originalTask,
+        );
+        await expect(page.locator(".build-progress")).toContainText(
+          /0 \/ \d+ 完了/,
+        );
+      }
       await active
         .getByRole("button", { name: "この指示をコピー", exact: true })
         .click();
@@ -304,9 +365,11 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
 
   test("320px: HTML貼付・実行・保存・読込と隔離された操作を検証する", async ({
     page,
+    context,
   }, testInfo) => {
     test.setTimeout(90_000);
     await page.setViewportSize({ width: 320, height: 740 });
+    await context.grantPermissions(["clipboard-read", "clipboard-write"]);
     await beginFromHome(page, scenarios[0].idea);
     const editor = page.getByLabel("ゲームのコード", { exact: true });
     await editor.fill(runnerFixture);
@@ -321,6 +384,20 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
     await expect(
       game.getByText("クリアしました", { exact: true }),
     ).toBeVisible();
+
+    await completeCurrentTask(page, 1);
+    const combined = page.locator(".beginner-action .action-prompt details");
+    await combined
+      .getByText("現在のコード＋変更指示を確認", { exact: true })
+      .click();
+    await expect(combined.locator("pre")).toContainText(runnerFixture);
+    await combined
+      .getByRole("button", { name: "現在のコード＋変更指示をコピー" })
+      .click();
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toContain(
+      "--- 現在動いているindex.html ---",
+    );
+    await retainScreenshot(page, testInfo, "combined-copy-320");
     await game.getByRole("button", { name: "やり直す" }).click();
     await expect(game.getByText("開始できます", { exact: true })).toBeVisible();
 
@@ -393,7 +470,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
   });
   test("QA_RUNTIME_0904: runtime error and rejection appear in Hub and flow into trouble help", async ({
     page,
-  }) => {
+  }, testInfo) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await beginFromHome(page, scenarios[1].idea);
     const editor = page.getByLabel("ゲームのコード", { exact: true });
@@ -429,5 +506,6 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
       "sandbox",
       "allow-scripts",
     );
+    await retainScreenshot(page, testInfo, "runtime-error-375");
   });
 });

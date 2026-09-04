@@ -1,15 +1,16 @@
 # Issue 49 — Beginner flow implementation
 
-- Task: Issue #49 beginner journey improvements
+- Task: Issue #49 beginner journey improvements; PR #50 follow-up
 - Working branch: `feat/issue-49-beginner-flow`
-- Latest pushed checkpoint: `a0432e0` (final commit pending)
-- Completed phases: bootstrap; issue/docs discovery; runtime bridge; Copilot preflight; combined copy; version labels; browser article mobile path; GitHub beginner article + registry/sitemap; unit/quality/build
-- Current phase: PR handoff
-- Remaining phases: CI/Vercel Preview; rendered screenshot QA; independent adversarial review; E2E after browser system dependencies; merge/production smoke
-- Unresolved findings: P0 none identified; P1 acceptance is not certified because browser E2E/rendered QA could not launch (missing system library and dependency download was too slow); mobile devices untested
-- Quality gates: `npm run quality` PASS (208 tests); `npm run build` PASS; focused workspace tests PASS (7); Playwright runtime E2E added but environment launch blocked by missing `libatk-1.0.so.0`
-- GitHub/PR: branch pushed; PR pending
-- Deployment: not started
-- Blockers: browser system dependencies unavailable in current image; native subagent controls unavailable in this session
-- Areas changed: workspace runtime bridge, Project/Copilot preflight and copying, browser-game article, GitHub beginner article, registry, CSS, E2E/unit tests
-- Next action: run CI and Vercel Preview, execute rendered QA and adversarial review, fix blockers, then merge only if all acceptance criteria pass.
+- Latest pushed checkpoint: `c903f40` (follow-up commit pending)
+- Completed phases: bootstrap/resume audit; PR comments and failed CI classified; runtime bridge; Copilot preflight; combined copy; version labels; browser article mobile path; GitHub beginner article; safe return target; E2E preflight updates; local quality/build
+- Current phase: checkpoint push and CI/rendered acceptance
+- Remaining phases: full GitHub Actions E2E; Vercel Preview; screenshot review; PR update; merge; production smoke
+- CI failure classification: optional voice, A, B, C, and 375px Godot were stale test expectations for links hidden inside the new preflight details; no product runtime failure was shown in those five logs
+- Findings: safe Project return accepts only `/project`, its query, and its fragment; external/protocol-relative/script/data/malformed values fall back to a clearly labeled new Project link
+- Quality gates: `npm run quality` PASS (25 files / 221 tests); `npm run build` PASS; full E2E pending CI (local browser system libraries unavailable)
+- GitHub/PR: PR #50 open; Vercel previous preview ready; follow-up push pending
+- Deployment: production not started
+- Blockers: native subagent controls unavailable in this session; iPhone/Android real devices unavailable
+- Areas changed in follow-up: GitHub article return UI, ArticleFrame CTA opt-out, safe return parser/tests, beginner/decision/content E2E
+- Next action: push, wait for CI and Preview, inspect committed screenshots and rendered Preview, fix any failure, then merge only when blocking acceptance is clear.

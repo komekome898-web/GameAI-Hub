@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArticleFrame } from "@/components/ArticleFrame";
 import { getArticle, articleMetadata } from "@/data/articles";
+import { safeProjectReturn } from "@/lib/safe-project-return";
 const article = getArticle("github-beginner-game-development")!;
 export const metadata = articleMetadata(article);
 const Success = ({ children }: { children: React.ReactNode }) => (
@@ -9,9 +10,47 @@ const Success = ({ children }: { children: React.ReactNode }) => (
     {children}
   </p>
 );
-export default function Page() {
+function ReturnToProject({ returnTo }: { returnTo: string | null }) {
   return (
-    <ArticleFrame article={article}>
+    <section
+      className="article-return-to-project"
+      aria-labelledby="return-to-project-title"
+    >
+      <p className="eyebrow">RETURN TO YOUR TASK</p>
+      <h2 id="return-to-project-title">元のGameAI Hubタブへ戻る</h2>
+      <p>
+        <strong>このタブを閉じて、元のGameAI Hubタブへ戻ってください。</strong>{" "}
+        それがゲーム案・task・進捗を保つ最優先の戻り方です。ブラウザから別タブを確実に選択する操作は、このページから自動化できません。
+      </p>
+      {returnTo ? (
+        <>
+          <p>元のタブを閉じた場合だけ、次の補助リンクを使えます。</p>
+          <Link className="button ghost" href={returnTo}>
+            元のProjectを開く
+          </Link>
+        </>
+      ) : (
+        <>
+          <p>
+            この記事を単独で開き、元のProjectタブがない場合だけ新しいProjectを開いてください。
+          </p>
+          <Link className="button ghost" href="/project">
+            Project Generatorを開く
+          </Link>
+        </>
+      )}
+    </section>
+  );
+}
+
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: Promise<{ returnTo?: string | string[] }>;
+}) {
+  const returnTo = safeProjectReturn((await searchParams).returnTo);
+  return (
+    <ArticleFrame article={article} showProjectCta={false}>
       <div className="article-content">
         <header className="page-head">
           <p className="eyebrow">GITHUB FOR FIRST GAME</p>
@@ -50,12 +89,10 @@ export default function Page() {
           <p>
             全部を最初に設定する必要はありません。保存するときにrepository、公開するときにPagesへ進みます。
           </p>
-          <Link className="button" href="/project">
-            開いていたProjectタブへ戻る
-          </Link>
-          <small>
-            この記事をProjectから別タブで開いた場合は、このタブを閉じて元のタブへ切り替えるとtaskが残ります。
-          </small>
+          <p>
+            <strong>Projectから別タブで開いた場合：</strong>
+            このタブを閉じ、元のGameAI Hubタブへ切り替えると同じtaskが残ります。
+          </p>
         </section>
         <section>
           <h2>1. GitHubとは</h2>
@@ -248,10 +285,8 @@ export default function Page() {
           <Success>
             同じtask、ゲーム案、完了条件が残った画面へ戻れている。
           </Success>
-          <Link className="button" href="/project">
-            Projectを開く
-          </Link>
         </section>
+        <ReturnToProject returnTo={returnTo} />
       </div>
     </ArticleFrame>
   );
