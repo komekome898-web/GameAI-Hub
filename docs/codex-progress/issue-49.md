@@ -1,16 +1,15 @@
-# Issue 49 — Beginner flow implementation
+# Issue 49 — Production final-acceptance follow-up
 
-- Task: Issue #49 beginner journey improvements; PR #50 follow-up
-- Working branch: `feat/issue-49-beginner-flow`
-- Latest implementation commit: `823bcd0` (evidence commit pending)
-- Completed: PR/current-head audit; five stale Copilot-link E2E failures classified; preflight E2E updated; safe return target and fallback UI; runtime/combined-copy regressions; quality/build; full CI E2E 28/28; Vercel Preview
-- CI classification: optional voice, A, B, C, and 375px Godot were stale expectations for links inside `<details>`, not product failures. Tests now open the preflight and verify both choices.
-- Return safety: only `/project`, its query, and its fragment are accepted; external/protocol-relative/javascript/data/backslash/malformed values use the explicit new-Project fallback.
-- Review loop: first E2E follow-up exposed Next trailing-slash normalization (test corrected); second exposed an invalid CSS `zoom` simulation (replaced with CDP page scale used elsewhere); final run 33866780325 passed 28/28.
-- Rendered evidence reviewed: GitHub guide desktop and 375; 320/200% page-scale view; Project Copilot/trouble panel; runtime rejection; combined copy. No visible P0/P1/high-impact P2 remained in these captures.
-- Quality gates: `npm run quality` PASS (25 files / 221 tests); `npm run build` PASS; GitHub full E2E PASS (28/28); registry/sitemap/structured data PASS; Vercel Preview PASS.
-- Regression audit: sandbox/CSP/500KB unchanged; error and combined-copy raw content not sent to analytics; progress/game idea remain in original Project tab; affiliate/SEO checks passed.
-- GitHub/PR: PR #50; final evidence push pending.
-- Deployment: merge and production smoke pending.
-- Known limitations: iPhone/Android physical devices and authenticated GitHub account flows were not tested; external Copilot generation was not performed.
-- Next action: push evidence, confirm final CI/Preview, merge PR #50, verify origin/main and production smoke.
+- Task: Fix the production acceptance findings reported after PR #50 (P1 return guidance and high-impact P2 repository setup guidance).
+- Working branch: `fix/issue-49-final-acceptance`
+- Latest pushed checkpoint: pending bootstrap checkpoint
+- Completed phases: restored `origin`; rebuilt local `main` from `origin/main`; read Issue #49 final FAIL, PR #50, repository protocols, prior ledger, article scope rules, GitHub article, Project/Copilot preflight, and existing E2E.
+- In progress: independent product/UX, engineering/state, and trust/content discovery; official GitHub documentation verification.
+- Remaining: implementation; targeted/full tests; rendered desktop/375/360/320/200% QA; independent adversarial reviews; evidence; PR/CI/Preview; authorized merge; production deploy and smoke.
+- Findings: P1 — a `/project#quest-*` URL cannot restore in-memory/local Project context and is mislabeled as restoring the original Project. High-impact P2 — repository creation choices lack beginner decisions.
+- Quality gates: not run on this follow-up branch yet.
+- GitHub/PR: follow-up PR not created yet.
+- Deployment: not started.
+- Blockers/assumptions: physical iPhone/Android devices are unavailable unless discovered later; viewport emulation will be labeled accurately.
+- Current edit areas: `docs/codex-progress/issue-49.md` only.
+- Exact next action: finish independent discovery and official-doc verification, then implement the article/E2E changes without introducing Project-state serialization.
