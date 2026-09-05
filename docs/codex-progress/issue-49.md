@@ -42,3 +42,16 @@
 - Rendered evidence: `docs/screenshots/beginner-acceptance-runtime-long-*.png`, including alert-focused page-scale evidence.
 - Current phase: implementation checkpoint and independent adversarial visual/engineering review.
 - Exact next action: push checkpoint, run screenshot critics, fix blocking findings, then run full quality/build/E2E.
+
+### Final local acceptance before PR
+
+- Review loop 1: independent mobile/UX, product/game-dev/trust, and engineering critics found no P0/P1; they identified a P2 evidence gap at CDP scale 2 and missing durable geometry values.
+- Fixes: scale-2 controls now use native focus + Enter activation rather than DOM `.click()`; per-case geometry JSON is retained; focused alert/copy/trouble evidence was added. A separate second-pass reviewer reports P0=0, P1=0, high-impact P2=0, blocking P2=0.
+- Geometry: desktop 1348/1348; 375/375; 360/360; 320/320; 320 at CDP page-scale 2 = 320/320 (`clientWidth/scrollWidth`). All requested ancestors remain inside the document and each recorded internal `scrollWidth` equals `clientWidth`.
+- Copy/trouble/recovery: exact original capped message copied; same message appears in trouble prompt; textarea remains usable; working version returns, alert clears, and stale error leaves trouble prompt.
+- Security/regression: iframe sandbox/CSP/opaque origin, source/channel checks, 500KB code cap, 600-character error cap, analytics payloads, affiliate behavior, SEO, combined copy, mobile menu, save/file input, Copilot preflight, Project state, tasks, and articles were not changed. Full existing E2E passed.
+- Quality gates: `npm run quality` PASS on rerun (25 files / 221 tests; one known transient workspace unit race occurred on the immediately prior run); `npm run build` PASS; `CI=1 npm run test:e2e` PASS (37/37, 5.4m); final targeted scale-2 test PASS (1/1).
+- Rendered QA: desktop, 375, 360, 320, and CDP page-scale 2 evidence retained under `docs/screenshots/`. No pathological 1–3-character ordinary-copy wrapping was observed; the unbroken diagnostic wraps by design.
+- Remaining limitation: physical iPhone/Android touch, OS file pickers/keyboards, and genuine browser/OS text zoom remain untested; CDP scale is not claimed as physical-device evidence.
+- Current phase: commit/push, PR, CI and Vercel Preview.
+- Exact next action: create the PR, wait for required checks and Preview, merge when green, then verify Production deployment and perform the long-error Production smoke.

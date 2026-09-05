@@ -1,4 +1,4 @@
-import { mkdir } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import {
   expect,
@@ -128,7 +128,7 @@ async function retainElementScreenshot(
   const directory = path.resolve("docs/screenshots");
   await mkdir(directory, { recursive: true });
   const screenshot = path.join(directory, `beginner-acceptance-${name}.png`);
-  await locator.screenshot({ path: screenshot });
+  await locator.screenshot({ path: screenshot, scale: "css" });
   await testInfo.attach(name, { path: screenshot, contentType: "image/png" });
 }
 
@@ -177,6 +177,22 @@ async function expectRuntimeGeometryWithinDocument(page: Page) {
       geometry.document.clientWidth + 1,
     );
   }
+  return geometry;
+}
+
+async function retainRuntimeGeometry(
+  geometry: Awaited<ReturnType<typeof expectRuntimeGeometryWithinDocument>>,
+  testInfo: TestInfo,
+  name: string,
+) {
+  const directory = path.resolve("docs/screenshots");
+  await mkdir(directory, { recursive: true });
+  const evidence = path.join(directory, `runtime-long-geometry-${name}.json`);
+  await writeFile(evidence, `${JSON.stringify(geometry, null, 2)}\n`, "utf8");
+  await testInfo.attach(`geometry-${name}`, {
+    path: evidence,
+    contentType: "application/json",
+  });
 }
 
 test.describe("Beginner acceptance: current production journey contracts", () => {
@@ -691,7 +707,8 @@ test.describe("Issue 49: long runtime errors stay inside the Project document", 
           // CDP page-scale changes visual coordinates without reflowing layout.
           // Activate the real iframe control in DOM space to avoid a Chromium
           // coordinate-mapping limitation while preserving the click handler path.
-          await errorButton.evaluate((button: HTMLButtonElement) => button.click());
+          await errorButton.focus();
+          await page.keyboard.press("Enter");
         } else {
           await errorButton.click();
         }
@@ -719,7 +736,8 @@ test.describe("Issue 49: long runtime errors stay inside the Project document", 
             return element.getBoundingClientRect().height / lineHeight;
           }),
         ).toBeGreaterThan(2);
-        await expectRuntimeGeometryWithinDocument(page);
+        const geometry = await expectRuntimeGeometryWithinDocument(page);
+        await retainRuntimeGeometry(geometry, testInfo, runtimeCase.name);
         if (runtimeCase.pageScale === 2) {
           await retainElementScreenshot(
             alert,
@@ -732,7 +750,13 @@ test.describe("Issue 49: long runtime errors stay inside the Project document", 
           name: "エラー概要をコピー",
         });
         if (runtimeCase.pageScale === 2) {
-          await copyError.evaluate((button: HTMLButtonElement) => button.click());
+          await retainElementScreenshot(
+            copyError,
+            testInfo,
+            `runtime-long-${runtimeCase.name}-copy-control`,
+          );
+          await copyError.focus();
+          await page.keyboard.press("Enter");
         } else {
           await copyError.click();
         }
@@ -745,7 +769,8 @@ test.describe("Issue 49: long runtime errors stay inside the Project document", 
           exact: true,
         });
         if (runtimeCase.pageScale === 2) {
-          await openTrouble.evaluate((button: HTMLButtonElement) => button.click());
+          await openTrouble.focus();
+          await page.keyboard.press("Enter");
         } else {
           await openTrouble.click();
         }
@@ -760,13 +785,26 @@ test.describe("Issue 49: long runtime errors stay inside the Project document", 
           `runtime-long-${runtimeCase.name}`,
           runtimeCase.pageScale === 1,
         );
+        if (runtimeCase.pageScale === 2) {
+          await retainElementScreenshot(
+            trouble.locator("textarea"),
+            testInfo,
+            `runtime-long-${runtimeCase.name}-trouble-input`,
+          );
+          await retainElementScreenshot(
+            trouble.locator("pre"),
+            testInfo,
+            `runtime-long-${runtimeCase.name}-trouble-prompt`,
+          );
+        }
 
         const recover = page.getByRole("button", {
           name: "動いた版へ戻す",
           exact: true,
         });
         if (runtimeCase.pageScale === 2) {
-          await recover.evaluate((button: HTMLButtonElement) => button.click());
+          await recover.focus();
+          await page.keyboard.press("Enter");
         } else {
           await recover.click();
         }

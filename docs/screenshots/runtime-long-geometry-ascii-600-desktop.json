@@ -1,0 +1,64 @@
+{
+  "document": {
+    "clientWidth": 1348,
+    "scrollWidth": 1348
+  },
+  "elements": [
+    {
+      "selector": "main",
+      "missing": false,
+      "left": 54,
+      "right": 1294,
+      "clientWidth": 1240,
+      "scrollWidth": 1240
+    },
+    {
+      "selector": ".project-result",
+      "missing": false,
+      "left": 174,
+      "right": 1174,
+      "clientWidth": 1000,
+      "scrollWidth": 1000
+    },
+    {
+      "selector": ".build-checklist",
+      "missing": false,
+      "left": 174,
+      "right": 1174,
+      "clientWidth": 1000,
+      "scrollWidth": 1000
+    },
+    {
+      "selector": ".beginner-action",
+      "missing": false,
+      "left": 174,
+      "right": 1174,
+      "clientWidth": 996,
+      "scrollWidth": 996
+    },
+    {
+      "selector": ".beginner-workspace",
+      "missing": false,
+      "left": 214,
+      "right": 1134,
+      "clientWidth": 918,
+      "scrollWidth": 918
+    },
+    {
+      "selector": ".beginner-game-preview",
+      "missing": false,
+      "left": 233,
+      "right": 1115,
+      "clientWidth": 882,
+      "scrollWidth": 882
+    },
+    {
+      "selector": ".beginner-runtime-error",
+      "missing": false,
+      "left": 233,
+      "right": 1115,
+      "clientWidth": 880,
+      "scrollWidth": 880
+    }
+  ]
+}
