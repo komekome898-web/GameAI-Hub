@@ -1,0 +1,59 @@
+{
+  "url": "https://game-ai-hub.vercel.app/project?v=1&p=%7B%22genre%22%3A%22other%22%2C%22dimension%22%3A%222d%22%2C%22platform%22%3A%22web%22%2C%22engine%22%3A%22undecided%22%2C%22budget%22%3A%22free%22%2C%22experience%22%3A%22beginner%22%2C%22team%22%3A%22solo%22%2C%22commercialIntent%22%3A%22undecided%22%2C%22capabilities%22%3A%5B%5D%2C%22locale%22%3A%22ja%22%7D&draft=0f8e758f9ff7f20f9aebe30b8f02ac34",
+  "messageLength": 600,
+  "messageExact": true,
+  "copyExact": true,
+  "troubleContains": true,
+  "troubleInputVisible": true,
+  "recovered": true,
+  "geometry": {
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "elements": {
+      "main": {
+        "left": 0,
+        "right": 375,
+        "clientWidth": 375,
+        "scrollWidth": 375
+      },
+      ".project-result": {
+        "left": 17,
+        "right": 358,
+        "clientWidth": 341,
+        "scrollWidth": 341
+      },
+      ".build-checklist": {
+        "left": 17,
+        "right": 358,
+        "clientWidth": 341,
+        "scrollWidth": 341
+      },
+      ".beginner-action": {
+        "left": 17,
+        "right": 358,
+        "clientWidth": 337,
+        "scrollWidth": 337
+      },
+      ".beginner-workspace": {
+        "left": 31,
+        "right": 344,
+        "clientWidth": 311,
+        "scrollWidth": 311
+      },
+      ".beginner-game-preview": {
+        "left": 42,
+        "right": 333,
+        "clientWidth": 291,
+        "scrollWidth": 291
+      },
+      ".beginner-runtime-error": {
+        "left": 42,
+        "right": 333,
+        "clientWidth": 289,
+        "scrollWidth": 289
+      }
+    }
+  }
+}

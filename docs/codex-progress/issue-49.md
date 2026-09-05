@@ -55,3 +55,16 @@
 - Remaining limitation: physical iPhone/Android touch, OS file pickers/keyboards, and genuine browser/OS text zoom remain untested; CDP scale is not claimed as physical-device evidence.
 - Current phase: commit/push, PR, CI and Vercel Preview.
 - Exact next action: create the PR, wait for required checks and Preview, merge when green, then verify Production deployment and perform the long-error Production smoke.
+
+### Completion — Mobile runtime-error overflow follow-up
+
+- Fix PR: [#53](https://github.com/komekome898-web/GameAI-Hub/pull/53), merged as `e6ee3e2e8a3edaefadf862ca0d97c16ce77399ae`.
+- CI/Preview: both `checks` jobs PASS; `e2e` PASS (37/37); Vercel Preview deployment `5UA5khijgJGQkUXtRgs97EzhxyKi` Ready.
+- Production: Vercel deployment `FGJrNLbN8NinwmmLCMccd2TNK65e` completed successfully for the merge commit.
+- Production smoke: real Production at 375px captured a Promise rejection with an exactly 600-character unbroken message. Message exact PASS; document `clientWidth/scrollWidth=375/375`; all requested ancestor right edges stayed within 375px and internal widths were contained; exact error-summary copy PASS; trouble message/input PASS; working-version recovery and alert clearance PASS.
+- Production evidence: `docs/screenshots/production-runtime-long-375.png` and `docs/screenshots/production-runtime-long-375.json`.
+- Final severity: P0=0; P1=0; high-impact P2=0; blocking P2=0. A maximum-length token creates a deliberately tall wrapped diagnostic (non-blocking P3); content is not discarded.
+- Functional regression audit: full 37-test E2E covers prior GitHub article, browser article, Project journeys, combined copy, mobile menu, save/file input, Copilot preflight, task completion, Project state, analytics/affiliate link behavior, and 320/page-scale flows.
+- Quality gates: `npm run quality` PASS on rerun (25 files / 221 tests); `npm run build` PASS; local full E2E and GitHub E2E PASS (37/37).
+- Remaining limitation: physical iPhone/Android, touch/soft keyboard, actual OS file pickers, and genuine browser/OS text zoom remain untested. Production smoke used Playwright Chromium viewport emulation; its environment required ignoring an untrusted local certificate chain to reach the public HTTPS site.
+- Status: complete. No implementation work remains.
