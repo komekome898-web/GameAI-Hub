@@ -16,3 +16,19 @@
 - Known limitations: physical iPhone/Android and authenticated GitHub/Copilot flows are not tested; viewport/CDP emulation is not real-device evidence.
 - Current edit areas: GitHub/browser articles, Project preflight/runtime/copy wording, article sources, E2E, rendered evidence, this ledger.
 - Exact next action: no implementation work remains; physical-device and authenticated third-party flows may be tested separately when those environments are available.
+
+## 2026-09-05 — Mobile runtime-error overflow follow-up
+
+- Task: Resolve the new P1 in work-acceptance comment `#5548740336`: unbroken runtime-error messages expand the Project document width.
+- Working branch: `fix/issue-49-runtime-error-mobile-overflow`.
+- Latest pushed checkpoint: pending bootstrap commit.
+- Completed phases: repository/bootstrap recovery; Issue, acceptance comment, PR #51, PR #52, protocol, and prior ledger review.
+- Current phase: independent product/UX/game-dev, engineering, and trust/security discovery.
+- Remaining phases: implement containment/wrapping; add four-case E2E plus ancestor geometry/copy/trouble/recovery coverage; rendered desktop/375/360/320/200% QA; independent screenshot/adversarial reviews; quality/build/full E2E; PR/CI/Preview; authorized merge; Production deployment and long-error smoke.
+- Findings: P0=0; P1=1 (long runtime-error document overflow); high-impact P2=0. Two pre-existing normal P2 touch-target findings are outside this bounded P1 request unless the fix touches those surfaces.
+- Quality gates: pending.
+- GitHub/PR: remote write-path proof pending; no open follow-up PR found.
+- Deployment: pending.
+- Blockers/assumptions: physical iPhone/Android testing is unavailable unless an attached device becomes available; it must remain reported untested.
+- Current edit areas: `app/globals.css`, runtime-error Project E2E, rendered evidence, this ledger.
+- Exact next action: push this bootstrap checkpoint, synthesize discovery, then reproduce and fix the min-content chain.
