@@ -107,12 +107,76 @@ async function completeCurrentTask(page: Page, expectedCount: number) {
   await expect(page.locator(".artifact-progress")).toContainText("できた");
 }
 
-async function retainScreenshot(page: Page, testInfo: TestInfo, name: string) {
+async function retainScreenshot(
+  page: Page,
+  testInfo: TestInfo,
+  name: string,
+  fullPage = true,
+) {
   const directory = path.resolve("docs/screenshots");
   await mkdir(directory, { recursive: true });
   const screenshot = path.join(directory, `beginner-acceptance-${name}.png`);
-  await page.screenshot({ path: screenshot, fullPage: true });
+  await page.screenshot({ path: screenshot, fullPage });
   await testInfo.attach(name, { path: screenshot, contentType: "image/png" });
+}
+
+async function retainElementScreenshot(
+  locator: Locator,
+  testInfo: TestInfo,
+  name: string,
+) {
+  const directory = path.resolve("docs/screenshots");
+  await mkdir(directory, { recursive: true });
+  const screenshot = path.join(directory, `beginner-acceptance-${name}.png`);
+  await locator.screenshot({ path: screenshot });
+  await testInfo.attach(name, { path: screenshot, contentType: "image/png" });
+}
+
+const runtimeGeometrySelectors = [
+  "main",
+  ".project-result",
+  ".build-checklist",
+  ".beginner-action",
+  ".beginner-workspace",
+  ".beginner-game-preview",
+  ".beginner-runtime-error",
+] as const;
+
+async function expectRuntimeGeometryWithinDocument(page: Page) {
+  const geometry = await page.evaluate((selectors) => {
+    const documentElement = document.documentElement;
+    return {
+      document: {
+        clientWidth: documentElement.clientWidth,
+        scrollWidth: documentElement.scrollWidth,
+      },
+      elements: selectors.map((selector) => {
+        const element = document.querySelector<HTMLElement>(selector);
+        if (!element) return { selector, missing: true };
+        const rect = element.getBoundingClientRect();
+        return {
+          selector,
+          missing: false,
+          left: rect.left,
+          right: rect.right,
+          clientWidth: element.clientWidth,
+          scrollWidth: element.scrollWidth,
+        };
+      }),
+    };
+  }, runtimeGeometrySelectors);
+
+  expect(geometry.document.scrollWidth, JSON.stringify(geometry, null, 2)).toBeLessThanOrEqual(
+    geometry.document.clientWidth + 1,
+  );
+  for (const element of geometry.elements) {
+    expect(element.missing, JSON.stringify(geometry, null, 2)).toBe(false);
+    if (element.missing) continue;
+    expect(element.left, JSON.stringify(geometry, null, 2)).toBeGreaterThanOrEqual(-1);
+    expect(element.right, JSON.stringify(geometry, null, 2)).toBeLessThanOrEqual(
+      geometry.document.clientWidth + 1,
+    );
+  }
 }
 
 test.describe("Beginner acceptance: current production journey contracts", () => {
@@ -544,4 +608,190 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
     );
     await retainScreenshot(page, testInfo, "runtime-error-375");
   });
+});
+
+const longRuntimeCases = [
+  {
+    name: "ascii-600-desktop",
+    width: 1348,
+    message: "D".repeat(600),
+    pageScale: 1,
+  },
+  {
+    name: "ascii-600-375",
+    width: 375,
+    message: "A".repeat(600),
+    pageScale: 1,
+  },
+  {
+    name: "url-360",
+    width: 360,
+    message: `https://errors.gameai.example/runtime/${"pathsegment".repeat(50)}`.slice(
+      0,
+      590,
+    ),
+    pageScale: 1,
+  },
+  {
+    name: "alphanumeric-320",
+    width: 320,
+    message: "A1b2C3d4E5f6".repeat(49).slice(0, 580),
+    pageScale: 1,
+  },
+  {
+    name: "mixed-320-pinch-200-percent",
+    width: 320,
+    message: `日本語エラー${"Token9Z".repeat(82)}`.slice(0, 600),
+    pageScale: 2,
+  },
+] as const;
+
+test.describe("Issue 49: long runtime errors stay inside the Project document", () => {
+  test.describe.configure({ timeout: 75_000 });
+  for (const runtimeCase of longRuntimeCases) {
+    test(`${runtimeCase.width}px ${runtimeCase.name}`, async ({
+      page,
+      context,
+    }, testInfo) => {
+      await context.grantPermissions(["clipboard-read", "clipboard-write"]);
+      await page.setViewportSize({ width: runtimeCase.width, height: 812 });
+      await beginFromHome(page, scenarios[1].idea);
+
+      const editor = page.getByLabel("ゲームのコード", { exact: true });
+      await editor.fill(runnerFixture);
+      await page
+        .getByRole("button", { name: "ゲームを表示", exact: true })
+        .click();
+      await page
+        .getByRole("button", { name: "この版は動いたと記録", exact: true })
+        .click();
+
+      const errorFixture = `<!doctype html><html lang="ja"><body><button id="long-error" onclick='Promise.reject(new Error(${JSON.stringify(runtimeCase.message)}))'>長いエラーを起こす</button></body></html>`;
+      await editor.fill(errorFixture);
+      await page
+        .getByRole("button", { name: "ゲームを表示", exact: true })
+        .click();
+
+      const session = await page.context().newCDPSession(page);
+      try {
+        if (runtimeCase.pageScale === 2) {
+          await session.send("Emulation.setPageScaleFactor", {
+            pageScaleFactor: 2,
+          });
+          await expect
+            .poll(() => page.evaluate(() => window.visualViewport?.scale ?? 1))
+            .toBeGreaterThanOrEqual(1.9);
+        }
+
+        const game = page.frameLocator('iframe[title="作ったゲームの動作確認"]');
+        const errorButton = game.getByRole("button", {
+          name: "長いエラーを起こす",
+        });
+        if (runtimeCase.pageScale === 2) {
+          // CDP page-scale changes visual coordinates without reflowing layout.
+          // Activate the real iframe control in DOM space to avoid a Chromium
+          // coordinate-mapping limitation while preserving the click handler path.
+          await errorButton.evaluate((button: HTMLButtonElement) => button.click());
+        } else {
+          await errorButton.click();
+        }
+
+        const alert = page.locator(".beginner-runtime-error");
+        const message = alert.locator("p").first();
+        await expect(alert).toBeVisible();
+        await expect(message).toHaveText(runtimeCase.message);
+        await expect(alert.getByRole("button", { name: "エラー概要をコピー" })).toBeVisible();
+        await expect
+          .poll(() =>
+            message.evaluate((element) => {
+              const style = getComputedStyle(element);
+              const lineHeight = Number.parseFloat(style.lineHeight);
+              return {
+                overflowWrap: style.overflowWrap,
+                lines: element.getBoundingClientRect().height / lineHeight,
+              };
+            }),
+          )
+          .toMatchObject({ overflowWrap: "anywhere" });
+        expect(
+          await message.evaluate((element) => {
+            const lineHeight = Number.parseFloat(getComputedStyle(element).lineHeight);
+            return element.getBoundingClientRect().height / lineHeight;
+          }),
+        ).toBeGreaterThan(2);
+        await expectRuntimeGeometryWithinDocument(page);
+        if (runtimeCase.pageScale === 2) {
+          await retainElementScreenshot(
+            alert,
+            testInfo,
+            `runtime-long-${runtimeCase.name}-alert`,
+          );
+        }
+
+        const copyError = alert.getByRole("button", {
+          name: "エラー概要をコピー",
+        });
+        if (runtimeCase.pageScale === 2) {
+          await copyError.evaluate((button: HTMLButtonElement) => button.click());
+        } else {
+          await copyError.click();
+        }
+        expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(
+          `ゲーム内エラー: ${runtimeCase.message}`,
+        );
+
+        const openTrouble = page.getByRole("button", {
+          name: "ここで詰まった",
+          exact: true,
+        });
+        if (runtimeCase.pageScale === 2) {
+          await openTrouble.evaluate((button: HTMLButtonElement) => button.click());
+        } else {
+          await openTrouble.click();
+        }
+        const trouble = page.locator("#beginner-stuck-panel");
+        await expect(trouble).toBeVisible();
+        await expect(trouble.locator("pre")).toContainText(runtimeCase.message);
+        await expect(trouble.locator("textarea")).toBeVisible();
+        await expectRuntimeGeometryWithinDocument(page);
+        await retainScreenshot(
+          page,
+          testInfo,
+          `runtime-long-${runtimeCase.name}`,
+          runtimeCase.pageScale === 1,
+        );
+
+        const recover = page.getByRole("button", {
+          name: "動いた版へ戻す",
+          exact: true,
+        });
+        if (runtimeCase.pageScale === 2) {
+          await recover.evaluate((button: HTMLButtonElement) => button.click());
+        } else {
+          await recover.click();
+        }
+        await expect(page.locator(".beginner-runtime-error")).toHaveCount(0);
+        await expect(
+          page
+            .frameLocator('iframe[title="作ったゲームの動作確認"]')
+            .getByRole("heading", { name: "動作確認用ゲーム" }),
+        ).toBeVisible();
+        await expect(trouble.locator("pre")).not.toContainText(runtimeCase.message);
+        await expect
+          .poll(() =>
+            page.evaluate(
+              () =>
+                document.documentElement.scrollWidth <=
+                document.documentElement.clientWidth + 1,
+            ),
+          )
+          .toBe(true);
+      } finally {
+        await session.send("Emulation.setPageScaleFactor", {
+          pageScaleFactor: 1,
+        });
+        await session.detach();
+      }
+    });
+  }
 });

@@ -32,3 +32,13 @@
 - Blockers/assumptions: physical iPhone/Android testing is unavailable unless an attached device becomes available; it must remain reported untested.
 - Current edit areas: `app/globals.css`, runtime-error Project E2E, rendered evidence, this ledger.
 - Exact next action: push this bootstrap checkpoint, synthesize discovery, then reproduce and fix the min-content chain.
+
+### Implementation checkpoint
+
+- Root cause: the accepted 600-character message was rendered in `.beginner-runtime-error p` with normal word wrapping, so its unbroken min-content line overflowed otherwise partially bounded Project ancestors.
+- Implemented: information-preserving `overflow-wrap:anywhere` / `word-break:break-word` on runtime-alert children, plus `min-width:0` / `max-width:100%` containment across Project result, checklist, action, details panel, workspace, preview, alert, and preview children. Runtime state/copy/trouble text was not transformed.
+- Regression coverage: five real-iframe rejection cases (desktop 1348, 375 ASCII exactly 600 chars, 360 long URL, 320 alphanumeric token, 320 mixed Japanese/token at CDP page-scale 2); document and ancestor geometry, readable multiline message, copy exactness, trouble propagation, and working-version recovery are asserted.
+- Targeted E2E: 375/360/320 cases passed; desktop passed; 320/page-scale-2 passed after using DOM-space activation for Chromium's CDP scale coordinate-mapping limitation. Full suite pending.
+- Rendered evidence: `docs/screenshots/beginner-acceptance-runtime-long-*.png`, including alert-focused page-scale evidence.
+- Current phase: implementation checkpoint and independent adversarial visual/engineering review.
+- Exact next action: push checkpoint, run screenshot critics, fix blocking findings, then run full quality/build/E2E.
