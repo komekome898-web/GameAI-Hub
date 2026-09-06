@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
 import { ArticleFrame } from '@/components/ArticleFrame';
 import { ArticleProjectCta } from '@/components/ArticleProjectCta';
+import { ArticleAnalytics } from '@/components/ArticleAnalytics';
 import { articleMetadata, articlePath, articles, validateArticles } from '@/data/articles';
 import { absoluteSiteUrl } from '@/lib/site';
 
@@ -33,12 +34,20 @@ describe('article content engine',()=>{
   expect(html).toContain(absoluteSiteUrl(articlePath(article)));
   expect(html).toContain(`dateTime="${article.updatedAt}"`);
  });
+ it('measures an article mount once across rerenders',()=>{
+  const listener=vi.fn(); window.addEventListener('gameai:event',listener);
+  const view=render(<ArticleAnalytics slug="ai-fantasy"/>);
+  view.rerender(<ArticleAnalytics slug="ai-fantasy"/>);
+  expect(listener).toHaveBeenCalledOnce();
+  expect((listener.mock.calls[0][0] as CustomEvent).detail).toEqual({name:'article_view',properties:{article_slug:'ai-fantasy',route_category:'article'}});
+  window.removeEventListener('gameai:event',listener);
+ });
  it('measures one contextual Project handoff without raw text',()=>{
   const listener=vi.fn(); window.addEventListener('gameai:event',listener);
   render(<ArticleProjectCta slug="ai-fantasy" label="制作手順を作る" description="次の作業" placement="article_end"/>);
   expect(screen.getByRole('link',{name:'制作手順を作る'}).getAttribute('href')).toBe('/project?source=ai-fantasy');
   fireEvent.click(screen.getByRole('link',{name:'制作手順を作る'}));
   expect(listener).toHaveBeenCalledOnce();
-  expect((listener.mock.calls[0][0] as CustomEvent).detail).toEqual({name:'article_to_project',properties:{page:'/articles/ai-fantasy',placement:'article_end'}});
+  expect((listener.mock.calls[0][0] as CustomEvent).detail).toEqual({name:'article_to_project',properties:{page:'/articles/ai-fantasy',placement:'article_end',article_slug:'ai-fantasy',cta_placement:'article_end',source_context:'article',route_category:'article'}});
  });
 });

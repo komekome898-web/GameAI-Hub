@@ -40,7 +40,7 @@ describe("Project Generator client", () => {
     const detail = (listener.mock.calls[0][0] as CustomEvent).detail;
     expect(detail).toEqual({
       name: "project_start",
-      properties: { page: "/" },
+      properties: { page: "/", source_context: "home", route_category: "home" },
     });
     expect(JSON.stringify(detail)).not.toContain("秘密の企画名");
     window.removeEventListener("gameai:event", listener);

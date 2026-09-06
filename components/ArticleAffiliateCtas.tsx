@@ -22,7 +22,8 @@ function ArticleServiceAnchor({service,page,placement,disclosureId}:{service:Art
     rel={service.affiliate?'sponsored nofollow noopener':'noopener'}
     aria-describedby={service.affiliate?disclosureId:undefined}
     onClick={()=>{
-      const properties={service:service.slug,page,placement,sub_id:buildSubId(service.slug,page,placement)};
+      const production_stage=service.slug==='elevenlabs'?'audio':service.slug==='meshy'?'assets':'other';
+      const properties={service:service.slug,service_id:service.slug,page,placement,sub_id:buildSubId(service.slug,page,placement),production_stage,source_context:'article',route_category:'article',affiliate:service.affiliate};
       track('outbound_click',properties);
       if(service.affiliate)track('affiliate_click',properties);
     }}

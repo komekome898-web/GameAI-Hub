@@ -2,12 +2,12 @@
 
 - Task: Issue #58, Measurement baseline phase only
 - Working branch: `feat/issue-58-measurement-baseline`
-- Latest pushed checkpoint: bootstrap commit
-- Completed phases: bootstrap; origin/main verification; Issue/instruction review
-- Current phase: current analytics event audit
-- Remaining phases: implementation; tests; independent review; quality/build/E2E; PR/CI/Preview; merge; Production smoke; Issue comment
-- Unresolved P0/P1/high-impact P2: audit pending
-- Quality/build/E2E: pending
+- Latest pushed checkpoint: implementation commit pending
+- Completed phases: bootstrap; origin/main verification; Issue/instruction review; current event audit; implementation; targeted unit/integration tests; targeted funnel E2E
+- Current phase: required gates and independent review
+- Remaining phases: independent review; quality/build/full E2E; PR/CI/Preview; merge; Production smoke; Issue comment
+- Unresolved P0/P1/high-impact P2: none identified; independent review pending
+- Quality/build/full E2E: pending; targeted funnel E2E passed
 - GitHub/PR/deployment: branch only; PR pending
 - Blockers: none
-- Next action: inventory event definitions, firing locations, payloads, duplicate/privacy risks, and tests
+- Next action: run required gates and obtain independent review
