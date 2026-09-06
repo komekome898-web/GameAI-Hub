@@ -107,6 +107,40 @@ test.describe('Project Interpreter provider states',()=>{
   });
 });
 
+test.describe('Issue 55 production intent regressions', () => {
+  test('cat tap-to-score stays consistent through first task, prompt, recovery, and next task', async ({ page }, testInfo) => {
+    await page.setViewportSize(mobile);
+    await page.goto('/project');
+    await generateProject(page, '猫をタップすると得点が増えるゲーム');
+    const action = page.locator('.beginner-action');
+    await expect(action).toContainText(/猫.*タップ.*得点/s);
+    await expect(action).not.toContainText(/移動してゴール|プレイヤーとゴール|上下左右/);
+    await action.getByText('ここで詰まった', { exact: true }).click();
+    await expect(action.locator('pre').last()).toContainText(/猫.*タップ.*得点/s);
+    await action.getByRole('button', { name: '完了条件を確認して「できた」へ', exact: true }).click();
+    const current = page.locator('.action-step.is-current');
+    for (const criterion of await current.locator('.done-criteria input').all()) await criterion.check();
+    await current.locator('.completion-control input').check();
+    await expect(action).toContainText(/得点|タップ/);
+    await page.reload();
+    await expect(page.locator('.build-progress span')).toContainText(/1 \/ \d+ 完了/);
+    await expect(page.locator('.beginner-action')).not.toContainText(/移動してゴール|プレイヤーとゴール|上下左右/);
+    await page.screenshot({ path: testInfo.outputPath('issue-55-cat-375.png'), fullPage: true });
+  });
+
+  test('bilingual novel preserves language switching without adding romance', async ({ page }, testInfo) => {
+    await page.setViewportSize({ width: 320, height: 700 });
+    await page.goto('/project');
+    await generateProject(page, '日本語と英語を切り替えられる短いノベルゲーム');
+    const action = page.locator('.beginner-action');
+    await expect(action).toContainText(/台詞/);
+    await expect(action).toContainText(/日本語.*英語.*切り替/s);
+    await expect(page.locator('.project-result')).not.toContainText(/恋愛|romance/i);
+    await expectNoHorizontalOverflow(page);
+    await page.screenshot({ path: testInfo.outputPath('issue-55-novel-320.png'), fullPage: true });
+  });
+});
+
 test('375px: 明示したGodotを保持しno voice/no 3Dの最初の工程を完了できる', async ({ page }, testInfo) => {
   await page.setViewportSize(mobile);
   await page.goto('/');
