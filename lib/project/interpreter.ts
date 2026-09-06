@@ -59,6 +59,14 @@ function extractDetailCandidates(source:string,text:string):DetailCandidate[] {
   // that the user must confirm before it reaches a task contract.
   const explicitBattle=/(?:モンスター|敵|相手).{0,16}(?:1\s*対\s*1|一対一|たたかう|戦う|バトル|攻撃)|(?:たたかう|戦う|バトル|攻撃).{0,16}(?:勝敗|勝ち|負け|HP)/.test(text);
   if(explicitBattle&&!['戦闘','戦う','たたかう','バトル','攻撃'].some(term=>explicitlyNegated(text,term)))add('core-mechanic','戦闘',source.match(/[^。.!?\n]*(?:1\s*対\s*1|一対一|たたかう|戦う|バトル|攻撃)[^。.!?\n]*/)?.[0]??'戦闘');
+  // Interaction contracts are extracted as composable facts rather than
+  // assigning a genre. This lets deterministic and provider paths preserve a
+  // user's mechanic without inventing a template-specific game.
+  const tapScore=source.match(/([^、。.!?\n]{1,30})を(?:タップ|クリック)すると(?:得点|スコア)(?:が)?(?:1|１)?(?:点)?(?:増え|増加|加算|上が)/);
+  if(tapScore){add('entity',tapScore[1],tapScore[0]);add('core-mechanic','タップ／クリックで得点を増やす',tapScore[0]);add('core-loop',`${cleanDetail(tapScore[1])}をタップ／クリック → 得点を1増やす`,tapScore[0]);}
+  const movementGoal=source.match(/[^。.!?\n]*(?:移動|動か)[^。.!?\n]*(?:ゴール|目的地)[^。.!?\n]*/);
+  if(movementGoal)add('core-loop','プレイヤーを移動 → ゴールへ到達 → クリア',movementGoal[0]);
+  if(/(?:日本語と英語|日英|日本語・英語).{0,20}(?:切り替|切替)|(?:切り替|切替).{0,20}(?:日本語と英語|日英|日本語・英語)/.test(text))add('core-mechanic','日本語／英語の切り替え',source.match(/[^。.!?\n]*(?:切り替|切替)[^。.!?\n]*/)?.[0]??'言語切り替え');
   const mechanicGroup=mechanics.join('|');
   for(const match of source.matchAll(new RegExp(`([^。.!?\\n、]{1,40})を(?:${mechanicGroup})(?:して|する|できる|し)`, 'g'))){
     const value=match[1].split(/(?:は|が)/).at(-1)??match[1];

@@ -23,7 +23,7 @@ describe('beginner prototype workflow', () => {
   });
 
   it('preserves the selected code tool and gives action, battle and novel different success criteria', () => {
-    const source = plan();
+    const source = plan({ details: [{ id: 'detail-core-loop-move', kind: 'core-loop', text: 'プレイヤーを移動 → ゴールへ到達 → クリア', provenance: 'confirmed' }] });
     const action = beginnerWorkflowSteps(source)[0];
     const battle = beginnerWorkflowSteps(plan({ genre: 'monster-collection' }))[0];
     const novel = beginnerWorkflowSteps(plan({ genre: 'visual-novel' }))[0];
@@ -34,7 +34,7 @@ describe('beginner prototype workflow', () => {
     expect(battle.prompt).toContain('収集・育成・図鑑は次の試作');
     expect(battle.doneWhen.join(' ')).toContain('勝ちか負け');
     expect(novel.prompt).toContain('話者名、日本語の短い台詞3つ');
-    expect(novel.prompt).toContain('未指定の選択肢や分岐は追加しない');
+    expect(novel.prompt).toContain('未指定のサブジャンル、選択肢や分岐は追加しない');
     expect(novel.doneWhen.join(' ')).not.toMatch(/勝敗|ゴール|攻撃/);
   });
 
