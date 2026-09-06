@@ -2,6 +2,8 @@
 
 These rules apply to files under `app/articles/` and complement the repository root `AGENTS.md`.
 
+For article layout, responsive behavior, or rendered article UX changes, also follow `docs/agent-guides/UI_ACCEPTANCE.md`.
+
 ## Promotion disclosure
 
 When an article contains affiliate or promotional links:
