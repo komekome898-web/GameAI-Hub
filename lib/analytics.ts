@@ -186,7 +186,8 @@ function safeProperty(
       value.length <= 10 &&
       value.every((item) => typeof item === "string" && token.test(item))
     );
-  if (key === "page") return typeof value === "string" && route.test(value);
+  if (key === "page")
+    return typeof value === "string" && (route.test(value) || token.test(value));
   if (key === "task_stage" || key === "production_stage")
     return typeof value === "string" && stages.has(value);
   if (key === "route_category")

@@ -35,6 +35,10 @@ describe("analytics measurement baseline", () => {
       "affiliate_click",
     ]);
   });
+  it("preserves bounded legacy page identifiers without accepting free text", () => {
+    expect(sanitizeEventProperties("outbound_click", { page: "builder-result" })).toEqual({ page: "builder-result" });
+    expect(sanitizeEventProperties("outbound_click", { page: "raw page with secret" })).toEqual({});
+  });
   it("keeps only bounded task metadata and rejects sensitive or unbounded values", () => {
     expect(
       sanitizeEventProperties("task_completed", {
