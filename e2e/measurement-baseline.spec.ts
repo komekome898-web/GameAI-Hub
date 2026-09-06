@@ -5,8 +5,11 @@ const storageKey = "gameai:e2e-analytics";
 
 async function installAnalyticsCapture(page: Page) {
   await page.addInitScript((key) => {
-    const marker=`${key}:installed`;
-    if(!sessionStorage.getItem(marker)){localStorage.removeItem(key);sessionStorage.setItem(marker,'1');}
+    const marker = `${key}:installed`;
+    if (!sessionStorage.getItem(marker)) {
+      localStorage.removeItem(key);
+      sessionStorage.setItem(marker, "1");
+    }
     window.addEventListener("gameai:event", (event) => {
       const detail = (event as CustomEvent).detail as CapturedEvent;
       const events = JSON.parse(
@@ -45,6 +48,8 @@ test("article → Project → first completion → next task is observable witho
     })
     .click();
   await expect(page.locator(".beginner-action")).toBeVisible();
+  await expect(page).toHaveURL(/source=ai-browser-game-how-to/);
+  expect(page.url()).not.toContain(encodeURIComponent(secretIdea));
 
   await page
     .getByRole("button", {
@@ -80,6 +85,21 @@ test("article → Project → first completion → next task is observable witho
     article_slug: "ai-browser-game-how-to",
     cta_placement: "article_end",
   });
+  for (const eventName of [
+    "project_start",
+    "project_generated",
+    "first_task_viewed",
+    "task_completed",
+    "next_task_reached",
+  ])
+    expect(
+      captured.find((event) => event.name === eventName)?.properties,
+      `${eventName}: ${JSON.stringify(captured)}`,
+    ).toMatchObject({
+      article_slug: "ai-browser-game-how-to",
+      source_context: "article",
+      route_category: "project",
+    });
   expect(
     captured.find((event) => event.name === "task_completed")?.properties,
   ).toMatchObject({ task_index: 0, route_category: "project" });

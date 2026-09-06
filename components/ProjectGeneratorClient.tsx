@@ -273,8 +273,11 @@ function deleteAllPrivateProjectData() {
 }
 
 function projectAnalyticsSource() {
-  if (typeof window === "undefined")
-    return { source_context: "project", route_category: "project" } as const;
+  const project = {
+    source_context: "project",
+    route_category: "project",
+  } as const;
+  if (typeof window === "undefined") return project;
   const source = new URLSearchParams(window.location.search).get("source");
   return source && /^[a-z0-9-]{1,80}$/.test(source)
     ? ({
@@ -283,7 +286,15 @@ function projectAnalyticsSource() {
         source_context: "article",
         route_category: "project",
       } as const)
-    : ({ source_context: "project", route_category: "project" } as const);
+    : project;
+}
+
+function preserveProjectAnalyticsSource(
+  params: URLSearchParams,
+  attribution: ReturnType<typeof projectAnalyticsSource>,
+) {
+  if ("article_slug" in attribution)
+    params.set("source", attribution.article_slug);
 }
 
 export function ProjectIdeaForm({
@@ -309,11 +320,13 @@ export function ProjectIdeaForm({
     } catch {
       // Navigation and the in-memory form remain usable without session storage.
     }
+    const analyticsSource =
+      location === "project"
+        ? projectAnalyticsSource()
+        : ({ source_context: "home", route_category: "home" } as const);
     track("project_start", {
       page: location === "home" ? "/" : "/project",
-      ...(location === "project"
-        ? projectAnalyticsSource()
-        : { source_context: "home", route_category: "home" }),
+      ...analyticsSource,
     });
     if (onIdea) onIdea(value);
     else router.push("/project");
@@ -603,6 +616,7 @@ export function ProjectGeneratorClient() {
           setPrivateSaveFailed(!draftId);
           const params = new URLSearchParams(encodeProjectState(nextBrief));
           if (draftId) params.set(privateDraftParam, draftId);
+          preserveProjectAnalyticsSource(params, projectAnalyticsSource());
           history.replaceState(null, "", `/project?${params.toString()}`);
         }}
       />
@@ -657,16 +671,18 @@ export function ProjectGeneratorClient() {
       return;
     }
     setError("");
+    const analyticsSource = projectAnalyticsSource();
     track("project_generated", {
       game_type: brief.dimension,
       budget: brief.budget,
-      ...projectAnalyticsSource(),
+      ...analyticsSource,
     });
     setPlan(generateProjectPlan(brief));
     const draftId = savePrivateDraft(brief);
     setPrivateSaveFailed(!draftId);
     const params = new URLSearchParams(encodeProjectState(brief));
     if (draftId) params.set(privateDraftParam, draftId);
+    preserveProjectAnalyticsSource(params, analyticsSource);
     history.replaceState(null, "", `/project?${params.toString()}`);
   };
   const decideDetail = (
@@ -744,6 +760,7 @@ export function ProjectGeneratorClient() {
       setError("ゲーム内容が空欄です。詳しい条件で入力してください。");
       return;
     }
+    const analyticsSource = projectAnalyticsSource();
     setBrief(starterBrief);
     setProviderConfirmation(new Set());
     setError("");
@@ -752,11 +769,12 @@ export function ProjectGeneratorClient() {
     setPrivateSaveFailed(!draftId);
     const params = new URLSearchParams(encodeProjectState(starterBrief));
     if (draftId) params.set(privateDraftParam, draftId);
+    preserveProjectAnalyticsSource(params, analyticsSource);
     history.replaceState(null, "", `/project?${params}`);
     track("project_generated", {
       game_type: starterBrief.dimension,
       budget: starterBrief.budget,
-      ...projectAnalyticsSource(),
+      ...analyticsSource,
     });
   };
   return (
@@ -1468,8 +1486,7 @@ function BuildChecklist({
         task: active.id,
         task_index: 0,
         task_stage: taskStage(active.id),
-        source_context: "project",
-        route_category: "project",
+        ...projectAnalyticsSource(),
       });
     }
     if (currentIndex === 1 && !reachedSecond.current) {
@@ -1478,8 +1495,7 @@ function BuildChecklist({
         task: active.id,
         task_index: 1,
         task_stage: taskStage(active.id),
-        source_context: "project",
-        route_category: "project",
+        ...projectAnalyticsSource(),
       });
     }
   }, [active, currentIndex, loaded]);
@@ -1513,8 +1529,7 @@ function BuildChecklist({
         task: id,
         task_index: index,
         task_stage: taskStage(id),
-        source_context: "project",
-        route_category: "project",
+        ...projectAnalyticsSource(),
       });
     } else if (wasDone) completedEvents.current.delete(id);
     setCompleted((old) => {

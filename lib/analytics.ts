@@ -128,6 +128,7 @@ const allowlist: Record<EventName, readonly EventProperty[]> = {
     "task",
     "task_index",
     "task_stage",
+    "article_slug",
     "source_context",
     "route_category",
   ],
@@ -135,6 +136,7 @@ const allowlist: Record<EventName, readonly EventProperty[]> = {
     "task",
     "task_index",
     "task_stage",
+    "article_slug",
     "source_context",
     "route_category",
   ],
@@ -142,6 +144,7 @@ const allowlist: Record<EventName, readonly EventProperty[]> = {
     "task",
     "task_index",
     "task_stage",
+    "article_slug",
     "source_context",
     "route_category",
   ],
@@ -187,7 +190,9 @@ function safeProperty(
       value.every((item) => typeof item === "string" && token.test(item))
     );
   if (key === "page")
-    return typeof value === "string" && (route.test(value) || token.test(value));
+    return (
+      typeof value === "string" && (route.test(value) || token.test(value))
+    );
   if (key === "task_stage" || key === "production_stage")
     return typeof value === "string" && stages.has(value);
   if (key === "route_category")

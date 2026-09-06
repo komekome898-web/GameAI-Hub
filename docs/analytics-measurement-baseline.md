@@ -39,7 +39,8 @@ The former sanitizer used per-event key allowlists, but any string value on an a
 
 - Event-specific key allowlists remain mandatory.
 - Token parameters accept only lowercase IDs (`[a-z0-9_-]`) with an 80-character ceiling; pages accept route paths only, never queries or full URLs; arrays/counts/indices are bounded; stages and route categories use finite sets.
-- Raw game ideas, free text, HTML/code, prompts, trouble text, runtime errors, URLs/query strings, files, secrets, and personal data are neither supplied by funnel call sites nor accepted as funnel metadata.
+- The bounded article `source` slug is preserved in the internal Project URL when generated or regenerated, so attribution survives task rendering, progress, reload, and browser history. Share URLs continue to be built only from the existing structured Project state and do not inherit attribution.
+- Raw game ideas, free text, HTML/code, prompts, trouble text, runtime errors, full URLs/query strings, files, secrets, and personal data are neither supplied by funnel call sites nor accepted as funnel metadata. Only the separately validated `source=[a-z0-9-]{1,80}` query value is retained.
 - The `gameai:event` browser hook remains available for deterministic tests without real GA4 network calls.
 - In Production, `track` calls `window.gtag` when available, otherwise queues the sanitized event in `window.dataLayer`; missing analytics never blocks the user action. Development/test keeps the event hook and uses a console diagnostic.
 - GA4 measurement ID remains `G-B9Q283QVER`. Affiliate URL selection, disclosure, `rel`, ordering, scoring, and recommendations are unchanged.

@@ -36,8 +36,14 @@ describe("analytics measurement baseline", () => {
     ]);
   });
   it("preserves bounded legacy page identifiers without accepting free text", () => {
-    expect(sanitizeEventProperties("outbound_click", { page: "builder-result" })).toEqual({ page: "builder-result" });
-    expect(sanitizeEventProperties("outbound_click", { page: "raw page with secret" })).toEqual({});
+    expect(
+      sanitizeEventProperties("outbound_click", { page: "builder-result" }),
+    ).toEqual({ page: "builder-result" });
+    expect(
+      sanitizeEventProperties("outbound_click", {
+        page: "raw page with secret",
+      }),
+    ).toEqual({});
   });
   it("keeps only bounded task metadata and rejects sensitive or unbounded values", () => {
     expect(
@@ -45,6 +51,7 @@ describe("analytics measurement baseline", () => {
         task: "core-loop",
         task_index: 0,
         task_stage: "prototype",
+        article_slug: "ai-browser-game-how-to",
         source_context: "project",
         route_category: "project",
         page: "秘密のゲーム案",
@@ -54,6 +61,7 @@ describe("analytics measurement baseline", () => {
       task: "core-loop",
       task_index: 0,
       task_stage: "prototype",
+      article_slug: "ai-browser-game-how-to",
       source_context: "project",
       route_category: "project",
     });
@@ -62,6 +70,7 @@ describe("analytics measurement baseline", () => {
         task: "raw free text with spaces",
         task_index: -1,
         task_stage: "秘密",
+        article_slug: "raw article slug with spaces",
       }),
     ).toEqual({});
   });
