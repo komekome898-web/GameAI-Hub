@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { track } from "@/lib/analytics";
+import { taskStage, track } from "@/lib/analytics";
 import { OutboundLink } from "@/components/OutboundLink";
 import { BeginnerGameWorkspace } from "@/components/BeginnerGameWorkspace";
 import { beginnerWorkflowSteps } from "@/lib/project/beginner-workflow";
@@ -272,6 +272,31 @@ function deleteAllPrivateProjectData() {
   }
 }
 
+function projectAnalyticsSource() {
+  const project = {
+    source_context: "project",
+    route_category: "project",
+  } as const;
+  if (typeof window === "undefined") return project;
+  const source = new URLSearchParams(window.location.search).get("source");
+  return source && /^[a-z0-9-]{1,80}$/.test(source)
+    ? ({
+        source,
+        article_slug: source,
+        source_context: "article",
+        route_category: "project",
+      } as const)
+    : project;
+}
+
+function preserveProjectAnalyticsSource(
+  params: URLSearchParams,
+  attribution: ReturnType<typeof projectAnalyticsSource>,
+) {
+  if ("article_slug" in attribution)
+    params.set("source", attribution.article_slug);
+}
+
 export function ProjectIdeaForm({
   location,
   onIdea,
@@ -295,13 +320,13 @@ export function ProjectIdeaForm({
     } catch {
       // Navigation and the in-memory form remain usable without session storage.
     }
-    const source =
+    const analyticsSource =
       location === "project"
-        ? new URLSearchParams(window.location.search).get("source")
-        : null;
+        ? projectAnalyticsSource()
+        : ({ source_context: "home", route_category: "home" } as const);
     track("project_start", {
       page: location === "home" ? "/" : "/project",
-      ...(source && /^[a-z0-9-]{1,80}$/.test(source) ? { source } : {}),
+      ...analyticsSource,
     });
     if (onIdea) onIdea(value);
     else router.push("/project");
@@ -591,6 +616,7 @@ export function ProjectGeneratorClient() {
           setPrivateSaveFailed(!draftId);
           const params = new URLSearchParams(encodeProjectState(nextBrief));
           if (draftId) params.set(privateDraftParam, draftId);
+          preserveProjectAnalyticsSource(params, projectAnalyticsSource());
           history.replaceState(null, "", `/project?${params.toString()}`);
         }}
       />
@@ -645,15 +671,18 @@ export function ProjectGeneratorClient() {
       return;
     }
     setError("");
-    track("project_generate", {
+    const analyticsSource = projectAnalyticsSource();
+    track("project_generated", {
       game_type: brief.dimension,
       budget: brief.budget,
+      ...analyticsSource,
     });
     setPlan(generateProjectPlan(brief));
     const draftId = savePrivateDraft(brief);
     setPrivateSaveFailed(!draftId);
     const params = new URLSearchParams(encodeProjectState(brief));
     if (draftId) params.set(privateDraftParam, draftId);
+    preserveProjectAnalyticsSource(params, analyticsSource);
     history.replaceState(null, "", `/project?${params.toString()}`);
   };
   const decideDetail = (
@@ -731,6 +760,7 @@ export function ProjectGeneratorClient() {
       setError("ゲーム内容が空欄です。詳しい条件で入力してください。");
       return;
     }
+    const analyticsSource = projectAnalyticsSource();
     setBrief(starterBrief);
     setProviderConfirmation(new Set());
     setError("");
@@ -739,10 +769,12 @@ export function ProjectGeneratorClient() {
     setPrivateSaveFailed(!draftId);
     const params = new URLSearchParams(encodeProjectState(starterBrief));
     if (draftId) params.set(privateDraftParam, draftId);
+    preserveProjectAnalyticsSource(params, analyticsSource);
     history.replaceState(null, "", `/project?${params}`);
-    track("project_generate", {
+    track("project_generated", {
       game_type: starterBrief.dimension,
       budget: starterBrief.budget,
+      ...analyticsSource,
     });
   };
   return (
@@ -1313,6 +1345,7 @@ function BuildChecklist({
     line?: number;
   } | null>(null);
   const viewedTasks = useRef(new Set<string>());
+  const completedEvents = useRef(new Set<string>());
   const reachedSecond = useRef(false);
   const copyHere = async (content: string, id: string) => {
     const copied = await onCopy(content, id);
@@ -1447,13 +1480,23 @@ function BuildChecklist({
   const active = today[0];
   useEffect(() => {
     if (!loaded || !active) return;
-    if (!viewedTasks.current.has(active.id)) {
+    if (currentIndex === 0 && !viewedTasks.current.has(active.id)) {
       viewedTasks.current.add(active.id);
-      track("project_task_viewed", { task: active.id });
+      track("first_task_viewed", {
+        task: active.id,
+        task_index: 0,
+        task_stage: taskStage(active.id),
+        ...projectAnalyticsSource(),
+      });
     }
     if (currentIndex === 1 && !reachedSecond.current) {
       reachedSecond.current = true;
-      track("project_second_task_reached", { task: active.id });
+      track("next_task_reached", {
+        task: active.id,
+        task_index: 1,
+        task_stage: taskStage(active.id),
+        ...projectAnalyticsSource(),
+      });
     }
   }, [active, currentIndex, loaded]);
   const activeTool =
@@ -1479,7 +1522,16 @@ function BuildChecklist({
     : "";
   const toggle = (id: string) => {
     const wasDone = completed.has(id);
-    if (!wasDone) track("project_task_completed", { task: id });
+    if (!wasDone && !completedEvents.current.has(id)) {
+      completedEvents.current.add(id);
+      const index = steps.findIndex((item) => item.id === id);
+      track("task_completed", {
+        task: id,
+        task_index: index,
+        task_stage: taskStage(id),
+        ...projectAnalyticsSource(),
+      });
+    } else if (wasDone) completedEvents.current.delete(id);
     setCompleted((old) => {
       const next = new Set(old);
       if (wasDone) {

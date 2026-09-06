@@ -1,3 +1,179 @@
-import { describe,expect,it,vi } from 'vitest';import { buildSubId,sanitizeEventProperties,track } from '@/lib/analytics';
-import { googleAnalyticsInit,measurementId } from '@/components/GoogleAnalytics';
-describe('analytics',()=>{it('keeps task funnel events fixed and drops raw project text',()=>expect(sanitizeEventProperties('project_task_completed',{task:'core-loop',source:'ai-browser-game-how-to',page:'秘密のゲーム案'})).toEqual({task:'core-loop',source:'ai-browser-game-how-to'}));it('keeps the production GA4 measurement and config behavior',()=>{expect(measurementId).toBe('G-B9Q283QVER');expect(googleAnalyticsInit).toContain("gtag('config', 'G-B9Q283QVER')");expect(googleAnalyticsInit).not.toContain("gtag('consent'")});it('emits outbound event without personal data',()=>{const listener=vi.fn();window.addEventListener('gameai:event',listener);track('outbound_click',{service:'cursor',page:'/compare',placement:'table'});expect(listener).toHaveBeenCalledOnce();expect(JSON.stringify(listener.mock.calls[0])).not.toMatch(/email|name|ip_address/)});it('drops unknown and event-inappropriate properties while preserving sub_id',()=>{const unsafe={service:'elevenlabs',page:'/tools/elevenlabs',placement:'primary',sub_id:'elevenlabs__tools__primary',email:'private@example.com',budget:'secret'};expect(sanitizeEventProperties('affiliate_click',unsafe)).toEqual({service:'elevenlabs',page:'/tools/elevenlabs',placement:'primary',sub_id:'elevenlabs__tools__primary'})});it('queues production events before gtag initializes',()=>{vi.stubEnv('NODE_ENV','production');const target=window as typeof window&{dataLayer?:unknown[];gtag?:unknown};delete target.gtag;target.dataLayer=[];track('builder_step',{step:1,page:'/builder'});expect(target.dataLayer).toContainEqual(['event','builder_step',{step:1,page:'/builder'}]);vi.unstubAllEnvs()});it('sends production events through gtag without an additional client-side gate',()=>{vi.stubEnv('NODE_ENV','production');const gtag=vi.fn();(window as typeof window&{gtag?:typeof gtag}).gtag=gtag;track('affiliate_click',{service:'meshy',page:'/tools/meshy',placement:'primary',sub_id:'meshy__tools__primary'});expect(gtag).toHaveBeenCalledWith('event','affiliate_click',{service:'meshy',page:'/tools/meshy',placement:'primary',sub_id:'meshy__tools__primary'});vi.unstubAllEnvs()});it('allows only fixed article handoff context',()=>expect(sanitizeEventProperties('article_to_project',{page:'/articles/ai-fantasy',placement:'article_end',service:'private draft'})).toEqual({page:'/articles/ai-fantasy',placement:'article_end'}));it('builds stable subtracking identifiers',()=>expect(buildSubId('cursor','/compare','top cta')).toBe('cursor__-compare__top-cta'))});
+import { describe, expect, it, vi } from "vitest";
+import {
+  buildSubId,
+  sanitizeEventProperties,
+  taskStage,
+  track,
+  type EventName,
+} from "@/lib/analytics";
+import {
+  googleAnalyticsInit,
+  measurementId,
+} from "@/components/GoogleAnalytics";
+
+const funnelEvents: EventName[] = [
+  "article_view",
+  "article_to_project",
+  "project_start",
+  "project_generated",
+  "first_task_viewed",
+  "task_completed",
+  "next_task_reached",
+  "affiliate_click",
+];
+
+describe("analytics measurement baseline", () => {
+  it("defines the complete article to affiliate funnel event names", () => {
+    expect(funnelEvents).toEqual([
+      "article_view",
+      "article_to_project",
+      "project_start",
+      "project_generated",
+      "first_task_viewed",
+      "task_completed",
+      "next_task_reached",
+      "affiliate_click",
+    ]);
+  });
+  it("preserves bounded legacy page identifiers without accepting free text", () => {
+    expect(
+      sanitizeEventProperties("outbound_click", { page: "builder-result" }),
+    ).toEqual({ page: "builder-result" });
+    expect(
+      sanitizeEventProperties("outbound_click", {
+        page: "raw page with secret",
+      }),
+    ).toEqual({});
+  });
+  it("keeps only bounded task metadata and rejects sensitive or unbounded values", () => {
+    expect(
+      sanitizeEventProperties("task_completed", {
+        task: "core-loop",
+        task_index: 0,
+        task_stage: "prototype",
+        article_slug: "ai-browser-game-how-to",
+        source_context: "project",
+        route_category: "project",
+        page: "秘密のゲーム案",
+        artifact: "<html>secret token</html>",
+      }),
+    ).toEqual({
+      task: "core-loop",
+      task_index: 0,
+      task_stage: "prototype",
+      article_slug: "ai-browser-game-how-to",
+      source_context: "project",
+      route_category: "project",
+    });
+    expect(
+      sanitizeEventProperties("task_completed", {
+        task: "raw free text with spaces",
+        task_index: -1,
+        task_stage: "秘密",
+        article_slug: "raw article slug with spaces",
+      }),
+    ).toEqual({});
+  });
+  it("allows only safe article slug and CTA placement metadata", () => {
+    expect(
+      sanitizeEventProperties("article_to_project", {
+        page: "/articles/ai-fantasy",
+        placement: "article_end",
+        article_slug: "ai-fantasy",
+        cta_placement: "article_end",
+        source_context: "article",
+        route_category: "article",
+        service: "private draft",
+      }),
+    ).toEqual({
+      page: "/articles/ai-fantasy",
+      placement: "article_end",
+      article_slug: "ai-fantasy",
+      cta_placement: "article_end",
+      source_context: "article",
+      route_category: "article",
+    });
+  });
+  it("keeps affiliate context but rejects URLs and raw queries", () => {
+    expect(
+      sanitizeEventProperties("affiliate_click", {
+        service: "elevenlabs",
+        service_id: "elevenlabs",
+        page: "/project",
+        placement: "quest_create-voice",
+        sub_id: "elevenlabs__project__voice",
+        production_stage: "audio",
+        source_context: "project",
+        route_category: "project",
+        affiliate: true,
+        source: "https://affiliate.example/?idea=secret game",
+      }),
+    ).toEqual({
+      service: "elevenlabs",
+      service_id: "elevenlabs",
+      page: "/project",
+      placement: "quest_create-voice",
+      sub_id: "elevenlabs__project__voice",
+      production_stage: "audio",
+      source_context: "project",
+      route_category: "project",
+      affiliate: true,
+    });
+  });
+  it("keeps the production GA4 measurement and config behavior", () => {
+    expect(measurementId).toBe("G-B9Q283QVER");
+    expect(googleAnalyticsInit).toContain("gtag('config', 'G-B9Q283QVER')");
+  });
+  it("dispatches a test hook and queues production events when gtag is unavailable", () => {
+    vi.stubEnv("NODE_ENV", "production");
+    const listener = vi.fn();
+    window.addEventListener("gameai:event", listener);
+    const target = window as typeof window & {
+      dataLayer?: unknown[];
+      gtag?: unknown;
+    };
+    delete target.gtag;
+    target.dataLayer = [];
+    track("project_generated", {
+      game_type: "2d",
+      budget: "free",
+      route_category: "project",
+    });
+    expect(listener).toHaveBeenCalledOnce();
+    expect(target.dataLayer).toContainEqual([
+      "event",
+      "project_generated",
+      { game_type: "2d", budget: "free", route_category: "project" },
+    ]);
+    window.removeEventListener("gameai:event", listener);
+    vi.unstubAllEnvs();
+  });
+  it("uses gtag without also queueing a duplicate event", () => {
+    vi.stubEnv("NODE_ENV", "production");
+    const gtag = vi.fn();
+    const target = window as typeof window & {
+      gtag?: typeof gtag;
+      dataLayer?: unknown[];
+    };
+    target.gtag = gtag;
+    target.dataLayer = [];
+    track("affiliate_click", {
+      service_id: "meshy",
+      placement: "primary",
+      production_stage: "assets",
+      affiliate: true,
+    });
+    expect(gtag).toHaveBeenCalledOnce();
+    expect(target.dataLayer).toEqual([]);
+    vi.unstubAllEnvs();
+  });
+  it("maps task ids to bounded production stages", () => {
+    expect(taskStage("core-loop")).toBe("prototype");
+    expect(taskStage("create-voice")).toBe("audio");
+    expect(taskStage("unrecognized")).toBe("other");
+  });
+  it("builds stable subtracking identifiers", () =>
+    expect(buildSubId("cursor", "/compare", "top cta")).toBe(
+      "cursor__-compare__top-cta",
+    ));
+});
