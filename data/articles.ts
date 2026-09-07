@@ -522,6 +522,49 @@ export const articles = [
     },
     promotions: [],
   },
+  {
+    slug: "ai-auto-trading-reality",
+    title:
+      "AI自動売買は本当に稼げる？最新AI Claude Fable 5.1にトレード研究を丸投げして分かった現実",
+    description:
+      "最新AI Claude Fable 5.1を研究リーダーにして、AIトレード研究を実際に進めたら何が起きたのか。AUC 0.82の落とし穴、全件再監査で16件の結論が変わった話、見えていなかったデータまで、AIに自動売買を任せる前の実体験をまとめます。",
+    category: "field-note",
+    tags: ["AI自動売買", "Claude Code", "Fable 5.1", "AIエージェント", "検証"],
+    publishedAt: "2026-09-07",
+    updatedAt: "2026-09-07",
+    publicationStatus: "published",
+    author: "GameAI Hub編集部",
+    editorialNote:
+      "運営者が2026年8月〜9月に自分の相場研究プロジェクトで記録した経験のフィールドノートです。掲載した数値は過去データ上の検証結果で、仮想売買（PAPER）の段階にあり、実弾運用の成績ではありません。特定の金融商品や売買手法を推奨する記事ではありません。",
+    sources: [],
+    related: [
+      {
+        href: "/articles/ai-completion-claim/",
+        label: "AIが「完成しました」と言っても信用してはいけない理由",
+        reason: "AIの自己申告をそのまま完了とみなさない確認の型へ進む",
+        kind: "article",
+      },
+      {
+        href: "/articles/ai-delegation-trap/",
+        label: "AIにゲーム開発を丸投げすると、なぜ途中で詰むのか",
+        reason: "同じ丸投げの問題が、ゲーム制作側でどう出るかを確認する",
+        kind: "article",
+      },
+      {
+        href: "/articles/ai-usage-guide/",
+        label: "AIの正しい使い方",
+        reason: "大きな依頼を、目的・制約・観察できる完了条件へ分ける",
+        kind: "article",
+      },
+    ],
+    projectCta: {
+      label: "AIで最初のゲームを1つ作ってみる",
+      description:
+        "作りたいものから、今日AIに書かせるもの・動かす手順・自分の目で確認できる完了条件までを1ステップに絞ります。AIに何を任せられて、どこを自分で確かめるべきかは、一度自分で通すと分かります。",
+      placement: "article_end",
+    },
+    promotions: [],
+  },
 ] as const satisfies readonly ArticleRecord[];
 
 export const publishedArticles = articles.filter(
