@@ -11,13 +11,16 @@ const turns:ConversationTurn[]=[
  {speaker:'owner',marker:'第1の指摘',body:<p>なぜ絶対水準で評価したのかわかりません。</p>},
  {speaker:'fable',body:<p>母集団を取り違えていました。</p>},
 ];
+const record={title:'母集団の取り違え',recordedAt:'2026-09-04',source:{label:'docs/POSTMORTEM_2026-09-04_tp_precursor.md'}};
 
 describe('conversation evidence',()=>{
- it('labels every speaker with visible text and an ordered record',()=>{
-  render(<ConversationEvidence title="母集団の取り違え" turns={turns}/>);
-  const record=screen.getByRole('list');
-  expect(record.tagName).toBe('OL');
-  const entries=within(record).getAllByRole('listitem');
+ it('labels every speaker with visible text and keeps list semantics when markers are removed',()=>{
+  render(<ConversationEvidence {...record} turns={turns}/>);
+  const ledger=screen.getByRole('list');
+  expect(ledger.tagName).toBe('OL');
+  // list-style:none strips implicit list semantics in Safari, so the role is declared explicitly.
+  expect(ledger.getAttribute('role')).toBe('list');
+  const entries=within(ledger).getAllByRole('listitem');
   expect(entries).toHaveLength(2);
   expect(within(entries[0]).getByText('OWNER')).toBeTruthy();
   expect(within(entries[0]).getByText('オーナー（人間）')).toBeTruthy();
@@ -25,38 +28,53 @@ describe('conversation evidence',()=>{
   expect(within(entries[1]).getByText('FABLE 5.1')).toBeTruthy();
   expect(within(entries[1]).getByText('Claude Code')).toBeTruthy();
  });
- it('announces the speaker before the quoted text for screen readers',()=>{
-  const html=renderToStaticMarkup(<ConversationEvidence title="母集団の取り違え" turns={turns}/>);
+ it('announces the speaker before the quoted text and keeps latin labels out of Japanese phonetics',()=>{
+  const html=renderToStaticMarkup(<ConversationEvidence {...record} turns={turns}/>);
   expect(html.indexOf('発言者は人間のオーナー')).toBeLessThan(html.indexOf('なぜ絶対水準'));
   expect(html.indexOf('発言者はAI')).toBeLessThan(html.indexOf('母集団を取り違えて'));
   expect(html).not.toContain('aria-hidden');
+  expect(html).toContain('<span class="conv-speaker-name" lang="en">OWNER</span>');
+  expect(html).toContain('<span class="conv-speaker-sub" lang="ja">オーナー（人間）</span>');
+  expect(html).toContain('<span class="conv-speaker-sub" lang="en">Claude Code</span>');
  });
- it('links the figure to its own heading and keeps the requested heading level',()=>{
-  const html=renderToStaticMarkup(<ConversationEvidence headingLevel={2} title="母集団の取り違え" turns={turns}/>);
+ it('keeps one visual identity for the title whatever heading level the article needs',()=>{
+  const html=renderToStaticMarkup(<ConversationEvidence {...record} headingLevel={2} turns={turns}/>);
   const id=/aria-labelledby="([^"]+)"/.exec(html)![1];
   expect(html).toContain(`<h2 class="conv-evidence-title" id="${id}">母集団の取り違え</h2>`);
-  expect(renderToStaticMarkup(<ConversationEvidence title="母集団の取り違え" turns={turns}/>)).toContain('<h3 class="conv-evidence-title"');
+  expect(renderToStaticMarkup(<ConversationEvidence {...record} turns={turns}/>)).toContain('<h3 class="conv-evidence-title"');
+  // h1,h2 are serif site-wide, so the card pins its own family and weight.
+  expect(componentCss).toMatch(/\.conv-evidence-title\{[^}]*font-family:var\(--font-sans\)/);
+  expect(componentCss).toMatch(/\.conv-evidence-title\{[^}]*font-weight:800/);
  });
- it('shows source, record date and the quiet editorial annotation only when supplied',()=>{
-  const html=renderToStaticMarkup(<ConversationEvidence recordedAt="2026-09-04" source={{label:'docs/POSTMORTEM_2026-09-04_tp_precursor.md'}} title="母集団の取り違え" turns={turns} annotation={{question:'この時点で何が間違っていた？',answer:<p>母集団が変わっていた。</p>}}/>);
+ it('always shows the record date, the extent of the exchange and the source',()=>{
+  const html=renderToStaticMarkup(<ConversationEvidence {...record} turns={turns}/>);
   expect(html).toContain('<time dateTime="2026-09-04">2026-09-04</time>');
+  expect(html).toContain('発言 2 件');
   expect(html).toContain('docs/POSTMORTEM_2026-09-04_tp_precursor.md');
-  expect(html).toContain('RESEARCH NOTE');
+  const linked=renderToStaticMarkup(<ConversationEvidence {...record} source={{label:'INCIDENTS.md',href:'https://example.com/'}} turns={turns}/>);
+  expect(linked).toContain('↗');
+  expect(linked).toContain('（新しいタブで開く）');
+ });
+ it('adds the editorial annotation quietly and only when supplied',()=>{
+  const html=renderToStaticMarkup(<ConversationEvidence {...record} turns={turns} annotation={{question:'この時点で何が間違っていた？',answer:<p>母集団が変わっていた。</p>}}/>);
+  expect(html).toContain('<p class="conv-note-label" lang="en">RESEARCH NOTE</p>');
   expect(html).toContain('この時点で何が間違っていた？');
   expect(html).not.toContain('role="alert"');
-  const bare=renderToStaticMarkup(<ConversationEvidence title="母集団の取り違え" turns={turns}/>);
-  expect(bare).not.toContain('conv-note');
-  expect(bare).not.toContain('conv-evidence-meta');
+  const japanese=renderToStaticMarkup(<ConversationEvidence {...record} turns={turns} annotation={{label:'編集部注',answer:<p>注記。</p>}}/>);
+  expect(japanese).toContain('<p class="conv-note-label">編集部注</p>');
+  expect(renderToStaticMarkup(<ConversationEvidence {...record} turns={turns}/>)).not.toContain('conv-note');
  });
- it('renders nothing without turns',()=>{
-  expect(renderToStaticMarkup(<ConversationEvidence title="空" turns={[]}/>)).toBe('');
+ it('separates cards that share a title and renders nothing without turns',()=>{
+  const explicit=renderToStaticMarkup(<ConversationEvidence {...record} id="conv-second-round" turns={turns}/>);
+  expect(explicit).toContain('aria-labelledby="conv-second-round"');
+  expect(renderToStaticMarkup(<ConversationEvidence {...record} title="空" turns={[]}/>)).toBe('');
  });
- it('keeps the article ledger readable and overflow-safe at narrow widths',()=>{
-  expect(componentCss).toContain('.conv-evidence .conv-turn-body{min-width:0;font-size:1rem;line-height:1.8}');
-  expect(componentCss).toContain('.conv-evidence .conv-turn--owner{background:#f4f8f7;border-left-color:#6f8f89}');
-  expect(componentCss).toContain('.conv-evidence .conv-turn--fable{background:var(--panel);border-left-color:#c2652f}');
+ it('stays inside the article system: no motion, no decoration, no reserved CTA colour',()=>{
+  expect(componentCss).not.toMatch(/gradient|box-shadow|transition|animation|:hover/);
+  // #ea580c / #d65a20 are the primary action; #c2410c is --warn. The card must not reuse them.
+  expect(componentCss).not.toMatch(/#ea580c|#d65a20|#c2410c/i);
+  expect(componentCss).toMatch(/\.conv-turn-body\{[^}]*font-size:1rem/);
   expect(componentCss).toContain('word-break:break-word');
   expect(componentCss).toContain('@media(max-width:400px)');
-  expect(componentCss).not.toMatch(/gradient|box-shadow|transition|animation/);
  });
 });
