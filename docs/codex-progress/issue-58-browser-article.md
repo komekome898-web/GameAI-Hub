@@ -2,7 +2,7 @@
 
 - Task: Issue #58, existing browser-game article phase only
 - Working branch: `feat/issue-58-browser-article-upgrade`
-- Latest pushed checkpoint: `0103289` (initial PR delivery state); blocker-fix commit pending
+- Latest implementation checkpoint: `4d54e6f` (independent-review blocker fixes)
 - Completed phases: bootstrap; origin/main verification; Issue/instruction/current implementation review; initial implementation; independent blocker intake; first-generation prompt/result terminology/checkpoint fixes; responsive screenshot recapture; required gates
 - Current phase: PR review
 - Remaining phases: independent content/mobile review; Preview/CI; owner-authorized merge and Production acceptance
