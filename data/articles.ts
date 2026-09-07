@@ -151,7 +151,7 @@ export const articles = [
     title:
       "AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む",
     description:
-      "初心者が完成済みの1画面ブラウザゲームをその場で動かし、敵名を1回変更して再確認し、同じゲームをProject Generatorへつなぐ実践手順。",
+      "初心者が完成済みの1画面ブラウザゲームを動かし、生成promptでAIからindex.html全文を得て、敵名を1回変更してProject Generatorへつなぐ実践手順。",
     category: "beginner",
     tags: ["AIゲーム開発", "ブラウザゲーム", "初心者", "HTML"],
     publishedAt: "2026-09-04",
@@ -160,7 +160,7 @@ export const articles = [
     lastVerifiedAt: "2026-09-07",
     author: "GameAI Hub編集部",
     editorialNote:
-      "掲載HTMLで、貼付・実行・勝敗・リセット・1変更・復旧を確認できる初心者向け手順です。Project Generatorの条件保持は検証済みですが、外部AIの出力は毎回同一とは限りません。",
+      "掲載HTMLで、貼付・実行・勝利結果・リセット・1変更・復旧を確認できる初心者向け手順です。Project Generatorの条件保持は検証済みですが、外部AIの出力は毎回同一とは限りません。",
     sources: [
       {
         label: "MDN: HTML basics",

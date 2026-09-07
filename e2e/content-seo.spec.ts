@@ -12,6 +12,11 @@ for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'zoom-320'
   await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(2);
   await expect(page.getByRole('heading',{name:'まず完成例を動かす'})).toBeVisible();
   await expect(page.getByLabel('ゲームのコード')).toContainText('const enemyName = "スライム"');
+  await expect(page.getByRole('heading',{name:'最初のゲームをAIへ生成してもらう'})).toBeVisible();
+  await expect(page.getByRole('button',{name:'最初のゲーム生成promptをコピー'})).toBeVisible();
+  await expect(page.getByText('Step A — 表示：')).toBeVisible();
+  await expect(page.getByText('Step B — HP変化：')).toBeVisible();
+  await expect(page.getByText('Step C — 結果＋もう一度：')).toBeVisible();
   await expect(page.getByRole('heading',{name:'変更は敵の名前1か所だけ'})).toBeVisible();
   await expect(page.getByRole('heading',{name:'動かないときは症状から1つ戻る'})).toBeVisible();
   await expect(page.getByRole('link',{name:'同じゲームの制作ロードマップを作る'})).toHaveAttribute('href',/\/project\/?\?source=ai-browser-game-how-to/);
