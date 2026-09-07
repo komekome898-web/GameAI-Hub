@@ -496,3 +496,9 @@ article.page-shell .stage-decision>summary strong{
  .conv-evidence .conv-turn-body pre{padding:12px 11px}
  .conv-evidence .conv-note{padding:13px 11px}
 }
+/* Small in-article definition note: explains one term without an alert treatment. */
+.article-definition{margin:18px 0;padding:14px 16px;min-width:0;border:1px solid var(--line);border-radius:10px;background:var(--panel-2)}
+.article-definition>strong{display:block;margin-bottom:5px;color:var(--muted);font-size:.82rem;letter-spacing:.04em}
+.article-definition p{margin:0;overflow-wrap:anywhere;word-break:break-word}
+.article-definition p+p{margin-top:8px}
+@media(max-width:400px){.article-definition{padding:12px 11px}}
