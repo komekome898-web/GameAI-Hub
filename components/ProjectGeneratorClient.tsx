@@ -11,6 +11,7 @@ import {
   decodeProjectState,
   encodeProjectState,
   buildChecklist,
+  contextualProjectTool,
   projectProgressKey,
   generateProjectPlan,
   interpretProjectIdea,
@@ -1315,6 +1316,63 @@ function BeginnerToolLink({
   );
 }
 
+export function ContextualTaskToolGuide({
+  step,
+  taskIndex,
+}: {
+  step: BuildChecklistStep;
+  taskIndex: number;
+}) {
+  const recommendation = contextualProjectTool(step);
+  if (!recommendation) return null;
+  const service = getService(recommendation.tool.serviceSlug);
+  if (!service) return null;
+  const analyticsSource = projectAnalyticsSource();
+  return (
+    <section
+      className="contextual-task-tool"
+      aria-label="現在の作業で使えるツール"
+    >
+      <p className="contextual-tool-kicker">この成果物を作るときだけ使う候補</p>
+      <h3>{recommendation.tool.name}</h3>
+      <dl>
+        <div>
+          <dt>今回作るもの</dt>
+          <dd>{recommendation.artifact}</dd>
+        </div>
+        <div>
+          <dt>先に準備するもの</dt>
+          <dd>{recommendation.preparation}</dd>
+        </div>
+        <div>
+          <dt>この候補を示す理由</dt>
+          <dd>{recommendation.reason}</dd>
+        </div>
+      </dl>
+      <OutboundLink
+        service={service}
+        page="/project"
+        placement="project-task-tool"
+        attribution={{
+          task_stage: taskStage(step.id),
+          task_index: taskIndex,
+          ...("article_slug" in analyticsSource
+            ? { article_slug: analyticsSource.article_slug }
+            : {}),
+        }}
+      />
+      <p className="tool-return">
+        <strong>外部ツールから戻ったら：</strong>
+        {recommendation.returnInstruction}
+      </p>
+      <p className="tool-alternative">
+        <strong>使わない進め方：</strong>
+        {recommendation.alternative}
+      </p>
+    </section>
+  );
+}
+
 function BuildChecklist({
   steps,
   plan,
@@ -1605,14 +1663,16 @@ function BuildChecklist({
                 {activeTool?.reason ??
                   "画面を開いて確認する作業です。新しいサービスを選ぶ必要はありません。"}
               </p>
-              {activeTool && getService(activeTool.serviceSlug) && (
-                <>
-                  <BeginnerToolLink tool={activeTool} taskId={active.id} />
-                  <Link href={`/tools/${activeTool.serviceSlug}`}>
-                    選定理由と注意点を見る
-                  </Link>
-                </>
-              )}
+              {activeTool &&
+                !contextualProjectTool(active) &&
+                getService(activeTool.serviceSlug) && (
+                  <>
+                    <BeginnerToolLink tool={activeTool} taskId={active.id} />
+                    <Link href={`/tools/${activeTool.serviceSlug}`}>
+                      選定理由と注意点を見る
+                    </Link>
+                  </>
+                )}
             </section>
           </div>
           <section className="beginner-steps">
@@ -1623,6 +1683,7 @@ function BuildChecklist({
               ))}
             </ol>
           </section>
+          <ContextualTaskToolGuide step={active} taskIndex={currentIndex} />
           {active.prompt && (
             <section className="action-prompt">
               <h3>
@@ -2016,6 +2077,9 @@ function BuildChecklist({
                   <h3>なぜ必要か</h3>
                   <p>{item.why}</p>
                 </section>
+                {index === currentIndex && (
+                  <ContextualTaskToolGuide step={item} taskIndex={index} />
+                )}
                 <section>
                   <h3>AI / ツール</h3>
                   {item.tools.length ? (
@@ -2708,23 +2772,25 @@ function PlanToolCard({
           </span>
         ))}
       </p>
-      {tool.role === "primary" && service && (
-        <>
-          <OutboundLink
-            service={service}
-            page="project-result"
-            placement={`phase-${phase}`}
-          />
-          {alternatives[0] && (
-            <Link
-              className="tool-compare-link"
-              href={`/compare?ids=${tool.serviceSlug},${alternatives[0].serviceSlug}&stage=${phase}`}
-            >
-              代替候補と比較する →
-            </Link>
-          )}
-        </>
-      )}
+      {tool.role === "primary" &&
+        service &&
+        !["elevenlabs", "meshy"].includes(tool.serviceSlug) && (
+          <>
+            <OutboundLink
+              service={service}
+              page="project-result"
+              placement={`phase-${phase}`}
+            />
+            {alternatives[0] && (
+              <Link
+                className="tool-compare-link"
+                href={`/compare?ids=${tool.serviceSlug},${alternatives[0].serviceSlug}&stage=${phase}`}
+              >
+                代替候補と比較する →
+              </Link>
+            )}
+          </>
+        )}
     </article>
   );
 }

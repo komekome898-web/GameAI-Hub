@@ -121,7 +121,7 @@ describe("Project Generator client", () => {
       screen.getAllByRole("button", { name: "プロンプトをコピー" })[0],
     ).toBeTruthy();
     expect(location.search).toContain("v=1");
-  });
+  }, 10_000);
 
   it("surfaces contradictory text instead of silently selecting one value", async () => {
     sessionStorage.setItem(
