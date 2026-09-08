@@ -46,14 +46,15 @@ describe('conversation evidence',()=>{
   expect(componentCss).toMatch(/\.conv-evidence-title\{[^}]*font-family:var\(--font-sans\)/);
   expect(componentCss).toMatch(/\.conv-evidence-title\{[^}]*font-weight:800/);
  });
- it('always shows the record date, the extent of the exchange and the source',()=>{
+ it('shows the record date and extent of the exchange without exposing the internal source label',()=>{
   const html=renderToStaticMarkup(<ConversationEvidence {...record} turns={turns}/>);
   expect(html).toContain('<time dateTime="2026-09-04">2026-09-04</time>');
   expect(html).toContain('発言 2 件');
-  expect(html).toContain('docs/POSTMORTEM_2026-09-04_tp_precursor.md');
+  expect(html).not.toContain('出典');
+  expect(html).not.toContain('docs/POSTMORTEM_2026-09-04_tp_precursor.md');
   const linked=renderToStaticMarkup(<ConversationEvidence {...record} source={{label:'INCIDENTS.md',href:'https://example.com/'}} turns={turns}/>);
-  expect(linked).toContain('↗');
-  expect(linked).toContain('（新しいタブで開く）');
+  expect(linked).not.toContain('INCIDENTS.md');
+  expect(linked).not.toContain('https://example.com/');
  });
  it('adds the editorial annotation quietly and only when supplied',()=>{
   const html=renderToStaticMarkup(<ConversationEvidence {...record} turns={turns} annotation={{question:'この時点で何が間違っていた？',answer:<p>母集団が変わっていた。</p>}}/>);
