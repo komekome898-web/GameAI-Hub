@@ -65,7 +65,7 @@ export const articles = [
     updatedAt: "2026-09-04",
     publicationStatus: "published",
     lastVerifiedAt: "2026-09-04",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "GitHub公式Docsの手順とラベルを2026-09-04に確認して構成しています。ログイン後の新規アカウントによる全操作は実測しておらず、UIはアカウントや更新により異なる場合があります。",
     sources: [
@@ -149,16 +149,16 @@ export const articles = [
   {
     slug: "ai-browser-game-how-to",
     title:
-      "AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む",
+      "AIでブラウザゲームを作る方法【初心者向け】1つのHTMLをAIで作って動かす",
     description:
-      "初心者が完成済みの1画面ブラウザゲームを動かし、生成promptでAIからindex.html全文を得て、敵名を1回変更してProject Generatorへつなぐ実践手順。",
+      "ゲーム制作未経験でも、AIに指示して1つのindex.htmlを作り、ブラウザで実行・修正・保存・復旧する手順。",
     category: "beginner",
     tags: ["AIゲーム開発", "ブラウザゲーム", "初心者", "HTML"],
     publishedAt: "2026-09-04",
     updatedAt: "2026-09-07",
     publicationStatus: "published",
     lastVerifiedAt: "2026-09-07",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "掲載HTMLで、貼付・実行・勝利結果・リセット・1変更・復旧を確認できる初心者向け手順です。Project Generatorの条件保持は検証済みですが、外部AIの出力は毎回同一とは限りません。",
     sources: [
@@ -219,7 +219,7 @@ export const articles = [
     publishedAt: "2026-08-29",
     updatedAt: "2026-08-29",
     publicationStatus: "published",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "運営者の開発経験を整理したフィールドノートです。製品仕様の比較記事ではありません。",
     sources: [],
@@ -261,7 +261,7 @@ export const articles = [
     updatedAt: "2026-08-29",
     publicationStatus: "published",
     lastVerifiedAt: "2026-08-29",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "運営者の実体験に基づく実践ガイドです。各サービスの最新仕様は公式資料で別途確認してください。",
     sources: [
@@ -322,7 +322,7 @@ export const articles = [
     publishedAt: "2026-09-02",
     updatedAt: "2026-09-02",
     publicationStatus: "published",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "GameAI Hubの開発・初心者導線設計で得た経験を整理したフィールドノートです。特定サービスの性能比較や最新仕様を扱う記事ではありません。",
     sources: [],
@@ -364,7 +364,7 @@ export const articles = [
     publishedAt: "2026-09-02",
     updatedAt: "2026-09-02",
     publicationStatus: "published",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "初心者向け制作導線の設計経験から、AIへ依頼する前に決める作業単位を整理したフィールドノートです。",
     sources: [],
@@ -406,7 +406,7 @@ export const articles = [
     publishedAt: "2026-09-02",
     updatedAt: "2026-09-02",
     publicationStatus: "published",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "AI開発での受入テスト経験から、AIの自己報告と実際の成果物を分けて考える方法を整理したフィールドノートです。",
     sources: [],
@@ -448,7 +448,7 @@ export const articles = [
     publishedAt: "2026-09-02",
     updatedAt: "2026-09-02",
     publicationStatus: "published",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "初心者向けGameAI Hubの設計思想をもとに、ツール比較を制作工程の後段へ置く理由を整理したフィールドノートです。特定サービスのランキング記事ではありません。",
     sources: [],
@@ -490,7 +490,7 @@ export const articles = [
     publishedAt: "2026-09-02",
     updatedAt: "2026-09-02",
     publicationStatus: "published",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "初心者向け制作フローの設計経験から、最初の成功体験を小さくする理由を整理したフィールドノートです。",
     sources: [],

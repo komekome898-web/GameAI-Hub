@@ -13,8 +13,20 @@ describe('deterministic project interpreter',()=>{
     const battle=interpreted.detailCandidates.find(detail=>detail.kind==='core-mechanic'&&detail.text==='戦闘')!;
     const plan=generateProjectPlan(brief({idea,genre:'other',dimension:'2d',platform:'web',engine:'undecided',experience:'beginner',details:[battle]}));
     const first=beginnerWorkflowSteps(plan)[0];
-    expect(`${first.title} ${first.prompt} ${first.doneWhen.join(' ')}`).toMatch(/1対1.*HP.*勝敗.*もう一度/s);
+    const artifacts = beginnerWorkflowSteps(plan).map(step => `${step.title} ${step.prompt} ${step.doneWhen.join(' ')} ${step.usageInstructions.join(' ')}`).join(' ');
+    expect(artifacts).toMatch(/1対1.*HP.*勝利.*もう一度/s);
+    expect(artifacts).not.toMatch(/勝敗の両方|勝ちと負け|負けた場合|敗北が文字表示|game over|lose state/i);
     expect(`${first.title} ${first.prompt}`).not.toMatch(/移動してゴール|プレイヤーとゴール/);
+  });
+
+  it('preserves an explicitly requested defeat outcome across the beginner workflow',()=>{
+    const idea='1対1バトルで、敵HPが0なら勝ち、自分HPが0なら負け。勝敗両方を確認したい。';
+    const battle={id:'detail-battle',kind:'core-mechanic' as const,text:'戦闘',provenance:'explicit_text' as const,evidence:idea};
+    const plan=generateProjectPlan(brief({idea,dimension:'2d',platform:'web',experience:'beginner',details:[battle]}));
+    const artifacts=beginnerWorkflowSteps(plan).map(step=>`${step.prompt} ${step.doneWhen.join(' ')} ${step.usageInstructions.join(' ')}`).join(' ');
+    expect(artifacts).toMatch(/敵HPが0なら勝利/);
+    expect(artifacts).toMatch(/味方HPが0なら敗北/);
+    expect(artifacts).toMatch(/勝利と敗北の両方/);
   });
 
   it('does not infer battle from a negated or unrelated use of fighting',()=>{

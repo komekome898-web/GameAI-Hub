@@ -6,7 +6,17 @@ import { CopyTextButton } from "@/components/CopyTextButton";
 import { articleMetadata, getArticle } from "@/data/articles";
 
 const article = getArticle("ai-browser-game-how-to")!;
-export const metadata: Metadata = articleMetadata(article);
+const seoTitle =
+  "AIでブラウザゲームを作る方法【初心者向け】1つのHTMLをAIで作って動かす";
+const seoDescription =
+  "ゲーム制作未経験でも、AIに指示して1つのindex.htmlを作り、ブラウザで実行・修正・保存・復旧する手順。PC・iPhone・Android向けに、最初の1画面ゲームから次の作業まで解説。";
+const baseMetadata = articleMetadata(article);
+export const metadata: Metadata = {
+  ...baseMetadata,
+  title: seoTitle,
+  description: seoDescription,
+  openGraph: { ...baseMetadata.openGraph, title: seoTitle, description: seoDescription },
+};
 
 const gameIdea = `モンスターと1対1で戦う2Dブラウザゲームを作りたい。
 ゲーム制作は初めてです。まず画像と音声なしで、
@@ -100,11 +110,12 @@ export default function AiBrowserGameHowTo() {
     <ArticleFrame article={article}>
       <div className="article-content">
         <header className="page-head">
-          <p className="eyebrow">BROWSER GAME / PLAY → CHANGE → CONTINUE</p>
-          <h1>AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む</h1>
+          <p className="eyebrow">BROWSER GAME / ONE PLAYABLE FILE</p>
+          <h1>AIでブラウザゲームを作る方法【初心者向け】1つのHTMLをAIで作って動かす</h1>
           <p className="lead">
-            読むだけで終わらないように、完成済みの <strong>index.html</strong> をこのページで動かします。
-            勝利結果まで遊び、AIで同じ形を生成し、敵の名前を1か所だけ直してProject Generatorへ渡すところまでが今回のゴールです。
+            ゲーム制作もプログラミングも初めてなら、最初から大作を作る必要はありません。この手順ではAIに1対1のモンスターバトルを作ってもらい、
+            <strong>HTML・CSS・JavaScriptをまとめた1つの index.html</strong>
+            をAI Iterproofへ貼って実行します。完成例、AI生成版、1変更の練習を区別し、保存・復旧して次の作業へ進みます。
           </p>
           <div className="article-contract">
             <p><strong>所要の目安：</strong>まず15〜30分（AIの応答や端末操作で変わります）</p>
@@ -173,16 +184,31 @@ export default function AiBrowserGameHowTo() {
             <li>上の「ゲームのコード」をAIのコード全文で置き換え、「ゲームを表示」を押す。</li>
             <li>Step A、B、Cを順番に確認する。AIが「完成」と書いても、実際に操作できるまでは完了にしない。</li>
           </ol>
-          <p>出力が要件と違う場合は、掲載完成例で動作を確認できる状態を残したまま、最初に失敗したStepと実際の表示をAIへ返します。</p>
+          <h3>AI生成版の成功条件（名前や数値は自由）</h3>
+          <ul>
+            <li>味方と敵、それぞれのHPが見える。</li>
+            <li>「たたかう」で敵HPが減り、敵が生存中なら反撃で味方HPも減る。</li>
+            <li>敵HPが0になると勝利結果が出て、その後は攻撃できない。</li>
+            <li>「もう一度」でHP、結果、ボタンが初期状態へ戻る。</li>
+          </ul>
+          <p>
+            敵がゴーレム、HPが30と20、damageが5、変数名が <code>bossLabel</code> でも合格です。掲載例の名前、HP 24／18、3回で勝利、<code>enemyName</code> は要求しません。
+          </p>
+          <p>
+            条件を満たしたら「この版は動いたと記録」し、「index.htmlを保存」でAI生成版を手元にも残します。出力が要件と違う場合は、最初に失敗したStepと実際の表示をAIへ返します。
+          </p>
         </section>
 
         <section>
-          <h2>4. 変更は敵の名前1か所だけ</h2>
+          <h2>4. 掲載完成例へ戻り、敵の名前1か所だけ変える</h2>
           <p>
-            上の「ゲームのコード」で <code>const enemyName = &quot;スライム&quot;;</code> を探し、
+            <strong>AIが返すコードは毎回、構造・名前・数値が違います。</strong>ここからの1変更練習はAI生成版ではなく、上の「掲載完成例へ戻す」を押し、「ゲームを表示」してから行います。記録したAI生成版は「動いた版へ戻す」、保存した版は「保存したゲームを開く」で再び開けます。
+          </p>
+          <p>
+            掲載完成例の「ゲームのコード」で <code>const enemyName = &quot;スライム&quot;;</code> を探し、
             <code>const enemyName = &quot;炎スライム&quot;;</code> に直します。他の行は変えず、「ゲームを表示」をもう一度押します。
           </p>
-          <h3>変更後の成功条件</h3>
+          <h3>掲載完成例専用の成功条件</h3>
           <ul>
             <li>敵名が「炎スライム」になった。</li>
             <li>初期HPは24と18のまま。</li>
