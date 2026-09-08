@@ -48,7 +48,7 @@ function slugId(value:string){let hash=0;for(const char of value)hash=(hash*31+c
  * 記事本文に置く会話記録カード。左右の吹き出しではなく、話者ラベル付きの縦一列の台帳として並べる。
  * 話者は常時表示のラベル・補助ラベル・スクリーンリーダー用の前置きで判別でき、色は補助にとどめる。
  */
-export function ConversationEvidence({title,source: _source,recordedAt,turns,id,headingLevel=3,label='CONVERSATION EVIDENCE',context,annotation}:ConversationEvidenceProps){
+export function ConversationEvidence({title,recordedAt,turns,id,headingLevel=3,label='CONVERSATION EVIDENCE',context,annotation}:ConversationEvidenceProps){
  if(!turns.length)return null;
  const headingId=id??slugId(title);
  const Heading=`h${headingLevel}` as const;
