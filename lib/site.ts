@@ -12,7 +12,7 @@ function normalizeSiteOrigin(value: string | undefined): string {
 }
 
 export const site = {
-  name: 'GameAI Hub',
+  name: 'AI Iterproof',
   url: normalizeSiteOrigin(process.env.NEXT_PUBLIC_SITE_URL),
   description: 'AIゲーム開発ツールを、料金・商用利用・対応環境から日本語で比較できる意思決定サービス',
 };
