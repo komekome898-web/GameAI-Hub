@@ -155,12 +155,12 @@ export const articles = [
     category: "beginner",
     tags: ["AIゲーム開発", "ブラウザゲーム", "初心者", "HTML"],
     publishedAt: "2026-09-04",
-    updatedAt: "2026-09-04",
+    updatedAt: "2026-09-08",
     publicationStatus: "published",
-    lastVerifiedAt: "2026-09-04",
+    lastVerifiedAt: "2026-09-08",
     author: "AI Iterproof編集部",
     editorialNote:
-      "Project Generatorの条件保持と、検証用HTMLによる貼付・実行・保存・復旧・次タスクの画面操作を確認した初心者向け手順です。外部AIの出力は毎回同一とは限りません。",
+      "AI生成版と掲載完成例を分け、貼付・実行・勝利結果・保存・1変更・復旧を確認できる初心者向け手順です。外部AIの出力は毎回同一とは限りません。",
     sources: [
       {
         label: "MDN: HTML basics",

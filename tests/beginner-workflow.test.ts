@@ -32,7 +32,8 @@ describe('beginner prototype workflow', () => {
     expect(action.doneWhen.join(' ')).toContain('ゴール');
     expect(battle.prompt).toContain('味方モンスター1体と敵1体');
     expect(battle.prompt).toContain('収集・育成・図鑑は次の試作');
-    expect(battle.doneWhen.join(' ')).toContain('勝ちか負け');
+    expect(battle.doneWhen.join(' ')).toContain('敵HPが0になると勝利');
+    expect(battle.doneWhen.join(' ')).not.toMatch(/負け|敗北/);
     expect(novel.prompt).toContain('話者名、日本語の短い台詞3つ');
     expect(novel.prompt).toContain('未指定のサブジャンル、選択肢や分岐は追加しない');
     expect(novel.doneWhen.join(' ')).not.toMatch(/勝敗|ゴール|攻撃/);

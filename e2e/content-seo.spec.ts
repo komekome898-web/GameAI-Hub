@@ -10,6 +10,16 @@ for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'zoom-320'
   await page.getByRole('link',{name:/AIでブラウザゲームを作る方法/}).click();
   await expect(page.getByRole('navigation',{name:'パンくず'})).toBeVisible();
   await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(2);
+  await expect(page.getByRole('heading',{name:'まず完成例を動かす'})).toBeVisible();
+  await expect(page.getByLabel('ゲームのコード')).toContainText('const enemyName = "スライム"');
+  await expect(page.getByRole('heading',{name:'最初のゲームをAIへ生成してもらう'})).toBeVisible();
+  await expect(page.getByRole('button',{name:'最初のゲーム生成promptをコピー'})).toBeVisible();
+  await expect(page.getByText('Step A — 表示：')).toBeVisible();
+  await expect(page.getByText('Step B — HP変化：')).toBeVisible();
+  await expect(page.getByText('Step C — 結果＋もう一度：')).toBeVisible();
+  await expect(page.getByRole('heading',{name:'掲載完成例へ戻り、敵の名前1か所だけ変える'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'動かないときは症状から1つ戻る'})).toBeVisible();
+  await expect(page.getByRole('link',{name:'同じゲームの制作ロードマップを作る'})).toHaveAttribute('href',/\/project\/?\?source=ai-browser-game-how-to/);
   await expect(page.getByRole('heading',{name:'次の判断に必要なページ'})).toBeVisible();
   const body=page.locator('body');
   expect(await body.evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
@@ -20,6 +30,29 @@ for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'zoom-320'
   await page.screenshot({path:`docs/screenshots/issue-45/article-${viewport.name}.png`,fullPage:viewport.name!=='zoom-320'});
  });
 }
+
+test('browser-game article supports play, one change, and recovery',async({page})=>{
+ await page.goto('/articles/ai-browser-game-how-to/');
+ await page.getByRole('button',{name:'ゲームを表示'}).click();
+ const game=page.frameLocator('iframe[title="作ったゲームの動作確認"]');
+ await expect(game.getByText('スライム HP: 18')).toBeVisible();
+ const fight=game.getByRole('button',{name:'たたかう'});
+ await fight.click();
+ await expect(game.getByText('スライム HP: 12')).toBeVisible();
+ await fight.click();
+ await fight.click();
+ await expect(game.getByText('スライムに勝った！')).toBeVisible();
+ await expect(fight).toBeDisabled();
+ await game.getByRole('button',{name:'もう一度'}).click();
+ await expect(game.getByText('スライム HP: 18')).toBeVisible();
+ await page.getByRole('button',{name:'この版は動いたと記録'}).click();
+ const editor=page.getByLabel('ゲームのコード');
+ await editor.fill((await editor.inputValue()).replace('const enemyName = "スライム"','const enemyName = "炎スライム"'));
+ await page.getByRole('button',{name:'ゲームを表示'}).click();
+ await expect(game.getByText('炎スライム HP: 18')).toBeVisible();
+ await page.getByRole('button',{name:'動いた版へ戻す'}).click();
+ await expect(editor).toHaveValue(/const enemyName = "スライム"/);
+});
 
 for(const viewport of [{name:'mobile-375',width:375,height:812,zoom:false},{name:'mobile-360',width:360,height:800,zoom:false},{name:'mobile-320',width:320,height:640,zoom:false},{name:'zoom-320',width:320,height:640,zoom:true},{name:'desktop',width:1280,height:900,zoom:false}]){
  test(`GitHub beginner guide explains return and repository choices — ${viewport.name}`,async({page})=>{

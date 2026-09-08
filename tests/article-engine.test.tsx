@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
 import { ArticleFrame } from '@/components/ArticleFrame';
 import { ArticleProjectCta } from '@/components/ArticleProjectCta';
+import { ArticleProjectLink } from '@/components/ArticleProjectLink';
 import { ArticleAnalytics } from '@/components/ArticleAnalytics';
 import { articleMetadata, articlePath, articles, validateArticles } from '@/data/articles';
 import { absoluteSiteUrl } from '@/lib/site';
@@ -49,5 +50,12 @@ describe('article content engine',()=>{
   fireEvent.click(screen.getByRole('link',{name:'制作手順を作る'}));
   expect(listener).toHaveBeenCalledOnce();
   expect((listener.mock.calls[0][0] as CustomEvent).detail).toEqual({name:'article_to_project',properties:{page:'/articles/ai-fantasy',placement:'article_end',article_slug:'ai-fantasy',cta_placement:'article_end',source_context:'article',route_category:'article'}});
+ });
+ it('measures an inline article handoff with its exercise placement',()=>{
+  const listener=vi.fn(); window.addEventListener('gameai:event',listener);
+  render(<ArticleProjectLink slug="ai-browser-game-how-to" label="同じゲームを続ける" placement="article_body_after_exercise"/>);
+  fireEvent.click(screen.getByRole('link',{name:'同じゲームを続ける'}));
+  expect((listener.mock.calls[0][0] as CustomEvent).detail).toEqual({name:'article_to_project',properties:{page:'/articles/ai-browser-game-how-to',placement:'article_body_after_exercise',article_slug:'ai-browser-game-how-to',cta_placement:'article_body_after_exercise',source_context:'article',route_category:'article'}});
+  window.removeEventListener('gameai:event',listener);
  });
 });

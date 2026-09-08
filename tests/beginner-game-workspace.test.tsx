@@ -98,6 +98,20 @@ describe("beginner game isolation and recovery", () => {
     expect(screen.getByTitle("作ったゲームの動作確認")).toBeTruthy();
   });
 
+  it("returns to the supplied article example without discarding the recorded AI version", async () => {
+    render(<BeginnerGameWorkspace projectId="article" initialCode={game} />);
+    await waitFor(() => expect((screen.getByRole("button", { name: "ゲームを表示" }) as HTMLButtonElement).disabled).toBe(false));
+    const aiGame = "<html><body>ゴーレム HP: 20</body></html>";
+    fireEvent.change(screen.getByLabelText("ゲームのコード"), { target: { value: aiGame } });
+    fireEvent.click(screen.getByRole("button", { name: "ゲームを表示" }));
+    fireEvent.click(screen.getByRole("button", { name: "この版は動いたと記録" }));
+    fireEvent.click(screen.getByRole("button", { name: "掲載完成例へ戻す" }));
+    expect((screen.getByLabelText("ゲームのコード") as HTMLTextAreaElement).value).toBe(game);
+    fireEvent.click(screen.getByRole("button", { name: "ゲームを表示" }));
+    fireEvent.click(screen.getByRole("button", { name: "動いた版へ戻す" }));
+    expect((screen.getByLabelText("ゲームのコード") as HTMLTextAreaElement).value).toBe(aiGame);
+  });
+
   it("keeps the user-confirmed working version when a later game is previewed", async () => {
     render(<BeginnerGameWorkspace projectId="a" initialCode={game} />);
     await waitFor(() =>
@@ -151,10 +165,13 @@ describe("beginner game isolation and recovery", () => {
     await waitFor(() =>
       expect(screen.getByRole("button", { name: "ゲームを表示" })).toBeTruthy(),
     );
+    await waitFor(() =>
+      expect((screen.getByRole("button", { name: "ゲームを表示" }) as HTMLButtonElement).disabled).toBe(false),
+    );
     fireEvent.click(screen.getByRole("button", { name: "ゲームを表示" }));
-    const frame = screen.getByTitle(
+    const frame = (await screen.findByTitle(
       "作ったゲームの動作確認",
-    ) as HTMLIFrameElement;
+    )) as HTMLIFrameElement;
     const channel = frame.srcdoc.match(/var channel=\"([^\"]+)\"/)?.[1];
     expect(channel).toBeTruthy();
     window.dispatchEvent(

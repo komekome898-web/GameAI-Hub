@@ -280,6 +280,17 @@ export function BeginnerGameWorkspace({
         <button type="button" disabled={!preview} onClick={downloadGame}>
           index.htmlを保存
         </button>
+        {initialCode && code !== initialCode && (
+          <button
+            type="button"
+            onClick={() => {
+              setCode(initialCode);
+              setStatus("掲載完成例を編集欄へ戻しました。「ゲームを表示」を押してください。記録した動いた版は残っています。");
+            }}
+          >
+            掲載完成例へ戻す
+          </button>
+        )}
       </div>
       <label className="beginner-file-label" htmlFor={fileId}>
         保存したゲームを開く
