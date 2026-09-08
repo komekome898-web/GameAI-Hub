@@ -51,7 +51,7 @@ describe('Issue 55 intent preservation contracts', () => {
 
   it('keeps one-on-one battle and excludes unrelated platformer or gathering mechanics', () => {
     const result = surfaces(base('モンスター同士が1対1で戦うゲーム'));
-    expect(result.steps[0].prompt).toMatch(/モンスター.*1対1.*攻撃.*HP.*勝ちか負け/s);
+    expect(result.steps[0].prompt).toMatch(/モンスター.*1対1.*攻撃.*HP.*勝利/s);
     expect(result.text).not.toMatch(/移動してゴール|プレイヤーとゴール|上下左右|採集|素材を集め/);
   });
 

@@ -165,10 +165,13 @@ describe("beginner game isolation and recovery", () => {
     await waitFor(() =>
       expect(screen.getByRole("button", { name: "ゲームを表示" })).toBeTruthy(),
     );
+    await waitFor(() =>
+      expect((screen.getByRole("button", { name: "ゲームを表示" }) as HTMLButtonElement).disabled).toBe(false),
+    );
     fireEvent.click(screen.getByRole("button", { name: "ゲームを表示" }));
-    const frame = screen.getByTitle(
+    const frame = (await screen.findByTitle(
       "作ったゲームの動作確認",
-    ) as HTMLIFrameElement;
+    )) as HTMLIFrameElement;
     const channel = frame.srcdoc.match(/var channel=\"([^\"]+)\"/)?.[1];
     expect(channel).toBeTruthy();
     window.dispatchEvent(
