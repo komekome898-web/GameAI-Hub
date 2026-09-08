@@ -17,7 +17,7 @@ export type ConversationAnnotation={label?:string;question?:string;answer:ReactN
 export type ConversationEvidenceProps={
  /** 図としての見出し。何のやり取りかを一文で。 */
  title:string;
- /** 引用元の記録。証跡として必須。リポジトリ内のドキュメントパスなど。 */
+ /** 引用元の記録。監査用に保持するが、読者向けカードには表示しない。 */
  source:{label:string;href?:string};
  /** 記録日 (YYYY-MM-DD)。証跡として必須。 */
  recordedAt:string;
@@ -48,7 +48,7 @@ function slugId(value:string){let hash=0;for(const char of value)hash=(hash*31+c
  * 記事本文に置く会話記録カード。左右の吹き出しではなく、話者ラベル付きの縦一列の台帳として並べる。
  * 話者は常時表示のラベル・補助ラベル・スクリーンリーダー用の前置きで判別でき、色は補助にとどめる。
  */
-export function ConversationEvidence({title,source,recordedAt,turns,id,headingLevel=3,label='CONVERSATION EVIDENCE',context,annotation}:ConversationEvidenceProps){
+export function ConversationEvidence({title,recordedAt,turns,id,headingLevel=3,label='CONVERSATION EVIDENCE',context,annotation}:ConversationEvidenceProps){
  if(!turns.length)return null;
  const headingId=id??slugId(title);
  const Heading=`h${headingLevel}` as const;
@@ -61,7 +61,6 @@ export function ConversationEvidence({title,source,recordedAt,turns,id,headingLe
    <p className="conv-evidence-meta">
     <span>記録 <time dateTime={recordedAt}>{recordedAt}</time></span>
     <span>発言 {turns.length} 件</span>
-    <span>出典 {source.href?<a href={source.href} rel="noopener" target="_blank"><code>{source.label}</code> ↗<span className="sr-only">（新しいタブで開く）</span></a>:<code>{source.label}</code>}</span>
    </p>
   </figcaption>
   <ol className="conv-turns" role="list">
