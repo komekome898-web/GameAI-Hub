@@ -5,7 +5,21 @@ import { ArticleFrame } from "@/components/ArticleFrame";
 import { articleMetadata, getArticle } from "@/data/articles";
 
 const article = getArticle("ai-browser-game-how-to")!;
-export const metadata: Metadata = articleMetadata(article);
+const seoTitle =
+  "AIでブラウザゲームを作る方法【初心者向け】1つのHTMLをAIで作って動かす";
+const seoDescription =
+  "ゲーム制作未経験でも、AIに指示して1つのindex.htmlを作り、ブラウザで実行・修正・保存・復旧する手順。PC・iPhone・Android向けに、最初の1画面ゲームから次の作業まで解説。";
+const baseMetadata = articleMetadata(article);
+export const metadata: Metadata = {
+  ...baseMetadata,
+  title: seoTitle,
+  description: seoDescription,
+  openGraph: {
+    ...baseMetadata.openGraph,
+    title: seoTitle,
+    description: seoDescription,
+  },
+};
 
 export default function AiBrowserGameHowTo() {
   return (
@@ -14,12 +28,12 @@ export default function AiBrowserGameHowTo() {
         <header className="page-head">
           <p className="eyebrow">BROWSER GAME / ONE PLAYABLE FILE</p>
           <h1>
-            AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む
+            AIでブラウザゲームを作る方法【初心者向け】1つのHTMLをAIで作って動かす
           </h1>
           <p className="lead">
-            最初に作るのは、画像も音声もない1対1のモンスターバトルです。AIから受け取る成果物は
+            ゲーム制作もプログラミングも初めてなら、最初から大作を作る必要はありません。この手順ではAIに1対1のモンスターバトルを作ってもらい、
             <strong>HTML・CSS・JavaScriptをまとめた1つの index.html</strong>
-            。GameAI Hubへ貼って動かし、攻撃・勝敗・やり直しを自分で確認します。
+            をAI Iterproofへ貼って実行します。攻撃・勝敗・やり直しを自分で確認し、1変更ずつ直し、壊れたら動いた版へ戻します。
           </p>
           <div className="article-contract">
             <p>
@@ -107,8 +121,7 @@ export default function AiBrowserGameHowTo() {
           <h2>4. 端末ごとにAIからHubへ戻る</h2>
           <ul>
             <li>
-              <strong>PC：</strong>AIのコード枠をコピーし、GameAI
-              Hubのタブへ切り替えて貼り付けます。
+              <strong>PC：</strong>AIのコード枠をコピーし、AI Iterproofのタブへ切り替えて貼り付けます。
             </li>
             <li>
               <strong>iPhone：</strong>
@@ -127,7 +140,7 @@ export default function AiBrowserGameHowTo() {
         <section>
           <h2>5. コードを貼り、ゲームを実行する</h2>
           <ol>
-            <li>GameAI Hubへ戻る。</li>
+            <li>AI Iterproofへ戻る。</li>
             <li>「ゲームのコード」に、コピーしたHTML全文を貼る。</li>
             <li>「ゲームを表示」を押す。</li>
             <li>
@@ -157,8 +170,7 @@ export default function AiBrowserGameHowTo() {
             </li>
           </ul>
           <p>
-            GameAI
-            Hubがすべてのログを自動取得するわけではありません。また、不明なコードの安全性を保証しません。個人情報や秘密情報はコードや相談文へ入れないでください。
+            AI Iterproofがすべてのログを自動取得するわけではありません。また、不明なコードの安全性を保証しません。個人情報や秘密情報はコードや相談文へ入れないでください。
           </p>
         </section>
 
