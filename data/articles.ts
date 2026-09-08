@@ -65,7 +65,7 @@ export const articles = [
     updatedAt: "2026-09-04",
     publicationStatus: "published",
     lastVerifiedAt: "2026-09-04",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "GitHub公式Docsの手順とラベルを2026-09-04に確認して構成しています。ログイン後の新規アカウントによる全操作は実測しておらず、UIはアカウントや更新により異なる場合があります。",
     sources: [
@@ -133,7 +133,7 @@ export const articles = [
       },
       {
         href: "/methodology/",
-        label: "GameAI Hubの調査・評価方法",
+        label: "AI Iterproofの調査・評価方法",
         reason: "公式確認と実測、未確認をどう分けるか確認する",
         kind: "reference",
       },
@@ -158,7 +158,7 @@ export const articles = [
     updatedAt: "2026-09-04",
     publicationStatus: "published",
     lastVerifiedAt: "2026-09-04",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "Project Generatorの条件保持と、検証用HTMLによる貼付・実行・保存・復旧・次タスクの画面操作を確認した初心者向け手順です。外部AIの出力は毎回同一とは限りません。",
     sources: [
@@ -219,7 +219,7 @@ export const articles = [
     publishedAt: "2026-08-29",
     updatedAt: "2026-08-29",
     publicationStatus: "published",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "運営者の開発経験を整理したフィールドノートです。製品仕様の比較記事ではありません。",
     sources: [],
@@ -238,7 +238,7 @@ export const articles = [
       },
       {
         href: "/methodology/",
-        label: "GameAI Hubの調査・評価方法",
+        label: "AI Iterproofの調査・評価方法",
         reason: "確認済み情報と不明情報の扱いを確認する",
         kind: "reference",
       },
@@ -261,7 +261,7 @@ export const articles = [
     updatedAt: "2026-08-29",
     publicationStatus: "published",
     lastVerifiedAt: "2026-08-29",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "運営者の実体験に基づく実践ガイドです。各サービスの最新仕様は公式資料で別途確認してください。",
     sources: [
@@ -322,9 +322,9 @@ export const articles = [
     publishedAt: "2026-09-02",
     updatedAt: "2026-09-02",
     publicationStatus: "published",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
-      "GameAI Hubの開発・初心者導線設計で得た経験を整理したフィールドノートです。特定サービスの性能比較や最新仕様を扱う記事ではありません。",
+      "AI Iterproofの開発・初心者導線設計で得た経験を整理したフィールドノートです。特定サービスの性能比較や最新仕様を扱う記事ではありません。",
     sources: [],
     related: [
       {
@@ -364,7 +364,7 @@ export const articles = [
     publishedAt: "2026-09-02",
     updatedAt: "2026-09-02",
     publicationStatus: "published",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "初心者向け制作導線の設計経験から、AIへ依頼する前に決める作業単位を整理したフィールドノートです。",
     sources: [],
@@ -406,7 +406,7 @@ export const articles = [
     publishedAt: "2026-09-02",
     updatedAt: "2026-09-02",
     publicationStatus: "published",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "AI開発での受入テスト経験から、AIの自己報告と実際の成果物を分けて考える方法を整理したフィールドノートです。",
     sources: [],
@@ -425,7 +425,7 @@ export const articles = [
       },
       {
         href: "/methodology/",
-        label: "GameAI Hubの調査・評価方法",
+        label: "AI Iterproofの調査・評価方法",
         reason: "確認済み情報と不明情報をどう分けるかを見る",
         kind: "reference",
       },
@@ -448,9 +448,9 @@ export const articles = [
     publishedAt: "2026-09-02",
     updatedAt: "2026-09-02",
     publicationStatus: "published",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
-      "初心者向けGameAI Hubの設計思想をもとに、ツール比較を制作工程の後段へ置く理由を整理したフィールドノートです。特定サービスのランキング記事ではありません。",
+      "初心者向けAI Iterproofの設計思想をもとに、ツール比較を制作工程の後段へ置く理由を整理したフィールドノートです。特定サービスのランキング記事ではありません。",
     sources: [],
     related: [
       {
@@ -490,7 +490,7 @@ export const articles = [
     publishedAt: "2026-09-02",
     updatedAt: "2026-09-02",
     publicationStatus: "published",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "初心者向け制作フローの設計経験から、最初の成功体験を小さくする理由を整理したフィールドノートです。",
     sources: [],
@@ -533,7 +533,7 @@ export const articles = [
     publishedAt: "2026-09-07",
     updatedAt: "2026-09-07",
     publicationStatus: "published",
-    author: "GameAI Hub編集部",
+    author: "AI Iterproof編集部",
     editorialNote:
       "運営者が2026年8月〜9月に自分の相場研究プロジェクトで記録した経験のフィールドノートです。掲載した数値は過去データ上の検証結果で、仮想売買（PAPER）の段階にあり、実弾運用の成績ではありません。特定の金融商品や売買手法を推奨する記事ではありません。",
     sources: [],
@@ -661,7 +661,7 @@ export function articleMetadata(article: ArticleRecord): Metadata {
     alternates: { canonical: articlePath(article) },
     openGraph: {
       type: "article",
-      title: `${article.title} | GameAI Hub`,
+      title: `${article.title} | AI Iterproof`,
       description: article.description,
       url: articlePath(article),
       publishedTime: article.publishedAt,
