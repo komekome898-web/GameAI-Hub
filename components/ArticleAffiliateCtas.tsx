@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { usePathname } from 'next/navigation';
 import { buildSubId, track } from '@/lib/analytics';
+import { affiliateEventProperties } from '@/lib/affiliate-analytics';
+import { useAffiliateImpression } from '@/components/useAffiliateImpression';
 
 type Mounts={disclosure:HTMLElement|null;first:HTMLElement|null;second:HTMLElement|null};
 export type ArticleServiceLink={slug:string;name:string;url:string;affiliate:boolean};
@@ -16,16 +18,18 @@ function makeMount(after:Element,key:string){
 }
 
 function ArticleServiceAnchor({service,page,placement,disclosureId}:{service:ArticleServiceLink;page:string;placement:string;disclosureId:string}){
+  const properties=affiliateEventProperties({serviceId:service.slug,page,placement,affiliate:service.affiliate});
+  const impressionRef=useAffiliateImpression(service.affiliate,properties);
   return <a
+    ref={impressionRef}
     href={service.url}
     target="_blank"
     rel={service.affiliate?'sponsored nofollow noopener':'noopener'}
     aria-describedby={service.affiliate?disclosureId:undefined}
     onClick={()=>{
-      const production_stage=service.slug==='elevenlabs'?'audio':service.slug==='meshy'?'assets':'other';
-      const properties={service:service.slug,service_id:service.slug,page,placement,sub_id:buildSubId(service.slug,page,placement),production_stage,source_context:'article',route_category:'article',affiliate:service.affiliate};
-      track('outbound_click',properties);
-      if(service.affiliate)track('affiliate_click',properties);
+      const clickProperties={...properties,sub_id:buildSubId(service.slug,page,placement)};
+      track('outbound_click',clickProperties);
+      if(service.affiliate)track('affiliate_click',clickProperties);
     }}
   >{service.name}</a>;
 }

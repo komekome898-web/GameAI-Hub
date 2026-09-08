@@ -13,10 +13,13 @@
 | builder_step | 各stepを完了（`step`は1〜4） | step, page |
 | builder_complete | 構成生成 | page, game_type, budget |
 | outbound_click | 外部CTA | service, page, placement, sub_id |
-| affiliate_click | affiliateUrl CTA | service, page, placement, sub_id |
+| affiliate_impression | affiliate CTAの50%以上がviewportに入った初回（同一service_id + page + placementは重複排除） | service_id, page, placement, production_stage, source_context, route_category, affiliate=true, article_slug / task_stage / task_index（安全に確定済みの場合のみ） |
+| affiliate_click | affiliateUrl CTA | service_id, page, placement, production_stage, source_context, route_category, affiliate=true, article_slug / task_stage / task_index（安全に確定済みの場合のみ）, sub_id |
 | calculator_start / complete | P1計算機 | category（予定） |
 | diagnosis_start / complete | P2診断 | rule_version（予定） |
 
-主要ファネルは `landing → builder_start → builder_step → builder_complete → compare → outbound`。Stack経由は`stack_view → stack_to_builder`で確認する。conversion/approved revenueはASP側の成果を、許可されたsub IDと照合する。プログラム別規約を確認するまでURLへsub IDを自動付与しない。
+主要ファネルは `landing → builder_start → builder_step → builder_complete → compare → outbound`。Stack経由は`stack_view → stack_to_builder`で確認する。収益ファネルは `affiliate_impression → affiliate_click → tool_return（安全かつ信頼できる場合のみ）→ task_completed → provider conversion / commission` とする。`tool_return` は外部タブからの復帰と制作継続の因果を信頼できる形で判定できないため、現時点では **UNKNOWN / deferred** でありイベントを実装しない。conversion/approved revenueはブラウザで推測せず、provider側の成果を許可されたsub IDと照合する。プログラム別規約を確認するまでURLへsub IDを自動付与しない。
 
 初回のページ閲覧はGA4の既存`gtag('config', ...)`が送信する。アプリ側から独自の`page_view`は重複送信せず、SPA遷移の計測範囲はGAプロパティのEnhanced Measurement設定を運営者がRealtimeで確認する。イベントプロパティは`lib/analytics.ts`のイベント別allowlistを通り、未定義キーは送信前に破棄される。
+
+`affiliate_impression` と `affiliate_click` は `service_id`, `page`, `placement`, `production_stage`, `source_context`, `route_category`, `affiliate` を共通比較軸とする。記事slugやProject task属性は、route/taskから既に安全なカテゴリ値として確定できる場合だけ追加する。URL、query、任意入力、prompt/code/error等は送らない。クリック固有の `sub_id` は既存の安全な生成規則を維持する。

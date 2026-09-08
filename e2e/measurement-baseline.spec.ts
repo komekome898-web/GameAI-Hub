@@ -107,3 +107,53 @@ test("article → Project → first completion → next task is observable witho
     captured.find((event) => event.name === "next_task_reached")?.properties,
   ).toMatchObject({ task_index: 1, route_category: "project" });
 });
+
+test("affiliate CTA records one viewable impression before comparable click events", async ({
+  page,
+}) => {
+  await installAnalyticsCapture(page);
+  await page.setViewportSize({ width: 1280, height: 200 });
+  await page.goto("/tools/meshy/");
+  const meshy = page.locator('a[href="https://www.meshy.ai?via=gameaihub"]');
+  await expect(meshy).toBeAttached();
+
+  expect((await events(page)).filter((event) => event.name === "affiliate_impression")).toHaveLength(0);
+  await meshy.scrollIntoViewIfNeeded();
+  await expect(meshy).toBeInViewport({ ratio: 0.5 });
+  await expect.poll(async () => (await events(page)).filter((event) => event.name === "affiliate_impression").length).toBe(1);
+
+  await page.evaluate(() => window.dispatchEvent(new Event("resize")));
+  await expect.poll(async () => (await events(page)).filter((event) => event.name === "affiliate_impression").length).toBe(1);
+  await meshy.click();
+
+  const captured = await events(page);
+  const affiliateEvents = captured.filter((event) =>
+    ["affiliate_impression", "outbound_click", "affiliate_click"].includes(event.name),
+  );
+  expect(affiliateEvents.map((event) => event.name)).toEqual([
+    "affiliate_impression",
+    "outbound_click",
+    "affiliate_click",
+  ]);
+  const commonKeys = [
+    "service_id",
+    "page",
+    "placement",
+    "production_stage",
+    "source_context",
+    "route_category",
+    "affiliate",
+  ];
+  for (const key of commonKeys)
+    expect(affiliateEvents[0].properties[key]).toBe(affiliateEvents[2].properties[key]);
+  expect(affiliateEvents[2].properties).toMatchObject({
+    service_id: "meshy",
+    page: "/tools/meshy",
+    placement: "primary",
+    production_stage: "assets",
+    source_context: "tool",
+    route_category: "tool",
+    affiliate: true,
+  });
+  expect(JSON.stringify(affiliateEvents)).not.toMatch(/https?:|\?|secret/i);
+});

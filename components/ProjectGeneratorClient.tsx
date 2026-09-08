@@ -1310,6 +1310,7 @@ function BeginnerToolLink({
       service={service}
       page="project-beginner"
       placement={`quest_${taskId}`}
+      attribution={{ task_stage: taskStage(taskId) }}
     />
   );
 }

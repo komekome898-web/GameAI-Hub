@@ -2,6 +2,14 @@
 
 Scope: Measurement baseline only. This inventory distinguishes implementation availability from observation in GA4 or Search Console.
 
+## Issue #69 affiliate revenue measurement extension
+
+Affiliate CTAはrenderではなく、IntersectionObserverでCTAの50%以上がviewportへ入ったときに `affiliate_impression` を送る。同一page viewで同じ `service_id + page + placement` は通常のrerender/effect再実行では再送しない。affiliateではない公式リンクは対象外である。
+
+Impressionとclickの共通categorical attributionは `service_id`, `page`, `placement`, `production_stage`, `source_context`, `route_category`, `affiliate`。検証済み記事routeでは `article_slug`、既に確定したProject taskでは `task_stage`（利用可能ならboundedな `task_index`）を追加できる。raw idea/prompt/HTML/code/runtime・trouble text/query/full URL/PII/secrets/tokensはallowlistと値validationの双方で除外する。
+
+`tool_return` は外部tool利用と復帰の因果を安全かつ信頼できる形で観測できないため **UNKNOWN / deferred**。client-side conversion/revenue eventは存在せず、provider conversion/commissionは外部reportとのreconciliation対象である。Production event payloadとGA4 ingestionはmerge/deploy後に別途受入し、未観測時はUNTESTEDとする。
+
 ## Before-change audit (`origin/main` at `70352d0`)
 
 | Funnel point | Status / exact name | Firing location and condition | Parameters | Duplicate / privacy / delivery / tests |

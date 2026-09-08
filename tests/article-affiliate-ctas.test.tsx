@@ -1,13 +1,24 @@
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { ArticleAffiliateCtas, type ArticleServiceLink } from '@/components/ArticleAffiliateCtas';
 import { getOutboundUrl, getService } from '@/lib/services';
 
 const navigation=vi.hoisted(()=>({pathname:'/articles/ai-fantasy'}));
 vi.mock('next/navigation',()=>({usePathname:()=>navigation.pathname}));
 
+let observerCallbacks:IntersectionObserverCallback[]=[];
+beforeEach(()=>{
+  observerCallbacks=[];
+  class MockIntersectionObserver{
+    root=null;rootMargin='0px';thresholds=[0.5];
+    constructor(callback:IntersectionObserverCallback){observerCallbacks.push(callback)}
+    observe=vi.fn();disconnect=vi.fn();unobserve=vi.fn();takeRecords=()=>[];
+  }
+  vi.stubGlobal('IntersectionObserver',MockIntersectionObserver);
+});
 afterEach(()=>{
   cleanup();
+  vi.unstubAllGlobals();
   navigation.pathname='/articles/ai-fantasy';
 });
 
@@ -39,14 +50,17 @@ describe('ArticleAffiliateCtas',()=>{
     expect(ad?.getAttribute('aria-label')).toBe('広告');
     expect(ad?.textContent).toMatch(/^広告/);
     expect(ad?.textContent).not.toMatch(/私なら|候補に入れる|試す方がいい/);
+    await waitFor(()=>expect(observerCallbacks.length).toBeGreaterThan(0));
+    observerCallbacks[0]([{target:link,isIntersecting:true,intersectionRatio:1} as unknown as IntersectionObserverEntry],{} as IntersectionObserver);
     fireEvent.click(link);
-    expect(events.map(event=>event.detail.name)).toEqual(['outbound_click','affiliate_click']);
-    expect(events[0].detail.properties).toMatchObject({
+    expect(events.map(event=>event.detail.name)).toEqual(['affiliate_impression','outbound_click','affiliate_click']);
+    expect(events[1].detail.properties).toMatchObject({
       service:'meshy',
       page:'/articles/ai-fantasy',
       placement:'fantasy_tools_inline',
       sub_id:'meshy__-articles-ai-fantasy__fantasy_tools_inline',
     });
+    expect(events[0].detail.properties).toMatchObject({service_id:'meshy',page:'/articles/ai-fantasy',placement:'fantasy_tools_inline',article_slug:'ai-fantasy'});
     window.removeEventListener('gameai:event',listener);
   });
 
