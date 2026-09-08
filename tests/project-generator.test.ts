@@ -29,6 +29,14 @@ describe('deterministic project interpreter',()=>{
     expect(artifacts).toMatch(/勝利と敗北の両方/);
   });
 
+  it('does not add defeat when the user explicitly excludes it',()=>{
+    const idea='1対1バトルで、敵HPが0なら勝ち。敗北は不要。';
+    const battle={id:'detail-battle',kind:'core-mechanic' as const,text:'戦闘',provenance:'explicit_text' as const,evidence:idea};
+    const plan=generateProjectPlan(brief({idea,dimension:'2d',platform:'web',experience:'beginner',details:[battle]}));
+    const artifacts=beginnerWorkflowSteps(plan).map(step=>`${step.prompt} ${step.doneWhen.join(' ')} ${step.usageInstructions.join(' ')}`).join(' ');
+    expect(artifacts).not.toMatch(/味方HPが0なら敗北|勝利と敗北の両方|勝ちと負け/);
+  });
+
   it('does not infer battle from a negated or unrelated use of fighting',()=>{
     expect(interpretProjectIdea('モンスターは出るが戦闘なしの会話ゲーム').detailCandidates).not.toContainEqual(expect.objectContaining({text:'戦闘'}));
     expect(interpretProjectIdea('日常を戦う主人公の物語').detailCandidates).not.toContainEqual(expect.objectContaining({text:'戦闘'}));

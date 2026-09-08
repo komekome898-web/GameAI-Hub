@@ -6,7 +6,9 @@ export function beginnerWorkflowSteps(plan: ProjectPlan): BuildChecklistStep[] {
   const intent = projectIntentProfile(plan.brief);
   const novel = intent.template === 'novel';
   const battle = intent.template === 'battle';
-  const explicitDefeat = /(?:自分|味方|プレイヤー)(?:の)?HP(?:が)?0(?:なら|になったら|で)(?:負け|敗北)|(?:負け|敗北|lose state|game over|勝敗の両方|勝ちと負け)/i.test(`${plan.brief.idea} ${plan.brief.details.map(detail => detail.text).join(' ')}`);
+  const defeatContext = `${plan.brief.idea} ${plan.brief.details.map(detail => detail.text).join(' ')}`.normalize('NFKC');
+  const defeatNegated = /(?:負け|敗北|lose state|game over)(?:状態)?(?:は|も|を)?(?:不要|なし|いらない|追加しない|作らない)/i.test(defeatContext);
+  const explicitDefeat = !defeatNegated && /(?:自分|味方|プレイヤー)(?:の)?HP(?:が)?0(?:なら|になったら|で)(?:負け|敗北)|(?:勝敗の両方|勝ちと負け|負けも|敗北も|lose state|game over)/i.test(defeatContext);
   const tapScore = intent.template === 'tap-score';
   const movementGoal = intent.template === 'movement-goal';
   const codingTools = plan.phases.find(phase => phase.id === 'code')?.tools
