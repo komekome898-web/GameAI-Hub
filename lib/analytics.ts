@@ -5,6 +5,7 @@ export type EventName =
   | "compare_start"
   | "compare_view"
   | "outbound_click"
+  | "affiliate_impression"
   | "affiliate_click"
   | "calculator_start"
   | "calculator_complete"
@@ -77,6 +78,21 @@ const allowlist: Record<EventName, readonly EventProperty[]> = {
     "source_context",
     "route_category",
     "affiliate",
+    "article_slug",
+    "task_stage",
+    "task_index",
+  ],
+  affiliate_impression: [
+    "service_id",
+    "page",
+    "placement",
+    "production_stage",
+    "source_context",
+    "route_category",
+    "affiliate",
+    "article_slug",
+    "task_stage",
+    "task_index",
   ],
   affiliate_click: [
     "service",
@@ -88,6 +104,9 @@ const allowlist: Record<EventName, readonly EventProperty[]> = {
     "source_context",
     "route_category",
     "affiliate",
+    "article_slug",
+    "task_stage",
+    "task_index",
   ],
   calculator_start: ["category"],
   calculator_complete: ["category"],

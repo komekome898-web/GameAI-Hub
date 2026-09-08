@@ -19,6 +19,7 @@ const funnelEvents: EventName[] = [
   "first_task_viewed",
   "task_completed",
   "next_task_reached",
+  "affiliate_impression",
   "affiliate_click",
 ];
 
@@ -32,6 +33,7 @@ describe("analytics measurement baseline", () => {
       "first_task_viewed",
       "task_completed",
       "next_task_reached",
+      "affiliate_impression",
       "affiliate_click",
     ]);
   });
@@ -118,6 +120,32 @@ describe("analytics measurement baseline", () => {
       source_context: "project",
       route_category: "project",
       affiliate: true,
+    });
+  });
+  it("sanitizes affiliate impressions to bounded attribution only", () => {
+    expect(
+      sanitizeEventProperties("affiliate_impression", {
+        service: "must-not-be-sent",
+        service_id: "elevenlabs",
+        page: "/articles/ai-fantasy?idea=secret",
+        placement: "fantasy_voice_inline",
+        production_stage: "audio",
+        source_context: "article",
+        route_category: "article",
+        affiliate: true,
+        article_slug: "ai-fantasy",
+        task_stage: "raw prompt with spaces",
+        task_index: 101,
+        source: "https://example.com/?token=secret",
+      }),
+    ).toEqual({
+      service_id: "elevenlabs",
+      placement: "fantasy_voice_inline",
+      production_stage: "audio",
+      source_context: "article",
+      route_category: "article",
+      affiliate: true,
+      article_slug: "ai-fantasy",
     });
   });
   it("keeps the production GA4 measurement and config behavior", () => {

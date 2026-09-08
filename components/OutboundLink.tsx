@@ -1,52 +1,46 @@
 "use client";
 import type { Service } from "@/lib/schema";
 import { buildSubId, track } from "@/lib/analytics";
+import {
+  affiliateEventProperties,
+  type AffiliateAttribution,
+} from "@/lib/affiliate-analytics";
 import { getOutboundUrl } from "@/lib/services";
-
-function routeCategory(page: string) {
-  if (page.startsWith("/articles/")) return "article";
-  if (page.startsWith("/tools/")) return "tool";
-  if (page.startsWith("/compare")) return "compare";
-  if (page.startsWith("/stacks/")) return "stack";
-  if (page.includes("project")) return "project";
-  return "other";
-}
-function productionStage(service: string) {
-  if (service === "elevenlabs") return "audio";
-  if (service === "meshy") return "assets";
-  return "other";
-}
+import { useAffiliateImpression } from "@/components/useAffiliateImpression";
 export function OutboundLink({
   service,
   page,
   placement = "primary",
+  attribution,
 }: {
   service: Service;
   page: string;
   placement?: string;
+  attribution?: AffiliateAttribution;
 }) {
   const affiliate = Boolean(service.affiliateUrl);
   const disclosureId = `affiliate-${service.slug}-${buildSubId(service.slug, page, placement)}`;
+  const properties = affiliateEventProperties({
+    serviceId: service.slug,
+    page,
+    placement,
+    affiliate,
+    attribution,
+  });
+  const impressionRef = useAffiliateImpression(affiliate, properties);
   return (
     <div className="cta-wrap">
       <a
+        ref={impressionRef}
         className="button"
         href={getOutboundUrl(service)}
         target="_blank"
         rel={affiliate ? "sponsored nofollow noopener" : "noopener"}
         aria-describedby={affiliate ? disclosureId : undefined}
         onClick={() => {
-          const category = routeCategory(page);
           const props = {
-            service: service.slug,
-            service_id: service.slug,
-            page,
-            placement,
+            ...properties,
             sub_id: buildSubId(service.slug, page, placement),
-            production_stage: productionStage(service.slug),
-            source_context: category,
-            route_category: category,
-            affiliate,
           };
           track("outbound_click", props);
           if (affiliate) track("affiliate_click", props);
