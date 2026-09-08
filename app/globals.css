@@ -505,3 +505,4 @@ article.page-shell .stage-decision>summary strong{
 .article-definition p{margin:0;overflow-wrap:anywhere;word-break:break-word}
 .article-definition p+p{margin-top:8px}
 @media(max-width:400px){.article-definition{padding:12px 11px}}
+@media(max-width:200px){.article-inline-handoff{padding:16px 6px!important;border-radius:12px}.article-inline-handoff h2{font-size:1.2rem;line-height:1.22}.article-inline-handoff .article-code{padding:10px 6px}.article-inline-handoff .button{width:100%;padding-inline:5px}}
