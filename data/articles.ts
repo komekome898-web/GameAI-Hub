@@ -54,6 +54,93 @@ export const articleCategoryLabels: Record<ArticleCategory, string> = {
 
 export const articles = [
   {
+    slug: "elevenlabs-game-development-guide",
+    title:
+      "ゲーム開発向けElevenLabs使い方ガイド｜日本語音声・効果音・APIの選び方",
+    description:
+      "ゲーム初心者がElevenLabsで代表セリフ1〜3本を作り、保存・組み込み・ゲーム内検品まで進める手順。日本語音声、効果音、API、商用条件の判断基準も解説。",
+    category: "tool",
+    tags: ["ElevenLabs", "ゲーム音声", "日本語音声", "効果音", "API"],
+    publishedAt: "2026-09-09",
+    updatedAt: "2026-09-09",
+    publicationStatus: "published",
+    lastVerifiedAt: "2026-09-09",
+    author: "AI Iterproof編集部",
+    editorialNote:
+      "ElevenLabs公式の機能、モデル、API出力形式、料金、規約を2026-09-09に確認しました。音声の自然さは文章・声・設定で変わるため、代表セリフを実際のゲーム内で検品する手順を基準にしています。",
+    sources: [
+      {
+        label: "ElevenLabs Docs: Text to Speech",
+        url: "https://elevenlabs.io/docs/overview/capabilities/text-to-speech",
+        kind: "primary",
+        verifiedAt: "2026-09-09",
+      },
+      {
+        label: "ElevenLabs Docs: Sound Effects",
+        url: "https://elevenlabs.io/docs/overview/capabilities/sound-effects",
+        kind: "primary",
+        verifiedAt: "2026-09-09",
+      },
+      {
+        label: "ElevenLabs Docs: Models and languages",
+        url: "https://elevenlabs.io/docs/models",
+        kind: "primary",
+        verifiedAt: "2026-09-09",
+      },
+      {
+        label: "ElevenLabs API: Text to Speech output formats",
+        url: "https://elevenlabs.io/docs/api-reference/text-to-speech/convert",
+        kind: "primary",
+        verifiedAt: "2026-09-09",
+      },
+      {
+        label: "ElevenLabs Pricing",
+        url: "https://elevenlabs.io/pricing",
+        kind: "primary",
+        verifiedAt: "2026-09-09",
+      },
+      {
+        label: "ElevenLabs Terms of Use",
+        url: "https://elevenlabs.io/terms-of-use",
+        kind: "primary",
+        verifiedAt: "2026-09-09",
+      },
+    ],
+    related: [
+      {
+        href: "/tools/elevenlabs/",
+        label: "ElevenLabsの検証済みツール情報",
+        reason: "登録済みの用途、料金区分、商用条件、一次資料を確認する",
+        kind: "tool",
+      },
+      {
+        href: "/guides/ai-2d-rpg-workflow/",
+        label: "AIで2D RPGを作る制作フロー",
+        reason: "音声素材をゲーム制作全体の工程に置く",
+        kind: "guide",
+      },
+      {
+        href: "/articles/ai-usage-guide/",
+        label: "ゲーム開発に使えるAIの正しい使い方",
+        reason: "音声以外も含め、成果物からAIを選ぶ基準を確認する",
+        kind: "article",
+      },
+    ],
+    projectCta: {
+      label: "自分のゲームに必要な音声工程を決める",
+      description:
+        "ゲーム案から、音声が必要か、最初に作る音声素材と確認条件は何かを具体的なtaskへ整理します。",
+      placement: "article_end",
+    },
+    promotions: [
+      {
+        serviceSlug: "elevenlabs",
+        placement: "production_tools",
+        context: "代表セリフを決め、実際の音声生成を試す段階で公式機能と無料枠を確認するため。",
+      },
+    ],
+  },
+  {
     slug: "github-beginner-game-development",
     title:
       "GitHubの使い方【ゲーム開発初心者向け】登録・リポジトリ作成・ファイル保存まで",
