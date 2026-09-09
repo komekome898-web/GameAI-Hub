@@ -11,6 +11,8 @@ import {
   decodeProjectState,
   encodeProjectState,
   buildChecklist,
+  buildContextualGenerationPrompt,
+  contextualProjectTool,
   projectProgressKey,
   generateProjectPlan,
   interpretProjectIdea,
@@ -20,6 +22,7 @@ import {
   type ProjectBrief,
   type ProjectPlan,
   type BuildChecklistStep,
+  type ContextualGenerationInput,
   type ProviderInterpretation,
   InterpretationSchema,
   ProjectBriefSchema,
@@ -1315,7 +1318,174 @@ function BeginnerToolLink({
   );
 }
 
-function BuildChecklist({
+export function ContextualTaskToolGuide({
+  step,
+  taskIndex,
+  onCopy,
+}: {
+  step: BuildChecklistStep;
+  taskIndex: number;
+  onCopy?: (content: string, artifact: string) => Promise<unknown>;
+}) {
+  const [generationInput, setGenerationInput] =
+    useState<ContextualGenerationInput>({});
+  const recommendation = contextualProjectTool(step);
+  if (!recommendation) return null;
+  const service = getService(recommendation.tool.serviceSlug);
+  if (!service) return null;
+  const analyticsSource = projectAnalyticsSource();
+  const generationPrompt = buildContextualGenerationPrompt(
+    recommendation,
+    generationInput,
+  );
+  const setInput = <K extends keyof ContextualGenerationInput,>(
+    field: K,
+    value: ContextualGenerationInput[K],
+  ) =>
+    setGenerationInput((current) => ({ ...current, [field]: value }));
+  return (
+    <section
+      className="contextual-task-tool"
+      aria-label="現在の作業で使えるツール"
+    >
+      <p className="contextual-tool-kicker">この成果物を作るときだけ使う候補</p>
+      <h3>{recommendation.tool.name}</h3>
+      <dl>
+        <div>
+          <dt>今回作るもの</dt>
+          <dd>{recommendation.artifact}</dd>
+        </div>
+        <div>
+          <dt>先に準備するもの</dt>
+          <dd>{recommendation.preparation}</dd>
+        </div>
+        <div>
+          <dt>この候補を示す理由</dt>
+          <dd>{recommendation.reason}</dd>
+        </div>
+      </dl>
+      <section className="generation-prompt">
+        <h4>
+          {recommendation.kind === "voice"
+            ? "実際に読み上げる台詞を決める"
+            : "実際に生成するモデルを決める"}
+        </h4>
+        <p>ここで入力した内容はanalyticsへ送信されません。必須項目を決めるまで外部ツールへのCTAは表示されません。</p>
+        {recommendation.kind === "voice" ? (
+          <div className="generation-fields">
+            <label>
+              <span>台詞本文（必須）</span>
+              <textarea
+                value={generationInput.dialogue ?? ""}
+                maxLength={240}
+                rows={3}
+                onChange={(event) => setInput("dialogue", event.target.value)}
+                placeholder="Projectで決めた、実際に読み上げる代表台詞を入力"
+              />
+            </label>
+            <label><span>話者（任意）</span><input value={generationInput.speaker ?? ""} maxLength={80} onChange={(event) => setInput("speaker", event.target.value)} placeholder="明示済みの主人公・NPC等" /></label>
+            <label><span>感情（任意）</span><input value={generationInput.emotion ?? ""} maxLength={80} onChange={(event) => setInput("emotion", event.target.value)} placeholder="この台詞で表現する感情" /></label>
+            <label><span>読み方メモ（必要な場合のみ）</span><input value={generationInput.pronunciation ?? ""} maxLength={120} onChange={(event) => setInput("pronunciation", event.target.value)} /></label>
+            <label>
+              <span>出力形式（必須）</span>
+              <select
+                value={generationInput.outputFormat ?? ""}
+                onChange={(event) =>
+                  setInput(
+                    "outputFormat",
+                    event.target.value as "wav" | "mp3",
+                  )
+                }
+              >
+                <option value="">選択してください</option>
+                <option value="wav">WAV</option>
+                <option value="mp3">MP3</option>
+              </select>
+            </label>
+          </div>
+        ) : (
+          <div className="generation-fields">
+            <label><span>作る対象（必須）</span><input value={generationInput.subject ?? ""} maxLength={120} onChange={(event) => setInput("subject", event.target.value)} placeholder="Projectに必要な代表物体を1つ入力" /></label>
+            <label><span>外観description（必須）</span><textarea value={generationInput.appearance ?? ""} maxLength={240} rows={3} onChange={(event) => setInput("appearance", event.target.value)} placeholder="形、素材、色、表面状態など決めた見た目を入力" /></label>
+            <label><span>ゲーム内の用途（任意）</span><input value={generationInput.purpose ?? ""} maxLength={120} onChange={(event) => setInput("purpose", event.target.value)} /></label>
+            <label><span>スタイル（明示済みの場合のみ）</span><input value={generationInput.style ?? ""} maxLength={120} onChange={(event) => setInput("style", event.target.value)} /></label>
+          </div>
+        )}
+        {generationPrompt ? (
+          <>
+            <h5>
+              {recommendation.kind === "voice"
+                ? "音声生成欄へ入力する本文"
+                : `${recommendation.tool.name}へ送るモデル生成prompt`}
+            </h5>
+            <pre>{generationPrompt}</pre>
+            {recommendation.kind === "voice" && (
+              <section className="tool-settings" aria-label="ElevenLabsで設定する項目">
+                <h5>ElevenLabsで設定する項目</h5>
+                <p>台詞本文とは分けて、ツールに対応する設定がある場合だけ指定します。</p>
+                <dl>
+                  <div><dt>話者</dt><dd>{generationInput.speaker?.trim() || "指定なし"}</dd></div>
+                  <div><dt>感情</dt><dd>{generationInput.emotion?.trim() || "指定なし"}</dd></div>
+                  <div><dt>読み方メモ</dt><dd>{generationInput.pronunciation?.trim() || "指定なし"}</dd></div>
+                  <div><dt>保存する形式</dt><dd>{generationInput.outputFormat?.toUpperCase()}</dd></div>
+                </dl>
+              </section>
+            )}
+          </>
+        ) : (
+          <p role="status">必須項目を入力すると、素材生成用の入力とCTAを表示します。</p>
+        )}
+        {onCopy && generationPrompt && (
+          <button
+            type="button"
+            onClick={() =>
+              void onCopy(
+                generationPrompt,
+                `generation_${step.id}`,
+              )
+            }
+          >
+            {recommendation.kind === "voice"
+              ? "読み上げる台詞本文をコピー"
+              : "モデル生成promptをコピー"}
+          </button>
+        )}
+      </section>
+      {generationPrompt && (
+        <OutboundLink
+          service={service}
+          page="/project"
+          placement="project-task-tool"
+          attribution={{
+            task_stage: taskStage(step.id),
+            task_index: taskIndex,
+            ...("article_slug" in analyticsSource
+              ? { article_slug: analyticsSource.article_slug }
+              : {}),
+          }}
+        />
+      )}
+      <p className="tool-return">
+        <strong>外部ツールから戻ったら：</strong>
+        {recommendation.returnInstruction}
+      </p>
+      <section className="tool-inspection">
+        <h4>生成後にProjectで検品すること</h4>
+        <ul>
+          {recommendation.inspectionItems.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </section>
+      <p className="tool-alternative">
+        <strong>使わない進め方：</strong>
+        {recommendation.alternative}
+      </p>
+    </section>
+  );
+}
+
+export function BuildChecklist({
   steps,
   plan,
   onCopy,
@@ -1605,14 +1775,16 @@ function BuildChecklist({
                 {activeTool?.reason ??
                   "画面を開いて確認する作業です。新しいサービスを選ぶ必要はありません。"}
               </p>
-              {activeTool && getService(activeTool.serviceSlug) && (
-                <>
-                  <BeginnerToolLink tool={activeTool} taskId={active.id} />
-                  <Link href={`/tools/${activeTool.serviceSlug}`}>
-                    選定理由と注意点を見る
-                  </Link>
-                </>
-              )}
+              {activeTool &&
+                !contextualProjectTool(active) &&
+                getService(activeTool.serviceSlug) && (
+                  <>
+                    <BeginnerToolLink tool={activeTool} taskId={active.id} />
+                    <Link href={`/tools/${activeTool.serviceSlug}`}>
+                      選定理由と注意点を見る
+                    </Link>
+                  </>
+                )}
             </section>
           </div>
           <section className="beginner-steps">
@@ -1623,7 +1795,13 @@ function BuildChecklist({
               ))}
             </ol>
           </section>
-          {active.prompt && (
+          <ContextualTaskToolGuide
+            key={`contextual-${active.id}`}
+            step={active}
+            taskIndex={currentIndex}
+            onCopy={copyHere}
+          />
+          {active.prompt && !contextualProjectTool(active) && (
             <section className="action-prompt">
               <h3>
                 {activeTool
@@ -2016,6 +2194,14 @@ function BuildChecklist({
                   <h3>なぜ必要か</h3>
                   <p>{item.why}</p>
                 </section>
+                {index === currentIndex && !beginner && (
+                  <ContextualTaskToolGuide
+                    key={`contextual-${item.id}`}
+                    step={item}
+                    taskIndex={index}
+                    onCopy={onCopy}
+                  />
+                )}
                 <section>
                   <h3>AI / ツール</h3>
                   {item.tools.length ? (
@@ -2034,7 +2220,7 @@ function BuildChecklist({
                     ))}
                   </ol>
                 </section>
-                {item.prompt && (
+                {item.prompt && !contextualProjectTool(item) && (
                   <section className="action-prompt">
                     <h3>このプロジェクト用プロンプト</h3>
                     <pre>{item.prompt}</pre>
@@ -2708,23 +2894,25 @@ function PlanToolCard({
           </span>
         ))}
       </p>
-      {tool.role === "primary" && service && (
-        <>
-          <OutboundLink
-            service={service}
-            page="project-result"
-            placement={`phase-${phase}`}
-          />
-          {alternatives[0] && (
-            <Link
-              className="tool-compare-link"
-              href={`/compare?ids=${tool.serviceSlug},${alternatives[0].serviceSlug}&stage=${phase}`}
-            >
-              代替候補と比較する →
-            </Link>
-          )}
-        </>
-      )}
+      {tool.role === "primary" &&
+        service &&
+        !["elevenlabs", "meshy"].includes(tool.serviceSlug) && (
+          <>
+            <OutboundLink
+              service={service}
+              page="project-result"
+              placement={`phase-${phase}`}
+            />
+            {alternatives[0] && (
+              <Link
+                className="tool-compare-link"
+                href={`/compare?ids=${tool.serviceSlug},${alternatives[0].serviceSlug}&stage=${phase}`}
+              >
+                代替候補と比較する →
+              </Link>
+            )}
+          </>
+        )}
     </article>
   );
 }
