@@ -1,9 +1,21 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  within,
+} from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { ContextualTaskToolGuide } from "@/components/ProjectGeneratorClient";
+import {
+  BuildChecklist,
+  ContextualTaskToolGuide,
+} from "@/components/ProjectGeneratorClient";
 import { buildChecklist, generateProjectPlan, type ProjectBrief } from "@/lib/project";
 
 const projectIdea = "秘密のキャラクター名を含む音声ゲーム";
+const observe = vi.fn();
+const observedTargets = () =>
+  new Set(observe.mock.calls.map(([target]) => target)).size;
 const makeBrief = (capabilities: ProjectBrief["capabilities"]): ProjectBrief => ({
   idea: projectIdea, genre: "action", dimension: "2d", platform: "desktop",
   engine: "unity", budget: "low", experience: "intermediate", team: "solo",
@@ -13,8 +25,9 @@ const makeBrief = (capabilities: ProjectBrief["capabilities"]): ProjectBrief => 
 beforeEach(() => {
   class MockIntersectionObserver {
     root = null; rootMargin = "0px"; thresholds = [0.5];
-    constructor() {} observe() {} disconnect() {} unobserve() {} takeRecords() { return []; }
+    constructor() {} observe = observe; disconnect() {} unobserve() {} takeRecords() { return []; }
   }
+  observe.mockClear();
   vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
 });
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); history.replaceState(null, "", "/project"); });
@@ -50,5 +63,63 @@ describe("ContextualTaskToolGuide", () => {
       .find((item) => item.id === "core-loop")!;
     const { container } = render(<ContextualTaskToolGuide step={step} taskIndex={3} />);
     expect(container.innerHTML).toBe("");
+  });
+
+  it.each([
+    ["voice", ["coding", "voice"] as ProjectBrief["capabilities"], "ElevenLabs"],
+    ["assets-3d", ["coding", "assets-3d"] as ProjectBrief["capabilities"], "Meshy"],
+  ])("mounts exactly one contextual CTA and observer for the current %s task", (taskId, capabilities, serviceName) => {
+    const plan = generateProjectPlan({
+      ...makeBrief(capabilities),
+      dimension: taskId === "assets-3d" ? "3d" : "2d",
+      experience: "beginner",
+    });
+    const step = buildChecklist(plan).find((item) => item.id === taskId)!;
+    render(
+      <BuildChecklist
+        steps={[step]}
+        plan={plan}
+        onCopy={vi.fn().mockResolvedValue(true)}
+        engineBlocked={false}
+      />,
+    );
+    expect(screen.getAllByLabelText("現在の作業で使えるツール")).toHaveLength(1);
+    expect(screen.getAllByRole("link", { name: /広告リンク/ })).toHaveLength(1);
+    const guide = screen.getByLabelText("現在の作業で使えるツール");
+    expect(within(guide).getByRole("heading", { name: serviceName })).toBeTruthy();
+    expect(observedTargets()).toBe(1);
+  });
+
+  it("keeps one CTA when the current roadmap detail is the primary work area", () => {
+    const plan = generateProjectPlan({
+      ...makeBrief(["coding", "voice"]),
+      experience: "intermediate",
+    });
+    const step = buildChecklist(plan).find((item) => item.id === "voice")!;
+    render(
+      <BuildChecklist
+        steps={[step]}
+        plan={plan}
+        onCopy={vi.fn().mockResolvedValue(true)}
+        engineBlocked={false}
+      />,
+    );
+    expect(screen.getAllByLabelText("現在の作業で使えるツール")).toHaveLength(1);
+    expect(observedTargets()).toBe(1);
+  });
+
+  it("mounts no contextual CTA or impression observer without voice or 3D", () => {
+    const plan = generateProjectPlan(makeBrief(["coding"]));
+    const step = buildChecklist(plan).find((item) => item.id === "core-loop")!;
+    render(
+      <BuildChecklist
+        steps={[step]}
+        plan={plan}
+        onCopy={vi.fn().mockResolvedValue(true)}
+        engineBlocked={false}
+      />,
+    );
+    expect(screen.queryByLabelText("現在の作業で使えるツール")).toBeNull();
+    expect(observe).not.toHaveBeenCalled();
   });
 });

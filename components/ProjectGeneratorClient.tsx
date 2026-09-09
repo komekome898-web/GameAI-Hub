@@ -1373,7 +1373,7 @@ export function ContextualTaskToolGuide({
   );
 }
 
-function BuildChecklist({
+export function BuildChecklist({
   steps,
   plan,
   onCopy,
@@ -2077,7 +2077,7 @@ function BuildChecklist({
                   <h3>なぜ必要か</h3>
                   <p>{item.why}</p>
                 </section>
-                {index === currentIndex && (
+                {index === currentIndex && !beginner && (
                   <ContextualTaskToolGuide step={item} taskIndex={index} />
                 )}
                 <section>
