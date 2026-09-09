@@ -44,6 +44,29 @@ describe("ContextualTaskToolGuide", () => {
     expect(screen.getByText("今回作るもの")).toBeTruthy();
     expect(screen.getByText(/自分で代表台詞を録音/)).toBeTruthy();
     expect(screen.getByText(/このProjectへ戻って/)).toBeTruthy();
+    expect(screen.queryByRole("link", { name: /広告リンク/ })).toBeNull();
+    fireEvent.change(screen.getByLabelText("台詞本文（必須）"), {
+      target: { value: "Projectで決めた代表台詞" },
+    });
+    fireEvent.change(screen.getByLabelText("話者（任意）"), {
+      target: { value: "Projectで決めたNPC" },
+    });
+    fireEvent.change(screen.getByLabelText("感情（任意）"), {
+      target: { value: "Projectで決めた感情" },
+    });
+    expect(screen.queryByRole("link", { name: /広告リンク/ })).toBeNull();
+    fireEvent.change(screen.getByLabelText("出力形式（必須）"), {
+      target: { value: "wav" },
+    });
+    const generation = document.querySelector(".generation-prompt")!;
+    const inspection = document.querySelector(".tool-inspection")!;
+    expect(generation.textContent).toContain("Projectで決めた代表台詞");
+    expect(generation.textContent).not.toContain("再生タイミングで再生されるか確認");
+    expect(inspection.textContent).toContain("再生タイミングで再生されるか確認");
+    const settings = screen.getByLabelText("ElevenLabsで設定する項目");
+    expect(settings.textContent).toContain("Projectで決めたNPC");
+    expect(settings.textContent).toContain("Projectで決めた感情");
+    expect(settings.textContent).toContain("WAV");
     const link = screen.getByRole("link", { name: /広告リンク/ });
     expect(link.getAttribute("href")).toBe("https://try.elevenlabs.io/jlxoxtxe9768");
     expect(link.getAttribute("rel")).toBe("sponsored nofollow noopener");
@@ -83,11 +106,44 @@ describe("ContextualTaskToolGuide", () => {
         engineBlocked={false}
       />,
     );
+    if (taskId === "voice") {
+      fireEvent.change(screen.getByLabelText("台詞本文（必須）"), {
+        target: { value: "明示した台詞" },
+      });
+      fireEvent.change(screen.getByLabelText("出力形式（必須）"), {
+        target: { value: "mp3" },
+      });
+    } else {
+      fireEvent.change(screen.getByLabelText("作る対象（必須）"), {
+        target: { value: "明示した対象" },
+      });
+      fireEvent.change(screen.getByLabelText("外観description（必須）"), {
+        target: { value: "明示した外観" },
+      });
+    }
     expect(screen.getAllByLabelText("現在の作業で使えるツール")).toHaveLength(1);
     expect(screen.getAllByRole("link", { name: /広告リンク/ })).toHaveLength(1);
     const guide = screen.getByLabelText("現在の作業で使えるツール");
     expect(within(guide).getByRole("heading", { name: serviceName })).toBeTruthy();
     expect(observedTargets()).toBe(1);
+  });
+
+  it("keeps the 3D generation description separate from import inspection", () => {
+    const plan = generateProjectPlan({
+      ...makeBrief(["coding", "assets-3d"]),
+      dimension: "3d",
+    });
+    const step = buildChecklist(plan).find((item) => item.id === "assets-3d")!;
+    render(<ContextualTaskToolGuide step={step} taskIndex={7} />);
+    expect(screen.queryByRole("link", { name: /広告リンク/ })).toBeNull();
+    fireEvent.change(screen.getByLabelText("作る対象（必須）"), { target: { value: "Projectで決めた対象" } });
+    expect(screen.queryByRole("link", { name: /広告リンク/ })).toBeNull();
+    fireEvent.change(screen.getByLabelText("外観description（必須）"), { target: { value: "Projectで決めた外観" } });
+    const generation = document.querySelector(".generation-prompt")!;
+    const inspection = document.querySelector(".tool-inspection")!;
+    expect(generation.textContent).toMatch(/対象:.*外観description:/s);
+    expect(generation.textContent).not.toContain("collisionを設定して確認");
+    expect(inspection.textContent).toContain("collisionを設定して確認");
   });
 
   it("keeps one CTA when the current roadmap detail is the primary work area", () => {
@@ -104,6 +160,12 @@ describe("ContextualTaskToolGuide", () => {
         engineBlocked={false}
       />,
     );
+    fireEvent.change(screen.getByLabelText("台詞本文（必須）"), {
+      target: { value: "明示した台詞" },
+    });
+    fireEvent.change(screen.getByLabelText("出力形式（必須）"), {
+      target: { value: "wav" },
+    });
     expect(screen.getAllByLabelText("現在の作業で使えるツール")).toHaveLength(1);
     expect(observedTargets()).toBe(1);
   });

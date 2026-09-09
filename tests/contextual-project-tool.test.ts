@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   buildChecklist,
+  buildContextualGenerationPrompt,
   contextualProjectTool,
   generateProjectPlan,
   type ProjectBrief,
@@ -34,6 +35,13 @@ describe("contextual Project tools", () => {
     expect(found[0].step.id).toBe("voice");
     expect(found[0].recommendation?.tool.serviceSlug).toBe("elevenlabs");
     expect(found[0].recommendation?.alternative).toContain("自分で");
+    expect(buildContextualGenerationPrompt(found[0].recommendation!, {})).toBeNull();
+    expect(buildContextualGenerationPrompt(found[0].recommendation!, { dialogue: "明示した代表台詞" })).toBeNull();
+    const voicePrompt = buildContextualGenerationPrompt(found[0].recommendation!, { dialogue: "明示した代表台詞", outputFormat: "wav" })!;
+    expect(voicePrompt).toBe("明示した代表台詞");
+    expect(voicePrompt).not.toMatch(/検品表|再生タイミングを確認/);
+    expect(found[0].recommendation?.inspectionItems.join(" ")).toMatch(/発音.*音量.*再生タイミング/);
+    expect(voicePrompt).not.toContain("ここから先は危険だ");
   });
 
   it("does not offer ElevenLabs without a voice capability", () => {
@@ -56,6 +64,13 @@ describe("contextual Project tools", () => {
     expect(found[0].step.id).toBe("assets-3d");
     expect(found[0].recommendation?.tool.serviceSlug).toBe("meshy");
     expect(found[0].recommendation?.alternative).toContain("仮モデル");
+    expect(buildContextualGenerationPrompt(found[0].recommendation!, { subject: "明示した対象" })).toBeNull();
+    const modelPrompt = buildContextualGenerationPrompt(found[0].recommendation!, { subject: "明示した対象", appearance: "明示した外観" })!;
+    expect(modelPrompt).toMatch(/対象: 明示した対象.*外観description: 明示した外観/s);
+    expect(modelPrompt).toContain("rigは動かすキャラクター等、本当に必要な場合だけ");
+    expect(modelPrompt).not.toContain("collision");
+    expect(found[0].recommendation?.inspectionItems.join(" ")).toMatch(/scale.*material.*collision.*performance/);
+    expect(modelPrompt).not.toContain("古い木製の宝箱");
   });
 
   it("does not offer Meshy for a 2D-only Project", () => {
