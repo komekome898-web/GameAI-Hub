@@ -54,6 +54,42 @@ export const articleCategoryLabels: Record<ArticleCategory, string> = {
 
 export const articles = [
   {
+    slug: "elevenlabs-commercial-use-game",
+    title:
+      "ElevenLabsの商用利用ガイド｜ゲーム音声で確認すべき権利とプラン",
+    description:
+      "ElevenLabsの音声を商用ゲームで使う前に確認すべきプラン、Commercial License、Free利用、入力素材の権利、Voice Cloningの同意条件をゲーム制作者向けに整理。",
+    category: "tool",
+    tags: ["ElevenLabs", "商用利用", "AI音声", "ゲーム開発", "Voice Cloning", "著作権"],
+    publishedAt: "2026-09-10",
+    updatedAt: "2026-09-10",
+    publicationStatus: "published",
+    lastVerifiedAt: "2026-09-10",
+    author: "AI Iterproof編集部",
+    editorialNote:
+      "ElevenLabs公式Pricing、Terms、Text to Speech、Voice Cloning関連の一次資料を2026-09-10に確認しました。料金・credits・商用条件・Voice Cloning要件は変更される可能性があるため、公開時点の公式条件を優先してください。",
+    sources: [
+      { label: "ElevenLabs Pricing", url: "https://elevenlabs.io/pricing", kind: "primary", verifiedAt: "2026-09-10" },
+      { label: "ElevenLabs Terms of Use", url: "https://elevenlabs.io/terms-of-use", kind: "primary", verifiedAt: "2026-09-10" },
+      { label: "ElevenLabs Docs: Text to Speech", url: "https://elevenlabs.io/docs/overview/capabilities/text-to-speech", kind: "primary", verifiedAt: "2026-09-10" },
+      { label: "ElevenLabs Docs: Instant Voice Cloning", url: "https://elevenlabs.io/docs/eleven-creative/voices/voice-cloning/instant-voice-cloning", kind: "primary", verifiedAt: "2026-09-10" },
+      { label: "ElevenLabs Docs: Professional Voice Cloning", url: "https://elevenlabs.io/docs/eleven-creative/voices/voice-cloning/professional-voice-cloning", kind: "primary", verifiedAt: "2026-09-10" },
+      { label: "ElevenLabs Help: What happens to my content after my subscription ends?", url: "https://help.elevenlabs.io/hc/en-us/articles/15993008593297-What-happens-to-my-content-after-my-subscription-ends", kind: "primary", verifiedAt: "2026-09-10" },
+      { label: "ElevenLabs Help: Can I publish the content I generate on the platform?", url: "https://help.elevenlabs.io/hc/en-us/articles/13313564601361-Can-I-publish-the-content-I-generate-on-the-platform", kind: "primary", verifiedAt: "2026-09-10" },
+    ],
+    related: [
+      { href: "/articles/elevenlabs-game-development-guide/", label: "ゲーム開発向けElevenLabs使い方ガイド", reason: "実際の音声生成・ゲーム実装へ進む", kind: "article" },
+      { href: "/tools/elevenlabs/", label: "ElevenLabsの検証済みツール情報", reason: "現在の公式情報と機能を確認する", kind: "tool" },
+      { href: "/compare/", label: "AIツールを比較する", reason: "料金や商用条件を他の候補と比較する", kind: "compare" },
+    ],
+    projectCta: {
+      label: "Project Generatorで公開条件と音声taskを整理する",
+      description: "無料公開、広告、販売、Voice Cloningの有無を整理し、ゲーム公開前に確認すべき音声制作taskへ分解します。",
+      placement: "article_end",
+    },
+    promotions: [{ serviceSlug: "elevenlabs", placement: "production_tools", context: "商用条件を判定した後に、現行プランの公式表示を確認するため。" }],
+  },
+  {
     slug: "elevenlabs-game-development-guide",
     title:
       "ゲーム開発向けElevenLabs使い方ガイド｜日本語音声・効果音・APIの選び方",
