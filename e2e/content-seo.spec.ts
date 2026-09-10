@@ -1,6 +1,31 @@
 import { expect, test } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 
+for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'mobile-320',width:320,height:640},{name:'desktop',width:1280,height:900}]){
+ test(`ElevenLabs commercial-use guide renders its decision path — ${viewport.name}`,async({page})=>{
+  await mkdir('docs/screenshots/elevenlabs-commercial-use-game',{recursive:true});
+  await page.setViewportSize({width:viewport.width,height:viewport.height});
+  await page.goto('/articles/');
+  await expect(page.getByRole('link',{name:/ElevenLabsの商用利用ガイド/})).toHaveAttribute('href','/articles/elevenlabs-commercial-use-game/');
+  await page.goto('/articles/elevenlabs-commercial-use-game/');
+  await expect(page.getByRole('heading',{level:1,name:'ElevenLabsの商用利用ガイド｜ゲーム音声で確認すべき権利とプラン'})).toBeVisible();
+  await expect(page.getByText('この記事にはプロモーションを含みます。')).toBeVisible();
+  await expect(page.getByText('Case A：非公開の個人練習')).toBeVisible();
+  await expect(page.getByText('Case E：声優の声をclone')).toBeVisible();
+  const affiliate=page.getByRole('link',{name:/現行プランと商用利用条件を確認/});
+  await expect(affiliate).toHaveCount(1);
+  await expect(affiliate).toHaveAttribute('href','https://try.elevenlabs.io/jlxoxtxe9768');
+  await expect(affiliate).toHaveAttribute('rel','sponsored nofollow noopener');
+  await expect(page.getByRole('heading',{name:'商用利用条件を確認してからElevenLabsへ進む'})).toBeVisible();
+  await expect(page.getByRole('link',{name:'実際のゲーム用日本語音声を作る手順を見る'})).toHaveAttribute('href','/articles/elevenlabs-game-development-guide/');
+  await expect(page.getByRole('link',{name:'Project Generatorで公開条件と音声taskを整理する'}).first()).toHaveAttribute('href',/\/project\/?\?source=elevenlabs-commercial-use-game/);
+  await expect(page.getByRole('heading',{name:'次の判断に必要なページ'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'情報源と更新方針'})).toBeVisible();
+  expect(await page.locator('body').evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
+  await page.screenshot({path:`docs/screenshots/elevenlabs-commercial-use-game/article-${viewport.name}.png`,fullPage:true});
+ });
+}
+
 for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'zoom-320',width:320,height:640},{name:'desktop',width:1280,height:900}]){
  test(`article discovery and Project handoff — ${viewport.name}`,async({page})=>{
   await page.setViewportSize({width:viewport.width,height:viewport.height});

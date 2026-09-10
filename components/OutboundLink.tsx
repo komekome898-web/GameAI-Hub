@@ -12,11 +12,13 @@ export function OutboundLink({
   page,
   placement = "primary",
   attribution,
+  label,
 }: {
   service: Service;
   page: string;
   placement?: string;
   attribution?: AffiliateAttribution;
+  label?: string;
 }) {
   const affiliate = Boolean(service.affiliateUrl);
   const disclosureId = `affiliate-${service.slug}-${buildSubId(service.slug, page, placement)}`;
@@ -46,9 +48,9 @@ export function OutboundLink({
           if (affiliate) track("affiliate_click", props);
         }}
       >
-        {service.freePlan === "yes"
+        {label ?? (service.freePlan === "yes"
           ? "無料枠を公式サイトで確認"
-          : "公式サイトを見る"}
+          : "公式サイトを見る")}
         {affiliate && <span className="affiliate-label">広告リンク</span>}{" "}
         <span aria-hidden>↗</span>
       </a>

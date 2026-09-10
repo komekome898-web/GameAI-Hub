@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArticleFrame } from "@/components/ArticleFrame";
 import { ArticleProjectLink } from "@/components/ArticleProjectLink";
 import { OutboundLink } from "@/components/OutboundLink";
@@ -144,6 +145,7 @@ export default function ElevenLabsGameDevelopmentGuide() {
           <h2>無料で試せる？ 商用ゲームでも使える？</h2>
           <p>2026年9月9日に公式Pricingを確認した時点ではFreeプランがあり、StarterにはCommercial Licenseの記載があります。ただし、無料で生成できることと、商用ゲームへ使用できることは別の判断です。</p>
           <p>料金、クレジット、商用ライセンス、Voice Cloningの条件は変更される可能性があります。販売、広告収益化、有料配布を予定する場合は、公開時点の公式PricingとTermsを確認してください。声をクローンする場合は、その声を使用する権利と必要な許可も別途確認します。</p>
+          <p><Link href="/articles/elevenlabs-commercial-use-game/">ElevenLabsの商用利用条件とVoice Cloningの権利確認</Link>で、FreeとPaidの違いから公開前の判定手順まで確認できます。</p>
         </section>
 
         <section className="article-inline-handoff" aria-labelledby="voice-project-plan">
