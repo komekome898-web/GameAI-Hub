@@ -59,6 +59,8 @@ describe("ElevenLabs commercial-use article", () => {
     ]) expect(html).toContain(text);
 
     expect((html.match(/class="button"[^>]+href="https:\/\/try\.elevenlabs\.io/g) ?? [])).toHaveLength(1);
+    expect(html).toContain("現行プランと商用利用条件を確認");
+    expect(html).not.toContain("無料枠を公式サイトで確認");
     expect(html).toContain(`href="${getService("elevenlabs")!.affiliateUrl}"`);
     expect(html).toContain('rel="sponsored nofollow noopener"');
     expect(html).toContain('href="/project?source=elevenlabs-commercial-use-game"');

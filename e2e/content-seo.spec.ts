@@ -12,9 +12,10 @@ for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'mobile-32
   await expect(page.getByText('この記事にはプロモーションを含みます。')).toBeVisible();
   await expect(page.getByText('Case A：非公開の個人練習')).toBeVisible();
   await expect(page.getByText('Case E：声優の声をclone')).toBeVisible();
-  const affiliate=page.locator('a[rel="sponsored nofollow noopener"]');
+  const affiliate=page.getByRole('link',{name:/現行プランと商用利用条件を確認/});
   await expect(affiliate).toHaveCount(1);
   await expect(affiliate).toHaveAttribute('href','https://try.elevenlabs.io/jlxoxtxe9768');
+  await expect(affiliate).toHaveAttribute('rel','sponsored nofollow noopener');
   await expect(page.getByRole('heading',{name:'商用利用条件を確認してからElevenLabsへ進む'})).toBeVisible();
   await expect(page.getByRole('link',{name:'実際のゲーム用日本語音声を作る手順を見る'})).toHaveAttribute('href','/articles/elevenlabs-game-development-guide/');
   await expect(page.getByRole('link',{name:'Project Generatorで公開条件と音声taskを整理する'}).first()).toHaveAttribute('href',/\/project\/?\?source=elevenlabs-commercial-use-game/);
