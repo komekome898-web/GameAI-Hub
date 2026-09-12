@@ -8,7 +8,9 @@ on:
 permissions:
   contents: read
   issues: write
-concurrency: gameai-orchestration-manifest-writer
+concurrency:
+  group: gameai-orchestration-manifest-writer
+  queue: max
 jobs:
   initialize:
     runs-on: ubuntu-latest

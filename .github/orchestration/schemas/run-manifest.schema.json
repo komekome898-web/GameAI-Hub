@@ -1,1 +1,128 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"gameai-run/v1","type":"object","required":["schema","run_id","canonical_task_version","revision","generation","stage","status","repository","issue","binding","profile","counters","processed_transition_ids"],"properties":{"schema":{"const":"gameai-run/v1"},"run_id":{"type":"string"},"canonical_task_version":{"type":"integer","minimum":1},"revision":{"type":"integer","minimum":0},"generation":{"type":"integer","minimum":1},"stage":{"enum":["research","implementation","preview_acceptance","human_merge","production_acceptance","terminal"]},"status":{"enum":["pending","running","passed","failed","blocked","done","cancelled","superseded"]},"repository":{"type":"string"},"issue":{"type":"integer","minimum":1},"binding":{"type":"object","required":["branch","pr","head_sha","merge_sha"],"properties":{"branch":{"type":["string","null"]},"pr":{"type":["integer","null"]},"head_sha":{"type":["string","null"]},"merge_sha":{"type":["string","null"]}}},"profile":{"type":"object","required":["id","registry_revision","configuration_status"]},"counters":{"type":"object","required":["acceptance_attempt","repair_revision","infrastructure_retry"]},"processed_transition_ids":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gameai-run/v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "run_id",
+    "canonical_task_version",
+    "revision",
+    "generation",
+    "stage",
+    "status",
+    "repository",
+    "issue",
+    "binding",
+    "profile",
+    "counters",
+    "processed_transition_ids"
+  ],
+  "properties": {
+    "schema": {
+      "const": "gameai-run/v1"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "canonical_task_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "generation": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "stage": {
+      "enum": [
+        "research",
+        "implementation",
+        "preview_acceptance",
+        "human_merge",
+        "production_acceptance",
+        "terminal"
+      ]
+    },
+    "status": {
+      "enum": [
+        "pending",
+        "running",
+        "passed",
+        "failed",
+        "blocked",
+        "done",
+        "cancelled",
+        "superseded"
+      ]
+    },
+    "repository": {
+      "type": "string"
+    },
+    "issue": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "binding": {
+      "type": "object",
+      "required": [
+        "branch",
+        "pr",
+        "head_sha",
+        "merge_sha"
+      ],
+      "properties": {
+        "branch": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pr": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "head_sha": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "merge_sha": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "profile": {
+      "type": "object",
+      "required": [
+        "id",
+        "registry_revision",
+        "configuration_status"
+      ]
+    },
+    "counters": {
+      "type": "object",
+      "required": [
+        "acceptance_attempt",
+        "repair_revision",
+        "infrastructure_retry",
+        "infrastructure_failure"
+      ]
+    },
+    "processed_transition_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

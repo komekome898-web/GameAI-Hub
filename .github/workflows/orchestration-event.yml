@@ -6,7 +6,9 @@ permissions:
   contents: read
   issues: write
   pull-requests: read
-concurrency: gameai-orchestration-manifest-writer
+concurrency:
+  group: gameai-orchestration-manifest-writer
+  queue: max
 jobs:
   reduce:
     runs-on: ubuntu-latest

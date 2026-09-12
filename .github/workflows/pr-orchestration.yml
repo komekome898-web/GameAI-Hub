@@ -2,13 +2,17 @@ name: PR orchestration observation
 on:
   pull_request:
     types: [opened, reopened, synchronize, ready_for_review, closed]
-  check_suite:
+  workflow_run:
+    workflows: [quality]
     types: [completed]
 permissions:
   contents: read
   issues: write
   pull-requests: read
-concurrency: gameai-orchestration-manifest-writer
+  statuses: write
+concurrency:
+  group: gameai-orchestration-manifest-writer
+  queue: max
 jobs:
   observe:
     runs-on: ubuntu-latest

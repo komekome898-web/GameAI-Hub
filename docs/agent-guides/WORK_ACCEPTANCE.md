@@ -8,7 +8,7 @@ Record separately: required profile; registry revision; account configuration st
 
 ## Account setup and experiments
 
-Create two native ChatGPT Work tasks only where the account UI supports GitHub PR triggers. Preview listens for relevant open/ready/commit activity but acts only on a current claim. Production listens for completed merge but waits until the target merge SHA is proven deployed. Use the prompt in `docs/prompts/WORK_ACCEPTANCE_PROMPT.md`; authorize the repository read/write scope needed for evidence, and enroll the observed App actor only after a safe writeback succeeds.
+Create two native ChatGPT Work tasks only where the account UI supports GitHub PR triggers. Preview listens for relevant open/ready/commit activity but acts only on a current claim. Production listens for completed merge but waits until the target merge SHA is proven deployed. The standard ChatGPT GitHub connection is not treated as a writeback transport. Choose and smoke-test a separate least-privilege, write-capable GitHub App/plugin path, preserve its original App identity end to end, and enroll the observed App actor only after that experiment succeeds. Until then Work writeback remains `UNCONFIGURED` and Acceptance ingestion fails closed.
 
 | Experiment | Activation state |
 |---|---|

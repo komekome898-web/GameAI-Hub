@@ -3,11 +3,11 @@ sys.path.insert(0,str(pathlib.Path(__file__).parents[1]))
 from orchestration import *
 
 def manifest():
- return {"schema":"gameai-run/v1","run_id":"run-74-1","canonical_task_version":3,"revision":1,"generation":2,"stage":"preview_acceptance","status":"running","repository":"komekome898-web/GameAI-Hub","issue":74,"binding":{"branch":"feat/74","pr":91,"head_sha":"a"*40,"merge_sha":None},"profile":{"id":"work-standard","registry_revision":1,"configuration_status":"CONFIGURED_UNVERIFIED"},"counters":{"acceptance_attempt":0,"repair_revision":0,"infrastructure_retry":0},"processed_transition_ids":[],"acceptance_claim":{"attempt_id":"pa-1","environment":"preview","targets":["/"]}}
+ return {"schema":"gameai-run/v1","run_id":"run-74-1","canonical_task_version":3,"revision":1,"generation":2,"stage":"preview_acceptance","status":"running","repository":"komekome898-web/GameAI-Hub","issue":74,"binding":{"branch":"feat/74","pr":91,"head_sha":"a"*40,"merge_sha":None},"profile":{"id":"work-standard","registry_revision":1,"configuration_status":"CONFIGURED_UNVERIFIED"},"counters":{"acceptance_attempt":0,"repair_revision":0,"infrastructure_retry":0,"infrastructure_failure":0},"processed_transition_ids":[],"acceptance_claim":{"claim_id":"claim-1","attempt_id":"pa-1","environment":"preview","targets":["/"]}}
 def event(m=None):
  m=m or manifest(); return {"run_id":m["run_id"],"canonical_task_version":m["canonical_task_version"],"expected_manifest_revision":m["revision"],"generation":m["generation"],"from_stage":m["stage"],"from_status":m["status"],"to_stage":"human_merge","to_status":"pending","transition_id":"t1","trigger":{"delivery_id":"d1","actor":"github-actions"},"repository":m["repository"],"issue":m["issue"],"pr":m["binding"]["pr"],"branch":m["binding"]["branch"],"sha":m["binding"]["head_sha"]}
 def acceptance(m=None):
- m=m or manifest(); return {"schema":"gameai-acceptance/v1","run_id":m["run_id"],"canonical_task_version":m["canonical_task_version"],"stage":m["stage"],"attempt_id":"pa-1","repository":m["repository"],"issue":m["issue"],"pr":m["binding"]["pr"],"sha":m["binding"]["head_sha"],"environment":"preview","targets":["/"],"required_profile":"work-standard","profile_registry_revision":1,"actor":"work-app[bot]","actor_provenance":{"verified_by":"github-event-sender"},"expected_manifest_revision":m["revision"],"generation":m["generation"],"verdict":"PASS","findings":[]}
+ m=m or manifest(); return {"schema":"gameai-acceptance/v1","run_id":m["run_id"],"canonical_task_version":m["canonical_task_version"],"stage":m["stage"],"claim_id":"claim-1","attempt_id":"pa-1","repository":m["repository"],"issue":m["issue"],"pr":m["binding"]["pr"],"sha":m["binding"]["head_sha"],"environment":"preview","targets":["/"],"required_profile":"work-standard","profile_registry_revision":1,"actor":"work-app[bot]","actor_provenance":{"verified_by":"github-event-sender"},"expected_manifest_revision":m["revision"],"generation":m["generation"],"verdict":"PASS","findings":[]}
 class T(unittest.TestCase):
  def rejected(self,m,e,text):
   with self.assertRaisesRegex(Rejected,text): transition(m,e)
@@ -32,7 +32,7 @@ class T(unittest.TestCase):
  def test_12_stale_codex_claim_blocks(self):
   m=manifest();m["codex_claim"]={"base_head_sha":"a"*40}; o=bind_head(m,"b"*40,"human");self.assertEqual((o["status"],o["blocked"]["kind"]),("blocked","human"))
  def test_13_approval_invalidated(self):
-  m=manifest();m["stage"]="human_merge";m["status"]="pending";m=approve(m,"owner",m["run_id"],m["canonical_task_version"],91,"a"*40,{"human_approvers":["owner"]});self.assertNotIn("human_authorization",bind_head(m,"b"*40))
+  m=manifest();m["stage"]="human_merge";m["status"]="pending";m["last_acceptance"]={"stage":"preview_acceptance","verdict":"PASS","sha":"a"*40};m=approve(m,"owner",m["run_id"],m["canonical_task_version"],91,"a"*40,{"human_approvers":["owner"]});self.assertNotIn("human_authorization",bind_head(m,"b"*40))
  def test_14_preview_fail_same_pr(self):
   m=manifest();m["status"]="failed";o=record_repair(m,["P1-001"]);self.assertEqual(o["patch_mode"]["same_pr"],91)
  def test_15_production_fail_child(self):
@@ -51,4 +51,35 @@ class T(unittest.TestCase):
   self.rejected(m,e,"wrong SHA")
  def test_20_summary_canonical(self):
   s=summary(manifest());self.assertIn("Current PR: 91",s);self.assertIn("work-standard @ revision 1",s);self.assertIn("Residual UNTESTED",s)
+ def test_21_generic_cannot_forge_acceptance(self):
+  m=manifest();e=event(m);e.update(to_stage="preview_acceptance",to_status="passed")
+  self.rejected(m,e,"privileged transition")
+ def test_22_head_change_requires_reacceptance(self):
+  m=manifest();m["stage"]="human_merge";m["status"]="pending";m["preview_acceptance"]="PASS";m["last_acceptance"]=acceptance(m)
+  out=bind_head(m,"b"*40);self.assertEqual((out["stage"],out["status"],out["preview_acceptance"]),("preview_acceptance","pending","UNTESTED"))
+  with self.assertRaisesRegex(Rejected,"approval target mismatch"): approve(out,"owner",out["run_id"],out["canonical_task_version"],91,"b"*40,{"human_approvers":["owner"]})
+ def test_23_merge_rerun_cannot_resurrect_terminal(self):
+  m=manifest();m["stage"]="terminal";m["status"]="done"
+  out,status=observe_merge(m,91,"a"*40,"c"*40,"merge-1");self.assertIs(out,m);self.assertEqual(status,"ignored-late")
+ def test_24_merge_increments_revision(self):
+  m=manifest();m["stage"]="human_merge";m["status"]="pending";m["last_acceptance"]={"stage":"preview_acceptance","verdict":"PASS","sha":"a"*40};m=approve(m,"owner",m["run_id"],m["canonical_task_version"],91,"a"*40,{"human_approvers":["owner"]})
+  rev=m["revision"];out,status=observe_merge(m,91,"a"*40,"c"*40,"merge-1");self.assertEqual((status,out["revision"],out["stage"]),("applied",rev+1,"production_acceptance"))
+ def test_25_check_suite_exact_head_handoff(self):
+  m=manifest();m["stage"]="implementation";m["status"]="running"
+  out,status=observe_ci(m,91,"a"*40,"success","suite-1");self.assertEqual((status,out["stage"],out["status"]),("applied","preview_acceptance","pending"))
+ def test_26_acceptance_requires_running_claim(self):
+  m=manifest();m["status"]="blocked"
+  with self.assertRaisesRegex(Rejected,"active running claim"): ingest_acceptance(m,acceptance(m),{"acceptance_actors":["work-app[bot]"]})
+ def test_27_hotfix_uses_separate_issue(self):
+  m=manifest();m["stage"]="production_acceptance";m["status"]="failed";m["binding"]["merge_sha"]="c"*40
+  out=production_hotfix(m,177);self.assertEqual((out["issue"],out["parent_issue"]),(177,74))
+ def test_28_generic_cannot_start_acceptance_without_claim(self):
+  m=manifest();m["status"]="pending";m["acceptance_claim"]=None;e=event(m);e.update(from_status="pending",to_stage="preview_acceptance",to_status="running")
+  self.rejected(m,e,"privileged transition")
+ def test_29_stale_ci_sha_is_ignored(self):
+  m=manifest();m["stage"]="implementation";m["status"]="running"
+  out,status=observe_ci(m,91,"b"*40,"success","suite-old");self.assertIs(out,m);self.assertEqual(status,"ignored-late")
+ def test_30_changed_head_unauthorized_merge_blocks(self):
+  m=manifest();m["stage"]="human_merge";m["status"]="pending";m["last_acceptance"]={"stage":"preview_acceptance","verdict":"PASS","sha":"a"*40};m=approve(m,"owner",m["run_id"],m["canonical_task_version"],91,"a"*40,{"human_approvers":["owner"]})
+  out,status=observe_merge(m,91,"b"*40,"c"*40,"merge-changed");self.assertEqual((status,out["stage"],out["status"]),("applied","human_merge","blocked"))
 if __name__=="__main__":unittest.main()

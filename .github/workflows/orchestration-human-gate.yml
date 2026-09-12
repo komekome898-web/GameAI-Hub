@@ -3,14 +3,13 @@ on:
   workflow_dispatch:
     inputs:
       issue: { description: Canonical Issue, required: true, type: string }
-      run_id: { description: Current run ID, required: true, type: string }
-      canonical_task_version: { description: Pinned task version, required: true, type: string }
-      pr: { description: Exact PR number, required: true, type: string }
-      head_sha: { description: Exact accepted 40-character head SHA, required: true, type: string }
 permissions:
   contents: read
   issues: write
-concurrency: gameai-orchestration-manifest-writer
+  statuses: write
+concurrency:
+  group: gameai-orchestration-manifest-writer
+  queue: max
 jobs:
   authorize:
     runs-on: ubuntu-latest
@@ -22,11 +21,7 @@ jobs:
           ORCH_EVENT_NAME: orchestration-human-approval
           ORCH_SENDER: ${{ github.actor }}
           ISSUE: ${{ inputs.issue }}
-          RUN_ID: ${{ inputs.run_id }}
-          TASK_VERSION: ${{ inputs.canonical_task_version }}
-          PR: ${{ inputs.pr }}
-          HEAD_SHA: ${{ inputs.head_sha }}
         run: |
-          ORCH_PAYLOAD="$(jq -nc --argjson issue "$ISSUE" --arg run "$RUN_ID" --argjson version "$TASK_VERSION" --argjson pr "$PR" --arg sha "$HEAD_SHA" '{issue:$issue,run_id:$run,canonical_task_version:$version,pr:$pr,sha:$sha}')"
+          ORCH_PAYLOAD="$(jq -nc --argjson issue "$ISSUE" '{issue:$issue}')"
           export ORCH_PAYLOAD
           python scripts/orchestration_github.py ingest
