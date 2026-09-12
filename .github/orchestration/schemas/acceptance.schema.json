@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gameai-acceptance/v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "run_id",
+    "canonical_task_version",
+    "stage",
+    "attempt_id",
+    "repository",
+    "issue",
+    "pr",
+    "sha",
+    "environment",
+    "targets",
+    "required_profile",
+    "profile_registry_revision",
+    "actor",
+    "verdict",
+    "findings",
+    "expected_manifest_revision",
+    "generation",
+    "actor_provenance"
+  ],
+  "properties": {
+    "schema": {
+      "const": "gameai-acceptance/v1"
+    },
+    "stage": {
+      "enum": [
+        "preview_acceptance",
+        "production_acceptance"
+      ]
+    },
+    "verdict": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "BLOCKED"
+      ]
+    },
+    "findings": {
+      "type": "array"
+    },
+    "expected_manifest_revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "generation": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "actor_provenance": {
+      "type": "object",
+      "required": [
+        "verified_by"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,21 @@
+name: Orchestration event ingress
+on:
+  repository_dispatch:
+    types: [orchestration-transition, orchestration-acceptance, orchestration-human-approval, orchestration-readiness]
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+concurrency: gameai-orchestration-manifest-writer
+jobs:
+  reduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate trusted event and invoke shared reducer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_EVENT_NAME: ${{ github.event.action }}
+          ORCH_PAYLOAD: ${{ toJSON(github.event.client_payload) }}
+          ORCH_SENDER: ${{ github.actor }}
+        run: python scripts/orchestration_github.py ingest

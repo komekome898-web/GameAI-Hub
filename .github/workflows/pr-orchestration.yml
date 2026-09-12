@@ -1,0 +1,21 @@
+name: PR orchestration observation
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review, closed]
+  check_suite:
+    types: [completed]
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+concurrency: gameai-orchestration-manifest-writer
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fence changed PR heads and invalidate stale approval
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_GITHUB_EVENT: ${{ github.event_path }}
+        run: python scripts/orchestration_github.py observe
