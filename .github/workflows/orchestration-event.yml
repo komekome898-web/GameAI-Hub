@@ -7,7 +7,7 @@ permissions:
   issues: write
   pull-requests: read
 concurrency:
-  group: gameai-orchestration-${{ github.event.client_payload.issue || github.run_id }}
+  group: gameai-orchestration-manifest-writer
   queue: max
 jobs:
   reduce:
@@ -24,3 +24,9 @@ jobs:
           ORCH_APP_ID: ${{ github.event.sender.id }}
           ORCH_VERCEL_TOKEN: ${{ secrets.ORCH_VERCEL_TOKEN }}
         run: python scripts/orchestration_github.py ingest
+      - name: Reconcile any durable Production hotfix operation
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_ISSUE: ${{ github.event.client_payload.issue }}
+        run: python scripts/orchestration_hotfix_reconcile.py

@@ -9,7 +9,7 @@ permissions:
   contents: read
   issues: write
 concurrency:
-  group: gameai-orchestration-${{ inputs.issue }}
+  group: gameai-orchestration-manifest-writer
   queue: max
 jobs:
   initialize:

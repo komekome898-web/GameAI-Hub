@@ -19,7 +19,7 @@
     "quality": "npm run affiliate:sync && npm run lint && npm run typecheck && npm test && npm run validate:data && npm run check:affiliates && npm run check:sitemap && npm run validate:content && npm run test:orchestration && npm run validate:workflows",
     "test:e2e": "playwright test",
     "validate:content": "node --import tsx scripts/validate-articles.ts",
-    "test:orchestration": "python -m unittest scripts/tests/test_orchestration.py",
+    "test:orchestration": "python -m unittest scripts/tests/test_orchestration.py scripts/tests/test_hotfix_reconcile.py",
     "validate:workflows": "python scripts/validate-orchestration.py"
   },
   "dependencies": {

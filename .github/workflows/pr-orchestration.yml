@@ -10,7 +10,7 @@ permissions:
   pull-requests: read
   statuses: write
 concurrency:
-  group: gameai-orchestration-pr-${{ github.event.pull_request.number || github.event.check_run.head_sha }}
+  group: gameai-orchestration-manifest-writer
   queue: max
 jobs:
   observe:
