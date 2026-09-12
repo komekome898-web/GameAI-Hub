@@ -22,4 +22,4 @@ Critical acceptance is one Work run using five explicit rubric sections: Functio
 
 ## Result contract
 
-Return exactly one `gameai-acceptance/v1` JSON marker. Required fields are enforced by the reducer: run/task version, stage/attempt, repository/Issue/PR/SHA, environment, targets, required profile/revision, actor provenance, verdict and findings. Use stable finding IDs and severity. `UNTESTED` cannot become PASS; P0/P1/high-impact P2 block. Preview and Production observations are separate.
+Return exactly one `gameai-acceptance/v1` JSON marker. Required fields include immutable result/claim IDs, run/task version, stage/attempt, repository/Issue/PR/SHA, environment, targets, required profile/revision, actor provenance, verdict and findings. Provenance is overwritten from the GitHub event envelope rather than accepted from payload text. The ingress is disabled by an empty actor allowlist until a real write-capable Work App/bot is observed and enrolled; never guess or forward it as `github-actions[bot]`. Use stable finding IDs and severity. `UNTESTED` cannot become PASS; P0/P1/high-impact P2 block.

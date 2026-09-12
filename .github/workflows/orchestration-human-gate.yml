@@ -1,32 +1,34 @@
-name: Orchestration human merge authorization
+name: Orchestration human control
 on:
   workflow_dispatch:
     inputs:
       issue: { description: Canonical Issue, required: true, type: string }
-      run_id: { description: Current run ID, required: true, type: string }
-      canonical_task_version: { description: Pinned task version, required: true, type: string }
-      pr: { description: Exact PR number, required: true, type: string }
-      head_sha: { description: Exact accepted 40-character head SHA, required: true, type: string }
+      operation:
+        description: Human decision
+        required: true
+        default: approve
+        type: choice
+        options: [approve, cancel, supersede, migrate_task_version]
+      new_task_version: { description: Migration only - new task version, required: false, type: string }
+      successor_issue: { description: Supersession only - initialized replacement Issue, required: false, type: string }
 permissions:
   contents: read
   issues: write
-concurrency: gameai-orchestration-manifest-writer
+  statuses: write
+concurrency:
+  group: gameai-orchestration-${{ inputs.issue }}
+  queue: max
 jobs:
-  authorize:
+  decide:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Record authorization only (this workflow never merges)
+      - name: Apply a human-authorized operation (never merge)
         env:
           GH_TOKEN: ${{ github.token }}
-          ORCH_EVENT_NAME: orchestration-human-approval
-          ORCH_SENDER: ${{ github.actor }}
-          ISSUE: ${{ inputs.issue }}
-          RUN_ID: ${{ inputs.run_id }}
-          TASK_VERSION: ${{ inputs.canonical_task_version }}
-          PR: ${{ inputs.pr }}
-          HEAD_SHA: ${{ inputs.head_sha }}
-        run: |
-          ORCH_PAYLOAD="$(jq -nc --argjson issue "$ISSUE" --arg run "$RUN_ID" --argjson version "$TASK_VERSION" --argjson pr "$PR" --arg sha "$HEAD_SHA" '{issue:$issue,run_id:$run,canonical_task_version:$version,pr:$pr,sha:$sha}')"
-          export ORCH_PAYLOAD
-          python scripts/orchestration_github.py ingest
+          ORCH_ISSUE: ${{ inputs.issue }}
+          ORCH_OPERATION: ${{ inputs.operation }}
+          ORCH_NEW_TASK_VERSION: ${{ inputs.new_task_version }}
+          ORCH_SUCCESSOR_ISSUE: ${{ inputs.successor_issue }}
+          ORCH_AUTHORIZED_AT: ${{ github.event.repository.updated_at }}
+        run: python scripts/orchestration_github.py human

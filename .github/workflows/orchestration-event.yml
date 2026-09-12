@@ -1,12 +1,14 @@
 name: Orchestration event ingress
 on:
   repository_dispatch:
-    types: [orchestration-transition, orchestration-acceptance, orchestration-human-approval, orchestration-readiness]
+    types: [orchestration-transition, orchestration-acceptance, orchestration-readiness, orchestration-codex-dispatch, orchestration-codex-ack, orchestration-codex-result]
 permissions:
   contents: read
   issues: write
   pull-requests: read
-concurrency: gameai-orchestration-manifest-writer
+concurrency:
+  group: gameai-orchestration-${{ github.event.client_payload.issue || github.run_id }}
+  queue: max
 jobs:
   reduce:
     runs-on: ubuntu-latest
@@ -18,4 +20,7 @@ jobs:
           ORCH_EVENT_NAME: ${{ github.event.action }}
           ORCH_PAYLOAD: ${{ toJSON(github.event.client_payload) }}
           ORCH_SENDER: ${{ github.actor }}
+          ORCH_ACTOR_TYPE: ${{ github.event.sender.type }}
+          ORCH_APP_ID: ${{ github.event.sender.id }}
+          ORCH_VERCEL_TOKEN: ${{ secrets.ORCH_VERCEL_TOKEN }}
         run: python scripts/orchestration_github.py ingest
