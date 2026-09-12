@@ -1,0 +1,6 @@
+{
+  "type:research":"5319e7","type:implementation":"1d76db","type:acceptance":"0e8a16",
+  "state:needs-research":"d4c5f9","state:research-running":"d4c5f9","state:research-complete":"d4c5f9","state:needs-implementation":"fbca04","state:implementation-running":"fbca04","state:preview-ready":"0e8a16","state:needs-preview-acceptance":"0e8a16","state:acceptance-failed":"d93f0b","state:merge-ready":"2da44e","state:production-ready":"0052cc","state:needs-production-acceptance":"0052cc","state:done":"2da44e",
+  "blocked:human":"b60205","blocked:external":"b60205","blocked:technical":"b60205",
+  "severity:P0":"b60205","severity:P1":"d93f0b","severity:P2":"fbca04","severity:P3":"fef2c0"
+}

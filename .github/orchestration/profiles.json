@@ -1,0 +1,8 @@
+{
+  "schema": "gameai-work-profiles/v1",
+  "revision": 1,
+  "profiles": {
+    "work-standard": { "model": "GPT-5.6 Sol", "reasoning": "medium", "uses": ["preview_acceptance", "research", "normal_evidence"] },
+    "work-critical": { "model": "GPT-6 Astra", "reasoning": "low", "uses": ["production_acceptance", "p0_p1_validation", "security_privacy", "orchestration_e2e"] }
+  }
+}
