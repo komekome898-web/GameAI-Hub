@@ -2,61 +2,30 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "gameai-acceptance/v1",
   "type": "object",
-  "required": [
-    "schema",
-    "run_id",
-    "canonical_task_version",
-    "stage",
-    "attempt_id",
-    "repository",
-    "issue",
-    "pr",
-    "sha",
-    "environment",
-    "targets",
-    "required_profile",
-    "profile_registry_revision",
-    "actor",
-    "verdict",
-    "findings",
-    "expected_manifest_revision",
-    "generation",
-    "actor_provenance"
-  ],
+  "additionalProperties": false,
+  "required": ["schema", "result_id", "claim_id", "run_id", "canonical_task_version", "stage", "attempt_id", "repository", "issue", "pr", "sha", "environment", "targets", "required_profile", "profile_registry_revision", "actor", "actor_provenance", "verdict", "findings", "expected_manifest_revision", "generation"],
   "properties": {
-    "schema": {
-      "const": "gameai-acceptance/v1"
-    },
-    "stage": {
-      "enum": [
-        "preview_acceptance",
-        "production_acceptance"
-      ]
-    },
-    "verdict": {
-      "enum": [
-        "PASS",
-        "FAIL",
-        "BLOCKED"
-      ]
-    },
-    "findings": {
-      "type": "array"
-    },
-    "expected_manifest_revision": {
-      "type": "integer",
-      "minimum": 0
-    },
-    "generation": {
-      "type": "integer",
-      "minimum": 1
-    },
-    "actor_provenance": {
-      "type": "object",
-      "required": [
-        "verified_by"
-      ]
-    }
-  },
-  "additionalProperties": false
+    "schema": {"const": "gameai-acceptance/v1"},
+    "result_id": {"type": "string", "minLength": 1, "maxLength": 200},
+    "claim_id": {"type": "string", "minLength": 1, "maxLength": 200},
+    "run_id": {"type": "string", "minLength": 1, "maxLength": 200},
+    "canonical_task_version": {"type": "integer", "minimum": 1},
+    "stage": {"enum": ["preview_acceptance", "production_acceptance"]},
+    "attempt_id": {"type": "string", "minLength": 1, "maxLength": 200},
+    "repository": {"type": "string", "pattern": "^[^/]+/[^/]+$"},
+    "issue": {"type": "integer", "minimum": 1},
+    "pr": {"type": "integer", "minimum": 1},
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "environment": {"enum": ["preview", "production"]},
+    "targets": {"type": "array", "maxItems": 100, "items": {"type": "string", "maxLength": 2048}},
+    "required_profile": {"enum": ["work-standard", "work-critical"]},
+    "profile_registry_revision": {"type": "integer", "minimum": 1},
+    "actor": {"type": "string", "minLength": 1, "maxLength": 200},
+    "actor_provenance": {"type": "object", "additionalProperties": false, "required": ["verified_by", "sender", "actor_type", "app_id"], "properties": {"verified_by": {"const": "github-event-envelope"}, "sender": {"type": "string"}, "actor_type": {"type": "string"}, "app_id": {"type": ["string", "null"]}}},
+    "verdict": {"enum": ["PASS", "FAIL", "BLOCKED"]},
+    "findings": {"type": "array", "maxItems": 200, "items": {"type": "object", "additionalProperties": true, "required": ["id", "blocking"], "properties": {"id": {"type": "string", "minLength": 1}, "blocking": {"type": "boolean"}}}},
+    "blocked": {"type": "object"},
+    "expected_manifest_revision": {"type": "integer", "minimum": 0},
+    "generation": {"type": "integer", "minimum": 1}
+  }
 }

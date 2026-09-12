@@ -7,13 +7,21 @@ on:
 permissions:
   contents: read
   issues: write
-concurrency: gameai-orchestration-manifest-writer
+concurrency:
+  group: gameai-orchestration-manifest-writer
+  queue: max
 jobs:
   reconcile:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - env:
+      - name: Reconcile manifest projection
+        env:
           GH_TOKEN: ${{ github.token }}
           ORCH_ISSUE: ${{ inputs.issue }}
         run: python scripts/orchestration_github.py reconcile
+      - name: Reconcile durable Production hotfix operations
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_ISSUE: ${{ inputs.issue }}
+        run: python scripts/orchestration_hotfix_reconcile.py

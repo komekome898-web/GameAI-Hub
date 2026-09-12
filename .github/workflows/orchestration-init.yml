@@ -8,7 +8,9 @@ on:
 permissions:
   contents: read
   issues: write
-concurrency: gameai-orchestration-manifest-writer
+concurrency:
+  group: gameai-orchestration-manifest-writer
+  queue: max
 jobs:
   initialize:
     runs-on: ubuntu-latest
@@ -20,4 +22,6 @@ jobs:
           ORCH_ISSUE: ${{ inputs.issue }}
           ORCH_TASK_VERSION: ${{ inputs.canonical_task_version }}
           ORCH_CRITICAL: ${{ inputs.critical }}
+          ORCH_PREVIEW_ORIGINS: ${{ vars.ORCH_PREVIEW_ORIGINS }}
+          ORCH_PRODUCTION_ORIGINS: ${{ vars.ORCH_PRODUCTION_ORIGINS }}
         run: python scripts/orchestration_github.py init
