@@ -1,4 +1,5 @@
 import pathlib, sys, unittest
+from types import SimpleNamespace
 from unittest.mock import patch
 
 sys.path.insert(0, str(pathlib.Path(__file__).parents[1]))
@@ -34,11 +35,35 @@ class HotfixReconcileTests(unittest.TestCase):
         self.assertEqual(op["count"], 1)
         self.assertIn("run-74:prod-fail-1:1", op["operation_id"])
 
-    @patch.object(hotfix, "_issues")
-    def test_crash_after_child_issue_creation_reuses_exact_child_without_search_index(self, issues):
+    @patch.object(hotfix.subprocess, "run")
+    def test_gh_pages_parses_slurped_multi_page_cli_output(self, run):
+        run.return_value = SimpleNamespace(
+            returncode=0,
+            stdout='[[{"number":1}],[{"number":101}]]',
+            stderr="",
+        )
+        pages = hotfix.gh_pages("repos/example/repo/issues?per_page=100")
+        self.assertEqual([[x["number"] for x in page] for page in pages], [[1], [101]])
+        command = run.call_args.args[0]
+        self.assertIn("--paginate", command)
+        self.assertIn("--slurp", command)
+
+    @patch.object(hotfix, "gh_pages")
+    def test_issue_scan_flattens_more_than_one_hundred_records(self, pages):
+        first = [{"number": i, "title": f"issue-{i}", "body": ""} for i in range(1, 101)]
+        second = [{"number": 101, "title": "issue-101", "body": ""}]
+        pages.return_value = [first, second]
+        issues = hotfix._issues()
+        self.assertEqual(len(issues), 101)
+        self.assertEqual(issues[-1]["number"], 101)
+
+    @patch.object(hotfix, "gh_pages")
+    def test_crash_after_child_issue_creation_rediscovery_across_pages(self, pages):
         op = hotfix.pending_operation(parent_manifest())
-        issues.return_value = [{"number": 100, "title": op["title"], "body": op["marker"]}]
-        self.assertEqual(hotfix.find_existing_child(op)["number"], 100)
+        first = [{"number": i, "title": f"other-{i}", "body": ""} for i in range(1, 101)]
+        target = {"number": 101, "title": op["title"], "body": op["marker"]}
+        pages.return_value = [first, [target]]
+        self.assertEqual(hotfix.find_existing_child(op)["number"], 101)
 
     @patch.object(hotfix.adapter, "reconcile_one")
     @patch.object(hotfix.adapter, "find_manifest")
@@ -87,6 +112,19 @@ class HotfixReconcileTests(unittest.TestCase):
             issue_number, recovered = hotfix.ensure_child(74, parent, op)
         self.assertEqual((issue_number, recovered["run_id"]), (100, "run-74-hotfix-1"))
         self.assertTrue(any(hotfix.adapter.INDEX in call.args[1] for call in post.call_args_list))
+
+    @patch.object(hotfix, "reconcile_issue")
+    @patch.object(hotfix, "gh_pages")
+    def test_scheduled_reconcile_scans_parents_beyond_first_hundred(self, pages, reconcile_issue):
+        first = [{"number": i} for i in range(1, 101)]
+        second = [{"number": 101}, {"number": 102, "pull_request": {"url": "pr"}}]
+        pages.return_value = [first, second]
+        with patch.dict(hotfix.os.environ, {"ORCH_ISSUE": ""}, clear=False):
+            hotfix.reconcile_all()
+        called = [call.args[0] for call in reconcile_issue.call_args_list]
+        self.assertEqual(len(called), 101)
+        self.assertIn(101, called)
+        self.assertNotIn(102, called)
 
 
 if __name__ == "__main__":

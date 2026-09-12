@@ -5,7 +5,9 @@ The durable trigger is the parent Run Manifest itself: a Production Acceptance
 FAIL plus its persisted last_acceptance result. That record is written before
 any child Issue side effect, so reconciliation can resume after any later crash.
 """
+import json
 import os
+import subprocess
 
 import orchestration_github as adapter
 from orchestration import Rejected, create_hotfix, reduce
@@ -33,9 +35,34 @@ def pending_operation(parent):
     }
 
 
+def gh_pages(endpoint):
+    """Return every GitHub API page as one parsed list using gh --slurp.
+
+    `gh api --paginate` emits one JSON document per page. `--slurp` converts
+    those documents into a single outer JSON array so one json.loads is safe.
+    """
+    proc = subprocess.run(
+        ["gh", "api", endpoint, "--paginate", "--slurp"],
+        text=True,
+        capture_output=True,
+    )
+    if proc.returncode:
+        raise RuntimeError(proc.stderr.strip())
+    if not proc.stdout.strip():
+        return []
+    pages = json.loads(proc.stdout)
+    if not isinstance(pages, list):
+        raise Rejected("paginated GitHub response must be an outer JSON array")
+    return pages
+
+
 def _issues():
-    value = adapter.gh(f"repos/{adapter.REPO}/issues?state=all&per_page=100", "--paginate")
-    return value if isinstance(value, list) else []
+    issues = []
+    for page in gh_pages(f"repos/{adapter.REPO}/issues?state=all&per_page=100"):
+        if not isinstance(page, list):
+            raise Rejected("issues page must be a JSON array")
+        issues.extend(page)
+    return issues
 
 
 def find_existing_child(op):
@@ -166,8 +193,12 @@ def reconcile_all():
         if number > 0:
             reconcile_issue(number)
         return
-    query = adapter.gh(f"search/issues?q=repo:{adapter.REPO}+is:issue+%22gameai-orchestration-index:v1%22&per_page=100")
-    for item in query.get("items", []):
+
+    # Scan all Issues using the same pagination-safe path as child rediscovery.
+    # This avoids the Search API's first-page/indexing limitations for recovery.
+    for item in _issues():
+        if "pull_request" in item:
+            continue
         try:
             reconcile_issue(item["number"])
         except Rejected:
