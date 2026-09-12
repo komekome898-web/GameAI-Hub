@@ -21,7 +21,8 @@
     "findings",
     "expected_manifest_revision",
     "generation",
-    "actor_provenance"
+    "actor_provenance",
+    "claim_id"
   ],
   "properties": {
     "schema": {
@@ -56,6 +57,24 @@
       "required": [
         "verified_by"
       ]
+    },
+    "claim_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "environment": {
+      "enum": [
+        "preview",
+        "production"
+      ]
+    },
+    "attempt_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "actor": {
+      "type": "string",
+      "minLength": 1
     }
   },
   "additionalProperties": false

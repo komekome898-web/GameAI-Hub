@@ -13,4 +13,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run quality
+      - run: npm run test:orchestration
+      - run: npm run validate:workflows
       - run: npm run build
