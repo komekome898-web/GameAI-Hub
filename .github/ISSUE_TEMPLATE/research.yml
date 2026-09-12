@@ -1,0 +1,13 @@
+name: Research
+about: Start a concise research task
+body:
+  - type: textarea
+    id: goal
+    attributes: { label: Goal, description: What decision must this research enable? }
+    validations: { required: true }
+  - type: dropdown
+    id: priority
+    attributes: { label: Priority, options: [Normal, High, Critical] }
+  - type: textarea
+    id: scope
+    attributes: { label: Optional scope, description: Include/exclude constraints; automation creates machine metadata. }

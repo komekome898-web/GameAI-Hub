@@ -1,0 +1,10 @@
+{
+  "schema": "gameai-trusted-actors/v1",
+  "revision": 1,
+  "acceptance_actors": [],
+  "deployment_observers": [],
+  "codex_bridge_actors": [],
+  "state_actors": ["komekome898-web", "github-actions[bot]"],
+  "human_approvers": ["komekome898-web"],
+  "note": "Acceptance is fail-closed until an installed GitHub App/bot actor is explicitly enrolled after a real writeback experiment. GitHub Actions is not an acceptance actor."
+}
