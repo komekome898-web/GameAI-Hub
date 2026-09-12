@@ -86,7 +86,35 @@ class ReducerTests(unittest.TestCase):
 
     def test_preview_fail_creates_fenced_outbox(self):
         m=manifest();out,_=reduce(m,acceptance_event(m,result(m,"FAIL"),"fail"),"acceptance")
-        self.assertEqual((out["stage"],out["patch_mode"]["same_pr"],out["codex_outbox"]["generation"]),("implementation",91,2))
+        self.assertEqual((out["stage"],out["patch_mode"]["same_pr"],out["codex_outbox"]["generation"],out["codex_outbox"]["dispatch_mode"]),("implementation",91,2,"NEW_TASK"))
+
+    def test_new_task_dispatch_is_fenced_to_existing_pr_and_findings(self):
+        m=manifest();out,_=reduce(m,acceptance_event(m,result(m,"FAIL"),"fail"),"acceptance")
+        claim=out["codex_outbox"];dispatch_id=f'new-task:{claim["claim_id"]}'
+        event=base(out,"codex_dispatch",transition_id=dispatch_id,claim_id=claim["claim_id"],fencing_token=claim["fencing_token"],dispatch_id=dispatch_id)
+        out,_=reduce(out,event,"codex_bridge");body=adapter.render_codex_dispatch(out);contract=adapter.parse(body,adapter.CODEX_DISPATCH)
+        self.assertEqual((contract["dispatch_mode"],contract["pr"],contract["branch"],contract["base_head_sha"]),("NEW_TASK",91,"feat/74","a"*40))
+        self.assertEqual(contract["finding_ids"],["P1-001"])
+        self.assertIn("do not redesign, restart, or create a duplicate PR",body)
+        self.assertIn("Do not attempt to resume",body)
+
+    @patch.object(adapter,"post")
+    @patch.object(adapter,"comments")
+    def test_dispatch_projection_is_idempotent_after_crash(self, comments, post):
+        m=manifest();out,_=reduce(m,acceptance_event(m,result(m,"FAIL"),"fail"),"acceptance")
+        claim=out["codex_outbox"];dispatch_id=f'new-task:{claim["claim_id"]}'
+        out,_=reduce(out,base(out,"codex_dispatch",transition_id=dispatch_id,claim_id=claim["claim_id"],fencing_token=claim["fencing_token"],dispatch_id=dispatch_id),"codex_bridge")
+        existing={"id":12,"user":{"login":"github-actions[bot]","type":"Bot"},"body":adapter.render_codex_dispatch(out)}
+        comments.return_value=[existing]
+        self.assertTrue(adapter.ensure_codex_dispatch(74,out));post.assert_not_called()
+
+    def test_each_new_codex_task_identity_is_recorded_and_cannot_be_reused(self):
+        m=manifest();out,_=reduce(m,acceptance_event(m,result(m,"FAIL"),"fail"),"acceptance")
+        claim=out["codex_outbox"];dispatch_id=f'new-task:{claim["claim_id"]}'
+        out,_=reduce(out,base(out,"codex_dispatch",transition_id=dispatch_id,claim_id=claim["claim_id"],fencing_token=claim["fencing_token"],dispatch_id=dispatch_id),"codex_bridge")
+        ack=base(out,"codex_ack",transition_id="ack-1",claim_id=claim["claim_id"],fencing_token=claim["fencing_token"],dispatch_id=dispatch_id,external_task_id="thread-new-1")
+        out,_=reduce(out,ack,"codex_bridge")
+        self.assertEqual(out["codex_tasks"],[{"external_task_id":"thread-new-1","claim_id":claim["claim_id"],"dispatch_id":dispatch_id,"generation":2,"base_head_sha":"a"*40}])
 
     def test_malformed_fail_visible_technical_block(self):
         m=manifest();r=result(m,"FAIL");r["findings"]=[]

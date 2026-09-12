@@ -210,7 +210,10 @@ def reduce(manifest, event, capability="generic"):
             if operation == "codex_dispatch":
                 require(claim.get("state") == "PENDING_DISPATCH", "Codex claim not pending"); claim["state"] = "DISPATCH_REQUESTED"; claim["dispatch_id"] = event["dispatch_id"]
             elif operation == "codex_ack":
-                require(claim.get("state") == "DISPATCH_REQUESTED" and event.get("dispatch_id") == claim.get("dispatch_id"), "Codex dispatch correlation mismatch"); claim["state"] = "ACKED"; claim["external_task_id"] = event["external_task_id"]; out["status"] = "running"
+                require(claim.get("state") == "DISPATCH_REQUESTED" and event.get("dispatch_id") == claim.get("dispatch_id"), "Codex dispatch correlation mismatch")
+                require(event.get("external_task_id") and all(x.get("external_task_id") != event["external_task_id"] for x in out.get("codex_tasks", [])), "Codex task identity missing or already observed")
+                claim["state"] = "ACKED"; claim["external_task_id"] = event["external_task_id"]; out["status"] = "running"
+                out.setdefault("codex_tasks", []).append({"external_task_id": event["external_task_id"], "claim_id": claim["claim_id"], "dispatch_id": claim["dispatch_id"], "generation": claim["generation"], "base_head_sha": claim["base_head_sha"]})
             else:
                 require(claim.get("state") == "ACKED" and event.get("external_task_id") == claim.get("external_task_id"), "Codex task correlation mismatch")
                 require(SHA.fullmatch(event.get("result_head_sha", "")) and event["result_head_sha"] != claim["base_head_sha"], "Codex result head invalid")
@@ -285,7 +288,7 @@ def normalized_block(value, issue):
 
 def new_codex_claim(manifest):
     token = uuid.uuid4().hex
-    return {"claim_id": f"codex-{token}", "generation": manifest["generation"], "fencing_token": token, "base_head_sha": manifest["binding"].get("head_sha"), "state": "PENDING_DISPATCH", "idempotency_key": f'{manifest["run_id"]}:{manifest["generation"]}:{manifest["counters"]["repair_revision"]}'}
+    return {"claim_id": f"codex-{token}", "generation": manifest["generation"], "fencing_token": token, "base_head_sha": manifest["binding"].get("head_sha"), "state": "PENDING_DISPATCH", "dispatch_mode": "NEW_TASK", "idempotency_key": f'{manifest["run_id"]}:{manifest["generation"]}:{manifest["counters"]["repair_revision"]}'}
 
 
 def create_hotfix(parent, child_issue, max_hotfixes=2):
@@ -314,7 +317,7 @@ def projection(manifest, labels):
 def next_action(m):
     if m.get("blocked"): return m["blocked"]["resume"]
     if (m["stage"], m["status"]) == ("human_merge", "pending"): return "Review the merge decision below and authorize the current SHA."
-    if m["stage"] == "implementation" and m["status"] == "pending" and m.get("codex_outbox", {}).get("state") == "PENDING_DISPATCH": return "Codex bridge is unverified; use the documented manual same-PR repair fallback."
+    if m["stage"] == "implementation" and m["status"] == "pending" and m.get("codex_outbox", {}).get("state") in {"PENDING_DISPATCH", "DISPATCH_REQUESTED"}: return "None — a new fenced Codex Patch Mode task is queued for the existing PR."
     return "None — automation is active or awaiting verified external evidence."
 
 

@@ -7,6 +7,7 @@ REPO = os.getenv("GITHUB_REPOSITORY", "komekome898-web/GameAI-Hub")
 MANIFEST = "<!-- gameai-run-manifest:v1 -->"
 TASK = "<!-- gameai-canonical-task:v1 -->"
 INDEX = "<!-- gameai-orchestration-index:v1 -->"
+CODEX_DISPATCH = "<!-- gameai-codex-dispatch:v1 -->"
 MAX_PAYLOAD = 128 * 1024
 
 
@@ -84,6 +85,53 @@ def render_manifest(manifest):
     return summary(manifest) + "\n\n<details><summary>Machine state (do not edit)</summary>\n\n" + block(MANIFEST, manifest) + "\n</details>"
 
 
+def render_codex_dispatch(manifest):
+    """Render a fenced new-task request; repeat mentions are never called resume."""
+    claim = manifest.get("codex_outbox") or {}
+    contract = {
+        "schema": "gameai-codex-dispatch/v1",
+        "dispatch_id": claim.get("dispatch_id"),
+        "claim_id": claim.get("claim_id"),
+        "dispatch_mode": "NEW_TASK",
+        "run_id": manifest["run_id"],
+        "canonical_task_version": manifest["canonical_task_version"],
+        "manifest_revision": manifest["revision"],
+        "generation": claim.get("generation"),
+        "repository": manifest["repository"],
+        "issue": manifest["issue"],
+        "pr": manifest["binding"].get("pr"),
+        "branch": manifest["binding"].get("branch"),
+        "base_head_sha": claim.get("base_head_sha"),
+        "finding_ids": manifest.get("blocking_findings", []),
+        "fencing_token": claim.get("fencing_token"),
+    }
+    instructions = (
+        "@codex Start a new Codex Cloud task for this fenced Patch Mode claim. "
+        "Do not attempt to resume or reuse a prior CODEX_THREAD_ID. Read the linked Issue's Canonical Task "
+        "and Run Manifest, then patch only the listed blocking Finding IDs on the existing branch and PR. "
+        "Before writing or pushing, verify the exact branch, PR, base head SHA, task version, generation, and fencing token below. "
+        "If any fence is stale, stop without changing or force-pushing. Preserve previously verified behavior; do not redesign, "
+        "restart, or create a duplicate PR. Record the newly observed task/thread identity independently in the ACK."
+    )
+    return instructions + "\n\n" + block(CODEX_DISPATCH, contract)
+
+
+def ensure_codex_dispatch(number, manifest):
+    """Idempotently materialize a requested dispatch as exactly one Issue comment."""
+    claim = manifest.get("codex_outbox") or {}
+    if claim.get("state") != "DISPATCH_REQUESTED" or claim.get("dispatch_mode") != "NEW_TASK": return False
+    dispatch_id = claim.get("dispatch_id")
+    existing = []
+    for comment in comments(number):
+        if CODEX_DISPATCH not in comment.get("body", "") or not trusted_comment(comment): continue
+        try: payload = parse(comment["body"], CODEX_DISPATCH)
+        except Rejected: continue
+        if payload.get("dispatch_id") == dispatch_id: existing.append(comment)
+    if len(existing) > 1: raise Rejected("duplicate trusted Codex dispatch comments require reconciliation")
+    if not existing: post(number, render_codex_dispatch(manifest))
+    return True
+
+
 def write(number, comment, manifest, expected_revision):
     current, latest = find_manifest(number)
     if current["id"] != comment["id"] or latest["revision"] != expected_revision: raise Rejected("manifest changed before write; re-read and replay event")
@@ -138,6 +186,11 @@ def ingest():
             if sender not in trusted.get("acceptance_actors", []): raise Rejected("unauthorized acceptance actor")
             payload["actor"] = sender; payload["actor_provenance"] = {"verified_by": "github-event-envelope", "sender": sender, "actor_type": os.getenv("ORCH_ACTOR_TYPE", "unknown"), "app_id": os.getenv("ORCH_APP_ID")}
             out, mutation_status = reduce(manifest, acceptance_event(manifest, payload, payload["result_id"]), "acceptance")
+            if mutation_status == "applied" and out.get("codex_outbox", {}).get("state") == "PENDING_DISPATCH":
+                claim = out["codex_outbox"]
+                dispatch_id = f'new-task:{claim["claim_id"]}'
+                dispatch_event = envelope(out, {"transition_id": dispatch_id, "claim_id": claim["claim_id"], "fencing_token": claim["fencing_token"], "dispatch_id": dispatch_id}, "codex_dispatch")
+                out, _ = reduce(out, dispatch_event, "codex_bridge")
         elif kind == "orchestration-readiness":
             if sender not in trusted.get("deployment_observers", []): raise Rejected("unauthorized deployment observer")
             payload = observed_deployment(payload)
@@ -148,6 +201,7 @@ def ingest():
             out, mutation_status = reduce(manifest, envelope(manifest, payload, operation), "codex_bridge")
         else: raise Rejected("unsupported generic event; human/lifecycle operations require workflow_dispatch")
         write(number, comment, out, manifest["revision"])
+        if kind == "orchestration-acceptance": ensure_codex_dispatch(number, out)
         if kind == "orchestration-acceptance" and mutation_status == "applied" and out["stage"] == "production_acceptance" and out["status"] == "failed": create_child_hotfix(number, comment, out, payload["result_id"])
     except (Rejected, KeyError, TypeError, json.JSONDecodeError) as exc:
         raise Rejected(f"input archived in workflow log without state change: {exc}") from exc
@@ -273,5 +327,11 @@ def reconcile():
         except Rejected: pass
 
 
+def dispatch():
+    """Crash-safe replay: manifest mutation precedes comment projection."""
+    number = int(os.environ["ORCH_ISSUE"]); _, manifest = find_manifest(number); verify_task(number, manifest)
+    ensure_codex_dispatch(number, manifest)
+
+
 if __name__ == "__main__":
-    {"init": init, "ingest": ingest, "human": human, "bind": bind, "observe": observe, "reconcile": reconcile, "labels": labels}[sys.argv[1]]()
+    {"init": init, "ingest": ingest, "human": human, "bind": bind, "observe": observe, "reconcile": reconcile, "dispatch": dispatch, "labels": labels}[sys.argv[1]]()

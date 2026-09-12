@@ -30,3 +30,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           ORCH_ISSUE: ${{ github.event.client_payload.issue }}
         run: python scripts/orchestration_hotfix_reconcile.py
+      - name: Reconcile durable Codex new-task dispatch
+        if: ${{ always() && github.event.action == 'orchestration-acceptance' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_ISSUE: ${{ github.event.client_payload.issue }}
+        run: python scripts/orchestration_github.py dispatch
