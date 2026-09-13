@@ -26,3 +26,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/orchestration_preview_readiness_reconcile.py
+      - name: Replay authorized post-merge recovery without changing Production SHA
+        if: ${{ github.event_name == 'pull_request' && github.event.action == 'ready_for_review' && github.event.pull_request.number == 101 }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_GITHUB_EVENT: ${{ github.event_path }}
+        run: python scripts/orchestration_post_merge_recovery_driver.py
