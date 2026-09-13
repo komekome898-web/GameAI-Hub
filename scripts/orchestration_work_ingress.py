@@ -7,18 +7,35 @@ import orchestration_github as adapter
 from orchestration import Rejected, acceptance_event, reduce
 
 ACCEPTANCE = "<!-- gameai-acceptance:v1 -->"
+REPLAY = "<!-- gameai-work-ingress-replay:v1 -->"
 WORK_APP_ID = 1144995
+
+
+def _candidate_from_event(event):
+    event_comment = event.get("comment", {})
+    body = event_comment.get("body", "")
+    if ACCEPTANCE in body:
+        return adapter.gh(f"repos/{adapter.REPO}/issues/comments/{int(event_comment['id'])}")
+    if REPLAY in body:
+        owner = adapter.REPO.split("/", 1)[0]
+        if event_comment.get("user", {}).get("login") != owner:
+            raise Rejected("replay request must be created by repository owner")
+        replay = adapter.parse(body, REPLAY)
+        candidate_id = int(replay.get("candidate_comment_id", 0))
+        if candidate_id <= 0:
+            raise Rejected("replay request missing candidate_comment_id")
+        return adapter.gh(f"repos/{adapter.REPO}/issues/comments/{candidate_id}")
+    return None
 
 
 def main():
     event = adapter.strict_json(open(os.environ["ORCH_GITHUB_EVENT"]).read())
     if event.get("action") != "created" or not event.get("issue", {}).get("pull_request"):
         return
-    event_comment = event.get("comment", {})
-    if ACCEPTANCE not in event_comment.get("body", ""):
-        return
     pr_number = int(event["issue"]["number"])
-    comment = adapter.gh(f"repos/{adapter.REPO}/issues/comments/{int(event_comment['id'])}")
+    comment = _candidate_from_event(event)
+    if comment is None:
+        return
     app = comment.get("performed_via_github_app") or {}
     if app.get("id") != WORK_APP_ID or app.get("slug") != "chatgpt-codex-connector":
         raise Rejected("candidate was not written through the observed ChatGPT Work connector")
@@ -34,8 +51,10 @@ def main():
     for possible in adapter.comments(pr_number):
         if ACCEPTANCE not in possible.get("body", ""):
             continue
-        try: parsed = adapter.parse(possible["body"], ACCEPTANCE)
-        except (Rejected, json.JSONDecodeError): continue
+        try:
+            parsed = adapter.parse(possible["body"], ACCEPTANCE)
+        except (Rejected, json.JSONDecodeError):
+            continue
         possible_app = possible.get("performed_via_github_app") or {}
         if parsed.get("claim_id") == claim.get("claim_id") and possible_app.get("id") == WORK_APP_ID:
             candidates.append(possible)
