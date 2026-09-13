@@ -2,6 +2,7 @@
 """Derive Preview readiness from GitHub's Vercel status and bot evidence."""
 import os
 import re
+import time
 from urllib.parse import urlparse
 
 import orchestration_github as adapter
@@ -12,19 +13,39 @@ PREVIEW_RE = re.compile(r"\[Preview\]\((https://[^)]+\.vercel\.app)\)")
 READY_RE = re.compile(r"\[Ready\]\((https://vercel\.com/[^)]+)\)")
 
 
-def matching_preview(pr_number, target_url):
-    matches = []
-    for comment in adapter.gh(f"repos/{adapter.REPO}/issues/{pr_number}/comments?per_page=100", "--paginate"):
-        if comment.get("user", {}).get("login") != VERCEL_BOT:
-            continue
-        body = comment.get("body", "")
-        ready = READY_RE.search(body)
-        preview = PREVIEW_RE.search(body)
-        if ready and preview and ready.group(1) == target_url:
-            matches.append((preview.group(1), comment.get("html_url")))
-    if len(matches) != 1:
-        raise Rejected("exactly one Vercel bot Preview evidence record is required")
-    return matches[0]
+def matching_preview(pr_number, deployment_id, attempts=6, delay_seconds=5):
+    """Wait briefly for Vercel's mutable PR comment to catch up with status=success."""
+    for attempt in range(attempts):
+        matches = []
+        comments = adapter.gh(
+            f"repos/{adapter.REPO}/issues/{pr_number}/comments?per_page=100",
+            "--paginate",
+        )
+        for comment in comments:
+            if comment.get("user", {}).get("login") != VERCEL_BOT:
+                continue
+            body = comment.get("body", "")
+            ready = READY_RE.search(body)
+            preview = PREVIEW_RE.search(body)
+            if not ready or not preview:
+                continue
+            ready_url = urlparse(ready.group(1))
+            ready_parts = [p for p in ready_url.path.split("/") if p]
+            if (
+                ready_url.scheme == "https"
+                and ready_url.netloc == "vercel.com"
+                and len(ready_parts) == 3
+                and ready_parts[:2] == [adapter.REPO.split("/", 1)[0], "game-ai-hub"]
+                and ready_parts[2] == deployment_id
+            ):
+                matches.append((preview.group(1), comment.get("html_url")))
+        if len(matches) == 1:
+            return matches[0]
+        if len(matches) > 1:
+            raise Rejected("duplicate Vercel bot Preview evidence records")
+        if attempt + 1 < attempts:
+            time.sleep(delay_seconds)
+    raise Rejected("Vercel bot Preview evidence did not converge within bounded retry")
 
 
 def main():
@@ -59,7 +80,7 @@ def main():
                 return
             if (manifest.get("stage"), manifest.get("status")) != ("preview_acceptance", "pending"):
                 return
-            preview_url, comment_url = matching_preview(pr["number"], target_url)
+            preview_url, comment_url = matching_preview(pr["number"], deployment_id)
             status_id = str(event.get("id") or os.environ.get("GITHUB_RUN_ID", "status"))
             payload = adapter.envelope(
                 manifest,
