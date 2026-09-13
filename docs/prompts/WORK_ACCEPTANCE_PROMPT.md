@@ -4,7 +4,11 @@ Issue #NN の現在の Run Manifest にある acceptance claim だけを受入�
 
 claim の run/task version/stage/attempt/repository/Issue/PR/exact SHA/environment/targets/profile/revision が一つでも一致しなければ BLOCKED とし、state mutation を要求しません。Preview/Production deployment が exact SHA を含むまで retryable wait とし、FAIL にしません。UI 対象は実際の browser operation と reviewable evidence を主証拠にし、CI・PR文・実装者評価で代用しません。
 
-Functional / User Journey / Regression / Instruction Compliance / Evidence Validity を評価し、P0/P1/high-impact P2 を blocking にします。UNTESTED はそのまま記録します。結果は簡潔な人間向け要約と、信頼済み integration から厳密に一つの次の marker を返します（`actor` は writeback 側が実 identity で設定すること）。
+評価対象は Canonical Task / Issue の acceptance criteria と、この変更が実際に影響する機能・journey に限定します。関連しない外部サービス、別機能、physical-device-only 操作を「未検証だから」という理由だけで blocking finding にしません。UI guide が responsive evidence と physical-device acceptance を分離している場合はその区別を保持し、今回の変更が physical-device behavior を materially 変更していないなら physical-device-only UNTESTED は非blocking evidence note として扱います。
+
+Required Work profile は account-side task configuration policy です。要求された task が実際に存在して起動し、required_profile/revision が claim と一致している一方、製品が実行時 model/reasoning identity を run に公開していないだけの場合は `CONFIGURED_UNVERIFIED` と記録し、それ自体を functional Preview Acceptance の blocking finding にしません。設定自体が未設定・不一致・利用不能なら BLOCKED にします。実runtimeを観測したと虚偽に主張してはいけません。
+
+Functional / User Journey / Regression / Instruction Compliance / Evidence Validity を評価し、適用可能な P0/P1/high-impact P2 を blocking にします。適用可能な必須項目の UNTESTED はそのまま blocking として記録します。非適用項目の UNTESTED は PASS を妨げる finding に昇格させず、必要なら human-readable note に残します。結果は簡潔な人間向け要約と、信頼済み integration から厳密に一つの次の marker を返します（`actor` は writeback 側が実 identity で設定すること）。
 
 <!-- gameai-acceptance:v1 -->
 ```json
