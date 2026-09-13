@@ -8,11 +8,11 @@ permissions:
   pull-requests: read
   statuses: write
 concurrency:
-  group: gameai-orchestration-manifest-writer
-  queue: max
+  group: gameai-orchestration-work-ingress-${{ github.event.comment.id }}
+  cancel-in-progress: false
 jobs:
   ingest:
-    if: github.event.issue.pull_request && contains(github.event.comment.body, '<!-- gameai-acceptance:v1 -->')
+    if: github.event.issue.pull_request && (contains(github.event.comment.body, '<!-- gameai-acceptance:v1 -->') || contains(github.event.comment.body, '<!-- gameai-work-ingress-replay:v1 -->'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
