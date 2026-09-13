@@ -1,0 +1,20 @@
+name: Orchestration Vercel Preview readiness
+on:
+  status:
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+concurrency:
+  group: gameai-orchestration-manifest-writer
+  cancel-in-progress: false
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Derive exact-SHA Preview readiness from Vercel GitHub evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_GITHUB_EVENT: ${{ github.event_path }}
+        run: python scripts/orchestration_vercel_readiness.py
