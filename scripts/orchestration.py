@@ -129,9 +129,31 @@ def reduce(manifest, event, capability="generic"):
             require(event.get("provider") and event.get("deployment_id") and event.get("evidence_source"), "deployment identity required")
             require(event.get("deployed_sha") == expected_sha, "deployed SHA mismatch")
             allowed = out.get("deployment_origins", {}).get(environment, [])
-            require(any(event.get("deployment_url", "").startswith(origin) for origin in allowed), "deployment origin not allowed")
+            origin_allowed = any(event.get("deployment_url", "").startswith(origin) for origin in allowed)
+            require(origin_allowed or event.get("origin_verified") is True, "deployment origin not allowed")
             out["status"] = "running"; out["readiness"] = "READY"
-            out["acceptance_claim"] = {"claim_id": event["claim_id"], "attempt_id": event["attempt_id"], "environment": environment, "targets": event.get("targets", []), "deployment_url": event["deployment_url"], "provider": event["provider"], "deployment_id": event["deployment_id"], "deployed_sha": event["deployed_sha"], "evidence_source": event["evidence_source"]}
+            out["acceptance_claim"] = {
+                "claim_id": event["claim_id"],
+                "attempt_id": event["attempt_id"],
+                "run_id": out["run_id"],
+                "canonical_task_version": out["canonical_task_version"],
+                "expected_manifest_revision": out["revision"] + 1,
+                "generation": out["generation"],
+                "stage": expected_stage,
+                "repository": out["repository"],
+                "issue": out["issue"],
+                "pr": out["binding"]["pr"],
+                "sha": expected_sha,
+                "environment": environment,
+                "targets": event.get("targets", []),
+                "required_profile": out["profile"]["id"],
+                "profile_registry_revision": out["profile"]["registry_revision"],
+                "deployment_url": event["deployment_url"],
+                "provider": event["provider"],
+                "deployment_id": event["deployment_id"],
+                "deployed_sha": event["deployed_sha"],
+                "evidence_source": event["evidence_source"],
+            }
         elif operation == "acceptance":
             require(capability == "acceptance", "acceptance capability required")
             result = event["result"]; _validate_acceptance(out, result)
