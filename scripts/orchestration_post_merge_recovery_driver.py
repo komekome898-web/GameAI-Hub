@@ -65,6 +65,46 @@ def _production_readiness():
     return out
 
 
+def _current_reconcile_request(owner):
+    _, manifest = adapter.find_manifest(CANONICAL_ISSUE)
+    adapter.verify_task(CANONICAL_ISSUE, manifest)
+    if (manifest.get("stage"), manifest.get("status")) != ("human_merge", "pending"):
+        raise Rejected("durable fresh Preview PASS must reach human_merge/pending first")
+
+    binding = manifest.get("binding", {})
+    pr_number = int(binding.get("pr") or 0)
+    head_sha = binding.get("head_sha")
+    if not pr_number or not head_sha:
+        raise Rejected("current PR/head binding is incomplete")
+
+    merged_pr = adapter.gh(f"repos/{adapter.REPO}/pulls/{pr_number}")
+    merge_sha = merged_pr.get("merge_commit_sha")
+    if not merged_pr.get("merged") or merged_pr.get("head", {}).get("sha") != head_sha or not merge_sha:
+        raise Rejected("current bound PR is not the exact merged head")
+
+    expected = {"pr": pr_number, "head_sha": head_sha, "merge_sha": merge_sha}
+    matches = []
+    for comment in adapter.comments(CANONICAL_ISSUE):
+        if MARKER not in comment.get("body", ""):
+            continue
+        if comment.get("user", {}).get("login") != owner or comment.get("author_association") != "OWNER":
+            continue
+        try:
+            payload = adapter.parse(comment.get("body", ""), MARKER)
+        except Rejected:
+            continue
+        if payload == expected:
+            matches.append(comment)
+
+    if not matches:
+        raise Rejected("no owner post-merge reconcile request matches the current exact merged PR/head")
+
+    # Duplicate owner requests for the same exact immutable merge are semantically
+    # idempotent. Select the newest one deterministically instead of blocking
+    # recovery on harmless replay history.
+    return max(matches, key=lambda item: int(item["id"]))
+
+
 def main():
     event = adapter.strict_json(open(os.environ["ORCH_GITHUB_EVENT"]).read())
     pr = event.get("pull_request") or {}
@@ -74,17 +114,7 @@ def main():
         raise Rejected("recovery PR must originate from the same repository")
 
     owner = adapter.REPO.split("/", 1)[0]
-    candidates = []
-    for comment in adapter.comments(CANONICAL_ISSUE):
-        if MARKER not in comment.get("body", ""):
-            continue
-        if comment.get("user", {}).get("login") != owner or comment.get("author_association") != "OWNER":
-            continue
-        candidates.append(comment)
-    if len(candidates) != 1:
-        raise Rejected("exactly one owner post-merge reconcile request is required")
-
-    comment = candidates[0]
+    comment = _current_reconcile_request(owner)
     reconcile({
         "issue": {"number": CANONICAL_ISSUE},
         "comment": comment,
