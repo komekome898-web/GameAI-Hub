@@ -7,6 +7,7 @@ on:
 permissions:
   contents: read
   issues: write
+  pull-requests: write
 concurrency:
   group: gameai-orchestration-manifest-writer
   queue: max
