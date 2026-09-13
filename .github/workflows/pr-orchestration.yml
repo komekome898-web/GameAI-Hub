@@ -22,3 +22,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           ORCH_GITHUB_EVENT: ${{ github.event_path }}
         run: python scripts/orchestration_observe.py
+      - name: Reconcile exact-SHA Preview readiness
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/orchestration_preview_readiness_reconcile.py
