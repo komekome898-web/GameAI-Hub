@@ -66,6 +66,21 @@ function extractDetailCandidates(source:string,text:string):DetailCandidate[] {
   if(tapScore){add('entity',tapScore[1],tapScore[0]);add('core-mechanic','タップ／クリックで得点を増やす',tapScore[0]);add('core-loop',`${cleanDetail(tapScore[1])}をタップ／クリック → 得点を1増やす`,tapScore[0]);}
   const movementGoal=source.match(/[^。.!?\n]*(?:移動|動か)[^。.!?\n]*(?:ゴール|目的地)[^。.!?\n]*/);
   if(movementGoal)add('core-loop','プレイヤーを移動 → ゴールへ到達 → クリア',movementGoal[0]);
+  // Preserve explicit actor→avoidance intent as confirmed candidates instead
+  // of allowing an otherwise unknown mechanic to collapse to "unspecified".
+  // This records only what the user stated; it does not invent score, shooting,
+  // collision penalties, victory conditions, or a genre.
+  const avoidLoop=source.match(/([^、。.!?\n]{1,30})を(?:操作|動か)(?:して|しながら|し|す|する)?([^、。.!?\n]{1,30})を(?:避け|よけ)(?:る|続ける|て|ながら)?/);
+  if(avoidLoop){
+    const actor=cleanDetail(avoidLoop[1]);
+    const obstacle=cleanDetail(avoidLoop[2]);
+    if(actor&&obstacle){
+      add('player-role',actor,avoidLoop[0]);
+      add('entity',obstacle,avoidLoop[0]);
+      add('core-mechanic',`${obstacle}を避ける`,avoidLoop[0]);
+      add('core-loop',`${actor}を操作 → ${obstacle}を避ける`,avoidLoop[0]);
+    }
+  }
   if(/(?:日本語と英語|日英|日本語・英語).{0,20}(?:切り替|切替)|(?:切り替|切替).{0,20}(?:日本語と英語|日英|日本語・英語)/.test(text))add('core-mechanic','日本語／英語の切り替え',source.match(/[^。.!?\n]*(?:切り替|切替)[^。.!?\n]*/)?.[0]??'言語切り替え');
   const mechanicGroup=mechanics.join('|');
   for(const match of source.matchAll(new RegExp(`([^。.!?\\n、]{1,40})を(?:${mechanicGroup})(?:して|する|できる|し)`, 'g'))){
