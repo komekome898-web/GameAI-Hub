@@ -1,0 +1,23 @@
+name: Orchestration post-merge reconcile
+on:
+  issue_comment:
+    types: [created]
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+  statuses: write
+concurrency:
+  group: gameai-orchestration-post-merge-${{ github.event.comment.id }}
+  cancel-in-progress: false
+jobs:
+  reconcile:
+    if: ${{ !github.event.issue.pull_request && github.actor == github.repository_owner && contains(github.event.comment.body, '<!-- gameai-post-merge-reconcile:v1 -->') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconcile an already-merged exact-head PR after durable Preview PASS
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_GITHUB_EVENT: ${{ github.event_path }}
+        run: python scripts/orchestration_post_merge_reconcile.py
