@@ -190,6 +190,8 @@ Push stable checkpoints to the remote branch. If runtime/quota is shrinking, pre
 
 All implementation follows root `AGENTS.md`, the task Issue, and applicable scoped rules.
 
+When a task has a `gameai-run-manifest/v` contract, Codex must also follow `docs/agent-guides/ORCHESTRATION.md`: pin its task version, generation, explicit branch/PR and `base_head_sha`. A head-lineage mismatch aborts the claim and preserves human changes; Preview repair continues the same open PR, while Production repair requires a linked child hotfix run and new PR. Repeat GitHub mentions are new tasks, not same-thread resume. Each repair task must record its newly observed task/thread identity independently, and a comment requesting Codex is transport rather than proof that a task started or acknowledged the claim.
+
 For user-facing UI/layout/navigation/responsive flows, follow `docs/agent-guides/UI_ACCEPTANCE.md`.
 Passing tests alone is not sufficient for rendered UI acceptance.
 

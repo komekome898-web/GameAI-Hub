@@ -8,6 +8,7 @@ MANIFEST = "<!-- gameai-run-manifest:v1 -->"
 TASK = "<!-- gameai-canonical-task:v1 -->"
 INDEX = "<!-- gameai-orchestration-index:v1 -->"
 CODEX_DISPATCH = "<!-- gameai-codex-dispatch:v1 -->"
+WORK_DISPATCH = "<!-- gameai-work-dispatch:v1 -->"
 MAX_PAYLOAD = 128 * 1024
 
 
@@ -129,6 +130,54 @@ def ensure_codex_dispatch(number, manifest):
         if payload.get("dispatch_id") == dispatch_id: existing.append(comment)
     if len(existing) > 1: raise Rejected("duplicate trusted Codex dispatch comments require reconciliation")
     if not existing: post(number, render_codex_dispatch(manifest))
+    return True
+
+
+def render_work_dispatch(manifest):
+    """Render the sole GitHub event that a native Work trigger consumes."""
+    claim = manifest.get("acceptance_claim") or {}
+    contract = {
+        "schema": "gameai-work-dispatch/v1",
+        "dispatch_id": f"work:{claim.get('claim_id')}",
+        **claim,
+    }
+    instructions = (
+        "ChatGPT Work Preview Acceptance dispatch. The configured native GitHub task must re-fetch "
+        "Issue #%(issue)s and PR #%(pr)s, then compare the current Run Manifest and PR head with every "
+        "field in this contract before doing anything. A mismatch is a stale no-op. Use the exact "
+        "deployment_url in the contract for real browser acceptance under the Canonical Task and "
+        "docs/agent-guides/WORK_ACCEPTANCE.md. Write exactly one gameai-acceptance/v1 candidate to "
+        "PR #%(pr)s for this claim; if any same-claim candidate already exists, do not write another. "
+        "Do not merge and do not mutate Production."
+    ) % {"issue": manifest["issue"], "pr": manifest["binding"]["pr"]}
+    return instructions + "\n\n" + block(WORK_DISPATCH, contract)
+
+
+def ensure_work_dispatch(number, manifest):
+    """Crash-safe, idempotent projection of a runnable acceptance claim onto its PR."""
+    claim = manifest.get("acceptance_claim") or {}
+    if (manifest.get("stage"), manifest.get("status"), claim.get("environment")) != ("preview_acceptance", "running", "preview"):
+        return False
+    if claim.get("expected_manifest_revision") != manifest.get("revision"):
+        raise Rejected("Work claim revision is not current")
+    pr_number = manifest.get("binding", {}).get("pr")
+    if not pr_number or claim.get("pr") != pr_number:
+        raise Rejected("Work claim PR binding mismatch")
+    pr = gh(f"repos/{REPO}/pulls/{pr_number}")
+    if pr.get("state") != "open" or pr.get("head", {}).get("sha") != claim.get("sha"):
+        raise Rejected("Work claim is stale against current PR head")
+    matches = []
+    for comment in comments(pr_number):
+        if WORK_DISPATCH not in comment.get("body", "") or not trusted_comment(comment):
+            continue
+        try: payload = parse(comment["body"], WORK_DISPATCH)
+        except Rejected: continue
+        if payload.get("claim_id") == claim.get("claim_id"):
+            matches.append(comment)
+    if len(matches) > 1:
+        raise Rejected("duplicate trusted Work dispatches require reconciliation")
+    if not matches:
+        post(pr_number, render_work_dispatch(manifest))
     return True
 
 
@@ -323,7 +372,10 @@ def _observe_pr(pr, ci=None):
 def reconcile():
     number = os.getenv("ORCH_ISSUE"); numbers = [int(number)] if number else [x["number"] for x in gh(f"search/issues?q=repo:{REPO}+is:issue+%22gameai-orchestration-index:v1%22&per_page=100").get("items", [])]
     for number in numbers:
-        try: _, manifest = find_manifest(number); reconcile_one(number, manifest)
+        try:
+            _, manifest = find_manifest(number)
+            reconcile_one(number, manifest)
+            ensure_work_dispatch(number, manifest)
         except Rejected: pass
 
 

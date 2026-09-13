@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Orchestration setup
+    url: https://github.com/komekome898-web/GameAI-Hub/blob/main/docs/agent-guides/WORK_ACCEPTANCE.md
+    about: Account-side Work/Codex bridge setup and verification

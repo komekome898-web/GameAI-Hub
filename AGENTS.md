@@ -229,6 +229,7 @@ Growth, SEO, acquisition, retention, or monetization strategy work should also r
 ## 11. Cloud Task execution and repository truth
 
 For Codex Cloud Tasks, follow `CODEX_CLOUD_TASK.md`.
+For repository orchestration runs, also follow `docs/agent-guides/ORCHESTRATION.md` and only the guide for the actor's current stage. The pinned Canonical Task owns intent; the Run Manifest is the sole mutable machine-state authority.
 
 Core invariant:
 
