@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Relay an owner-authored Issue transition command into repository_dispatch."""
-import json
 import os
 
 import orchestration_github as adapter
@@ -52,7 +51,7 @@ def main():
         "POST",
         "--input",
         "-",
-        input={"event_type": "orchestration-transition", "client_payload": payload},
+        input={"event_type": "orchestration-transition", "client_payload": {"contract": payload}},
     )
 
 
