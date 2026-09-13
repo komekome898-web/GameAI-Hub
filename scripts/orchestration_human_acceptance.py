@@ -3,7 +3,7 @@
 import os
 
 import orchestration_github as adapter
-from orchestration import Rejected, acceptance_event, reduce
+from orchestration import Rejected, acceptance_event, reduce, require
 
 MARKER = "<!-- gameai-human-acceptance-attestation:v1 -->"
 ACCEPTANCE_MARKER = "<!-- gameai-acceptance:v1 -->"
@@ -46,6 +46,43 @@ def main():
     if result.get("result_id") != command["result_id"]:
         raise Rejected("attested result_id does not match candidate")
 
+    # A candidate may be written against the exact acceptance claim and then race with
+    # non-semantic Manifest observations (for example later CI check_run events) that
+    # increment revision without replacing the claim. Preserve fail-closed behavior by
+    # allowing revision rebasing only when the candidate is still fenced to the exact
+    # current claim identity. Any head/generation/attempt/profile/target change rejects.
+    claim = manifest.get("acceptance_claim") or {}
+    claim_fields = {
+        "claim_id": "claim_id",
+        "run_id": "run_id",
+        "canonical_task_version": "canonical_task_version",
+        "generation": "generation",
+        "stage": "stage",
+        "attempt_id": "attempt_id",
+        "repository": "repository",
+        "issue": "issue",
+        "pr": "pr",
+        "sha": "sha",
+        "environment": "environment",
+        "targets": "targets",
+        "required_profile": "required_profile",
+        "profile_registry_revision": "profile_registry_revision",
+    }
+    require(claim, "no current acceptance claim")
+    for result_key, claim_key in claim_fields.items():
+        require(result.get(result_key) == claim.get(claim_key), f"candidate no longer matches current claim: {result_key}")
+    require(
+        result.get("expected_manifest_revision") == claim.get("expected_manifest_revision"),
+        "candidate was not produced for the current claim revision",
+    )
+
+    # The reducer must fence the state mutation to the Manifest revision observed by this
+    # attestation run. This does not weaken claim fencing: the original candidate revision
+    # was verified above against the still-current claim before rebasing.
+    result = dict(result)
+    original_candidate_revision = result["expected_manifest_revision"]
+    result["expected_manifest_revision"] = manifest["revision"]
+
     # Replace self-asserted placeholder provenance with the observed GitHub envelope.
     # Owner-attestation details remain in the reducer event trigger audit record so the
     # Acceptance result itself continues to satisfy the strict gameai-acceptance/v1 schema.
@@ -66,6 +103,8 @@ def main():
             "candidate_comment_id": candidate["id"],
             "attestation_comment_id": comment["id"],
             "work_app_id": WORK_APP_ID,
+            "candidate_expected_manifest_revision": original_candidate_revision,
+            "attestation_manifest_revision": manifest["revision"],
         }
     adapter.write(canonical_issue, manifest_comment, out, manifest["revision"])
     if status == "applied":
