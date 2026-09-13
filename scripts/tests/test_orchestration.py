@@ -108,6 +108,41 @@ class ReducerTests(unittest.TestCase):
         comments.return_value=[existing]
         self.assertTrue(adapter.ensure_codex_dispatch(74,out));post.assert_not_called()
 
+    def test_work_dispatch_is_fenced_to_entire_current_claim(self):
+        m=manifest();m["acceptance_claim"].update({
+            "run_id":m["run_id"],"canonical_task_version":m["canonical_task_version"],
+            "expected_manifest_revision":m["revision"],"generation":m["generation"],
+            "stage":m["stage"],"repository":m["repository"],"issue":74,"pr":91,
+            "sha":"a"*40,"required_profile":"work-standard","profile_registry_revision":1,
+            "deployment_url":"https://preview.example/exact","provider":"vercel",
+            "deployment_id":"deploy-1","deployed_sha":"a"*40,"evidence_source":"status",
+        })
+        body=adapter.render_work_dispatch(m);contract=adapter.parse(body,adapter.WORK_DISPATCH)
+        self.assertEqual(contract["dispatch_id"],"work:claim-1")
+        self.assertEqual(contract["expected_manifest_revision"],1)
+        self.assertEqual(contract["deployment_url"],"https://preview.example/exact")
+        self.assertIn("same-claim candidate already exists",body)
+
+    @patch.object(adapter,"post")
+    @patch.object(adapter,"comments")
+    @patch.object(adapter,"gh")
+    def test_work_dispatch_replay_is_noop(self, gh, comments, post):
+        m=manifest();m["acceptance_claim"].update({"expected_manifest_revision":1,"pr":91,"sha":"a"*40})
+        gh.return_value={"state":"open","head":{"sha":"a"*40}}
+        existing={"id":12,"user":{"login":"github-actions[bot]","type":"Bot"},"body":adapter.render_work_dispatch(m)}
+        comments.return_value=[existing]
+        self.assertTrue(adapter.ensure_work_dispatch(74,m));post.assert_not_called()
+
+    @patch.object(adapter,"post")
+    @patch.object(adapter,"comments",return_value=[])
+    @patch.object(adapter,"gh")
+    def test_work_dispatch_rejects_stale_pr_head(self, gh, comments, post):
+        m=manifest();m["acceptance_claim"].update({"expected_manifest_revision":1,"pr":91,"sha":"a"*40})
+        gh.return_value={"state":"open","head":{"sha":"b"*40}}
+        with self.assertRaisesRegex(Rejected,"stale"):
+            adapter.ensure_work_dispatch(74,m)
+        post.assert_not_called()
+
     def test_each_new_codex_task_identity_is_recorded_and_cannot_be_reused(self):
         m=manifest();out,_=reduce(m,acceptance_event(m,result(m,"FAIL"),"fail"),"acceptance")
         claim=out["codex_outbox"];dispatch_id=f'new-task:{claim["claim_id"]}'

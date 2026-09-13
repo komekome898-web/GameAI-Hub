@@ -105,6 +105,7 @@ def main():
             )
             out, _ = reduce(manifest, payload, "deployment")
             adapter.write(item["number"], comment, out, manifest["revision"])
+            adapter.ensure_work_dispatch(item["number"], out)
             return
 
 

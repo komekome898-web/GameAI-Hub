@@ -10,6 +10,8 @@ Record separately: required profile; registry revision; account configuration st
 
 Create two native ChatGPT Work tasks only where the account UI supports GitHub PR triggers. Preview listens for relevant open/ready/commit activity but acts only on a current claim. Production listens for completed merge but waits until the target merge SHA is proven deployed. Use the prompt in `docs/prompts/WORK_ACCEPTANCE_PROMPT.md`; authorize the repository read/write scope needed for evidence, and enroll the observed App actor only after a safe writeback succeeds.
 
+Preview dispatch is the creation of exactly one fenced `gameai-work-dispatch/v1` PR comment for a runnable claim. Configure the native task to react to that PR-comment activity, not to infer readiness from CI or labels. It must re-fetch the Issue Manifest, PR head, and same-claim candidates before opening the contract's exact deployment URL. Duplicate/stale events are no-ops. Scheduled reconciliation recreates a missing dispatch comment after a crash, but never creates a second same-claim dispatch. The connector-authored candidate ingress independently re-fetches the comment and requires observed GitHub App ID `1144995`; it rejects zero/multiple current-claim candidates and then delegates the verdict to the existing reducer. Connector writeback alone records `CONFIGURED_UNVERIFIED`, not `VERIFIED`; only separately observed task start plus browser evidence may justify `VERIFIED`.
+
 | Experiment | Activation state |
 |---|---|
 | EXP-CODEX-INITIAL / ACK / BOT / RESUME | NEEDS EXPERIMENT |
