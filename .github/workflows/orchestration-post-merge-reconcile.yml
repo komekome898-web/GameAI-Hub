@@ -5,7 +5,7 @@ on:
 permissions:
   contents: read
   issues: write
-  pull-requests: read
+  pull-requests: write
   statuses: write
 concurrency:
   group: gameai-orchestration-post-merge-${{ github.event.comment.id }}
