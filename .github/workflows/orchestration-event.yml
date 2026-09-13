@@ -1,0 +1,38 @@
+name: Orchestration event ingress
+on:
+  repository_dispatch:
+    types: [orchestration-transition, orchestration-acceptance, orchestration-readiness, orchestration-codex-dispatch, orchestration-codex-ack, orchestration-codex-result]
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+concurrency:
+  group: gameai-orchestration-manifest-writer
+  queue: max
+jobs:
+  reduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate trusted event and invoke shared reducer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_EVENT_NAME: ${{ github.event.action }}
+          ORCH_PAYLOAD: ${{ toJSON(github.event.client_payload) }}
+          ORCH_SENDER: ${{ github.actor }}
+          ORCH_ACTOR_TYPE: ${{ github.event.sender.type }}
+          ORCH_APP_ID: ${{ github.event.sender.id }}
+          ORCH_VERCEL_TOKEN: ${{ secrets.ORCH_VERCEL_TOKEN }}
+        run: python scripts/orchestration_github.py ingest
+      - name: Reconcile any durable Production hotfix operation
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_ISSUE: ${{ github.event.client_payload.issue }}
+        run: python scripts/orchestration_hotfix_reconcile.py
+      - name: Reconcile durable Codex new-task dispatch
+        if: ${{ always() && github.event.action == 'orchestration-acceptance' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_ISSUE: ${{ github.event.client_payload.issue }}
+        run: python scripts/orchestration_github.py dispatch
