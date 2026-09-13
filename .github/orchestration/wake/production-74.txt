@@ -1,0 +1,2 @@
+Transport-only wake-up artifact for Issue #74 Production Work recovery.
+This branch never targets main and must not be used as Production evidence.
