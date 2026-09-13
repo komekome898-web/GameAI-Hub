@@ -8,8 +8,7 @@ from orchestration import Rejected, reduce
 MARKER = "<!-- gameai-post-merge-reconcile:v1 -->"
 
 
-def main():
-    event = adapter.strict_json(open(os.environ["ORCH_GITHUB_EVENT"]).read())
+def reconcile(event):
     issue = event.get("issue") or {}
     event_comment = event.get("comment") or {}
     sender = (event.get("sender") or {}).get("login", "")
@@ -74,6 +73,12 @@ def main():
 
     adapter.write(number, manifest_comment, merged, manifest["revision"])
     adapter.gate_status(request["head_sha"], "success", f"Issue #{number}: authorized merged PR reconciled")
+    return merged
+
+
+def main():
+    event = adapter.strict_json(open(os.environ["ORCH_GITHUB_EVENT"]).read())
+    reconcile(event)
 
 
 if __name__ == "__main__":
