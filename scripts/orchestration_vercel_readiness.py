@@ -10,7 +10,7 @@ from orchestration import Rejected, reduce
 
 VERCEL_BOT = "vercel[bot]"
 PREVIEW_RE = re.compile(r"\[Preview\]\((https://[^)]+\.vercel\.app)\)")
-READY_RE = re.compile(r"\[Ready\]\((https://vercel\.com/[^)]+)\)")
+READY_RE = re.compile(r"(?<!!)\[Ready\]\((https://vercel\.com/[^)]+)\)")
 
 
 def matching_preview(pr_number, deployment_id, attempts=6, delay_seconds=5):
