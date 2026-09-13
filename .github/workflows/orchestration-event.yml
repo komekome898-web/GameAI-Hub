@@ -23,16 +23,16 @@ jobs:
           ORCH_ACTOR_TYPE: ${{ github.event.sender.type }}
           ORCH_APP_ID: ${{ github.event.sender.id }}
           ORCH_VERCEL_TOKEN: ${{ secrets.ORCH_VERCEL_TOKEN }}
-        run: python scripts/orchestration_github.py ingest
+        run: python scripts/orchestration_event_ingress.py
       - name: Reconcile any durable Production hotfix operation
         if: ${{ always() }}
         env:
           GH_TOKEN: ${{ github.token }}
-          ORCH_ISSUE: ${{ github.event.client_payload.issue }}
+          ORCH_ISSUE: ${{ github.event.client_payload.contract.issue || github.event.client_payload.issue }}
         run: python scripts/orchestration_hotfix_reconcile.py
       - name: Reconcile durable Codex new-task dispatch
         if: ${{ always() && github.event.action == 'orchestration-acceptance' }}
         env:
           GH_TOKEN: ${{ github.token }}
-          ORCH_ISSUE: ${{ github.event.client_payload.issue }}
+          ORCH_ISSUE: ${{ github.event.client_payload.contract.issue || github.event.client_payload.issue }}
         run: python scripts/orchestration_github.py dispatch

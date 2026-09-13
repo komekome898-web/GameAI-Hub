@@ -36,16 +36,7 @@ def pending_operation(parent):
 
 
 def gh_pages(endpoint):
-    """Return every GitHub API page as one parsed list using gh --slurp.
-
-    `gh api --paginate` emits one JSON document per page. `--slurp` converts
-    those documents into a single outer JSON array so one json.loads is safe.
-    """
-    proc = subprocess.run(
-        ["gh", "api", endpoint, "--paginate", "--slurp"],
-        text=True,
-        capture_output=True,
-    )
+    proc = subprocess.run(["gh", "api", endpoint, "--paginate", "--slurp"], text=True, capture_output=True)
     if proc.returncode:
         raise RuntimeError(proc.stderr.strip())
     if not proc.stdout.strip():
@@ -71,8 +62,6 @@ def find_existing_child(op):
         if "pull_request" in candidate or candidate.get("title") != op["title"]:
             continue
         body = candidate.get("body") or ""
-        # New children carry the operation marker. Exact-title fallback also
-        # recovers a child created by the older PR #79 helper before this patch.
         if op["marker"] in body or body.startswith("Production Acceptance failed for parent Issue #"):
             matches.append(candidate)
     if len(matches) > 1:
@@ -96,19 +85,10 @@ def ensure_child(parent_issue, parent, op):
     created = find_existing_child(op)
     if created is None:
         created = adapter.gh(
-            f"repos/{adapter.REPO}/issues",
-            "--method", "POST", "--input", "-",
-            input={
-                "title": op["title"],
-                "body": (
-                    f'{op["marker"]}\n'
-                    f"Production Acceptance failed for parent Issue #{parent_issue}. "
-                    "This child preserves the same Canonical Task and requires a separate human-authorized merge."
-                ),
-            },
+            f"repos/{adapter.REPO}/issues", "--method", "POST", "--input", "-",
+            input={"title": op["title"], "body": f'{op["marker"]}\nProduction Acceptance failed for parent Issue #{parent_issue}. This child preserves the same Canonical Task and requires a separate human-authorized merge.'},
         )
     child_issue = created["number"]
-
     try:
         child_comment, child = adapter.find_manifest(child_issue)
         if child.get("parent_run_id") != parent["run_id"]:
@@ -117,8 +97,6 @@ def ensure_child(parent_issue, parent, op):
             child["manifest_comment_id"] = child_comment["id"]
             adapter.patch_comment(child_comment["id"], adapter.render_manifest(child))
     except Rejected as original:
-        # If there is already a trusted manifest but it is malformed/ambiguous,
-        # fail closed instead of posting a second authoritative manifest.
         trusted_manifests = [c for c in adapter.comments(child_issue) if adapter.MANIFEST in c.get("body", "") and adapter.trusted_comment(c)]
         if trusted_manifests:
             raise original
@@ -135,7 +113,6 @@ def ensure_child(parent_issue, parent, op):
         child_comment = adapter.post(child_issue, adapter.render_manifest(child))
         child["manifest_comment_id"] = child_comment["id"]
         adapter.patch_comment(child_comment["id"], adapter.render_manifest(child))
-
     ensure_index(child_issue, child_comment, child)
     adapter.reconcile_one(child_issue, child)
     return child_issue, child
@@ -143,7 +120,6 @@ def ensure_child(parent_issue, parent, op):
 
 def reconcile_issue(parent_issue):
     parent_comment, parent = adapter.find_manifest(parent_issue)
-
     active_child = parent.get("lineage", {}).get("active_child_issue")
     if active_child:
         try:
@@ -152,34 +128,22 @@ def reconcile_issue(parent_issue):
         except Rejected:
             pass
         return False
-
     op = pending_operation(parent)
     if op is None:
         return False
-
     if op["count"] > op["maximum"]:
         event = adapter.envelope(parent, {"transition_id": f'hotfix-escalate:{op["operation_id"]}'}, "hotfix_escalate")
         out, status = reduce(parent, event, "hotfix")
         if status == "applied":
             adapter.write(parent_issue, parent_comment, out, parent["revision"])
         return True
-
     child_issue, child = ensure_child(parent_issue, parent, op)
-
-    # Re-read after every child-side effect. The parent may have been updated by
-    # an earlier replay before this run reached the reciprocal link.
     parent_comment, current = adapter.find_manifest(parent_issue)
     if current.get("lineage", {}).get("active_child_issue"):
         return False
     if (current.get("stage"), current.get("status")) != ("production_acceptance", "failed"):
         return False
-
-    event = adapter.envelope(current, {
-        "transition_id": f'hotfix-link:{op["operation_id"]}',
-        "child_issue": child_issue,
-        "child_run_id": child["run_id"],
-        "max_hotfixes": op["maximum"],
-    }, "link_hotfix")
+    event = adapter.envelope(current, {"transition_id": f'hotfix-link:{op["operation_id"]}', "child_issue": child_issue, "child_run_id": child["run_id"], "max_hotfixes": op["maximum"]}, "link_hotfix")
     linked, status = reduce(current, event, "hotfix")
     if status == "applied":
         adapter.write(parent_issue, parent_comment, linked, current["revision"])
@@ -193,9 +157,6 @@ def reconcile_all():
         if number > 0:
             reconcile_issue(number)
         return
-
-    # Scan all Issues using the same pagination-safe path as child rediscovery.
-    # This avoids the Search API's first-page/indexing limitations for recovery.
     for item in _issues():
         if "pull_request" in item:
             continue
