@@ -21,4 +21,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           ORCH_GITHUB_EVENT: ${{ github.event_path }}
-        run: python scripts/orchestration_github.py observe
+        run: python scripts/orchestration_observe.py
