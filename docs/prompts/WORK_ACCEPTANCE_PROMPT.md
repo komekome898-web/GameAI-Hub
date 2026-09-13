@@ -6,6 +6,12 @@ claim の run/task version/stage/attempt/repository/Issue/PR/exact SHA/environme
 
 評価対象は Canonical Task / Issue の acceptance criteria と、この変更が実際に影響する機能・journey に限定します。関連しない外部サービス、別機能、physical-device-only 操作を「未検証だから」という理由だけで blocking finding にしません。UI guide が responsive evidence と physical-device acceptance を分離している場合はその区別を保持し、今回の変更が physical-device behavior を materially 変更していないなら physical-device-only UNTESTED は非blocking evidence note として扱います。
 
+### Exact-head browser evidence carry-forward
+
+current exact head で新規 browser operation を実行できない場合でも、直近の **browser-validated exact SHA** から current exact SHA までの Git compare を再取得し、その全差分が documentation / orchestration instruction / acceptance-policy text のみで、rendered application code、UI component/style、runtime behavior/config、route/data behavior、asset、dependency、build/deploy behaviorを一切変更していないことを独立に確認できる場合に限り、直近のbrowser evidenceを current headへ carry-forward できます。
+
+carry-forward時は、(1) 元のbrowser-validated SHA、(2) current exact SHA、(3) compareで確認した変更ファイル、(4) executable/rendered/runtime surface が unchanged である根拠を human-readable evidence に明記してください。これは `UNTESTED` を推測で `PASS` に変える仕組みではなく、**既に実ブラウザで検証済みの同一実行surfaceがdocs-only deltaで変化していないことを証明する再利用**です。比較に実行surfaceへ影響し得る変更が1件でも含まれる、比較が曖昧、元evidenceがexact SHAへ追跡不能、または元evidence自体がblockingだった場合はcarry-forward禁止です。その場合はcurrent exact headの新規browser evidenceを要求し、取得不能ならBLOCKEDにしてください。
+
 Required Work profile は account-side task configuration policy です。要求された task が実際に存在して起動し、required_profile/revision が claim と一致している一方、製品が実行時 model/reasoning identity を run に公開していないだけの場合は `CONFIGURED_UNVERIFIED` と記録し、それ自体を functional Preview Acceptance の blocking finding にしません。設定自体が未設定・不一致・利用不能なら BLOCKED にします。実runtimeを観測したと虚偽に主張してはいけません。
 
 Functional / User Journey / Regression / Instruction Compliance / Evidence Validity を評価し、適用可能な P0/P1/high-impact P2 を blocking にします。適用可能な必須項目の UNTESTED はそのまま blocking として記録します。非適用項目の UNTESTED は PASS を妨げる finding に昇格させず、必要なら human-readable note に残します。結果は簡潔な人間向け要約と、信頼済み integration から厳密に一つの次の marker を返します（`actor` は writeback 側が実 identity で設定すること）。
