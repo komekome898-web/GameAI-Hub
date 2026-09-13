@@ -46,17 +46,15 @@ def main():
     if result.get("result_id") != command["result_id"]:
         raise Rejected("attested result_id does not match candidate")
 
-    # Replace self-asserted placeholder provenance with the actually observed GitHub envelope,
-    # while recording that the owner explicitly attested this exact candidate comment.
+    # Replace self-asserted placeholder provenance with the observed GitHub envelope.
+    # Owner-attestation details remain in the reducer event trigger audit record so the
+    # Acceptance result itself continues to satisfy the strict gameai-acceptance/v1 schema.
     result["actor"] = candidate.get("user", {}).get("login", "")
     result["actor_provenance"] = {
         "verified_by": "github-event-envelope",
         "sender": candidate.get("user", {}).get("login", ""),
         "actor_type": "human-attested-work-candidate",
         "app_id": str(WORK_APP_ID),
-        "candidate_comment_id": candidate["id"],
-        "attested_by": sender,
-        "attestation_comment_id": comment["id"],
     }
 
     transition_id = f"human-attested-acceptance:{comment['id']}:{result['result_id']}"
