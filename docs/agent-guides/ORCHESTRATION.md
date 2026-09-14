@@ -26,6 +26,8 @@ Production FAIL creates a linked child **Issue** with one task and one manifest,
 
 An owner may use the human-control `resume` operation only for a technically blocked Production Acceptance. The reducer retains the immutable PR/head/merge binding and all result history, fences the old claim by advancing the generation, counts an infrastructure retry, and returns Production Acceptance to pending so exact merge-SHA readiness can issue a fresh claim. Other blocked stages remain fail-closed until their recovery topology is proven safe.
 
+An active Production Work run that cannot acquire qualifying interactive-browser capability instead emits one trusted, exact-claim `gameai-browser-capability/v1` signal. The reducer preserves the immutable merge/deployment and authorization history, advances the generation, increments only the infrastructure retry counter, and creates a fresh runnable Production claim. The ingress projects its dispatch exactly once. Stale/duplicate signals no-op; three retries exhaust into a visible terminal technical block. Claim-scoped model overrides are deliberately not copied. This retry never counts as a product FAIL or hotfix and never mutates code or Production.
+
 ## Workflows and activation
 
 Thin workflows initialize, bind PRs, observe PR heads/check suites, ingest explicitly dispatched contracts, apply human lifecycle decisions, reconcile projections and bootstrap labels. Queues are Issue//Pull-request scoped with `queue: max`; revision/generation/SHA checks still decide validity because arrival order is not authority. Repository dispatch is a transport, not proof that Work/Codex ran.
