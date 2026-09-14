@@ -24,6 +24,8 @@ Only a valid FAIL followed by an actual repair revision and next valid acceptanc
 
 Production FAIL creates a linked child **Issue** with one task and one manifest, leaving the parent independently operable. Lineage carries a two-hotfix maximum; another failure requires human escalation. Blocked summaries always state why, what happened, required action, subsequent behavior, and the executable workflow action.
 
+An owner may use the human-control `resume` operation only for a technically blocked Production Acceptance. The reducer retains the immutable PR/head/merge binding and all result history, fences the old claim by advancing the generation, counts an infrastructure retry, and returns Production Acceptance to pending so exact merge-SHA readiness can issue a fresh claim. Other blocked stages remain fail-closed until their recovery topology is proven safe.
+
 ## Workflows and activation
 
 Thin workflows initialize, bind PRs, observe PR heads/check suites, ingest explicitly dispatched contracts, apply human lifecycle decisions, reconcile projections and bootstrap labels. Queues are Issue//Pull-request scoped with `queue: max`; revision/generation/SHA checks still decide validity because arrival order is not authority. Repository dispatch is a transport, not proof that Work/Codex ran.

@@ -54,7 +54,7 @@ def _production_readiness():
             "claim_id": f"production-{manifest['generation']}-{merge_sha[:16]}",
             "attempt_id": f"production-{manifest['generation']}-{manifest['revision'] + 1}",
             "targets": ["/"],
-            "transition_id": f"production-readiness:{status.get('id')}:{merge_sha}",
+            "transition_id": f"production-readiness:{manifest['generation']}:{status.get('id')}:{merge_sha}",
         },
         "readiness",
     )

@@ -187,6 +187,25 @@ def reduce(manifest, event, capability="generic"):
             accepted = out.get("last_acceptance") or {}
             require(out.get("preview_acceptance") == "PASS" and accepted.get("verdict") == "PASS" and accepted.get("sha") == out["binding"].get("head_sha"), "fresh Preview PASS required")
             out["human_authorization"] = {"actor": event["actor"], "authorized_at": event["authorized_at"], "run_id": out["run_id"], "canonical_task_version": out["canonical_task_version"], "pr": out["binding"]["pr"], "head_sha": out["binding"]["head_sha"]}
+        elif operation == "resume":
+            require(capability == "human", "human authorization capability required")
+            require((out["stage"], out["status"]) == ("production_acceptance", "blocked"), "resume target mismatch")
+            binding = out.get("binding", {})
+            require(
+                event.get("pr") == binding.get("pr")
+                and event.get("head_sha") == binding.get("head_sha")
+                and event.get("merge_sha") == binding.get("merge_sha")
+                and SHA.fullmatch(event.get("head_sha", ""))
+                and SHA.fullmatch(event.get("merge_sha", "")),
+                "resume release binding mismatch",
+            )
+            out["generation"] += 1
+            out["counters"]["infrastructure_retry"] += 1
+            out["status"] = "pending"
+            out["acceptance_claim"] = None
+            out["blocking_findings"] = []
+            out.pop("blocked", None)
+            out["readiness"] = "RETRYABLE WAIT"
         elif operation == "merge_observed":
             require(capability == "merge_observer", "merge observer capability required")
             require((out["stage"], out["status"]) == ("human_merge", "pending"), "merge observation source mismatch")

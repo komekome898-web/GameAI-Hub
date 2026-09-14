@@ -273,6 +273,12 @@ def human():
     if actor not in trusted.get("human_approvers", []): raise Rejected("human approver not enrolled")
     operation = os.environ["ORCH_OPERATION"]
     payload = {"actor": actor, "authorized_at": os.environ.get("ORCH_AUTHORIZED_AT"), "new_task_version": int(os.environ["ORCH_NEW_TASK_VERSION"]) if os.environ.get("ORCH_NEW_TASK_VERSION") else None}
+    if operation == "resume":
+        payload.update(
+            pr=manifest.get("binding", {}).get("pr"),
+            head_sha=manifest.get("binding", {}).get("head_sha"),
+            merge_sha=manifest.get("binding", {}).get("merge_sha"),
+        )
     if operation == "migrate_task_version":
         _, old_task = find_task(number, manifest); new_task = dict(old_task); new_task["version"] = payload["new_task_version"]; new_task["user_goal"] = issue(number).get("body") or issue(number).get("title")
         existing = []

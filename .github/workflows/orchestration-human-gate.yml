@@ -8,7 +8,7 @@ on:
         required: true
         default: approve
         type: choice
-        options: [approve, cancel, supersede, migrate_task_version]
+        options: [approve, resume, cancel, supersede, migrate_task_version]
       new_task_version: { description: Migration only - new task version, required: false, type: string }
       successor_issue: { description: Supersession only - initialized replacement Issue, required: false, type: string }
 permissions:
