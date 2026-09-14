@@ -280,6 +280,26 @@ def reduce(manifest, event, capability="generic"):
             ci["conclusion"] = "failure" if any(observed.get(name) in {"failure", "cancelled", "timed_out"} for name in required) else "success" if required and all(observed.get(name) == "success" for name in required) else "pending"
             ci["missing_required"] = [name for name in required if name not in observed]
             out["ci"] = ci
+        elif operation == "bridge_observed":
+            require(capability == "bridge_observer", "bridge observer capability required")
+            require(event.get("bridge") == "codex" and event.get("observation") == "VERIFIED", "unsupported bridge observation")
+            evidence = event.get("evidence")
+            require(isinstance(evidence, dict), "bridge evidence required")
+            require(
+                isinstance(evidence.get("comment_id"), int)
+                and evidence["comment_id"] > 0
+                and evidence.get("marker_id")
+                and evidence.get("source")
+                and evidence.get("observed_at"),
+                "malformed bridge evidence",
+            )
+            require(
+                all(item.get("comment_id") != evidence["comment_id"] for item in out.get("codex_bridge_evidence", [])),
+                "Codex bridge evidence already recorded",
+            )
+            out.setdefault("codex_bridge_evidence", []).append(clone(evidence))
+            out.setdefault("bridge_status", {})["codex"] = "VERIFIED"
+            out["untested"] = [item for item in out.get("untested", []) if item != "Codex bridge"]
         elif operation == "link_hotfix":
             require(capability == "hotfix", "hotfix capability required")
             require((out["stage"], out["status"]) == ("production_acceptance", "failed"), "hotfix parent state mismatch")

@@ -1,0 +1,23 @@
+name: Orchestration Codex bridge ACK ingress
+on:
+  issue_comment:
+    types: [created]
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: gameai-orchestration-codex-bridge-${{ github.event.issue.number }}
+  cancel-in-progress: false
+jobs:
+  ingest:
+    if: ${{ !github.event.issue.pull_request && contains(github.event.comment.body, 'gameai-codex-bridge-smoke-ack:v1') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - name: Record trusted metadata-only Codex bridge evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_GITHUB_EVENT: ${{ github.event_path }}
+        run: python scripts/orchestration_codex_bridge_ingress.py
