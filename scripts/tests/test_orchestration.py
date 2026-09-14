@@ -3,6 +3,7 @@ from unittest.mock import patch
 sys.path.insert(0, str(pathlib.Path(__file__).parents[1]))
 from orchestration import *
 import orchestration_github as adapter
+import orchestration_post_merge_reconcile as post_merge
 
 
 def manifest(stage="preview_acceptance", status="running"):
@@ -19,6 +20,13 @@ def result(m, verdict="PASS"):
 
 
 class ReducerTests(unittest.TestCase):
+    def test_production_dispatch_requires_capability_not_cloud_browser_product(self):
+        source = pathlib.Path(post_merge.__file__).read_text()
+        self.assertIn("any supported interactive browser mechanism", source)
+        self.assertIn("need not be named Cloud Browser", source)
+        self.assertIn("return BLOCKED with the journey UNTESTED", source)
+        self.assertIn("screenshots alone", source)
+
     def test_generic_cannot_forge_preview_pass(self):
         m=manifest(); e=base(m,"transition",to_stage="preview_acceptance",to_status="passed",trigger={})
         with self.assertRaisesRegex(Rejected,"privileged"): reduce(m,e,"generic")

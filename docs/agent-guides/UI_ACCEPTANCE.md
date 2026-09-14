@@ -15,6 +15,10 @@ Do not approve UI quality based only on:
 
 Launch and inspect the real rendered app.
 
+For Production Acceptance, use any supported interactive browser execution environment that can operate the exact claimed Production deployment. The mechanism does not have to be named `Cloud Browser`. It must be able to perform the applicable journey, including input, click/tap, iframe interaction where required, and browser back/forward/history restoration where applicable.
+
+Search results, HTTP fetches, static HTML/DOM/source inspection, screenshots alone, CI, GitHub/Vercel status, and Preview evidence are not substitutes for direct Production interaction evidence. Screenshots can retain reviewable visual evidence only after the interaction is performed. If no qualifying interactive browser mechanism is available, report the applicable journey as `UNTESTED` and Production Acceptance as `BLOCKED`, not PASS.
+
 The implementer must not be the sole final evaluator of substantial UI work.
 
 ## 2. Required viewports and stress cases
