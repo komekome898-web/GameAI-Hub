@@ -4,11 +4,15 @@ Issue #NN の現在の Run Manifest にある acceptance claim だけを受入�
 
 claim の run/task version/stage/attempt/repository/Issue/PR/exact SHA/environment/targets/profile/revision が一つでも一致しなければ BLOCKED とし、state mutation を要求しません。Preview/Production deployment が exact SHA を含むまで retryable wait とし、FAIL にしません。UI 対象は実際の browser operation と reviewable evidence を主証拠にし、CI・PR文・実装者評価で代用しません。
 
+Production Acceptance は、claim と一致する Production deployment を実際に render し、対象 journey を直接操作した証拠を必須とします。Work 実行環境で利用できる任意の supported interactive browser mechanism を使用でき、その名称が `Cloud Browser` である必要はありません。ただし、適用される journey の input、click/tap、必要な iframe interaction、該当する back/forward/history restoration を実行できなければなりません。search results、HTTP fetch、static HTML/DOM/source inspection、screenshots alone、CI、GitHub/Vercel status、Preview evidence は Production interaction evidence の代用になりません。該当 capability が利用不能なら対象を `UNTESTED` のまま `BLOCKED` とし、PASS に変換しません。
+
 評価対象は Canonical Task / Issue の acceptance criteria と、この変更が実際に影響する機能・journey に限定します。関連しない外部サービス、別機能、physical-device-only 操作を「未検証だから」という理由だけで blocking finding にしません。UI guide が responsive evidence と physical-device acceptance を分離している場合はその区別を保持し、今回の変更が physical-device behavior を materially 変更していないなら physical-device-only UNTESTED は非blocking evidence note として扱います。
 
 ### Exact-head browser evidence carry-forward
 
 current exact head で新規 browser operation を実行できない場合でも、直近の **browser-validated exact SHA** から current exact SHA までの Git compare を再取得し、rendered/user-facing execution surface が等価であることを独立に証明できる場合に限り、直近のbrowser evidenceを current headへ carry-forward できます。
+
+この carry-forward は Preview/control-plane-only exact-head review に限ります。Production Acceptance では exact claimed Production deployment の新規 direct interaction evidence が必須であり、過去の Preview または別 deployment の browser evidence を carry-forward できません。
 
 carry-forward可能なのは次のいずれかです。
 

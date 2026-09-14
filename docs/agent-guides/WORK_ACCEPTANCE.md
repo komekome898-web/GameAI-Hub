@@ -22,6 +22,12 @@ For each experiment record event delivery, actual task/ack ID if exposed, exact 
 
 Critical acceptance is one Work run using five explicit rubric sections: Functional, User Journey, Regression, Instruction Compliance and Evidence Validity. v1 does not fan out five Work tasks.
 
+## Interactive browser capability
+
+Production Acceptance requires direct rendering and interaction on the exact claimed Production deployment. The Work execution environment may use any supported interactive browser mechanism capable of completing the applicable journey: entering input, clicking or tapping controls, interacting with iframes when required, and checking browser back/forward/history restoration when applicable. The mechanism does **not** have to be named `Cloud Browser`; that product name is not part of the acceptance contract.
+
+Search results, HTTP requests/fetches, static HTML, DOM or source inspection, screenshots alone, CI, GitHub or Vercel status, and Preview evidence cannot substitute for direct Production interaction evidence. Deployment/status evidence may establish readiness and exact-SHA fencing, but not user-facing behavior. If the Work execution environment has no qualifying interactive browser mechanism, the applicable journey remains `UNTESTED` and the verdict is `BLOCKED`; never infer or convert it to PASS.
+
 ## Result contract
 
 Return exactly one `gameai-acceptance/v1` JSON marker. Required fields include immutable result/claim IDs, run/task version, stage/attempt, repository/Issue/PR/SHA, environment, targets, required profile/revision, actor provenance, verdict and findings. Provenance is overwritten from the GitHub event envelope rather than accepted from payload text. The ingress is disabled by an empty actor allowlist until a real write-capable Work App/bot is observed and enrolled; never guess or forward it as `github-actions[bot]`. Use stable finding IDs and severity. `UNTESTED` cannot become PASS; P0/P1/high-impact P2 block.
