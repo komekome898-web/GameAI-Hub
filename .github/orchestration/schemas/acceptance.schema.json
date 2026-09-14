@@ -25,6 +25,7 @@
     "verdict": {"enum": ["PASS", "FAIL", "BLOCKED"]},
     "findings": {"type": "array", "maxItems": 200, "items": {"type": "object", "additionalProperties": true, "required": ["id", "blocking"], "properties": {"id": {"type": "string", "minLength": 1}, "blocking": {"type": "boolean"}}}},
     "blocked": {"type": "object"},
+    "browser_evidence": {"type": "object"},
     "expected_manifest_revision": {"type": "integer", "minimum": 0},
     "generation": {"type": "integer", "minimum": 1}
   }

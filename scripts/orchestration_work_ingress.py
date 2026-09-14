@@ -7,6 +7,7 @@ import orchestration_github as adapter
 from orchestration import Rejected, acceptance_event, reduce
 
 ACCEPTANCE = "<!-- gameai-acceptance:v1 -->"
+BROWSER_RETRY = "<!-- gameai-browser-capability:v1 -->"
 REPLAY = "<!-- gameai-work-ingress-replay:v1 -->"
 WORK_APP_ID = 1144995
 
@@ -14,7 +15,7 @@ WORK_APP_ID = 1144995
 def _candidate_from_event(event):
     event_comment = event.get("comment", {})
     body = event_comment.get("body", "")
-    if ACCEPTANCE in body:
+    if ACCEPTANCE in body or BROWSER_RETRY in body:
         return adapter.gh(f"repos/{adapter.REPO}/issues/comments/{int(event_comment['id'])}")
     if REPLAY in body:
         owner = adapter.REPO.split("/", 1)[0]
@@ -39,13 +40,38 @@ def main():
     app = comment.get("performed_via_github_app") or {}
     if app.get("id") != WORK_APP_ID or app.get("slug") != "chatgpt-codex-connector":
         raise Rejected("candidate was not written through the observed ChatGPT Work connector")
-    result = adapter.parse(comment["body"], ACCEPTANCE)
+    is_retry = BROWSER_RETRY in comment["body"]
+    result = adapter.parse(comment["body"], BROWSER_RETRY if is_retry else ACCEPTANCE)
     issue_number = int(result.get("issue", 0))
     manifest_comment, manifest = adapter.find_manifest(issue_number)
     adapter.verify_task(issue_number, manifest)
     claim = manifest.get("acceptance_claim") or {}
     if result.get("claim_id") != claim.get("claim_id") or result.get("pr") != pr_number:
         raise Rejected("candidate is not for the current claim and PR")
+
+    if is_retry:
+        transition_id = f"production-browser-retry:{result.get('signal_id')}"
+        if transition_id in manifest.get("processed_transition_ids", []):
+            return
+        signals = []
+        for possible in adapter.comments(pr_number):
+            if BROWSER_RETRY not in possible.get("body", ""):
+                continue
+            try:
+                parsed = adapter.parse(possible["body"], BROWSER_RETRY)
+            except (Rejected, json.JSONDecodeError):
+                continue
+            possible_app = possible.get("performed_via_github_app") or {}
+            if parsed.get("signal_id") == result.get("signal_id") and possible_app.get("id") == WORK_APP_ID:
+                signals.append(possible)
+        if len(signals) != 1 or signals[0]["id"] != comment["id"]:
+            raise Rejected("exactly one trusted browser retry signal is required")
+        event_payload = adapter.envelope(manifest, {"signal": result, "transition_id": transition_id}, "production_browser_retry")
+        out, status = reduce(manifest, event_payload, "acceptance")
+        adapter.write(issue_number, manifest_comment, out, manifest["revision"])
+        if status == "applied" and (out.get("stage"), out.get("status")) == ("production_acceptance", "running"):
+            adapter.ensure_work_dispatch(issue_number, out)
+        return
 
     candidates = []
     for possible in adapter.comments(pr_number):

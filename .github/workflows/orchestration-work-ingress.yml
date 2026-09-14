@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   ingest:
-    if: github.event.issue.pull_request && (contains(github.event.comment.body, '<!-- gameai-acceptance:v1 -->') || contains(github.event.comment.body, '<!-- gameai-work-ingress-replay:v1 -->'))
+    if: github.event.issue.pull_request && (contains(github.event.comment.body, '<!-- gameai-acceptance:v1 -->') || contains(github.event.comment.body, '<!-- gameai-browser-capability:v1 -->') || contains(github.event.comment.body, '<!-- gameai-work-ingress-replay:v1 -->'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

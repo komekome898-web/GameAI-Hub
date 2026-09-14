@@ -1,0 +1,22 @@
+name: Orchestration Production browser recovery
+on:
+  issue_comment:
+    types: [created]
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+concurrency:
+  group: gameai-orchestration-browser-recovery-${{ github.event.comment.id }}
+  cancel-in-progress: false
+jobs:
+  recover:
+    if: ${{ !github.event.issue.pull_request && github.event.issue.number == 74 && github.actor == github.repository_owner && contains(github.event.comment.body, '<!-- gameai-production-browser-recovery:v1 -->') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Recover one exact stranded Production browser attempt
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_GITHUB_EVENT: ${{ github.event_path }}
+        run: python scripts/orchestration_browser_recovery.py

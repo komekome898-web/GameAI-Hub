@@ -141,22 +141,34 @@ def render_work_dispatch(manifest):
         "dispatch_id": f"work:{claim.get('claim_id')}",
         **claim,
     }
+    production = claim.get("environment") == "production"
     instructions = (
-        "ChatGPT Work Preview Acceptance dispatch. The configured native GitHub task must re-fetch "
+        f"ChatGPT Work {'Production' if production else 'Preview'} Acceptance dispatch. The configured native GitHub task must re-fetch "
         "Issue #%(issue)s and PR #%(pr)s, then compare the current Run Manifest and PR head with every "
         "field in this contract before doing anything. A mismatch is a stale no-op. Use the exact "
-        "deployment_url in the contract for real browser acceptance under the Canonical Task and "
+        "deployment_url in the contract for real interactive browser acceptance under the Canonical Task and "
         "docs/agent-guides/WORK_ACCEPTANCE.md. Write exactly one gameai-acceptance/v1 candidate to "
         "PR #%(pr)s for this claim; if any same-claim candidate already exists, do not write another. "
         "Do not merge and do not mutate Production."
     ) % {"issue": manifest["issue"], "pr": manifest["binding"]["pr"]}
+    if production:
+        instructions += (
+            " First perform the Production stage guide's capability-based handshake. If this run cannot render "
+            "Production and perform input, click, and navigation, emit exactly one fenced "
+            "gameai-browser-capability/v1 retry signal instead of an acceptance verdict. No branded browser "
+            "product is required. Preview, HTTP, source/DOM, search, CI, and provider status cannot substitute."
+        )
     return instructions + "\n\n" + block(WORK_DISPATCH, contract)
 
 
 def ensure_work_dispatch(number, manifest):
     """Crash-safe, idempotent projection of a runnable acceptance claim onto its PR."""
     claim = manifest.get("acceptance_claim") or {}
-    if (manifest.get("stage"), manifest.get("status"), claim.get("environment")) != ("preview_acceptance", "running", "preview"):
+    environment = claim.get("environment")
+    if (manifest.get("stage"), manifest.get("status"), environment) not in {
+        ("preview_acceptance", "running", "preview"),
+        ("production_acceptance", "running", "production"),
+    }:
         return False
     if claim.get("expected_manifest_revision") != manifest.get("revision"):
         raise Rejected("Work claim revision is not current")
@@ -164,8 +176,11 @@ def ensure_work_dispatch(number, manifest):
     if not pr_number or claim.get("pr") != pr_number:
         raise Rejected("Work claim PR binding mismatch")
     pr = gh(f"repos/{REPO}/pulls/{pr_number}")
-    if pr.get("state") != "open" or pr.get("head", {}).get("sha") != claim.get("sha"):
-        raise Rejected("Work claim is stale against current PR head")
+    if environment == "preview":
+        if pr.get("state") != "open" or pr.get("head", {}).get("sha") != claim.get("sha"):
+            raise Rejected("Work claim is stale against current PR head")
+    elif not pr.get("merged") or pr.get("merge_commit_sha") != claim.get("sha"):
+        raise Rejected("Production Work claim is stale against merged PR")
     matches = []
     for comment in comments(pr_number):
         if WORK_DISPATCH not in comment.get("body", "") or not trusted_comment(comment):

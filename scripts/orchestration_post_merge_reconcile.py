@@ -13,59 +13,7 @@ PRODUCTION_URL = "https://game-ai-hub.vercel.app"
 
 def _ensure_production_work_dispatch(manifest):
     """Project exactly one current Production claim onto the bound merged PR."""
-    claim = manifest.get("acceptance_claim") or {}
-    if (manifest.get("stage"), manifest.get("status"), claim.get("environment")) != (
-        "production_acceptance",
-        "running",
-        "production",
-    ):
-        return False
-    if claim.get("expected_manifest_revision") != manifest.get("revision"):
-        raise Rejected("Production Work claim revision is not current")
-
-    binding = manifest.get("binding", {})
-    pr_number = binding.get("pr")
-    merge_sha = binding.get("merge_sha")
-    if not pr_number or claim.get("pr") != pr_number or claim.get("sha") != merge_sha:
-        raise Rejected("Production Work claim binding mismatch")
-
-    pr = adapter.gh(f"repos/{adapter.REPO}/pulls/{pr_number}")
-    if not pr.get("merged") or pr.get("merge_commit_sha") != merge_sha:
-        raise Rejected("Production Work claim is stale against the merged PR")
-
-    matches = []
-    for comment in adapter.comments(pr_number):
-        if adapter.WORK_DISPATCH not in comment.get("body", "") or not adapter.trusted_comment(comment):
-            continue
-        try:
-            payload = adapter.parse(comment["body"], adapter.WORK_DISPATCH)
-        except Rejected:
-            continue
-        if payload.get("claim_id") == claim.get("claim_id"):
-            matches.append(comment)
-    if len(matches) > 1:
-        raise Rejected("duplicate trusted Production Work dispatches require reconciliation")
-    if matches:
-        return True
-
-    contract = {
-        "schema": "gameai-work-dispatch/v1",
-        "dispatch_id": f"work:{claim.get('claim_id')}",
-        **claim,
-    }
-    instructions = (
-        "ChatGPT Work Production Acceptance dispatch. Re-fetch Issue #%(issue)s, PR #%(pr)s, the "
-        "Canonical Task, and the authoritative Run Manifest before acting. Continue only when every "
-        "claim field, the merged PR binding, exact merge SHA, Production deployment evidence, required "
-        "profile, and manifest revision still match this contract. Stale or duplicate state is a no-op. "
-        "Use the exact Production deployment_url for real Cloud Browser acceptance; Preview evidence "
-        "cannot substitute. Write exactly one gameai-acceptance/v1 candidate to PR #%(pr)s for this "
-        "claim, and do not write another if a same-claim candidate already exists. Do not merge, change "
-        "code or branches, or mutate Production."
-    ) % {"issue": manifest["issue"], "pr": pr_number}
-    adapter.post(pr_number, instructions + "\n\n" + adapter.block(adapter.WORK_DISPATCH, contract))
-    return True
-
+    return adapter.ensure_work_dispatch(manifest["issue"], manifest)
 
 def _production_readiness(number, manifest_comment, manifest, merge_sha):
     """Derive exact Production readiness from GitHub's Vercel status for the merge SHA."""

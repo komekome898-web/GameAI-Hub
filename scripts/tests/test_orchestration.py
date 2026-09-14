@@ -15,10 +15,52 @@ def base(m, operation, **extra):
 
 def result(m, verdict="PASS"):
     env="production" if m["stage"]=="production_acceptance" else "preview"
-    return {"schema":"gameai-acceptance/v1","result_id":"result-1","claim_id":"claim-1","run_id":m["run_id"],"canonical_task_version":m["canonical_task_version"],"expected_manifest_revision":m["revision"],"generation":m["generation"],"stage":m["stage"],"attempt_id":"pa-1","repository":m["repository"],"issue":m["issue"],"pr":91,"sha":m["binding"]["merge_sha" if env=="production" else "head_sha"],"environment":env,"targets":["/"],"required_profile":m["profile"]["id"],"profile_registry_revision":1,"actor":"work-app[bot]","actor_provenance":{"verified_by":"github-event-envelope","sender":"work-app[bot]","actor_type":"Bot","app_id":"1"},"verdict":verdict,"findings":[] if verdict=="PASS" else [{"id":"P1-001","blocking":True}]}
+    value={"schema":"gameai-acceptance/v1","result_id":"result-1","claim_id":"claim-1","run_id":m["run_id"],"canonical_task_version":m["canonical_task_version"],"expected_manifest_revision":m["revision"],"generation":m["generation"],"stage":m["stage"],"attempt_id":"pa-1","repository":m["repository"],"issue":m["issue"],"pr":91,"sha":m["binding"]["merge_sha" if env=="production" else "head_sha"],"environment":env,"targets":["/"],"required_profile":m["profile"]["id"],"profile_registry_revision":1,"actor":"work-app[bot]","actor_provenance":{"verified_by":"github-event-envelope","sender":"work-app[bot]","actor_type":"Bot","app_id":"1"},"verdict":verdict,"findings":[] if verdict=="PASS" else [{"id":"P1-001","blocking":True}]}
+    if env=="production" and verdict=="PASS": value["browser_evidence"]={"capabilities":{"render":True,"input":True,"click":True,"navigation":True,"iframe":"performed","back_forward":"performed"},"evidence":["browser-session:1"]}
+    return value
+
+
+def browser_retry(m, signal_id="no-browser-1"):
+    claim=m["acceptance_claim"]
+    return {"schema":"gameai-browser-capability/v1","signal_id":signal_id,"claim_id":claim["claim_id"],"run_id":m["run_id"],"canonical_task_version":m["canonical_task_version"],"expected_manifest_revision":m["revision"],"generation":m["generation"],"stage":"production_acceptance","attempt_id":claim["attempt_id"],"repository":m["repository"],"issue":m["issue"],"pr":91,"merge_sha":m["binding"]["merge_sha"],"deployment_id":claim.get("deployment_id","deploy-1"),"reason":"NO_QUALIFYING_INTERACTIVE_BROWSER","capabilities":{"render":False,"input":False,"click":False,"navigation":False,"iframe":False,"back_forward":False}}
 
 
 class ReducerTests(unittest.TestCase):
+    def test_no_browser_signal_creates_fresh_fenced_production_attempt(self):
+        m=manifest("production_acceptance","running");m["acceptance_claim"].update(deployment_id="deploy-1",deployment_url="https://game.example/",sha="c"*40,pr=91)
+        signal=browser_retry(m)
+        out,status=reduce(m,base(m,"production_browser_retry",signal=signal,transition_id="production-browser-retry:no-browser-1"),"acceptance")
+        self.assertEqual(status,"applied")
+        self.assertEqual((out["generation"],out["counters"]["infrastructure_retry"]),(3,1))
+        self.assertEqual((out["acceptance_claim"]["claim_id"],out["acceptance_claim"]["attempt_id"]),("production-3-cccccccccccccccc","production-3-2"))
+        self.assertEqual((out["binding"],out["acceptance_claim"]["deployment_id"]),(m["binding"],"deploy-1"))
+
+    def test_browser_retry_rejects_stale_signal_and_duplicate_is_noop(self):
+        m=manifest("production_acceptance","running");m["acceptance_claim"]["deployment_id"]="deploy-1"
+        event=base(m,"production_browser_retry",signal=browser_retry(m),transition_id="production-browser-retry:no-browser-1")
+        with self.assertRaisesRegex(Rejected,"stale browser retry deployment"):
+            reduce(m,{**event,"signal":{**event["signal"],"deployment_id":"old"}},"acceptance")
+        out,_=reduce(m,event,"acceptance")
+        replay={**event,"expected_manifest_revision":out["revision"]}
+        self.assertEqual(reduce(out,replay,"acceptance"),(out,"duplicate"))
+
+    def test_browser_retry_cap_is_visible_and_does_not_redispatch(self):
+        m=manifest("production_acceptance","running");m["acceptance_claim"]["deployment_id"]="deploy-1";m["counters"]["infrastructure_retry"]=3;m["max_infrastructure_retry"]=3
+        out,_=reduce(m,base(m,"production_browser_retry",signal=browser_retry(m),transition_id="production-browser-retry:cap"),"acceptance")
+        self.assertEqual((out["status"],out["blocked"]["kind"]),("blocked","technical"))
+        self.assertEqual(out["generation"],m["generation"])
+
+    def test_production_pass_requires_real_interactive_browser_evidence(self):
+        m=manifest("production_acceptance","running");r=result(m);r.pop("browser_evidence")
+        with self.assertRaisesRegex(Rejected,"interactive browser evidence"):
+            reduce(m,acceptance_event(m,r,"pass-without-browser"),"acceptance")
+
+    def test_claim_scoped_model_override_does_not_leak_to_retry_generation(self):
+        m=manifest("production_acceptance","running");m["acceptance_claim"].update(deployment_id="deploy-1",runtime_model_override={"model":"GPT-5.6 Sol","generation":2})
+        out,_=reduce(m,base(m,"production_browser_retry",signal=browser_retry(m),transition_id="production-browser-retry:override"),"acceptance")
+        self.assertNotIn("runtime_model_override",out["acceptance_claim"])
+        self.assertEqual(out["acceptance_claim"]["required_profile"],"work-critical")
+
     def test_generic_cannot_forge_preview_pass(self):
         m=manifest(); e=base(m,"transition",to_stage="preview_acceptance",to_status="passed",trigger={})
         with self.assertRaisesRegex(Rejected,"privileged"): reduce(m,e,"generic")
@@ -178,6 +220,19 @@ class ReducerTests(unittest.TestCase):
         with self.assertRaisesRegex(Rejected,"stale"):
             adapter.ensure_work_dispatch(74,m)
         post.assert_not_called()
+
+    @patch.object(adapter,"post")
+    @patch.object(adapter,"comments",return_value=[])
+    @patch.object(adapter,"gh")
+    def test_fresh_production_retry_dispatch_is_exactly_once_and_capability_based(self, gh, comments, post):
+        m=manifest("production_acceptance","running");m["acceptance_claim"].update({"expected_manifest_revision":1,"generation":2,"pr":91,"sha":"c"*40,"deployment_id":"deploy-1","environment":"production"})
+        gh.return_value={"merged":True,"merge_commit_sha":"c"*40}
+        self.assertTrue(adapter.ensure_work_dispatch(74,m))
+        body=post.call_args.args[1]
+        self.assertIn("capability-based handshake",body)
+        self.assertIn("No branded browser product is required",body)
+        post.reset_mock();comments.return_value=[{"id":12,"user":{"login":"github-actions[bot]","type":"Bot"},"body":body}]
+        self.assertTrue(adapter.ensure_work_dispatch(74,m));post.assert_not_called()
 
     def test_each_new_codex_task_identity_is_recorded_and_cannot_be_reused(self):
         m=manifest();out,_=reduce(m,acceptance_event(m,result(m,"FAIL"),"fail"),"acceptance")

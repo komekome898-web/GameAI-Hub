@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gameai-browser-capability/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "signal_id", "claim_id", "run_id", "canonical_task_version", "expected_manifest_revision", "generation", "stage", "attempt_id", "repository", "issue", "pr", "merge_sha", "deployment_id", "reason", "capabilities"],
+  "properties": {
+    "schema": {"const": "gameai-browser-capability/v1"},
+    "signal_id": {"type": "string", "minLength": 1, "maxLength": 200},
+    "claim_id": {"type": "string", "minLength": 1, "maxLength": 200},
+    "run_id": {"type": "string", "minLength": 1, "maxLength": 200},
+    "canonical_task_version": {"type": "integer", "minimum": 1},
+    "expected_manifest_revision": {"type": "integer", "minimum": 0},
+    "generation": {"type": "integer", "minimum": 1},
+    "stage": {"const": "production_acceptance"},
+    "attempt_id": {"type": "string", "minLength": 1, "maxLength": 200},
+    "repository": {"type": "string", "pattern": "^[^/]+/[^/]+$"},
+    "issue": {"type": "integer", "minimum": 1},
+    "pr": {"type": "integer", "minimum": 1},
+    "merge_sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "deployment_id": {"type": "string", "minLength": 1, "maxLength": 200},
+    "reason": {"const": "NO_QUALIFYING_INTERACTIVE_BROWSER"},
+    "capabilities": {
+      "type": "object", "additionalProperties": false,
+      "required": ["render", "input", "click", "navigation", "iframe", "back_forward"],
+      "properties": {
+        "render": {"type": "boolean"}, "input": {"type": "boolean"}, "click": {"type": "boolean"}, "navigation": {"type": "boolean"},
+        "iframe": {"type": "boolean"}, "back_forward": {"type": "boolean"}
+      }
+    }
+  }
+}

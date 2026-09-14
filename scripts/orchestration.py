@@ -206,6 +206,49 @@ def reduce(manifest, event, capability="generic"):
             out["blocking_findings"] = []
             out.pop("blocked", None)
             out["readiness"] = "RETRYABLE WAIT"
+        elif operation == "production_browser_retry":
+            require(capability == "acceptance", "acceptance capability required")
+            require((out["stage"], out["status"]) == ("production_acceptance", "running"), "browser retry target mismatch")
+            signal = event.get("signal") or {}
+            claim = out.get("acceptance_claim") or {}
+            _validate_browser_retry(out, signal)
+            require(signal["claim_id"] == claim.get("claim_id") and signal["attempt_id"] == claim.get("attempt_id"), "stale browser retry claim")
+            require(signal["deployment_id"] == claim.get("deployment_id"), "stale browser retry deployment")
+            capabilities = signal["capabilities"]
+            require(not all(capabilities.get(name) is True for name in ("render", "input", "click", "navigation")), "qualifying browser must perform Production acceptance")
+            retries = out["counters"].get("infrastructure_retry", 0)
+            maximum = out.get("max_infrastructure_retry", 3)
+            out.setdefault("technical_retry_signals", []).append(signal)
+            out["counters"]["infrastructure_failure"] = out["counters"].get("infrastructure_failure", 0) + 1
+            if retries >= maximum:
+                out["status"] = "blocked"
+                out["blocked"] = normalized_block({
+                    "kind": "technical",
+                    "why": "Production browser-capability retry limit reached",
+                    "what": f"{maximum} fresh Work attempts could not acquire qualifying interactive browser capability.",
+                    "need": "Restore an interactive browser-capable Work execution path, then use an explicit owner recovery.",
+                    "next": "No further Work dispatch is automatic; the immutable merged release and Production deployment remain unchanged.",
+                }, out["issue"])
+                return
+            out["generation"] += 1
+            out["counters"]["infrastructure_retry"] = retries + 1
+            out["readiness"] = "READY"
+            out["blocking_findings"] = []
+            out.pop("blocked", None)
+            merge_sha = out["binding"]["merge_sha"]
+            preserved_claim = {key: claim[key] for key in (
+                "run_id", "canonical_task_version", "stage", "repository", "issue", "pr", "sha",
+                "environment", "targets", "deployment_url", "provider", "deployment_id", "deployed_sha", "evidence_source",
+            ) if key in claim}
+            out["acceptance_claim"] = {
+                **preserved_claim,
+                "claim_id": f"production-{out['generation']}-{merge_sha[:16]}",
+                "attempt_id": f"production-{out['generation']}-{out['revision'] + 1}",
+                "expected_manifest_revision": out["revision"] + 1,
+                "generation": out["generation"],
+                "required_profile": out["profile"]["id"],
+                "profile_registry_revision": out["profile"]["registry_revision"],
+            }
         elif operation == "merge_observed":
             require(capability == "merge_observer", "merge observer capability required")
             require((out["stage"], out["status"]) == ("human_merge", "pending"), "merge observation source mismatch")
@@ -280,7 +323,7 @@ def transition(manifest, event):
 def _validate_acceptance(manifest, result):
     validate_json_schema(result, json.loads(pathlib.Path(".github/orchestration/schemas/acceptance.schema.json").read_text()))
     keys = {"schema", "result_id", "claim_id", "run_id", "canonical_task_version", "expected_manifest_revision", "generation", "stage", "attempt_id", "repository", "issue", "pr", "sha", "environment", "targets", "required_profile", "profile_registry_revision", "actor", "actor_provenance", "verdict", "findings"}
-    require(isinstance(result, dict) and set(result) <= keys | {"blocked"} and keys <= set(result), "malformed acceptance")
+    require(isinstance(result, dict) and set(result) <= keys | {"blocked", "browser_evidence"} and keys <= set(result), "malformed acceptance")
     require(result["schema"] == "gameai-acceptance/v1" and result["verdict"] in {"PASS", "FAIL", "BLOCKED"}, "malformed acceptance")
     expected_environment = "preview" if manifest["stage"] == "preview_acceptance" else "production"
     require(manifest["status"] == "running" and result["stage"] == manifest["stage"] and result["environment"] == expected_environment, "inactive or wrong acceptance stage")
@@ -292,6 +335,21 @@ def _validate_acceptance(manifest, result):
     require(result["required_profile"] == manifest["profile"]["id"] and result["profile_registry_revision"] == manifest["profile"]["registry_revision"], "wrong profile")
     require(isinstance(result["findings"], list) and all(isinstance(x, dict) and isinstance(x.get("id"), str) and isinstance(x.get("blocking", False), bool) for x in result["findings"]), "malformed findings")
     require(isinstance(result["actor_provenance"], dict) and result["actor_provenance"].get("verified_by") == "github-event-envelope", "unverified provenance")
+    if result["environment"] == "production" and result["verdict"] == "PASS":
+        browser = result.get("browser_evidence") or {}
+        capabilities = browser.get("capabilities") or {}
+        require(all(capabilities.get(name) is True for name in ("render", "input", "click", "navigation")), "Production PASS requires interactive browser evidence")
+        require(capabilities.get("iframe") in {"performed", "not_applicable"} and capabilities.get("back_forward") in {"performed", "not_applicable"}, "Production PASS requires applicable browser journey evidence")
+        require(isinstance(browser.get("evidence"), list) and browser["evidence"], "Production PASS requires reviewable browser evidence")
+
+
+def _validate_browser_retry(manifest, signal):
+    schema = json.loads(pathlib.Path(".github/orchestration/schemas/browser-retry.schema.json").read_text())
+    validate_json_schema(signal, schema)
+    require(signal["run_id"] == manifest["run_id"] and signal["canonical_task_version"] == manifest["canonical_task_version"], "wrong browser retry run/task")
+    require(signal["expected_manifest_revision"] == manifest["revision"] and signal["generation"] == manifest["generation"], "stale browser retry revision/fence")
+    require(signal["repository"] == manifest["repository"] and signal["issue"] == manifest["issue"] and signal["pr"] == manifest["binding"]["pr"], "wrong browser retry target")
+    require(signal["merge_sha"] == manifest["binding"]["merge_sha"], "wrong browser retry merge SHA")
 
 
 def validate_json_schema(value, schema, path="$"):
