@@ -61,6 +61,42 @@ class ReducerTests(unittest.TestCase):
         self.assertEqual((out["revision"],out["stage"]),(2,"production_acceptance"))
         with self.assertRaisesRegex(Rejected,"wrong source|terminal"): reduce(out,{**base(m,"merge_observed",transition_id="replay",sha="a"*40,merge_sha="c"*40),"expected_manifest_revision":out["revision"]},"merge_observer")
 
+    def test_owner_resume_retries_blocked_production_with_new_fence(self):
+        m=manifest("production_acceptance","blocked")
+        m["blocked"]={"kind":"technical"};m["blocking_findings"]=["EV-PROD-001"]
+        m["acceptance_result_ids"]=["old-result"];m["last_acceptance"]={"result_id":"old-result"}
+        old_claim=m["acceptance_claim"].copy()
+        event=base(m,"resume",pr=91,head_sha="a"*40,merge_sha="c"*40)
+        out,_=reduce(m,event,"human")
+        self.assertEqual((out["stage"],out["status"],out["generation"]),("production_acceptance","pending",3))
+        self.assertEqual(out["counters"]["infrastructure_retry"],1)
+        self.assertEqual(out["binding"],m["binding"])
+        self.assertEqual(out["acceptance_result_ids"],["old-result"])
+        self.assertEqual(out["last_acceptance"],m["last_acceptance"])
+        self.assertIsNone(out["acceptance_claim"])
+        self.assertNotIn("blocked",out)
+        ready=base(out,"readiness",transition_id="ready-after-resume",environment="production",sha="c"*40,deployed_sha="c"*40,deployment_state="READY",deployment_url="https://game.example/",provider="vercel",deployment_id="d1",evidence_source="status",claim_id="claim-new",attempt_id="pa-new",targets=["/"],verified=True)
+        running,_=reduce(out,ready,"deployment")
+        stale=acceptance_event(running,result(m),"stale-result")
+        stale["result"]["generation"]=old_claim.get("generation",2)
+        with self.assertRaisesRegex(Rejected,"stale acceptance revision/fence"): reduce(running,stale,"acceptance")
+
+    def test_resume_rejects_wrong_actor_state_and_release_binding(self):
+        m=manifest("production_acceptance","blocked")
+        event=base(m,"resume",pr=91,head_sha="a"*40,merge_sha="c"*40)
+        with self.assertRaisesRegex(Rejected,"capability"): reduce(m,event,"generic")
+        with self.assertRaisesRegex(Rejected,"binding"): reduce(m,{**event,"merge_sha":"d"*40},"human")
+        preview=manifest("preview_acceptance","blocked")
+        with self.assertRaisesRegex(Rejected,"target"): reduce(preview,base(preview,"resume",pr=91,head_sha="a"*40,merge_sha="c"*40),"human")
+
+    def test_resumed_production_readiness_creates_fresh_noncolliding_claim(self):
+        m=manifest("production_acceptance","blocked");m["acceptance_result_ids"]=["production-2-result"]
+        resumed,_=reduce(m,base(m,"resume",pr=91,head_sha="a"*40,merge_sha="c"*40),"human")
+        ready=base(resumed,"readiness",transition_id="production-readiness:3:status:c",environment="production",sha="c"*40,deployed_sha="c"*40,deployment_state="READY",deployment_url="https://game.example/",provider="vercel",deployment_id="d1",evidence_source="status",claim_id="production-3-c",attempt_id="production-3-3",targets=["/"],verified=True)
+        out,_=reduce(resumed,ready,"deployment")
+        self.assertEqual(out["acceptance_claim"]["claim_id"],"production-3-c")
+        self.assertEqual(out["acceptance_result_ids"],["production-2-result"])
+
     def test_readiness_requires_verified_identity_origin_and_environment(self):
         m=manifest("production_acceptance","pending")
         common=base(m,"readiness",environment="production",sha="c"*40,deployed_sha="c"*40,deployment_state="READY",deployment_url="https://game.example/x",provider="vercel",deployment_id="d1",evidence_source="api",claim_id="claim-2",attempt_id="p-1",targets=[],verified=True)

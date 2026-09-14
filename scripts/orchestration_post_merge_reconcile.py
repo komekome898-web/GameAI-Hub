@@ -124,7 +124,7 @@ def _production_readiness(number, manifest_comment, manifest, merge_sha):
             "claim_id": f"production-{manifest['generation']}-{merge_sha[:16]}",
             "attempt_id": f"production-{manifest['generation']}-{manifest['revision'] + 1}",
             "targets": ["/"],
-            "transition_id": f"production-readiness:{status_id}:{merge_sha}",
+            "transition_id": f"production-readiness:{manifest['generation']}:{status_id}:{merge_sha}",
             "trigger": {"actor": "github-actions[bot]", "source": "github-vercel-status-reconcile"},
         },
         "readiness",
