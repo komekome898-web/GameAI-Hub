@@ -32,3 +32,9 @@ jobs:
           ORCH_SUCCESSOR_ISSUE: ${{ inputs.successor_issue }}
           ORCH_AUTHORIZED_AT: ${{ github.event.repository.updated_at }}
         run: python scripts/orchestration_github.py human
+      - name: Reconcile exact Production readiness after resume
+        if: ${{ inputs.operation == 'resume' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_ISSUE: ${{ inputs.issue }}
+        run: python scripts/orchestration_production_reconcile.py

@@ -48,6 +48,16 @@ def clone(value):
     return copy.deepcopy(value)
 
 
+def utc_timestamp(value):
+    require(isinstance(value, str) and value.endswith("Z"), "timestamp must be canonical UTC")
+    try:
+        parsed = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise Rejected("invalid timestamp") from exc
+    require(parsed.tzinfo is not None, "timestamp timezone required")
+    return parsed
+
+
 def _base_checks(manifest, event, *, source=True):
     required = {"run_id", "canonical_task_version", "expected_manifest_revision", "generation", "transition_id", "repository", "issue"}
     require(isinstance(event, dict) and required <= event.keys(), "malformed operation")
@@ -131,7 +141,9 @@ def reduce(manifest, event, capability="generic"):
             allowed = out.get("deployment_origins", {}).get(environment, [])
             origin_allowed = any(event.get("deployment_url", "").startswith(origin) for origin in allowed)
             require(origin_allowed or event.get("origin_verified") is True, "deployment origin not allowed")
-            out["status"] = "running"; out["readiness"] = "READY"
+            if out.get("work_execution"):
+                out.setdefault("work_execution_history", []).append(out.pop("work_execution"))
+            out["status"] = "pending"; out["readiness"] = "READY"
             out["acceptance_claim"] = {
                 "claim_id": event["claim_id"],
                 "attempt_id": event["attempt_id"],
@@ -163,6 +175,9 @@ def reduce(manifest, event, capability="generic"):
             require(result["claim_id"] == claim.get("claim_id") and result["attempt_id"] == claim.get("attempt_id"), "stale acceptance claim")
             require(result["environment"] == claim.get("environment") and result["targets"] == claim.get("targets"), "stale acceptance claim")
             out.setdefault("acceptance_result_ids", []).append(rid); out["counters"]["acceptance_attempt"] += 1
+            execution = out.get("work_execution") or {}
+            if execution.get("claim_id") == claim.get("claim_id"):
+                execution.update(status="result_received", result_id=rid, result_received_at=event.get("observed_at"))
             out["last_acceptance"] = result; out["blocking_findings"] = [f["id"] for f in result["findings"] if f.get("blocking")]
             if result["verdict"] == "PASS":
                 if out["stage"] == "preview_acceptance":
@@ -208,7 +223,8 @@ def reduce(manifest, event, capability="generic"):
             out["readiness"] = "RETRYABLE WAIT"
         elif operation == "production_browser_retry":
             require(capability == "acceptance", "acceptance capability required")
-            require((out["stage"], out["status"]) == ("production_acceptance", "running"), "browser retry target mismatch")
+            execution = out.get("work_execution") or {}
+            require(out["stage"] == "production_acceptance" and (out["status"] == "running" or (out["status"] == "pending" and execution.get("status") == "contract_emitted")), "browser retry target mismatch")
             signal = event.get("signal") or {}
             claim = out.get("acceptance_claim") or {}
             _validate_browser_retry(out, signal)
@@ -219,6 +235,9 @@ def reduce(manifest, event, capability="generic"):
             retries = out["counters"].get("infrastructure_retry", 0)
             maximum = out.get("max_infrastructure_retry", 3)
             out.setdefault("technical_retry_signals", []).append(signal)
+            if execution:
+                execution.update(status="unavailable", result_id=signal.get("signal_id"))
+                out.setdefault("work_execution_history", []).append(out.pop("work_execution"))
             out["counters"]["infrastructure_failure"] = out["counters"].get("infrastructure_failure", 0) + 1
             if retries >= maximum:
                 out["status"] = "blocked"
@@ -232,7 +251,7 @@ def reduce(manifest, event, capability="generic"):
                 return
             out["generation"] += 1
             out["counters"]["infrastructure_retry"] = retries + 1
-            out["readiness"] = "READY"
+            out["status"] = "pending"; out["readiness"] = "READY"
             out["blocking_findings"] = []
             out.pop("blocked", None)
             merge_sha = out["binding"]["merge_sha"]
@@ -302,6 +321,28 @@ def reduce(manifest, event, capability="generic"):
                 require(claim.get("state") == "ACKED" and event.get("external_task_id") == claim.get("external_task_id"), "Codex task correlation mismatch")
                 require(SHA.fullmatch(event.get("result_head_sha", "")) and event["result_head_sha"] != claim["base_head_sha"], "Codex result head invalid")
                 claim["state"] = "RESULT_RECORDED"; claim["result_head_sha"] = event["result_head_sha"]
+        elif operation in {"work_dispatch_emitted", "work_execution_ack", "work_execution_timeout"}:
+            require(capability == "work_bridge", "Work bridge capability required")
+            claim = out.get("acceptance_claim") or {}
+            require(event.get("claim_id") == claim.get("claim_id") and event.get("attempt_id") == claim.get("attempt_id") and event.get("sha") == claim.get("sha") and event["generation"] == claim.get("generation"), "stale Work claim/fence")
+            execution = out.get("work_execution") or {}
+            if operation == "work_dispatch_emitted":
+                require(out["stage"] in {"preview_acceptance", "production_acceptance"} and out["status"] in {"pending", "running"}, "inactive Work claim")
+                require(not execution or execution.get("claim_id") == claim["claim_id"], "another Work execution is active")
+                out["status"] = "pending"
+                out["work_execution"] = {"claim_id": claim["claim_id"], "attempt_id": claim["attempt_id"], "generation": out["generation"], "sha": claim["sha"], "dispatch_id": event["dispatch_id"], "dispatch_comment_id": event["dispatch_comment_id"], "status": "contract_emitted", "emitted_at": event["observed_at"], "deadline_at": event["deadline_at"], "bridge_capability": "UNVERIFIED"}
+                claim["expected_manifest_revision"] = out["revision"] + 1
+            elif operation == "work_execution_ack":
+                require(execution.get("status") == "contract_emitted" and execution.get("dispatch_id") == event.get("dispatch_id"), "Work execution ACK correlation mismatch")
+                require(event.get("external_execution_id"), "Work execution identity required")
+                execution.update(status="execution_acknowledged", acknowledged_at=event["observed_at"], external_execution_id=event["external_execution_id"])
+                out["status"] = "running"; claim["expected_manifest_revision"] = out["revision"] + 1
+            else:
+                require(execution.get("status") in {"contract_emitted", "execution_acknowledged"} and execution.get("dispatch_id") == event.get("dispatch_id"), "Work execution timeout correlation mismatch")
+                require(event.get("deadline_at") == execution.get("deadline_at") and utc_timestamp(event.get("observed_at")) >= utc_timestamp(execution.get("deadline_at")), "Work execution deadline not reached")
+                execution.update(status="timed_out", timed_out_at=event["observed_at"])
+                out["status"] = "blocked"; out.setdefault("bridge_status", {})["work"] = "BLOCKED_UNVERIFIED"
+                out["blocked"] = normalized_block({"kind": "technical", "why": "Native Work execution was not acknowledged before the dispatch deadline.", "what": "The dispatch contract was emitted, but no supported execution ACK or trusted result was observed.", "need": "Configure or restore a supported native Work trigger/writeback path, then use explicit recovery.", "next": "A new fenced claim may be created only through authorized recovery; the current release remains unchanged."}, out["issue"])
         elif operation == "hotfix_escalate":
             require(capability == "hotfix" and (out["stage"], out["status"]) == ("production_acceptance", "failed"), "hotfix escalation mismatch")
             out["status"] = "blocked"; out["blocked"] = normalized_block({"kind": "human", "why": "Production hotfix lineage limit reached", "what": "All automatic child-hotfix generations were used.", "need": "Review Production failure evidence and authorize a new plan or cancellation.", "resume": f'Run Orchestration human control for Issue #{out["issue"]}.'}, out["issue"])
@@ -326,7 +367,9 @@ def _validate_acceptance(manifest, result):
     require(isinstance(result, dict) and set(result) <= keys | {"blocked", "browser_evidence"} and keys <= set(result), "malformed acceptance")
     require(result["schema"] == "gameai-acceptance/v1" and result["verdict"] in {"PASS", "FAIL", "BLOCKED"}, "malformed acceptance")
     expected_environment = "preview" if manifest["stage"] == "preview_acceptance" else "production"
-    require(manifest["status"] == "running" and result["stage"] == manifest["stage"] and result["environment"] == expected_environment, "inactive or wrong acceptance stage")
+    execution = manifest.get("work_execution") or {}
+    implicit_result = manifest["status"] == "pending" and execution.get("status") == "contract_emitted"
+    require((manifest["status"] == "running" or implicit_result) and result["stage"] == manifest["stage"] and result["environment"] == expected_environment, "inactive or wrong acceptance stage")
     require(result["run_id"] == manifest["run_id"] and result["canonical_task_version"] == manifest["canonical_task_version"], "wrong run/task")
     require(result["expected_manifest_revision"] == manifest["revision"] and result["generation"] == manifest["generation"], "stale acceptance revision/fence")
     require(result["repository"] == manifest["repository"] and result["issue"] == manifest["issue"] and result["pr"] == manifest["binding"]["pr"], "wrong acceptance target")
@@ -415,6 +458,7 @@ def projection(manifest, labels):
 
 def next_action(m):
     if m.get("blocked"): return m["blocked"]["resume"]
+    if (m.get("work_execution") or {}).get("status") == "contract_emitted": return "None — dispatch contract emitted; native Work execution has not been acknowledged."
     if (m["stage"], m["status"]) == ("human_merge", "pending"): return "Review the merge decision below and authorize the current SHA."
     if m["stage"] == "implementation" and m["status"] == "pending" and m.get("codex_outbox", {}).get("state") in {"PENDING_DISPATCH", "DISPATCH_REQUESTED"}: return "None — a new fenced Codex Patch Mode task is queued for the existing PR."
     return "None — automation is active or awaiting verified external evidence."
@@ -424,7 +468,9 @@ def summary(m):
     block = m.get("blocked"); ci = m.get("ci", "UNKNOWN")
     if isinstance(ci, dict): ci = f'{ci.get("conclusion", "UNKNOWN")} for {ci.get("sha", "")}'
     accepted = m.get("last_acceptance") or {}; fresh = accepted.get("verdict") == "PASS" and accepted.get("sha") == m["binding"].get("head_sha")
-    lines = ["<!-- gameai-operator-status:v1 -->", "## Orchestration status", f'Issue: #{m["issue"]}', f'Status: {m["stage"]} / {m["status"]}', f'Current PR: {m["binding"].get("pr") or "None"}', f'Current head SHA: {m["binding"].get("head_sha") or "None"}', f'CI: {ci}', f'Preview Acceptance: {m.get("preview_acceptance", "UNTESTED")} ({"fresh for current SHA" if fresh else "not proven for current SHA"})', f'Blocking findings: {", ".join(m.get("blocking_findings", [])) or "None"}', f'Repair revision: {m.get("counters", {}).get("repair_revision", 0)}/{m.get("max_repair_revision", 5)}', f'Work profile: {m["profile"]["id"]} @ revision {m["profile"]["registry_revision"]} ({m["profile"]["configuration_status"]})', f'Bridge health: {json.dumps(m.get("bridge_status", {}), sort_keys=True)}', f'Residual UNTESTED: {", ".join(m.get("untested", [])) or "None"}', f'Next human action: {next_action(m)}']
+    execution = m.get("work_execution") or {}
+    codex = m.get("codex_outbox") or {}
+    lines = ["<!-- gameai-operator-status:v1 -->", "## Orchestration status", f'Issue: #{m["issue"]}', f'Status: {m["stage"]} / {m["status"]}', f'Work execution: {execution.get("status", "not_dispatched")}', f'Work dispatch / ACK / result: {execution.get("dispatch_id", "None")} / {execution.get("external_execution_id", "None")} / {execution.get("result_id", "None")}', f'Work deadline: {execution.get("deadline_at", "None")}', f'Codex execution: {codex.get("state", "not_dispatched")} ({codex.get("external_task_id", "None")})', f'Current PR: {m["binding"].get("pr") or "None"}', f'Current head SHA: {m["binding"].get("head_sha") or "None"}', f'CI: {ci}', f'Preview Acceptance: {m.get("preview_acceptance", "UNTESTED")} ({"fresh for current SHA" if fresh else "not proven for current SHA"})', f'Blocking findings: {", ".join(m.get("blocking_findings", [])) or "None"}', f'Repair revision: {m.get("counters", {}).get("repair_revision", 0)}/{m.get("max_repair_revision", 5)}', f'Work profile: {m["profile"]["id"]} @ revision {m["profile"]["registry_revision"]} ({m["profile"]["configuration_status"]})', f'Bridge health: {json.dumps(m.get("bridge_status", {}), sort_keys=True)}', f'Residual UNTESTED: {", ".join(m.get("untested", [])) or "None"}', f'Next human action: {next_action(m)}']
     if block:
         lines += [f'Why blocked: {block["why"]}', f'What happened: {block["what"]}', f'What you need to do: {block["need"]}', f'What happens after that: {block["next"]}', f'Resume command: {block["resume"]}']
     return "\n".join(lines)

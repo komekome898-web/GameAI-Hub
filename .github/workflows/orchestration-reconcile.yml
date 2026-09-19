@@ -1,6 +1,6 @@
 name: Orchestration projection reconciliation
 on:
-  schedule: [{ cron: "23 */6 * * *" }]
+  schedule: [{ cron: "*/15 * * * *" }]
   workflow_dispatch:
     inputs:
       issue: { description: Optional issue number, required: false, type: string }
@@ -21,6 +21,16 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           ORCH_ISSUE: ${{ inputs.issue }}
         run: python scripts/orchestration_github.py reconcile
+      - name: Fail closed on unacknowledged Work execution
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_ISSUE: ${{ inputs.issue }}
+        run: python scripts/orchestration_work_watchdog.py
+      - name: Reconcile exact Production readiness without an owner comment relay
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORCH_ISSUE: ${{ inputs.issue }}
+        run: python scripts/orchestration_production_reconcile.py
       - name: Reconcile durable Production hotfix operations
         env:
           GH_TOKEN: ${{ github.token }}

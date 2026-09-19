@@ -69,8 +69,8 @@ def main():
         event_payload = adapter.envelope(manifest, {"signal": result, "transition_id": transition_id}, "production_browser_retry")
         out, status = reduce(manifest, event_payload, "acceptance")
         adapter.write(issue_number, manifest_comment, out, manifest["revision"])
-        if status == "applied" and (out.get("stage"), out.get("status")) == ("production_acceptance", "running"):
-            adapter.ensure_work_dispatch(issue_number, out)
+        if status == "applied" and out.get("stage") == "production_acceptance" and out.get("status") in {"pending", "running"}:
+            adapter.ensure_work_dispatch(issue_number, out, record=True)
         return
 
     candidates = []
