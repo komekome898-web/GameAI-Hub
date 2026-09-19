@@ -1,11 +1,14 @@
 from __future__ import annotations
 
 import json
+import io
 import os
+import tempfile
 import unittest
 from unittest import mock
 
-from scripts.jev.browser.policy import BrowserShadowPolicy, ObservedAction
+from scripts.gameai_jev import run_command
+from scripts.jev.browser.policy import BrowserShadowPolicy, ObservedAction, browser_preflight
 from scripts.jev.client import JevClient, JevTechnicalFailure
 from scripts.jev.config import JevConfig
 from scripts.jev.policy import citation_candidate, patch_scope, research_source_triage, reviewer_routing
@@ -68,6 +71,16 @@ class JevTests(unittest.TestCase):
         with mock.patch.dict(os.environ, {}, clear=True):
             with self.assertRaisesRegex(ValueError, "not configured"):
                 JevConfig.from_env()
+
+    def test_live_configuration_requires_pinned_model(self):
+        with mock.patch.dict(os.environ, {"TYPESAFE_API_KEY": "secret"}, clear=True):
+            with self.assertRaisesRegex(ValueError, "pinned model"):
+                JevConfig.from_env()
+        with mock.patch.dict(os.environ, {"TYPESAFE_API_KEY": "secret", "TYPESAFE_MODEL": "jev-latest"}, clear=True):
+            with self.assertRaisesRegex(ValueError, "not allowed"):
+                JevConfig.from_env()
+        with mock.patch.dict(os.environ, {"TYPESAFE_API_KEY": "secret", "TYPESAFE_MODEL": "jev-1.13.0"}, clear=True):
+            self.assertEqual(JevConfig.from_env().requested_model, "jev-1.13.0")
 
     def test_semantic_routes_remain_shadow_and_non_authoritative(self):
         fixtures = ((reviewer_routing, {"change_categories": ["tests"]}), (patch_scope, {"changed_paths": ["safe.txt"]}), (research_source_triage, {"claim_category": "technical"}), (citation_candidate, {"claim_category": "technical", "source_type": "official_docs"}))
@@ -142,6 +155,40 @@ class JevTests(unittest.TestCase):
                 journey_id="purchase", observation_id="obs", page_facts={},
                 actions=[ObservedAction("wait", "WAIT", None, "Wait", public_label=True)],
             )
+
+    def test_browser_preflight_is_bounded_dry_run(self):
+        result = browser_preflight({
+            "journey_id": "recovery_flow", "observation_id": "obs-1",
+            "page_facts": {"route_id": "project"},
+            "observed_actions": [{"action_id": "wait", "operation": "WAIT", "label": "Wait", "public_label": True}],
+        })
+        self.assertEqual(result["eligible_action_ids"], ["wait"])
+        self.assertTrue(result["dry_run"])
+        self.assertFalse(result["authoritative"])
+
+    def test_browser_preflight_rejects_raw_content(self):
+        with self.assertRaisesRegex(JevTechnicalFailure, "metadata-only"):
+            browser_preflight({
+                "journey_id": "recovery_flow", "observation_id": "obs-1",
+                "page_facts": {"content": "private"},
+                "observed_actions": [{"action_id": "wait", "operation": "WAIT", "label": "Wait", "public_label": True}],
+            })
+
+    def test_browser_preflight_cli_returns_non_authoritative_output(self):
+        payload = {"journey_id": "recovery_flow", "observation_id": "obs-1", "page_facts": {},
+            "observed_actions": [{"action_id": "done", "operation": "DONE", "label": "Done", "public_label": True}]}
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8") as handle:
+            json.dump(payload, handle); handle.flush()
+            with mock.patch("sys.stdout", new_callable=io.StringIO) as output:
+                self.assertEqual(run_command("browser-preflight", handle.name), 0)
+        self.assertFalse(json.loads(output.getvalue())["authoritative"])
+
+    def test_cli_rejects_unbounded_input(self):
+        with tempfile.NamedTemporaryFile(mode="wb") as handle:
+            handle.write(b"{" + b"x" * 24_001); handle.flush()
+            with mock.patch("sys.stdout", new_callable=io.StringIO) as output:
+                self.assertEqual(run_command("browser-preflight", handle.name), 1)
+        self.assertFalse(json.loads(output.getvalue())["authoritative"])
 
 
 if __name__ == "__main__":

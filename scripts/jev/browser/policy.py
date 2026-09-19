@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Callable
+from typing import Any, Callable
 
 from ..client import JevClient, JevTechnicalFailure
 
@@ -91,3 +91,35 @@ SAFE_JOURNEYS = {
 }
 
 PROHIBITED_ACTIONS = {"PURCHASE", "SUBMIT_EXTERNAL", "DELETE", "ACCOUNT_CHANGE"}
+
+
+def browser_preflight(facts: dict[str, Any]) -> dict[str, Any]:
+    """Validate a bounded Phase 1 plan without driving a browser or calling Jev."""
+    allowed = {"journey_id", "observation_id", "page_facts", "observed_actions"}
+    if not isinstance(facts, dict) or set(facts) - allowed:
+        raise JevTechnicalFailure("browser preflight accepts only bounded scaffold fields")
+    journey_id = facts.get("journey_id")
+    observation_id = facts.get("observation_id")
+    page_facts = facts.get("page_facts", {})
+    raw_actions = facts.get("observed_actions")
+    if journey_id not in SAFE_JOURNEYS or not isinstance(observation_id, str) or not observation_id:
+        raise JevTechnicalFailure("browser preflight requires a registered journey and observation")
+    if not isinstance(page_facts, dict) or set(page_facts) - {"pathname", "route_id", "viewport", "visible_control_kinds", "state_markers"}:
+        raise JevTechnicalFailure("browser facts must be metadata-only; raw page content is forbidden")
+    if not isinstance(raw_actions, list) or not raw_actions or len(raw_actions) > 32:
+        raise JevTechnicalFailure("browser preflight requires 1-32 observed actions")
+    try:
+        actions = [ObservedAction(
+            action_id=item["action_id"], operation=item["operation"],
+            target_id=item.get("target_id"), label=item["label"],
+            safety=item.get("safety", "READ_ONLY"), public_label=item.get("public_label", False),
+        ) for item in raw_actions if isinstance(item, dict)]
+    except (KeyError, TypeError, ValueError) as exc:
+        raise JevTechnicalFailure("invalid observed action in browser preflight") from exc
+    if len(actions) != len(raw_actions) or len({action.action_id for action in actions}) != len(actions):
+        raise JevTechnicalFailure("observed actions must be valid and uniquely identified")
+    return {
+        "status": "SHADOW", "route": "browser_preflight", "journey_id": journey_id,
+        "observation_id": observation_id, "eligible_action_ids": [action.action_id for action in actions],
+        "dry_run": True, "authoritative": False,
+    }

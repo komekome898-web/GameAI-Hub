@@ -15,7 +15,7 @@ Phase 1 statuses are `SHADOW` for Reviewer Routing, Patch Scope, Research Source
 
 Every request follows: deterministic bounded state → `redact()` → `assert_clean()` → schema validation → `JevClient`. Only `scripts/jev/client.py` calls `https://api.typesafe.ai/v1/systemone`.
 
-Never include raw game ideas, generated code/HTML, raw errors, credentials, cookies, browser storage, screenshots, conversations, analytics payloads, connected-app content, or private affiliate identifiers. The response model must exactly equal `TYPESAFE_MODEL` (default `jev-latest`); there is no silent fallback.
+Never include raw game ideas, generated code/HTML, raw errors, credentials, cookies, browser storage, screenshots, conversations, analytics payloads, connected-app content, or private affiliate identifiers. The response model must exactly equal the explicitly configured, pinned `TYPESAFE_MODEL`; `jev-latest` is rejected and there is no silent fallback.
 
 ## Browser preflight
 
@@ -37,4 +37,15 @@ The live smoke uses only synthetic state and never prints the key:
 python -m scripts.gameai_jev smoke
 ```
 
-Environment: `TYPESAFE_API_KEY`, optional `TYPESAFE_MODEL`, and (for future separated text/browser adapters) `TEXT_MODEL_API_KEY`, `TEXT_MODEL_BASE_URL`, `TEXT_MODEL`, `TEXT_MODEL_REASONING`, `BROWSER_USE_API_KEY`.
+Semantic routes accept a bounded JSON object from standard input or `--input FILE`:
+
+```bash
+python -m scripts.gameai_jev reviewer-routing --input facts.json
+python -m scripts.gameai_jev patch-scope --input facts.json
+python -m scripts.gameai_jev source-triage --input facts.json
+python -m scripts.gameai_jev browser-preflight --input plan.json
+```
+
+Input is capped at 24,000 bytes. The first three commands use only the shared Jev wrapper. `browser-preflight` validates the Phase 1 scaffold locally and performs no browser or Production action. All output is non-authoritative.
+
+Environment: required `TYPESAFE_API_KEY` and pinned `TYPESAFE_MODEL`, and (for future separated text/browser adapters) `TEXT_MODEL_API_KEY`, `TEXT_MODEL_BASE_URL`, `TEXT_MODEL`, `TEXT_MODEL_REASONING`, `BROWSER_USE_API_KEY`.
