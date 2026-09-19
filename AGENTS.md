@@ -16,6 +16,12 @@ Use this priority order:
 
 If an Issue conflicts with protected behavior below, preserve the protected behavior and report the conflict.
 
+When using TypeSafe Jev or Jev-powered browser automation, read
+`docs/agent-guides/JEV.md`. Jev is advisory only. Task-specific direct TypeSafe
+API calls are prohibited; use the shared wrapper. Jev must not replace the Run
+Manifest, reducer, fencing, Acceptance, human merge gate, or Production browser
+evidence.
+
 ## 2. Product principle
 
 GameAI Hub is an AI game-development execution and decision-support product, not a generic AI-tool directory.
