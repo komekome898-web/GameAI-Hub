@@ -10,6 +10,8 @@ Productionでは評価前にstage guideのbrowser-capability handshakeを行い�
 
 ### Exact-head browser evidence carry-forward
 
+The `gameai-work-dispatch/v1` marker means only that a contract was emitted. The current shared connector identity is not a uniquely attestable native Work ACK channel, so do not emit a standalone ACK or use an owner wake-up comment as one. A trusted exact-claim result/capability signal is the first supported execution evidence.
+
 current exact head で新規 browser operation を実行できない場合でも、直近の **browser-validated exact SHA** から current exact SHA までの Git compare を再取得し、rendered/user-facing execution surface が等価であることを独立に証明できる場合に限り、直近のbrowser evidenceを current headへ carry-forward できます。
 
 carry-forward可能なのは次のいずれかです。

@@ -13,7 +13,7 @@ PRODUCTION_URL = "https://game-ai-hub.vercel.app"
 
 def _ensure_production_work_dispatch(manifest):
     """Project exactly one current Production claim onto the bound merged PR."""
-    return adapter.ensure_work_dispatch(manifest["issue"], manifest)
+    return adapter.ensure_work_dispatch(manifest["issue"], manifest, record=True)
 
 def _production_readiness(number, manifest_comment, manifest, merge_sha):
     """Derive exact Production readiness from GitHub's Vercel status for the merge SHA."""
@@ -83,6 +83,19 @@ def _production_readiness(number, manifest_comment, manifest, merge_sha):
     adapter.write(number, manifest_comment, ready, manifest["revision"])
     _ensure_production_work_dispatch(ready)
     return ready
+
+
+def reconcile_production_pending(number):
+    """Repository-owned relay after an already authorized/observed merge; no owner marker required."""
+    manifest_comment, manifest = adapter.find_manifest(number)
+    adapter.verify_task(number, manifest)
+    if (manifest.get("stage"), manifest.get("status")) != ("production_acceptance", "pending"):
+        return manifest
+    binding = manifest.get("binding", {})
+    pr = adapter.gh(f"repos/{adapter.REPO}/pulls/{int(binding.get('pr') or 0)}")
+    if not pr.get("merged") or pr.get("head", {}).get("sha") != binding.get("head_sha") or pr.get("merge_commit_sha") != binding.get("merge_sha"):
+        raise Rejected("repository relay requires the exact already-authorized merged binding")
+    return _production_readiness(number, manifest_comment, manifest, binding["merge_sha"])
 
 
 def reconcile(event):

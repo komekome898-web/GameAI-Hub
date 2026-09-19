@@ -122,7 +122,7 @@ class ReducerTests(unittest.TestCase):
         running,_=reduce(out,ready,"deployment")
         stale=acceptance_event(running,result(m),"stale-result")
         stale["result"]["generation"]=old_claim.get("generation",2)
-        with self.assertRaisesRegex(Rejected,"stale acceptance revision/fence"): reduce(running,stale,"acceptance")
+        with self.assertRaisesRegex(Rejected,"stale acceptance revision/fence|inactive or wrong acceptance stage"): reduce(running,stale,"acceptance")
 
     def test_resume_rejects_wrong_actor_state_and_release_binding(self):
         m=manifest("production_acceptance","blocked")
@@ -324,6 +324,42 @@ class CheckRunObservationTests(unittest.TestCase):
         observer.observe_check_run({"number":91},{"sha":"a"*40,"check_id":"1","check_name":"quality","conclusion":"success","source":"suite"})
         verify_task.assert_called_once_with(74,m)
         write.assert_not_called()
+
+
+class WorkExecutionStateTests(unittest.TestCase):
+    def emitted(self):
+        m=manifest("production_acceptance","pending")
+        m["acceptance_claim"].update({"generation":2,"sha":"c"*40,"expected_manifest_revision":1})
+        event=base(m,"work_dispatch_emitted",claim_id="claim-1",attempt_id="pa-1",sha="c"*40,dispatch_id="work:claim-1",dispatch_comment_id=44,observed_at="2026-09-19T00:00:00Z",deadline_at="2026-09-19T01:00:00Z",transition_id="emit-44")
+        return reduce(m,event,"work_bridge")[0]
+
+    def test_dispatch_emitted_is_not_execution_ack(self):
+        out=self.emitted()
+        self.assertEqual((out["status"],out["work_execution"]["status"]),("pending","contract_emitted"))
+        self.assertEqual(out["work_execution"]["bridge_capability"],"UNVERIFIED")
+        self.assertIn("native Work execution has not been acknowledged",next_action(out))
+
+    def test_ack_is_fenced_and_duplicate_is_idempotent(self):
+        m=self.emitted()
+        ack=base(m,"work_execution_ack",claim_id="claim-1",attempt_id="pa-1",sha="c"*40,dispatch_id="work:claim-1",external_execution_id="work-run-17",observed_at="2026-09-19T00:05:00Z",transition_id="ack-17")
+        with self.assertRaisesRegex(Rejected,"stale Work claim"):
+            reduce(m,{**ack,"claim_id":"old"},"work_bridge")
+        out,_=reduce(m,ack,"work_bridge")
+        self.assertEqual((out["status"],out["work_execution"]["status"]),("running","execution_acknowledged"))
+        self.assertEqual(reduce(out,{**ack,"expected_manifest_revision":out["revision"]},"work_bridge"),(out,"duplicate"))
+
+    def test_unacknowledged_dispatch_times_out_fail_closed(self):
+        m=self.emitted(); binding=m["binding"].copy(); repair=m["counters"]["repair_revision"]
+        event=base(m,"work_execution_timeout",claim_id="claim-1",attempt_id="pa-1",sha="c"*40,dispatch_id="work:claim-1",deadline_at="2026-09-19T01:00:00Z",observed_at="2026-09-19T01:00:00Z",transition_id="timeout-17")
+        out,_=reduce(m,event,"work_bridge")
+        self.assertEqual((out["status"],out["work_execution"]["status"],out["bridge_status"]["work"]),("blocked","timed_out","BLOCKED_UNVERIFIED"))
+        self.assertEqual((out["binding"],out["counters"]["repair_revision"]),(binding,repair))
+
+    def test_trusted_result_is_implicit_ack_and_result_received(self):
+        m=self.emitted(); r=result(m); r["expected_manifest_revision"]=m["revision"]
+        out,_=reduce(m,acceptance_event(m,r,"result-after-emission"),"acceptance")
+        self.assertEqual(out["work_execution"]["status"],"result_received")
+        self.assertEqual((out["stage"],out["status"]),("terminal","done"))
 
 
 if __name__ == "__main__": unittest.main()

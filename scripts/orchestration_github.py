@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """GitHub adapter for the reducer. Comments are optimistic cooperative storage, not CAS."""
-import hashlib, json, os, subprocess, sys, urllib.request, uuid
+import datetime as dt, hashlib, json, os, subprocess, sys, urllib.request, uuid
 from orchestration import Rejected, acceptance_event, create_hotfix, projection, reduce, summary
 
 REPO = os.getenv("GITHUB_REPOSITORY", "komekome898-web/GameAI-Hub")
@@ -161,12 +161,14 @@ def render_work_dispatch(manifest):
     return instructions + "\n\n" + block(WORK_DISPATCH, contract)
 
 
-def ensure_work_dispatch(number, manifest):
+def ensure_work_dispatch(number, manifest, *, record=False):
     """Crash-safe, idempotent projection of a runnable acceptance claim onto its PR."""
     claim = manifest.get("acceptance_claim") or {}
     environment = claim.get("environment")
     if (manifest.get("stage"), manifest.get("status"), environment) not in {
+        ("preview_acceptance", "pending", "preview"),
         ("preview_acceptance", "running", "preview"),
+        ("production_acceptance", "pending", "production"),
         ("production_acceptance", "running", "production"),
     }:
         return False
@@ -191,8 +193,17 @@ def ensure_work_dispatch(number, manifest):
             matches.append(comment)
     if len(matches) > 1:
         raise Rejected("duplicate trusted Work dispatches require reconciliation")
-    if not matches:
-        post(pr_number, render_work_dispatch(manifest))
+    dispatch_comment = matches[0] if matches else post(pr_number, render_work_dispatch(manifest))
+    if record and not (manifest.get("work_execution") or {}).get("claim_id") == claim.get("claim_id"):
+        current_comment, current = find_manifest(number)
+        current_claim = current.get("acceptance_claim") or {}
+        if current_claim.get("claim_id") != claim.get("claim_id"):
+            raise Rejected("Work claim changed before dispatch observation")
+        emitted = dispatch_comment.get("created_at") or dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z")
+        deadline = (dt.datetime.fromisoformat(emitted.replace("Z", "+00:00")) + dt.timedelta(hours=1)).isoformat().replace("+00:00", "Z")
+        event = envelope(current, {"claim_id": current_claim["claim_id"], "attempt_id": current_claim["attempt_id"], "sha": current_claim["sha"], "dispatch_id": f"work:{current_claim['claim_id']}", "dispatch_comment_id": dispatch_comment["id"], "observed_at": emitted, "deadline_at": deadline, "transition_id": f"work-dispatch-emitted:{dispatch_comment['id']}"}, "work_dispatch_emitted")
+        observed, status = reduce(current, event, "work_bridge")
+        if status == "applied": write(number, current_comment, observed, current["revision"])
     return True
 
 
@@ -396,7 +407,7 @@ def reconcile():
         try:
             _, manifest = find_manifest(number)
             reconcile_one(number, manifest)
-            ensure_work_dispatch(number, manifest)
+            ensure_work_dispatch(number, manifest, record=True)
         except Rejected: pass
 
 

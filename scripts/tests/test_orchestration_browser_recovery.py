@@ -91,7 +91,7 @@ class BrowserRecoveryTests(unittest.TestCase):
         self.assertEqual(out["acceptance_claim"]["deployment_id"], m["acceptance_claim"]["deployment_id"])
         self.assertEqual(out["binding"], m["binding"])
         self.assertNotIn("runtime_model_override", out["acceptance_claim"])
-        dispatch.assert_called_once_with(74, out)
+        dispatch.assert_called_once_with(74, out, record=True)
 
     @patch.object(recovery.adapter, "comments", return_value=[])
     @patch.object(recovery.adapter, "verify_task")

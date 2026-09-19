@@ -58,7 +58,7 @@ def recover(event):
     binding = manifest.get("binding") or {}
 
     if (manifest.get("stage"), manifest.get("status")) != ("production_acceptance", "running"):
-        raise Rejected("browser recovery target is not a running Production acceptance")
+        raise Rejected("stale browser recovery target is not a running Production acceptance")
     exact = {
         "claim_id": claim.get("claim_id"),
         "attempt_id": claim.get("attempt_id"),
@@ -112,8 +112,8 @@ def recover(event):
         "acceptance",
     )
     adapter.write(number, manifest_comment, out, manifest["revision"])
-    if status == "applied" and (out.get("stage"), out.get("status")) == ("production_acceptance", "running"):
-        adapter.ensure_work_dispatch(number, out)
+    if status == "applied" and out.get("stage") == "production_acceptance" and out.get("status") in {"pending", "running"}:
+        adapter.ensure_work_dispatch(number, out, record=True)
     return out
 
 
