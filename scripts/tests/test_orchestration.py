@@ -3,6 +3,7 @@ from unittest.mock import patch
 sys.path.insert(0, str(pathlib.Path(__file__).parents[1]))
 from orchestration import *
 import orchestration_github as adapter
+import orchestration_observe as observer
 
 
 def manifest(stage="preview_acceptance", status="running"):
@@ -285,6 +286,44 @@ class ReducerTests(unittest.TestCase):
         m=manifest("implementation","running")
         with self.assertRaisesRegex(Rejected,"CI SHA"): reduce(m,base(m,"ci_observed",sha="b"*40,check_id="1",check_name="quality",conclusion="success",source="suite"),"ci_observer")
         out,_=reduce(m,base(m,"ci_observed",sha="a"*40,check_id="1",check_name="quality",conclusion="success",source="suite"),"ci_observer");self.assertEqual(out["ci"]["conclusion"],"pending")
+
+
+class CheckRunObservationTests(unittest.TestCase):
+    def actions_check(self, name, run_id):
+        return {"name":name,"app":{"slug":"github-actions"},"details_url":f"https://github.com/example/repo/actions/runs/{run_id}/job/99"}
+
+    @patch.object(observer.adapter,"gh")
+    def test_actions_checks_job_projects_to_quality_workflow(self, gh):
+        gh.return_value={"name":"quality"}
+        self.assertEqual(observer.workflow_check_name(self.actions_check("checks",101)),"quality")
+        gh.assert_called_once_with(f"repos/{adapter.REPO}/actions/runs/101")
+
+    @patch.object(observer.adapter,"gh")
+    def test_actions_e2e_job_projects_to_beginner_acceptance_workflow(self, gh):
+        gh.return_value={"name":"beginner-acceptance"}
+        self.assertEqual(observer.workflow_check_name(self.actions_check("e2e",202)),"beginner-acceptance")
+
+    @patch.object(observer.adapter,"gh")
+    def test_external_check_name_is_preserved(self, gh):
+        check={"name":"Vercel Preview Comments","app":{"slug":"vercel"},"details_url":"https://example.test/check"}
+        self.assertEqual(observer.workflow_check_name(check),"Vercel Preview Comments")
+        gh.assert_not_called()
+
+    @patch.object(observer.adapter,"gh",side_effect=RuntimeError("workflow unavailable"))
+    def test_actions_workflow_lookup_failure_falls_back_to_raw_name(self, gh):
+        self.assertEqual(observer.workflow_check_name(self.actions_check("checks",303)),"checks")
+
+    @patch.object(observer.adapter,"write")
+    @patch.object(observer.adapter,"verify_task")
+    @patch.object(observer.adapter,"find_manifest")
+    @patch.object(observer.adapter,"gh")
+    def test_wrong_sha_observation_remains_ignored(self, gh, find_manifest, verify_task, write):
+        m=manifest("implementation","running")
+        find_manifest.return_value=({"id":1},m)
+        gh.side_effect=[{"items":[{"number":74}]},{"head":{"repo":{"full_name":adapter.REPO},"sha":"b"*40,"ref":"feat/74"}}]
+        observer.observe_check_run({"number":91},{"sha":"a"*40,"check_id":"1","check_name":"quality","conclusion":"success","source":"suite"})
+        verify_task.assert_called_once_with(74,m)
+        write.assert_not_called()
 
 
 if __name__ == "__main__": unittest.main()

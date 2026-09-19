@@ -1,9 +1,28 @@
 #!/usr/bin/env python3
 """Race-safe GitHub PR/check observer for orchestration runtime."""
 import os
+import re
 
 import orchestration_github as adapter
 from orchestration import Rejected, reduce
+
+
+def workflow_check_name(check):
+    """Project Actions job check-runs to their parent workflow name."""
+    raw_name = check.get("name", "check-run")
+    if check.get("app", {}).get("slug") != "github-actions":
+        return raw_name
+
+    match = re.search(r"/actions/runs/(\d+)(?:/|$)", check.get("details_url", ""))
+    if not match:
+        return raw_name
+
+    try:
+        run = adapter.gh(f"repos/{adapter.REPO}/actions/runs/{match.group(1)}")
+    except RuntimeError:
+        return raw_name
+    workflow_name = run.get("name") if isinstance(run, dict) else None
+    return workflow_name if isinstance(workflow_name, str) and workflow_name else raw_name
 
 
 def observe_check_run(pr, ci):
@@ -72,7 +91,7 @@ def main():
     ci = {
         "sha": check["head_sha"],
         "check_id": str(check["id"]),
-        "check_name": check.get("name", "check-run"),
+        "check_name": workflow_check_name(check),
         "conclusion": check.get("conclusion", "unknown"),
         "source": check.get("html_url", "check_run"),
     }
