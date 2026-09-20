@@ -179,6 +179,11 @@ For work that materially affects UI, layout, navigation, responsive behavior, Ho
 
 `docs/agent-guides/UI_ACCEPTANCE.md`
 
+When the normal Work interactive browser cannot set the required mobile
+viewport, use the repository's official `playwright-interactive` skill as
+described by that guide. A fixed-width browser is not evidence for the 375px
+or 320px acceptance cases.
+
 `scrollWidth <= clientWidth` is not proof of usability.
 Do not claim physical-device acceptance from viewport emulation.
 

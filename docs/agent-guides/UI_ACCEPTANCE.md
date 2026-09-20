@@ -36,6 +36,83 @@ Also test when relevant:
 Do not claim physical-device acceptance from viewport emulation or CDP page scale.
 If the environment cannot emulate a requested viewport, separate responsive evidence from physical-device acceptance rather than marking everything untested.
 
+### 2.1 Fixed-width Work browser fallback
+
+If the normal Work interactive browser cannot set an exact viewport, do not
+approximate 375px or 320px by narrowing its fixed-width window. Use the
+repository skill at `.agents/skills/playwright-interactive/` in a new Codex
+session and run Playwright against the Preview URL. This preserves the existing
+Work browser pass for desktop acceptance; it only supplies the missing,
+deterministic mobile pass.
+
+The checked-in skill is copied from OpenAI's official curated
+[`playwright-interactive`](https://github.com/openai/skills/tree/main/skills/.curated/playwright-interactive)
+skill at upstream commit `49f948faa9258a0c61caceaf225e179651397431`. Do not
+replace its workflow with task-specific browser helpers. When updating it, copy
+the complete upstream skill directory, including `SKILL.md`, `agents/`, assets,
+license, and notice files, then update the pinned commit in this guide and the
+skill validation test in the same change.
+
+The skill has runtime prerequisites that must be verified, not inferred:
+
+1. `js_repl` is enabled (`[features] js_repl = true` or launch with
+   `--enable js_repl`). Enabling it requires a **new Codex session** before the
+   refreshed tool list is available.
+2. Until OpenAI removes the upstream limitation, start that session with
+   sandboxing disabled (`--sandbox danger-full-access`).
+3. From the GameAI Hub repository root, verify both the package and browser:
+   `node -e "import('playwright').then(() => console.log('playwright import ok'))"`
+   and `npx playwright install --list`. If Chromium is absent, run
+   `npx playwright install chromium` and verify again. An installed executable
+   is not enough: launch and close Chromium once to detect missing host shared
+   libraries. Where system-package installation is permitted,
+   `npx playwright install --with-deps chromium` installs both pieces.
+4. Confirm `js_repl` appears in the new session's tools before claiming the
+   skill is usable. A checked-in skill or an installed browser alone is not a
+   successful runtime integration.
+
+If any prerequisite is unavailable, record the exact missing capability and
+mark mobile Preview Acceptance `BLOCKED BEFORE PLAYWRIGHT CAPTURE`. Do not
+substitute source inspection, E2E results, or the fixed-width Work browser for
+the missing evidence.
+
+### 2.2 Deterministic mobile Preview evidence
+
+Before interaction, write the upstream skill's shared QA inventory for the
+target change. Then create separate Playwright browser contexts with explicit
+viewports `{ width: 375, height: 812 }` and `{ width: 320, height: 700 }`.
+Use `isMobile: true` and `hasTouch: true`; record the chosen heights with the
+evidence. At **each** width:
+
+1. Open the Vercel Preview target directly and confirm `window.innerWidth`,
+   `document.documentElement.clientWidth`, and the requested width all agree.
+2. Capture viewport screenshots as the primary fit evidence for the initial
+   article view and every critical post-interaction state. Full-page images are
+   optional secondary context, not a replacement for viewport captures.
+3. Record `scrollWidth`, `clientWidth`, and
+   `scrollWidth > clientWidth`. Any document-level horizontal overflow fails
+   acceptance. Also inspect screenshots and critical-region bounds because a
+   numeric no-overflow result cannot overrule visible clipping.
+4. Inspect and operate every primary CTA using Playwright pointer/touch input.
+   Verify it is visible, readable, not clipped or overlapped, and that its
+   destination preserves the expected article/source and game context.
+5. Inspect code blocks for readable text, intact copy controls, and intentional
+   internal horizontal scrolling for long code. A code block may scroll
+   internally; it must not widen the document or make its controls unusable.
+6. Execute the target article's critical interaction flow with normal user
+   input. For `/articles/chatgpt-cat-tap-game/`, verify the playable example
+   shows score `0`, then `1`, then `2`, resets to `0`, and the Project CTA keeps
+   the cat / tap-click / +1 score intent plus source attribution.
+7. Review the screenshots visually, separately from the functional assertions,
+   and record findings as P0/P1/P2/P3. Fix all P0, P1, and high-impact P2 before
+   a passing verdict.
+
+Store durable artifacts under `docs/screenshots/` when the task requires an
+auditable evidence package. Record the Preview URL, commit SHA, browser/version,
+viewport, screenshot paths, numeric results, interaction result, reviewer, and
+timestamp. Evidence from localhost may support implementation but does not
+prove the deployed Preview.
+
 ## 3. Immediate blocking failures
 
 Treat these as P0/P1 when materially user-facing:
@@ -166,3 +243,9 @@ If actual iPhone/Android behavior, touch, soft keyboard, long-press paste, file 
 
 Do not convert a physical-device limitation into a responsive FAIL when responsive evidence is otherwise available.
 Do not claim physical-device PASS from emulation.
+
+Playwright mobile contexts prove responsive-browser behavior only. Keep actual
+iPhone/Android testing and OS-specific Safari/Chrome behavior as separate
+acceptance lines, marked `UNTESTED` unless tested on those physical devices.
+Touch emulation, a mobile user agent, device scale factor, and viewport sizing
+must never be described as real-device coverage.
