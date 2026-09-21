@@ -2,6 +2,22 @@ import { expect, test } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 
 for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'mobile-320',width:320,height:640},{name:'desktop',width:1280,height:900}]){
+ test(`Meshy game-development guide completes an imported asset — ${viewport.name}`,async({page})=>{
+  await mkdir('docs/screenshots/issue-126-meshy-guide',{recursive:true});
+  await page.setViewportSize({width:viewport.width,height:viewport.height});
+  await page.goto('/articles/meshy-game-development-guide/');
+  await expect(page.getByRole('heading',{level:1,name:/Meshy AIの使い方/})).toBeVisible();
+  await expect(page.getByText('この記事にはプロモーションを含みます。')).toBeVisible();
+  const affiliate=page.locator('a[rel="sponsored nofollow noopener"]');
+  await expect(affiliate).toHaveCount(2);
+  await expect(page.getByRole('heading',{name:'6. ゲームで「使える」か判定する'})).toBeVisible();
+  await expect(page.getByRole('link',{name:'取り込んだ3Dアセットの次のtaskを決める'}).first()).toHaveAttribute('href',/\/project\/?\?source=meshy-game-development-guide/);
+  expect(await page.locator('body').evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
+  await page.screenshot({path:`docs/screenshots/issue-126-meshy-guide/article-${viewport.name}.png`,fullPage:true});
+ });
+}
+
+for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'mobile-320',width:320,height:640},{name:'desktop',width:1280,height:900}]){
  test(`ElevenLabs commercial-use guide renders its decision path — ${viewport.name}`,async({page})=>{
   await mkdir('docs/screenshots/elevenlabs-commercial-use-game',{recursive:true});
   await page.setViewportSize({width:viewport.width,height:viewport.height});
