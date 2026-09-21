@@ -22,6 +22,25 @@ def _production_readiness(number, manifest_comment, manifest, merge_sha):
     if manifest.get("binding", {}).get("merge_sha") != merge_sha:
         raise Rejected("Production merge SHA does not match the authoritative binding")
 
+    registry = adapter.authoritative_profile_registry()
+    profile = manifest.get("profile", {})
+    if profile.get("id") not in registry.get("profiles", {}):
+        raise Rejected("required profile is absent from the authoritative registry")
+    claim = manifest.get("acceptance_claim") or {}
+    if claim and claim.get("profile_registry_revision") == registry["revision"]:
+        if (
+            profile.get("registry_revision") != registry["revision"]
+            or
+            claim.get("generation") != manifest.get("generation")
+            or claim.get("expected_manifest_revision") != manifest.get("revision")
+            or claim.get("environment") != "production"
+            or claim.get("sha") != merge_sha
+            or claim.get("required_profile") != profile.get("id")
+        ):
+            raise Rejected("current Production claim is malformed")
+        _ensure_production_work_dispatch(manifest)
+        return manifest
+
     combined = adapter.gh(f"repos/{adapter.REPO}/commits/{merge_sha}/status")
     vercel = [
         status for status in combined.get("statuses", [])
@@ -56,7 +75,23 @@ def _production_readiness(number, manifest_comment, manifest, merge_sha):
             raise Rejected("canonical Production origin is not reachable")
 
     status_id = str(status.get("id") or "vercel-status")
-    readiness_event = adapter.envelope(
+    if claim and claim.get("profile_registry_revision") != registry["revision"]:
+        refresh_event = adapter.envelope(
+            manifest,
+            {
+                "profile_registry_revision": registry["revision"],
+                "transition_id": f"profile-registry-refresh:{manifest['generation']}:{registry['revision']}",
+                "trigger": {"actor": "github-actions[bot]", "source": "default-branch-profile-registry"},
+            },
+            "refresh_profile_registry",
+        )
+        refreshed, refresh_status = reduce(manifest, refresh_event, "deployment")
+        if refresh_status != "applied":
+            raise Rejected("profile registry refresh was not applied")
+        adapter.write(number, manifest_comment, refreshed, manifest["revision"])
+        manifest_comment, manifest = adapter.find_manifest(number)
+
+    readiness_event = adapter.readiness_envelope(
         manifest,
         {
             "environment": "production",
@@ -75,7 +110,6 @@ def _production_readiness(number, manifest_comment, manifest, merge_sha):
             "transition_id": f"production-readiness:{manifest['generation']}:{status_id}:{merge_sha}",
             "trigger": {"actor": "github-actions[bot]", "source": "github-vercel-status-reconcile"},
         },
-        "readiness",
     )
     ready, readiness_status = reduce(manifest, readiness_event, "deployment")
     if readiness_status != "applied":

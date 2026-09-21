@@ -55,7 +55,7 @@ def main():
         preview_url, comment_url = matching_preview(pr_number, deployment_id)
         target_url = status["target_url"]
         status_id = str(status.get("id") or "status")
-        payload = adapter.envelope(
+        payload = adapter.readiness_envelope(
             manifest,
             {
                 "environment": "preview",
@@ -74,7 +74,6 @@ def main():
                 "transition_id": f"vercel-reconcile:{status_id}:{sha}",
                 "trigger": {"actor": "github-actions[bot]", "source": "github-current-status-reconcile"},
             },
-            "readiness",
         )
         out, _ = reduce(manifest, payload, "deployment")
         adapter.write(item["number"], comment, out, manifest["revision"])

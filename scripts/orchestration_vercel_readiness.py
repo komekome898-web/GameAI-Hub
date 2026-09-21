@@ -82,7 +82,7 @@ def main():
                 return
             preview_url, comment_url = matching_preview(pr["number"], deployment_id)
             status_id = str(event.get("id") or os.environ.get("GITHUB_RUN_ID", "status"))
-            payload = adapter.envelope(
+            payload = adapter.readiness_envelope(
                 manifest,
                 {
                     "environment": "preview",
@@ -101,7 +101,6 @@ def main():
                     "transition_id": f"vercel-status:{status_id}:{sha}",
                     "trigger": {"actor": "vercel[bot]", "source": "github-status-event"},
                 },
-                "readiness",
             )
             out, _ = reduce(manifest, payload, "deployment")
             adapter.write(item["number"], comment, out, manifest["revision"])

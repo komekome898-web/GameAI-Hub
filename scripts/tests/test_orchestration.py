@@ -1,9 +1,10 @@
-import copy, json, pathlib, sys, unittest
+import base64, copy, json, pathlib, sys, unittest
 from unittest.mock import patch
 sys.path.insert(0, str(pathlib.Path(__file__).parents[1]))
 from orchestration import *
 import orchestration_github as adapter
 import orchestration_observe as observer
+import orchestration_post_merge_reconcile as production_reconcile
 
 
 def manifest(stage="preview_acceptance", status="running"):
@@ -11,6 +12,8 @@ def manifest(stage="preview_acceptance", status="running"):
 
 
 def base(m, operation, **extra):
+    if operation == "readiness":
+        extra.setdefault("profile_registry_revision", m["profile"]["registry_revision"])
     return {"operation":operation,"run_id":m["run_id"],"canonical_task_version":m["canonical_task_version"],"expected_manifest_revision":m["revision"],"generation":m["generation"],"from_stage":m["stage"],"from_status":m["status"],"transition_id":extra.pop("transition_id","t1"),"repository":m["repository"],"issue":m["issue"],**extra}
 
 
@@ -27,6 +30,31 @@ def browser_retry(m, signal_id="no-browser-1"):
 
 
 class ReducerTests(unittest.TestCase):
+    @patch.object(adapter, "gh")
+    def test_readiness_envelope_reads_registry_from_default_branch(self, gh):
+        registry={"schema":"gameai-work-profiles/v1","revision":2,"profiles":{"work-standard":{}}}
+        gh.side_effect=[
+            {"default_branch":"main"},
+            {"type":"file","encoding":"base64","content":base64.b64encode(json.dumps(registry).encode()).decode()},
+        ]
+        m=manifest("preview_acceptance","pending")
+        event=adapter.readiness_envelope(m,{"transition_id":"ready-2"})
+        self.assertEqual(event["profile_registry_revision"],2)
+        self.assertIn("ref=main",gh.call_args_list[1].args[0])
+
+    @patch.object(production_reconcile, "_ensure_production_work_dispatch")
+    @patch.object(adapter, "authoritative_profile_registry")
+    def test_duplicate_production_reconciliation_only_reprojects_dispatch(self, registry, dispatch):
+        registry.return_value={"schema":"gameai-work-profiles/v1","revision":2,"profiles":{"work-critical":{}}}
+        m=manifest("production_acceptance","pending");m["profile"]["registry_revision"]=2
+        m["acceptance_claim"].update(
+            generation=2,expected_manifest_revision=1,environment="production",sha="c"*40,
+            required_profile="work-critical",profile_registry_revision=2,
+        )
+        out=production_reconcile._production_readiness(74,{"id":9},m,"c"*40)
+        self.assertIs(out,m)
+        dispatch.assert_called_once_with(m)
+
     def test_no_browser_signal_creates_fresh_fenced_production_attempt(self):
         m=manifest("production_acceptance","running");m["acceptance_claim"].update(deployment_id="deploy-1",deployment_url="https://game.example/",sha="c"*40,pr=91)
         signal=browser_retry(m)
@@ -140,8 +168,52 @@ class ReducerTests(unittest.TestCase):
         self.assertEqual(out["acceptance_claim"]["claim_id"],"production-3-c")
         self.assertEqual(out["acceptance_result_ids"],["production-2-result"])
 
-    def test_readiness_requires_verified_identity_origin_and_environment(self):
+    def test_resume_preserves_old_claim_and_readiness_pins_new_registry_revision(self):
+        m=manifest("production_acceptance","blocked")
+        m["acceptance_claim"].update(profile_registry_revision=1,generation=2)
+        old_claim=copy.deepcopy(m["acceptance_claim"])
+        resumed,_=reduce(m,base(m,"resume",pr=91,head_sha="a"*40,merge_sha="c"*40),"human")
+        self.assertEqual(resumed["acceptance_claim_history"],[old_claim])
+        ready=base(resumed,"readiness",transition_id="ready-registry-2",profile_registry_revision=2,environment="production",sha="c"*40,deployed_sha="c"*40,deployment_state="READY",deployment_url="https://game.example/",provider="vercel",deployment_id="d2",evidence_source="status",claim_id="production-3-c",attempt_id="production-3-3",targets=["/"],verified=True)
+        out,_=reduce(resumed,ready,"deployment")
+        self.assertEqual(out["profile"]["registry_revision"],2)
+        self.assertEqual(out["acceptance_claim"]["profile_registry_revision"],2)
+        self.assertEqual(out["acceptance_claim_history"],[old_claim])
+        dispatch=adapter.parse(adapter.render_work_dispatch(out),adapter.WORK_DISPATCH)
+        self.assertEqual(dispatch["profile_registry_revision"],2)
+
+    def test_stale_current_claim_is_fenced_not_rewritten(self):
         m=manifest("production_acceptance","pending")
+        m["acceptance_claim"].update(profile_registry_revision=1,generation=2,sha="c"*40,pr=91)
+        old_claim=copy.deepcopy(m["acceptance_claim"])
+        event=base(m,"refresh_profile_registry",profile_registry_revision=2,transition_id="profile-registry-refresh:2:2")
+        out,status=reduce(m,event,"deployment")
+        self.assertEqual(status,"applied")
+        self.assertEqual((out["generation"],out["acceptance_claim"]),(3,None))
+        self.assertEqual(out["acceptance_claim_history"],[old_claim])
+        self.assertEqual(m["acceptance_claim"],old_claim)
+        replay={**event,"expected_manifest_revision":out["revision"]}
+        self.assertEqual(reduce(out,replay,"deployment"),(out,"duplicate"))
+        ready=base(out,"readiness",transition_id="production-readiness:3:d2",profile_registry_revision=2,environment="production",sha="c"*40,deployed_sha="c"*40,deployment_state="READY",deployment_url="https://game.example/",provider="vercel",deployment_id="d2",evidence_source="status",claim_id="production-3-c",attempt_id="production-3-3",targets=["/"],verified=True)
+        fresh,_=reduce(out,ready,"deployment")
+        dispatch=adapter.parse(adapter.render_work_dispatch(fresh),adapter.WORK_DISPATCH)
+        self.assertEqual((fresh["generation"],dispatch["profile_registry_revision"]),(3,2))
+        self.assertEqual(fresh["acceptance_claim_history"],[old_claim])
+
+    def test_readiness_cannot_silently_rewrite_issued_stale_claim(self):
+        m=manifest("production_acceptance","pending")
+        ready=base(m,"readiness",profile_registry_revision=2,environment="production",sha="c"*40,deployed_sha="c"*40,deployment_state="READY",deployment_url="https://game.example/",provider="vercel",deployment_id="d2",evidence_source="status",claim_id="claim-new",attempt_id="pa-new",targets=["/"],verified=True)
+        with self.assertRaisesRegex(Rejected,"must be fenced"):
+            reduce(m,ready,"deployment")
+
+    def test_readiness_rejects_registry_revision_rollback(self):
+        m=manifest("production_acceptance","pending");m["profile"]["registry_revision"]=2;m["acceptance_claim"]=None
+        ready=base(m,"readiness",profile_registry_revision=1,environment="production",sha="c"*40,deployed_sha="c"*40,deployment_state="READY",deployment_url="https://game.example/",provider="vercel",deployment_id="d2",evidence_source="status",claim_id="claim-new",attempt_id="pa-new",targets=["/"],verified=True)
+        with self.assertRaisesRegex(Rejected,"registry revision"):
+            reduce(m,ready,"deployment")
+
+    def test_readiness_requires_verified_identity_origin_and_environment(self):
+        m=manifest("production_acceptance","pending");m["acceptance_claim"]=None
         common=base(m,"readiness",environment="production",sha="c"*40,deployed_sha="c"*40,deployment_state="READY",deployment_url="https://game.example/x",provider="vercel",deployment_id="d1",evidence_source="api",claim_id="claim-2",attempt_id="p-1",targets=[],verified=True)
         for key,value,text in [("verified",False,"identity"),("environment","prod","environment"),("deployment_url","https://evil.example/","origin")]:
             e={**common,key:value}
@@ -198,6 +270,7 @@ class ReducerTests(unittest.TestCase):
         })
         body=adapter.render_work_dispatch(m);contract=adapter.parse(body,adapter.WORK_DISPATCH)
         self.assertEqual(contract["dispatch_id"],"work:claim-1")
+        self.assertEqual(contract["profile_registry_revision"],1)
         self.assertEqual(contract["expected_manifest_revision"],1)
         self.assertEqual(contract["deployment_url"],"https://preview.example/exact")
         self.assertIn("same-claim candidate already exists",body)
