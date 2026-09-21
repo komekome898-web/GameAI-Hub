@@ -54,6 +54,42 @@ export const articleCategoryLabels: Record<ArticleCategory, string> = {
 
 export const articles = [
   {
+    slug: "chatgpt-cat-tap-game",
+    title: "ChatGPTで猫タップゲームを作る｜初心者向けHTML入門",
+    description:
+      "初心者が1つのHTMLで、猫をタップ／クリックするとスコアが1ずつ増え、リセットできるブラウザゲームを作って確かめる実践手順。",
+    category: "beginner",
+    tags: ["ChatGPT", "ブラウザゲーム", "HTML", "初心者", "タップゲーム"],
+    publicationStatus: "published",
+    publishedAt: "2026-09-20",
+    updatedAt: "2026-09-20",
+    author: "AI Iterproof編集部",
+    editorialNote:
+      "掲載コードをブラウザで操作して確認できる形にし、特定プラン、料金、商用利用条件を前提にしない手順として構成しています。AIの出力は毎回確認し、動いた版を残してから変更してください。",
+    sources: [],
+    related: [
+      {
+        href: "/articles/ai-browser-game-how-to/",
+        label: "AIでブラウザゲームを作る方法",
+        reason: "1つのHTMLを作る流れと、保存・復旧の基本を詳しく確認する",
+        kind: "article",
+      },
+      {
+        href: "/articles/small-first-success/",
+        label: "最初の成功を小さく作る",
+        reason: "次の機能を増やす前に、遊べる最小単位の考え方を確認する",
+        kind: "article",
+      },
+    ],
+    projectCta: {
+      label: "猫タップゲームの次の制作手順を作る",
+      description:
+        "猫をタップ／クリックするとスコアが1ずつ増えるブラウザゲームとして、今の成功を残したまま次のtaskへ進みます。",
+      placement: "article_end",
+    },
+    promotions: [],
+  },
+  {
     slug: "elevenlabs-commercial-use-game",
     title:
       "ElevenLabsの商用利用ガイド｜ゲーム音声で確認すべき権利とプラン",

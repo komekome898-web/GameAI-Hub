@@ -79,6 +79,47 @@ test('browser-game article supports play, one change, and recovery',async({page}
  await expect(editor).toHaveValue(/const enemyName = "スライム"/);
 });
 
+test('cat-tap article is discoverable, playable, and preserves its Project source',async({page})=>{
+ await page.goto('/articles/');
+ const articleLink=page.getByRole('link',{name:/ChatGPTで猫タップゲームを作る/});
+ await expect(articleLink).toHaveAttribute('href','/articles/chatgpt-cat-tap-game/');
+ await articleLink.click();
+ await expect(page).toHaveURL(/\/articles\/chatgpt-cat-tap-game\/$/);
+ await expect(page.getByRole('heading',{level:1,name:'ChatGPTで猫タップゲームを作る'})).toBeVisible();
+ await expect(page.getByRole('button',{name:'猫タップゲームのpromptをコピー'})).toBeVisible();
+ await expect(page.getByText('押した操作、期待した結果、実際の結果、表示されたエラー',{exact:true})).toBeVisible();
+ await expect(page.getByRole('link',{name:'AIでブラウザゲームを作る方法'}).first()).toHaveAttribute('href','/articles/ai-browser-game-how-to/');
+
+ await page.getByRole('button',{name:'ゲームを表示'}).click();
+ const game=page.frameLocator('iframe[title="作ったゲームの動作確認"]');
+ await expect(game.getByText('スコア: 0')).toBeVisible();
+ const cat=game.getByRole('button',{name:'猫をタップしてスコアを増やす'});
+ await cat.click();
+ await expect(game.getByText('スコア: 1')).toBeVisible();
+ await cat.click();
+ await expect(game.getByText('スコア: 2')).toBeVisible();
+ await game.getByRole('button',{name:'リセット'}).click();
+ await expect(game.getByText('スコア: 0')).toBeVisible();
+
+ const handoff=page.getByRole('link',{name:'同じ猫タップゲームの次の制作手順を作る'});
+ await expect(handoff).toHaveAttribute('href',/\/project\/?\?source=chatgpt-cat-tap-game/);
+ await handoff.click();
+ await expect(page).toHaveURL(/\/project\/?\?source=chatgpt-cat-tap-game$/);
+});
+
+for(const viewport of [{name:'mobile-375',width:375,height:812,zoom:false},{name:'mobile-320',width:320,height:640,zoom:false},{name:'zoom-320',width:320,height:640,zoom:true},{name:'desktop',width:1280,height:900,zoom:false}]){
+ test(`cat-tap article remains readable — ${viewport.name}`,async({page})=>{
+  await mkdir('docs/screenshots/issue-58-cat-tap',{recursive:true});
+  await page.setViewportSize({width:viewport.width,height:viewport.height});
+  await page.goto('/articles/chatgpt-cat-tap-game/');
+  if(viewport.zoom)await page.evaluate(()=>{document.documentElement.style.zoom='2'});
+  await expect(page.getByRole('heading',{level:1,name:'ChatGPTで猫タップゲームを作る'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'次は同じ猫タップゲームをProjectへ渡す'})).toBeVisible();
+  expect(await page.locator('body').evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
+  await page.screenshot({path:`docs/screenshots/issue-58-cat-tap/article-${viewport.name}.png`,fullPage:!viewport.zoom});
+ });
+}
+
 for(const viewport of [{name:'mobile-375',width:375,height:812,zoom:false},{name:'mobile-360',width:360,height:800,zoom:false},{name:'mobile-320',width:320,height:640,zoom:false},{name:'zoom-320',width:320,height:640,zoom:true},{name:'desktop',width:1280,height:900,zoom:false}]){
  test(`GitHub beginner guide explains return and repository choices — ${viewport.name}`,async({page})=>{
   await mkdir('docs/screenshots/issue-49',{recursive:true});
