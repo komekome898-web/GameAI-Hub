@@ -129,6 +129,7 @@ def reduce(manifest, event, capability="generic"):
             require(environment in {"preview", "production"}, "invalid environment")
             expected_stage = "preview_acceptance" if environment == "preview" else "production_acceptance"
             require((out["stage"], out["status"]) == (expected_stage, "pending"), "wrong readiness stage")
+            require(out.get("acceptance_claim") is None, "issued acceptance claim must be fenced before readiness")
             expected_sha = out["binding"]["head_sha" if environment == "preview" else "merge_sha"]
             require(event.get("sha") == expected_sha, "readiness SHA mismatch")
             require(event.get("deployment_state") in {"READY", "WAIT", "FAILED"}, "invalid deployment state")
@@ -138,12 +139,19 @@ def reduce(manifest, event, capability="generic"):
                 return
             require(event.get("provider") and event.get("deployment_id") and event.get("evidence_source"), "deployment identity required")
             require(event.get("deployed_sha") == expected_sha, "deployed SHA mismatch")
+            registry_revision = event.get("profile_registry_revision")
+            require(
+                type(registry_revision) is int
+                and registry_revision >= out["profile"]["registry_revision"],
+                "invalid profile registry revision",
+            )
             allowed = out.get("deployment_origins", {}).get(environment, [])
             origin_allowed = any(event.get("deployment_url", "").startswith(origin) for origin in allowed)
             require(origin_allowed or event.get("origin_verified") is True, "deployment origin not allowed")
             if out.get("work_execution"):
                 out.setdefault("work_execution_history", []).append(out.pop("work_execution"))
             out["status"] = "pending"; out["readiness"] = "READY"
+            out["profile"]["registry_revision"] = registry_revision
             out["acceptance_claim"] = {
                 "claim_id": event["claim_id"],
                 "attempt_id": event["attempt_id"],
@@ -159,13 +167,31 @@ def reduce(manifest, event, capability="generic"):
                 "environment": environment,
                 "targets": event.get("targets", []),
                 "required_profile": out["profile"]["id"],
-                "profile_registry_revision": out["profile"]["registry_revision"],
+                "profile_registry_revision": registry_revision,
                 "deployment_url": event["deployment_url"],
                 "provider": event["provider"],
                 "deployment_id": event["deployment_id"],
                 "deployed_sha": event["deployed_sha"],
                 "evidence_source": event["evidence_source"],
             }
+        elif operation == "refresh_profile_registry":
+            require(capability == "deployment", "deployment observer capability required")
+            require((out["stage"], out["status"]) == ("production_acceptance", "pending"), "profile refresh target mismatch")
+            claim = out.get("acceptance_claim")
+            require(isinstance(claim, dict) and claim.get("claim_id"), "issued acceptance claim required")
+            registry_revision = event.get("profile_registry_revision")
+            require(
+                type(registry_revision) is int
+                and registry_revision > out["profile"]["registry_revision"],
+                "newer profile registry revision required",
+            )
+            out.setdefault("acceptance_claim_history", []).append(clone(claim))
+            if out.get("work_execution"):
+                out.setdefault("work_execution_history", []).append(out.pop("work_execution"))
+            out["generation"] += 1
+            out["acceptance_claim"] = None
+            out["profile"]["registry_revision"] = registry_revision
+            out["readiness"] = "RETRYABLE WAIT"
         elif operation == "acceptance":
             require(capability == "acceptance", "acceptance capability required")
             result = event["result"]; _validate_acceptance(out, result)
@@ -214,6 +240,10 @@ def reduce(manifest, event, capability="generic"):
                 and SHA.fullmatch(event.get("merge_sha", "")),
                 "resume release binding mismatch",
             )
+            if out.get("acceptance_claim"):
+                out.setdefault("acceptance_claim_history", []).append(clone(out["acceptance_claim"]))
+            if out.get("work_execution"):
+                out.setdefault("work_execution_history", []).append(out.pop("work_execution"))
             out["generation"] += 1
             out["counters"]["infrastructure_retry"] += 1
             out["status"] = "pending"

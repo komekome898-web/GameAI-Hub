@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """GitHub adapter for the reducer. Comments are optimistic cooperative storage, not CAS."""
-import datetime as dt, hashlib, json, os, subprocess, sys, urllib.request, uuid
+import base64, datetime as dt, hashlib, json, os, subprocess, sys, urllib.parse, urllib.request, uuid
 from orchestration import Rejected, acceptance_event, create_hotfix, projection, reduce, summary
 
 REPO = os.getenv("GITHUB_REPOSITORY", "komekome898-web/GameAI-Hub")
@@ -225,6 +225,40 @@ def labels():
         gh(endpoint, "--method", "PATCH" if name in existing else "POST", "--input", "-", input={"color": color} if name in existing else {"name": name, "color": color})
 
 
+def authoritative_profile_registry():
+    """Read the profile registry pinned by the repository's current default branch."""
+    repository = gh(f"repos/{REPO}")
+    default_branch = repository.get("default_branch")
+    if not default_branch:
+        raise Rejected("repository default branch is unavailable")
+    path = urllib.parse.quote(".github/orchestration/profiles.json", safe="/")
+    content = gh(f"repos/{REPO}/contents/{path}?ref={urllib.parse.quote(default_branch, safe='')}")
+    if content.get("type") != "file" or content.get("encoding") != "base64":
+        raise Rejected("authoritative profile registry is unavailable")
+    try:
+        encoded = "".join(content["content"].split())
+        registry = strict_json(base64.b64decode(encoded, validate=True).decode())
+    except (KeyError, ValueError, UnicodeDecodeError) as exc:
+        raise Rejected("authoritative profile registry is malformed") from exc
+    revision = registry.get("revision")
+    if registry.get("schema") != "gameai-work-profiles/v1" or type(revision) is not int or revision < 1:
+        raise Rejected("authoritative profile registry is malformed")
+    return registry
+
+
+def readiness_envelope(manifest, payload):
+    """Fence readiness to the current default-branch profile registry."""
+    registry = authoritative_profile_registry()
+    profile_id = manifest.get("profile", {}).get("id")
+    if profile_id not in registry.get("profiles", {}):
+        raise Rejected("required profile is absent from the authoritative registry")
+    return envelope(
+        manifest,
+        {**payload, "profile_registry_revision": registry["revision"]},
+        "readiness",
+    )
+
+
 def init():
     number = int(os.environ["ORCH_ISSUE"]); version = int(os.environ["ORCH_TASK_VERSION"]); source = issue(number)
     try:
@@ -269,7 +303,7 @@ def ingest():
         elif kind == "orchestration-readiness":
             if sender not in trusted.get("deployment_observers", []): raise Rejected("unauthorized deployment observer")
             payload = observed_deployment(payload)
-            out, mutation_status = reduce(manifest, envelope(manifest, payload, "readiness"), "deployment")
+            out, mutation_status = reduce(manifest, readiness_envelope(manifest, payload), "deployment")
         elif kind in {"orchestration-codex-dispatch", "orchestration-codex-ack", "orchestration-codex-result"}:
             if sender not in trusted.get("codex_bridge_actors", []): raise Rejected("unauthorized Codex bridge actor")
             operation = "codex_dispatch" if kind.endswith("dispatch") else "codex_ack" if kind.endswith("ack") else "codex_result"

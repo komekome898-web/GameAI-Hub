@@ -38,7 +38,7 @@ def _production_readiness():
         if response.status < 200 or response.status >= 400:
             raise Rejected("canonical Production origin is not reachable")
 
-    event = adapter.envelope(
+    event = adapter.readiness_envelope(
         manifest,
         {
             "environment": "production",
@@ -56,7 +56,6 @@ def _production_readiness():
             "targets": ["/"],
             "transition_id": f"production-readiness:{manifest['generation']}:{status.get('id')}:{merge_sha}",
         },
-        "readiness",
     )
     out, result = reduce(manifest, event, "deployment")
     if result != "applied":
