@@ -54,6 +54,40 @@ export const articleCategoryLabels: Record<ArticleCategory, string> = {
 
 export const articles = [
   {
+    slug: "meshy-game-development-guide",
+    title: "Meshy AIの使い方｜ゲーム用3Dモデルを作ってUnity・Blenderへ持っていく手順",
+    description: "Meshyで最初のゲーム用3Dアセットを作り、FBXまたはGLBでBlender・Unityへ読み込み、実際の制作環境で採用可否を確認する手順。",
+    category: "tool",
+    tags: ["Meshy", "3Dモデル", "ゲーム開発", "Unity", "Blender"],
+    publishedAt: "2026-09-21",
+    updatedAt: "2026-09-21",
+    publicationStatus: "published",
+    lastVerifiedAt: "2026-09-21",
+    author: "AI Iterproof編集部",
+    editorialNote: "Meshy公式の生成、書き出し、Blender・Unity連携、料金、ライセンス資料を2026-09-21に確認しました。料金、credits、利用可能な機能や権利条件は変更されるため、制作・公開時点の公式表示を確認してください。",
+    sources: [
+      { label: "Meshy Docs: Text to 3D", url: "https://docs.meshy.ai/en/webapp/text-to-3d", kind: "primary", verifiedAt: "2026-09-21" },
+      { label: "Meshy Docs: Image to 3D", url: "https://docs.meshy.ai/en/webapp/image-to-3d", kind: "primary", verifiedAt: "2026-09-21" },
+      { label: "Meshy Docs: Export Formats", url: "https://docs.meshy.ai/en/webapp/guides/platform/export-formats", kind: "primary", verifiedAt: "2026-09-21" },
+      { label: "Meshy Docs: Blender Plugin", url: "https://docs.meshy.ai/en/webapp/plugins/blender/introduction", kind: "primary", verifiedAt: "2026-09-21" },
+      { label: "Meshy Docs: Unity Plugin", url: "https://docs.meshy.ai/en/webapp/plugins/unity/introduction", kind: "primary", verifiedAt: "2026-09-21" },
+      { label: "Meshy Pricing", url: "https://www.meshy.ai/pricing", kind: "primary", verifiedAt: "2026-09-21" },
+      { label: "Meshy Help: Commercial use", url: "https://help.meshy.ai/en/articles/9992001-can-i-use-meshy-assets-commercially-license-copyright-explained", kind: "primary", verifiedAt: "2026-09-21" },
+      { label: "Meshy Terms of Use", url: "https://www.meshy.ai/terms-of-use", kind: "primary", verifiedAt: "2026-09-21" },
+    ],
+    related: [
+      { href: "/tools/meshy/", label: "Meshyの検証済みツール情報", reason: "現在の機能、条件、一次資料を確認する", kind: "tool" },
+      { href: "/articles/ai-usage-guide/", label: "ゲーム開発に使えるAIの正しい使い方", reason: "3Dアセット作成をゲーム全体の工程へ置く", kind: "article" },
+      { href: "/compare/", label: "3D制作ツールを比較する", reason: "Meshyが要件に合わない場合だけ候補を比較する", kind: "compare" },
+    ],
+    projectCta: {
+      label: "取り込んだ3Dアセットの次のtaskを決める",
+      description: "同じゲーム案を保ったまま、当たり判定、操作との連携、スタイル確認のうち次に検証する1つを決めます。",
+      placement: "article_end",
+    },
+    promotions: [{ serviceSlug: "meshy", placement: "production_tools", context: "最初のアセットと採用条件を決めてから、公式の生成・書き出し条件を確認するため。" }],
+  },
+  {
     slug: "elevenlabs-commercial-use-game",
     title:
       "ElevenLabsの商用利用ガイド｜ゲーム音声で確認すべき権利とプラン",
