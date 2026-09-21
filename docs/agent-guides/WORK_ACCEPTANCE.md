@@ -2,7 +2,7 @@
 
 ## Required profiles
 
-`.github/orchestration/profiles.json` revision 1 is authoritative. Preview, ordinary research and evidence require `work-standard` = GPT-5.6 Sol / Medium. Production final acceptance, P0/P1 independent verification, security/privacy/integrity and orchestration E2E require `work-critical` = GPT-6 Astra / Low. A run pins ID and revision. Never silently fall back; unavailable configuration blocks.
+`.github/orchestration/profiles.json` revision 2 is authoritative. Preview, ordinary research and evidence require `work-standard` = GPT-5.6 Sol / Medium. Production final acceptance, P0/P1 independent verification, security/privacy/integrity and orchestration E2E require `work-critical` = GPT-5.6 Sol / Medium. A run pins ID and revision. Never silently fall back; unavailable configuration blocks.
 
 Record separately: required profile; registry revision; account configuration status (`REQUIRED`, `UNCONFIGURED`, `CONFIGURED_UNVERIFIED`, `VERIFIED`, `BLOCKED`); last observation; evidence URL. Declared model names do not attest the actual runtime.
 
