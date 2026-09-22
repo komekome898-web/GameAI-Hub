@@ -33,3 +33,40 @@ describe("Meshy game-development guide", () => {
     expect(html).toContain("取り込んだ3Dアセットの次のtaskを決める");
   });
 });
+
+import MeshyCommercialUseGame from "@/app/articles/meshy-commercial-use-game/page";
+
+describe("Meshy commercial-use guide", () => {
+  it("publishes a primary-sourced Free/Paid decision path", () => {
+    const article = getArticle("meshy-commercial-use-game")!;
+    const html = renderToStaticMarkup(<MeshyCommercialUseGame />);
+    expect(article.publicationStatus).toBe("published");
+    expect(article.sources).toHaveLength(9);
+    expect(article.sources.every(source => source.kind === "primary")).toBe(true);
+    expect(article.promotions).toEqual([expect.objectContaining({ serviceSlug: "meshy", placement: "production_tools" })]);
+    for (const text of ["Freeプランで生成", "Paidプランで非公開生成", "CC BY 4.0", "生成時のプラン", "downgrade", "アップロード画像・参照画像", "Marketplace・素材再販売"]) expect(html).toContain(text);
+  });
+
+  it("exposes the marketplace-source conflict rather than flattening it", () => {
+    const html = renderToStaticMarkup(<MeshyCommercialUseGame />);
+    expect(html).toContain("公式情報に現在残る不一致");
+    expect(html).toContain("personal / non-commercial use");
+    expect(html).toContain("raw assetを出品する前");
+  });
+
+  it("uses exactly one late registry-driven, disclosed affiliate CTA", () => {
+    const html = renderToStaticMarkup(<MeshyCommercialUseGame />);
+    const url = getService("meshy")!.affiliateUrl!;
+    expect((html.match(new RegExp(`href="${url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`, "g")) ?? [])).toHaveLength(1);
+    expect((html.match(/rel="sponsored nofollow noopener"/g) ?? [])).toHaveLength(1);
+    expect(html).toContain("meshy_commercial_terms_check");
+    expect(html).toContain("この記事にはプロモーションを含みます。");
+    expect(html.indexOf("公開前チェックリスト")).toBeLessThan(html.indexOf("meshy_commercial_terms_check"));
+  });
+
+  it("links to the practical guide and registered tool route", () => {
+    const html = renderToStaticMarkup(<MeshyCommercialUseGame />);
+    expect(html).toContain('href="/articles/meshy-game-development-guide/"');
+    expect(html).toContain('href="/tools/meshy/"');
+  });
+});
