@@ -137,3 +137,20 @@ for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'mobile-32
   await page.screenshot({path:`docs/screenshots/issue-128-meshy-commercial-use/article-${viewport.name}.png`,fullPage:true});
  });
 }
+
+test.describe('Meshy pricing credit guide responsive acceptance',()=>{
+  for(const viewport of [{name:'desktop',width:1280,height:900},{name:'375',width:375,height:812},{name:'320',width:320,height:720}]) test(`${viewport.name}px has one safe affiliate CTA and no overflow`,async({page})=>{
+    await mkdir('docs/screenshots/issue-130-meshy-pricing',{recursive:true});
+    await page.setViewportSize(viewport);
+    await page.goto('/articles/meshy-pricing-credits-game/');
+    await expect(page.getByRole('heading',{level:1,name:/Meshy AIの料金は/})).toBeVisible();
+    const affiliate=page.getByRole('link',{name:'現行料金・クレジット・プラン条件をMeshy公式で確認する'});
+    await expect(affiliate).toHaveCount(1);
+    await expect(affiliate).toHaveAttribute('href','https://www.meshy.ai?via=gameaihub');
+    await expect(affiliate).toHaveAttribute('rel','sponsored nofollow noopener');
+    await expect(page.getByRole('link',{name:'料金を決める前後に権利条件を確認'})).toHaveAttribute('href','/articles/meshy-commercial-use-game/');
+    await expect(page.getByRole('link',{name:'実際にゲーム用アセットを1点作って取り込む'})).toHaveAttribute('href','/articles/meshy-game-development-guide/');
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth)).toBe(true);
+    await page.screenshot({path:`docs/screenshots/issue-130-meshy-pricing/article-${viewport.name}.png`,fullPage:true});
+  });
+});

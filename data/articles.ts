@@ -54,6 +54,38 @@ export const articleCategoryLabels: Record<ArticleCategory, string> = {
 
 export const articles = [
   {
+    slug: "meshy-pricing-credits-game",
+    title: "Meshy AIの料金は？無料版・Pro・Premium・Ultraの違いとゲーム開発のクレジット目安",
+    description: "MeshyのFree・Pro・Premium・Ultraを、クレジットの仕組み、ゲーム用3Dアセットの透明な計算例、リトライを含む制作予算から選ぶガイド。",
+    category: "tool",
+    tags: ["Meshy", "料金", "クレジット", "3Dモデル", "ゲーム開発"],
+    publishedAt: "2026-09-22", updatedAt: "2026-09-22", publicationStatus: "published", lastVerifiedAt: "2026-09-22",
+    author: "AI Iterproof編集部",
+    editorialNote: "Meshy公式Pricing、Help、API Docsの料金・credit・reset・refund・Free・license資料を2026-09-22に確認。同時点でUltraの月間credit数とFreeのdownload表現に一次資料間の差があるため、購入前に公式Pricing表示を優先してください。",
+    sources: [
+      { label: "Meshy Pricing", url: "https://www.meshy.ai/pricing", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: Plan comparison", url: "https://help.meshy.ai/en/articles/12062933-which-meshy-plan-is-right-for-you-free-vs-pro-vs-premium-vs-ultra", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: Free plan", url: "https://help.meshy.ai/en/articles/15696428-what-is-included-on-the-free-plan", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Docs: API pricing & credits", url: "https://docs.meshy.ai/en/api/pricing", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: Workspace task credit costs", url: "https://help.meshy.ai/en/articles/10000507-how-many-credits-does-each-generation-task-cost", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: API task credit costs", url: "https://help.meshy.ai/en/articles/16815622-how-many-credits-does-each-meshy-api-task-cost", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: Credit reset", url: "https://help.meshy.ai/en/articles/9991991-when-will-my-credits-reset", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: Monthly credit refill", url: "https://help.meshy.ai/en/articles/12462244-why-do-my-monthly-credits-not-give-me-the-full-amount-that-you-advertise", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: Credit usage and refunds", url: "https://help.meshy.ai/en/articles/15643245-when-were-my-meshy-credits-used-or-refunded", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: Free and permanent credits", url: "https://help.meshy.ai/en/articles/9991982-can-i-get-free-credits", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: Credit expiration and permanent credits", url: "https://help.meshy.ai/en/articles/9991985-do-credits-have-an-expiration-date", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Docs: Changelog", url: "https://docs.meshy.ai/en/api/changelog", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: Commercial use", url: "https://help.meshy.ai/en/articles/9992001-can-i-use-meshy-assets-commercially-license-copyright-explained", kind: "primary", verifiedAt: "2026-09-22" },
+    ],
+    related: [
+      { href: "/articles/meshy-commercial-use-game/", label: "Meshyの商用利用とライセンスを確認", reason: "料金を決める前後に生成時プランと権利条件を分けて確認する", kind: "article" },
+      { href: "/articles/meshy-game-development-guide/", label: "Meshyでゲーム用3Dアセットを作る", reason: "実際に1点を生成・書き出し・importして検品する", kind: "article" },
+      { href: "/tools/meshy/", label: "Meshyの検証済みツール情報", reason: "現在の機能と一次資料を確認する", kind: "tool" },
+    ],
+    projectCta: { label: "3Dアセット予算を次の制作taskへ整理する", description: "必要数、試行回数、texture・rigの条件を分け、最初の1点を検証します。", placement: "article_end" },
+    promotions: [{ serviceSlug: "meshy", placement: "production_tools", context: "クレジット予算を計算した後に、現行の料金・プラン条件を公式で確認するため。" }],
+  },
+  {
     slug: "meshy-commercial-use-game",
     title: "Meshy AIは商用利用できる？無料版・有料版のライセンスとゲーム利用条件",
     description: "Meshyで生成した3Dアセットを商用ゲームに使う前に、FreeのCC BY 4.0、Paidの所有条件、生成時プラン、参照画像、素材販売の注意点を確認するガイド。",
