@@ -54,6 +54,37 @@ export const articleCategoryLabels: Record<ArticleCategory, string> = {
 
 export const articles = [
   {
+    slug: "meshy-commercial-use-game",
+    title: "Meshy AIは商用利用できる？無料版・有料版のライセンスとゲーム利用条件",
+    description: "Meshyで生成した3Dアセットを商用ゲームに使う前に、FreeのCC BY 4.0、Paidの所有条件、生成時プラン、参照画像、素材販売の注意点を確認するガイド。",
+    category: "tool",
+    tags: ["Meshy", "商用利用", "3Dモデル", "ゲーム開発", "ライセンス", "著作権"],
+    publishedAt: "2026-09-21",
+    updatedAt: "2026-09-22",
+    publicationStatus: "published",
+    lastVerifiedAt: "2026-09-22",
+    author: "AI Iterproof編集部",
+    editorialNote: "Meshy公式の商用利用、Freeプラン、所有権、解約、参照画像、Marketplace、販売、Termsの一次資料を2026-09-22に確認しました。Marketplace記事にはFree生成物について他の専用案内と異なる記述があるため、素材自体を出品する場合は両方の最新条件を確認してください。",
+    sources: [
+      { label: "Meshy Help: Commercial use", url: "https://help.meshy.ai/en/articles/9992001-can-i-use-meshy-assets-commercially-license-copyright-explained", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: Free plan", url: "https://help.meshy.ai/en/articles/15696428-what-is-included-on-the-free-plan", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: Ownership of generated models", url: "https://help.meshy.ai/en/articles/10137554-what-is-the-ownership-of-the-generated-models", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: Cancellation and downgrade", url: "https://help.meshy.ai/en/articles/9992023-if-i-cancel-my-subscription-will-all-my-models-revert-to-a-cc-by-4-0-license", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: Copyright checklist for reference images", url: "https://help.meshy.ai/en/articles/16103168-copyright-checklist-for-meshy-reference-images-and-assets", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: Marketplace publishing checklist", url: "https://help.meshy.ai/en/articles/16102951-can-you-publish-or-sell-meshy-models-on-marketplaces", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Help: Selling models", url: "https://help.meshy.ai/en/articles/9992022-can-i-sell-meshy-models-marketplaces-stores-licensing", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Meshy Terms of Use", url: "https://www.meshy.ai/terms-of-use", kind: "primary", verifiedAt: "2026-09-22" },
+      { label: "Creative Commons: Attribution 4.0 International", url: "https://creativecommons.org/licenses/by/4.0/", kind: "primary", verifiedAt: "2026-09-22" },
+    ],
+    related: [
+      { href: "/articles/meshy-game-development-guide/", label: "ゲーム用3Dモデルを作ってUnity・Blenderへ持っていく", reason: "権利を確認した後、1点を生成・importして検品する", kind: "article" },
+      { href: "/tools/meshy/", label: "Meshyの検証済みツール情報", reason: "現在の機能、条件、一次資料を確認する", kind: "tool" },
+      { href: "/compare/", label: "3D制作ツールを比較する", reason: "条件が合わない場合に別の候補を比較する", kind: "compare" },
+    ],
+    projectCta: { label: "公開条件を制作taskへ整理する", description: "利用するアセットごとの生成時プラン、帰属表示、参照素材、公開先の確認を具体的なtaskへ分けます。", placement: "article_end" },
+    promotions: [{ serviceSlug: "meshy", placement: "production_tools", context: "ライセンス判断を終えた後に、現行プランと商用利用条件を公式で確認するため。" }],
+  },
+  {
     slug: "meshy-game-development-guide",
     title: "Meshy AIの使い方｜ゲーム用3Dモデルを作ってUnity・Blenderへ持っていく手順",
     description: "Meshyで最初のゲーム用3Dアセットを作り、FBXまたはGLBでBlender・Unityへ読み込み、実際の制作環境で採用可否を確認する手順。",

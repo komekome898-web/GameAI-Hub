@@ -119,3 +119,21 @@ for(const viewport of [{name:'mobile-375',width:375,height:812,zoom:false},{name
   if(session){await session.send('Emulation.setPageScaleFactor',{pageScaleFactor:1});await session.detach()}
  });
 }
+
+for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'mobile-320',width:320,height:640},{name:'desktop',width:1280,height:900}]){
+ test(`Meshy commercial-use guide renders its decision path — ${viewport.name}`,async({page})=>{
+  await mkdir('docs/screenshots/issue-128-meshy-commercial-use',{recursive:true});
+  await page.setViewportSize({width:viewport.width,height:viewport.height});
+  await page.goto('/articles/meshy-commercial-use-game/');
+  await expect(page.getByRole('heading',{level:1,name:/Meshy AIは商用利用できる/})).toBeVisible();
+  await expect(page.getByText('この記事にはプロモーションを含みます。')).toBeVisible();
+  await expect(page.getByRole('heading',{name:'公式情報に現在残る不一致'})).toBeVisible();
+  const affiliate=page.getByRole('link',{name:'現行プランと商用利用条件をMeshy公式で確認する'});
+  await expect(affiliate).toHaveCount(1);
+  await expect(affiliate).toHaveAttribute('href','https://www.meshy.ai?via=gameaihub');
+  await expect(affiliate).toHaveAttribute('rel','sponsored nofollow noopener');
+  await expect(page.getByRole('link',{name:/Meshyでゲーム用3Dモデルを作り/})).toHaveAttribute('href','/articles/meshy-game-development-guide/');
+  expect(await page.locator('body').evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
+  await page.screenshot({path:`docs/screenshots/issue-128-meshy-commercial-use/article-${viewport.name}.png`,fullPage:true});
+ });
+}
