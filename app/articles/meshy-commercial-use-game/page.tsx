@@ -15,7 +15,7 @@ export default function MeshyCommercialUseGame() {
       <p className="eyebrow">3D ASSET / LICENSE CHECK</p>
       <h1>Meshy AIは商用利用できる？無料版・有料版のライセンスとゲーム利用条件</h1>
       <p className="lead">生成した3Dアセットをゲームへ入れる前に、生成時のプラン、帰属表示、参照画像の権利、配布方法を分けて判定します。</p>
-      <p><strong>公式情報を2026年9月21日に確認</strong>。これは一般的な情報整理であり、法律相談ではありません。公開直前には現行の公式条件を再確認してください。</p>
+      <p><strong>公式情報を2026年9月22日に確認</strong>。これは一般的な情報整理であり、法律相談ではありません。公開直前には現行の公式条件を再確認してください。</p>
       <p className="affiliate-disclosure-note"><strong>この記事にはプロモーションを含みます。</strong></p>
       <dl className="article-lesson-grid">
         <div><dt>Freeで生成</dt><dd>専用の公式案内ではCC BY 4.0。商用利用には帰属表示が必要。</dd></div>

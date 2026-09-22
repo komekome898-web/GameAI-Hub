@@ -43,6 +43,17 @@ describe("Meshy commercial-use guide", () => {
     expect(article.publicationStatus).toBe("published");
     expect(article.sources).toHaveLength(9);
     expect(article.sources.every(source => source.kind === "primary")).toBe(true);
+    expect(article.sources.map(source => source.url)).toEqual([
+      "https://help.meshy.ai/en/articles/9992001-can-i-use-meshy-assets-commercially-license-copyright-explained",
+      "https://help.meshy.ai/en/articles/15696428-what-is-included-on-the-free-plan",
+      "https://help.meshy.ai/en/articles/10137554-what-is-the-ownership-of-the-generated-models",
+      "https://help.meshy.ai/en/articles/9992023-if-i-cancel-my-subscription-will-all-my-models-revert-to-a-cc-by-4-0-license",
+      "https://help.meshy.ai/en/articles/16103168-copyright-checklist-for-meshy-reference-images-and-assets",
+      "https://help.meshy.ai/en/articles/16102951-can-you-publish-or-sell-meshy-models-on-marketplaces",
+      "https://help.meshy.ai/en/articles/9992022-can-i-sell-meshy-models-marketplaces-stores-licensing",
+      "https://www.meshy.ai/terms-of-use",
+      "https://creativecommons.org/licenses/by/4.0/",
+    ]);
     expect(article.promotions).toEqual([expect.objectContaining({ serviceSlug: "meshy", placement: "production_tools" })]);
     for (const text of ["Freeプランで生成", "Paidプランで非公開生成", "CC BY 4.0", "生成時のプラン", "downgrade", "アップロード画像・参照画像", "Marketplace・素材再販売"]) expect(html).toContain(text);
   });
