@@ -81,3 +81,34 @@ describe("Meshy commercial-use guide", () => {
     expect(html).toContain('href="/tools/meshy/"');
   });
 });
+
+import MeshyPricingCreditsGame from "@/app/articles/meshy-pricing-credits-game/page";
+
+describe("Meshy pricing and credit article", () => {
+  it("publishes a sourced game-production pricing decision guide", () => {
+    const article = getArticle("meshy-pricing-credits-game")!;
+    expect(article.publicationStatus).toBe("published");
+    expect(article.lastVerifiedAt).toBe("2026-09-22");
+    expect(article.sources.length).toBeGreaterThanOrEqual(10);
+    expect(article.title).toContain("料金");
+    expect(article.description).not.toBe(getArticle("meshy-commercial-use-game")!.description);
+  });
+
+  it("renders transparent arithmetic, conflicts, sibling paths, and one registry CTA", () => {
+    const html = renderToStaticMarkup(<MeshyPricingCreditsGame />);
+    expect(html).toContain("monthly credits");
+    expect(html).toContain("permanent credits");
+    expect(html).toContain("5 × (25 + 10) = 175");
+    expect(html).toContain("小物10 + creature 2");
+    expect(html).toContain("8,000");
+    expect(html).toContain("10,000");
+    expect(html).toContain('href="/articles/meshy-commercial-use-game/"');
+    expect(html).toContain('href="/articles/meshy-game-development-guide/"');
+    expect(html).toContain("meshy_pricing_plan_check");
+    expect(html.match(/href="https:\/\/www\.meshy\.ai\?via=gameaihub"/g)).toHaveLength(1);
+    const destination = getService("meshy")!.affiliateUrl!;
+    expect(html).toContain(`href="${destination.replaceAll("&", "&amp;")}"`);
+    expect(html).toContain('rel="sponsored nofollow noopener"');
+    expect(html).toContain('target="_blank"');
+  });
+});
