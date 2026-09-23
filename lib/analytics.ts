@@ -62,6 +62,16 @@ type Gtag = (
   params?: Record<string, unknown>,
 ) => void;
 
+declare global {
+  interface Window {
+    __gameAIAnalyticsEligible?: boolean;
+    __gameAIAnalyticsExcluded?: boolean;
+    __gameAIAnalyticsInitialized?: boolean;
+    gtag?: Gtag;
+    dataLayer?: IArguments[];
+  }
+}
+
 const allowlist: Record<EventName, readonly EventProperty[]> = {
   tool_view: ["service", "page"],
   stack_view: ["stack", "page"],
@@ -237,24 +247,18 @@ export function track(name: EventName, properties: EventProperties = {}) {
   window.dispatchEvent(
     new CustomEvent("gameai:event", { detail: { name, properties: safe } }),
   );
-  if (process.env.NODE_ENV === "production") {
-    const target = window as typeof window & {
-      gtag?: Gtag;
-      dataLayer?: unknown[];
-    };
-    if (target.gtag) target.gtag("event", name, safe);
-    else {
-      target.dataLayer = target.dataLayer || [];
-      target.dataLayer.push(["event", name, safe]);
-    }
-  } else console.debug("[GameAI analytics]", name, safe);
+  // Only the beforeInteractive bootstrap may authorize live transport. Unknown,
+  // excluded and non-Production documents keep diagnostics without a dormant queue.
+  if (window.__gameAIAnalyticsEligible === true && window.gtag)
+    window.gtag("event", name, safe);
+  else console.debug("[GameAI analytics]", name, safe);
 }
 
 export function buildSubId(service: string, page: string, placement: string) {
   return [service, page, placement]
     .map((value) => value.replace(/[^a-z0-9_-]/gi, "-"))
     .join("__")
-    .slice(0, 100);
+    .slice(0, 80);
 }
 
 export function taskStage(taskId: string): string {

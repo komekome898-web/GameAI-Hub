@@ -1,26 +1,25 @@
-'use client';
+import Script from "next/script";
 
-import Script from 'next/script';
+export const measurementId = "G-B9Q283QVER";
+export const canonicalAnalyticsHost = "game-ai-hub.vercel.app";
+export const analyticsExclusionKey = "gameai:analytics-excluded";
+export const analyticsExclusionParameter = "gameai_analytics";
 
-export const measurementId = 'G-B9Q283QVER';
-export const googleAnalyticsInit = `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-window.gtag = gtag;
-gtag('js', new Date());
-gtag('config', '${measurementId}');`;
+export function isPublicProductionDeployment(environment = process.env.VERCEL_ENV) {
+  return environment === "production";
+}
+
+export function isAnalyticsEligible(deploymentEligible: boolean, hostname: string, excluded: boolean) {
+  return deploymentEligible && hostname === canonicalAnalyticsHost && !excluded;
+}
+
+/** Fail-closed bootstrap: deployment, exact host and exclusion are resolved before any Google request. */
+export function analyticsBootstrap(deploymentEligible: boolean) {
+  return `(()=>{const MID=${JSON.stringify(measurementId)},HOST=${JSON.stringify(canonicalAnalyticsHost)},KEY=${JSON.stringify(analyticsExclusionKey)},PARAM=${JSON.stringify(analyticsExclusionParameter)};let excluded=false;const url=new URL(location.href);const command=url.searchParams.get(PARAM);try{if(command==='off')localStorage.setItem(KEY,'1');if(command==='on')localStorage.removeItem(KEY);excluded=localStorage.getItem(KEY)==='1'}catch(_){excluded=command==='off'}if(command==='off'||command==='on'){url.searchParams.delete(PARAM);history.replaceState(history.state,'',url.pathname+(url.searchParams.toString()?'?'+url.searchParams.toString():'')+url.hash)}const eligible=${JSON.stringify(deploymentEligible)}&&location.hostname===HOST&&!excluded;window.__gameAIAnalyticsEligible=eligible;window.__gameAIAnalyticsExcluded=excluded;if(!eligible){delete window.gtag;delete window.dataLayer;return}if(window.__gameAIAnalyticsInitialized)return;window.__gameAIAnalyticsInitialized=true;window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};window.gtag('js',new Date());window.gtag('config',MID);if(!document.querySelector('script[data-gameai-ga]')){const script=document.createElement('script');script.async=true;script.dataset.gameaiGa='true';script.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(MID);document.head.appendChild(script)}})();`;
+}
 
 export function GoogleAnalytics() {
-  if (process.env.NODE_ENV !== 'production') return null;
-
-  return (
-    <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
-        strategy="afterInteractive"
-      />
-      <Script id="ga4-init" strategy="afterInteractive">
-        {googleAnalyticsInit}
-      </Script>
-    </>
-  );
+  // App Router root layouts are the documented location for beforeInteractive.
+  // eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
+  return <Script id="gameai-ga-bootstrap" strategy="beforeInteractive">{analyticsBootstrap(isPublicProductionDeployment())}</Script>;
 }
