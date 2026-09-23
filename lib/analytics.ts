@@ -67,6 +67,7 @@ declare global {
     __gameAIAnalyticsEligible?: boolean;
     __gameAIAnalyticsExcluded?: boolean;
     __gameAIAnalyticsInitialized?: boolean;
+    __gameAIAnalyticsLoaded?: boolean;
     gtag?: Gtag;
     dataLayer?: IArguments[];
   }
@@ -249,9 +250,17 @@ export function track(name: EventName, properties: EventProperties = {}) {
   );
   // Only the beforeInteractive bootstrap may authorize live transport. Unknown,
   // excluded and non-Production documents keep diagnostics without a dormant queue.
-  if (window.__gameAIAnalyticsEligible === true && window.gtag)
-    window.gtag("event", name, safe);
-  else console.debug("[GameAI analytics]", name, safe);
+  if (window.__gameAIAnalyticsEligible === true && window.gtag) {
+    try {
+      // Analytics is observability, never a dependency of the user action that
+      // emitted the event. A failed transport is deliberately not retried: a
+      // retry could duplicate an event that the transport accepted before it
+      // threw.
+      window.gtag("event", name, safe);
+    } catch {
+      console.debug("[GameAI analytics transport unavailable]", name, safe);
+    }
+  } else console.debug("[GameAI analytics]", name, safe);
 }
 
 export function buildSubId(service: string, page: string, placement: string) {

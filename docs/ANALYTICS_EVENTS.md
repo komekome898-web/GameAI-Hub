@@ -40,10 +40,22 @@ the initial automatic page view. Exclusion is browser-local, not account-wide or
 cross-device. Storage failure still honors `off` for the current document. Enabling
 measurement starts a new document and never replays excluded events.
 
-The bootstrap uses Google's supported `dataLayer.push(arguments)` command format.
-It initializes/configures once per document; application events use that same gtag
-function and do not maintain a second replay queue. Automatic GA page-view/history
-behavior remains unchanged.
+The bootstrap uses Google's supported arguments command format and caps commands
+pending loader completion at 32 (the `js` and `config` commands are retained;
+the oldest pending event is discarded on overflow). It initializes/configures
+once per document; application events use that same gtag function and do not
+maintain a second replay queue. A loader error or 10-second timeout disposes the
+pending queue and disables transport for that document. A loader that completes
+after disposal is scrubbed rather than replaying expired commands. Once loading
+succeeds, the bootstrap does not delete or otherwise take ownership of Google's
+live `dataLayer`. Transport exceptions are isolated from the product action,
+logged only with sanitized event properties, and are not retried. Automatic GA
+page-view/history behavior remains unchanged.
+
+The permitted-Production Playwright harness intercepts the canonical origin and
+all Google traffic before navigation, then locally fulfills or delays the loader.
+That is executable browser evidence for bootstrap/queue behavior only; simulated
+transport is not evidence that native GA4 received an event.
 
 ### Reporting configuration checklist (permission-dependent)
 

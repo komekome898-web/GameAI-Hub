@@ -8,6 +8,8 @@ import {
 } from "@/lib/analytics";
 import {
   analyticsBootstrap,
+  analyticsLoadTimeoutMs,
+  analyticsPendingCommandCapacity,
   canonicalAnalyticsHost,
   isAnalyticsEligible,
   measurementId,
@@ -160,18 +162,18 @@ describe("analytics measurement baseline", () => {
   });
   it("bootstraps one supported arguments queue and scrubs exclusion parameters before config", () => {
     const script = analyticsBootstrap(true);
-    expect(script).toContain("window.dataLayer.push(arguments)");
+    expect(script).toContain("queue.push(arguments)");
     expect(script).not.toContain("push(['event'");
     expect(script.indexOf("history.replaceState")).toBeLessThan(script.indexOf("window.gtag('config'"));
     expect(script).toContain("document.querySelector('script[data-gameai-ga]')");
   });
   it("executes the permitted bootstrap once with a consumable early-event queue", () => {
     const store = new Map<string, string>();
-    const appended: Array<{ src?: string }> = [];
+    const appended: Array<{ src?: string; onload?: () => void }> = [];
     const target: Record<string, unknown> = {};
     const location = { href: `https://${canonicalAnalyticsHost}/articles/test`, hostname: canonicalAnalyticsHost };
     const storage = { getItem: (key: string) => store.get(key) ?? null, setItem: (key: string, value: string) => store.set(key, value), removeItem: (key: string) => store.delete(key) };
-    const documentMock = { querySelector: () => null, createElement: () => ({ dataset: {} }), head: { appendChild: (node: { src?: string }) => appended.push(node) } };
+    const documentMock = { querySelector: () => null, createElement: () => ({ dataset: {}, remove: vi.fn() }), head: { appendChild: (node: { src?: string; onload?: () => void }) => appended.push(node) } };
     const run = new Function("window", "location", "localStorage", "history", "document", "URL", analyticsBootstrap(true));
     run(target, location, storage, { state: null, replaceState: vi.fn() }, documentMock, URL);
     const gtag = target.gtag as (...args: unknown[]) => void;
@@ -181,6 +183,12 @@ describe("analytics measurement baseline", () => {
     expect(queue.map((entry) => Array.from(entry).slice(0, 2))).toEqual([["js", expect.any(Date)], ["config", measurementId], ["event", "article_view"]]);
     expect(appended).toHaveLength(1);
     expect(appended[0].src).toContain(encodeURIComponent(measurementId));
+    appended[0].onload?.();
+    expect(target.dataLayer).toBe(queue);
+    for (let index = 0; index < analyticsPendingCommandCapacity; index += 1)
+      gtag("event", `loaded-${index}`);
+    expect(queue).toHaveLength(analyticsPendingCommandCapacity + 3);
+    expect(Array.from(queue[2]).slice(0, 2)).toEqual(["event", "article_view"]);
   });
   it("fails closed for exclusion even when storage throws", () => {
     const target: Record<string, unknown> = {};
@@ -214,6 +222,69 @@ describe("analytics measurement baseline", () => {
     expect(gtag).toHaveBeenCalledWith("event", "affiliate_click", { service_id: "meshy", placement: "primary", affiliate: true });
     delete window.__gameAIAnalyticsEligible;
     delete window.gtag;
+  });
+  it("isolates a throwing authorized transport without retrying or leaking unsafe diagnostics", () => {
+    const transport = vi.fn(() => { throw new Error("secret runtime details"); });
+    const debug = vi.spyOn(console, "debug").mockImplementation(() => undefined);
+    window.__gameAIAnalyticsEligible = true;
+    window.gtag = transport;
+
+    expect(() => {
+      track("project_generated", {
+        game_type: "2d",
+        budget: "free",
+        source: "raw secret game idea",
+      });
+      track("task_completed", { task: "core-loop", task_index: 0 });
+      track("affiliate_click", { service_id: "meshy", affiliate: true });
+    }).not.toThrow();
+    expect(transport).toHaveBeenCalledTimes(3);
+    expect(transport).toHaveBeenNthCalledWith(1, "event", "project_generated", {
+      game_type: "2d",
+      budget: "free",
+    });
+    expect(debug).toHaveBeenNthCalledWith(
+      1,
+      "[GameAI analytics transport unavailable]",
+      "project_generated",
+      { game_type: "2d", budget: "free" },
+    );
+    expect(JSON.stringify(debug.mock.calls)).not.toContain("secret");
+
+    debug.mockRestore();
+    delete window.__gameAIAnalyticsEligible;
+    delete window.gtag;
+  });
+  it("bounds the pending queue and disposes it after a loader failure without replay", () => {
+    vi.useFakeTimers();
+    const appended: Array<Record<string, unknown>> = [];
+    const target: Record<string, unknown> = {};
+    const run = new Function("window", "location", "localStorage", "history", "document", "URL", analyticsBootstrap(true));
+    const script = { dataset: {}, remove: vi.fn() };
+    run(
+      target,
+      { href: `https://${canonicalAnalyticsHost}/`, hostname: canonicalAnalyticsHost },
+      { getItem: () => null, setItem: vi.fn(), removeItem: vi.fn() },
+      { state: null, replaceState: vi.fn() },
+      { querySelector: () => null, createElement: () => script, head: { appendChild: (node: Record<string, unknown>) => appended.push(node) } },
+      URL,
+    );
+    const gtag = target.gtag as (...args: unknown[]) => void;
+    for (let index = 0; index < analyticsPendingCommandCapacity + 10; index += 1)
+      gtag("event", `event-${index}`);
+    const queue = target.dataLayer as IArguments[];
+    expect(queue).toHaveLength(analyticsPendingCommandCapacity);
+    expect(Array.from(queue[0]).slice(0, 1)).toEqual(["js"]);
+    expect(Array.from(queue[1]).slice(0, 2)).toEqual(["config", measurementId]);
+    expect(Array.from(queue[2]).slice(0, 2)).toEqual(["event", "event-12"]);
+
+    (appended[0].onerror as () => void)();
+    expect(target.dataLayer).toBeUndefined();
+    expect(target.gtag).toBeUndefined();
+    expect(target.__gameAIAnalyticsEligible).toBe(false);
+    vi.advanceTimersByTime(analyticsLoadTimeoutMs);
+    expect(script.remove).toHaveBeenCalledOnce();
+    vi.useRealTimers();
   });
   it("maps task ids to bounded production stages", () => {
     expect(taskStage("core-loop")).toBe("prototype");
