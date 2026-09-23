@@ -6,7 +6,7 @@ import {
   type Locator,
   type Page,
   type TestInfo,
-} from "@playwright/test";
+} from "./fixtures";
 
 // This is a runner fixture, not an AI response or proof that an AI generated a game.
 // Its only purpose is to exercise paste → play → save → reopen in the real UI.

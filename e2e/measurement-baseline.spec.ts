@@ -1,4 +1,4 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Page } from "./fixtures";
 
 type CapturedEvent = { name: string; properties: Record<string, unknown> };
 const storageKey = "gameai:e2e-analytics";
@@ -156,4 +156,42 @@ test("affiliate CTA records one viewable impression before comparable click even
     affiliate: true,
   });
   expect(JSON.stringify(affiliateEvents)).not.toMatch(/https?:|\?|secret/i);
+});
+
+test("local production build cannot initialize or contact Google Analytics", async ({ page }) => {
+  const attempts: string[] = [];
+  page.on("request", (request) => {
+    if (/googletagmanager|google-analytics|\/g\/collect/i.test(request.url())) attempts.push(request.url());
+  });
+  await page.goto("/");
+  await expect.poll(() => attempts).toEqual([]);
+  await expect(page.locator('script[data-gameai-ga="true"]')).toHaveCount(0);
+  expect(await page.evaluate(() => window.__gameAIAnalyticsEligible)).toBe(false);
+  expect(await page.evaluate(() => window.dataLayer)).toBeUndefined();
+});
+
+for (const width of [375, 320]) {
+  test(`owner exclusion is usable and persistent at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 720 });
+    await page.goto("/privacy?gameai_analytics=off");
+    await expect(page).toHaveURL(/\/privacy\/?$/);
+    await expect(page.getByText("現在: 計測から除外中")).toBeVisible();
+    await expect(page.getByRole("button", { name: "このブラウザの計測を再開" })).toBeVisible();
+    expect(await page.evaluate(() => localStorage.getItem("gameai:analytics-excluded"))).toBe("1");
+    expect(await page.evaluate(() => window.__gameAIAnalyticsEligible)).toBe(false);
+    await page.reload();
+    await expect(page.getByText("現在: 計測から除外中")).toBeVisible();
+    await page.getByRole("button", { name: "このブラウザの計測を再開" }).click();
+    await expect(page.getByText("現在: 通常の計測設定")).toBeVisible();
+    expect(await page.evaluate(() => localStorage.getItem("gameai:analytics-excluded"))).toBeNull();
+    expect(await page.locator("body").evaluate((el) => el.scrollWidth <= el.clientWidth)).toBe(true);
+    await page.screenshot({ path: `docs/screenshots/issue-132/privacy-exclusion-${width}.png`, fullPage: true });
+  });
+}
+
+test("shared E2E fixture aborts direct GA collection independently of app gating", async ({ page }) => {
+  await page.goto("/");
+  const failed = page.waitForEvent("requestfailed", (request) => request.url().includes("google-analytics.com/g/collect"));
+  await page.evaluate(() => fetch("https://www.google-analytics.com/g/collect?tid=G-B9Q283QVER").catch(() => undefined));
+  await expect(failed).resolves.toBeTruthy();
 });

@@ -58,6 +58,22 @@ describe('OutboundLink',()=>{
     expect(observe).not.toHaveBeenCalled();
     window.removeEventListener('gameai:event',listener);
   });
+  it('keeps an affiliate link actionable when the authorized transport throws',()=>{
+    const service=getServices().find(x=>x.slug==='elevenlabs')!;
+    const transport=vi.fn((...args: unknown[])=>{void args;throw new Error('transport failed')});
+    const debug=vi.spyOn(console,'debug').mockImplementation(()=>undefined);
+    window.__gameAIAnalyticsEligible=true;
+    window.gtag=transport;
+    render(<OutboundLink service={service} page="builder-result" placement="voice"/>);
+    const link=screen.getByRole('link',{name:/広告リンク/});
+    expect(()=>fireEvent.click(link)).not.toThrow();
+    expect(link.getAttribute('href')).toBe(service.affiliateUrl);
+    expect(transport).toHaveBeenCalledTimes(2);
+    expect(transport.mock.calls.map(call=>call[1])).toEqual(['outbound_click','affiliate_click']);
+    expect(debug).toHaveBeenCalledTimes(2);
+    delete window.__gameAIAnalyticsEligible;
+    delete window.gtag;
+  });
   it('tracks a new CTA identity when the same component instance changes',async()=>{
     const elevenlabs=getServices().find(x=>x.slug==='elevenlabs')!;
     const meshy=getServices().find(x=>x.slug==='meshy')!;

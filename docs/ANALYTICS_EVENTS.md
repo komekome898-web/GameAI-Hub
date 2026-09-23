@@ -1,6 +1,6 @@
 # Analytics Events
 
-個人情報を含めず、`lib/analytics.ts` を唯一の送信境界とする。全環境でDOMイベントを発火し、開発環境ではconsole、productionでは既存`gtag`または初期化前の`dataLayer` queueへ送信する。
+個人情報を含めず、`lib/analytics.ts` を唯一の送信境界とする。全環境でsanitized DOM診断イベントを発火する。公開Productionの正規hostで除外されていない場合だけ、before-interactive bootstrapが用意した単一の`gtag`経路へ送信する。
 
 | Event | Trigger | Properties |
 |---|---|---|
@@ -23,3 +23,45 @@
 初回のページ閲覧はGA4の既存`gtag('config', ...)`が送信する。アプリ側から独自の`page_view`は重複送信せず、SPA遷移の計測範囲はGAプロパティのEnhanced Measurement設定を運営者がRealtimeで確認する。イベントプロパティは`lib/analytics.ts`のイベント別allowlistを通り、未定義キーは送信前に破棄される。
 
 `affiliate_impression` と `affiliate_click` は `service_id`, `page`, `placement`, `production_stage`, `source_context`, `route_category`, `affiliate` を共通比較軸とする。記事slugやProject task属性は、route/taskから既に安全なカテゴリ値として確定できる場合だけ追加する。URL、query、任意入力、prompt/code/error等は送らない。クリック固有の `sub_id` は既存の安全な生成規則を維持する。
+
+## Transport eligibility and owner/QA exclusion (Issue #132)
+
+Real GA transport uses one fail-closed policy evaluated before hydration: Vercel's
+server-only `VERCEL_ENV` must equal `production`, the browser hostname must equal
+`game-ai-hub.vercel.app` exactly, and the browser must not be excluded. Missing
+or unknown deployment state, localhost/loopback, CI, Preview, branch and lookalike
+hosts retain the sanitized `gameai:event` diagnostic only; they neither load the
+Google tag nor retain a GA queue.
+
+The privacy page control reloads through the bounded `gameai_analytics=off|on`
+entry parameter. The before-interactive bootstrap persists the choice locally,
+removes the parameter from the visible URL before GA config, and applies it before
+the initial automatic page view. Exclusion is browser-local, not account-wide or
+cross-device. Storage failure still honors `off` for the current document. Enabling
+measurement starts a new document and never replays excluded events.
+
+The bootstrap uses Google's supported arguments command format and caps commands
+pending loader completion at 32 (the `js` and `config` commands are retained;
+the oldest pending event is discarded on overflow). It initializes/configures
+once per document; application events use that same gtag function and do not
+maintain a second replay queue. A loader error or 10-second timeout disposes the
+pending queue and disables transport for that document. A loader that completes
+after disposal is scrubbed rather than replaying expired commands. Once loading
+succeeds, the bootstrap does not delete or otherwise take ownership of Google's
+live `dataLayer`. Transport exceptions are isolated from the product action,
+logged only with sanitized event properties, and are not retried. Automatic GA
+page-view/history behavior remains unchanged.
+
+The permitted-Production Playwright harness intercepts the canonical origin and
+all Google traffic before navigation, then locally fulfills or delays the loader.
+That is executable browser evidence for bootstrap/queue behavior only; simulated
+transport is not evidence that native GA4 received an event.
+
+### Reporting configuration checklist (permission-dependent)
+
+Receiver-side configuration was not changed by this repository task. An authorized
+GA administrator must verify event-scoped custom dimensions for `service_id`,
+`placement`, and `article_slug` (and only add missing definitions), while using
+built-in page/hostname dimensions where possible. Verify native Realtime/DebugView
+receipt separately from connector/report visibility; a browser attempt or HTTP 204
+is not evidence of GA receipt. No filter status is inferred from connector fields.
