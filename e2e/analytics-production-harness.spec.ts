@@ -105,7 +105,7 @@ test.describe("permitted Production browser harness", () => {
     await expect.poll(() => page.evaluate(() => (window as AnalyticsWindow).__gameAIAnalyticsLoaded)).toBe(true);
     expect(await page.evaluate(() => (window as AnalyticsWindow).__gameAIAnalyticsEligible)).toBe(true);
 
-    await page.getByRole("link", { name: "目的からAIを探す", exact: true }).first().click();
+    await page.getByRole("link", { name: "AI・ツールを選ぶ", exact: true }).first().click();
     await expect(page).toHaveURL(new RegExp(`^${canonicalOrigin}/tools/?$`));
     await page.goBack();
     await page.goForward();

@@ -47,7 +47,7 @@ for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'zoom-320'
   await page.setViewportSize({width:viewport.width,height:viewport.height});
   await page.goto('/articles/');
   if(viewport.name==='zoom-320')await page.evaluate(()=>{document.documentElement.style.zoom='2'});
-  await expect(page.getByRole('heading',{name:/読んだ後に/})).toBeVisible();
+  await expect(page.getByRole('heading',{name:/今の制作判断から/})).toBeVisible();
   await page.getByRole('link',{name:/AIでブラウザゲームを作る方法/}).click();
   await expect(page.getByRole('navigation',{name:'パンくず'})).toBeVisible();
   await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(2);
@@ -103,7 +103,7 @@ for(const viewport of [{name:'mobile-375',width:375,height:812,zoom:false},{name
   const session=viewport.zoom?await page.context().newCDPSession(page):null;
   if(session){await session.send('Emulation.setPageScaleFactor',{pageScaleFactor:2});await expect.poll(()=>page.evaluate(()=>window.visualViewport?.scale??1)).toBeGreaterThanOrEqual(1.9)}
   await expect(page.getByRole('heading',{name:'Projectからこの記事を開いた人'})).toHaveCount(2);
-  await expect(page.getByRole('link',{name:'元のProjectを開く'})).toHaveCount(0);
+  await expect(page.locator('a:not([href^="#"])',{hasText:'元のProjectを開く'})).toHaveCount(0);
   await expect(page.locator('.article-return-to-project').first()).toContainText('このGitHub記事のタブを閉じる');
   await expect(page.locator('.article-return-to-project').first()).toContainText('新しいProjectを作る必要はありません');
   const article=page.locator('.article-content');
@@ -128,7 +128,7 @@ for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'mobile-32
   await expect(page.getByRole('heading',{level:1,name:/Meshy AIは商用利用できる/})).toBeVisible();
   await expect(page.getByText('この記事にはプロモーションを含みます。')).toBeVisible();
   await expect(page.getByRole('heading',{name:'公式情報に現在残る不一致'})).toBeVisible();
-  const affiliate=page.getByRole('link',{name:'現行プランと商用利用条件をMeshy公式で確認する'});
+  const affiliate=page.locator('a[href="https://www.meshy.ai?via=gameaihub"]',{hasText:'現行プランと商用利用条件をMeshy公式で確認する'});
   await expect(affiliate).toHaveCount(1);
   await expect(affiliate).toHaveAttribute('href','https://www.meshy.ai?via=gameaihub');
   await expect(affiliate).toHaveAttribute('rel','sponsored nofollow noopener');
@@ -144,7 +144,7 @@ test.describe('Meshy pricing credit guide responsive acceptance',()=>{
     await page.setViewportSize(viewport);
     await page.goto('/articles/meshy-pricing-credits-game/');
     await expect(page.getByRole('heading',{level:1,name:/Meshy AIの料金は/})).toBeVisible();
-    const affiliate=page.getByRole('link',{name:'現行料金・クレジット・プラン条件をMeshy公式で確認する'});
+    const affiliate=page.locator('a[href="https://www.meshy.ai?via=gameaihub"]',{hasText:'現行料金・クレジット・プラン条件をMeshy公式で確認する'});
     await expect(affiliate).toHaveCount(1);
     await expect(affiliate).toHaveAttribute('href','https://www.meshy.ai?via=gameaihub');
     await expect(affiliate).toHaveAttribute('rel','sponsored nofollow noopener');
@@ -153,4 +153,35 @@ test.describe('Meshy pricing credit guide responsive acceptance',()=>{
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth)).toBe(true);
     await page.screenshot({path:`docs/screenshots/issue-130-meshy-pricing/article-${viewport.name}.png`,fullPage:true});
   });
+});
+
+test('Issue 135 journey keeps analytics local and navigates Home to cluster, article, and Project',async({page})=>{
+ const collectorRequests:string[]=[];
+ await page.route(/google-analytics|googletagmanager|analytics\.google/,route=>{collectorRequests.push(route.request().url());return route.abort()});
+ await page.goto('/');
+ await expect(page.getByRole('heading',{level:1,name:/次の1作業から/})).toBeVisible();
+ await page.getByRole('link',{name:/目的別の記事へ/}).click();
+ await expect(page).toHaveURL(/\/articles\/$/);
+ await expect(page.getByRole('heading',{name:'ゲーム音声を作る・公開条件を確かめる'})).toBeVisible();
+ await page.getByRole('link',{name:/ゲーム開発向けElevenLabs使い方ガイド/}).click();
+ await expect(page.getByRole('navigation',{name:'この記事の目次'})).toBeVisible();
+ await page.getByRole('link',{name:'音声が本当に必要か分からない場合'}).click();
+ await expect(page).toHaveURL(/#voice-project-plan$/);
+ await page.getByRole('link',{name:'Project Generatorで音声制作taskを整理する'}).click();
+ await expect(page).toHaveURL(/\/project\/?\?source=elevenlabs-game-development-guide$/);
+ expect(collectorRequests).toEqual([]);
+});
+
+test('Issue 135 mobile table and navigation remain usable at 320px',async({page})=>{
+ await page.setViewportSize({width:320,height:720});
+ await page.goto('/articles/meshy-pricing-credits-game/');
+ const table=page.locator('.article-decision-table table').first();
+ await expect(table).toHaveCSS('min-width','0px');
+ await expect(table.locator('tbody').first()).toHaveCSS('display','block');
+ const menu=page.getByRole('button',{name:'メニューを開く'});
+ await menu.click();
+ await expect(page.getByRole('navigation',{name:'モバイルナビゲーション'})).toBeVisible();
+ await expect(page.getByRole('link',{name:'ゲームを作る'}).last()).toHaveCSS('min-height','48px');
+ await page.keyboard.press('Escape');
+ await expect(menu).toBeFocused();
 });

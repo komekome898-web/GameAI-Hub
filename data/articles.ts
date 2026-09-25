@@ -139,9 +139,9 @@ export const articles = [
       { label: "Meshy Terms of Use", url: "https://www.meshy.ai/terms-of-use", kind: "primary", verifiedAt: "2026-09-21" },
     ],
     related: [
+      { href: "/articles/meshy-pricing-credits-game/", label: "Meshyの料金とクレジットを見積もる", reason: "1点を検品した後、試行回数を含む制作予算を決める", kind: "article" },
+      { href: "/articles/meshy-commercial-use-game/", label: "Meshyの商用利用とライセンスを確認", reason: "公開前に生成時プランと帰属・権利条件を確認する", kind: "article" },
       { href: "/tools/meshy/", label: "Meshyの検証済みツール情報", reason: "現在の機能、条件、一次資料を確認する", kind: "tool" },
-      { href: "/articles/ai-usage-guide/", label: "ゲーム開発に使えるAIの正しい使い方", reason: "3Dアセット作成をゲーム全体の工程へ置く", kind: "article" },
-      { href: "/compare/", label: "3D制作ツールを比較する", reason: "Meshyが要件に合わない場合だけ候補を比較する", kind: "compare" },
     ],
     projectCta: {
       label: "取り込んだ3Dアセットの次のtaskを決める",
@@ -241,6 +241,12 @@ export const articles = [
     ],
     related: [
       {
+        href: "/articles/elevenlabs-commercial-use-game/",
+        label: "ElevenLabsの商用利用条件を確認",
+        reason: "代表音声を採用した後、公開前にプランと権利を判断する",
+        kind: "article",
+      },
+      {
         href: "/tools/elevenlabs/",
         label: "ElevenLabsの検証済みツール情報",
         reason: "登録済みの用途、料金区分、商用条件、一次資料を確認する",
@@ -251,12 +257,6 @@ export const articles = [
         label: "AIで2D RPGを作る制作フロー",
         reason: "音声素材をゲーム制作全体の工程に置く",
         kind: "guide",
-      },
-      {
-        href: "/articles/ai-usage-guide/",
-        label: "ゲーム開発に使えるAIの正しい使い方",
-        reason: "音声以外も含め、成果物からAIを選ぶ基準を確認する",
-        kind: "article",
       },
     ],
     projectCta: {
