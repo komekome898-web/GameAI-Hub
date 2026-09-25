@@ -2,11 +2,13 @@
 
 - Task: SEO + UI/UX overhaul
 - Branch: `feat/issue-135-seo-reading-overhaul`
-- Latest pushed checkpoint: bootstrap from `origin/main`
-- Completed: repository/bootstrap instructions; Issue and clean `origin/main` verified
-- Current phase: Production/main/SEO evidence audit
-- Remaining: implementation; rendered review; quality/build/E2E; PR
-- Unresolved blocking findings: audit pending
-- Gates: pending
-- GitHub: Issue #135 open; no pre-existing implementation PR
-- Next action: capture Production baselines and audit shared navigation/article/SEO systems
+- Latest pushed checkpoint: implementation pending final push
+- Completed: Production/main audit; SERP/Google guidance review; focused Home/nav/article hub/shared reading system; cluster links; before/after evidence; independent second pass and P2 fixes
+- Current phase: PR/Preview handoff
+- Remaining: independent Vercel Preview acceptance and physical-device acceptance
+- Unresolved P0/P1/high-impact P2: none in local responsive review; Preview not yet available
+- Gates: `npm run quality`, `npm run build`, targeted analytics/SEO/article tests, and Issue #135 E2E pass
+- GitHub: Issue #135 remains open; one implementation PR to create
+- Evidence: `docs/issue-135-audit.md`, `docs/screenshots/issue-135/`
+- Limitation: physical devices and Search Console query evidence untested; Production unchanged
+- Next action: inspect exact-SHA Preview at desktop/375/320 before merge
