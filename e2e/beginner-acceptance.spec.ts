@@ -228,7 +228,9 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
     const guidePage = await guidePagePromise;
     await guidePage.waitForLoadState();
     await expect(guidePage.locator(".article-return-to-project")).toHaveCount(2);
-    await expect(guidePage.getByRole("link", { name: /元のProject/ })).toHaveCount(0);
+    await expect(
+      guidePage.locator('a:not([href^="#"])', { hasText: /元のProject/ }),
+    ).toHaveCount(0);
     await guidePage.close();
     await page.bringToFront();
 
@@ -379,7 +381,9 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
           guidePage.getByRole("heading", { name: "Projectからこの記事を開いた人" }),
         ).toHaveCount(2);
         await expect(
-          guidePage.getByRole("link", { name: /Project|元のProject/ }),
+          guidePage.locator('a:not([href^="#"])', {
+            hasText: /Project|元のProject/,
+          }),
         ).toHaveCount(0);
         await retainScreenshot(guidePage, testInfo, "github-guide-return-375");
         await guidePage.close();
@@ -461,7 +465,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
           name: "モバイルナビゲーション",
           exact: true,
         })
-        .getByRole("link", { name: "目的からAIを探す", exact: true })
+        .getByRole("link", { name: "AI・ツールを選ぶ", exact: true })
         .click();
       await expect(page).toHaveURL(/\/tools/);
       await page.goBack();

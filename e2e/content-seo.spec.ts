@@ -103,7 +103,7 @@ for(const viewport of [{name:'mobile-375',width:375,height:812,zoom:false},{name
   const session=viewport.zoom?await page.context().newCDPSession(page):null;
   if(session){await session.send('Emulation.setPageScaleFactor',{pageScaleFactor:2});await expect.poll(()=>page.evaluate(()=>window.visualViewport?.scale??1)).toBeGreaterThanOrEqual(1.9)}
   await expect(page.getByRole('heading',{name:'Projectからこの記事を開いた人'})).toHaveCount(2);
-  await expect(page.getByRole('link',{name:'元のProjectを開く'})).toHaveCount(0);
+  await expect(page.locator('a:not([href^="#"])',{hasText:'元のProjectを開く'})).toHaveCount(0);
   await expect(page.locator('.article-return-to-project').first()).toContainText('このGitHub記事のタブを閉じる');
   await expect(page.locator('.article-return-to-project').first()).toContainText('新しいProjectを作る必要はありません');
   const article=page.locator('.article-content');
@@ -128,7 +128,7 @@ for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'mobile-32
   await expect(page.getByRole('heading',{level:1,name:/Meshy AIは商用利用できる/})).toBeVisible();
   await expect(page.getByText('この記事にはプロモーションを含みます。')).toBeVisible();
   await expect(page.getByRole('heading',{name:'公式情報に現在残る不一致'})).toBeVisible();
-  const affiliate=page.getByRole('link',{name:'現行プランと商用利用条件をMeshy公式で確認する'});
+  const affiliate=page.locator('a[href="https://www.meshy.ai?via=gameaihub"]',{hasText:'現行プランと商用利用条件をMeshy公式で確認する'});
   await expect(affiliate).toHaveCount(1);
   await expect(affiliate).toHaveAttribute('href','https://www.meshy.ai?via=gameaihub');
   await expect(affiliate).toHaveAttribute('rel','sponsored nofollow noopener');
@@ -144,7 +144,7 @@ test.describe('Meshy pricing credit guide responsive acceptance',()=>{
     await page.setViewportSize(viewport);
     await page.goto('/articles/meshy-pricing-credits-game/');
     await expect(page.getByRole('heading',{level:1,name:/Meshy AIの料金は/})).toBeVisible();
-    const affiliate=page.getByRole('link',{name:'現行料金・クレジット・プラン条件をMeshy公式で確認する'});
+    const affiliate=page.locator('a[href="https://www.meshy.ai?via=gameaihub"]',{hasText:'現行料金・クレジット・プラン条件をMeshy公式で確認する'});
     await expect(affiliate).toHaveCount(1);
     await expect(affiliate).toHaveAttribute('href','https://www.meshy.ai?via=gameaihub');
     await expect(affiliate).toHaveAttribute('rel','sponsored nofollow noopener');

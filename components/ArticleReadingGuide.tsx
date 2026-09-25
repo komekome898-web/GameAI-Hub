@@ -71,7 +71,9 @@ export function ArticleReadingGuide({ article }: { article: ArticleRecord }) {
           <ol>
             {entries.map((entry) => (
               <li key={entry.id}>
-                <a href={`#${entry.id}`}>{entry.label}</a>
+                <a href={`#${entry.id}`} aria-label={`目次: ${entry.label}`}>
+                  {entry.label}
+                </a>
               </li>
             ))}
           </ol>
