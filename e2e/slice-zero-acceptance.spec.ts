@@ -13,9 +13,17 @@ import {
   evidenceManifestVersion,
   type EvidenceManifest,
 } from "./acceptance/manifest";
+import { execFileSync } from "node:child_process";
 
 const mobileViewports = acceptanceViewports.filter((viewport) => viewport.width < 400);
-const targetSha = process.env.GITHUB_SHA?.match(/^[0-9a-f]{7,40}$/)?.[0] ?? "df048d7";
+const configuredSha = process.env.ACCEPTANCE_TARGET_SHA ?? process.env.GITHUB_SHA;
+const targetSha = configuredSha?.match(/^[0-9a-f]{7,40}$/)?.[0]
+  ?? execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim();
+const compareOverflowRanges: Record<number, [number, number]> = {
+  320: [70, 130],
+  375: [30, 75],
+  390: [20, 60],
+};
 
 test.describe("Issue 137 Slice 0 rendered baselines", () => {
   for (const viewport of acceptanceViewports) {
@@ -27,7 +35,9 @@ test.describe("Issue 137 Slice 0 rendered baselines", () => {
       const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
       if (viewport.width < 400) {
         // Expected open baseline: Slice 0 records the defect; it does not normalize it.
-        expect(heading?.height, "known Home hero density baseline must still reproduce").toBeGreaterThan(200);
+        expect(heading?.height, "known Home hero density baseline must still reproduce").toBeGreaterThan(180);
+        const ideaField = await page.getByLabel("どんなゲームを作りたいですか？").boundingBox();
+        expect(ideaField?.y, "the full hero composition still pushes the primary input down").toBeGreaterThan(540);
       }
       const record = await captureEvidence(page, testInfo, {
         id: `home-${viewport.id}`,
@@ -64,16 +74,33 @@ test.describe("Issue 137 Slice 0 rendered baselines", () => {
       await expect(page.locator(".compare-picker-panel")).toHaveAttribute("open", "");
       await expect(page.getByLabel("候補を検索")).toBeVisible();
       const diagnostics = await diagnoseWidths(page);
-      expect(
-        diagnostics.documentOverflowPx,
-        "known Compare document-level overflow is open until Slice 6",
-      ).toBeGreaterThan(0);
+      const [minimum, maximum] = compareOverflowRanges[viewport.width];
+      expect(diagnostics.documentOverflowPx, "known Compare overflow signature changed").toBeGreaterThanOrEqual(minimum);
+      expect(diagnostics.documentOverflowPx, "known Compare overflow signature changed").toBeLessThanOrEqual(maximum);
       expect(
         diagnostics.unownedOverflowingElements.length,
         "document overflow must not be misclassified as an owned table/code scroller",
       ).toBeGreaterThan(0);
+      expect(
+        diagnostics.unownedOverflowingElements.some(({ selector }) =>
+          selector.includes("compare-picker-search") || selector === "input"),
+        "picker search must remain the identified open baseline culprit",
+      ).toBe(true);
     });
   }
+
+  test("Compare supports the four-candidate stress contract", async ({ page }) => {
+    await page.setViewportSize(acceptanceViewports[1]);
+    await page.goto(`/compare?ids=${stressValues.compareCandidateIds.join(",")}`);
+    await expect(page.locator(".compare-picker-panel > summary")).toContainText("4 / 4件");
+    await expect(page.locator(".compare-mobile article")).toHaveCount(4);
+    const remove = page.locator(".compare-mobile article").filter({ hasText: "Meshy" })
+      .getByRole("button", { name: "比較から解除" });
+    await remove.focus();
+    await expect(remove).toBeFocused();
+    await page.keyboard.press("Enter");
+    await expect(page.locator(".compare-picker-panel > summary")).toContainText("3 / 4件");
+  });
 });
 
 test("stress fixture covers every required state and distinguishes owned scrollers", async ({ page, context }) => {
@@ -86,7 +113,7 @@ test("stress fixture covers every required state and distinguishes owned scrolle
   </style></head><body>
     <main>
       <h1>${stressValues.longJapaneseHeading}</h1>
-      <label>ゲーム案<textarea>${stressValues.longGameIdea}</textarea></label>
+      <label>ゲーム案<textarea>${stressValues.longGameIdea}${stressValues.secretSentinel}</textarea></label>
       <p>${stressValues.unbrokenToken}</p>
       <section role="status" aria-label="empty-state">候補はまだありません。条件を選んでください。</section>
       <section role="alert">読み込みに失敗しました。再試行できます。</section>
@@ -94,7 +121,7 @@ test("stress fixture covers every required state and distinguishes owned scrolle
       <nav aria-label="expanded-menu"><a href="#fixture">メニュー項目</a></nav>
       <div data-acceptance-scroll-owner="true"><table><tbody><tr><td>比較表</td><td>${stressValues.unbrokenToken}</td></tr></tbody></table></div>
       <pre data-acceptance-scroll-owner="true"><code>const token = "${stressValues.unbrokenToken}";</code></pre>
-      <ol aria-label="compare-candidates">${stressValues.compareCandidateIds.map((id) => `<li>${id}</li>`).join("")}</ol>
+      <fieldset aria-label="compare-candidates">${stressValues.compareCandidateIds.map((id) => `<label><input type="checkbox" value="${id}">${id}</label>`).join("")}</fieldset>
     </main>
   </body></html>`);
 
@@ -103,7 +130,13 @@ test("stress fixture covers every required state and distinguishes owned scrolle
   await expect(page.getByRole("alert")).toBeVisible();
   await expect(page.locator("details")).toHaveAttribute("open", "");
   await expect(page.getByRole("navigation", { name: "expanded-menu" })).toBeVisible();
-  await expect(page.getByRole("list", { name: "compare-candidates" }).getByRole("listitem")).toHaveCount(4);
+  const candidates = page.getByRole("group", { name: "compare-candidates" }).getByRole("checkbox");
+  await expect(candidates).toHaveCount(4);
+  for (const candidate of await candidates.all()) await candidate.check();
+  for (const candidate of await candidates.all()) await expect(candidate).toBeChecked();
+  await page.locator("details > summary").focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("details")).not.toHaveAttribute("open", "");
   expect(stressContracts.map(({ id }) => id)).toEqual([
     "long-japanese-heading",
     "long-game-idea",

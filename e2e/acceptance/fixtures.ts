@@ -47,9 +47,11 @@ export const stressContracts: ReadonlyArray<{
 ]);
 
 export async function installAcceptanceNetworkGuard(context: BrowserContext) {
-  const collectorAttempts: string[] = [];
+  const collectorAttempts: Array<{ origin: string; pathname: string }> = [];
   await context.route(googleAnalyticsRequest, (route) => {
-    collectorAttempts.push(route.request().url());
+    const requestUrl = new URL(route.request().url());
+    // Deliberately discard the query and body: a regression may place secrets there.
+    collectorAttempts.push({ origin: requestUrl.origin, pathname: requestUrl.pathname });
     return route.abort("blockedbyclient");
   });
   return collectorAttempts;
