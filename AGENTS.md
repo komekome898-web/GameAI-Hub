@@ -235,6 +235,21 @@ Growth, SEO, acquisition, retention, or monetization strategy work should also r
 ## 11. Cloud Task execution and repository truth
 
 For Codex Cloud Tasks, follow `CODEX_CLOUD_TASK.md`.
+
+### Mandatory pre-work Git/GitHub hard gate
+
+For any Codex Cloud Task expected to create or preserve repository artifacts, **no substantial audit, research, implementation, screenshot/evidence generation, documentation drafting, or other expensive work may begin until the Git/GitHub bootstrap in `CODEX_CLOUD_TASK.md` has passed**.
+
+At minimum, Codex must first verify:
+- the canonical `origin` exists and points to this repository
+- `git fetch origin --prune` succeeds
+- `origin/main` exists and its SHA is known
+- the available GitHub authentication/write path is usable without exposing credentials
+- when the task requires branch/commit/PR delivery, a remote task branch or harmless checkpoint can actually be pushed and verified remotely
+
+If this hard gate fails, stop before producing substantial local-only work. A local commit, file, screenshot set, audit, or report that cannot be durably handed off is **not task progress** and must not be created in place of a recoverable repository artifact.
+
+A task prompt does not need to repeat this gate for it to apply.
 For repository orchestration runs, also follow `docs/agent-guides/ORCHESTRATION.md` and only the guide for the actor's current stage. The pinned Canonical Task owns intent; the Run Manifest is the sole mutable machine-state authority.
 
 Core invariant:

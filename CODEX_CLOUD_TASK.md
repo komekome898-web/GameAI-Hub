@@ -41,11 +41,24 @@ Read in this order:
 
 Do not rely on conversational memory when repository artifacts exist.
 
-## 2. Mandatory startup bootstrap
+## 2. Mandatory startup bootstrap — HARD GATE
 
 Never assume the local clone, `origin`, local `main`, authentication state, or prior task branch is valid.
 
-Before substantial implementation, restore and verify the working environment.
+**This section is a blocking precondition, not guidance. Complete it before substantial work of any kind.**
+
+Until Sections 2.1–2.5 and the write-path proof in Section 3 succeed, do not begin:
+- implementation or refactoring
+- Production/browser audits beyond the minimum needed to bootstrap
+- competitor/external research
+- screenshot or evidence capture
+- long-form documentation/specification drafting
+- generated assets or reports
+- any work that would be expensive to recreate if the workspace disappears
+
+The task prompt does not need to repeat this requirement. It applies automatically to every Codex Cloud Task that is expected to leave durable repository artifacts.
+
+Before substantial work, restore and verify the working environment.
 
 ### 2.1 Inspect existing work before changing branches
 
@@ -120,21 +133,50 @@ If valid unfinished work exists, resume it instead of creating a duplicate branc
 If this is genuinely new work, create a dedicated branch from current `origin/main`.
 Never perform substantial feature work directly on `main`.
 
-## 3. Prove the write path before expensive work
+## 3. Prove the write path before expensive work — HARD GATE
+
+For every task that requires a branch, commit, pushed artifact, or PR, prove that work can be preserved remotely **before** investing in the task itself. This includes documentation-only audits and design specifications, not just application code.
+
+A successful `gh auth status` alone is insufficient. A token existing in the environment is insufficient. The proof must exercise the actual repository write path.
+
+Required sequence:
+1. restore/verify canonical `origin`
+2. `git fetch origin --prune`
+3. verify `origin/main` and record its SHA
+4. create or resume the dedicated task branch
+5. create the smallest harmless coherent checkpoint needed to establish the branch remotely
+6. push it
+7. verify the remote branch/ref and pushed SHA from GitHub
+8. only then start substantial audit/research/implementation
+
+If the task is strictly read-only and explicitly forbids repository writes, record that exception and do not claim a durable handoff.
 
 For a new long-running or interruption-prone task, prove that work can be preserved remotely before investing heavily in implementation.
 
 Create a harmless coherent first checkpoint, push the task branch, and verify the pushed commit/branch exists remotely.
 
 If push fails:
-1. inspect authentication
-2. inspect `origin`
-3. fetch/prune again
-4. confirm the branch/ref
-5. retry safe recovery
-6. if still blocked, stop before accumulating large unpushed work
+1. **stop substantial task work immediately; do not create a large local-only artifact**
+2. inspect authentication
+3. inspect `origin`
+4. fetch/prune again
+5. confirm the branch/ref
+6. retry safe recovery
+7. if still blocked, report the bootstrap blocker and end the task before accumulating unpushed work
 
-Do not finish a large implementation before discovering that remote preservation is broken.
+Do not finish a large implementation, audit, design specification, evidence set, or research report before discovering that remote preservation is broken.
+
+### 3.1 Bootstrap evidence required in final handoff
+
+For tasks with repository writes, the final report must identify:
+- canonical origin verified
+- fetched `origin/main` SHA used as the base
+- remote task branch
+- earliest remotely verified checkpoint SHA
+- final pushed SHA
+- PR URL when a PR is required
+
+If these cannot be supplied from remote repository truth, do not describe the repository handoff as complete.
 
 ## 4. Progress ledger
 
