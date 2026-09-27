@@ -75,18 +75,39 @@ Preserve unknown or unrelated user work. Do not discard it merely to force a cle
 
 ### 2.2 Restore GitHub authentication without exposing secrets
 
-If `GH_TOKEN`, `GITHUB_PAT`, or another authorized GitHub credential is available, use it without printing its value.
+This repository has repeatedly run in Codex Cloud workspaces where `origin` is absent and `gh` has no persisted login even though an authorized `GITHUB_PAT` is injected into the environment. Therefore authentication recovery is **mandatory and explicit**, not optional wording such as “when applicable”.
 
-Typical setup when applicable:
+Run the following before any authenticated Git operation. Do not use `set -x` around this block.
 
 ```bash
-export GH_TOKEN="${GH_TOKEN:-$GITHUB_PAT}"
+# Never print either variable.
+if [ -n "${GITHUB_PAT:-}" ]; then
+  export GH_TOKEN="$GITHUB_PAT"
+fi
+
+if [ -z "${GH_TOKEN:-}" ]; then
+  echo "BLOCKED: neither GH_TOKEN nor GITHUB_PAT is available for GitHub write access" >&2
+  exit 1
+fi
+
+# Configure Git's credential path from the token-backed gh environment.
 gh auth setup-git
 ```
 
-Never echo, log, print, commit, screenshot, or include secret/token values in reports.
+Then verify authentication **without displaying token values**:
 
-If authentication is unavailable, try the environment's supported GitHub connection. If write access still cannot be established, do not begin substantial work that cannot be preserved remotely.
+```bash
+gh auth status
+gh api repos/komekome898-web/GameAI-Hub --jq '.full_name'
+```
+
+Rules:
+- Prefer an already supplied `GH_TOKEN`; otherwise map the supplied `GITHUB_PAT` into `GH_TOKEN` exactly as above.
+- Do not echo, inspect, serialize, log, screenshot, commit, or report either credential value.
+- Do not ask the user to paste a token into chat.
+- Do not conclude “no GitHub credentials” merely because `gh auth status` initially reports no stored host. First perform the environment-variable recovery above.
+- Read access is not proof of write access. Section 3's real push proof remains mandatory.
+- If neither environment credential exists, or `gh auth setup-git` / authenticated API access fails after this recovery, stop before substantial work and report the exact bootstrap blocker.
 
 ### 2.3 Restore `origin`
 
