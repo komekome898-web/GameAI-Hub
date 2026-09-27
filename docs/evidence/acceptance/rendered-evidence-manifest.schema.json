@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://game-ai-hub.vercel.app/schemas/rendered-evidence-manifest-v1.json",
+  "title": "GameAI Hub rendered evidence manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "target", "records"],
+  "properties": {
+    "schema": { "const": "gameai-rendered-evidence/v1" },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sha", "environment", "baseUrl"],
+      "properties": {
+        "sha": { "type": "string", "pattern": "^[0-9a-f]{7,40}$" },
+        "environment": { "enum": ["local", "preview", "production"] },
+        "baseUrl": { "type": "string", "format": "uri" }
+      }
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "route", "viewport", "zoom", "emulation", "state", "screenshot", "diagnostics", "provenance"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "route": { "type": "string", "pattern": "^/" },
+          "viewport": { "$ref": "#/$defs/viewport" },
+          "zoom": { "$ref": "#/$defs/zoom" },
+          "emulation": { "$ref": "#/$defs/emulation" },
+          "state": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+          "screenshot": { "type": "string", "minLength": 1 },
+          "diagnostics": { "$ref": "#/$defs/diagnostics" },
+          "provenance": { "$ref": "#/$defs/provenance" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "viewport": { "type": "object", "additionalProperties": false, "required": ["width", "height"], "properties": { "width": { "type": "integer", "minimum": 1 }, "height": { "type": "integer", "minimum": 1 } } },
+    "zoom": { "type": "object", "additionalProperties": false, "required": ["mode", "factor"], "properties": { "mode": { "enum": ["none", "browser-emulation"] }, "factor": { "type": "number", "minimum": 1 } } },
+    "emulation": { "type": "object", "additionalProperties": false, "required": ["viewport", "physicalDevice"], "properties": { "viewport": { "type": "boolean" }, "physicalDevice": { "type": "boolean" }, "userAgentProfile": { "type": "string" } } },
+    "diagnostics": { "type": "object", "additionalProperties": false, "required": ["documentOverflowPx", "ownedLocalScrollers", "unownedOverflowingElements"], "properties": { "documentOverflowPx": { "type": "number", "minimum": 0 }, "ownedLocalScrollers": { "type": "integer", "minimum": 0 }, "unownedOverflowingElements": { "type": "integer", "minimum": 0 } } },
+    "provenance": { "type": "object", "additionalProperties": false, "required": ["capturedAt", "runner"], "properties": { "capturedAt": { "type": "string", "format": "date-time" }, "runner": { "type": "string", "minLength": 1 }, "note": { "type": "string" } } }
+  }
+}

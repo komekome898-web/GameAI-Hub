@@ -1,6 +1,6 @@
 import { test as base, expect } from "@playwright/test";
 
-const googleAnalyticsRequest = /(?:googletagmanager\.com\/gtag|google-analytics\.com|analytics\.google\.com|\/g\/collect)/i;
+export const googleAnalyticsRequest = /(?:googletagmanager\.com\/gtag|google-analytics\.com|analytics\.google\.com|\/g\/collect)/i;
 
 export const test = base.extend({
   context: async ({ context }, runFixture) => {
