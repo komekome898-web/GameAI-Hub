@@ -537,3 +537,49 @@ article.page-shell .stage-decision>summary strong{
 @media(max-width:680px){.home-paths,.home-featured{padding-block:46px}.home-path-grid,.home-featured-grid,.article-cluster-grid{grid-template-columns:1fr}.home-path-grid>a,.home-featured-grid>article{min-height:0;padding:20px}.article-reading-guide{margin:18px 0 4px}.article-answer,.article-toc{padding:16px 14px}.article-toc li{margin:9px 0}.article-toc a{display:inline-flex;align-items:center;min-height:38px;font-size:.92rem}.article-content>section p,.article-content>section li{font-size:1rem;line-height:1.85}.article-content>.page-head h1{font-size:clamp(1.85rem,8.8vw,2.5rem);line-height:1.25}.hub-project-cta{display:grid;padding:24px 18px!important}.hub-project-cta .button{width:100%}}
 @media(max-width:520px){.article-decision-table table{min-width:0;width:100%}.article-toc a{min-height:44px}}
 @media(max-width:340px){.brand-copy{display:none!important}.menu-button{flex:0 0 44px;width:44px;min-width:44px}.compare-picker-panel>summary{display:grid;grid-template-columns:minmax(0,1fr) auto}.article-content>.page-head h1{font-size:1.75rem}.article-answer p{font-size:.96rem}.hub-jumps a{width:100%;justify-content:center}}
+
+/* Issue #137 Slice 1: semantic foundations. Legacy tokens above remain available so
+   route composition can migrate one owned slice at a time without a global redesign. */
+:root{
+ --type-display:clamp(2.25rem,1.95rem + 1.35vw,3.25rem);--type-h1:clamp(1.875rem,1.72rem + .65vw,2.5rem);--type-h2:clamp(1.5rem,1.39rem + .42vw,1.875rem);--type-h3:clamp(1.1875rem,1.13rem + .2vw,1.375rem);--type-body-lg:clamp(1.0625rem,1.03rem + .12vw,1.125rem);--type-body:1rem;--type-small:.875rem;--type-meta:.75rem;--type-label:.9375rem;--type-code:.875rem;
+ --leading-display:1.12;--leading-h1:1.22;--leading-h2:1.32;--leading-h3:1.4;--leading-body:1.75;--leading-small:1.6;--leading-meta:1.5;
+ --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--section-block:clamp(40px,7vw,80px);--section-compact:clamp(28px,5vw,48px);
+ --shell-max:1200px;--content-max:960px;--reading-max:44rem;--form-max:720px;--gutter:clamp(16px,4vw,32px);--grid-gap:clamp(16px,2.5vw,28px);--header-height:64px;--control-min:44px;
+ --radius-sm:6px;--radius-md:10px;--radius-lg:16px;--border-size:1px;
+ --color-canvas:#f7faf9;--color-surface:#fff;--color-surface-subtle:#eef6f3;--color-text:#142e2a;--color-text-muted:#4f6863;--color-border:#b8cbc6;--color-action:#176b5b;--color-action-hover:#105346;--color-info:#245f91;--color-success:#28744f;--color-warning:#8a5a12;--color-danger:#a33b35;--color-promo:#8a4d20;
+ --focus-ring:3px solid #0b6fd3;--focus-offset:3px;--motion-state:120ms;--motion-disclosure:200ms;--anchor-offset:calc(var(--header-height) + var(--space-4));
+}
+@media(max-width:599px){:root{--header-height:56px}}
+@media(max-width:339px){:root{--gutter:12px;--type-code:.8125rem}}
+
+/* Intrinsic-size invariants are deliberately geometry-only. Visual route migration
+   remains opt-in through ui-* classes and each route-owning redesign slice. */
+:where(main,header,footer,nav,section,article,aside,form,fieldset,li,dl,dd){min-width:0}
+:where(img,video,canvas,svg,iframe){max-width:100%}
+:where(.ui-contain-text,[data-user-content="true"],[data-generated-content="true"]){min-width:0;max-width:100%;overflow-wrap:anywhere;word-break:break-word}
+:where([id]){scroll-margin-block-start:var(--anchor-offset)}
+
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:var(--focus-ring);outline-offset:var(--focus-offset);box-shadow:0 0 0 1px #fff}
+:where(button,input,select,textarea):disabled,[aria-disabled="true"]{cursor:not-allowed;opacity:.62}
+
+.ui-shell{width:min(100%,var(--shell-max));margin-inline:auto;padding-inline:var(--gutter)}
+.ui-content{width:min(100%,var(--content-max));margin-inline:auto}.ui-reading{width:min(100%,var(--reading-max));margin-inline:auto}.ui-form{width:min(100%,var(--form-max))}
+.ui-stack{display:grid;gap:var(--space-4)}.ui-cluster{display:flex;min-width:0;flex-wrap:wrap;gap:var(--space-3)}.ui-stack>*,.ui-cluster>*{min-width:0}
+.ui-type-h1{font-size:var(--type-h1);font-weight:800;line-height:var(--leading-h1);overflow-wrap:anywhere}.ui-type-h2{font-size:var(--type-h2);font-weight:750;line-height:var(--leading-h2)}.ui-type-h3{font-size:var(--type-h3);font-weight:750;line-height:var(--leading-h3)}.ui-type-body{font-size:var(--type-body);line-height:var(--leading-body)}
+
+.ui-action-group{display:flex;min-width:0;flex-wrap:wrap;gap:var(--space-2)}
+.ui-action{display:inline-flex;min-width:0;min-height:var(--control-min);align-items:center;justify-content:center;padding:var(--space-2) var(--space-4);border:var(--border-size) solid transparent;border-radius:var(--radius-sm);font-size:var(--type-label);font-weight:700;line-height:1.4;text-align:center;text-decoration:none;white-space:normal;transition:background-color var(--motion-state),border-color var(--motion-state),color var(--motion-state)}
+.ui-action--primary{background:var(--color-action);color:#fff}.ui-action--primary:hover{background:var(--color-action-hover)}.ui-action--secondary{border-color:var(--color-action);background:var(--color-surface);color:var(--color-action)}.ui-action--neutral{border-color:var(--color-border);background:var(--color-surface);color:var(--color-text)}.ui-action--danger{background:var(--color-danger);color:#fff}
+
+.ui-field{display:grid;min-width:0;gap:var(--space-2);color:var(--color-text)}.ui-field__label{font-size:var(--type-label);font-weight:700}.ui-field :where(input,select,textarea){width:100%;min-height:var(--control-min);padding:var(--space-2) var(--space-3);border:var(--border-size) solid var(--color-border);border-radius:var(--radius-sm);background:var(--color-surface);color:var(--color-text);font-size:var(--type-body)}.ui-field textarea{resize:vertical}.ui-field__help,.ui-field__error{margin:0;font-size:var(--type-small);line-height:var(--leading-small);overflow-wrap:anywhere}.ui-field__help{color:var(--color-text-muted)}.ui-field__error{color:var(--color-danger);font-weight:600}.ui-field--error :where(input,select,textarea),[aria-invalid="true"]{border-color:var(--color-danger)}
+
+.ui-status{min-width:0;padding:var(--space-4);border:var(--border-size) solid var(--color-border);border-inline-start-width:4px;border-radius:var(--radius-md);background:var(--color-surface);color:var(--color-text);overflow-wrap:anywhere}.ui-status--info{border-inline-start-color:var(--color-info)}.ui-status--success{border-inline-start-color:var(--color-success)}.ui-status--warning{border-inline-start-color:var(--color-warning)}.ui-status--error{border-inline-start-color:var(--color-danger)}.ui-status__title{display:block}.ui-status__body{margin-block-start:var(--space-2)}
+
+.ui-responsive-table,.ui-scroll-region{min-width:0;max-width:100%}.ui-scroll-hint{margin:0 0 var(--space-2);color:var(--color-text-muted);font-size:var(--type-small)}.ui-scroll-region{overflow-x:auto;overscroll-behavior-inline:contain;border:var(--border-size) solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface);scrollbar-gutter:stable;-webkit-overflow-scrolling:touch}.ui-scroll-region:focus-visible{outline:var(--focus-ring);outline-offset:var(--focus-offset)}.ui-scroll-region table{border-collapse:collapse;min-width:max-content;width:100%}.ui-scroll-region :where(th,td){padding:var(--space-3);text-align:start;vertical-align:top}.ui-scroll-region th{font-weight:700}.ui-scroll-region caption{padding:var(--space-3);font-weight:700;text-align:start}.ui-code-region pre{min-width:max-content;max-width:none;margin:0;padding:var(--space-4);overflow:visible;background:transparent;color:inherit;font:400 var(--type-code)/1.65 ui-monospace,SFMono-Regular,Consolas,monospace}.ui-code-region code{white-space:pre}
+
+/* Existing article owners gain the same focus and containment contract without
+   changing their table markup or mobile presentation. */
+.article-decision-table{overscroll-behavior-inline:contain;scrollbar-gutter:stable}.article-decision-table:focus-visible{outline:var(--focus-ring);outline-offset:var(--focus-offset)}
+
+@media(max-width:599px){.ui-action-group{display:grid}.ui-action-group>.ui-action{width:100%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}:where(*,::before,::after){scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
