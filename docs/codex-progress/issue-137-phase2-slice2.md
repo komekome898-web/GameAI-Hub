@@ -12,5 +12,5 @@
 - Independent review: no introduced P0/P1; fixed stale 320 branding evidence, permissive first-view threshold, viewport-contained menu layer, and background ambiguity
 - Open P1: Home remains open pending owner physical-iPhone Production recheck; Compare mobile overflow remains Slice 6 and open
 - Quality/build/E2E: `npm run quality` (290 Vitest + 65 orchestration), `npm run build` (70 routes), and 69-test relevant E2E passed; `git diff --check` passed
-- GitHub/PR: implementation checkpoints pushed; final evidence/ledger commit and PR pending
-- Exact next action: push final evidence/ledger commit and open one PR against main
+- GitHub/PR: PR #143 open against `main`; final acceptance commit before this ledger update: `bd1df40bca6da236a8c67739579a8b64e9494ef7`
+- Exact next action: owner reviews PR #143 and performs the required physical-iPhone Production recheck after deployment
