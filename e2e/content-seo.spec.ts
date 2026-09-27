@@ -180,8 +180,9 @@ test('Issue 135 mobile table and navigation remain usable at 320px',async({page}
  await expect(table.locator('tbody').first()).toHaveCSS('display','block');
  const menu=page.getByRole('button',{name:'メニューを開く'});
  await menu.click();
- await expect(page.getByRole('navigation',{name:'モバイルナビゲーション'})).toBeVisible();
- await expect(page.getByRole('link',{name:/Projectを始める/}).last()).toHaveCSS('min-height','44px');
+ const mobileNavigation=page.getByRole('navigation',{name:'モバイルナビゲーション'});
+ await expect(mobileNavigation).toBeVisible();
+ await expect(mobileNavigation.getByRole('link',{name:/Projectを始める/})).toHaveCSS('min-height','44px');
  await page.keyboard.press('Escape');
  await expect(menu).toBeFocused();
 });

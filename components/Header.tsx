@@ -30,7 +30,11 @@ export function Header() {
   useEffect(() => {
     if (!open) return;
     const previousOverflow = document.body.style.overflow;
+    const background = [document.querySelector("main"), document.querySelector(".site-footer")].filter(
+      (element): element is HTMLElement => element instanceof HTMLElement,
+    );
     document.body.style.overflow = "hidden";
+    background.forEach((element) => element.setAttribute("inert", ""));
     const focusable = () =>
       Array.from(menuPanel.current?.querySelectorAll<HTMLElement>(focusableSelector) ?? []);
     focusable()[0]?.focus();
@@ -57,6 +61,7 @@ export function Header() {
     window.addEventListener("keydown", onKeyDown);
     return () => {
       document.body.style.overflow = previousOverflow;
+      background.forEach((element) => element.removeAttribute("inert"));
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [open]);
