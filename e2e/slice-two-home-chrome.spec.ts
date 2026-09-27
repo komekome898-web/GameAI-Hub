@@ -17,7 +17,7 @@ test.describe("Issue 137 Slice 2 Home composition", () => {
       const [headingBox, actionBox] = await Promise.all([h1.boundingBox(), action.boundingBox()]);
       if (viewport.width < 400) {
         expect(headingBox?.height).toBeLessThan(150);
-        expect(actionBox?.y).toBeLessThan(viewport.width === 390 ? 700 : 760);
+        expect(actionBox?.y).toBeLessThan(600);
         expect((actionBox?.y ?? 0) + (actionBox?.height ?? 0)).toBeLessThanOrEqual(viewport.height);
       }
       expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);

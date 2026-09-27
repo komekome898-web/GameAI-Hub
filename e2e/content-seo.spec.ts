@@ -159,8 +159,8 @@ test('Issue 135 journey keeps analytics local and navigates Home to cluster, art
  const collectorRequests:string[]=[];
  await page.route(/google-analytics|googletagmanager|analytics\.google/,route=>{collectorRequests.push(route.request().url());return route.abort()});
  await page.goto('/');
- await expect(page.getByRole('heading',{level:1,name:/次の1作業から/})).toBeVisible();
- await page.getByRole('link',{name:/目的別の記事へ/}).click();
+ await expect(page.getByRole('heading',{level:1,name:/次の1作業を決める/})).toBeVisible();
+ await page.getByRole('link',{name:/記事へ/}).first().click();
  await expect(page).toHaveURL(/\/articles\/$/);
  await expect(page.getByRole('heading',{name:'ゲーム音声を作る・公開条件を確かめる'})).toBeVisible();
  await page.getByRole('link',{name:/ゲーム開発向けElevenLabs使い方ガイド/}).click();
@@ -181,7 +181,7 @@ test('Issue 135 mobile table and navigation remain usable at 320px',async({page}
  const menu=page.getByRole('button',{name:'メニューを開く'});
  await menu.click();
  await expect(page.getByRole('navigation',{name:'モバイルナビゲーション'})).toBeVisible();
- await expect(page.getByRole('link',{name:'ゲームを作る'}).last()).toHaveCSS('min-height','48px');
+ await expect(page.getByRole('link',{name:/Projectを始める/}).last()).toHaveCSS('min-height','44px');
  await page.keyboard.press('Escape');
  await expect(menu).toBeFocused();
 });

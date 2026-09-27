@@ -30,14 +30,14 @@ test.describe("Issue 137 Slice 0 rendered baselines", () => {
     test(`Home is capturable with provenance at ${viewport.width}x${viewport.height}`, async ({ page }, testInfo) => {
       await page.setViewportSize(viewport);
       await page.goto("/");
-      await expect(page.getByRole("heading", { level: 1, name: /次の1作業から/ })).toBeVisible();
+      await expect(page.getByRole("heading", { level: 1, name: /次の1作業を決める/ })).toBeVisible();
       const diagnostics = await diagnoseWidths(page);
       const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
       if (viewport.width < 400) {
         // Slice 2 replaces the expected-open density baseline with the bounded Home contract.
         expect(heading?.height, "Home H1 must use the bounded scale").toBeLessThan(150);
         const primaryAction = await page.getByRole("button", { name: "最初の作業を作る" }).boundingBox();
-        expect(primaryAction?.y, "the primary action must remain near the first viewport").toBeLessThan(760);
+        expect(primaryAction?.y, "the primary action must remain in the first-view composition").toBeLessThan(600);
       }
       const record = await captureEvidence(page, testInfo, {
         id: `home-${viewport.id}`,
