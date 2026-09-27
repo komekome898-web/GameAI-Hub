@@ -37,7 +37,7 @@ async function beginFromHome(page: Page, idea: string) {
   await page.goto("/");
   await page.getByLabel("どんなゲームを作りたいですか？").fill(idea);
   await page
-    .getByRole("button", { name: "制作ロードマップを作る", exact: true })
+    .getByRole("button", { name: "最初の作業を作る", exact: true })
     .click();
   const starter = page.locator(".beginner-starter");
   await expect(starter).toBeVisible();
@@ -228,9 +228,9 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
     const guidePage = await guidePagePromise;
     await guidePage.waitForLoadState();
     await expect(guidePage.locator(".article-return-to-project")).toHaveCount(2);
-    await expect(
-      guidePage.locator('a:not([href^="#"])', { hasText: /元のProject/ }),
-    ).toHaveCount(0);
+    await expect(guidePage.locator(".article-return-to-project a")).toHaveCount(
+      0,
+    );
     await guidePage.close();
     await page.bringToFront();
 
@@ -381,9 +381,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
           guidePage.getByRole("heading", { name: "Projectからこの記事を開いた人" }),
         ).toHaveCount(2);
         await expect(
-          guidePage.locator('a:not([href^="#"])', {
-            hasText: /Project|元のProject/,
-          }),
+          guidePage.locator(".article-return-to-project a"),
         ).toHaveCount(0);
         await retainScreenshot(guidePage, testInfo, "github-guide-return-375");
         await guidePage.close();
@@ -465,7 +463,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
           name: "モバイルナビゲーション",
           exact: true,
         })
-        .getByRole("link", { name: "AI・ツールを選ぶ", exact: true })
+        .getByRole("link", { name: "AI・ツール", exact: true })
         .click();
       await expect(page).toHaveURL(/\/tools/);
       await page.goBack();
