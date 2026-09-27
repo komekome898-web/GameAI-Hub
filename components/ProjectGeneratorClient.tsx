@@ -366,7 +366,7 @@ export function ProjectIdeaForm({
         </p>
       )}
       <button className="button" type="submit">
-        制作ロードマップを作る
+        {location === "home" ? "最初の作業を作る" : "制作ロードマップを作る"}
       </button>
       {location === "home" ? (
         <details className="idea-examples-panel">

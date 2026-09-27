@@ -34,7 +34,7 @@ describe("Project Generator client", () => {
     fireEvent.change(screen.getByLabelText(/どんなゲームを作りたいですか？/), {
       target: { value: idea },
     });
-    fireEvent.click(screen.getByRole("button", { name: "制作ロードマップを作る" }));
+    fireEvent.click(screen.getByRole("button", { name: "最初の作業を作る" }));
     expect(sessionStorage.getItem("gameai:project-idea")).toBe(idea);
     expect(push).toHaveBeenCalledWith("/project");
     const detail = (listener.mock.calls[0][0] as CustomEvent).detail;
@@ -55,7 +55,7 @@ describe("Project Generator client", () => {
       target: { value: "小さな2Dゲーム" },
     });
     expect(() =>
-      fireEvent.click(screen.getByRole("button", { name: "制作ロードマップを作る" })),
+      fireEvent.click(screen.getByRole("button", { name: "最初の作業を作る" })),
     ).not.toThrow();
     expect(push).toHaveBeenCalledWith("/project");
   });
@@ -68,7 +68,7 @@ describe("Project Generator client", () => {
     fireEvent.change(screen.getByLabelText(/どんなゲームを作りたいですか？/), {
       target: { value: "スマートフォン向け2Dパズル" },
     });
-    fireEvent.click(screen.getByRole("button", { name: "制作ロードマップを作る" }));
+    fireEvent.click(screen.getByRole("button", { name: "最初の作業を作る" }));
     cleanup();
     render(<ProjectGeneratorClient />);
     expect(await screen.findByText("スマートフォン向け2Dパズル")).toBeTruthy();
