@@ -32,7 +32,7 @@ async function openDetailedConditions(page: Page) {
 
 async function generateProject(page: Page, idea: string) {
   await page.getByLabel('どんなゲームを作りたいですか？').fill(idea);
-  await page.getByRole('button', { name: '制作ロードマップを作る' }).click();
+  await page.getByRole('button', { name: /(?:最初の作業|制作ロードマップ)を作る/ }).click();
   const form = page.locator('.clarify-form');
   await openDetailedConditions(page);
   await expect(form).toBeVisible({ timeout: 20_000 });
@@ -145,7 +145,7 @@ test('375px: 明示したGodotを保持しno voice/no 3Dの最初の工程を完
   await page.setViewportSize(mobile);
   await page.goto('/');
   await expectNoHorizontalOverflow(page);
-  const button = page.getByRole('button', { name: '制作ロードマップを作る' });
+  const button = page.getByRole('button', { name: '最初の作業を作る' });
   const box = await button.boundingBox();
   expect(box?.height).toBeGreaterThanOrEqual(44);
   await generateProject(page, '2Dパズル。ブラウザゲーム。一人開発。初心者。無料で作る。個人利用。Godot。音声なし。3Dなし。');
