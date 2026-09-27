@@ -4,10 +4,16 @@ import { ActionGroup, CodeBlock, Field, ResponsiveTable, StatusNotice, actionCla
 
 describe("foundation primitives", () => {
   it("exposes semantic action and field contracts", () => {
-    render(<><ActionGroup aria-label="actions"><button className={actionClass("secondary")}>Continue</button></ActionGroup><Field label="Game idea" htmlFor="idea" help="Keep it concrete" error="Required"><textarea id="idea" /></Field></>);
+    render(<><ActionGroup aria-label="actions"><button className={actionClass("secondary")} aria-busy="true">Continue</button></ActionGroup><Field label="Game idea" htmlFor="idea" help="Keep it concrete" error="Required"><textarea aria-describedby="idea-counter" /></Field></>);
     expect(screen.getByRole("group", { name: "actions" }).className).toContain("ui-action-group");
     expect(screen.getByRole("button").className).toContain("ui-action--secondary");
-    expect(screen.getByLabelText("Game idea")).toBeTruthy();
+    expect(screen.getByRole("button", { name: "Continue" }).getAttribute("aria-busy")).toBe("true");
+    const field = screen.getByLabelText("Game idea");
+    expect(field.id).toBe("idea");
+    expect(field.getAttribute("aria-invalid")).toBe("true");
+    const descriptions = field.getAttribute("aria-describedby")?.split(" ") ?? [];
+    expect(descriptions[0]).toBe("idea-counter");
+    expect(descriptions.slice(1).every((id) => document.getElementById(id))).toBe(true);
     expect(screen.getByRole("alert").textContent).toContain("Required");
   });
 

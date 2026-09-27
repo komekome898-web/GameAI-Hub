@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactNode } from "react";
+import { cloneElement, useId, type HTMLAttributes, type ReactElement, type ReactNode } from "react";
 
 type ActionTone = "primary" | "secondary" | "neutral" | "danger";
 type NoticeTone = "info" | "success" | "warning" | "error";
@@ -16,16 +16,25 @@ type FieldProps = HTMLAttributes<HTMLDivElement> & {
   htmlFor: string;
   help?: ReactNode;
   error?: ReactNode;
-  children: ReactNode;
+  children: ReactElement<{ id?: string; "aria-describedby"?: string; "aria-invalid"?: boolean }>;
 };
 
 export function Field({ label, htmlFor, help, error, children, className = "", ...props }: FieldProps) {
+  const generatedId = useId();
+  const helpId = help ? `${generatedId}-help` : undefined;
+  const errorId = error ? `${generatedId}-error` : undefined;
+  const describedBy = [children.props["aria-describedby"], helpId, errorId].filter(Boolean).join(" ") || undefined;
+  const control = cloneElement(children, {
+    id: children.props.id ?? htmlFor,
+    "aria-describedby": describedBy,
+    "aria-invalid": error ? true : children.props["aria-invalid"],
+  });
   return (
     <div className={`ui-field ${error ? "ui-field--error" : ""} ${className}`.trim()} {...props}>
       <label className="ui-field__label" htmlFor={htmlFor}>{label}</label>
-      {children}
-      {help && <p className="ui-field__help">{help}</p>}
-      {error && <p className="ui-field__error" role="alert">{error}</p>}
+      {control}
+      {help && <p className="ui-field__help" id={helpId}>{help}</p>}
+      {error && <p className="ui-field__error" id={errorId} role="alert">{error}</p>}
     </div>
   );
 }
