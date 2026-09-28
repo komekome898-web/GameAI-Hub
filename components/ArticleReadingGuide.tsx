@@ -51,13 +51,6 @@ export function ArticleReadingGuide({ article }: { article: ArticleRecord }) {
       heading.id = id;
       return { id, label };
     });
-    if (window.location.hash) {
-      requestAnimationFrame(() => {
-        document
-          .getElementById(decodeURIComponent(window.location.hash.slice(1)))
-          ?.scrollIntoView();
-      });
-    }
     const node = document.createElement("div");
     node.dataset.articleReadingGuide = "true";
     header.insertAdjacentElement("afterend", node);
@@ -73,6 +66,20 @@ export function ArticleReadingGuide({ article }: { article: ArticleRecord }) {
       node.remove();
     };
   }, []);
+  useEffect(() => {
+    if (!entries.length || !window.location.hash) return;
+    const revealFragment = () => {
+      document
+        .getElementById(decodeURIComponent(window.location.hash.slice(1)))
+        ?.scrollIntoView();
+    };
+    const frame = requestAnimationFrame(revealFragment);
+    const timer = window.setTimeout(revealFragment, 150);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.clearTimeout(timer);
+    };
+  }, [entries]);
   useEffect(() => {
     if (!toc.current) return;
     if (typeof window.matchMedia !== "function") return;
