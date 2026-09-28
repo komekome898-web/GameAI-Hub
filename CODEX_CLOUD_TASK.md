@@ -176,6 +176,35 @@ For a new long-running or interruption-prone task, prove that work can be preser
 
 Create a harmless coherent first checkpoint, push the task branch, and verify the pushed commit/branch exists remotely.
 
+### 3.1 Checkpoint quality gate and notification discipline
+
+Remote durability does **not** mean pushing every intermediate edit. Every push can trigger repository Actions and user notifications.
+
+For the initial bootstrap checkpoint:
+- keep it harmless and coherent (normally only the progress ledger or another non-runtime skeleton)
+- do not include knowingly broken application/test code
+- perform `git diff --check` and any trivial validation relevant to the checkpoint before pushing
+
+After substantial work begins, push only at **recoverable coherent milestones**, not after each small edit or failed experiment.
+
+Before every non-bootstrap checkpoint push:
+1. inspect the exact diff and changed paths
+2. run `git diff --check`
+3. run the fastest relevant local gate for the changed scope (targeted unit/test, lint/typecheck subset, or equivalent)
+4. if application/runtime/test code changed, do not push while that relevant gate is known failing
+5. only after the fast gate passes, commit and push the coherent checkpoint
+6. reserve full `npm run quality`, full E2E, and build for the task's required acceptance points/final handoff unless the task explicitly requires them earlier
+
+Rules:
+- never use remote CI as the normal edit-debug loop
+- never knowingly push a red checkpoint merely to preserve it
+- if a failing experiment is valuable, keep it local until repaired or record the finding in the already-pushed progress ledger
+- do not create a series of tiny checkpoint pushes that each trigger the same workflows
+- a checkpoint should be large enough to be useful for recovery and small enough to resume safely
+- if a remote checkpoint unexpectedly fails CI, diagnose/fix it before the next feature checkpoint rather than stacking additional known-red pushes
+
+The goal is both durability **and** low-noise repository operation.
+
 If push fails:
 1. **stop substantial task work immediately; do not create a large local-only artifact**
 2. inspect authentication
@@ -187,7 +216,7 @@ If push fails:
 
 Do not finish a large implementation, audit, design specification, evidence set, or research report before discovering that remote preservation is broken.
 
-### 3.1 Bootstrap evidence required in final handoff
+### 3.2 Bootstrap evidence required in final handoff
 
 For tasks with repository writes, the final report must identify:
 - canonical origin verified
