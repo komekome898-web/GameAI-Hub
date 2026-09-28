@@ -1,0 +1,538 @@
+{
+  "schema": "gameai-rendered-evidence/v1",
+  "target": {
+    "sha": "3cac74566a5bd0511ae370ab93c137999ea475eb",
+    "environment": "local",
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "records": [
+    {
+      "id": "hub-mobile-320",
+      "route": "/articles/",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "hub-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:20:43.366Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "browser-mobile-320",
+      "route": "/articles/ai-browser-game-how-to/",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "browser-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:20:46.205Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "elevenlabs-mobile-320",
+      "route": "/articles/elevenlabs-game-development-guide/",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "elevenlabs-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:20:49.073Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "meshy-mobile-320",
+      "route": "/articles/meshy-game-development-guide/",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "meshy-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:20:51.774Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "hub-mobile-375",
+      "route": "/articles/",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "hub-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:20:53.679Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "browser-mobile-375",
+      "route": "/articles/ai-browser-game-how-to/",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "browser-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:20:56.325Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "elevenlabs-mobile-375",
+      "route": "/articles/elevenlabs-game-development-guide/",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "elevenlabs-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:20:59.068Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "meshy-mobile-375",
+      "route": "/articles/meshy-game-development-guide/",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "meshy-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:21:01.787Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "hub-mobile-390",
+      "route": "/articles/",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "hub-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:21:03.721Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "browser-mobile-390",
+      "route": "/articles/ai-browser-game-how-to/",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "browser-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:21:06.718Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "elevenlabs-mobile-390",
+      "route": "/articles/elevenlabs-game-development-guide/",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "elevenlabs-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:21:09.561Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "meshy-mobile-390",
+      "route": "/articles/meshy-game-development-guide/",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "meshy-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:21:12.021Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "hub-desktop-1440",
+      "route": "/articles/",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "hub-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:21:14.287Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "browser-desktop-1440",
+      "route": "/articles/ai-browser-game-how-to/",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "browser-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:21:17.889Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "elevenlabs-desktop-1440",
+      "route": "/articles/elevenlabs-game-development-guide/",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "elevenlabs-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:21:21.460Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "meshy-desktop-1440",
+      "route": "/articles/meshy-game-development-guide/",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "meshy-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-28T23:21:25.081Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    }
+  ]
+}
