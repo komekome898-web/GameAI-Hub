@@ -111,6 +111,15 @@ test("affiliate disclosure, destination, events, and local scrollers retain pari
   context,
 }) => {
   const collectorAttempts = await installAcceptanceNetworkGuard(context);
+  await page.addInitScript(() => {
+    (window as Window & { __sliceThreeEvents?: unknown[] }).__sliceThreeEvents =
+      [];
+    window.addEventListener("gameai:event", (event) => {
+      (
+        window as Window & { __sliceThreeEvents?: unknown[] }
+      ).__sliceThreeEvents?.push((event as CustomEvent).detail);
+    });
+  });
   await page.setViewportSize({ width: 320, height: 844 });
   await page.goto("/articles/meshy-game-development-guide/");
   const disclosure = page.getByText("この記事にはプロモーションを含みます。", {
@@ -134,6 +143,43 @@ test("affiliate disclosure, destination, events, and local scrollers retain pari
       [await disclosure.elementHandle(), await affiliate.elementHandle()],
     ),
   ).toBe(true);
+  await affiliate.scrollIntoViewIfNeeded();
+  await expect
+    .poll(() =>
+      page.evaluate(() =>
+        (
+          window as Window & { __sliceThreeEvents?: Array<{ name: string }> }
+        ).__sliceThreeEvents?.map((event) => event.name),
+      ),
+    )
+    .toContain("affiliate_impression");
+  await affiliate.click({ modifiers: ["Control"] });
+  const events = await page.evaluate(
+    () =>
+      (
+        window as Window & {
+          __sliceThreeEvents?: Array<{
+            name: string;
+            properties: Record<string, unknown>;
+          }>;
+        }
+      ).__sliceThreeEvents ?? [],
+  );
+  expect(events.filter((event) => event.name === "article_view")).toHaveLength(
+    1,
+  );
+  expect(
+    events.find((event) => event.name === "article_view")?.properties,
+  ).toMatchObject({ article_slug: "meshy-game-development-guide" });
+  for (const name of ["affiliate_impression", "affiliate_click"]) {
+    expect(
+      events.find((event) => event.name === name)?.properties,
+    ).toMatchObject({
+      article_slug: "meshy-game-development-guide",
+      placement: "meshy_game_guide_first_asset",
+      service_id: "meshy",
+    });
+  }
 
   await page.goto("/articles/meshy-pricing-credits-game/");
   const tableRegion = page
@@ -146,4 +192,85 @@ test("affiliate disclosure, destination, events, and local scrollers retain pari
   await expect(tableRegion).toBeFocused();
   expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
   expect(collectorAttempts).toEqual([]);
+});
+
+test("shared-template commercial and pricing articles regress safely at every acceptance width", async ({
+  page,
+}) => {
+  test.setTimeout(90_000);
+  const regressions = [
+    "/articles/elevenlabs-commercial-use-game/",
+    "/articles/meshy-pricing-credits-game/",
+    "/articles/meshy-commercial-use-game/",
+  ];
+  for (const viewport of acceptanceViewports) {
+    await page.setViewportSize(viewport);
+    for (const route of regressions) {
+      await page.goto(route);
+      await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+      await expect(
+        page.getByRole("navigation", { name: "この記事の目次" }),
+      ).toBeVisible();
+      await expect(
+        page.getByRole("heading", { name: "情報源と更新方針" }),
+      ).toBeVisible();
+      const affiliate = page
+        .locator('a[rel="sponsored nofollow noopener"]')
+        .first();
+      await expect(affiliate).toBeVisible();
+      const disclosure = page
+        .getByText("この記事にはプロモーションを含みます。", { exact: true })
+        .first();
+      expect(
+        await disclosure.evaluate(
+          (node, affiliateNode) =>
+            Boolean(
+              node.compareDocumentPosition(affiliateNode) &
+              Node.DOCUMENT_POSITION_FOLLOWING,
+            ),
+          await affiliate.elementHandle(),
+        ),
+      ).toBe(true);
+      expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
+    }
+  }
+});
+
+test("TOC supports mobile disclosure, sticky-safe anchors, initial fragments, and owned code scroll", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 844 });
+  await page.goto("/articles/ai-browser-game-how-to/");
+  const toc = page.getByRole("navigation", { name: "この記事の目次" });
+  const disclosure = toc.locator("details");
+  await expect(disclosure).not.toHaveAttribute("open", "");
+  await disclosure.locator("summary").click();
+  await toc.getByRole("link", { name: "1. まず完成例を動かす" }).click();
+  await expect
+    .poll(() => page.evaluate(() => decodeURIComponent(location.hash)))
+    .toBe("#section-1-まず完成例を動かす");
+  const heading = page.getByRole("heading", { name: "1. まず完成例を動かす" });
+  await expect
+    .poll(async () => (await heading.boundingBox())?.y ?? -1)
+    .toBeGreaterThan(55);
+
+  await page.goto(
+    "/articles/ai-browser-game-how-to/#section-3-最初のゲームをaiへ生成してもらう",
+  );
+  const target = page.getByRole("heading", {
+    name: "3. 最初のゲームをAIへ生成してもらう",
+  });
+  await expect
+    .poll(async () => (await target.boundingBox())?.y ?? 9999)
+    .toBeLessThan(180);
+
+  const code = page.locator("pre.article-code").first();
+  await code.evaluate((node) => {
+    node.style.whiteSpace = "pre";
+    node.textContent = `const token = "${"unbroken-token-".repeat(50)}";`;
+  });
+  const widths = await diagnoseWidths(page);
+  expect(widths.documentOverflowPx).toBe(0);
+  expect(await code.evaluate((node) => node.scrollWidth > node.clientWidth)).toBe(true);
+  await expect(code).toHaveCSS("overflow-x", "auto");
 });

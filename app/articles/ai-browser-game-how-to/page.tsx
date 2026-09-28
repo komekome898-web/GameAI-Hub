@@ -121,9 +121,9 @@ export default function AiBrowserGameHowTo() {
           lead={
             <>
               ゲーム制作もプログラミングも初めてなら、最初から大作を作る必要はありません。この手順ではAIに1対1のモンスターバトルを作ってもらい、
-              <strong>HTML・CSS・JavaScriptをまとめた1つの index.html</strong>
-              をAI
-              Iterproofへ貼って実行します。完成例、AI生成版、1変更の練習を区別し、保存・復旧して次の作業へ進みます。
+              <strong>HTML・CSS・JavaScriptをまとめた1つの index.html</strong>を
+              {"AI Iterproof"}
+              へ貼って実行します。完成例、AI生成版、1変更の練習を区別し、保存・復旧して次の作業へ進みます。
             </>
           }
         >

@@ -718,7 +718,7 @@ article.page-shell .stage-decision>summary strong{
  .article-reading-guide{margin-block:0 var(--space-5)}
  .article-answer{padding-left:var(--space-4)}
  .article-toc{padding:var(--space-3) var(--space-4)}
- .article-toc ol{columns:auto;max-height:11rem;overflow-y:auto}
+ .article-toc ol{columns:auto}
  .article-lesson-grid{grid-template-columns:1fr}
  .article-inline-handoff,.article-project-cta{padding:var(--space-5) var(--space-4)!important}
  .article-related a{grid-template-columns:4rem minmax(0,1fr)}

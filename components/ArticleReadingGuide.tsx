@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import type { ArticleRecord } from "@/data/articles";
 
@@ -19,6 +19,7 @@ function headingId(text: string, index: number) {
 export function ArticleReadingGuide({ article }: { article: ArticleRecord }) {
   const [mount, setMount] = useState<HTMLElement | null>(null);
   const [entries, setEntries] = useState<Entry[]>([]);
+  const toc = useRef<HTMLDetailsElement | null>(null);
   useEffect(() => {
     const content = document.querySelector(".article-content");
     const header = content?.querySelector(":scope > .page-head");
@@ -50,6 +51,13 @@ export function ArticleReadingGuide({ article }: { article: ArticleRecord }) {
       heading.id = id;
       return { id, label };
     });
+    if (window.location.hash) {
+      requestAnimationFrame(() => {
+        document
+          .getElementById(decodeURIComponent(window.location.hash.slice(1)))
+          ?.scrollIntoView();
+      });
+    }
     const node = document.createElement("div");
     node.dataset.articleReadingGuide = "true";
     header.insertAdjacentElement("afterend", node);
@@ -65,6 +73,17 @@ export function ArticleReadingGuide({ article }: { article: ArticleRecord }) {
       node.remove();
     };
   }, []);
+  useEffect(() => {
+    if (!toc.current) return;
+    if (typeof window.matchMedia !== "function") return;
+    const narrow = window.matchMedia("(max-width: 680px)");
+    const sync = () => {
+      if (toc.current) toc.current.open = !narrow.matches;
+    };
+    sync();
+    narrow.addEventListener("change", sync);
+    return () => narrow.removeEventListener("change", sync);
+  }, [mount, entries]);
   if (!mount) return null;
   const audience =
     article.category === "beginner"
@@ -81,7 +100,7 @@ export function ArticleReadingGuide({ article }: { article: ArticleRecord }) {
       </div>
       {entries.length > 2 && (
         <nav className="article-toc" aria-label="この記事の目次">
-          <details open>
+          <details ref={toc} open>
             <summary>手順を見る（{entries.length}項目）</summary>
             <ol>
               {entries.map((entry) => (
