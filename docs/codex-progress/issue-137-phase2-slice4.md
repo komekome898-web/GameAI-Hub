@@ -11,4 +11,8 @@
 - Acceptance: targeted Project unit tests and Slice 4 Playwright acceptance pass; browser-emulated evidence captured at 320×844, 375×844, 390×844, and 1440×900 with GA4 collector blocking.
 - Preserved: generator/recommendation data and functions, raw intent, structured share/query behavior, local draft/progress, completion/recovery, analytics event names and privacy, provider fallback.
 - Physical-device soft keyboard and iPhone/Android behavior: UNTESTED.
-- Status: implementation checkpoint ready for remote preservation; full gates and independent review remain.
+- Implementation checkpoints: `68a15e5` (stage/form/result redesign) and `c8b0745` (independent-review fixes).
+- Independent review: fixed the invalid section token, manifest coverage/provenance, CSS/DOM ordering mismatch, collapsed supporting roadmap, and recovery focus/scroll behavior. Existing journey suites cover provider confirmation/fallback, engine blocking, share/query/history, next-task intent, analytics privacy, and Project handoffs.
+- Gates: 290 unit/component tests and 65 orchestration tests passed in `npm run quality`; production build generated 70 routes; full Playwright passed 95/95 with one worker in 11m35s. The initial two-worker run exposed two non-product concurrency flakes; both passed targeted reruns before the clean serial full-suite pass.
+- Known ownership: Compare's expected-open mobile overflow baseline remains green and owned by Slice 6.
+- Status: complete; final handoff/PR verification pending.
