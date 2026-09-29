@@ -1533,6 +1533,12 @@ export function BuildChecklist({
   const viewedTasks = useRef(new Set<string>());
   const completedEvents = useRef(new Set<string>());
   const reachedSecond = useRef(false);
+  const recoveryHeading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => {
+    if (!stuckFor) return;
+    recoveryHeading.current?.focus();
+    recoveryHeading.current?.scrollIntoView?.({ block: "nearest" });
+  }, [stuckFor]);
   const copyHere = async (content: string, id: string) => {
     const copied = await onCopy(content, id);
     setCopyNotice({
@@ -1906,7 +1912,9 @@ export function BuildChecklist({
               className="stuck-panel"
               aria-live="polite"
             >
-              <h3>AIへ渡すトラブル相談</h3>
+              <h3 ref={recoveryHeading} tabIndex={-1}>
+                AIへ渡すトラブル相談
+              </h3>
               {helpTool && (
                 <BeginnerToolLink tool={helpTool} taskId={active.id} />
               )}
@@ -2092,17 +2100,16 @@ export function BuildChecklist({
           </p>
         )}
       </section>
-      <section
+      <details
         className="build-roadmap"
-        aria-labelledby="roadmap-overview-title"
       >
-        <div>
+        <summary>
           <span>成果物でつながる制作順</span>
           <h2 id="roadmap-overview-title">Build Roadmap</h2>
           <p>
             下のQuestと同じ順番です。各工程の成果物が、次工程の開始条件になります。
           </p>
-        </div>
+        </summary>
         <ol>
           {steps.map((item, index) => {
             const done = completed.has(item.id);
@@ -2134,7 +2141,7 @@ export function BuildChecklist({
             );
           })}
         </ol>
-      </section>
+      </details>
       <h2 className="checklist-heading">Build Quest</h2>
       <p className="section-intro">
         各Questは必要なときだけ開きます。AI候補、具体的操作、Prompt、完了条件が一つにつながっています。

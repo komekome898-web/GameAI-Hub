@@ -441,7 +441,7 @@ article.page-shell .stage-decision>summary strong{
 @media(max-width:340px){main{padding-inline:8px}.site-header{position:static}.header-inner{height:42px;min-height:42px!important;padding-inline:4px}.brand-mark{width:26px;height:26px}.brand-mark svg{width:17px}.menu-button{width:30px;height:30px;min-width:30px;min-height:30px}.menu-button svg{width:17px}.article-shell>.breadcrumbs{white-space:normal;overflow:visible;line-height:1.4}.article-shell>.breadcrumbs span:last-child{display:none}.article-related a{padding:7px}.article-related a strong{overflow-wrap:anywhere}.article-shell>.sources li{display:block}.article-shell>.sources li span{display:block;margin-top:4px}.article-project-cta{padding:12px 7px!important;margin-inline:0}.article-project-cta .button{width:100%;padding-inline:6px}.article-record{margin-bottom:18px}.article-record p{overflow-wrap:anywhere}}
 
 /* Issue #137 Slice 4: stable Project stages and task-first form/result hierarchy. */
-.project-start-page,.project-clarify,.project-result,.project-state{max-width:var(--content-max);padding-block:var(--space-7) var(--section)}
+.project-start-page,.project-clarify,.project-result,.project-state{max-width:var(--content-max);padding-block:var(--space-7) var(--section-block)}
 .project-start-page .builder-head,.project-clarify .builder-head,.project-result-top{padding:0 0 var(--space-6)}
 .project-start-page .builder-head h1,.project-clarify .builder-head h1,.project-result-top>h1{max-width:18em;margin-block:var(--space-2) var(--space-3);font-size:var(--type-h1);line-height:1.18;letter-spacing:-.025em;text-wrap:balance;overflow-wrap:anywhere}
 .project-stage-label{display:flex;align-items:center;gap:var(--space-2);margin:0;color:var(--color-accent-strong);font-size:var(--type-small);font-weight:850;letter-spacing:.02em}
@@ -468,15 +468,10 @@ article.page-shell .stage-decision>summary strong{
 .project-result-top{max-width:var(--content-max)}
 .project-result-top .result-intro{max-width:44rem;color:var(--color-text-muted);font-size:var(--type-body-lg)}
 .project-result-top>.build-checklist{margin-top:var(--space-6)}
-.build-checklist{display:flex;min-width:0;flex-direction:column}
-.build-progress{order:0;padding:var(--space-4);border:1px solid var(--color-border);border-radius:var(--radius-sm);background:var(--color-surface-subtle)}
-.beginner-action,.beginner-finished{order:1}
-.action-list{order:2;display:grid;gap:var(--space-3)}
-.checklist-heading{order:2;margin-top:var(--space-7)}
-.checklist-heading+.section-intro{order:2}
-.artifact-progress{order:3}
-.today-queue{order:4}
-.build-roadmap{order:5}
+.build-checklist{min-width:0}
+.build-progress{padding:var(--space-4);border:1px solid var(--color-border);border-radius:var(--radius-sm);background:var(--color-surface-subtle)}
+.action-list{display:grid;gap:var(--space-3)}
+.checklist-heading{margin-top:var(--space-7)}
 .action-step{min-width:0}.action-step.is-current{border:2px solid var(--color-accent);box-shadow:0 8px 28px rgba(20,89,78,.1)}
 .action-step.is-current>summary{background:var(--color-accent-soft)}
 .action-step>summary,.action-detail,.action-prompt,.action-prompt pre,.stuck-panel,.stuck-panel pre,.contextual-task-tool,.generation-prompt{min-width:0;max-width:100%;overflow-wrap:anywhere}
@@ -485,6 +480,7 @@ article.page-shell .stage-decision>summary strong{
 .completion-control{min-height:52px}
 .stuck-panel{border:2px solid var(--color-warning);background:var(--color-warning-soft)}
 .artifact-progress,.today-queue,.build-roadmap{margin-top:var(--space-7);padding-top:var(--space-5);border-top:1px solid var(--color-border)}
+.build-roadmap>summary{display:grid;min-height:48px;cursor:pointer}.build-roadmap>summary h2{margin:var(--space-1) 0}.build-roadmap>summary p{margin:0;color:var(--color-text-muted)}
 .today-grid article:not(.is-primary){background:var(--color-surface-subtle)}
 .project-supporting-details,.result-utilities,.secondary-plan{max-width:var(--content-max);margin-block:var(--space-5);border:1px solid var(--color-border);border-radius:var(--radius-sm);background:var(--color-surface)}
 .project-supporting-details>summary,.result-utilities>summary,.secondary-plan>summary{display:flex;min-height:48px;align-items:center;justify-content:space-between;gap:var(--space-3);padding:var(--space-3) var(--space-4);cursor:pointer;font-weight:850}

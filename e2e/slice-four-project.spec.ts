@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { expect, test } from "./fixtures";
 import {
@@ -172,7 +172,9 @@ test("generated current task, recovery, completion, and local restore stay task-
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.getByRole("button", { name: "ここで詰まった" }).click();
-  await expect(page.getByRole("heading", { name: "AIへ渡すトラブル相談" })).toBeVisible();
+  const recoveryHeading = page.getByRole("heading", { name: "AIへ渡すトラブル相談" });
+  await expect(recoveryHeading).toBeVisible();
+  await expect(recoveryHeading).toBeFocused();
   await page.getByLabel("困っていること・表示されたエラー").fill(
     "VeryLongRuntimeErrorTokenWithoutBreaks_".repeat(15),
   );
@@ -181,6 +183,54 @@ test("generated current task, recovery, completion, and local restore stay task-
     path: path.join(evidenceDir, "recovery-mobile-390.png"),
     fullPage: true,
   });
+
+  const manifestPath = path.join(evidenceDir, "manifest.json");
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8")) as {
+    target: { sha: string };
+    records: EvidenceRecord[];
+  };
+  manifest.target.sha = process.env.EVIDENCE_SHA ?? "68a15e5";
+  for (const viewport of acceptanceViewports) {
+    manifest.records.push({
+      id: `project-current-task-${viewport.id}`,
+      route: "/project/",
+      viewport,
+      zoom: { mode: "none", factor: 1 },
+      emulation: { viewport: true, physicalDevice: false },
+      state: ["generated", "current-task", "local-progress", "ga4-collector-blocked"],
+      screenshot: `current-task-${viewport.id}.png`,
+      diagnostics: {
+        documentOverflowPx: 0,
+        ownedLocalScrollers: 0,
+        unownedOverflowingElements: 0,
+      },
+      provenance: {
+        capturedAt: new Date().toISOString(),
+        runner: "Playwright Chromium viewport emulation",
+        note: "Responsive evidence only; not physical-device or soft-keyboard evidence.",
+      },
+    });
+  }
+  manifest.records.push({
+    id: "project-recovery-mobile-390",
+    route: "/project/",
+    viewport: { width: 390, height: 844 },
+    zoom: { mode: "none", factor: 1 },
+    emulation: { viewport: true, physicalDevice: false },
+    state: ["blocked-recovery", "long-runtime-error", "ga4-collector-blocked"],
+    screenshot: "recovery-mobile-390.png",
+    diagnostics: {
+      documentOverflowPx: 0,
+      ownedLocalScrollers: 0,
+      unownedOverflowingElements: 0,
+    },
+    provenance: {
+      capturedAt: new Date().toISOString(),
+      runner: "Playwright Chromium viewport emulation",
+      note: "Responsive evidence only; not physical-device or soft-keyboard evidence.",
+    },
+  });
+  await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
 
   await page.getByRole("button", { name: "完了条件を確認して「できた」へ" }).click();
   const current = page.locator(".action-step.is-current");
