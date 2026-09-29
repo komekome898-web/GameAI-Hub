@@ -1,0 +1,310 @@
+{
+  "schema": "gameai-rendered-evidence/v1",
+  "target": {
+    "sha": "68a15e5",
+    "environment": "local",
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "records": [
+    {
+      "id": "project-clarification-mobile-320",
+      "route": "/project/",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "clarification",
+        "long-japanese-input",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "clarification-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T01:03:16.397Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    },
+    {
+      "id": "project-clarification-mobile-375",
+      "route": "/project/",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "clarification",
+        "long-japanese-input",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "clarification-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T01:03:20.122Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    },
+    {
+      "id": "project-clarification-mobile-390",
+      "route": "/project/",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "clarification",
+        "long-japanese-input",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "clarification-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T01:03:23.472Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    },
+    {
+      "id": "project-clarification-desktop-1440",
+      "route": "/project/",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "clarification",
+        "long-japanese-input",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "clarification-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T01:03:28.080Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    },
+    {
+      "id": "project-current-task-mobile-320",
+      "route": "/project/",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "generated",
+        "current-task",
+        "local-progress",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "current-task-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T01:03:39.536Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    },
+    {
+      "id": "project-current-task-mobile-375",
+      "route": "/project/",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "generated",
+        "current-task",
+        "local-progress",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "current-task-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T01:03:39.536Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    },
+    {
+      "id": "project-current-task-mobile-390",
+      "route": "/project/",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "generated",
+        "current-task",
+        "local-progress",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "current-task-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T01:03:39.536Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    },
+    {
+      "id": "project-current-task-desktop-1440",
+      "route": "/project/",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "generated",
+        "current-task",
+        "local-progress",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "current-task-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T01:03:39.536Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    },
+    {
+      "id": "project-recovery-mobile-390",
+      "route": "/project/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "blocked-recovery",
+        "long-runtime-error",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "recovery-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T01:03:39.536Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    }
+  ]
+}

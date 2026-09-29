@@ -482,6 +482,7 @@ export function ProjectGeneratorClient() {
   const [interpreting, setInterpreting] = useState(false);
   const [privateSaveFailed, setPrivateSaveFailed] = useState(false);
   const resultHeading = useRef<HTMLHeadingElement>(null);
+  const errorSummary = useRef<HTMLDivElement>(null);
   useEffect(() => {
     let cancelled = false;
     const restore = () =>
@@ -582,15 +583,20 @@ export function ProjectGeneratorClient() {
   }, [plan]);
   if (!brief && interpreting)
     return (
-      <p className="builder-loading" role="status">
-        条件を安全に整理しています…
-      </p>
+      <section className="project-state project-loading" aria-busy="true">
+        <p className="project-stage-label">ステップ 1 / 3 · アイデアを整理</p>
+        <h1>ゲームの条件を整理しています</h1>
+        <p className="builder-loading" role="status">
+          入力内容を変えずに、確認が必要な条件を探しています…
+        </p>
+        <p className="project-state-help">この画面を閉じずにお待ちください。</p>
+      </section>
     );
   if (!brief)
     return (
       <div className="project-start-page">
         <header className="builder-head">
-          <p className="eyebrow">AI GAME PROJECT GENERATOR</p>
+          <p className="project-stage-label">ステップ 1 / 3 · アイデア</p>
           <h1>ゲームのアイデアを実行計画へ</h1>
           <p className="lead">
             決まっていないことを推測で埋めず、必要な条件だけ確認します。
@@ -671,6 +677,7 @@ export function ProjectGeneratorClient() {
         queueMicrotask(() =>
           document.getElementById(`project-field-${missing[0]}`)?.focus(),
         );
+      else queueMicrotask(() => errorSummary.current?.focus());
       return;
     }
     setError("");
@@ -783,7 +790,7 @@ export function ProjectGeneratorClient() {
   return (
     <div className="project-clarify">
       <header className="builder-head">
-        <p className="eyebrow">CONFIRM THE BRIEF</p>
+        <p className="project-stage-label">ステップ 2 / 3 · 条件を確認</p>
         <h1>読み取った条件を確認してください</h1>
         <p className="lead">
           自由文に明記された条件だけを選択済みにしました。「未確認」は選び直してから計画を作ります。
@@ -1090,9 +1097,17 @@ export function ProjectGeneratorClient() {
             )}
           </fieldset>
           {error && (
-            <p id="clarify-error" className="form-error" role="alert">
-              {error}
-            </p>
+            <div
+              ref={errorSummary}
+              id="clarify-error"
+              className="project-error-summary"
+              role="alert"
+              tabIndex={-1}
+            >
+              <strong>計画を作る前に確認してください</strong>
+              <p>{error}</p>
+              <p>入力済みの内容は消えていません。</p>
+            </div>
           )}
           <div className="clarify-actions">
             <button className="button" type="submit">
@@ -1518,6 +1533,12 @@ export function BuildChecklist({
   const viewedTasks = useRef(new Set<string>());
   const completedEvents = useRef(new Set<string>());
   const reachedSecond = useRef(false);
+  const recoveryHeading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => {
+    if (!stuckFor) return;
+    recoveryHeading.current?.focus();
+    recoveryHeading.current?.scrollIntoView?.({ block: "nearest" });
+  }, [stuckFor]);
   const copyHere = async (content: string, id: string) => {
     const copied = await onCopy(content, id);
     setCopyNotice({
@@ -1891,7 +1912,9 @@ export function BuildChecklist({
               className="stuck-panel"
               aria-live="polite"
             >
-              <h3>AIへ渡すトラブル相談</h3>
+              <h3 ref={recoveryHeading} tabIndex={-1}>
+                AIへ渡すトラブル相談
+              </h3>
               {helpTool && (
                 <BeginnerToolLink tool={helpTool} taskId={active.id} />
               )}
@@ -2077,17 +2100,16 @@ export function BuildChecklist({
           </p>
         )}
       </section>
-      <section
+      <details
         className="build-roadmap"
-        aria-labelledby="roadmap-overview-title"
       >
-        <div>
+        <summary>
           <span>成果物でつながる制作順</span>
           <h2 id="roadmap-overview-title">Build Roadmap</h2>
           <p>
             下のQuestと同じ順番です。各工程の成果物が、次工程の開始条件になります。
           </p>
-        </div>
+        </summary>
         <ol>
           {steps.map((item, index) => {
             const done = completed.has(item.id);
@@ -2119,7 +2141,7 @@ export function BuildChecklist({
             );
           })}
         </ol>
-      </section>
+      </details>
       <h2 className="checklist-heading">Build Quest</h2>
       <p className="section-intro">
         各Questは必要なときだけ開きます。AI候補、具体的操作、Prompt、完了条件が一つにつながっています。
@@ -2386,7 +2408,7 @@ function ProjectResult({
   return (
     <article className="project-result">
       <header className="project-result-top">
-        <p className="eyebrow">PROJECT BUILD COCKPIT</p>
+        <p className="project-stage-label">ステップ 3 / 3 · 制作を進める</p>
         <h1 ref={headingRef} tabIndex={-1}>
           {projectName(plan.brief)}
         </h1>
@@ -2471,8 +2493,11 @@ function ProjectResult({
           ブラウザの保存機能が使える場合、元の自由文と確認済みの固有設定はこの端末の非公開下書きとして保存され、再読み込み時に復元されます。コピーする共有URLには含まれません。完全な計画を人へ渡す場合はMarkdownを使ってください。
         </p>
       </header>
-      <section className="assumption-strip">
-        <strong>未確認事項</strong>
+      <details className="assumption-strip project-supporting-details">
+        <summary>
+          前提と未確認事項
+          <span>{plan.unresolved.length ? `${plan.unresolved.length}件` : "主要条件は確認済み"}</span>
+        </summary>
         {plan.unresolved.length ? (
           <ul>
             {plan.unresolved.map((item) => (
@@ -2483,7 +2508,7 @@ function ProjectResult({
           <p>計画生成に必要な主要条件は確認済みです。</p>
         )}
         <p>{plan.assumptions.join(" / ")}</p>
-      </section>
+      </details>
       <details className="result-utilities">
         <summary>共有・書き出し・条件編集</summary>
         <div className="project-result-actions">
