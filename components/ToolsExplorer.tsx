@@ -86,10 +86,11 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
   }, []);
 
   function updateQuery(value: string) {
-    setQuery(value);
+    const bounded = value.slice(0, 120);
+    setQuery(bounded);
     const next = new URLSearchParams(window.location.search);
-    const bounded = value.trim().slice(0, 120);
-    if (bounded) next.set('q', bounded); else next.delete('q');
+    const normalized = bounded.trim();
+    if (normalized) next.set('q', normalized); else next.delete('q');
     window.history.replaceState(null, '', next.size ? `${pathname}?${next}` : pathname);
   }
 
@@ -175,7 +176,7 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
       <div className="tool-inline-search">
         <label htmlFor="tool-search">
           名前・用途から候補を検索
-          <input aria-label="ツールを検索" id="tool-search" type="search" value={query} onChange={(event) => updateQuery(event.target.value)} placeholder="例: Unity、音声" autoComplete="off" />
+          <input aria-label="ツールを検索" id="tool-search" type="search" value={query} maxLength={120} onChange={(event) => updateQuery(event.target.value)} placeholder="例: Unity、音声" autoComplete="off" />
         </label>
       </div>
 
