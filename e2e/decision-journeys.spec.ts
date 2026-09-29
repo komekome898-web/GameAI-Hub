@@ -204,8 +204,11 @@ test('375px: 2候補比較と差分のみ表示を操作できる', async ({ pag
   await expect(page.locator('.compare-picker-panel > summary')).toContainText('2 / 4件');
   await page.getByLabel('差分のみ表示').check();
   await expect(page.getByText(/差分のみ表示中/)).toBeVisible();
-  await expect(page.locator('.compare-mobile article')).toHaveCount(2);
-  expect(await page.locator('.paired-fields > section > div').first().evaluate((node) => getComputedStyle(node).gridTemplateColumns.split(' ').length)).toBe(1);
+  const mobileResults = page.getByRole('region', { name: '選択したツールの比較結果' });
+  await expect(mobileResults).toBeVisible();
+  await expect(mobileResults.getByRole('heading', { level: 3 }).first()).toBeVisible();
+  await expect(mobileResults.locator('.compare-criteria-groups > section').first().locator('dl')).toHaveCount(2);
+  await expect(mobileResults.locator('.compare-mobile-actions article')).toHaveCount(2);
   await expectNoHorizontalOverflow(page);
 });
 
@@ -311,10 +314,12 @@ test('4ツール比較、差分絞り込み、キーボードfocusを維持す�
   await page.keyboard.press('Space');
   await expect(differences).toBeChecked();
   await expect(page.getByText(/差分のみ表示中/)).toBeVisible();
-  const remove = page.getByRole('button', { name: 'Meshyを比較から解除' });
+  const remove = page.getByRole('region', { name: '4件を比較' })
+    .getByRole('button', { name: 'Meshyを比較から解除' });
   await remove.focus();
   await expect(remove).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.locator('.compare-picker-panel > summary')).toContainText('3 / 4件');
+  await expect(page.getByRole('region', { name: '3件を比較' })).toBeVisible();
   await expect(page).toHaveURL(/ids=github-copilot%2Ccursor%2Celevenlabs|ids=github-copilot,cursor,elevenlabs/);
 });

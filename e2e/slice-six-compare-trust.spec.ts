@@ -79,6 +79,7 @@ test('picker search, limit, focus, history, evidence and mobile criteria remain 
 test('four-candidate limit and trust controls remain explicit', async ({ page }) => {
   await page.goto('/compare/?ids=github-copilot,cursor,scenario,elevenlabs');
   await expect(page.getByText(/選択上限です/)).toBeVisible();
+  await page.locator('.compare-picker-panel > summary').click();
   await expect(page.getByRole('checkbox', { name: 'Meshy' })).toBeDisabled();
   await page.goto('/privacy/');
   await expect(page.getByRole('button', { name: 'このブラウザを計測から除外' })).toBeVisible();

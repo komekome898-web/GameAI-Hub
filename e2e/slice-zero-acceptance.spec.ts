@@ -19,12 +19,6 @@ const mobileViewports = acceptanceViewports.filter((viewport) => viewport.width 
 const configuredSha = process.env.ACCEPTANCE_TARGET_SHA ?? process.env.GITHUB_SHA;
 const targetSha = configuredSha?.match(/^[0-9a-f]{7,40}$/)?.[0]
   ?? execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim();
-const compareOverflowRanges: Record<number, [number, number]> = {
-  320: [70, 130],
-  375: [30, 75],
-  390: [20, 60],
-};
-
 test.describe("Issue 137 Slice 0 rendered baselines", () => {
   for (const viewport of acceptanceViewports) {
     test(`Home is capturable with provenance at ${viewport.width}x${viewport.height}`, async ({ page }, testInfo) => {
@@ -68,24 +62,17 @@ test.describe("Issue 137 Slice 0 rendered baselines", () => {
   }
 
   for (const viewport of mobileViewports) {
-    test(`Compare overflow remains an explicit expected baseline at ${viewport.width}px`, async ({ page }) => {
+    test(`Compare has no document-level overflow at ${viewport.width}px`, async ({ page }) => {
       await page.setViewportSize(viewport);
       await page.goto("/compare");
       await expect(page.locator(".compare-picker-panel")).toHaveAttribute("open", "");
       await expect(page.getByLabel("候補を検索")).toBeVisible();
       const diagnostics = await diagnoseWidths(page);
-      const [minimum, maximum] = compareOverflowRanges[viewport.width];
-      expect(diagnostics.documentOverflowPx, "known Compare overflow signature changed").toBeGreaterThanOrEqual(minimum);
-      expect(diagnostics.documentOverflowPx, "known Compare overflow signature changed").toBeLessThanOrEqual(maximum);
+      expect(diagnostics.documentOverflowPx, "Compare must not overflow the document").toBe(0);
       expect(
         diagnostics.unownedOverflowingElements.length,
-        "document overflow must not be misclassified as an owned table/code scroller",
-      ).toBeGreaterThan(0);
-      expect(
-        diagnostics.unownedOverflowingElements.some(({ selector }) =>
-          selector.includes("compare-picker-search") || selector === "input"),
-        "picker search must remain the identified open baseline culprit",
-      ).toBe(true);
+        "all horizontal scrolling must be contained by an intentional local owner",
+      ).toBe(0);
     });
   }
 
@@ -94,12 +81,14 @@ test.describe("Issue 137 Slice 0 rendered baselines", () => {
     await page.goto(`/compare?ids=${stressValues.compareCandidateIds.join(",")}`);
     await expect(page.locator(".compare-picker-panel > summary")).toContainText("4 / 4件");
     await expect(page.locator(".compare-mobile article")).toHaveCount(4);
-    const remove = page.locator(".compare-mobile article").filter({ hasText: "Meshy" })
-      .getByRole("button", { name: "比較から解除" });
+    const selectionTray = page.getByRole("region", { name: "4件を比較" });
+    const remove = selectionTray.getByRole("button", { name: "Meshyを比較から解除" });
     await remove.focus();
     await expect(remove).toBeFocused();
     await page.keyboard.press("Enter");
     await expect(page.locator(".compare-picker-panel > summary")).toContainText("3 / 4件");
+    await expect(page.getByRole("region", { name: "3件を比較" })).toBeVisible();
+    await expect.poll(() => new URL(page.url()).searchParams.get("ids")).toBe("github-copilot,cursor,elevenlabs");
   });
 });
 

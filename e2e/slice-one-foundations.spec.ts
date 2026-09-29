@@ -46,12 +46,8 @@ test.describe("Issue 137 Slice 1 foundations", () => {
       for (const route of baselineRoutes) {
         await page.goto(route);
         const diagnostics = await diagnoseWidths(page);
-        if (route === "/compare" && viewport.width < 400) {
-          // The generic foundation may change geometry, but Slice 6 still owns acceptance.
-          expect(diagnostics.documentOverflowPx).toBeGreaterThan(0);
-        } else {
-          expect(diagnostics.documentOverflowPx, `${route} introduced document overflow`).toBe(0);
-        }
+        expect(diagnostics.documentOverflowPx, `${route} introduced document overflow`).toBe(0);
+        expect(diagnostics.unownedOverflowingElements, `${route} has unowned overflow`).toEqual([]);
       }
     });
   }
