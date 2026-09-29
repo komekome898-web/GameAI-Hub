@@ -74,10 +74,15 @@ export function ArticleReadingGuide({ article }: { article: ArticleRecord }) {
         ?.scrollIntoView();
     };
     const frame = requestAnimationFrame(revealFragment);
-    const timer = window.setTimeout(revealFragment, 150);
+    // Next's restoration and late web-font/layout work can run after hydration.
+    // Re-apply the initial fragment after those passes instead of leaving the
+    // reader at the top of a long article.
+    const timers = [150, 600].map((delay) =>
+      window.setTimeout(revealFragment, delay),
+    );
     return () => {
       cancelAnimationFrame(frame);
-      window.clearTimeout(timer);
+      timers.forEach((timer) => window.clearTimeout(timer));
     };
   }, [entries]);
   useEffect(() => {

@@ -1,0 +1,538 @@
+{
+  "schema": "gameai-rendered-evidence/v1",
+  "target": {
+    "sha": "0000000",
+    "environment": "local",
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "records": [
+    {
+      "id": "tools-mobile-320",
+      "route": "/tools/",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "tools-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:07.762Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "guides-mobile-320",
+      "route": "/guides/",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "guides-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:09.526Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "tool-detail-mobile-320",
+      "route": "/tools/meshy/",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "tool-detail-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:11.470Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "guide-detail-mobile-320",
+      "route": "/guides/ai-2d-rpg-workflow/",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "guide-detail-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:13.784Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "tools-mobile-375",
+      "route": "/tools/",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "tools-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:17.391Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "guides-mobile-375",
+      "route": "/guides/",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "guides-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:19.272Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "tool-detail-mobile-375",
+      "route": "/tools/meshy/",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "tool-detail-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:21.411Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "guide-detail-mobile-375",
+      "route": "/guides/ai-2d-rpg-workflow/",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "guide-detail-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:23.524Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "tools-mobile-390",
+      "route": "/tools/",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "tools-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:26.733Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "guides-mobile-390",
+      "route": "/guides/",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "guides-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:28.697Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "tool-detail-mobile-390",
+      "route": "/tools/meshy/",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "tool-detail-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:30.742Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "guide-detail-mobile-390",
+      "route": "/guides/ai-2d-rpg-workflow/",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "guide-detail-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:32.821Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "tools-desktop-1440",
+      "route": "/tools/",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "tools-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:36.731Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "guides-desktop-1440",
+      "route": "/guides/",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "guides-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:39.495Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "tool-detail-desktop-1440",
+      "route": "/tools/meshy/",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "tool-detail-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:42.134Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "guide-detail-desktop-1440",
+      "route": "/guides/ai-2d-rpg-workflow/",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "default",
+        "browser-emulated",
+        "ga4-collector-blocked"
+      ],
+      "screenshot": "guide-detail-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T02:50:44.719Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    }
+  ]
+}
