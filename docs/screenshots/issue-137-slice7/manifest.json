@@ -1,7 +1,7 @@
 {
   "schema": "gameai-rendered-evidence/v1",
   "target": {
-    "sha": "db8f0b07cdd1ede51c55c2b3b2c81bee5e0b603c",
+    "sha": "d1ccbfd683e9b01df3a2d22f05a180171d12e95a",
     "environment": "local",
     "baseUrl": "http://127.0.0.1:3100"
   },
@@ -34,7 +34,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:27.484Z",
+        "capturedAt": "2026-09-29T07:31:03.420Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -67,7 +67,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:28.678Z",
+        "capturedAt": "2026-09-29T07:31:04.650Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -100,7 +100,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:30.570Z",
+        "capturedAt": "2026-09-29T07:31:06.626Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -133,7 +133,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:33.708Z",
+        "capturedAt": "2026-09-29T07:31:09.540Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -166,7 +166,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:36.353Z",
+        "capturedAt": "2026-09-29T07:31:12.359Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -199,7 +199,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:38.773Z",
+        "capturedAt": "2026-09-29T07:31:15.059Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -232,7 +232,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:40.468Z",
+        "capturedAt": "2026-09-29T07:31:16.683Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -265,7 +265,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:42.315Z",
+        "capturedAt": "2026-09-29T07:31:18.301Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -298,7 +298,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:44.019Z",
+        "capturedAt": "2026-09-29T07:31:19.951Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -331,7 +331,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:46.594Z",
+        "capturedAt": "2026-09-29T07:31:22.484Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -364,7 +364,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:48.869Z",
+        "capturedAt": "2026-09-29T07:31:24.515Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -397,7 +397,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:50.422Z",
+        "capturedAt": "2026-09-29T07:31:26.054Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -430,7 +430,238 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:51.672Z",
+        "capturedAt": "2026-09-29T07:31:27.434Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "compare-differences-mobile-320",
+      "route": "/compare/?ids=github-copilot,cursor&diff=1",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "differences-only",
+        "selected",
+        "browser-emulated"
+      ],
+      "screenshot": "compare-differences-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:31:29.306Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "compare-search-stress-mobile-320",
+      "route": "/compare/?ids=github-copilot,cursor&diff=1",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "picker-open",
+        "long-unbroken-token",
+        "empty-result"
+      ],
+      "screenshot": "compare-search-stress-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:31:30.077Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "article-table-mobile-320",
+      "route": "/articles/meshy-pricing-credits-game/",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "semantic-table",
+        "owned-local-scroller",
+        "long-content"
+      ],
+      "screenshot": "article-table-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 1,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:31:32.986Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "tools-long-label-empty-mobile-320",
+      "route": "/tools/",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "long-japanese-label",
+        "long-unbroken-token",
+        "empty-result"
+      ],
+      "screenshot": "tools-long-label-empty-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:31:34.828Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "project-long-clarification-mobile-320",
+      "route": "/project/",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "long-japanese-idea",
+        "clarification",
+        "deterministic-fallback"
+      ],
+      "screenshot": "project-long-clarification-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:31:37.758Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    },
+    {
+      "id": "project-validation-error-mobile-320",
+      "route": "/project/",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "validation-error",
+        "error-announcement",
+        "input-preserved"
+      ],
+      "screenshot": "project-validation-error-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:31:40.296Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    },
+    {
+      "id": "mobile-menu-open-mobile-320",
+      "route": "/",
+      "viewport": {
+        "id": "mobile-320",
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "mobile-menu-open",
+        "modal",
+        "body-scroll-locked"
+      ],
+      "screenshot": "mobile-menu-open-mobile-320.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:31:42.570Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -463,7 +694,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:53.472Z",
+        "capturedAt": "2026-09-29T07:31:44.545Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -496,7 +727,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:54.547Z",
+        "capturedAt": "2026-09-29T07:31:45.779Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -529,7 +760,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:56.432Z",
+        "capturedAt": "2026-09-29T07:31:47.936Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -562,7 +793,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:07:59.358Z",
+        "capturedAt": "2026-09-29T07:31:51.136Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -595,7 +826,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:01.999Z",
+        "capturedAt": "2026-09-29T07:31:54.586Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -628,7 +859,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:04.398Z",
+        "capturedAt": "2026-09-29T07:31:57.301Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -661,7 +892,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:05.967Z",
+        "capturedAt": "2026-09-29T07:31:58.806Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -694,7 +925,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:07.862Z",
+        "capturedAt": "2026-09-29T07:32:00.449Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -727,7 +958,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:09.671Z",
+        "capturedAt": "2026-09-29T07:32:02.100Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -760,7 +991,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:11.985Z",
+        "capturedAt": "2026-09-29T07:32:05.546Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -793,7 +1024,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:13.844Z",
+        "capturedAt": "2026-09-29T07:32:07.455Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -826,7 +1057,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:15.698Z",
+        "capturedAt": "2026-09-29T07:32:08.940Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -859,7 +1090,238 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:17.180Z",
+        "capturedAt": "2026-09-29T07:32:10.288Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "compare-differences-mobile-375",
+      "route": "/compare/?ids=github-copilot,cursor&diff=1",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "differences-only",
+        "selected",
+        "browser-emulated"
+      ],
+      "screenshot": "compare-differences-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:32:12.083Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "compare-search-stress-mobile-375",
+      "route": "/compare/?ids=github-copilot,cursor&diff=1",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "picker-open",
+        "long-unbroken-token",
+        "empty-result"
+      ],
+      "screenshot": "compare-search-stress-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:32:12.766Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "article-table-mobile-375",
+      "route": "/articles/meshy-pricing-credits-game/",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "semantic-table",
+        "owned-local-scroller",
+        "long-content"
+      ],
+      "screenshot": "article-table-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 1,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:32:15.587Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "tools-long-label-empty-mobile-375",
+      "route": "/tools/",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "long-japanese-label",
+        "long-unbroken-token",
+        "empty-result"
+      ],
+      "screenshot": "tools-long-label-empty-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:32:17.263Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "project-long-clarification-mobile-375",
+      "route": "/project/",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "long-japanese-idea",
+        "clarification",
+        "deterministic-fallback"
+      ],
+      "screenshot": "project-long-clarification-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:32:19.951Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    },
+    {
+      "id": "project-validation-error-mobile-375",
+      "route": "/project/",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "validation-error",
+        "error-announcement",
+        "input-preserved"
+      ],
+      "screenshot": "project-validation-error-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:32:22.033Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    },
+    {
+      "id": "mobile-menu-open-mobile-375",
+      "route": "/",
+      "viewport": {
+        "id": "mobile-375",
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "mobile-menu-open",
+        "modal",
+        "body-scroll-locked"
+      ],
+      "screenshot": "mobile-menu-open-mobile-375.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:32:23.934Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -892,7 +1354,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:18.907Z",
+        "capturedAt": "2026-09-29T07:32:25.654Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -925,7 +1387,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:20.070Z",
+        "capturedAt": "2026-09-29T07:32:26.809Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -958,7 +1420,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:21.989Z",
+        "capturedAt": "2026-09-29T07:32:28.634Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -991,7 +1453,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:24.834Z",
+        "capturedAt": "2026-09-29T07:32:31.354Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1024,7 +1486,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:27.671Z",
+        "capturedAt": "2026-09-29T07:32:34.255Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1057,7 +1519,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:30.929Z",
+        "capturedAt": "2026-09-29T07:32:36.753Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1090,7 +1552,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:32.397Z",
+        "capturedAt": "2026-09-29T07:32:38.553Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1123,7 +1585,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:34.274Z",
+        "capturedAt": "2026-09-29T07:32:40.465Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1156,7 +1618,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:35.902Z",
+        "capturedAt": "2026-09-29T07:32:42.762Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1189,7 +1651,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:38.043Z",
+        "capturedAt": "2026-09-29T07:32:45.345Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1222,7 +1684,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:39.833Z",
+        "capturedAt": "2026-09-29T07:32:47.382Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1255,7 +1717,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:41.293Z",
+        "capturedAt": "2026-09-29T07:32:49.464Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1288,7 +1750,238 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:42.412Z",
+        "capturedAt": "2026-09-29T07:32:50.802Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "compare-differences-mobile-390",
+      "route": "/compare/?ids=github-copilot,cursor&diff=1",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "differences-only",
+        "selected",
+        "browser-emulated"
+      ],
+      "screenshot": "compare-differences-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:32:53.903Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "compare-search-stress-mobile-390",
+      "route": "/compare/?ids=github-copilot,cursor&diff=1",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "picker-open",
+        "long-unbroken-token",
+        "empty-result"
+      ],
+      "screenshot": "compare-search-stress-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:32:54.866Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "article-table-mobile-390",
+      "route": "/articles/meshy-pricing-credits-game/",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "semantic-table",
+        "owned-local-scroller",
+        "long-content"
+      ],
+      "screenshot": "article-table-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 1,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:32:57.893Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "tools-long-label-empty-mobile-390",
+      "route": "/tools/",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "long-japanese-label",
+        "long-unbroken-token",
+        "empty-result"
+      ],
+      "screenshot": "tools-long-label-empty-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:32:59.627Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "project-long-clarification-mobile-390",
+      "route": "/project/",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "long-japanese-idea",
+        "clarification",
+        "deterministic-fallback"
+      ],
+      "screenshot": "project-long-clarification-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:33:02.247Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    },
+    {
+      "id": "project-validation-error-mobile-390",
+      "route": "/project/",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "validation-error",
+        "error-announcement",
+        "input-preserved"
+      ],
+      "screenshot": "project-validation-error-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:33:05.034Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    },
+    {
+      "id": "mobile-menu-open-mobile-390",
+      "route": "/",
+      "viewport": {
+        "id": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "mobile-menu-open",
+        "modal",
+        "body-scroll-locked"
+      ],
+      "screenshot": "mobile-menu-open-mobile-390.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:33:06.762Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1321,7 +2014,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:44.560Z",
+        "capturedAt": "2026-09-29T07:33:09.019Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1354,7 +2047,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:46.056Z",
+        "capturedAt": "2026-09-29T07:33:10.481Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1387,7 +2080,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:48.333Z",
+        "capturedAt": "2026-09-29T07:33:12.740Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1420,7 +2113,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:52.593Z",
+        "capturedAt": "2026-09-29T07:33:16.727Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1453,7 +2146,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:56.094Z",
+        "capturedAt": "2026-09-29T07:33:20.405Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1486,7 +2179,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:08:59.001Z",
+        "capturedAt": "2026-09-29T07:33:23.850Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1519,7 +2212,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:09:00.832Z",
+        "capturedAt": "2026-09-29T07:33:25.983Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1552,7 +2245,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:09:03.289Z",
+        "capturedAt": "2026-09-29T07:33:28.108Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1585,7 +2278,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:09:05.609Z",
+        "capturedAt": "2026-09-29T07:33:30.308Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1618,7 +2311,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:09:08.962Z",
+        "capturedAt": "2026-09-29T07:33:33.105Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1651,7 +2344,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:09:11.519Z",
+        "capturedAt": "2026-09-29T07:33:35.298Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1684,7 +2377,7 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:09:13.629Z",
+        "capturedAt": "2026-09-29T07:33:37.150Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
       }
@@ -1717,9 +2410,207 @@
         "unownedOverflowingElements": 0
       },
       "provenance": {
-        "capturedAt": "2026-09-29T07:09:15.293Z",
+        "capturedAt": "2026-09-29T07:33:38.860Z",
         "runner": "Playwright Chromium viewport emulation",
         "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "compare-differences-desktop-1440",
+      "route": "/compare/?ids=github-copilot,cursor&diff=1",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "differences-only",
+        "selected",
+        "browser-emulated"
+      ],
+      "screenshot": "compare-differences-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:33:40.865Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "compare-search-stress-desktop-1440",
+      "route": "/compare/?ids=github-copilot,cursor&diff=1",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "picker-open",
+        "long-unbroken-token",
+        "empty-result"
+      ],
+      "screenshot": "compare-search-stress-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:33:42.029Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "article-table-desktop-1440",
+      "route": "/articles/meshy-pricing-credits-game/",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "semantic-table",
+        "owned-local-scroller",
+        "long-content"
+      ],
+      "screenshot": "article-table-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 1,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:33:46.035Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "tools-long-label-empty-desktop-1440",
+      "route": "/tools/",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "long-japanese-label",
+        "long-unbroken-token",
+        "empty-result"
+      ],
+      "screenshot": "tools-long-label-empty-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:33:48.552Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      }
+    },
+    {
+      "id": "project-long-clarification-desktop-1440",
+      "route": "/project/",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "long-japanese-idea",
+        "clarification",
+        "deterministic-fallback"
+      ],
+      "screenshot": "project-long-clarification-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:33:51.662Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
+      }
+    },
+    {
+      "id": "project-validation-error-desktop-1440",
+      "route": "/project/",
+      "viewport": {
+        "id": "desktop-1440",
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false
+      },
+      "state": [
+        "validation-error",
+        "error-announcement",
+        "input-preserved"
+      ],
+      "screenshot": "project-validation-error-desktop-1440.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-29T07:33:54.251Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device or soft-keyboard evidence."
       }
     }
   ]
