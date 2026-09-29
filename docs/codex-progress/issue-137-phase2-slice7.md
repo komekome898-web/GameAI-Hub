@@ -11,6 +11,6 @@
 - Quality/build/E2E: `npm run quality` PASS (294 Vitest + 65 orchestration tests); `npm run build` PASS (70 generated routes); `npm run test:e2e -- --workers=1` PASS (106 tests in 1019.682 seconds / 17m00s); `git diff --check` PASS
 - Evidence: `docs/screenshots/issue-137-slice7/manifest.json` targets tested tree `d1ccbfd683e9b01df3a2d22f05a180171d12e95a`; all 79 records report 0px document overflow and zero unowned overflowing elements; four records exercise an owned semantic table scroller
 - Open blocking findings: none
-- GitHub/PR: branch is durable; PR creation and final remote-head verification are the remaining handoff actions
+- GitHub/PR: PR #150 is open against `main`; the branch and PR head are remotely verified after every pushed checkpoint
 - Explicit UNTESTED: physical Android and additional iPhone models, touch/soft-keyboard behavior, and VoiceOver/TalkBack/NVDA/JAWS. Prior owner iPhone Home verification remains accepted and was not reopened.
-- Next action: commit/push this ledger, open the single Slice 7 PR against `main`, and verify its remote head and changed paths
+- Next action: external Preview/Production acceptance and human merge decision; do not merge or close Issue #137 from this task
