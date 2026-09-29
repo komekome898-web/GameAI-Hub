@@ -172,13 +172,16 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
         ))}
       </div>
 
+      <div className="tool-inline-search">
+        <label htmlFor="tool-search">
+          名前・用途から候補を検索
+          <input aria-label="ツールを検索" id="tool-search" type="search" value={query} onChange={(event) => updateQuery(event.target.value)} placeholder="例: Unity、音声" autoComplete="off" />
+        </label>
+      </div>
+
       <details className="secondary-filters" open={hasAdvancedFilters || undefined}>
         <summary>追加条件を指定{activeFilters.length > 0 ? `（${activeFilters.length}件適用中）` : ''}</summary>
         <div className="tool-filter-fields">
-          <label htmlFor="tool-search">
-            ツールを検索
-            <input id="tool-search" type="search" value={query} onChange={(event) => updateQuery(event.target.value)} placeholder="例: Unity、音声" autoComplete="off" />
-          </label>
           <label>
             カテゴリ
             <select value={category} onChange={(event) => replaceFilters({ category: event.target.value })}>

@@ -68,8 +68,6 @@ test("Tools keeps criteria, URL history, evidence and empty recovery understanda
   await page.goBack();
   await expect(page.getByRole("button", { name: "すべて表示" })).toHaveAttribute("aria-pressed", "true");
 
-  const filters = page.locator(".secondary-filters");
-  await filters.locator(":scope > summary").click();
   await page.getByLabel("ツールを検索").fill("NoMatchingToolToken_1234567890");
   await expect(page.getByText("条件に合う候補がありません")).toBeVisible();
   await page.getByRole("button", { name: "条件を解除" }).click();
