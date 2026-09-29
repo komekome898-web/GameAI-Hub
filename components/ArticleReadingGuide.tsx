@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import type { ArticleRecord } from "@/data/articles";
 
@@ -19,6 +19,7 @@ function headingId(text: string, index: number) {
 export function ArticleReadingGuide({ article }: { article: ArticleRecord }) {
   const [mount, setMount] = useState<HTMLElement | null>(null);
   const [entries, setEntries] = useState<Entry[]>([]);
+  const toc = useRef<HTMLDetailsElement | null>(null);
   useEffect(() => {
     const content = document.querySelector(".article-content");
     const header = content?.querySelector(":scope > .page-head");
@@ -26,6 +27,20 @@ export function ArticleReadingGuide({ article }: { article: ArticleRecord }) {
     const headings = Array.from(
       content.querySelectorAll(":scope > section > h2"),
     );
+    content
+      .querySelectorAll<HTMLElement>(".article-decision-table")
+      .forEach((region) => {
+        region.tabIndex = 0;
+        region.setAttribute("role", "region");
+        region.setAttribute("aria-label", "比較表（横にスクロールできます）");
+      });
+    content
+      .querySelectorAll<HTMLElement>("pre.article-code")
+      .forEach((region) => {
+        region.tabIndex = 0;
+        region.setAttribute("role", "region");
+        region.setAttribute("aria-label", "コードまたはプロンプト");
+      });
     const used = new Set<string>();
     const next = headings.map((heading, index) => {
       const label = heading.textContent?.trim() || `セクション ${index + 1}`;
@@ -51,6 +66,31 @@ export function ArticleReadingGuide({ article }: { article: ArticleRecord }) {
       node.remove();
     };
   }, []);
+  useEffect(() => {
+    if (!entries.length || !window.location.hash) return;
+    const revealFragment = () => {
+      document
+        .getElementById(decodeURIComponent(window.location.hash.slice(1)))
+        ?.scrollIntoView();
+    };
+    const frame = requestAnimationFrame(revealFragment);
+    const timer = window.setTimeout(revealFragment, 150);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.clearTimeout(timer);
+    };
+  }, [entries]);
+  useEffect(() => {
+    if (!toc.current) return;
+    if (typeof window.matchMedia !== "function") return;
+    const narrow = window.matchMedia("(max-width: 680px)");
+    const sync = () => {
+      if (toc.current) toc.current.open = !narrow.matches;
+    };
+    sync();
+    narrow.addEventListener("change", sync);
+    return () => narrow.removeEventListener("change", sync);
+  }, [mount, entries]);
   if (!mount) return null;
   const audience =
     article.category === "beginner"
@@ -61,22 +101,22 @@ export function ArticleReadingGuide({ article }: { article: ArticleRecord }) {
   return createPortal(
     <aside className="article-reading-guide" aria-label="この記事の読み方">
       <div className="article-answer">
-        <span>先に要点</span>
+        <span>この記事の答え</span>
         <p>{article.description}</p>
         <small>対象: {audience}</small>
       </div>
       {entries.length > 2 && (
         <nav className="article-toc" aria-label="この記事の目次">
-          <strong>目次</strong>
-          <ol>
-            {entries.map((entry) => (
-              <li key={entry.id}>
-                <a href={`#${entry.id}`} aria-label={`目次: ${entry.label}`}>
-                  {entry.label}
-                </a>
-              </li>
-            ))}
-          </ol>
+          <details ref={toc} open>
+            <summary>手順を見る（{entries.length}項目）</summary>
+            <ol>
+              {entries.map((entry) => (
+                <li key={entry.id}>
+                  <a href={`#${entry.id}`}>{entry.label}</a>
+                </li>
+              ))}
+            </ol>
+          </details>
         </nav>
       )}
     </aside>,

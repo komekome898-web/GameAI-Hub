@@ -63,24 +63,42 @@ const groups = [
     ],
   },
 ] as const;
+
+const intents = [
+  {
+    href: "#start",
+    label: "最初のゲームを動かす",
+    detail: "1ファイルの小さなゲームから、確認と修正の流れを覚える",
+  },
+  {
+    href: "#voice",
+    label: "音声・3Dを制作へ入れる",
+    detail: "代表素材を1点作り、実際のゲーム内で採用可否を確かめる",
+  },
+  {
+    href: "#practice",
+    label: "料金・権利・AIの結果を確かめる",
+    detail: "公開や購入の前に、一次資料と観察できる結果で判断する",
+  },
+] as const;
+
 export default function ArticlesPage() {
   return (
     <div className="page-shell article-hub">
       <header className="page-head">
         <p className="eyebrow">AI GAME DEVELOPMENT LIBRARY</p>
-        <h1>
-          今の制作判断から、
-          <br />
-          次に読む記事を選ぶ
-        </h1>
+        <h1>今の制作課題から、次に読む手順を選ぶ</h1>
         <p className="lead">
-          作り始める、音声を入れる、3Dを作る、公開条件を確かめる。検索意図ごとに、次の作業へつながる記事をまとめました。
+          ゲームを動かす、素材を作る、公開条件を確かめる。読み終えた後に何を作り、どう確認するかが分かる記事を目的別に探せます。
         </p>
-        <nav className="hub-jumps" aria-label="記事カテゴリ">
-          <a href="#start">作り始める</a>
-          <a href="#voice">音声</a>
-          <a href="#3d">3D</a>
-          <a href="#practice">検証</a>
+        <nav className="hub-intents" aria-label="制作目的から記事を選ぶ">
+          {intents.map((intent, index) => (
+            <a href={intent.href} key={intent.href}>
+              <span>0{index + 1}</span>
+              <strong>{intent.label}</strong>
+              <small>{intent.detail}</small>
+            </a>
+          ))}
         </nav>
       </header>
       {groups.map((group) => (
@@ -97,25 +115,32 @@ export default function ArticlesPage() {
             </div>
             <p>{group.description}</p>
           </div>
-          <div className="article-cluster-grid">
+          <ol className="article-cluster-list">
             {group.slugs.map((slug, index) => {
               const article = getArticle(slug);
               if (!article) return null;
               return (
-                <Link key={slug} href={`/articles/${slug}/`}>
-                  <span>
-                    {index === 0
-                      ? "まず読む"
-                      : articleCategoryLabels[article.category]}{" "}
-                    · 更新 {article.updatedAt}
-                  </span>
-                  <h3>{article.title}</h3>
-                  <p>{article.description}</p>
-                  <b>この記事を読む →</b>
-                </Link>
+                <li key={slug}>
+                  <Link href={`/articles/${slug}/`}>
+                    <span className="article-row-order">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="article-row-copy">
+                      <small>
+                        {index === 0
+                          ? "この目的の入口"
+                          : articleCategoryLabels[article.category]}{" "}
+                        · 更新 {article.updatedAt}
+                      </small>
+                      <strong>{article.title}</strong>
+                      <span>{article.description}</span>
+                    </span>
+                    <b aria-hidden="true">→</b>
+                  </Link>
+                </li>
               );
             })}
-          </div>
+          </ol>
         </section>
       ))}
       <section className="hub-project-cta">

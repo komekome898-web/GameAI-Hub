@@ -47,7 +47,7 @@ for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'zoom-320'
   await page.setViewportSize({width:viewport.width,height:viewport.height});
   await page.goto('/articles/');
   if(viewport.name==='zoom-320')await page.evaluate(()=>{document.documentElement.style.zoom='2'});
-  await expect(page.getByRole('heading',{name:/今の制作判断から/})).toBeVisible();
+  await expect(page.getByRole('heading',{name:/今の制作課題から/})).toBeVisible();
   await page.getByRole('link',{name:/AIでブラウザゲームを作る方法/}).click();
   await expect(page.getByRole('navigation',{name:'パンくず'})).toBeVisible();
   await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(2);

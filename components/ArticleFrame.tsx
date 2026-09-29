@@ -89,36 +89,9 @@ export function ArticleFrame({
         </p>
         <p>{article.editorialNote}</p>
       </aside>
-      <section
-        className="article-related"
-        aria-labelledby={`related-${article.slug}`}
-      >
-        <p className="section-label">NEXT EVIDENCE</p>
-        <h2 id={`related-${article.slug}`}>次の判断に必要なページ</h2>
-        <ul>
-          {article.related.map((link) => (
-            <li key={link.href}>
-              <Link href={link.href}>
-                <span>
-                  {
-                    (
-                      {
-                        article: "記事",
-                        guide: "ガイド",
-                        tool: "ツール",
-                        compare: "比較",
-                        reference: "参照",
-                      } as const
-                    )[link.kind]
-                  }
-                </span>
-                <strong>{link.label}</strong>
-                <small>{link.reason}</small>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {showProjectCta && (
+        <ArticleProjectCta slug={article.slug} {...article.projectCta} />
+      )}
       <section className="sources">
         <p className="section-label">SOURCES & EDITORIAL</p>
         <h2>情報源と更新方針</h2>
@@ -146,9 +119,36 @@ export function ArticleFrame({
           <Link href="/methodology">調査・評価方法</Link>をご覧ください。
         </p>
       </section>
-      {showProjectCta && (
-        <ArticleProjectCta slug={article.slug} {...article.projectCta} />
-      )}
+      <section
+        className="article-related"
+        aria-labelledby={`related-${article.slug}`}
+      >
+        <p className="section-label">RELATED</p>
+        <h2 id={`related-${article.slug}`}>次の判断に必要なページ</h2>
+        <ul>
+          {article.related.slice(0, 3).map((link) => (
+            <li key={link.href}>
+              <Link href={link.href}>
+                <span>
+                  {
+                    (
+                      {
+                        article: "記事",
+                        guide: "ガイド",
+                        tool: "ツール",
+                        compare: "比較",
+                        reference: "参照",
+                      } as const
+                    )[link.kind]
+                  }
+                </span>
+                <strong>{link.label}</strong>
+                <small>{link.reason}</small>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
     </article>
   );
 }
