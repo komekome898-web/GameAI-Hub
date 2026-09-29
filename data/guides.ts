@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 const guideSchema=z.object({
   slug:z.string().regex(/^[a-z0-9-]+$/), title:z.string().min(1), description:z.string().min(1), queryFamily:z.string().min(1), lastVerified:z.iso.date(),
+  productionStage:z.enum(['start','build','review']),
   audience:z.string().min(1), outcome:z.string().min(1),
   steps:z.array(z.object({title:z.string().min(1),objective:z.string().min(1),deliverables:z.array(z.string().min(1)).min(1),doneWhen:z.array(z.string().min(1)).min(1),pitfall:z.string().min(1)})).min(3),
   checks:z.array(z.string().min(1)).min(1),
@@ -10,7 +11,7 @@ const guideSchema=z.object({
 export type Guide=z.infer<typeof guideSchema>;
 export const guides=guideSchema.array().parse([
   {
-    slug:'ai-2d-rpg-workflow',title:'AIで2D RPGを作る：最初のVertical Slice実践手順',description:'大作の素材生成から始めず、1マップ・1戦闘・セーブ確認までを小さく完成させるAI支援ワークフロー。',queryFamily:'AIで2D RPGを作る',lastVerified:'2026-08-26',audience:'一人または小規模チームで、2D RPGの最初の遊べる版を作る人',outcome:'1つの小さなマップで、移動・会話・戦闘・報酬・セーブ／ロードを通して確認できる状態',
+    slug:'ai-2d-rpg-workflow',title:'AIで2D RPGを作る：最初のVertical Slice実践手順',description:'大作の素材生成から始めず、1マップ・1戦闘・セーブ確認までを小さく完成させるAI支援ワークフロー。',queryFamily:'AIで2D RPGを作る',lastVerified:'2026-08-26',productionStage:'build',audience:'一人または小規模チームで、2D RPGの最初の遊べる版を作る人',outcome:'1つの小さなマップで、移動・会話・戦闘・報酬・セーブ／ロードを通して確認できる状態',
     steps:[
       {title:'1. コアループと「作らないもの」を固定する',objective:'素材数ではなく、プレイヤーが繰り返す操作を先に決めます。',deliverables:['1ページの企画メモ','移動→会話または戦闘→報酬、という最小ループ','ワールドマップ、クラフト、大量の敵など初回対象外の一覧'],doneWhen:['初回版に含める操作を第三者が説明できる','追加案を対象外一覧へ戻せる'],pitfall:'AIにゲーム全体を一度に依頼すると、仕様と検証点が曖昧になります。'},
       {title:'2. プレースホルダーで1マップを実装する',objective:'絵の品質より先に、選んだエンジンで操作と画面遷移を検証します。',deliverables:['開始地点と出口を持つ小さなマップ','プレイヤー移動と1つのインタラクション','仮画像・仮音声の出所台帳'],doneWhen:['新規開始からマップの終了条件まで操作できる','不足素材が仮素材として明示されている'],pitfall:'生成画像を先に量産すると、必要な向き・サイズ・状態が後から変わります。'},
@@ -20,7 +21,7 @@ export const guides=guideSchema.array().parse([
     sources:[{label:'Godot: Saving games',url:'https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html'},{label:'Unity: ScriptableObject',url:'https://docs.unity3d.com/Manual/class-ScriptableObject.html'}]
   },
   {
-    slug:'codex-game-development-brief',title:'Codexでゲーム開発を始める：実装ブリーフの作り方',description:'ゲーム全体を丸投げせず、スコープ、非目標、成果物、テストを明示して最初の実装タスクへ分ける方法。',queryFamily:'Codexでゲーム開発',lastVerified:'2026-08-26',audience:'既存または新規のゲームプロジェクトで、Coding Agentへ安全に作業を渡したい開発者',outcome:'リポジトリを確認してから実行できる、小さく検証可能な最初のタスクと受け入れ条件',
+    slug:'codex-game-development-brief',title:'Codexでゲーム開発を始める：実装ブリーフの作り方',description:'ゲーム全体を丸投げせず、スコープ、非目標、成果物、テストを明示して最初の実装タスクへ分ける方法。',queryFamily:'Codexでゲーム開発',lastVerified:'2026-08-26',productionStage:'start',audience:'既存または新規のゲームプロジェクトで、Coding Agentへ安全に作業を渡したい開発者',outcome:'リポジトリを確認してから実行できる、小さく検証可能な最初のタスクと受け入れ条件',
     steps:[
       {title:'1. 実装前提をブリーフへ固定する',objective:'エンジン、対象プラットフォーム、コアループ、初回スコープを明示します。',deliverables:['確認済みのプロジェクト要約','初回マイルストーンと非目標','未決定事項と不足アセットの一覧'],doneWhen:['確認済み事実と未決定事項が区別されている','未確認のエンジン版やコマンドを推測していない'],pitfall:'短い「ゲームを作って」という依頼では、Agentが安全に決められない設計判断まで暗黙に委ねます。'},
       {title:'2. 最初のタスクを1つの検証単位にする',objective:'フォルダ一式ではなく、実行して成否を判断できる最小機能にします。',deliverables:['変更対象または探索対象','期待する1つのユーザーフロー','対象外の機能'],doneWhen:['タスク完了を操作または自動テストで判定できる','次のタスクと混ざっていない'],pitfall:'コード、最終アート、音声、公開設定を同時に依頼すると、失敗原因を切り分けにくくなります。'},

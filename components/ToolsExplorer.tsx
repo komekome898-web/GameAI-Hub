@@ -150,25 +150,8 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
   }
 
   return (
-    <>
+    <div className="tools-explorer">
       {projectContext && <div className="compare-context"><strong>{beginnerBrowser ? '制作中のブラウザゲームに使うツールを確認しています。' : '制作中のゲームに使うツールを確認しています。'}</strong><Link href={`${projectContext.returnUrl}#${beginnerBrowser ? 'beginner-action-title' : 'build-progress-title'}`}>制作中のゲームに戻る →</Link></div>}
-      <div className="filter-panel tool-search-panel">
-        <div className="filter-copy"><span>QUICK SEARCH</span><strong>名前・用途からすぐ探す</strong></div>
-        <label htmlFor="tool-search">
-          ツールを検索
-          <input
-            id="tool-search"
-            type="search"
-            value={query}
-            onChange={(event) => updateQuery(event.target.value)}
-            placeholder="例: Unity、音声、プロトタイプ"
-            autoComplete="off"
-            aria-describedby="tool-search-help"
-          />
-        </label>
-        <p id="tool-search-help">名称・説明・主な用途を横断して検索します。</p>
-      </div>
-
       <div className="goal-groups" aria-labelledby="goal-picker-title">
         <div className="goal-picker-heading">
           <p className="section-label">DELIVERABLE FIRST</p>
@@ -190,8 +173,12 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
       </div>
 
       <details className="secondary-filters" open={hasAdvancedFilters || undefined}>
-        <summary>料金・公式情報・利用環境で絞り込む</summary>
-        <div>
+        <summary>追加条件を指定{activeFilters.length > 0 ? `（${activeFilters.length}件適用中）` : ''}</summary>
+        <div className="tool-filter-fields">
+          <label htmlFor="tool-search">
+            ツールを検索
+            <input id="tool-search" type="search" value={query} onChange={(event) => updateQuery(event.target.value)} placeholder="例: Unity、音声" autoComplete="off" />
+          </label>
           <label>
             カテゴリ
             <select value={category} onChange={(event) => replaceFilters({ category: event.target.value })}>
@@ -225,8 +212,8 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
       )}
 
       <div className="results-head">
-        <p aria-live="polite" aria-busy={isPending}><strong>{shown.length}</strong> 件の候補{isPending ? 'を更新中' : ''}</p>
-        <span>制作順から決めるなら <Link href="/project">Project Generatorへ</Link></span>
+        <div><p className="section-label">MATCHING RESULTS</p><p aria-live="polite" aria-busy={isPending}><strong>{shown.length}</strong> 件の候補{isPending ? 'を更新中' : ''}</p></div>
+        <span>表示順は名前順です。制作順を整理するなら <Link href="/project">自分のProjectへ</Link></span>
       </div>
 
       <div className="tool-rows">
@@ -235,14 +222,13 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
             <div className="tool-rank"><span>{categoryLabels[service.category]}</span><small>{goal === 'all' ? '調査候補' : '用途カテゴリ一致'}</small></div>
             <div><h2><Link href={`/tools/${service.slug}`}>{service.name}</Link></h2><p>{service.summary}</p>{beginnerBrowser && goal === 'code' && <p><strong>今回の始め方：</strong>{beginnerBrowserToolDecision(service).reason}</p>}</div>
             <dl>
-              <div><dt>無料</dt><dd>{label(service.freePlan)}</dd></div>
               <div><dt>商用</dt><dd>{label(service.commercialUse)}</dd></div>
-              <div><dt>API</dt><dd>{label(service.api)}</dd></div>
               <div><dt>公式資料</dt><dd>{verificationStatusLabel(service.verificationStatus)}</dd></div>
+              <div><dt>ソース最終確認</dt><dd>{service.lastVerified}</dd></div>
             </dl>
             <div className="tool-row-actions">
-              <Link href={`/tools/${service.slug}`}>根拠と制約</Link>
-              <Link href={compareHref(service.slug)} onClick={() => track('compare_start', { services: [service.slug], page: '/tools' })}>比較する</Link>
+              <Link className="button" href={`/tools/${service.slug}`}>根拠と制約を見る</Link>
+              <Link className="tool-compare-secondary" href={compareHref(service.slug)} onClick={() => track('compare_start', { services: [service.slug], page: '/tools' })}>比較する</Link>
             </div>
           </article>
         ))}
@@ -255,7 +241,11 @@ export function ToolsExplorer({ services, initialCategory }: { services: Service
           <button className="button ghost" onClick={reset}>条件を解除</button>
         </div>
       )}
-    </>
+      <aside className="directory-method" aria-labelledby="tool-evidence-title">
+        <div><p className="section-label">EVIDENCE</p><h2 id="tool-evidence-title">確認済みと不明を分けて読む</h2></div>
+        <p>公式資料で確認できない価格・商用利用・APIは「不明」のまま表示します。<Link href="/methodology">調査方法を見る</Link></p>
+      </aside>
+    </div>
   );
 }
 
