@@ -70,7 +70,7 @@ test('Slice 7 cross-route matrix has contained, structured, durable rendered evi
     // Re-exercise the highest-risk non-default states instead of relying on a
     // normal-route width check as a proxy for long-content containment.
     await page.goto('/compare/?ids=github-copilot,cursor&diff=1');
-    await expect(page.getByRole('checkbox', { name: '違いがある項目だけ表示' })).toBeChecked();
+    await expect(page.getByRole('checkbox', { name: '差分のみ表示' })).toBeChecked();
     const compareDiffWidths = await diagnoseWidths(page);
     expect(compareDiffWidths.documentOverflowPx).toBe(0);
     const compareDiffScreenshot = `compare-differences-${viewport.id}.png`;
@@ -90,6 +90,13 @@ test('Slice 7 cross-route matrix has contained, structured, durable rendered evi
     const tableRegion = page.getByRole('region', { name: '比較表（横にスクロールできます）' }).first();
     await expect(tableRegion).toHaveAttribute('tabindex', '0');
     await expect(tableRegion.locator('th')).not.toHaveCount(0);
+    await tableRegion.locator('td').first().evaluate((cell) => {
+      const stress = document.createElement('code');
+      stress.dataset.acceptanceStress = 'long-url';
+      stress.style.whiteSpace = 'nowrap';
+      stress.textContent = `https://example.invalid/${'unbroken-token-'.repeat(36)}`;
+      cell.append(stress);
+    });
     const articleWidths = await diagnoseWidths(page);
     expect(articleWidths.documentOverflowPx).toBe(0);
     expect(articleWidths.ownedLocalScrollers.length).toBeGreaterThan(0);
