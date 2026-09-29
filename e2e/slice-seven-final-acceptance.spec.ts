@@ -112,6 +112,43 @@ test('Slice 7 cross-route matrix has contained, structured, durable rendered evi
     const toolsStressScreenshot = `tools-long-label-empty-${viewport.id}.png`;
     await page.screenshot({ path: path.join(evidenceDir, toolsStressScreenshot), fullPage: true });
     records.push({ id: `tools-long-label-empty-${viewport.id}`, route: '/tools/', viewport, zoom: { mode: 'none', factor: 1 }, emulation: { viewport: true, physicalDevice: false }, state: ['long-japanese-label', 'long-unbroken-token', 'empty-result'], screenshot: toolsStressScreenshot, diagnostics: { documentOverflowPx: 0, ownedLocalScrollers: toolsStressWidths.ownedLocalScrollers.length, unownedOverflowingElements: toolsStressWidths.unownedOverflowingElements.length }, provenance: { capturedAt: new Date().toISOString(), runner: 'Playwright Chromium viewport emulation', note: 'Responsive evidence only; not physical-device evidence.' } });
+
+    await page.goto('/project/');
+    await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
+    await page.reload();
+    const projectIdea = `長い日本語のゲーム案。海面上昇後の東京で記憶を失った灯台守が、光る種を育てながら沈没図書館を探索するブラウザ向け一人用2D物語パズル。${'原文を変えない条件'.repeat(12)}`;
+    await page.route('**/api/project/interpret', (request) => request.abort());
+    await page.locator('#project-idea-project').fill(projectIdea);
+    await page.getByRole('button', { name: '制作ロードマップを作る' }).click();
+    await expect(page.getByText(projectIdea, { exact: true })).toBeVisible();
+    const projectWidths = await diagnoseWidths(page);
+    expect(projectWidths.documentOverflowPx).toBe(0);
+    const projectStressScreenshot = `project-long-clarification-${viewport.id}.png`;
+    await page.screenshot({ path: path.join(evidenceDir, projectStressScreenshot), fullPage: true });
+    records.push({ id: `project-long-clarification-${viewport.id}`, route: '/project/', viewport, zoom: { mode: 'none', factor: 1 }, emulation: { viewport: true, physicalDevice: false }, state: ['long-japanese-idea', 'clarification', 'deterministic-fallback'], screenshot: projectStressScreenshot, diagnostics: { documentOverflowPx: 0, ownedLocalScrollers: projectWidths.ownedLocalScrollers.length, unownedOverflowingElements: projectWidths.unownedOverflowingElements.length }, provenance: { capturedAt: new Date().toISOString(), runner: 'Playwright Chromium viewport emulation', note: 'Responsive evidence only; not physical-device or soft-keyboard evidence.' } });
+    await page.unroute('**/api/project/interpret');
+
+    await page.goto('/project/');
+    await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
+    await page.reload();
+    await page.getByRole('button', { name: '制作ロードマップを作る' }).click();
+    await expect(page.locator('#idea-error-project')).toBeVisible();
+    const projectErrorWidths = await diagnoseWidths(page);
+    expect(projectErrorWidths.documentOverflowPx).toBe(0);
+    const projectErrorScreenshot = `project-validation-error-${viewport.id}.png`;
+    await page.screenshot({ path: path.join(evidenceDir, projectErrorScreenshot), fullPage: true });
+    records.push({ id: `project-validation-error-${viewport.id}`, route: '/project/', viewport, zoom: { mode: 'none', factor: 1 }, emulation: { viewport: true, physicalDevice: false }, state: ['validation-error', 'error-announcement', 'input-preserved'], screenshot: projectErrorScreenshot, diagnostics: { documentOverflowPx: 0, ownedLocalScrollers: projectErrorWidths.ownedLocalScrollers.length, unownedOverflowingElements: projectErrorWidths.unownedOverflowingElements.length }, provenance: { capturedAt: new Date().toISOString(), runner: 'Playwright Chromium viewport emulation', note: 'Responsive evidence only; not physical-device or soft-keyboard evidence.' } });
+
+    if (viewport.width < 900) {
+      await page.goto('/');
+      await page.getByRole('button', { name: 'メニューを開く' }).click();
+      await expect(page.getByRole('dialog', { name: 'サイトメニュー' })).toBeVisible();
+      const menuWidths = await diagnoseWidths(page);
+      expect(menuWidths.documentOverflowPx).toBe(0);
+      const menuScreenshot = `mobile-menu-open-${viewport.id}.png`;
+      await page.screenshot({ path: path.join(evidenceDir, menuScreenshot), fullPage: true });
+      records.push({ id: `mobile-menu-open-${viewport.id}`, route: '/', viewport, zoom: { mode: 'none', factor: 1 }, emulation: { viewport: true, physicalDevice: false }, state: ['mobile-menu-open', 'modal', 'body-scroll-locked'], screenshot: menuScreenshot, diagnostics: { documentOverflowPx: 0, ownedLocalScrollers: menuWidths.ownedLocalScrollers.length, unownedOverflowingElements: menuWidths.unownedOverflowingElements.length }, provenance: { capturedAt: new Date().toISOString(), runner: 'Playwright Chromium viewport emulation', note: 'Responsive evidence only; not physical-device evidence.' } });
+    }
   }
 
   expect(collectors).toEqual([]);
