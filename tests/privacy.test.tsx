@@ -15,6 +15,6 @@ describe('privacy disclosure', () => {
     expect(text).toContain('この端末の非公開データをすべて削除');
     expect(text).toContain('運営・QA用の計測除外');
     expect(text).toContain('アカウント全体や別端末には反映されません');
-    expect(text).toContain('最終更新: 2026-09-23');
+    expect(text).toContain('最終更新: 2026-09-29');
   });
 });

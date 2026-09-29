@@ -63,8 +63,8 @@ test.describe("Issue 137 Slice 2 Home composition", () => {
       for (const route of baselineRoutes) {
         await page.goto(route);
         const diagnostics = await diagnoseWidths(page);
-        if (route === "/compare" && viewport.width < 400) expect(diagnostics.documentOverflowPx).toBeGreaterThan(0);
-        else expect(diagnostics.documentOverflowPx, `${route} overflowed`).toBe(0);
+        expect(diagnostics.documentOverflowPx, `${route} overflowed`).toBe(0);
+        expect(diagnostics.unownedOverflowingElements, `${route} has unowned overflow`).toEqual([]);
       }
     });
   }
