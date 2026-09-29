@@ -15,4 +15,5 @@
 - Independent review: fixed the invalid section token, manifest coverage/provenance, CSS/DOM ordering mismatch, collapsed supporting roadmap, and recovery focus/scroll behavior. Existing journey suites cover provider confirmation/fallback, engine blocking, share/query/history, next-task intent, analytics privacy, and Project handoffs.
 - Gates: 290 unit/component tests and 65 orchestration tests passed in `npm run quality`; production build generated 70 routes; full Playwright passed 95/95 with one worker in 11m35s. The initial two-worker run exposed two non-product concurrency flakes; both passed targeted reruns before the clean serial full-suite pass.
 - Known ownership: Compare's expected-open mobile overflow baseline remains green and owned by Slice 6.
-- Status: complete; final handoff/PR verification pending.
+- Pull request: `https://github.com/komekome898-web/GameAI-Hub/pull/147`.
+- Status: complete; final remote/PR verification pending after this ledger commit.
