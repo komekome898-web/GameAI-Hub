@@ -1,6 +1,6 @@
 # Issue #137 Phase 2 — Slice 5 progress
 
-- Status: implementation and local acceptance complete; PR handoff pending
+- Status: implementation and local acceptance complete; PR #148 open
 - Base: `origin/main` at `9c7d508a0ce17a73242923c71dddb19f75454c4f`
 - Branch: `codex/issue-137-phase2-slice5`
 - First remotely verified checkpoint: `397462013e23b128fea0aefacec4fbcd22fae271`
