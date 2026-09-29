@@ -28,3 +28,8 @@
 - `npm run test:e2e -- --workers=1`: 99 pass in 14m06s.
 - Default two-worker full run exposed a known concurrency flake in the Slice 1 synthetic DOM fixture (98 pass / 1 fail); its isolated rerun passed. The required serialized full suite then passed.
 - Compare mobile expected-open P1 remains unchanged for Slice 6.
+
+## Handoff
+
+- Accepted implementation/evidence SHA: `c7a3fef2ea9c7d177a91b213f8f2d7eeab8014d1`
+- Pull request: https://github.com/komekome898-web/GameAI-Hub/pull/148
