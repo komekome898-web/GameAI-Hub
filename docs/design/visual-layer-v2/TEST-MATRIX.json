@@ -99,7 +99,7 @@
       ],
       "owner": "e2e/issue-155-v1.spec.ts",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": "#start .v2-start-card-meta",
@@ -179,7 +179,7 @@
       ],
       "owner": "e2e/issue-155-v1.spec.ts",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": "#start li:first-child .v2-start-card",
@@ -213,7 +213,7 @@
       ],
       "owner": "Stage B V2 Home spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".home-execution-hero",
@@ -257,7 +257,7 @@
       ],
       "owner": "Stage B V2 Home spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".idea-meta",
@@ -342,7 +342,7 @@
       ],
       "owner": "Stage B V2 Project spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".project-v2-route",
@@ -433,7 +433,7 @@
       ],
       "owner": "Stage B V2 Project spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".project-v2-route",
@@ -505,7 +505,7 @@
       ],
       "owner": "Stage B V2 Project spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".project-v2-route",
@@ -576,7 +576,7 @@
       ],
       "owner": "Stage B V3 directories spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".tools-explorer",
@@ -693,7 +693,7 @@
       ],
       "owner": "Stage B V3 directories spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".guides-explorer",
@@ -726,7 +726,7 @@
       ],
       "owner": "Stage B V3 journey spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".tools-explorer",
@@ -761,7 +761,7 @@
       ],
       "owner": "Stage B V3 Compare spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".compare-selection-tray",
@@ -849,7 +849,7 @@
       ],
       "owner": "Stage B V3 Compare spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".compare-page",
@@ -908,7 +908,7 @@
       ],
       "owner": "Stage B V3 Compare spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".compare-page",
@@ -943,7 +943,7 @@
       ],
       "owner": "Stage B V3 reading spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".article-hub",
@@ -987,7 +987,7 @@
       ],
       "owner": "Stage B V3 reading spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".article-shell",
@@ -1047,7 +1047,7 @@
       ],
       "owner": "Stage B V3 reading spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".article-shell",
@@ -1086,7 +1086,7 @@
       ],
       "owner": "Stage B V3 trust spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".trust-page",
@@ -1120,7 +1120,7 @@
       ],
       "owner": "Stage B V3 remaining routes spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": "main",
@@ -1162,7 +1162,7 @@
       ],
       "owner": "Stage B V3 shared chrome spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".site-header",
@@ -1227,7 +1227,7 @@
       ],
       "owner": "Stage B V3 shared chrome spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".site-footer",
@@ -1267,7 +1267,7 @@
       ],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": "#start .creation-deck",
@@ -1301,7 +1301,7 @@
       ],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": "#start .creation-deck",
@@ -1377,7 +1377,7 @@
       ],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": "#start .creation-deck",
@@ -1438,7 +1438,7 @@
       ],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": "#start .creation-deck",
@@ -1498,7 +1498,7 @@
       ],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": "#start .creation-deck",
@@ -1531,7 +1531,7 @@
       ],
       "owner": "Stage B V4 performance spec",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": "#start .creation-deck",
@@ -1574,11 +1574,10 @@
       ],
       "owner": "Stage B final acceptance",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
-        "kind": "dom",
-        "selector": "matrix selectors",
-        "maturity": "planned"
+        "kind": "static",
+        "artifact": "final-integrated-review"
       },
       "variants": [
         {
@@ -1605,7 +1604,7 @@
       ],
       "owner": "Stage B final validator",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "VERIFIED",
       "surfaceRequirement": {
         "kind": "static",
         "artifact": "TEST-MATRIX.json"

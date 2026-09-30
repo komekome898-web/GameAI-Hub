@@ -57,7 +57,13 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
       const width = root.getBoundingClientRect().width;
       const cardsFit = cards.length > 2 && width >= 280 && cards.every((card) => {
         const cardWidth = card.getBoundingClientRect().width;
-        return Number.isFinite(cardWidth) && cardWidth >= 240;
+        const title = card.querySelector<HTMLElement>("strong");
+        const description = card.querySelector<HTMLElement>(".v2-start-card-description");
+        const titleSize = title ? Number.parseFloat(getComputedStyle(title).fontSize) : Number.NaN;
+        const descriptionSize = description ? Number.parseFloat(getComputedStyle(description).fontSize) : Number.NaN;
+        return Number.isFinite(cardWidth) && cardWidth >= 240 &&
+          Number.isFinite(titleSize) && titleSize <= 32 &&
+          Number.isFinite(descriptionSize) && descriptionSize <= 24;
       });
       if (!Number.isFinite(height) || height <= 16 || !cardsFit) {
         failSafe();

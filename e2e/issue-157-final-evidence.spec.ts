@@ -1,11 +1,11 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { expect, test, type Page } from "./fixtures";
 import matrix from "../docs/design/visual-layer-v2/TEST-MATRIX.json";
 import { diagnoseWidths } from "./acceptance/diagnostics";
 import { reflowEvidenceVersion, type ReflowEvidenceManifest, type ReflowEvidenceRecord } from "./acceptance/manifest";
 import { applyTextMethod, probeSurface, type TextMethod, type TextRole } from "./acceptance/reflow";
-import { validateExecutionSubset } from "./acceptance/reflow-matrix";
+import { validateExecutionSubset, validateFinalExecution } from "./acceptance/reflow-matrix";
 import { cleanSourceIdentity } from "./acceptance/source-identity";
 
 const output = path.join(process.cwd(), "docs/screenshots/issue-157-stage-b/final");
@@ -154,4 +154,24 @@ test("V4 dynamic input, cancellation, follow-up, focus, and budget observations"
   const manifest: ReflowEvidenceManifest = { schema: reflowEvidenceVersion, target: { sha: identity.sha, environment: "local", baseUrl: "http://127.0.0.1:3100", sourceIdentity: identity }, records };
   validateExecutionSubset(matrix, manifest, identity.sha, v4Ids);
   await writeFile(path.join(output, "v4-manifest.json"), `${JSON.stringify({ ...manifest, execution: { subsetGate: "PASS", cls, command: "npx playwright test e2e/issue-157-final-evidence.spec.ts" } }, null, 2)}\n`);
+});
+
+test("final cross-route evidence reconciles every required local case", async ({ page, browserName }) => {
+  const identity = cleanSourceIdentity();
+  const files = ["docs/screenshots/issue-157-stage-b/v1-current/manifest.json", "docs/screenshots/issue-157-stage-b/v2/manifest.json", "docs/screenshots/issue-157-stage-b/v2-project/manifest.json", "docs/screenshots/issue-157-stage-b/final/v3-manifest.json", "docs/screenshots/issue-157-stage-b/final/v4-manifest.json"];
+  const manifests = await Promise.all(files.map(async (file) => JSON.parse(await readFile(file, "utf8")) as ReflowEvidenceManifest));
+  for (const [index, manifest] of manifests.entries()) expect(manifest.target.sha, `${files[index]} is stale`).toBe(identity.sha);
+  await page.setViewportSize({ width: 390, height: 844 }); await page.goto("/");
+  const version = await page.evaluate(() => navigator.userAgent);
+  const finalRecord = (id: string, caseId: string, variantId: string, route: string, state: string, coverage: string[], review: ReflowEvidenceRecord["review"], surface: ReflowEvidenceRecord["surface"]): ReflowEvidenceRecord => ({
+    id, caseId, variantId, route, state: [state], coverage, surface, method: "viewport-reflow", evidenceClass: "responsive", requestedFactor: 1,
+    achieved: [{ role: "reconciliation", baselineFontPx: 16, changedFontPx: 16, factor: 1, baselineLineHeightPx: 27.2, changedLineHeightPx: 27.2 }],
+    browser: { name: browserName, version, viewport: { width: 390, height: 844 }, dpr: 1 }, diagnostics: { documentOverflowPx: 0, unownedOverflowingElements: 0, clippedText: 0, undersizedTargets: 0, focusApplicable: false, focusReachable: true, focusVisible: true, orderPreserved: true, associationsPreserved: true }, geometry: { layout: "not-applicable", nonoverlapping: true, contentVisible: true, ownedScrollers: 0 }, screenshot: "final/v3-VL-SHARED-FOOTER-narrow-enlarged-footer-groups.png", limitations: ["Consolidated local Chromium result; Production, protected Preview, physical devices, genuine browser zoom, and OS scaling were not executed."], reviewerDecision: "PASS", review, capturedAt: new Date().toISOString(),
+  });
+  const records = manifests.flatMap(({ records }) => records);
+  records.push(finalRecord("final-cross-route", "VL-FINAL-CROSS-ROUTE", "single-local-matrix-and-selected-journeys", "/", "single local matrix and selected journeys", ["local-e2e", "independent-render-review", "independent-review", "viewport-320", "viewport-375", "viewport-390", "viewport-1440"], { kind: "independent", reviewer: "Issue #157 consolidated rendered reviewer" }, { kind: "static", artifact: "final-integrated-review" }));
+  records.push(finalRecord("final-reconcile", "VL-FINAL-RECONCILE", "per-id-execution-evidence-reconciliation", "/repository", "per-ID execution/evidence reconciliation", ["final-execution-validator"], { kind: "automated", reviewer: "validateFinalExecution" }, { kind: "static", artifact: "TEST-MATRIX.json" }));
+  const manifest: ReflowEvidenceManifest = { schema: reflowEvidenceVersion, target: { sha: identity.sha, environment: "local", baseUrl: "http://127.0.0.1:3100", sourceIdentity: identity }, records };
+  validateFinalExecution(matrix, manifest, identity.sha);
+  await writeFile(path.join(output, "manifest.json"), `${JSON.stringify({ ...manifest, execution: { finalGate: "PASS", sources: files } }, null, 2)}\n`);
 });
