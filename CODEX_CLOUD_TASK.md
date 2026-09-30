@@ -24,6 +24,28 @@ Production branch: `main`
 
 Production site: `https://game-ai-hub.vercel.app`
 
+## Standard task and Environment model
+
+The default operating model is:
+
+> **fresh Codex Cloud task + published reusable GameAI-Hub Environment + resume existing GitHub repository lineage**
+
+A GitHub `@codex` dispatch normally creates a fresh task identity. Continuity
+comes from the Issue, existing branch and PR, remote commits/checkpoints,
+progress ledger, and repository instructions—not a prior task's ephemeral
+workspace or conversational memory. When unfinished valid work exists, the
+fresh task resumes its latest verified remote head on the same Issue, branch,
+and PR. **NEW_TASK does not mean NEW_BRANCH or NEW_PR.** Reusing a task/thread
+is exceptional and is justified only to preserve valid uncommitted or unpushed
+workspace state that cannot yet be reconstructed from repository truth.
+
+The published Environment may prepare dependencies, browser tooling, origin,
+authentication inputs, and a fetch before a task starts. Those are performance
+and preparation benefits only. They never satisfy or weaken the hard gates in
+Sections 2–3; every task verifies the resulting state again. The account-side
+Environment contract and authoritative Setup/Maintenance examples live in
+[`docs/agent-guides/CODEX_CLOUD_ENVIRONMENT.md`](docs/agent-guides/CODEX_CLOUD_ENVIRONMENT.md).
+
 ## 1. Read governing instructions first
 
 Read in this order:
@@ -43,7 +65,9 @@ Do not rely on conversational memory when repository artifacts exist.
 
 ## 2. Mandatory startup bootstrap — HARD GATE
 
-Never assume the local clone, `origin`, local `main`, authentication state, or prior task branch is valid.
+Never assume the local clone, either origin URL, local `main`, authentication
+state, prepared dependencies, cache state, or prior task branch is valid—even
+when Environment Maintenance has run.
 
 **This section is a blocking precondition, not guidance. Complete it before substantial work of any kind.**
 
@@ -75,7 +99,9 @@ Preserve unknown or unrelated user work. Do not discard it merely to force a cle
 
 ### 2.2 Restore GitHub authentication without exposing secrets
 
-This repository has repeatedly run in Codex Cloud workspaces where `origin` is absent and `gh` has no persisted login even though an authorized `GITHUB_PAT` is injected into the environment. Therefore authentication recovery is **mandatory and explicit**, not optional wording such as “when applicable”.
+The Environment may supply token-backed authentication inputs, but persisted
+`gh` login state is not guaranteed. Authentication recovery and verification
+are therefore **mandatory and explicit**, regardless of initial state.
 
 Run the following before any authenticated Git operation. Do not use `set -x` around this block.
 
@@ -126,6 +152,8 @@ git fetch origin --prune
 Verify:
 
 ```bash
+test "$(git remote get-url origin)" = "https://github.com/komekome898-web/GameAI-Hub.git"
+test "$(git remote get-url --push origin)" = "https://github.com/komekome898-web/GameAI-Hub.git"
 git show-ref --verify refs/remotes/origin/main
 ```
 
@@ -379,7 +407,7 @@ If PR creation, merge, CI, GitHub, or deployment fails after implementation:
 
 A legitimate blocker means the correct outcome is a durable pushed checkpoint + PR + precise recovery state, not a false success report.
 
-A fresh resume should inspect:
+A fresh task resuming existing work should inspect:
 
 ```bash
 git status --short --branch
@@ -388,7 +416,9 @@ git fetch origin --prune
 git log --oneline --decorate -12
 ```
 
-Then read the relevant Issue, root `AGENTS.md`, this file, scoped instructions, existing PR, and progress ledger.
+Then read the relevant Issue, root `AGENTS.md`, this file, scoped instructions,
+existing PR, and progress ledger. Use the published GameAI-Hub Environment when
+available, but reconstruct continuity from the latest verified remote state.
 
 Classify repository truth into:
 - completed
@@ -431,7 +461,7 @@ Do not use unsupported self-evaluation such as “perfect”, “production-read
 For every substantial Codex Cloud Task, the intended lifecycle is:
 
 ```text
-bootstrap environment
+start a fresh task in the reusable Environment when available
 → restore/verify origin/main
 → resume existing work or create task branch
 → prove remote push works
