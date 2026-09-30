@@ -159,6 +159,9 @@
             "viewport-375"
           ]
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/v1-current/manifest.json"
       ]
     },
     {
@@ -194,6 +197,9 @@
             "value": "/articles/"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/v1-current/manifest.json"
       ]
     },
     {
@@ -228,6 +234,9 @@
             "value": "/"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/v2/manifest.json"
       ]
     },
     {
@@ -322,6 +331,9 @@
             "viewport-375"
           ]
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/v2/manifest.json"
       ]
     },
     {
@@ -413,6 +425,9 @@
             "value": "/project/"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/v2-project/manifest.json"
       ]
     },
     {
@@ -480,6 +495,9 @@
             "value": "/project/"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/v2-project/manifest.json"
       ]
     },
     {
@@ -546,6 +564,9 @@
             "viewport-375"
           ]
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/v2-project/manifest.json"
       ]
     },
     {
@@ -673,6 +694,9 @@
             "viewport-375"
           ]
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v3-manifest.json"
       ]
     },
     {
@@ -708,6 +732,9 @@
             "value": "/guides/"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v3-manifest.json"
       ]
     },
     {
@@ -741,6 +768,9 @@
             "value": "/tools/"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v3-manifest.json"
       ]
     },
     {
@@ -824,6 +854,9 @@
             "value": "/compare/"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v3-manifest.json"
       ]
     },
     {
@@ -890,6 +923,9 @@
             "viewport-375"
           ]
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v3-manifest.json"
       ]
     },
     {
@@ -923,6 +959,9 @@
             "value": "/compare/"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v3-manifest.json"
       ]
     },
     {
@@ -958,6 +997,9 @@
             "value": "/articles/"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v3-manifest.json"
       ]
     },
     {
@@ -1028,6 +1070,9 @@
             "viewport-375"
           ]
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v3-manifest.json"
       ]
     },
     {
@@ -1062,6 +1107,9 @@
             "value": "/articles/elevenlabs-v4-game-voice/"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v3-manifest.json"
       ]
     },
     {
@@ -1101,6 +1149,9 @@
             "value": "/privacy/"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v3-manifest.json"
       ]
     },
     {
@@ -1135,6 +1186,9 @@
             "value": "/tools/github-copilot/"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v3-manifest.json"
       ]
     },
     {
@@ -1203,6 +1257,9 @@
             "viewport-375"
           ]
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v3-manifest.json"
       ]
     },
     {
@@ -1242,6 +1299,9 @@
             "value": "/"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v3-manifest.json"
       ]
     },
     {
@@ -1282,6 +1342,9 @@
             "value": "/articles/#start"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v4-manifest.json"
       ]
     },
     {
@@ -1348,6 +1411,9 @@
             "value": "/articles/#start"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v4-manifest.json"
       ]
     },
     {
@@ -1418,6 +1484,9 @@
             "viewport-375"
           ]
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v4-manifest.json"
       ]
     },
     {
@@ -1477,6 +1546,9 @@
             "value": "/articles/#start"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v4-manifest.json"
       ]
     },
     {
@@ -1513,6 +1585,9 @@
             "value": "/articles/#start"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v4-manifest.json"
       ]
     },
     {
@@ -1546,6 +1621,9 @@
             "value": "/articles/#start"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/v4-manifest.json"
       ]
     },
     {
@@ -1588,6 +1666,9 @@
             "value": "/"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/manifest.json"
       ]
     },
     {
@@ -1618,6 +1699,9 @@
             "value": "/repository"
           }
         }
+      ],
+      "evidence": [
+        "docs/screenshots/issue-157-stage-b/final/manifest.json"
       ]
     },
     {
