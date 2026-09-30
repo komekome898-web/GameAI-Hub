@@ -11,6 +11,7 @@
 - V1 planned fence: scoped `app/visual-layer-v2.css`, Articles hub modifier/static START covers, Header/Footer color/border only, no Creation Deck JS
 - Current app/runtime changes from Visual Layer v2: none
 - Current PR: none
+- Step ③ bootstrap: resumed expected remote head `4aaa50091599438e6ea7c3992124466864c4218b`; canonical fetch/push origin, authenticated repository access, authoritative main, and existing branch lineage reverified in the fresh task
 - Unresolved mapping blocker: none
 - Physical-device acceptance: UNTESTED
 - Next authorized action: implement V1 only from `CURRENT-MAIN-REMAP.md`, then run regression/render acceptance before any V2 work
