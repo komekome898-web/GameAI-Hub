@@ -37,3 +37,7 @@ test now delays `document.fonts.ready` past real wheel input and proves that its
 completion cannot restart reconciliation. The targeted second pass completed
 2/2 after these changes. No P0/P1 was found; Project/V3/V4/final evidence remains
 outside this checkpoint rather than being inferred from Home.
+
+## Project evidence adversarial review
+
+An independent source/screenshot review found three blocking gaps in the first Project package: programmatic focus could overwrite a failed keyboard result; token records omitted real note/file/runtime-error surfaces; and semantic-row/text-scale coverage could be asserted as tags without executing those methods. The correction now retains the bounded Shift+Tab/Tab result without a programmatic acceptance fallback, exercises nonempty project/task/workspace-note/file/runtime-error roles, calls the semantic-row probe with squeeze widths, and performs actual 150% computed-text workspace measurement. The named Project subset was then re-executed at clean source checkpoint `af9b59950ccc089e7ef58e44c27bc7876ac5fca6` and passed with 16 records. No P0 visual defect was reported; sampled primary/secondary hierarchy was preserved.

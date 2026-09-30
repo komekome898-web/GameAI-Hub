@@ -1,12 +1,12 @@
 {
   "schema": "gameai-reflow-evidence/v2",
   "target": {
-    "sha": "f26f4e5a697ded1c5e4d6f12ad92e4c39d100d93",
+    "sha": "af9b59950ccc089e7ef58e44c27bc7876ac5fca6",
     "environment": "local",
     "baseUrl": "http://127.0.0.1:3100",
     "sourceIdentity": {
       "kind": "clean-git-checkpoint",
-      "sha": "f26f4e5a697ded1c5e4d6f12ad92e4c39d100d93",
+      "sha": "af9b59950ccc089e7ef58e44c27bc7876ac5fca6",
       "status": "clean"
     }
   },
@@ -84,7 +84,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:28:07.966Z"
+      "capturedAt": "2026-09-30T17:31:27.378Z"
     },
     {
       "id": "project-state-loading",
@@ -150,7 +150,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:28:08.660Z"
+      "capturedAt": "2026-09-30T17:31:28.313Z"
     },
     {
       "id": "project-state-clarification",
@@ -227,7 +227,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:28:09.962Z"
+      "capturedAt": "2026-09-30T17:31:29.524Z"
     },
     {
       "id": "project-state-error",
@@ -293,7 +293,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:28:13.800Z"
+      "capturedAt": "2026-09-30T17:31:33.437Z"
     },
     {
       "id": "project-state-result",
@@ -367,7 +367,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:28:23.456Z"
+      "capturedAt": "2026-09-30T17:31:42.893Z"
     },
     {
       "id": "project-workspace",
@@ -434,7 +434,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:28:28.491Z"
+      "capturedAt": "2026-09-30T17:31:48.646Z"
     },
     {
       "id": "project-workspace-expanded",
@@ -510,7 +510,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:28:33.140Z"
+      "capturedAt": "2026-09-30T17:31:53.692Z"
     },
     {
       "id": "project-workspace-copy-failure",
@@ -584,7 +584,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:28:37.732Z"
+      "capturedAt": "2026-09-30T17:31:58.806Z"
     },
     {
       "id": "project-workspace-save-failure",
@@ -650,7 +650,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:28:43.601Z"
+      "capturedAt": "2026-09-30T17:32:05.255Z"
     },
     {
       "id": "project-state-done",
@@ -716,7 +716,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:28:47.940Z"
+      "capturedAt": "2026-09-30T17:32:09.739Z"
     },
     {
       "id": "project-state-next",
@@ -782,7 +782,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:28:52.151Z"
+      "capturedAt": "2026-09-30T17:32:14.277Z"
     },
     {
       "id": "project-state-recovery",
@@ -856,7 +856,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:28:59.110Z"
+      "capturedAt": "2026-09-30T17:32:22.710Z"
     },
     {
       "id": "project-no-workspace",
@@ -902,28 +902,27 @@
         "clippedText": 0,
         "undersizedTargets": 0,
         "focusApplicable": true,
-        "focusReachable": false,
-        "focusVisible": false,
+        "focusReachable": true,
+        "focusVisible": true,
         "orderPreserved": true,
         "associationsPreserved": true
       },
       "geometry": {
         "layout": "not-applicable",
         "nonoverlapping": true,
-        "contentVisible": false,
+        "contentVisible": true,
         "ownedScrollers": 0
       },
       "screenshot": "v2-project/project-no-workspace.png",
       "limitations": [
-        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence.",
-        "Focus failures: [{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"footer\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"nav\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"p\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"nav\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"h3\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"p\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"section\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"p\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"p\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"footer\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"small\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"p\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"div\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"p\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"span\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"footer\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"details\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"p\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"div\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"nav\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"nav\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"div\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"nav\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"p\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"nav\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"p\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"p\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"section\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"footer\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"section\"},{\"selector\":\"summary\",\"reachable\":false,\"visible\":false,\"active\":false,\"hit\":\"p\"}]"
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
       ],
-      "reviewerDecision": "FAIL",
+      "reviewerDecision": "PASS",
       "review": {
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:29:49.673Z"
+      "capturedAt": "2026-09-30T17:32:32.106Z"
     },
     {
       "id": "project-tokens-100",
@@ -1025,7 +1024,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:30:02.080Z"
+      "capturedAt": "2026-09-30T17:32:42.956Z"
     },
     {
       "id": "project-tokens-150",
@@ -1127,7 +1126,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:30:08.216Z"
+      "capturedAt": "2026-09-30T17:32:48.920Z"
     },
     {
       "id": "project-tokens-200",
@@ -1229,7 +1228,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T17:30:14.684Z"
+      "capturedAt": "2026-09-30T17:32:55.364Z"
     }
   ],
   "execution": {
@@ -1239,9 +1238,7 @@
       "VL-V2-PROJECT-WORKSPACE",
       "VL-V2-PROJECT-TOKENS"
     ],
-    "subsetGate": "FAIL",
-    "reasons": [
-      "VL-V2-PROJECT-WORKSPACE: executed subset evidence is not accepted"
-    ]
+    "subsetGate": "PASS",
+    "reasons": []
   }
 }
