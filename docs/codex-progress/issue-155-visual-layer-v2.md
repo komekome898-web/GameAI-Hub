@@ -10,13 +10,14 @@
 - Remap decision: START group remains the only V1 static-card target; current hub groups/order are authoritative; new ElevenLabs v4 article is published but not currently listed in VOICE and will not be silently inserted by V1
 - V1 planned fence: scoped `app/visual-layer-v2.css`, Articles hub modifier/static START covers, Header/Footer color/border only, no Creation Deck JS
 - Current app/runtime changes from Visual Layer v2: scoped CSS import/tokens and Articles-only Mint Atrium layer; static Crafted Ceramic cards for the existing START three; typed visual-path map; no client island or Creation Deck
-- Current PR: none
+- Current PR: [#156](https://github.com/komekome898-web/GameAI-Hub/pull/156), targeting `main`
 - Step ③ bootstrap: resumed expected remote head `4aaa50091599438e6ea7c3992124466864c4218b`; canonical fetch/push origin, authenticated repository access, authoritative main, and existing branch lineage reverified in the fresh task
 - Asset audit: all 11 runtime WebP/SVG candidates match manifest bytes/SHA in handoff and public copies; copies are byte-identical; SVG parse and browser WebP decode passed; intentionally omitted source masters remain excluded
 - Contract adjustment: the scoped Articles header plane preserves current copy/layout over Mint Atrium; native `srcset` serves the approved WebP bytes directly; the <=340px header and cards use a flat fallback. No handoff selector was imported blindly
 - Acceptance: `npm run quality`, `npm run build`, dedicated V1 E2E, Slice 3 article E2E, ElevenLabs v4 E2E, and content/SEO E2E passed. Final 320/375/390/1440 screenshots and diagnostics are under `docs/screenshots/issue-155-v1/`
 - Independent review: pass 1 found and prompted repair of 4px overflow at 320; pass 2 found no P0/P1/high-impact P2. Residual non-blocking P2 is quieter desktop ceramic depth than the approved reference
 - Deferred: V2 Home/Project, V3 remaining routes, V4 Creation Deck, Production and physical-device testing
+- Delivery: tested V1 implementation/evidence commit `5f2789dce04f63caea33946115b1c24d3d077ee2` pushed; Preview deployment reported Ready but remained protected and redirected an unauthenticated analytics-off request to Vercel login, so Preview browser acceptance is UNTESTED
 - Unresolved mapping blocker: none
 - Physical-device acceptance: UNTESTED
 - Next authorized action: commit/push the coherent V1 milestone and create one PR targeting `main`; stop after handoff
