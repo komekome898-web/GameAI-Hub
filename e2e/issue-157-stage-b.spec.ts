@@ -35,21 +35,24 @@ test("Creation Deck is explicit, preserves links, and retains a list fallback", 
   await expect(deck).toHaveAttribute("data-mode", "deck");
   const stage = deck.locator("ol");
   const followingSection = page.locator("#start").locator("xpath=following-sibling::section[1]");
-  const sampleGeometry = async () => page.evaluate(() => new Promise<{ stage: number; next: number }[]>((resolve) => {
-    const samples: { stage: number; next: number }[] = [];
+  const sampleGeometry = async () => page.evaluate(() => new Promise<{ stage: number; next: number; content: number }[]>((resolve) => {
+    const samples: { stage: number; next: number; content: number }[] = [];
     const collect = () => {
       const stageElement = document.querySelector("#start .creation-deck ol");
       const next = document.querySelector("#start")?.nextElementSibling;
-      samples.push({ stage: stageElement?.getBoundingClientRect().height ?? 0, next: next?.getBoundingClientRect().top ?? 0 });
+      const content = Math.max(...Array.from(stageElement?.children ?? [], (child) => (child as HTMLElement).scrollHeight), 0);
+      samples.push({ stage: stageElement?.getBoundingClientRect().height ?? 0, next: next?.getBoundingClientRect().top ?? 0, content });
       if (samples.length === 8) resolve(samples);
       else setTimeout(collect, 100);
     };
     collect();
   }));
-  const assertSettled = (samples: { stage: number; next: number }[]) => {
+  const assertSettled = (samples: { stage: number; next: number; content: number }[]) => {
     const tail = samples.slice(-4);
     expect(Math.max(...tail.map(({ stage: height }) => height)) - Math.min(...tail.map(({ stage: height }) => height))).toBeLessThanOrEqual(1);
     expect(Math.max(...tail.map(({ next }) => next)) - Math.min(...tail.map(({ next }) => next))).toBeLessThanOrEqual(1);
+    expect(Math.max(...samples.map(({ stage: height }) => height))).toBeLessThan(1000);
+    for (const { stage: height, content } of tail) expect(height).toBeGreaterThanOrEqual(content + 15);
   };
   assertSettled(await sampleGeometry());
   await expect(stage).toBeVisible();

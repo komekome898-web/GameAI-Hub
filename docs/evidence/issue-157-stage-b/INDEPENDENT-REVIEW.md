@@ -16,3 +16,11 @@ The independent reviewer inspected the committed screenshot set and current diff
 The Deck now suppresses only the click following a recognized drag, stores the manual mode in session storage, measures natural card height after resize/font settlement, and captures active Deck mode before returning to the list. Focused Vitest and Playwright checks passed after these changes.
 
 The evidence-completeness P2 remains open and is reflected honestly in the matrix: Stage B cases are `IMPLEMENTED`, not `VERIFIED`; final execution must continue to reject them until all required same-observation state/scale records and rendered reviews exist. Physical-device, protected Preview, and Production remain untested.
+
+## Correction review and second pass
+
+An independent source-and-render review of the follow-up found one additional P1: `getBoundingClientRect()` included each inactive card's scale transform, so a taller inactive card could be under-measured. The implementation now reads each top-positioned card's untransformed `scrollHeight`; the stability regression also enforces an absolute stage bound and verifies that the settled stage contains the maximum intrinsic card height. The focused application retest passed.
+
+The review also raised pointer-capture coverage as P2. Source reinspection confirmed that capture is acquired on the owning `<ol>` as soon as horizontal drag is recognized and that pointer ID, cancel, lost-capture, resize, visibility, and second-pointer paths clear gesture ownership. Exhaustive rendered pointer/pinch/click-suppression fixtures are still missing, so this remains an evidence-completeness P2 rather than an accepted behavior claim.
+
+Second-pass rendered inspection found no P0 and no remaining observed P1 in the current Deck or breadcrumb captures. It does not close the explicit final-matrix boundary documented in the Stage B README.

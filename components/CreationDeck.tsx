@@ -37,7 +37,7 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
     const measure = () => {
       // Deck items are top-positioned but never bottom-constrained, so this is
       // their intrinsic, width-correct height rather than the stage min-height.
-      const height = Math.ceil(Math.max(...Array.from(root.children, (child) => child.getBoundingClientRect().height), 0)) + 16;
+      const height = Math.ceil(Math.max(...Array.from(root.children, (child) => (child as HTMLElement).scrollHeight), 0)) + 16;
       if (height > 16) setDeckHeight((current) => current === height ? current : height);
     };
     measure();
