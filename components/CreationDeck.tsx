@@ -16,6 +16,7 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
   const [mode, setMode] = useState<"list" | "deck">("list");
   const [active, setActive] = useState(0);
   const [available, setAvailable] = useState(false);
+  const [candidate, setCandidate] = useState(false);
   const [fitUsable, setFitUsable] = useState(false);
   const [deckHeight, setDeckHeight] = useState<number>();
   const stage = useRef<HTMLOListElement>(null);
@@ -58,9 +59,7 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
         const cardWidth = card.getBoundingClientRect().width;
         return Number.isFinite(cardWidth) && cardWidth >= 240;
       });
-      const control = controls.current;
-      const controlsFit = !control || control.scrollWidth <= control.clientWidth + 1;
-      if (!Number.isFinite(height) || height <= 16 || !cardsFit || !controlsFit) {
+      if (!Number.isFinite(height) || height <= 16 || !cardsFit) {
         failSafe();
         return;
       }
@@ -87,6 +86,19 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
     };
   }, [items]);
 
+  useLayoutEffect(() => {
+    if (!candidate) return;
+    const control = controls.current;
+    if (!control || control.clientWidth <= 0 || control.scrollWidth > control.clientWidth + 1) {
+      setCandidate(false);
+      setFitUsable(false);
+      setAvailable(false);
+      setMode("list");
+      return;
+    }
+    setAvailable(true);
+  }, [candidate]);
+
   const cancelGesture = useCallback(() => {
     gesture.current = null;
     if (dragFrame.current) cancelAnimationFrame(dragFrame.current);
@@ -103,7 +115,8 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
       // A two-card set remains an ordinary flat rail; the circular treatment
       // only adds useful spatial context when a third card exists.
       const next = items.length > 2 && fitUsable && !narrow.matches && !reduced.matches && !forced.matches;
-      setAvailable(next);
+      setCandidate(next);
+      if (!next) setAvailable(false);
       cancelGesture();
       if (!next) {
         if (controlFocusOwned.current) {
@@ -219,7 +232,7 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
   };
 
   return <div ref={root} className="creation-deck" data-mode={mode} data-available={available ? "true" : "false"}>
-    {available && <div ref={controls} className="creation-deck-controls" onBlurCapture={recoverHiddenControlFocus} onFocusCapture={() => { controlFocusOwned.current = true; }} onKeyDown={onControlsKeyDown}>
+    {candidate && <div ref={controls} className="creation-deck-controls" onBlurCapture={recoverHiddenControlFocus} onFocusCapture={() => { controlFocusOwned.current = true; }} onKeyDown={onControlsKeyDown}>
       {mode === "deck" && <button type="button" onClick={() => move(-1)} aria-label="前の記事">←</button>}
       <button type="button" aria-pressed={mode === "deck"} onClick={() => changeMode(mode === "list" ? "deck" : "list")}>
         {mode === "list" ? "円環で見る" : "一覧で見る"}

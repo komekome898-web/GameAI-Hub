@@ -27,6 +27,12 @@ const installUsableGeometry = () => {
     return { x: 0, y: 0, top: 0, right: width, bottom: 360, left: 0, width, height: 360, toJSON: () => ({}) };
   });
   vi.spyOn(HTMLElement.prototype, "scrollHeight", "get").mockReturnValue(344);
+  vi.spyOn(HTMLElement.prototype, "clientWidth", "get").mockImplementation(function (this: HTMLElement) {
+    return this.matches(".creation-deck-controls") ? 304 : 390;
+  });
+  vi.spyOn(HTMLElement.prototype, "scrollWidth", "get").mockImplementation(function (this: HTMLElement) {
+    return this.matches(".creation-deck-controls") ? 304 : 390;
+  });
 };
 
 describe("CreationDeck disposable item-count fixtures", () => {
@@ -66,6 +72,24 @@ describe("CreationDeck disposable item-count fixtures", () => {
     const view = render(<CreationDeck items={[item(0), item(1), item(2)]} />);
     await waitFor(() => expect(view.container.querySelector(".creation-deck-controls")).toBeNull());
     expect(view.container.querySelector(".creation-deck")?.getAttribute("data-mode")).toBe("list");
+    expect(view.container.querySelectorAll("ol > li > a")).toHaveLength(3);
+  });
+
+  it("falls back before exposing controls when their initial layout does not fit", async () => {
+    installUsableGeometry();
+    vi.spyOn(HTMLElement.prototype, "clientWidth", "get").mockImplementation(function (this: HTMLElement) {
+      return this.matches(".creation-deck-controls") ? 180 : 390;
+    });
+    vi.spyOn(HTMLElement.prototype, "scrollWidth", "get").mockImplementation(function (this: HTMLElement) {
+      return this.matches(".creation-deck-controls") ? 360 : 390;
+    });
+    vi.stubGlobal("matchMedia", vi.fn(() => ({
+      matches: false, addEventListener: vi.fn(), removeEventListener: vi.fn(),
+    })));
+    const view = render(<CreationDeck items={[item(0), item(1), item(2)]} />);
+    await waitFor(() => expect(view.container.querySelector(".creation-deck")?.getAttribute("data-available")).toBe("false"));
+    expect(view.container.querySelector(".creation-deck")?.getAttribute("data-mode")).toBe("list");
+    expect(view.container.querySelector(".creation-deck-controls")).toBeNull();
     expect(view.container.querySelectorAll("ol > li > a")).toHaveLength(3);
   });
 });
