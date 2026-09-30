@@ -5,6 +5,7 @@ import path from "node:path";
 const evidence = path.join(process.cwd(), "docs/evidence/issue-157-stage-b/screenshots");
 
 test("shared visual layer reflows across representative routes", async ({ page }) => {
+  test.setTimeout(90_000);
   await mkdir(evidence, { recursive: true });
   for (const width of [320, 375, 390, 1440]) {
     await page.setViewportSize({ width, height: width === 1440 ? 900 : 844 });

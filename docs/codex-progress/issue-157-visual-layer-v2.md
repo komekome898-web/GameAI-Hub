@@ -44,3 +44,11 @@ GitHub checks, E2E, observe, and Vercel exact-head status passed for the correct
 - V4: START uses a client island over the same SSR ordered list. Enhancement is explicit (avoiding hydration CLS), with previous/next/list controls and flat fallbacks for <=340px, reduced motion and forced colors.
 - Local Stage B evidence is under `docs/evidence/issue-157-stage-b/`; the focused Playwright gate passed 3/3 and captured current 390/1440 routes.
 - Honest remaining acceptance boundary: matrix implementation cases are `IMPLEMENTED`, not `VERIFIED`, because all declared dynamic variants and same-observation 150/200 role records were not emitted. Production and physical-device acceptance remain `UNTESTED / OWNER-DEFERRED`.
+
+## Stage B correction checkpoint
+
+- Runtime/test checkpoint `02d1dfbad58d20a5c2425239f6851c03ea6c9271` removes the Deck height feedback cycle: absolute cards are no longer bottom-constrained, the observer reads intrinsic width-correct card bounds, unchanged height does not schedule state, and resize/font listeners clean up.
+- Deck controls now own Left/Right keys locally; focused cards reveal without transition; storage failures preserve in-memory operation; pointer ownership, second-pointer/cancel/lost-capture/resize/visibility interruption, active-card thresholds, and task-bounded click suppression are implemented.
+- The Stage B E2E uses the shared analytics-blocking fixture and samples stable stage/following-section geometry across idle, controls, focus, width, 150% root text, spacing, font settlement, and restoration. It also covers blocked storage and the corrected 375px article breadcrumb.
+- Local technical gates: focused Stage B 4/4; quality 41 files / 306 tests; build 71 pages. Full E2E first pass was 125/128, with all three concurrency/environment-sensitive failures passing together on focused rerun.
+- Remaining exact boundary: exhaustive 0/1/2/>3 disposable Deck fixtures, every dynamic state/role-bound 150/200 matrix observation, final-execution validation, and complete integrated independent review are not yet substantiated. Do not mark final acceptance complete or Production tested.
