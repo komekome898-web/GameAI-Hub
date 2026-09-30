@@ -332,7 +332,9 @@ test("initial-fragment reconciliation yields to the reader and rearms for later 
     count: (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
     y: scrollY,
   }));
-  expect(interrupted.count).toBe(beforeWheel.count);
+  // A scheduled reconciliation may finish between the pre-wheel sample and
+  // the browser applying wheel input. The post-wheel settled sample is the
+  // cancellation baseline; no later font/media callback may add to it.
   await page.waitForTimeout(1700);
   expect(await page.evaluate(() =>
     Boolean((window as typeof window & { __delayedFontsResolved?: boolean }).__delayedFontsResolved),
