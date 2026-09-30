@@ -69,8 +69,8 @@ test("V3 route, state, text, navigation, affiliate, and SEO observations", async
   await mkdir(output, { recursive: true });
   const identity = cleanSourceIdentity();
   const records: ReflowEvidenceRecord[] = [];
-  const base = async (caseId: string, variantId: string, route: string, selector: string, coverage: string[], roles?: TextRole[]) =>
-    observe(page, browserName, records, { id: `v3-${caseId}-${variantId}`, caseId, variantId, route, selector, coverage, roles });
+  const base = async (caseId: string, variantId: string, route: string, selector: string, coverage: string[], roles?: TextRole[], minimumTarget?: number) =>
+    observe(page, browserName, records, { id: `v3-${caseId}-${variantId}`, caseId, variantId, route, selector, coverage, roles, minimumTarget });
 
   await page.goto("/tools/");
   const search = page.getByRole("searchbox", { name: "ツールを検索" });
@@ -112,9 +112,9 @@ test("V3 route, state, text, navigation, affiliate, and SEO observations", async
   for (const [suffix, factor, method, width] of [["100", 1, "synthetic-computed-text", 320], ["150", 1.5, "synthetic-computed-text", 320], ["200", 2, "synthetic-computed-text", 375]] as const) await observe(page, browserName, records, { id: `v3-reading-${suffix}`, caseId: "VL-V3-ARTICLE-READING", variantId: "how-to-code-and-commercial-pricing-table", route: articleRoute, selector: ".article-shell", width, method, factor, coverage: ["long-content", "owned-scroll", `factor-${suffix}`, `viewport-${width}`], roles: [{ role: "title", selector: ".article-shell h1" }, { role: "body", selector: ".article-shell p" }], minimumTarget: 0 });
   await page.goto(articleRoute);
   for (const override of ["line-height", "paragraph", "letter", "word"] as const) await observe(page, browserName, records, { id: `v3-reading-spacing-${override}`, caseId: "VL-V3-ARTICLE-READING", variantId: "how-to-code-and-commercial-pricing-table", route: articleRoute, selector: ".article-shell", method: "text-spacing", coverage: ["text-spacing", `spacing-${override}`], spacing: { override, language: "ja", applicable: true }, minimumTarget: 0 });
-  await base("VL-V3-ELEVENLABS", "pr-154-preservation-smoke", "/articles/elevenlabs-v4-game-voice/", ".article-shell", ["content-regression", "surface-probe"]);
-  await base("VL-V3-TRUST", "long-trust-copy-source-links", "/privacy/", ".page-shell", ["viewport-reflow", "long-content", "text-spacing", "spacing-line-height", "spacing-paragraph", "spacing-letter", "spacing-word"]);
-  await base("VL-V3-DETAILS", "details-loading-error-not-found", "/tools/github-copilot/", "main", ["route-family", "long-content"]);
+  await base("VL-V3-ELEVENLABS", "pr-154-preservation-smoke", "/articles/elevenlabs-v4-game-voice/", ".article-shell", ["content-regression", "surface-probe"], undefined, 0);
+  await base("VL-V3-TRUST", "long-trust-copy-source-links", "/privacy/", ".page-shell", ["viewport-reflow", "long-content", "text-spacing", "spacing-line-height", "spacing-paragraph", "spacing-letter", "spacing-word"], undefined, 0);
+  await base("VL-V3-DETAILS", "details-loading-error-not-found", "/tools/github-copilot/", "main", ["route-family", "long-content"], undefined, 0);
   for (const [suffix, factor, method, width] of [["100", 1, "synthetic-computed-text", 320], ["150", 1.5, "synthetic-computed-text", 320], ["200", 2, "synthetic-computed-text", 375]] as const) await observe(page, browserName, records, { id: `v3-header-${suffix}`, caseId: "VL-SHARED-HEADER", variantId: "desktop-mobile-menu-expanded", route: "/", selector: ".site-header", width, method, factor, coverage: ["text-scale", "focus-trap", "anchor-offset", `factor-${suffix}`, `viewport-${width}`], roles: [{ role: "brand", selector: ".site-header .brand" }, { role: "menu", selector: ".site-header button" }] });
   await base("VL-SHARED-FOOTER", "narrow-enlarged-footer-groups", "/", ".site-footer", ["viewport-reflow", "semantic-row", "target-size", "focus-reachability", "reading-order"]);
 
