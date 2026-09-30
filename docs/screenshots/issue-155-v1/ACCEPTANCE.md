@@ -5,9 +5,11 @@
 - Base/current main fetched at task start: `db2dabe5697dc4cc8eadfb80ce206ca5ecfa1d57`
 - Resumed branch head: `4aaa50091599438e6ea7c3992124466864c4218b`
 - First checkpoint verified remotely: `ca32c37cd69fef9dc0e7ee484be2ef24fab566d5`
-- Application evidence: local Chromium rendered from the Step ③ worktree after the V1 implementation; final commit SHA is recorded in the progress ledger and PR.
+- Original normal-width application evidence: local Chromium rendered from the Step ③ worktree after the V1 implementation. Those captures remain preserved under `after-pass2/`.
+- Focused follow-up evidence was rendered from checkpoint `7ae4d784318246fa4cce5e2f05f66ec4c89ea8b8` plus the scoped CSS/test worktree diff (`d8f7182b159276278e54f9d1752e41cadc784ab1705e9798c33fc1dec8cec765`, computed from `app/visual-layer-v2.css` and `e2e/issue-155-v1.spec.ts`). The final pushed head is recorded on PR #156 rather than embedded circularly in its own commit.
+- Focused browser/method: Playwright 1.62.1 with Google Chrome for Testing 151.0.7922.34, local production build, CSS viewport emulation. Synthetic text enlargement set the computed root font size from 16px to 32px; it was not browser page zoom or OS accessibility text sizing.
 - Browser evidence is viewport emulation, not physical-device evidence. Physical iPhone/Android testing is **UNTESTED**.
-- Production was not visited or changed.
+- The protected Preview was not retried. Live Preview browser acceptance remains **UNTESTED**. Production was not visited or changed.
 
 ## Screenshots
 
@@ -20,14 +22,18 @@ The `before/` captures were made before application changes. `after-pass1/` reta
 
 Each filename records the Chromium CSS viewport. Screenshots are full-page captures, so their pixel height exceeds the viewport height. At every final viewport, `documentElement.scrollWidth === clientWidth`, and the element-level diagnostic found no unowned overflow.
 
+The focused follow-up is additive and does not overwrite that evidence. `focused-acceptance/` contains rerendered normal 320/375/390/1440 captures after the wrapping repair, synthetic 200% root-text captures at 320 and 375, and a 320px disposable long-content capture. The screenshots were visually inspected after the automated geometry checks.
+
 ## Runtime and responsive checks
 
 - A fresh browser context was used for every viewport. At 320px, no Mint Atrium request was made. At 375px and 390px the 768px background was requested; at 1440px the 1672px background was requested. All requested backgrounds and all six responsive START cover candidates returned without image decode failure.
 - The hub retained four ordered `.article-cluster-list` elements. START retained exactly three links in the required order, with full registry title, description, date, label, and href. It has no button, carousel, active index, duplicate link, or client state.
 - The 320px fallback removes the background, metallic gradient, and shadow while retaining all three descriptions. The 3:2 image well remains reserved when cover requests are deliberately aborted, and the readable article links remain present.
 - JavaScript-disabled Chromium retained all START links and descriptions. Forced-colors plus reduced-motion retained the static list and focusable links.
-- The 200%-equivalent check used Chromium CDP `Emulation.setPageScaleFactor` at a 320×844 CSS viewport. It retained all START links with zero document overflow. This is browser emulation, not OS text zoom or physical-device zoom.
-- The mobile Header menu retained open/close behavior, initial close-button focus, Escape close with focus returned to the trigger, and keyboard navigation back to the brand. Existing article/navigation E2E also covered the skip link, article handoffs, affiliate relationships, canonical/JSON-LD, and narrow article reading surfaces.
+- The original `Emulation.setPageScaleFactor(2)` result is retained and is now classified only as **pinch/visual-viewport scale emulation**. It measured `visualViewport.scale >= 1.9`; it did not test layout reflow, browser page zoom, OS text sizing, or a 160px layout viewport.
+- The new layout-affecting test doubled the computed root font size from 16px to 32px at 320×844 and 375×844. START title sizes increased from 19px to 38px, description sizes from 14px to 28px, and label/date sizes from 12px to 24px. At both widths the numerical diagnostics were `documentOverflowPx: 0`, `documentScrollWidth` equal to the 320/375px layout viewport, zero unowned overflowing elements, and all three cards remained present. This synthetic method supplements rather than impersonates browser zoom, OS accessibility settings, or physical-device testing.
+- Disposable browser-test DOM replaced only the first START card's title, description, and label with long Japanese plus a URL/unbroken ASCII token. The production article records were not changed. At 320px, every tested text box reported `scrollWidth <= clientWidth + 1` and `scrollHeight <= clientHeight + 1`; every descendant remained within the card; the label/date gap was non-negative; document and unowned overflow were zero; the entire strings remained in the DOM and visible; focus was visible on the card; and the list item retained exactly one link. The initial run reproduced clipped/overflowing text and failed. The scoped `min-width: 0`/`overflow-wrap: anywhere` repair for label and description passed the second run.
+- The mobile Header test is intentionally named for its narrower proven behavior: initial close-button focus, Escape close with focus returned to the trigger, and surrounding Shift+Tab order. It does not claim that Tab/Shift+Tab wrapping inside the open dialog was exercised. Header logic was unchanged.
 - Representative Home-to-article-to-Project navigation and existing Compare/article layout checks remained covered by the existing focused suites; V1 did not change their DOM or layout CSS.
 
 ## Asset and size checks
@@ -48,6 +54,10 @@ An independent visual/mobile reviewer inspected the approved material reference 
 - No P0, P1, or high-impact P2 remained. Titles wrap naturally, descriptions and controls remain visible, the flat fallback is active at 320px, and wider cards remain opaque with restrained edges and shadows.
 - Residual non-blocking P2: desktop ceramic depth and metallic/inset separation are quieter than the approved composition. The reviewer found the result still satisfies the restrained opaque-material direction and does not introduce glass, neon, huge radii, or exaggerated shadows.
 - Independent rendered visual gate: **PASS**. Physical-device acceptance: **UNTESTED**.
+
+The focused enlargement and long-content screenshots receive a separate second-pass review in this follow-up. Header and Footer logic and colors remain unchanged by V1; no color migration is claimed for those global components.
+
+The independent focused second pass inspected the 320/375 synthetic-enlargement screenshots, the 320 long-content screenshot, the test assertions, and the scoped repair. Its targeted three-case run passed, with no P0, P1, or high-impact P2 remaining. It confirmed visible wrapping, separated metadata, the focus outline, and single-link access. Its documentation concern (durable numerical values, method, paths, worktree state, and limitations) is addressed above; focus-ring visibility is now also asserted from computed outline styles as well as retained in the screenshot.
 
 ## Rollback
 

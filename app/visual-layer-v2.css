@@ -128,12 +128,14 @@
 }
 
 .v2-start-card-label {
+  min-width: 0;
   padding: 3px 8px;
   border-radius: 4px;
   background: var(--v2-primary);
   color: #fff;
   font-size: var(--type-meta);
   font-weight: 750;
+  overflow-wrap: anywhere;
 }
 
 .v2-start-card-face > strong {
@@ -143,9 +145,11 @@
 }
 
 .v2-start-card-description {
+  min-width: 0;
   color: var(--v2-muted);
   font-size: var(--type-small);
   line-height: var(--leading-small);
+  overflow-wrap: anywhere;
 }
 
 .v2-start-card-read {

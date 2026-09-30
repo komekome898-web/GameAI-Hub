@@ -1,6 +1,8 @@
 import { expect, test } from "./fixtures";
 import { diagnoseWidths } from "./acceptance/diagnostics";
 
+const evidenceDirectory = "docs/screenshots/issue-155-v1/focused-acceptance";
+
 const startHrefs = [
   "/articles/ai-browser-game-how-to/",
   "/articles/before-asking-ai-build-game/",
@@ -38,6 +40,10 @@ test("V1 keeps the article hub static, complete, and responsive", async ({
     expect(widths.unownedOverflowingElements).toEqual([]);
     if (viewport.width <= 340) expect(backgroundRequests).toEqual([]);
     else expect(backgroundRequests).toHaveLength(1);
+    await page.screenshot({
+      path: `${evidenceDirectory}/articles-${viewport.width}x${viewport.height}-normal.png`,
+      fullPage: true,
+    });
     await context.close();
   }
 });
@@ -93,7 +99,97 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
   await zoomed.close();
 });
 
-test("mobile menu retains its focus trap and Escape return focus", async ({
+for (const width of [320, 375]) {
+  test(`V1 START cards reflow with synthetic 200% root text at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto("/articles/");
+
+    const selectors = {
+      title: "#start .v2-start-card-face > strong",
+      description: "#start .v2-start-card-description",
+      label: "#start .v2-start-card-label",
+      date: "#start .v2-start-card-meta small",
+    };
+    const baselineRootPx = await page.evaluate(() => Number.parseFloat(getComputedStyle(document.documentElement).fontSize));
+    const baselineSizes = await page.evaluate((targets) => Object.fromEntries(
+      Object.entries(targets).map(([name, selector]) => [name, Number.parseFloat(getComputedStyle(document.querySelector(selector)!).fontSize)]),
+    ), selectors);
+
+    await page.evaluate((rootPx) => {
+      document.documentElement.style.fontSize = `${rootPx * 2}px`;
+    }, baselineRootPx);
+
+    const enlargedSizes = await page.evaluate((targets) => Object.fromEntries(
+      Object.entries(targets).map(([name, selector]) => [name, Number.parseFloat(getComputedStyle(document.querySelector(selector)!).fontSize)]),
+    ), selectors);
+    for (const name of Object.keys(selectors))
+      expect(enlargedSizes[name], `${name} computed font size`).toBeGreaterThan(baselineSizes[name]);
+
+    const widths = await diagnoseWidths(page);
+    expect(widths.documentOverflowPx).toBe(0);
+    expect(widths.unownedOverflowingElements).toEqual([]);
+    await expect(page.locator("#start li > a")).toHaveCount(3);
+    await page.screenshot({
+      path: `${evidenceDirectory}/articles-${width}x844-root-text-200.png`,
+      fullPage: true,
+    });
+  });
+}
+
+test("V1 START cards contain long Japanese and unbroken ASCII stress content", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 844 });
+  await page.goto("/articles/");
+  const stress = {
+    title: "はじめてのゲーム制作で画面いっぱいに長く続く日本語の題名を読みやすく確認するための検証用タイトル",
+    description: "説明文の折り返しを確認します https://example.invalid/" + "unbrokenAsciiToken".repeat(12),
+    label: "とても長い日本語の入口ラベル",
+  };
+  await page.locator("#start .v2-start-card").first().evaluate((card, content) => {
+    card.querySelector<HTMLElement>(".v2-start-card-face > strong")!.textContent = content.title;
+    card.querySelector<HTMLElement>(".v2-start-card-description")!.textContent = content.description;
+    card.querySelector<HTMLElement>(".v2-start-card-label")!.textContent = content.label;
+  }, stress);
+
+  const firstCard = page.locator("#start .v2-start-card").first();
+  await expect(firstCard).toHaveCount(1);
+  await expect(firstCard.locator(".v2-start-card-face > strong")).toHaveText(stress.title);
+  await expect(firstCard.locator(".v2-start-card-description")).toHaveText(stress.description);
+  await expect(firstCard.locator(".v2-start-card-label")).toHaveText(stress.label);
+  const geometry = await firstCard.evaluate((card) => {
+    const cardRect = card.getBoundingClientRect();
+    const labelRect = card.querySelector<HTMLElement>(".v2-start-card-label")!.getBoundingClientRect();
+    const dateRect = card.querySelector<HTMLElement>(".v2-start-card-meta small")!.getBoundingClientRect();
+    const textFits = [...card.querySelectorAll<HTMLElement>("strong, .v2-start-card-description, .v2-start-card-label, small")]
+      .every((element) => element.scrollWidth <= element.clientWidth + 1 && element.scrollHeight <= element.clientHeight + 1);
+    const descendantsContained = [...card.querySelectorAll<HTMLElement>("*")].every((element) => {
+      const rect = element.getBoundingClientRect();
+      return rect.left >= cardRect.left - 1 && rect.right <= cardRect.right + 1;
+    });
+    return {
+      textFits,
+      descendantsContained,
+      metadataGapPx: dateRect.left - labelRect.right,
+    };
+  });
+  expect(geometry.textFits).toBe(true);
+  expect(geometry.descendantsContained).toBe(true);
+  expect(geometry.metadataGapPx).toBeGreaterThanOrEqual(0);
+  expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
+  expect((await diagnoseWidths(page)).unownedOverflowingElements).toEqual([]);
+  await firstCard.focus();
+  await expect(firstCard).toBeFocused();
+  expect(await firstCard.evaluate((card) => {
+    const style = getComputedStyle(card);
+    return style.outlineStyle !== "none" && Number.parseFloat(style.outlineWidth) > 0;
+  })).toBe(true);
+  await expect(page.locator("#start li").first().locator("a")).toHaveCount(1);
+  await page.screenshot({
+    path: `${evidenceDirectory}/articles-320x844-long-content.png`,
+    fullPage: true,
+  });
+});
+
+test("mobile menu returns focus on Escape and preserves surrounding keyboard order", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });

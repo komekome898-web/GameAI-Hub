@@ -6,9 +6,9 @@
 - Package baseline: `711dcb5df28db7df0b916589c264a97249a661e6`
 - Handoff deployment commit: `9a2478eb208371a5a52d6eec0a6e515182730e28`
 - Completed phases: ① repository handoff/assets deployment; ② current-main remap including merged PR #154 / ElevenLabs v4 article
-- Current phase: Step ③ V1 implemented and locally accepted; PR handoff pending
+- Current phase: Step ③ V1 implemented on PR #156; focused commander-requested enlargement/long-content acceptance follow-up in review
 - Remap decision: START group remains the only V1 static-card target; current hub groups/order are authoritative; new ElevenLabs v4 article is published but not currently listed in VOICE and will not be silently inserted by V1
-- V1 planned fence: scoped `app/visual-layer-v2.css`, Articles hub modifier/static START covers, Header/Footer color/border only, no Creation Deck JS
+- V1 planned fence: scoped `app/visual-layer-v2.css`, Articles hub modifier/static START covers, no Header/Footer logic or color migration, no Creation Deck JS
 - Current app/runtime changes from Visual Layer v2: scoped CSS import/tokens and Articles-only Mint Atrium layer; static Crafted Ceramic cards for the existing START three; typed visual-path map; no client island or Creation Deck
 - Current PR: [#156](https://github.com/komekome898-web/GameAI-Hub/pull/156), targeting `main`
 - Step ③ bootstrap: resumed expected remote head `4aaa50091599438e6ea7c3992124466864c4218b`; canonical fetch/push origin, authenticated repository access, authoritative main, and existing branch lineage reverified in the fresh task
@@ -20,4 +20,5 @@
 - Delivery: tested V1 implementation/evidence commit `5f2789dce04f63caea33946115b1c24d3d077ee2` pushed; Preview deployment reported Ready but remained protected and redirected an unauthenticated analytics-off request to Vercel login, so Preview browser acceptance is UNTESTED
 - Unresolved mapping blocker: none
 - Physical-device acceptance: UNTESTED
-- Next authorized action: commit/push the coherent V1 milestone and create one PR targeting `main`; stop after handoff
+- Focused follow-up: preserved the pinch-emulation result with an accurate label; added synthetic 200% root-text reflow evidence at 320/375 and disposable long-Japanese/unbroken-ASCII START-card stress at 320. The stress test reproduced text overflow, repaired only label/description wrapping, and rerendered normal 320/375/390/1440 evidence. Physical-device, OS text-size, browser page-zoom, and live protected-Preview acceptance remain UNTESTED.
+- Next authorized action: commander review and GitHub check verification on the existing PR #156; do not create another PR, merge, or proceed to V2/V3/V4
