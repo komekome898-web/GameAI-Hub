@@ -129,6 +129,33 @@ for (const width of [320, 375]) {
     expect(widths.documentOverflowPx).toBe(0);
     expect(widths.unownedOverflowingElements).toEqual([]);
     await expect(page.locator("#start li > a")).toHaveCount(3);
+    const metadataLayouts = await page.locator("#start .v2-start-card-meta").evaluateAll((rows) => rows.map((row) => {
+      const rowRect = row.getBoundingClientRect();
+      const label = row.querySelector<HTMLElement>(".v2-start-card-label")!;
+      const date = row.querySelector<HTMLElement>("small")!;
+      const labelRect = label.getBoundingClientRect();
+      const dateRect = date.getBoundingClientRect();
+      const labelTextRange = document.createRange();
+      labelTextRange.selectNodeContents(label);
+      const verticalOverlap = Math.min(labelRect.bottom, dateRect.bottom) - Math.max(labelRect.top, dateRect.top);
+      const horizontalGap = Math.max(labelRect.left, dateRect.left) - Math.min(labelRect.right, dateRect.right);
+      const verticalGap = Math.max(labelRect.top, dateRect.top) - Math.min(labelRect.bottom, dateRect.bottom);
+      return {
+        contained: labelRect.left >= rowRect.left - 1
+          && labelRect.right <= rowRect.right + 1
+          && dateRect.left >= rowRect.left - 1
+          && dateRect.right <= rowRect.right + 1,
+        fullTextVisible: label.scrollWidth <= label.clientWidth + 1
+          && label.scrollHeight <= label.clientHeight + 1
+          && date.scrollWidth <= date.clientWidth + 1
+          && date.scrollHeight <= date.clientHeight + 1,
+        labelLineCount: labelTextRange.getClientRects().length,
+        nonoverlapping: verticalOverlap > 0 ? horizontalGap >= 0 : verticalGap >= 0,
+      };
+    }));
+    expect(metadataLayouts).toHaveLength(3);
+    expect(metadataLayouts.every(({ contained, fullTextVisible, labelLineCount, nonoverlapping }) =>
+      contained && fullTextVisible && labelLineCount === 1 && nonoverlapping)).toBe(true);
     await page.screenshot({
       path: `${evidenceDirectory}/articles-${width}x844-root-text-200.png`,
       fullPage: true,
@@ -142,7 +169,7 @@ test("V1 START cards contain long Japanese and unbroken ASCII stress content", a
   const stress = {
     title: "はじめてのゲーム制作で画面いっぱいに長く続く日本語の題名を読みやすく確認するための検証用タイトル",
     description: "説明文の折り返しを確認します https://example.invalid/" + "unbrokenAsciiToken".repeat(12),
-    label: "とても長い日本語の入口ラベル",
+    label: "とても長い日本語の入口ラベルでもカード幅を使って読みやすく折り返す",
   };
   await page.locator("#start .v2-start-card").first().evaluate((card, content) => {
     card.querySelector<HTMLElement>(".v2-start-card-face > strong")!.textContent = content.title;
@@ -168,12 +195,14 @@ test("V1 START cards contain long Japanese and unbroken ASCII stress content", a
     return {
       textFits,
       descendantsContained,
-      metadataGapPx: dateRect.left - labelRect.right,
+      metadataNonoverlap: Math.min(labelRect.bottom, dateRect.bottom) > Math.max(labelRect.top, dateRect.top)
+        ? Math.max(labelRect.left, dateRect.left) >= Math.min(labelRect.right, dateRect.right)
+        : Math.max(labelRect.top, dateRect.top) >= Math.min(labelRect.bottom, dateRect.bottom),
     };
   });
   expect(geometry.textFits).toBe(true);
   expect(geometry.descendantsContained).toBe(true);
-  expect(geometry.metadataGapPx).toBeGreaterThanOrEqual(0);
+  expect(geometry.metadataNonoverlap).toBe(true);
   expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
   expect((await diagnoseWidths(page)).unownedOverflowingElements).toEqual([]);
   await firstCard.focus();
