@@ -36,6 +36,14 @@ No application runtime, product data, public/reference/handoff assets, dependenc
 
 GitHub checks, E2E, observe, and Vercel exact-head status passed for the corrected pushed head. Next action: await commander Stage A re-verification. Do not begin Stage B before that decision.
 
+## Runtime completion and consolidated-acceptance continuation
+
+- Resumed remote head `46592e625c00ff0d86c7822b7e5bd1cdee31aec7` after verifying canonical fetch/push origin, authenticated API access, `origin/main`, the existing draft PR, and a real branch push.
+- Runtime mapping: V2 Home/Project presentation lives in `app/visual-layer-v2.css` and the existing Home/Project components; V3 directory/Compare/reading/trust/shared presentation lives in that scoped stylesheet and existing route components; V4 START enhancement lives in `components/CreationDeck.tsx`. Inspection found no missing V2/V3 screen implementation. The remaining runtime omission was V4 fail-safe/drag behavior, not the outstanding evidence matrix.
+- CreationDeck now requires successful intrinsic measurement and usable card/control fit before exposing Deck mode, catches measurement/initialization failure into the same SSR list, and updates drag feedback at most once per animation frame while cancellation removes transient transforms. The existing <=340px, media, focus-transfer, natural-height, storage, and pointer-ID behavior remains in place.
+- The known CI repairs are bounded to generated screenshot exclusion in clean source identity and accepting the helper's class-qualified overflowing paragraph selector while retaining the owned-scroller negative.
+- Operational order now follows the owner correction: completed runtime first, then one consolidated acceptance. Unexecuted matrix observations remain unexecuted and are not implementation omissions or PASS.
+
 ## Stage B implementation checkpoint
 
 - Stage A was accepted by the commander at `adb677eefebb595e136f557e25a66ae2f2853ba1`; bootstrap reverified canonical fetch/push origin, `origin/main=f26f8d22c3be876878a4c6e0c691dec5d446deff`, authentication, and the same remote branch/PR.

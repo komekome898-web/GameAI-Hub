@@ -21,8 +21,17 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
+const installUsableGeometry = () => {
+  vi.spyOn(HTMLElement.prototype, "getBoundingClientRect").mockImplementation(function (this: HTMLElement) {
+    const width = this.matches("ol") ? 390 : 304;
+    return { x: 0, y: 0, top: 0, right: width, bottom: 360, left: 0, width, height: 360, toJSON: () => ({}) };
+  });
+  vi.spyOn(HTMLElement.prototype, "scrollHeight", "get").mockReturnValue(344);
+};
+
 describe("CreationDeck disposable item-count fixtures", () => {
   it.each([0, 1, 2, 3, 5])("renders %i unique anchors without duplicating content", async (count) => {
+    installUsableGeometry();
     vi.stubGlobal("matchMedia", vi.fn(() => ({
       matches: false,
       media: "",
@@ -45,5 +54,18 @@ describe("CreationDeck disposable item-count fixtures", () => {
       await waitFor(() => expect(view.container.querySelector(".creation-deck-controls")).not.toBeNull());
     }
     view.unmount();
+  });
+
+  it("keeps the same links in the list when intrinsic measurement is unusable", async () => {
+    vi.stubGlobal("matchMedia", vi.fn(() => ({
+      matches: false, addEventListener: vi.fn(), removeEventListener: vi.fn(),
+    })));
+    vi.spyOn(HTMLElement.prototype, "getBoundingClientRect").mockReturnValue({
+      x: 0, y: 0, top: 0, right: 0, bottom: 0, left: 0, width: 0, height: 0, toJSON: () => ({}),
+    });
+    const view = render(<CreationDeck items={[item(0), item(1), item(2)]} />);
+    await waitFor(() => expect(view.container.querySelector(".creation-deck-controls")).toBeNull());
+    expect(view.container.querySelector(".creation-deck")?.getAttribute("data-mode")).toBe("list");
+    expect(view.container.querySelectorAll("ol > li > a")).toHaveLength(3);
   });
 });

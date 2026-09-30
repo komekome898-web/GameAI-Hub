@@ -23,7 +23,7 @@ Before each surface edit, add its representative body/title/help/error/label/dat
 
 ## Slice gates
 
-Each runtime slice is a meaningful reversible commit: targeted automated checks → normal/stress local rendering → independent review → resolve P0/P1/high-impact P2 → push. V2 precedes V3; Creation Deck is last. Do not continue through a genuine blocker. Final runs the single matrix reconciliation, quality/build/full designated E2E and independent rendered second pass. Production and real-device evidence are separate.
+Runtime implementation proceeds continuously in V2 → V3 → V4 order with the minimum targeted compile/behavior checks needed to avoid carrying a known defect. Detailed matrix emission, reconciliation, and independent rendered acceptance run once against the completed runtime; an unexecuted check remains unexecuted rather than blocking the next implementation slice or being called PASS. Do not continue through a genuine runtime blocker. Final runs the single matrix reconciliation, quality/build/full designated E2E and independent rendered second pass. Production and real-device evidence are separate.
 
 ## Stage A/B boundary
 

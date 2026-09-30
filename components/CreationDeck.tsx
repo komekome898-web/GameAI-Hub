@@ -16,8 +16,12 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
   const [mode, setMode] = useState<"list" | "deck">("list");
   const [active, setActive] = useState(0);
   const [available, setAvailable] = useState(false);
+  const [fitUsable, setFitUsable] = useState(false);
   const [deckHeight, setDeckHeight] = useState<number>();
   const stage = useRef<HTMLOListElement>(null);
+  const root = useRef<HTMLDivElement>(null);
+  const controls = useRef<HTMLDivElement>(null);
+  const dragFrame = useRef<number | undefined>(undefined);
   const gesture = useRef<{ pointerId: number; x: number; y: number; dragging: boolean } | null>(null);
   const suppressClick = useRef(false);
   const suppressTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -38,11 +42,33 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
   useLayoutEffect(() => {
     const root = stage.current;
     if (!root) return;
+    const failSafe = () => {
+      setFitUsable(false);
+      setMode("list");
+      setDeckHeight(undefined);
+    };
     const measure = () => {
+      try {
       // Deck items are top-positioned but never bottom-constrained, so this is
       // their intrinsic, width-correct height rather than the stage min-height.
-      const height = Math.ceil(Math.max(...Array.from(root.children, (child) => (child as HTMLElement).scrollHeight), 0)) + 16;
-      if (height > 16) setDeckHeight((current) => current === height ? current : height);
+      const cards = Array.from(root.children) as HTMLElement[];
+      const height = Math.ceil(Math.max(...cards.map((child) => child.scrollHeight), 0)) + 16;
+      const width = root.getBoundingClientRect().width;
+      const cardsFit = cards.length > 2 && width >= 280 && cards.every((card) => {
+        const cardWidth = card.getBoundingClientRect().width;
+        return Number.isFinite(cardWidth) && cardWidth >= 240;
+      });
+      const control = controls.current;
+      const controlsFit = !control || control.scrollWidth <= control.clientWidth + 1;
+      if (!Number.isFinite(height) || height <= 16 || !cardsFit || !controlsFit) {
+        failSafe();
+        return;
+      }
+      setFitUsable(true);
+      setDeckHeight((current) => current === height ? current : height);
+      } catch {
+        failSafe();
+      }
     };
     measure();
     const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(measure);
@@ -63,6 +89,9 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
 
   const cancelGesture = useCallback(() => {
     gesture.current = null;
+    if (dragFrame.current) cancelAnimationFrame(dragFrame.current);
+    dragFrame.current = undefined;
+    stage.current?.style.removeProperty("--deck-drag-x");
   }, []);
 
   useEffect(() => {
@@ -73,7 +102,7 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
     const update = () => {
       // A two-card set remains an ordinary flat rail; the circular treatment
       // only adds useful spatial context when a third card exists.
-      const next = items.length > 2 && !narrow.matches && !reduced.matches && !forced.matches;
+      const next = items.length > 2 && fitUsable && !narrow.matches && !reduced.matches && !forced.matches;
       setAvailable(next);
       cancelGesture();
       if (!next) {
@@ -89,7 +118,7 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
     update();
     [narrow, reduced, forced].forEach((query) => query.addEventListener("change", update));
     return () => [narrow, reduced, forced].forEach((query) => query.removeEventListener("change", update));
-  }, [active, cancelGesture, items.length]);
+  }, [active, cancelGesture, fitUsable, items.length]);
 
   useEffect(() => {
     const rememberFocusOwner = (event: FocusEvent) => {
@@ -162,6 +191,13 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
       start.dragging = true;
       event.currentTarget.setPointerCapture(event.pointerId);
     }
+    if (start.dragging && !dragFrame.current) {
+      dragFrame.current = requestAnimationFrame(() => {
+        dragFrame.current = undefined;
+        const current = gesture.current;
+        if (current) stage.current?.style.setProperty("--deck-drag-x", `${event.clientX - current.x}px`);
+      });
+    }
   };
   const onPointerEnd = (event: ReactPointerEvent) => {
     const start = gesture.current;
@@ -182,8 +218,8 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
     suppressClick.current = false;
   };
 
-  return <div className="creation-deck" data-mode={mode}>
-    {available && <div className="creation-deck-controls" onBlurCapture={recoverHiddenControlFocus} onFocusCapture={() => { controlFocusOwned.current = true; }} onKeyDown={onControlsKeyDown}>
+  return <div ref={root} className="creation-deck" data-mode={mode} data-available={available ? "true" : "false"}>
+    {available && <div ref={controls} className="creation-deck-controls" onBlurCapture={recoverHiddenControlFocus} onFocusCapture={() => { controlFocusOwned.current = true; }} onKeyDown={onControlsKeyDown}>
       {mode === "deck" && <button type="button" onClick={() => move(-1)} aria-label="前の記事">←</button>}
       <button type="button" aria-pressed={mode === "deck"} onClick={() => changeMode(mode === "list" ? "deck" : "list")}>
         {mode === "list" ? "円環で見る" : "一覧で見る"}

@@ -48,7 +48,8 @@ test("surface probe catches clipping/token overflow but permits an owned code sc
   const bad = await probeSurface(page, ".surface");
   expect(bad.clippedText.some((item) => item.vertical)).toBe(true);
   expect(
-    bad.clippedText.some((item) => item.horizontal && item.selector === "p"),
+    bad.clippedText.some((item) =>
+      item.horizontal && (item.selector === "p" || item.selector === "p.token")),
   ).toBe(true);
   expect(bad.clippedText.some((item) => item.selector === "pre")).toBe(false);
   const widths = await diagnoseWidths(page);

@@ -13,7 +13,12 @@ export function cleanSourceIdentity(): SourceIdentity {
   }).trim();
   const status = execFileSync(
     "git",
-    ["status", "--porcelain", "--untracked-files=all", "--", ".", ":(exclude)docs/screenshots/issue-157-stage-b"],
+    // Browser suites may leave durable PNG/JSON diagnostics anywhere under the
+    // repository's established screenshot tree. They are outputs, not source.
+    // Keep every other tracked/untracked path in the identity check so a real
+    // application, test, or documentation edit still prevents attribution to
+    // the current checkpoint.
+    ["status", "--porcelain", "--untracked-files=all", "--", ".", ":(exclude)docs/screenshots/**"],
     { encoding: "utf8" },
   ).trim();
   if (status) {
