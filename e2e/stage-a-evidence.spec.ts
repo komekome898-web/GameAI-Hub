@@ -221,7 +221,15 @@ test("emit and validate the Stage A executed subset", async ({
       "Disposable DOM stress content; published article data was not changed.",
       `The bounded focus probe returned ${longSurface.focusVerification}; the directly affected V1 spec also retains its first-card focus assertion.`,
     ],
-    reviewerDecision: "PENDING",
+    reviewerDecision:
+      longWidths.documentOverflowPx ||
+      longWidths.unownedOverflowingElements.length ||
+      longSurface.clippedText.length ||
+      longSurface.undersizedTargets.length ||
+      !longSurface.focusReachable ||
+      !longSurface.focusVisible
+        ? "FAIL"
+        : "PASS",
     review: { kind: "automated", reviewer: "Playwright Stage A emitter" },
     capturedAt: new Date().toISOString(),
   });
@@ -235,7 +243,7 @@ test("emit and validate the Stage A executed subset", async ({
     },
     records,
   };
-  validateExecutionSubset(matrix, manifest, sourceIdentity.sha, ["VL-V1-METADATA"]);
+  validateExecutionSubset(matrix, manifest, sourceIdentity.sha, ["VL-V1-METADATA", "VL-V1-LONG-CONTENT"]);
   writeFileSync(
     path.join(output, "manifest.json"),
     `${JSON.stringify({ ...manifest, execution: { testedPaths, command: "npx playwright test e2e/stage-a-evidence.spec.ts", subsetGate: "PASS" } }, null, 2)}\n`,
