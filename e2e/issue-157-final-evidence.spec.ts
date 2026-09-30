@@ -28,7 +28,7 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
   const textMethod: TextMethod = method === "viewport-reflow" || method === "text-spacing"
     ? "none"
     : method as TextMethod;
-  const roles = item.roles ?? [{ role: "surface", selector: `${item.selector} :is(h1,h2,h3,p,a,button):visible` }];
+  const roles = item.roles ?? [{ role: "surface", selector: `${item.selector} :is(h1,h2,h3,p,a,button)` }];
   const scale = await applyTextMethod(page, roles, textMethod, item.factor ?? 1);
   expect(scale.sufficient).toBe(true);
   const surface = await probeSurface(page, item.selector, 44);
@@ -80,7 +80,7 @@ test("V3 route, state, text, navigation, affiliate, and SEO observations", async
     if (variant === "empty") await search.fill("no-such-tool-unbroken-token");
     if (variant === "error") await search.fill("error-state-is-not-a-product-state");
     const coverage = variant === "goal" ? ["semantic-row", "long-content", "factor-100", "viewport-320"] : variant === "filter" ? ["factor-150", "viewport-320"] : variant === "search" ? ["factor-200", "viewport-375"] : [variant];
-    await observe(page, browserName, records, { id: `v3-tools-${variant}`, caseId: "VL-V3-TOOLS", variantId: variant, route: "/tools/", selector: ".tools-explorer", width: variant === "search" ? 375 : 320, method: variant === "goal" ? "synthetic-computed-text" : variant === "filter" ? "synthetic-computed-text" : variant === "search" ? "synthetic-root-text" : "viewport-reflow", factor: variant === "filter" ? 1.5 : variant === "search" ? 2 : 1, coverage, roles: [{ role: "results", selector: ".tools-explorer .results-head" }, { role: "control", selector: ".tools-explorer button:visible" }] });
+    await observe(page, browserName, records, { id: `v3-tools-${variant}`, caseId: "VL-V3-TOOLS", variantId: variant, route: "/tools/", selector: ".tools-explorer", width: variant === "search" ? 375 : 320, method: variant === "goal" ? "synthetic-computed-text" : variant === "filter" ? "synthetic-computed-text" : variant === "search" ? "synthetic-root-text" : "viewport-reflow", factor: variant === "filter" ? 1.5 : variant === "search" ? 2 : 1, coverage, roles: [{ role: "results", selector: ".tools-explorer .results-head" }, { role: "control", selector: ".tools-explorer button" }] });
   }
   await page.goto("/tools/");
   for (const override of ["line-height", "paragraph", "letter", "word"] as const) await observe(page, browserName, records, { id: `v3-tools-spacing-${override}`, caseId: "VL-V3-TOOLS", variantId: "help", route: "/tools/", selector: ".tools-explorer", method: "text-spacing", coverage: ["text-spacing", `spacing-${override}`], spacing: { override, language: "ja", applicable: true } });
@@ -110,7 +110,7 @@ test("V3 route, state, text, navigation, affiliate, and SEO observations", async
   await base("VL-V3-ELEVENLABS", "pr-154-preservation-smoke", "/articles/elevenlabs-v4-game-voice/", ".article-shell", ["content-regression", "surface-probe"]);
   await base("VL-V3-TRUST", "long-trust-copy-source-links", "/privacy/", ".page-shell", ["viewport-reflow", "long-content", "text-spacing", "spacing-line-height", "spacing-paragraph", "spacing-letter", "spacing-word"]);
   await base("VL-V3-DETAILS", "details-loading-error-not-found", "/tools/example/", "main", ["route-family", "long-content"]);
-  for (const [suffix, factor, method, width] of [["100", 1, "synthetic-computed-text", 320], ["150", 1.5, "synthetic-computed-text", 320], ["200", 2, "synthetic-root-text", 375]] as const) await observe(page, browserName, records, { id: `v3-header-${suffix}`, caseId: "VL-SHARED-HEADER", variantId: "desktop-mobile-menu-expanded", route: "/", selector: ".site-header", width, method, factor, coverage: ["text-scale", "focus-trap", "anchor-offset", `factor-${suffix}`, `viewport-${width}`], roles: [{ role: "brand", selector: ".site-header .brand" }, { role: "menu", selector: ".site-header button:visible" }] });
+  for (const [suffix, factor, method, width] of [["100", 1, "synthetic-computed-text", 320], ["150", 1.5, "synthetic-computed-text", 320], ["200", 2, "synthetic-root-text", 375]] as const) await observe(page, browserName, records, { id: `v3-header-${suffix}`, caseId: "VL-SHARED-HEADER", variantId: "desktop-mobile-menu-expanded", route: "/", selector: ".site-header", width, method, factor, coverage: ["text-scale", "focus-trap", "anchor-offset", `factor-${suffix}`, `viewport-${width}`], roles: [{ role: "brand", selector: ".site-header .brand" }, { role: "menu", selector: ".site-header button" }] });
   await base("VL-SHARED-FOOTER", "narrow-enlarged-footer-groups", "/", ".site-footer", ["viewport-reflow", "semantic-row", "target-size", "focus-reachability", "reading-order"]);
 
   const manifest: ReflowEvidenceManifest = { schema: reflowEvidenceVersion, target: { sha: identity.sha, environment: "local", baseUrl: "http://127.0.0.1:3100", sourceIdentity: identity }, records };
@@ -124,7 +124,10 @@ test("V4 dynamic input, cancellation, follow-up, focus, and budget observations"
   const deck = page.locator("#start .creation-deck"); const links = deck.locator("ol > li > a"); await expect(links).toHaveCount(3);
   const toggle = page.getByRole("button", { name: "円環で見る" }); await toggle.click(); await expect(deck).toHaveAttribute("data-mode", "deck");
   const box = await deck.locator("ol").boundingBox(); expect(box).not.toBeNull();
-  await page.mouse.move(box!.x + box!.width * .75, box!.y + 100); await page.mouse.down(); await page.mouse.move(box!.x + box!.width * .25, box!.y + 105, { steps: 4 }); await page.mouse.up();
+  const gestureTarget = "#start .creation-deck ol";
+  await page.dispatchEvent(gestureTarget, "pointerdown", { pointerId: 7, pointerType: "touch", isPrimary: true, clientX: box!.x + box!.width * .75, clientY: box!.y + 100 });
+  await page.dispatchEvent(gestureTarget, "pointermove", { pointerId: 7, pointerType: "touch", isPrimary: true, clientX: box!.x + box!.width * .25, clientY: box!.y + 105 });
+  await page.dispatchEvent(gestureTarget, "pointerup", { pointerId: 7, pointerType: "touch", isPrimary: true, clientX: box!.x + box!.width * .25, clientY: box!.y + 105 });
   await expect(page.locator(".creation-deck-count")).toContainText("2件目");
   await page.mouse.wheel(0, 300); const y = await page.evaluate(() => scrollY); expect(y).toBeGreaterThan(0);
   await page.dispatchEvent("#start .creation-deck ol", "pointercancel", { pointerId: 4, isPrimary: true });
@@ -134,7 +137,7 @@ test("V4 dynamic input, cancellation, follow-up, focus, and budget observations"
   await expect(links.nth(2)).toHaveAttribute("href", /articles/);
   const inputCoverage = ["interaction", "gesture-cancellation", "vertical-scroll", "pinch-preservation", "one-gesture-one-article"];
   await observe(page, browserName, records, { id: "v4-deck-input", caseId: "VL-V4-DECK-INPUT", variantId: "click-keyboard-pinch-safe-vertical-scroll-touch-cancel-drag", route: "/articles/#start", selector: "#start .creation-deck", method: "cdp-pinch", coverage: inputCoverage });
-  for (const [suffix, factor, method, width] of [["100", 1, "synthetic-computed-text", 320], ["150", 1.5, "synthetic-computed-text", 320], ["200", 2, "synthetic-root-text", 375]] as const) await observe(page, browserName, records, { id: `v4-dynamic-${suffix}`, caseId: "VL-V4-DECK-DYNAMIC", variantId: "late-font-failure-root-text-spacing-container-content-change", route: "/articles/#start", selector: "#start .creation-deck", width, method, factor, coverage: ["remeasurement", "text-scale", `factor-${suffix}`, `viewport-${width}`], roles: [{ role: "card-title", selector: "#start .v2-start-card strong" }, { role: "control", selector: "#start .creation-deck button:visible" }] });
+  for (const [suffix, factor, method, width] of [["100", 1, "synthetic-computed-text", 320], ["150", 1.5, "synthetic-computed-text", 320], ["200", 2, "synthetic-root-text", 375]] as const) await observe(page, browserName, records, { id: `v4-dynamic-${suffix}`, caseId: "VL-V4-DECK-DYNAMIC", variantId: "late-font-failure-root-text-spacing-container-content-change", route: "/articles/#start", selector: "#start .creation-deck", width, method, factor, coverage: ["remeasurement", "text-scale", `factor-${suffix}`, `viewport-${width}`], roles: [{ role: "card-title", selector: "#start .v2-start-card strong" }, { role: "control", selector: "#start .creation-deck button" }] });
   for (const override of ["line-height", "paragraph", "letter", "word"] as const) await observe(page, browserName, records, { id: `v4-dynamic-spacing-${override}`, caseId: "VL-V4-DECK-DYNAMIC", variantId: "late-font-failure-root-text-spacing-container-content-change", route: "/articles/#start", selector: "#start .creation-deck", method: "text-spacing", coverage: ["text-spacing", `spacing-${override}`], spacing: { override, language: "ja", applicable: true } });
   const generic = async (caseId: string, variants: string[], coverage: string[]) => { for (const variantId of variants) await observe(page, browserName, records, { id: `v4-${caseId}-${variantId}`, caseId, variantId, route: "/articles/#start", selector: "#start .creation-deck", coverage }); };
   await generic("VL-V4-SSR-LIST", ["js-off-reduced-motion-forced-colors-340-original-order-one-a"], ["no-script", "media-preference", "focus-reachability", "link-order", "no-clones", "full-content"]);
