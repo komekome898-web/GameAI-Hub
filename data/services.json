@@ -252,12 +252,17 @@
     ],
     "alternatives": [],
     "verificationStatus": "verified",
-    "lastVerified": "2026-08-25",
+    "lastVerified": "2026-09-30",
     "sources": [
       {
         "label": "ElevenLabs 公式",
         "url": "https://elevenlabs.io/",
         "type": "official"
+      },
+      {
+        "label": "Eleven v4 モデル情報",
+        "url": "https://elevenlabs.io/docs/overview/models",
+        "type": "docs"
       },
       {
         "label": "料金",
@@ -274,8 +279,8 @@
       {
         "id": "voice",
         "status": "verified",
-        "sourceUrl": "https://elevenlabs.io/",
-        "note": "音声生成と音声APIは公式ページで確認。"
+        "sourceUrl": "https://elevenlabs.io/docs/overview/models",
+        "note": "音声生成、v4/v4 Turboを含むモデル情報、音声APIは公式資料で確認。"
       }
     ]
   },

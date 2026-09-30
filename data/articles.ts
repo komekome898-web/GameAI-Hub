@@ -55,71 +55,253 @@ export const articleCategoryLabels: Record<ArticleCategory, string> = {
 export const articles = [
   {
     slug: "meshy-pricing-credits-game",
-    title: "Meshy AIの料金は？無料版・Pro・Premium・Ultraの違いとゲーム開発のクレジット目安",
-    description: "MeshyのFree・Pro・Premium・Ultraを、クレジットの仕組み、ゲーム用3Dアセットの透明な計算例、リトライを含む制作予算から選ぶガイド。",
+    title:
+      "Meshy AIの料金は？無料版・Pro・Premium・Ultraの違いとゲーム開発のクレジット目安",
+    description:
+      "MeshyのFree・Pro・Premium・Ultraを、クレジットの仕組み、ゲーム用3Dアセットの透明な計算例、リトライを含む制作予算から選ぶガイド。",
     category: "tool",
     tags: ["Meshy", "料金", "クレジット", "3Dモデル", "ゲーム開発"],
-    publishedAt: "2026-09-22", updatedAt: "2026-09-22", publicationStatus: "published", lastVerifiedAt: "2026-09-22",
+    publishedAt: "2026-09-22",
+    updatedAt: "2026-09-22",
+    publicationStatus: "published",
+    lastVerifiedAt: "2026-09-22",
     author: "AI Iterproof編集部",
-    editorialNote: "Meshy公式Pricing、Help、API Docsの料金・credit・reset・refund・Free・license資料を2026-09-22に確認。同時点でUltraの月間credit数とFreeのdownload表現に一次資料間の差があるため、購入前に公式Pricing表示を優先してください。",
+    editorialNote:
+      "Meshy公式Pricing、Help、API Docsの料金・credit・reset・refund・Free・license資料を2026-09-22に確認。同時点でUltraの月間credit数とFreeのdownload表現に一次資料間の差があるため、購入前に公式Pricing表示を優先してください。",
     sources: [
-      { label: "Meshy Pricing", url: "https://www.meshy.ai/pricing", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: Plan comparison", url: "https://help.meshy.ai/en/articles/12062933-which-meshy-plan-is-right-for-you-free-vs-pro-vs-premium-vs-ultra", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: Free plan", url: "https://help.meshy.ai/en/articles/15696428-what-is-included-on-the-free-plan", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Docs: API pricing & credits", url: "https://docs.meshy.ai/en/api/pricing", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: Workspace task credit costs", url: "https://help.meshy.ai/en/articles/10000507-how-many-credits-does-each-generation-task-cost", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: API task credit costs", url: "https://help.meshy.ai/en/articles/16815622-how-many-credits-does-each-meshy-api-task-cost", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: Credit reset", url: "https://help.meshy.ai/en/articles/9991991-when-will-my-credits-reset", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: Monthly credit refill", url: "https://help.meshy.ai/en/articles/12462244-why-do-my-monthly-credits-not-give-me-the-full-amount-that-you-advertise", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: Credit usage and refunds", url: "https://help.meshy.ai/en/articles/15643245-when-were-my-meshy-credits-used-or-refunded", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: Free and permanent credits", url: "https://help.meshy.ai/en/articles/9991982-can-i-get-free-credits", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: Credit expiration and permanent credits", url: "https://help.meshy.ai/en/articles/9991985-do-credits-have-an-expiration-date", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Docs: Changelog", url: "https://docs.meshy.ai/en/api/changelog", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: Commercial use", url: "https://help.meshy.ai/en/articles/9992001-can-i-use-meshy-assets-commercially-license-copyright-explained", kind: "primary", verifiedAt: "2026-09-22" },
+      {
+        label: "Meshy Pricing",
+        url: "https://www.meshy.ai/pricing",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Plan comparison",
+        url: "https://help.meshy.ai/en/articles/12062933-which-meshy-plan-is-right-for-you-free-vs-pro-vs-premium-vs-ultra",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Free plan",
+        url: "https://help.meshy.ai/en/articles/15696428-what-is-included-on-the-free-plan",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Docs: API pricing & credits",
+        url: "https://docs.meshy.ai/en/api/pricing",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Workspace task credit costs",
+        url: "https://help.meshy.ai/en/articles/10000507-how-many-credits-does-each-generation-task-cost",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: API task credit costs",
+        url: "https://help.meshy.ai/en/articles/16815622-how-many-credits-does-each-meshy-api-task-cost",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Credit reset",
+        url: "https://help.meshy.ai/en/articles/9991991-when-will-my-credits-reset",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Monthly credit refill",
+        url: "https://help.meshy.ai/en/articles/12462244-why-do-my-monthly-credits-not-give-me-the-full-amount-that-you-advertise",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Credit usage and refunds",
+        url: "https://help.meshy.ai/en/articles/15643245-when-were-my-meshy-credits-used-or-refunded",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Free and permanent credits",
+        url: "https://help.meshy.ai/en/articles/9991982-can-i-get-free-credits",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Credit expiration and permanent credits",
+        url: "https://help.meshy.ai/en/articles/9991985-do-credits-have-an-expiration-date",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Docs: Changelog",
+        url: "https://docs.meshy.ai/en/api/changelog",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Commercial use",
+        url: "https://help.meshy.ai/en/articles/9992001-can-i-use-meshy-assets-commercially-license-copyright-explained",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
     ],
     related: [
-      { href: "/articles/meshy-commercial-use-game/", label: "Meshyの商用利用とライセンスを確認", reason: "料金を決める前後に生成時プランと権利条件を分けて確認する", kind: "article" },
-      { href: "/articles/meshy-game-development-guide/", label: "Meshyでゲーム用3Dアセットを作る", reason: "実際に1点を生成・書き出し・importして検品する", kind: "article" },
-      { href: "/tools/meshy/", label: "Meshyの検証済みツール情報", reason: "現在の機能と一次資料を確認する", kind: "tool" },
+      {
+        href: "/articles/meshy-commercial-use-game/",
+        label: "Meshyの商用利用とライセンスを確認",
+        reason: "料金を決める前後に生成時プランと権利条件を分けて確認する",
+        kind: "article",
+      },
+      {
+        href: "/articles/meshy-game-development-guide/",
+        label: "Meshyでゲーム用3Dアセットを作る",
+        reason: "実際に1点を生成・書き出し・importして検品する",
+        kind: "article",
+      },
+      {
+        href: "/tools/meshy/",
+        label: "Meshyの検証済みツール情報",
+        reason: "現在の機能と一次資料を確認する",
+        kind: "tool",
+      },
     ],
-    projectCta: { label: "3Dアセット予算を次の制作taskへ整理する", description: "必要数、試行回数、texture・rigの条件を分け、最初の1点を検証します。", placement: "article_end" },
-    promotions: [{ serviceSlug: "meshy", placement: "production_tools", context: "クレジット予算を計算した後に、現行の料金・プラン条件を公式で確認するため。" }],
+    projectCta: {
+      label: "3Dアセット予算を次の制作taskへ整理する",
+      description:
+        "必要数、試行回数、texture・rigの条件を分け、最初の1点を検証します。",
+      placement: "article_end",
+    },
+    promotions: [
+      {
+        serviceSlug: "meshy",
+        placement: "production_tools",
+        context:
+          "クレジット予算を計算した後に、現行の料金・プラン条件を公式で確認するため。",
+      },
+    ],
   },
   {
     slug: "meshy-commercial-use-game",
-    title: "Meshy AIは商用利用できる？無料版・有料版のライセンスとゲーム利用条件",
-    description: "Meshyで生成した3Dアセットを商用ゲームに使う前に、FreeのCC BY 4.0、Paidの所有条件、生成時プラン、参照画像、素材販売の注意点を確認するガイド。",
+    title:
+      "Meshy AIは商用利用できる？無料版・有料版のライセンスとゲーム利用条件",
+    description:
+      "Meshyで生成した3Dアセットを商用ゲームに使う前に、FreeのCC BY 4.0、Paidの所有条件、生成時プラン、参照画像、素材販売の注意点を確認するガイド。",
     category: "tool",
-    tags: ["Meshy", "商用利用", "3Dモデル", "ゲーム開発", "ライセンス", "著作権"],
+    tags: [
+      "Meshy",
+      "商用利用",
+      "3Dモデル",
+      "ゲーム開発",
+      "ライセンス",
+      "著作権",
+    ],
     publishedAt: "2026-09-21",
     updatedAt: "2026-09-22",
     publicationStatus: "published",
     lastVerifiedAt: "2026-09-22",
     author: "AI Iterproof編集部",
-    editorialNote: "Meshy公式の商用利用、Freeプラン、所有権、解約、参照画像、Marketplace、販売、Termsの一次資料を2026-09-22に確認しました。Marketplace記事にはFree生成物について他の専用案内と異なる記述があるため、素材自体を出品する場合は両方の最新条件を確認してください。",
+    editorialNote:
+      "Meshy公式の商用利用、Freeプラン、所有権、解約、参照画像、Marketplace、販売、Termsの一次資料を2026-09-22に確認しました。Marketplace記事にはFree生成物について他の専用案内と異なる記述があるため、素材自体を出品する場合は両方の最新条件を確認してください。",
     sources: [
-      { label: "Meshy Help: Commercial use", url: "https://help.meshy.ai/en/articles/9992001-can-i-use-meshy-assets-commercially-license-copyright-explained", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: Free plan", url: "https://help.meshy.ai/en/articles/15696428-what-is-included-on-the-free-plan", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: Ownership of generated models", url: "https://help.meshy.ai/en/articles/10137554-what-is-the-ownership-of-the-generated-models", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: Cancellation and downgrade", url: "https://help.meshy.ai/en/articles/9992023-if-i-cancel-my-subscription-will-all-my-models-revert-to-a-cc-by-4-0-license", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: Copyright checklist for reference images", url: "https://help.meshy.ai/en/articles/16103168-copyright-checklist-for-meshy-reference-images-and-assets", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: Marketplace publishing checklist", url: "https://help.meshy.ai/en/articles/16102951-can-you-publish-or-sell-meshy-models-on-marketplaces", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Help: Selling models", url: "https://help.meshy.ai/en/articles/9992022-can-i-sell-meshy-models-marketplaces-stores-licensing", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Meshy Terms of Use", url: "https://www.meshy.ai/terms-of-use", kind: "primary", verifiedAt: "2026-09-22" },
-      { label: "Creative Commons: Attribution 4.0 International", url: "https://creativecommons.org/licenses/by/4.0/", kind: "primary", verifiedAt: "2026-09-22" },
+      {
+        label: "Meshy Help: Commercial use",
+        url: "https://help.meshy.ai/en/articles/9992001-can-i-use-meshy-assets-commercially-license-copyright-explained",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Free plan",
+        url: "https://help.meshy.ai/en/articles/15696428-what-is-included-on-the-free-plan",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Ownership of generated models",
+        url: "https://help.meshy.ai/en/articles/10137554-what-is-the-ownership-of-the-generated-models",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Cancellation and downgrade",
+        url: "https://help.meshy.ai/en/articles/9992023-if-i-cancel-my-subscription-will-all-my-models-revert-to-a-cc-by-4-0-license",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Copyright checklist for reference images",
+        url: "https://help.meshy.ai/en/articles/16103168-copyright-checklist-for-meshy-reference-images-and-assets",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Marketplace publishing checklist",
+        url: "https://help.meshy.ai/en/articles/16102951-can-you-publish-or-sell-meshy-models-on-marketplaces",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Selling models",
+        url: "https://help.meshy.ai/en/articles/9992022-can-i-sell-meshy-models-marketplaces-stores-licensing",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Terms of Use",
+        url: "https://www.meshy.ai/terms-of-use",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Creative Commons: Attribution 4.0 International",
+        url: "https://creativecommons.org/licenses/by/4.0/",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
     ],
     related: [
-      { href: "/articles/meshy-game-development-guide/", label: "ゲーム用3Dモデルを作ってUnity・Blenderへ持っていく", reason: "権利を確認した後、1点を生成・importして検品する", kind: "article" },
-      { href: "/tools/meshy/", label: "Meshyの検証済みツール情報", reason: "現在の機能、条件、一次資料を確認する", kind: "tool" },
-      { href: "/compare/", label: "3D制作ツールを比較する", reason: "条件が合わない場合に別の候補を比較する", kind: "compare" },
+      {
+        href: "/articles/meshy-game-development-guide/",
+        label: "ゲーム用3Dモデルを作ってUnity・Blenderへ持っていく",
+        reason: "権利を確認した後、1点を生成・importして検品する",
+        kind: "article",
+      },
+      {
+        href: "/tools/meshy/",
+        label: "Meshyの検証済みツール情報",
+        reason: "現在の機能、条件、一次資料を確認する",
+        kind: "tool",
+      },
+      {
+        href: "/compare/",
+        label: "3D制作ツールを比較する",
+        reason: "条件が合わない場合に別の候補を比較する",
+        kind: "compare",
+      },
     ],
-    projectCta: { label: "公開条件を制作taskへ整理する", description: "利用するアセットごとの生成時プラン、帰属表示、参照素材、公開先の確認を具体的なtaskへ分けます。", placement: "article_end" },
-    promotions: [{ serviceSlug: "meshy", placement: "production_tools", context: "ライセンス判断を終えた後に、現行プランと商用利用条件を公式で確認するため。" }],
+    projectCta: {
+      label: "公開条件を制作taskへ整理する",
+      description:
+        "利用するアセットごとの生成時プラン、帰属表示、参照素材、公開先の確認を具体的なtaskへ分けます。",
+      placement: "article_end",
+    },
+    promotions: [
+      {
+        serviceSlug: "meshy",
+        placement: "production_tools",
+        context:
+          "ライセンス判断を終えた後に、現行プランと商用利用条件を公式で確認するため。",
+      },
+    ],
   },
   {
     slug: "meshy-game-development-guide",
-    title: "Meshy AIの使い方｜ゲーム用3Dモデルを作ってUnity・Blenderへ持っていく手順",
-    description: "Meshyで最初のゲーム用3Dアセットを作り、FBXまたはGLBでBlender・Unityへ読み込み、実際の制作環境で採用可否を確認する手順。",
+    title:
+      "Meshy AIの使い方｜ゲーム用3Dモデルを作ってUnity・Blenderへ持っていく手順",
+    description:
+      "Meshyで最初のゲーム用3Dアセットを作り、FBXまたはGLBでBlender・Unityへ読み込み、実際の制作環境で採用可否を確認する手順。",
     category: "tool",
     tags: ["Meshy", "3Dモデル", "ゲーム開発", "Unity", "Blender"],
     publishedAt: "2026-09-21",
@@ -127,37 +309,220 @@ export const articles = [
     publicationStatus: "published",
     lastVerifiedAt: "2026-09-21",
     author: "AI Iterproof編集部",
-    editorialNote: "Meshy公式の生成、書き出し、Blender・Unity連携、料金、ライセンス資料を2026-09-21に確認しました。料金、credits、利用可能な機能や権利条件は変更されるため、制作・公開時点の公式表示を確認してください。",
+    editorialNote:
+      "Meshy公式の生成、書き出し、Blender・Unity連携、料金、ライセンス資料を2026-09-21に確認しました。料金、credits、利用可能な機能や権利条件は変更されるため、制作・公開時点の公式表示を確認してください。",
     sources: [
-      { label: "Meshy Docs: Text to 3D", url: "https://docs.meshy.ai/en/webapp/text-to-3d", kind: "primary", verifiedAt: "2026-09-21" },
-      { label: "Meshy Docs: Image to 3D", url: "https://docs.meshy.ai/en/webapp/image-to-3d", kind: "primary", verifiedAt: "2026-09-21" },
-      { label: "Meshy Docs: Export Formats", url: "https://docs.meshy.ai/en/webapp/guides/platform/export-formats", kind: "primary", verifiedAt: "2026-09-21" },
-      { label: "Meshy Docs: Blender Plugin", url: "https://docs.meshy.ai/en/webapp/plugins/blender/introduction", kind: "primary", verifiedAt: "2026-09-21" },
-      { label: "Meshy Docs: Unity Plugin", url: "https://docs.meshy.ai/en/webapp/plugins/unity/introduction", kind: "primary", verifiedAt: "2026-09-21" },
-      { label: "Meshy Pricing", url: "https://www.meshy.ai/pricing", kind: "primary", verifiedAt: "2026-09-21" },
-      { label: "Meshy Help: Commercial use", url: "https://help.meshy.ai/en/articles/9992001-can-i-use-meshy-assets-commercially-license-copyright-explained", kind: "primary", verifiedAt: "2026-09-21" },
-      { label: "Meshy Terms of Use", url: "https://www.meshy.ai/terms-of-use", kind: "primary", verifiedAt: "2026-09-21" },
+      {
+        label: "Meshy Docs: Text to 3D",
+        url: "https://docs.meshy.ai/en/webapp/text-to-3d",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
+      {
+        label: "Meshy Docs: Image to 3D",
+        url: "https://docs.meshy.ai/en/webapp/image-to-3d",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
+      {
+        label: "Meshy Docs: Export Formats",
+        url: "https://docs.meshy.ai/en/webapp/guides/platform/export-formats",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
+      {
+        label: "Meshy Docs: Blender Plugin",
+        url: "https://docs.meshy.ai/en/webapp/plugins/blender/introduction",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
+      {
+        label: "Meshy Docs: Unity Plugin",
+        url: "https://docs.meshy.ai/en/webapp/plugins/unity/introduction",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
+      {
+        label: "Meshy Pricing",
+        url: "https://www.meshy.ai/pricing",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
+      {
+        label: "Meshy Help: Commercial use",
+        url: "https://help.meshy.ai/en/articles/9992001-can-i-use-meshy-assets-commercially-license-copyright-explained",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
+      {
+        label: "Meshy Terms of Use",
+        url: "https://www.meshy.ai/terms-of-use",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
     ],
     related: [
-      { href: "/articles/meshy-pricing-credits-game/", label: "Meshyの料金とクレジットを見積もる", reason: "1点を検品した後、試行回数を含む制作予算を決める", kind: "article" },
-      { href: "/articles/meshy-commercial-use-game/", label: "Meshyの商用利用とライセンスを確認", reason: "公開前に生成時プランと帰属・権利条件を確認する", kind: "article" },
-      { href: "/tools/meshy/", label: "Meshyの検証済みツール情報", reason: "現在の機能、条件、一次資料を確認する", kind: "tool" },
+      {
+        href: "/articles/meshy-pricing-credits-game/",
+        label: "Meshyの料金とクレジットを見積もる",
+        reason: "1点を検品した後、試行回数を含む制作予算を決める",
+        kind: "article",
+      },
+      {
+        href: "/articles/meshy-commercial-use-game/",
+        label: "Meshyの商用利用とライセンスを確認",
+        reason: "公開前に生成時プランと帰属・権利条件を確認する",
+        kind: "article",
+      },
+      {
+        href: "/tools/meshy/",
+        label: "Meshyの検証済みツール情報",
+        reason: "現在の機能、条件、一次資料を確認する",
+        kind: "tool",
+      },
     ],
     projectCta: {
       label: "取り込んだ3Dアセットの次のtaskを決める",
-      description: "同じゲーム案を保ったまま、当たり判定、操作との連携、スタイル確認のうち次に検証する1つを決めます。",
+      description:
+        "同じゲーム案を保ったまま、当たり判定、操作との連携、スタイル確認のうち次に検証する1つを決めます。",
       placement: "article_end",
     },
-    promotions: [{ serviceSlug: "meshy", placement: "production_tools", context: "最初のアセットと採用条件を決めてから、公式の生成・書き出し条件を確認するため。" }],
+    promotions: [
+      {
+        serviceSlug: "meshy",
+        placement: "production_tools",
+        context:
+          "最初のアセットと採用条件を決めてから、公式の生成・書き出し条件を確認するため。",
+      },
+    ],
+  },
+  {
+    slug: "elevenlabs-v4-game-voice",
+    title:
+      "ElevenLabs v4とは？ゲーム音声で何が変わった？v3との違い・日本語・Turboを解説",
+    description:
+      "ElevenLabs v4 / v4 Turboを固定ゲーム音声、複数話者カットシーン、リアルタイムAI NPCで選び分け、日本語セリフの発音・演技・一貫性を検品するガイド。",
+    category: "tool",
+    tags: [
+      "ElevenLabs v4",
+      "ゲーム音声",
+      "日本語音声",
+      "Audio Tags",
+      "AI NPC",
+      "Voice Cloning",
+    ],
+    publishedAt: "2026-09-30",
+    updatedAt: "2026-09-30",
+    publicationStatus: "published",
+    lastVerifiedAt: "2026-09-30",
+    author: "AI Iterproof編集部",
+    editorialNote:
+      "ElevenLabs公式のv4公開情報、製品ページ、モデル、TTS、prompting、Text to Dialogue、Voice Cloning、Pricing、Termsを2026-09-30に再確認しました。GameAI Hubによる音声生成・試聴評価ではなく、掲載セリフは再現用テスト手順です。",
+    sources: [
+      {
+        label: "ElevenLabs: Eleven v4 release",
+        url: "https://elevenlabs.io/ja/blog/eleven-v4",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+      {
+        label: "ElevenLabs: Eleven v4",
+        url: "https://elevenlabs.io/ja/v4",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+      {
+        label: "ElevenLabs Docs: Models",
+        url: "https://elevenlabs.io/docs/overview/models",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+      {
+        label: "ElevenLabs Docs: Text to Speech",
+        url: "https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+      {
+        label: "ElevenLabs Docs: v4 best practices",
+        url: "https://elevenlabs.io/docs/ja/overview/capabilities/text-to-speech/best-practices",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+      {
+        label: "ElevenLabs Docs: Text to Dialogue",
+        url: "https://elevenlabs.io/docs/overview/capabilities/text-to-dialogue",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+      {
+        label: "ElevenLabs Docs: Voice Cloning",
+        url: "https://elevenlabs.io/docs/ja/eleven-creative/voices/voice-cloning",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+      {
+        label: "ElevenLabs Pricing",
+        url: "https://elevenlabs.io/pricing",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+      {
+        label: "ElevenLabs Terms of Use",
+        url: "https://elevenlabs.io/terms-of-use",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+    ],
+    related: [
+      {
+        href: "/articles/elevenlabs-game-development-guide/",
+        label: "代表音声を保存・組み込み・検品する",
+        reason: "選んだモデルで最初の1〜3本をゲーム内成果物にする",
+        kind: "article",
+      },
+      {
+        href: "/articles/elevenlabs-commercial-use-game/",
+        label: "商用利用とVoice Cloningの権利を確認",
+        reason: "公開前のプラン・同意・入力素材を判定する",
+        kind: "article",
+      },
+      {
+        href: "/tools/elevenlabs/",
+        label: "ElevenLabsの検証済みツール情報",
+        reason: "現在の公式情報と中立的なサービス記録を確認する",
+        kind: "tool",
+      },
+    ],
+    projectCta: {
+      label: "自分のゲーム用に最初の音声taskを作る",
+      description:
+        "固定音声、複数話者、リアルタイムNPCの要件を保ったまま、代表セリフと完了条件へ分けます。",
+      placement: "article_end",
+    },
+    promotions: [
+      {
+        serviceSlug: "elevenlabs",
+        placement: "production_tools",
+        context:
+          "音声方式と代表セリフを決めた後に、現行モデルを実際に比較するため。",
+      },
+    ],
   },
   {
     slug: "elevenlabs-commercial-use-game",
-    title:
-      "ElevenLabsの商用利用ガイド｜ゲーム音声で確認すべき権利とプラン",
+    title: "ElevenLabsの商用利用ガイド｜ゲーム音声で確認すべき権利とプラン",
     description:
       "ElevenLabsの音声を商用ゲームで使う前に確認すべきプラン、Commercial License、Free利用、入力素材の権利、Voice Cloningの同意条件をゲーム制作者向けに整理。",
     category: "tool",
-    tags: ["ElevenLabs", "商用利用", "AI音声", "ゲーム開発", "Voice Cloning", "著作権"],
+    tags: [
+      "ElevenLabs",
+      "商用利用",
+      "AI音声",
+      "ゲーム開発",
+      "Voice Cloning",
+      "著作権",
+    ],
     publishedAt: "2026-09-10",
     updatedAt: "2026-09-10",
     publicationStatus: "published",
@@ -166,25 +531,84 @@ export const articles = [
     editorialNote:
       "ElevenLabs公式Pricing、Terms、Text to Speech、Voice Cloning関連の一次資料を2026-09-10に確認しました。料金・credits・商用条件・Voice Cloning要件は変更される可能性があるため、公開時点の公式条件を優先してください。",
     sources: [
-      { label: "ElevenLabs Pricing", url: "https://elevenlabs.io/pricing", kind: "primary", verifiedAt: "2026-09-10" },
-      { label: "ElevenLabs Terms of Use", url: "https://elevenlabs.io/terms-of-use", kind: "primary", verifiedAt: "2026-09-10" },
-      { label: "ElevenLabs Docs: Text to Speech", url: "https://elevenlabs.io/docs/overview/capabilities/text-to-speech", kind: "primary", verifiedAt: "2026-09-10" },
-      { label: "ElevenLabs Docs: Instant Voice Cloning", url: "https://elevenlabs.io/docs/eleven-creative/voices/voice-cloning/instant-voice-cloning", kind: "primary", verifiedAt: "2026-09-10" },
-      { label: "ElevenLabs Docs: Professional Voice Cloning", url: "https://elevenlabs.io/docs/eleven-creative/voices/voice-cloning/professional-voice-cloning", kind: "primary", verifiedAt: "2026-09-10" },
-      { label: "ElevenLabs Help: What happens to my content after my subscription ends?", url: "https://help.elevenlabs.io/hc/en-us/articles/15993008593297-What-happens-to-my-content-after-my-subscription-ends", kind: "primary", verifiedAt: "2026-09-10" },
-      { label: "ElevenLabs Help: Can I publish the content I generate on the platform?", url: "https://help.elevenlabs.io/hc/en-us/articles/13313564601361-Can-I-publish-the-content-I-generate-on-the-platform", kind: "primary", verifiedAt: "2026-09-10" },
+      {
+        label: "ElevenLabs Pricing",
+        url: "https://elevenlabs.io/pricing",
+        kind: "primary",
+        verifiedAt: "2026-09-10",
+      },
+      {
+        label: "ElevenLabs Terms of Use",
+        url: "https://elevenlabs.io/terms-of-use",
+        kind: "primary",
+        verifiedAt: "2026-09-10",
+      },
+      {
+        label: "ElevenLabs Docs: Text to Speech",
+        url: "https://elevenlabs.io/docs/overview/capabilities/text-to-speech",
+        kind: "primary",
+        verifiedAt: "2026-09-10",
+      },
+      {
+        label: "ElevenLabs Docs: Instant Voice Cloning",
+        url: "https://elevenlabs.io/docs/eleven-creative/voices/voice-cloning/instant-voice-cloning",
+        kind: "primary",
+        verifiedAt: "2026-09-10",
+      },
+      {
+        label: "ElevenLabs Docs: Professional Voice Cloning",
+        url: "https://elevenlabs.io/docs/eleven-creative/voices/voice-cloning/professional-voice-cloning",
+        kind: "primary",
+        verifiedAt: "2026-09-10",
+      },
+      {
+        label:
+          "ElevenLabs Help: What happens to my content after my subscription ends?",
+        url: "https://help.elevenlabs.io/hc/en-us/articles/15993008593297-What-happens-to-my-content-after-my-subscription-ends",
+        kind: "primary",
+        verifiedAt: "2026-09-10",
+      },
+      {
+        label:
+          "ElevenLabs Help: Can I publish the content I generate on the platform?",
+        url: "https://help.elevenlabs.io/hc/en-us/articles/13313564601361-Can-I-publish-the-content-I-generate-on-the-platform",
+        kind: "primary",
+        verifiedAt: "2026-09-10",
+      },
     ],
     related: [
-      { href: "/articles/elevenlabs-game-development-guide/", label: "ゲーム開発向けElevenLabs使い方ガイド", reason: "実際の音声生成・ゲーム実装へ進む", kind: "article" },
-      { href: "/tools/elevenlabs/", label: "ElevenLabsの検証済みツール情報", reason: "現在の公式情報と機能を確認する", kind: "tool" },
-      { href: "/compare/", label: "AIツールを比較する", reason: "料金や商用条件を他の候補と比較する", kind: "compare" },
+      {
+        href: "/articles/elevenlabs-game-development-guide/",
+        label: "ゲーム開発向けElevenLabs使い方ガイド",
+        reason: "実際の音声生成・ゲーム実装へ進む",
+        kind: "article",
+      },
+      {
+        href: "/tools/elevenlabs/",
+        label: "ElevenLabsの検証済みツール情報",
+        reason: "現在の公式情報と機能を確認する",
+        kind: "tool",
+      },
+      {
+        href: "/compare/",
+        label: "AIツールを比較する",
+        reason: "料金や商用条件を他の候補と比較する",
+        kind: "compare",
+      },
     ],
     projectCta: {
       label: "Project Generatorで公開条件と音声taskを整理する",
-      description: "無料公開、広告、販売、Voice Cloningの有無を整理し、ゲーム公開前に確認すべき音声制作taskへ分解します。",
+      description:
+        "無料公開、広告、販売、Voice Cloningの有無を整理し、ゲーム公開前に確認すべき音声制作taskへ分解します。",
       placement: "article_end",
     },
-    promotions: [{ serviceSlug: "elevenlabs", placement: "production_tools", context: "商用条件を判定した後に、現行プランの公式表示を確認するため。" }],
+    promotions: [
+      {
+        serviceSlug: "elevenlabs",
+        placement: "production_tools",
+        context: "商用条件を判定した後に、現行プランの公式表示を確認するため。",
+      },
+    ],
   },
   {
     slug: "elevenlabs-game-development-guide",
@@ -195,13 +619,19 @@ export const articles = [
     category: "tool",
     tags: ["ElevenLabs", "ゲーム音声", "日本語音声", "効果音", "API"],
     publishedAt: "2026-09-09",
-    updatedAt: "2026-09-09",
+    updatedAt: "2026-09-30",
     publicationStatus: "published",
-    lastVerifiedAt: "2026-09-09",
+    lastVerifiedAt: "2026-09-30",
     author: "AI Iterproof編集部",
     editorialNote:
-      "ElevenLabs公式の機能、モデル、API出力形式、料金、規約を2026-09-09に確認しました。音声の自然さは文章・声・設定で変わるため、代表セリフを実際のゲーム内で検品する手順を基準にしています。",
+      "ElevenLabs公式の機能、v4モデル、API出力形式、料金、規約を2026-09-30に再確認しました。音声の自然さは文章・声・設定で変わるため、代表セリフを実際のゲーム内で検品する手順を基準にしています。",
     sources: [
+      {
+        label: "ElevenLabs: Eleven v4 release",
+        url: "https://elevenlabs.io/ja/blog/eleven-v4",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
       {
         label: "ElevenLabs Docs: Text to Speech",
         url: "https://elevenlabs.io/docs/overview/capabilities/text-to-speech",
@@ -241,6 +671,12 @@ export const articles = [
     ],
     related: [
       {
+        href: "/articles/elevenlabs-v4-game-voice/",
+        label: "Eleven v4 / v4 Turboをゲーム用途で選ぶ",
+        reason: "固定音声、複数話者、リアルタイムNPCのモデルを決める",
+        kind: "article",
+      },
+      {
         href: "/articles/elevenlabs-commercial-use-game/",
         label: "ElevenLabsの商用利用条件を確認",
         reason: "代表音声を採用した後、公開前にプランと権利を判断する",
@@ -269,7 +705,8 @@ export const articles = [
       {
         serviceSlug: "elevenlabs",
         placement: "production_tools",
-        context: "代表セリフを決め、実際の音声生成を試す段階で公式機能と無料枠を確認するため。",
+        context:
+          "代表セリフを決め、実際の音声生成を試す段階で公式機能と無料枠を確認するため。",
       },
     ],
   },

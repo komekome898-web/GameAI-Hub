@@ -38,6 +38,17 @@ export default function ElevenLabsGameDevelopmentGuide() {
           </div>
         </ArticleHeader>
 
+        <aside className="article-callout" aria-label="Eleven v4の更新情報">
+          <p>
+            <strong>2026年9月28日更新：</strong> Eleven v4 / v4
+            Turboが公開されました。固定音声、複数話者、リアルタイムNPCでの選び分けは
+            <Link href="/articles/elevenlabs-v4-game-voice/">
+              ゲーム音声向けEleven v4ガイド
+            </Link>
+            で確認できます。
+          </p>
+        </aside>
+
         <section>
           <h2>まず結論：初心者は「固定音声ファイル」から始める</h2>
           <dl className="article-lesson-grid">

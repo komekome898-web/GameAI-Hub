@@ -2,12 +2,19 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
 import ElevenLabsGameDevelopmentGuide from "@/app/articles/elevenlabs-game-development-guide/page";
 import ElevenLabsCommercialUseGame from "@/app/articles/elevenlabs-commercial-use-game/page";
+import ElevenLabsV4GameVoice from "@/app/articles/elevenlabs-v4-game-voice/page";
 import { getArticle } from "@/data/articles";
 import { getService } from "@/lib/services";
 
 vi.mock("next/link", () => ({
-  default: ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) => (
-    <a href={href} {...props}>{children}</a>
+  default: ({
+    href,
+    children,
+    ...props
+  }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) => (
+    <a href={href} {...props}>
+      {children}
+    </a>
   ),
 }));
 
@@ -17,9 +24,12 @@ describe("ElevenLabs game-development article", () => {
     const html = renderToStaticMarkup(<ElevenLabsGameDevelopmentGuide />);
 
     expect(article.publicationStatus).toBe("published");
-    expect(article.sources).toHaveLength(6);
+    expect(article.sources).toHaveLength(7);
     expect(article.promotions).toEqual([
-      expect.objectContaining({ serviceSlug: "elevenlabs", placement: "production_tools" }),
+      expect.objectContaining({
+        serviceSlug: "elevenlabs",
+        placement: "production_tools",
+      }),
     ]);
     for (const text of [
       "固定音声ファイル",
@@ -27,10 +37,39 @@ describe("ElevenLabs game-development article", () => {
       "ゲーム用音声の合格基準",
       "APIはいつ使えばいい？",
       "音声が不要ならElevenLabsを使う必要はありません",
-    ]) expect(html).toContain(text);
+    ])
+      expect(html).toContain(text);
     expect(html).toContain("Project Generatorで音声制作taskを整理する");
     expect(html).toContain("https://try.elevenlabs.io/jlxoxtxe9768");
     expect(html).toContain('rel="sponsored nofollow noopener"');
+  });
+});
+
+describe("ElevenLabs v4 game-voice article", () => {
+  it("keeps fixed, dialogue and realtime decisions distinct with sourced caveats", () => {
+    const article = getArticle("elevenlabs-v4-game-voice")!;
+    const html = renderToStaticMarkup(<ElevenLabsV4GameVoice />);
+
+    expect(article.publicationStatus).toBe("published");
+    expect(article.sources).toHaveLength(9);
+    for (const text of [
+      "固定ゲーム音声",
+      "複数話者の会話",
+      "リアルタイムAI NPC",
+      "約100msのmedian inference latency",
+      "約150msのmedian time to first speech",
+      "再現用テスト台本",
+      "SSML",
+      "StyleとSpeedスライダーは利用できない",
+    ])
+      expect(html).toContain(text);
+    expect(html).toContain('href="/articles/elevenlabs-commercial-use-game/"');
+    expect(html).toContain(
+      'href="/articles/elevenlabs-game-development-guide/"',
+    );
+    expect(html).toContain('href="/tools/elevenlabs/"');
+    expect(html).toContain('rel="sponsored nofollow noopener"');
+    expect(html).toContain('href="/project?source=elevenlabs-v4-game-voice"');
   });
 });
 
@@ -42,7 +81,10 @@ describe("ElevenLabs commercial-use article", () => {
     expect(article.publicationStatus).toBe("published");
     expect(article.sources.length).toBeGreaterThanOrEqual(6);
     expect(article.promotions).toEqual([
-      expect.objectContaining({ serviceSlug: "elevenlabs", placement: "production_tools" }),
+      expect.objectContaining({
+        serviceSlug: "elevenlabs",
+        placement: "production_tools",
+      }),
     ]);
   });
 
@@ -56,16 +98,24 @@ describe("ElevenLabs commercial-use article", () => {
       "Instant Voice Cloning",
       "Professional Voice Cloning",
       "Case E：声優の声をclone",
-    ]) expect(html).toContain(text);
+    ])
+      expect(html).toContain(text);
 
-    expect((html.match(/class="button"[^>]+href="https:\/\/try\.elevenlabs\.io/g) ?? [])).toHaveLength(1);
+    expect(
+      html.match(/class="button"[^>]+href="https:\/\/try\.elevenlabs\.io/g) ??
+        [],
+    ).toHaveLength(1);
     expect(html).toContain("現行プランと商用利用条件を確認");
     expect(html).not.toContain("無料枠を公式サイトで確認");
     expect(html).toContain(`href="${getService("elevenlabs")!.affiliateUrl}"`);
     expect(html).toContain('rel="sponsored nofollow noopener"');
-    expect(html).toContain('href="/project?source=elevenlabs-commercial-use-game"');
-    expect(html).toContain('href="/articles/elevenlabs-game-development-guide/"');
-    expect((html.match(/application\/ld\+json/g) ?? [])).toHaveLength(2);
+    expect(html).toContain(
+      'href="/project?source=elevenlabs-commercial-use-game"',
+    );
+    expect(html).toContain(
+      'href="/articles/elevenlabs-game-development-guide/"',
+    );
+    expect(html.match(/application\/ld\+json/g) ?? []).toHaveLength(2);
     expect(html).toContain('"@type":"Article"');
     expect(html).toContain('"@type":"BreadcrumbList"');
   });
