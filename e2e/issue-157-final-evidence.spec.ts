@@ -30,7 +30,7 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
     : method as TextMethod;
   const roles = item.roles ?? [{ role: "surface", selector: `${item.selector} :is(h1,h2,h3,p,a,button)` }];
   const scale = await applyTextMethod(page, roles, textMethod, item.factor ?? 1);
-  expect(scale.sufficient).toBe(true);
+  expect(scale.sufficient, `${item.id}: ${JSON.stringify(scale)}`).toBe(true);
   const surface = await probeSurface(page, item.selector, 44);
   const widths = await diagnoseWidths(page);
   const screenshot = `${item.id}.png`;
