@@ -32,7 +32,7 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
   const roles = item.roles ?? [{ role: "surface", selector: `${item.selector} :is(h1,h2,h3,p,a,button)` }];
   const scale = await applyTextMethod(page, roles, textMethod, item.factor ?? 1);
   expect(scale.sufficient, `${item.id}: ${JSON.stringify(scale)}`).toBe(true);
-  const surface = await probeSurface(page, item.selector, item.minimumTarget ?? 44);
+  const surface = await probeSurface(page, item.selector, item.minimumTarget ?? 44, 3);
   const widths = await diagnoseWidths(page);
   const screenshot = `${item.id}.png`;
   await page.screenshot({ path: path.join(output, screenshot), fullPage: true });
@@ -57,7 +57,7 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
       focusReachable: surface.focusReachable, focusVisible: surface.focusVisible, orderPreserved: true, associationsPreserved: true },
     geometry: { layout: "not-applicable", nonoverlapping: true, contentVisible: clippedText.length === 0, ownedScrollers: widths.ownedLocalScrollers.length + (intentionalDeckRail ? 1 : 0) },
     spacing: item.spacing, screenshot: `final/${screenshot}`,
-    limitations: ["Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence."],
+    limitations: ["Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.", "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."],
     reviewerDecision: failed ? "FAIL" : "PASS", review: item.review ?? { kind: "automated", reviewer: "Issue #157 final evidence emitter" }, capturedAt: new Date().toISOString(),
   });
   await scale.restore();

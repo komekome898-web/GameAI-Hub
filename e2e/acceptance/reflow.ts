@@ -183,6 +183,7 @@ export async function probeSurface(
   page: Page,
   selector: string,
   minimumTarget = 44,
+  focusSampleLimit = Number.POSITIVE_INFINITY,
 ): Promise<SurfaceProbe> {
   const prior = await page.evaluate(() => {
     if (document.activeElement instanceof HTMLElement)
@@ -282,7 +283,7 @@ export async function probeSurface(
     { target: selector, minTarget: minimumTarget },
   );
   const focusResults: Array<{ selector: string; reachable: boolean; visible: boolean; active: boolean; hit: string | null }> = [];
-  for (let index = 0; index < base.focusable; index += 1) {
+  for (let index = 0; index < Math.min(base.focusable, focusSampleLimit); index += 1) {
     const prepared = await page.evaluate(
       ({ target, item }) => {
         const roots = [...document.querySelectorAll<HTMLElement>(target)];
