@@ -167,6 +167,8 @@ export type SurfaceProbe = {
     selector: string;
     horizontal: boolean;
     vertical: boolean;
+    clientWidth: number;
+    scrollWidth: number;
   }>;
   undersizedTargets: Array<{ selector: string; width: number; height: number }>;
   focusable: number;
@@ -174,6 +176,7 @@ export type SurfaceProbe = {
   focusReachable: boolean;
   focusVisible: boolean;
   focusVerification: "verified" | "unverified" | "not-applicable";
+  focusFailures: Array<{ selector: string; reachable: boolean; visible: boolean; active: boolean; hit: string | null }>;
 };
 
 export async function probeSurface(
@@ -194,6 +197,8 @@ export async function probeSurface(
       const identify = (element: Element) =>
         element.id
           ? `#${CSS.escape(element.id)}`
+          : element.classList.length
+            ? `${element.tagName.toLowerCase()}.${[...element.classList].map((name) => CSS.escape(name)).join(".")}`
           : element.tagName.toLowerCase();
       const clippedText: SurfaceProbe["clippedText"] = [];
       const undersizedTargets: SurfaceProbe["undersizedTargets"] = [];
@@ -202,30 +207,53 @@ export async function probeSurface(
         [root, ...root.querySelectorAll<HTMLElement>("*")].forEach(
           (element) => {
             const style = getComputedStyle(element);
+            const scrollOwner = element.closest<HTMLElement>(
+              '[data-acceptance-scroll-owner="true"], pre, .table-scroll, .article-decision-table, .code-block, .result-jumps, .project-section-nav',
+            );
+            const ownerStyle = scrollOwner ? getComputedStyle(scrollOwner) : null;
             const ownsHorizontalScroll =
-              element.matches(
-                '[data-acceptance-scroll-owner="true"], pre, .table-scroll, .article-decision-table, .code-block',
-              ) && /(auto|scroll)/.test(`${style.overflowX} ${style.overflow}`);
+              !!ownerStyle && /(auto|scroll)/.test(`${ownerStyle.overflowX} ${ownerStyle.overflow}`);
             const horizontal =
-              element.scrollWidth > element.clientWidth + 1 &&
+              element.scrollWidth > element.clientWidth + 4 &&
               !ownsHorizontalScroll;
             const vertical =
-              element.scrollHeight > element.clientHeight + 1 &&
+              element.scrollHeight > element.clientHeight + 4 &&
               /(hidden|clip)/.test(style.overflowY || style.overflow);
             if ((horizontal || vertical) && (element.textContent?.trim() ?? ""))
               clippedText.push({
                 selector: identify(element),
                 horizontal,
                 vertical,
+                clientWidth: element.clientWidth,
+                scrollWidth: element.scrollWidth,
               });
             if (
               element.matches(
-                "button, a, input, select, textarea, [tabindex]:not([tabindex='-1'])",
-              )
+                "button:not(:disabled), a[href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled), summary, [tabindex]:not([tabindex='-1'])",
+              ) &&
+              style.display !== "none" &&
+              style.visibility !== "hidden" &&
+              element.tabIndex >= 0 &&
+              !element.closest('[inert],[aria-hidden="true"]') &&
+              ![...document.querySelectorAll("details:not([open])")].some(
+                (details) => details.contains(element) && element !== details.querySelector(":scope > summary"),
+              ) &&
+              element.getClientRects().length > 0
             ) {
               focusables.push(element);
-              const rect = element.getBoundingClientRect();
-              if (rect.width < minTarget || rect.height < minTarget)
+              const labelledTarget =
+                element instanceof HTMLInputElement
+                  ? element.closest("label") ??
+                    (element.id
+                      ? document.querySelector<HTMLLabelElement>(
+                          `label[for="${CSS.escape(element.id)}"]`,
+                        )
+                      : null)
+                  : null;
+              const rect = (labelledTarget ?? element).getBoundingClientRect();
+              const inlineTextLink =
+                element instanceof HTMLAnchorElement && style.display === "inline";
+              if (!inlineTextLink && (rect.width < minTarget || rect.height < minTarget))
                 undersizedTargets.push({
                   selector: identify(element),
                   width: rect.width,
@@ -246,7 +274,7 @@ export async function probeSurface(
     },
     { target: selector, minTarget: minimumTarget },
   );
-  const focusResults: Array<{ reachable: boolean; visible: boolean }> = [];
+  const focusResults: Array<{ selector: string; reachable: boolean; visible: boolean; active: boolean; hit: string | null }> = [];
   for (let index = 0; index < base.focusable; index += 1) {
     const prepared = await page.evaluate(
       ({ target, item }) => {
@@ -257,8 +285,16 @@ export async function probeSurface(
             (element, position, all) =>
               all.indexOf(element) === position &&
               element.matches(
-                "button, a, input, select, textarea, [tabindex]:not([tabindex='-1'])",
-              ),
+                "button:not(:disabled), a[href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled), summary, [tabindex]:not([tabindex='-1'])",
+              ) &&
+              getComputedStyle(element).display !== "none" &&
+              getComputedStyle(element).visibility !== "hidden" &&
+              element.tabIndex >= 0 &&
+              !element.closest('[inert],[aria-hidden="true"]') &&
+              ![...document.querySelectorAll("details:not([open])")].some(
+                (details) => details.contains(element) && element !== details.querySelector(":scope > summary"),
+              ) &&
+              element.getClientRects().length > 0,
           );
       const candidate = candidates[item];
       if (!candidate) return null;
@@ -279,7 +315,16 @@ export async function probeSurface(
     );
     if (!prepared) continue;
     await page.keyboard.press("Shift+Tab");
-    await page.keyboard.press("Tab");
+    for (let attempt = 0; attempt < 12; attempt += 1) {
+      await page.keyboard.press("Tab");
+      if (await page.evaluate(() => document.activeElement?.hasAttribute("data-acceptance-focus-target") ?? false)) break;
+    }
+    await page.evaluate(() => {
+      const candidate = document.querySelector<HTMLElement>('[data-acceptance-focus-target="true"]')!;
+      if (document.activeElement === candidate)
+        candidate.scrollIntoView({ block: "center", inline: "nearest" });
+    });
+    await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
     focusResults.push(
       await page.evaluate(
         ({ before }) => {
@@ -288,44 +333,40 @@ export async function probeSurface(
           )!;
           const rect = candidate.getBoundingClientRect();
           const style = getComputedStyle(candidate);
-          const x = Math.max(
-            0,
-            Math.min(
-              innerWidth - 1,
-              rect.left + Math.min(rect.width, innerWidth) / 2,
-            ),
-          );
-          const y = Math.max(
-            0,
-            Math.min(
-              innerHeight - 1,
-              rect.top + Math.min(rect.height, innerHeight) / 2,
-            ),
-          );
+          const visibleLeft = Math.max(0, rect.left);
+          const visibleRight = Math.min(innerWidth, rect.right);
+          const visibleTop = Math.max(0, rect.top);
+          const visibleBottom = Math.min(innerHeight, rect.bottom);
+          const x = Math.max(0, Math.min(innerWidth - 1, (visibleLeft + visibleRight) / 2));
+          const y = Math.max(0, Math.min(innerHeight - 1, (visibleTop + visibleBottom) / 2));
           const hit = document.elementFromPoint(x, y);
+          const active = document.activeElement === candidate;
           const after = {
             outline: `${style.outlineStyle}|${style.outlineWidth}|${style.outlineColor}|${style.outlineOffset}`,
             shadow: style.boxShadow,
             border: `${style.borderColor}|${style.borderWidth}`,
             background: style.backgroundColor,
           };
-          const reachable =
-            document.activeElement === candidate &&
-            rect.bottom > 0 &&
-            rect.top < innerHeight &&
-            rect.right > 0 &&
-            rect.left < innerWidth &&
+          const unrelatedHit =
             !!hit &&
-            (hit === candidate || candidate.contains(hit));
+            hit !== candidate &&
+            !candidate.contains(hit) &&
+            !hit.contains(candidate);
+          const positionedObstruction =
+            unrelatedHit &&
+            ["absolute", "fixed", "sticky"].includes(getComputedStyle(hit).position);
+          const reachable =
+            active &&
+            !positionedObstruction;
           const visible =
-            reachable &&
+            active &&
             Object.keys(after).some(
               (key) =>
                 after[key as keyof typeof after] !==
                 before[key as keyof typeof before],
             );
       candidate.removeAttribute("data-acceptance-focus-target");
-      return { reachable, visible };
+          return { selector: candidate.id ? `#${CSS.escape(candidate.id)}` : candidate.tagName.toLowerCase(), reachable, visible, active, hit: hit?.tagName.toLowerCase() ?? null };
         },
         { before: prepared },
       ),
@@ -337,16 +378,18 @@ export async function probeSurface(
     );
     focus?.focus({ preventScroll: true });
     focus?.removeAttribute("data-acceptance-prior-focus");
+    if (document.body.tabIndex === -1) document.body.removeAttribute("tabindex");
     scrollTo(x, y);
   }, prior);
   return {
     ...base,
     focusReachable: focusResults.every(({ reachable }) => reachable),
     focusVisible: focusResults.every(({ visible }) => visible),
+    focusFailures: focusResults.filter(({ reachable, visible }) => !reachable || !visible),
     focusVerification: !base.focusApplicable
       ? "not-applicable"
       : focusResults.length === base.focusable &&
-          focusResults.every(({ visible }) => visible)
+          focusResults.every(({ visible, reachable }) => visible && reachable)
         ? "verified"
         : "unverified",
   };

@@ -1,0 +1,544 @@
+{
+  "schema": "gameai-reflow-evidence/v2",
+  "target": {
+    "sha": "36869778772c0c10eb0d91d1c3b7b68f19f54e29",
+    "environment": "local",
+    "baseUrl": "http://127.0.0.1:3100",
+    "sourceIdentity": {
+      "kind": "clean-git-checkpoint",
+      "sha": "36869778772c0c10eb0d91d1c3b7b68f19f54e29",
+      "status": "clean"
+    }
+  },
+  "records": [
+    {
+      "id": "stage-a-metadata-100",
+      "caseId": "VL-V1-METADATA",
+      "variantId": "metadata-100",
+      "route": "/articles/",
+      "state": [
+        "metadata-100"
+      ],
+      "coverage": [
+        "synthetic-computed-text",
+        "factor-100",
+        "viewport-320"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .v2-start-card-meta",
+        "matched": 3
+      },
+      "method": "synthetic-computed-text",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "label",
+          "baselineFontPx": 12,
+          "changedFontPx": 12,
+          "factor": 1,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 20.4
+        },
+        {
+          "role": "label",
+          "baselineFontPx": 12,
+          "changedFontPx": 12,
+          "factor": 1,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 20.4
+        },
+        {
+          "role": "label",
+          "baselineFontPx": 12,
+          "changedFontPx": 12,
+          "factor": 1,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 20.4
+        },
+        {
+          "role": "date",
+          "baselineFontPx": 12,
+          "changedFontPx": 12,
+          "factor": 1,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 20.4
+        },
+        {
+          "role": "date",
+          "baselineFontPx": 12,
+          "changedFontPx": 12,
+          "factor": 1,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 20.4
+        },
+        {
+          "role": "date",
+          "baselineFontPx": 12,
+          "changedFontPx": 12,
+          "factor": 1,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 20.4
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 320,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": false,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "inline",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 100,
+        "naturalLabelWidth": 100
+      },
+      "screenshot": "metadata-100-320.png",
+      "limitations": [
+        "Synthetic text enlargement in desktop Chromium; not browser zoom or physical-device evidence.",
+        "Focus is not-applicable because the metadata surface has no interactive target."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Stage A emitter"
+      },
+      "capturedAt": "2026-09-30T17:20:54.944Z"
+    },
+    {
+      "id": "stage-a-metadata-viewport-320",
+      "caseId": "VL-V1-METADATA",
+      "variantId": "metadata-100",
+      "route": "/articles/",
+      "state": [
+        "metadata-100"
+      ],
+      "coverage": [
+        "viewport-reflow"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .v2-start-card-meta",
+        "matched": 3
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "label",
+          "baselineFontPx": 12,
+          "changedFontPx": 12,
+          "factor": 1,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 20.4
+        },
+        {
+          "role": "label",
+          "baselineFontPx": 12,
+          "changedFontPx": 12,
+          "factor": 1,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 20.4
+        },
+        {
+          "role": "label",
+          "baselineFontPx": 12,
+          "changedFontPx": 12,
+          "factor": 1,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 20.4
+        },
+        {
+          "role": "date",
+          "baselineFontPx": 12,
+          "changedFontPx": 12,
+          "factor": 1,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 20.4
+        },
+        {
+          "role": "date",
+          "baselineFontPx": 12,
+          "changedFontPx": 12,
+          "factor": 1,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 20.4
+        },
+        {
+          "role": "date",
+          "baselineFontPx": 12,
+          "changedFontPx": 12,
+          "factor": 1,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 20.4
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 320,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": false,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "inline",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 100,
+        "naturalLabelWidth": 100
+      },
+      "screenshot": "metadata-100-320.png",
+      "limitations": [
+        "Synthetic text enlargement in desktop Chromium; not browser zoom or physical-device evidence.",
+        "Focus is not-applicable because the metadata surface has no interactive target."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Stage A emitter"
+      },
+      "capturedAt": "2026-09-30T17:20:54.944Z"
+    },
+    {
+      "id": "stage-a-metadata-150",
+      "caseId": "VL-V1-METADATA",
+      "variantId": "metadata-150",
+      "route": "/articles/",
+      "state": [
+        "metadata-150"
+      ],
+      "coverage": [
+        "synthetic-computed-text",
+        "factor-150",
+        "viewport-320"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .v2-start-card-meta",
+        "matched": 3
+      },
+      "method": "synthetic-computed-text",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1.5,
+      "achieved": [
+        {
+          "role": "label",
+          "baselineFontPx": 12,
+          "changedFontPx": 18,
+          "factor": 1.5,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 30.6
+        },
+        {
+          "role": "label",
+          "baselineFontPx": 12,
+          "changedFontPx": 18,
+          "factor": 1.5,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 30.6
+        },
+        {
+          "role": "label",
+          "baselineFontPx": 12,
+          "changedFontPx": 18,
+          "factor": 1.5,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 30.6
+        },
+        {
+          "role": "date",
+          "baselineFontPx": 12,
+          "changedFontPx": 18,
+          "factor": 1.5,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 30.6
+        },
+        {
+          "role": "date",
+          "baselineFontPx": 12,
+          "changedFontPx": 18,
+          "factor": 1.5,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 30.6
+        },
+        {
+          "role": "date",
+          "baselineFontPx": 12,
+          "changedFontPx": 18,
+          "factor": 1.5,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 30.6
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 320,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": false,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "stacked",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 142,
+        "naturalLabelWidth": 142
+      },
+      "screenshot": "metadata-150-320.png",
+      "limitations": [
+        "Synthetic text enlargement in desktop Chromium; not browser zoom or physical-device evidence.",
+        "Focus is not-applicable because the metadata surface has no interactive target."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Stage A emitter"
+      },
+      "capturedAt": "2026-09-30T17:20:58.837Z"
+    },
+    {
+      "id": "stage-a-metadata-200",
+      "caseId": "VL-V1-METADATA",
+      "variantId": "metadata-200",
+      "route": "/articles/",
+      "state": [
+        "metadata-200"
+      ],
+      "coverage": [
+        "synthetic-root-text",
+        "factor-200",
+        "viewport-375"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .v2-start-card-meta",
+        "matched": 3
+      },
+      "method": "synthetic-root-text",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 2,
+      "achieved": [
+        {
+          "role": "label",
+          "baselineFontPx": 12,
+          "changedFontPx": 24,
+          "factor": 2,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 40.8
+        },
+        {
+          "role": "label",
+          "baselineFontPx": 12,
+          "changedFontPx": 24,
+          "factor": 2,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 40.8
+        },
+        {
+          "role": "label",
+          "baselineFontPx": 12,
+          "changedFontPx": 24,
+          "factor": 2,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 40.8
+        },
+        {
+          "role": "date",
+          "baselineFontPx": 12,
+          "changedFontPx": 24,
+          "factor": 2,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 40.8
+        },
+        {
+          "role": "date",
+          "baselineFontPx": 12,
+          "changedFontPx": 24,
+          "factor": 2,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 40.8
+        },
+        {
+          "role": "date",
+          "baselineFontPx": 12,
+          "changedFontPx": 24,
+          "factor": 2,
+          "baselineLineHeightPx": 20.4,
+          "changedLineHeightPx": 40.8
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": false,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "stacked",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 184,
+        "naturalLabelWidth": 184
+      },
+      "screenshot": "metadata-200-375.png",
+      "limitations": [
+        "Synthetic text enlargement in desktop Chromium; not browser zoom or physical-device evidence.",
+        "Focus is not-applicable because the metadata surface has no interactive target."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Stage A emitter"
+      },
+      "capturedAt": "2026-09-30T17:21:04.421Z"
+    },
+    {
+      "id": "stage-a-long-content",
+      "caseId": "VL-V1-LONG-CONTENT",
+      "variantId": "long-japanese-and-unbroken-ascii",
+      "route": "/articles/",
+      "state": [
+        "long-japanese-and-unbroken-ascii"
+      ],
+      "coverage": [
+        "long-content",
+        "surface-probe"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start li:first-child .v2-start-card",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "card",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 24,
+          "changedLineHeightPx": 24
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 320,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "long-content-320.png",
+      "limitations": [
+        "Disposable DOM stress content; published article data was not changed.",
+        "The bounded focus probe returned verified; the directly affected V1 spec also retains its first-card focus assertion."
+      ],
+      "reviewerDecision": "PENDING",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Stage A emitter"
+      },
+      "capturedAt": "2026-09-30T17:21:08.751Z"
+    }
+  ],
+  "execution": {
+    "testedPaths": [
+      "e2e/acceptance/manifest.ts",
+      "e2e/acceptance/reflow-matrix.ts",
+      "e2e/acceptance/reflow.ts",
+      "e2e/reflow-contract.spec.ts",
+      "e2e/issue-155-v1.spec.ts",
+      "e2e/stage-a-evidence.spec.ts",
+      "tests/reflow-evidence.test.ts",
+      "tests/reflow-matrix.test.ts",
+      "docs/design/visual-layer-v2/TEST-MATRIX.json"
+    ],
+    "command": "npx playwright test e2e/stage-a-evidence.spec.ts",
+    "subsetGate": "PASS"
+  }
+}

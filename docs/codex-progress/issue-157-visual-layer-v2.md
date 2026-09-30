@@ -107,3 +107,13 @@ GitHub checks, E2E, observe, and Vercel exact-head status passed for the correct
   `VL-V2-PROJECT-TOKENS`, every V3 case, `VL-V1-LONG-CONTENT`, the outstanding
   V4 browser-input/dynamic/budget observations, and both final cases. The stop
   reason is the bounded execution window; final acceptance is not claimed.
+
+## Project evidence and review corrections
+
+- Source checkpoint `36869778772c0c10eb0d91d1c3b7b68f19f54e29` replaces partial content digests with an exact clean-Git identity. The current V1 emitter now writes to `docs/screenshots/issue-157-stage-b/v1-current/`; historical Stage A bytes remain unchanged.
+- `VL-V2-PROJECT-STATES` now has eight records: `project-state-input`, `project-state-clarification`, `project-state-loading`, `project-state-error`, `project-state-result`, `project-state-done`, `project-state-next`, and `project-state-recovery`.
+- `VL-V2-PROJECT-WORKSPACE` now has five records: `project-workspace`, `project-no-workspace`, `project-workspace-copy-failure`, `project-workspace-save-failure`, and `project-workspace-expanded`.
+- `VL-V2-PROJECT-TOKENS` now has the bound `project-tokens-100`, `project-tokens-150`, and `project-tokens-200` records at 320/320/375px. All 16 records passed the named Project subset gate with measured roles, target sizes, keyboard focus, overflow ownership, and current screenshots.
+- Focus applicability is derived from rendered interactive DOM. Closed-details, disabled, inert, and hidden descendants are excluded; native labelled-input targets use their actual label hit area. The unchanged-shadow and covered-target negative controls remain in the contract suite.
+- The Stage B base-button rule no longer overrides `.button.ghost` or `.button.light`; Project primary/secondary hierarchy is retained. Narrow or short clarification actions fall back to natural flow rather than obscuring focused fields.
+- Still outstanding: V3 application observations, current V1 long-content reconciliation, remaining V4 browser-input/dynamic/budget observations, and both final cases. Production, protected Preview interaction, genuine browser zoom, OS scaling, and physical devices remain `UNTESTED / OWNER-DEFERRED`.

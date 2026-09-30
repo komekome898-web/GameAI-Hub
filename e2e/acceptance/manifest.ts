@@ -162,6 +162,11 @@ export type ReflowEvidenceManifest = {
     environment: "local" | "preview" | "production";
     baseUrl: string;
     worktreeDiffHash?: string;
+    sourceIdentity?: {
+      kind: "clean-git-checkpoint";
+      sha: string;
+      status: "clean";
+    };
   };
   records: ReflowEvidenceRecord[];
 };
@@ -186,6 +191,13 @@ export function assertReflowEvidenceManifest(
   }
   if (expectedSha && manifest.target.sha !== expectedSha)
     throw new Error("evidence SHA does not match target SHA");
+  if (
+    manifest.target.sourceIdentity &&
+    (manifest.target.sourceIdentity.kind !== "clean-git-checkpoint" ||
+      manifest.target.sourceIdentity.status !== "clean" ||
+      manifest.target.sourceIdentity.sha !== manifest.target.sha)
+  )
+    throw new Error("evidence source identity does not match target SHA");
   if (!Array.isArray(manifest.records) || manifest.records.length === 0)
     throw new Error("reflow manifest needs records");
   const methods = new Set([

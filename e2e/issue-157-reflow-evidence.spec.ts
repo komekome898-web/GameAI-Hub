@@ -1,6 +1,3 @@
-import { execFileSync } from "node:child_process";
-import { createHash } from "node:crypto";
-import { readFileSync } from "node:fs";
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { expect, test } from "./fixtures";
@@ -19,6 +16,7 @@ import {
   type TextRole,
 } from "./acceptance/reflow";
 import matrix from "../docs/design/visual-layer-v2/TEST-MATRIX.json";
+import { cleanSourceIdentity } from "./acceptance/source-identity";
 
 const output = path.join(process.cwd(), "docs/screenshots/issue-157-stage-b/v2");
 const roles: TextRole[] = [
@@ -32,20 +30,8 @@ test("V2 Home observations emit and validate current typed evidence", async ({
 }) => {
   test.setTimeout(120_000);
   await mkdir(output, { recursive: true });
-  const sha = execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim();
-  const testedPaths = [
-    "app/globals.css",
-    "app/visual-layer-v2.css",
-    "components/ProjectGeneratorClient.tsx",
-    "e2e/acceptance/manifest.ts",
-    "e2e/acceptance/reflow-matrix.ts",
-    "e2e/acceptance/reflow.ts",
-    "e2e/issue-157-reflow-evidence.spec.ts",
-    "docs/design/visual-layer-v2/TEST-MATRIX.json",
-  ];
-  const worktreeDiffHash = createHash("sha256")
-    .update(testedPaths.map((file) => `${file}\0${readFileSync(file)}`).join("\0"))
-    .digest("hex");
+  const sourceIdentity = cleanSourceIdentity();
+  const sha = sourceIdentity.sha;
   const version = await page.context().browser()!.version();
   const records: ReflowEvidenceRecord[] = [];
 
@@ -80,12 +66,10 @@ test("V2 Home observations emit and validate current typed evidence", async ({
         : method;
     const scale = await applyTextMethod(page, textRoles, selected, factor);
     expect(scale.sufficient).toBe(true);
-    const focusApplicable = coverage.includes("focus-reachability");
-    const targetSizeApplicable = coverage.includes("target-size");
     const declaredSelector = caseId === "VL-V2-HOME-INITIAL"
       ? ".home-execution-hero"
       : ".idea-meta";
-    const surface = await probeSurface(page, declaredSelector, targetSizeApplicable ? 44 : 0);
+    const surface = await probeSurface(page, declaredSelector, 44);
     const childSurface = probeSelector === declaredSelector
       ? surface
       : await probeSurface(page, probeSelector, 0);
@@ -140,9 +124,9 @@ test("V2 Home observations emit and validate current typed evidence", async ({
         unownedOverflowingElements: widths.unownedOverflowingElements.length,
         clippedText: surface.clippedText.length + childSurface.clippedText.length,
         undersizedTargets: surface.undersizedTargets.length,
-        focusApplicable,
-        focusReachable: focusApplicable ? surface.focusReachable : true,
-        focusVisible: focusApplicable ? surface.focusVisible : true,
+        focusApplicable: surface.focusApplicable,
+        focusReachable: surface.focusReachable,
+        focusVisible: surface.focusVisible,
         orderPreserved: relationships.orderPreserved,
         associationsPreserved: relationships.associationsPreserved,
       },
@@ -157,12 +141,15 @@ test("V2 Home observations emit and validate current typed evidence", async ({
       },
       spacing,
       screenshot: `v2/${screenshot}`,
-      limitations: ["Synthetic Chromium text stress; not browser zoom, OS scaling, or physical-device evidence."],
+      limitations: [
+        "Synthetic Chromium text stress; not browser zoom, OS scaling, or physical-device evidence.",
+        ...(surface.focusFailures.length ? [`Focus failures: ${JSON.stringify(surface.focusFailures)}`] : []),
+      ],
       reviewerDecision:
         widths.documentOverflowPx ||
         surface.clippedText.length ||
         surface.undersizedTargets.length ||
-        (focusApplicable && (!surface.focusReachable || !surface.focusVisible)) ||
+        (surface.focusApplicable && (!surface.focusReachable || !surface.focusVisible)) ||
         !relationships.orderPreserved ||
         !relationships.associationsPreserved ||
         !row.nonoverlapping ||
@@ -201,12 +188,12 @@ test("V2 Home observations emit and validate current typed evidence", async ({
 
   const manifest: ReflowEvidenceManifest = {
     schema: reflowEvidenceVersion,
-    target: { sha, environment: "local", baseUrl: "http://127.0.0.1:3100", worktreeDiffHash },
+    target: { sha, environment: "local", baseUrl: "http://127.0.0.1:3100", sourceIdentity },
     records,
   };
   const manifestPath = path.join(output, "manifest.json");
   const execution = {
-    testedPaths,
+    sourceIdentity,
     command: "npx playwright test e2e/issue-157-reflow-evidence.spec.ts",
     subsetGate: "PENDING",
     reasons: [] as string[],

@@ -1,10 +1,14 @@
 {
   "schema": "gameai-reflow-evidence/v2",
   "target": {
-    "sha": "45e51ca637f64440af74e764bf2ab66284ad14e8",
+    "sha": "36869778772c0c10eb0d91d1c3b7b68f19f54e29",
     "environment": "local",
     "baseUrl": "http://127.0.0.1:3100",
-    "worktreeDiffHash": "d8fb779512a3bd7c399ddf43247082226d1a7218fffbf9e05d3cb8bc6d9f6d82"
+    "sourceIdentity": {
+      "kind": "clean-git-checkpoint",
+      "sha": "36869778772c0c10eb0d91d1c3b7b68f19f54e29",
+      "status": "clean"
+    }
   },
   "records": [
     {
@@ -50,7 +54,7 @@
         "unownedOverflowingElements": 0,
         "clippedText": 0,
         "undersizedTargets": 0,
-        "focusApplicable": false,
+        "focusApplicable": true,
         "focusReachable": true,
         "focusVisible": true,
         "orderPreserved": true,
@@ -74,7 +78,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T15:15:27.023Z"
+      "capturedAt": "2026-09-30T17:20:57.330Z"
     },
     {
       "id": "v2-home-initial-150",
@@ -138,7 +142,7 @@
         "unownedOverflowingElements": 0,
         "clippedText": 0,
         "undersizedTargets": 0,
-        "focusApplicable": false,
+        "focusApplicable": true,
         "focusReachable": true,
         "focusVisible": true,
         "orderPreserved": true,
@@ -162,7 +166,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T15:15:29.120Z"
+      "capturedAt": "2026-09-30T17:21:01.053Z"
     },
     {
       "id": "v2-home-empty-validation",
@@ -240,7 +244,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T15:15:30.334Z"
+      "capturedAt": "2026-09-30T17:21:02.756Z"
     },
     {
       "id": "v2-home-meta-100",
@@ -320,7 +324,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T15:15:32.186Z"
+      "capturedAt": "2026-09-30T17:21:06.323Z"
     },
     {
       "id": "v2-home-examples-150",
@@ -431,7 +435,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T15:15:33.252Z"
+      "capturedAt": "2026-09-30T17:21:09.209Z"
     },
     {
       "id": "v2-home-maximum-200",
@@ -526,7 +530,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T15:15:34.310Z"
+      "capturedAt": "2026-09-30T17:21:10.696Z"
     },
     {
       "id": "v2-home-spacing-line-height",
@@ -609,7 +613,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T15:15:34.809Z"
+      "capturedAt": "2026-09-30T17:21:11.241Z"
     },
     {
       "id": "v2-home-spacing-paragraph",
@@ -692,7 +696,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T15:15:35.285Z"
+      "capturedAt": "2026-09-30T17:21:11.730Z"
     },
     {
       "id": "v2-home-spacing-letter",
@@ -775,7 +779,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T15:15:35.700Z"
+      "capturedAt": "2026-09-30T17:21:12.210Z"
     },
     {
       "id": "v2-home-spacing-word",
@@ -858,20 +862,15 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T15:15:36.164Z"
+      "capturedAt": "2026-09-30T17:21:12.732Z"
     }
   ],
   "execution": {
-    "testedPaths": [
-      "app/globals.css",
-      "app/visual-layer-v2.css",
-      "components/ProjectGeneratorClient.tsx",
-      "e2e/acceptance/manifest.ts",
-      "e2e/acceptance/reflow-matrix.ts",
-      "e2e/acceptance/reflow.ts",
-      "e2e/issue-157-reflow-evidence.spec.ts",
-      "docs/design/visual-layer-v2/TEST-MATRIX.json"
-    ],
+    "sourceIdentity": {
+      "kind": "clean-git-checkpoint",
+      "sha": "36869778772c0c10eb0d91d1c3b7b68f19f54e29",
+      "status": "clean"
+    },
     "command": "npx playwright test e2e/issue-157-reflow-evidence.spec.ts",
     "subsetGate": "PASS",
     "reasons": []

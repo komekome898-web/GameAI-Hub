@@ -1,7 +1,5 @@
 import { expect, test } from "./fixtures";
-import { execFileSync, spawnSync } from "node:child_process";
-import { createHash } from "node:crypto";
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import matrix from "../docs/design/visual-layer-v2/TEST-MATRIX.json";
 import {
@@ -17,9 +15,9 @@ import {
   type TextMeasurement,
 } from "./acceptance/reflow";
 import { diagnoseWidths } from "./acceptance/diagnostics";
+import { cleanSourceIdentity } from "./acceptance/source-identity";
 
-const output = path.resolve("docs/evidence/issue-157-stage-a");
-const checkpoint = "0e7f32940c4cae167b75bc424704240b4c4d67f6";
+const output = path.resolve("docs/screenshots/issue-157-stage-b/v1-current");
 const testedPaths = [
   "e2e/acceptance/manifest.ts",
   "e2e/acceptance/reflow-matrix.ts",
@@ -31,17 +29,6 @@ const testedPaths = [
   "tests/reflow-matrix.test.ts",
   "docs/design/visual-layer-v2/TEST-MATRIX.json",
 ];
-const checkpointAvailable =
-  spawnSync("git", ["cat-file", "-e", `${checkpoint}^{commit}`]).status === 0;
-const worktreeDiffHash = checkpointAvailable
-  ? createHash("sha256")
-      .update(execFileSync("git", ["diff", checkpoint, "--", ...testedPaths]))
-      .digest("hex")
-  : (
-      JSON.parse(
-        readFileSync(path.join(output, "manifest.json"), "utf8"),
-      ) as ReflowEvidenceManifest
-    ).target.worktreeDiffHash!;
 
 function achieved(measurements: TextMeasurement[]) {
   return measurements.flatMap((measurement) =>
@@ -61,6 +48,7 @@ test("emit and validate the Stage A executed subset", async ({
   browserName,
 }) => {
   mkdirSync(output, { recursive: true });
+  const sourceIdentity = cleanSourceIdentity();
   const version = await page.evaluate(() => navigator.userAgent);
   const records: ReflowEvidenceRecord[] = [];
   const roles = [
@@ -126,13 +114,19 @@ test("emit and validate the Stage A executed subset", async ({
         nonoverlapping: row.nonoverlapping,
         contentVisible: row.contained,
         ownedScrollers: widths.ownedLocalScrollers.length,
+        ordinaryLabelSqueezed: row.ordinaryLabelSqueezed,
+        labelWidth: row.labelWidth,
+        naturalLabelWidth: row.naturalLabelWidth,
       },
       screenshot,
       limitations: [
         "Synthetic text enlargement in desktop Chromium; not browser zoom or physical-device evidence.",
         `Focus is ${surface.focusVerification} because the metadata surface has no interactive target.`,
       ],
-      reviewerDecision: "PASS",
+      reviewerDecision:
+        row.ordinaryLabelSqueezed || !row.nonoverlapping || !row.contained
+          ? "FAIL"
+          : "PASS",
       review: { kind: "automated", reviewer: "Playwright Stage A emitter" },
       capturedAt: new Date().toISOString(),
     });
@@ -234,14 +228,14 @@ test("emit and validate the Stage A executed subset", async ({
   const manifest: ReflowEvidenceManifest = {
     schema: reflowEvidenceVersion,
     target: {
-      sha: checkpoint,
+      sha: sourceIdentity.sha,
       environment: "local",
       baseUrl: "http://127.0.0.1:3100",
-      worktreeDiffHash,
+      sourceIdentity,
     },
     records,
   };
-  validateExecutionSubset(matrix, manifest, checkpoint, ["VL-V1-METADATA"]);
+  validateExecutionSubset(matrix, manifest, sourceIdentity.sha, ["VL-V1-METADATA"]);
   writeFileSync(
     path.join(output, "manifest.json"),
     `${JSON.stringify({ ...manifest, execution: { testedPaths, command: "npx playwright test e2e/stage-a-evidence.spec.ts", subsetGate: "PASS" } }, null, 2)}\n`,

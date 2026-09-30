@@ -285,10 +285,12 @@ body.visual-layer-v2 {
   color: var(--v2-ink);
 }
 body.visual-layer-v2 .site-header { background: rgb(250 248 242 / 96%); border-color: var(--v2-edge); }
-body.visual-layer-v2 .button { min-height:48px; height:auto; padding-block:10px; background:var(--v2-primary); border-color:var(--v2-primary); color:#fff; white-space:normal; }
-body.visual-layer-v2 .button:hover { background:var(--v2-primary-hover); }
+body.visual-layer-v2 .button:not(.ghost):not(.light) { min-height:48px; height:auto; padding-block:10px; background:var(--v2-primary); border-color:var(--v2-primary); color:#fff; white-space:normal; }
+body.visual-layer-v2 .button:not(.ghost):not(.light):hover { background:var(--v2-primary-hover); }
+body.visual-layer-v2 .button:is(.ghost,.light) { min-height:48px; height:auto; padding-block:10px; white-space:normal; }
 body.visual-layer-v2 :is(p,li,dd,a,button,label,small,strong,h1,h2,h3) { overflow-wrap:anywhere; }
 body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
+.home-v2-route .home-example-link { position:relative; z-index:1; }
 
 .home-v2-route .home-execution-hero,
 .project-v2-route :is(.project-idea-card,.clarify-form,.beginner-action),
@@ -311,6 +313,9 @@ body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
 .project-v2-route :is(.beginner-action-grid,.plan-phase>div,.today-grid) { min-width:0; }
 .project-v2-route :is(.beginner-runtime-error,.beginner-file-label,.copy-status,.form-error,.project-error-summary) { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
 .project-v2-route :is(button,a,input,textarea,select,summary) { min-height:44px; }
+@media (max-width:680px), (max-height:720px) {
+  .project-v2-route .clarify-actions { position:static; backdrop-filter:none; }
+}
 
 .visual-layer-v2 :is(.tool-rows article,.compare-mobile article,.card,.stack-grid>article,.guide-task) { background:var(--v2-ceramic); border-color:var(--v2-edge); }
 .visual-layer-v2 :is(.tools-explorer,.guides-explorer,.compare-page,.article-shell,.page-shell,.detail,.stack-detail) { min-width:0; }
