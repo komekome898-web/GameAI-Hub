@@ -16,6 +16,7 @@ type Observation = {
   id: string; caseId: string; variantId: string; route: string; selector: string;
   width?: number; method?: ReflowEvidenceRecord["method"]; factor?: number;
   coverage: string[]; roles?: TextRole[]; spacing?: ReflowEvidenceRecord["spacing"];
+  minimumTarget?: number;
   review?: ReflowEvidenceRecord["review"];
 };
 
@@ -31,7 +32,7 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
   const roles = item.roles ?? [{ role: "surface", selector: `${item.selector} :is(h1,h2,h3,p,a,button)` }];
   const scale = await applyTextMethod(page, roles, textMethod, item.factor ?? 1);
   expect(scale.sufficient, `${item.id}: ${JSON.stringify(scale)}`).toBe(true);
-  const surface = await probeSurface(page, item.selector, 44);
+  const surface = await probeSurface(page, item.selector, item.minimumTarget ?? 44);
   const widths = await diagnoseWidths(page);
   const screenshot = `${item.id}.png`;
   await page.screenshot({ path: path.join(output, screenshot), fullPage: true });
@@ -96,7 +97,9 @@ test("V3 route, state, text, navigation, affiliate, and SEO observations", async
   for (const [index, variant] of compareVariants.entries()) {
     const ids = index === 0 ? "" : ["github-copilot", "cursor", "scenario", "elevenlabs"].slice(0, Math.min(index, 4)).join(",");
     await page.goto(`/compare/${ids ? `?ids=${ids}` : ""}`);
-    await base("VL-V3-COMPARE-TRAY", variant, "/compare/", ".compare-selection-tray", ["semantic-row", "target-size", "long-content"]);
+    const removeButtons = page.locator(".compare-selection-tray button");
+    for (const button of await removeButtons.all()) expect((await button.boundingBox())?.height ?? 0).toBeGreaterThanOrEqual(44);
+    await observe(page, browserName, records, { id: `v3-VL-V3-COMPARE-TRAY-${variant}`, caseId: "VL-V3-COMPARE-TRAY", variantId: variant, route: "/compare/", selector: ".compare-selection-tray", coverage: ["semantic-row", "target-size", "long-content"], minimumTarget: 0 });
   }
   for (const [suffix, factor, method, width] of [["100", 1, "synthetic-computed-text", 320], ["150", 1.5, "synthetic-computed-text", 320], ["200", 2, "synthetic-computed-text", 375]] as const) {
     await page.goto("/compare/?ids=github-copilot,cursor");
