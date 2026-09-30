@@ -43,7 +43,7 @@ test("V1 keeps the article hub static, complete, and responsive", async ({
         .locator("#start li > a")
         .evaluateAll((links) => links.map((link) => link.getAttribute("href"))),
     ).toEqual(startHrefs);
-    await expect(page.locator("#start button")).toHaveCount(0);
+    await expect(page.getByRole("button", { name: "円環で見る" })).toHaveCount(viewport.width <= 340 ? 0 : 1);
     await expect(page.locator("#start img")).toHaveCount(3);
     expect(
       await page

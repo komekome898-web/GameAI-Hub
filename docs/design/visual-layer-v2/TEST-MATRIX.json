@@ -10,12 +10,18 @@
   "cases": [
     {
       "id": "VL-V0-INVENTORY",
-      "findings": ["VL-DES-01", "VL-DES-03", "VL-DES-07"],
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-03",
+        "VL-DES-07"
+      ],
       "phase": "V0",
       "route": "/*",
       "state": "route/selector/token/breakpoint inventory",
       "surface": "all current route families",
-      "method": ["static-inventory"],
+      "method": [
+        "static-inventory"
+      ],
       "owner": "Stage A matrix validator",
       "requiredForFinal": false,
       "status": "IMPLEMENTED",
@@ -49,7 +55,9 @@
       "route": "/*",
       "state": "active authority and rule traceability",
       "surface": "all phases",
-      "method": ["document-review"],
+      "method": [
+        "document-review"
+      ],
       "owner": "Stage A independent reviewer",
       "requiredForFinal": false,
       "status": "IMPLEMENTED",
@@ -70,7 +78,11 @@
     },
     {
       "id": "VL-V1-METADATA",
-      "findings": ["VL-DES-01", "VL-DES-02", "VL-DES-07"],
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-02",
+        "VL-DES-07"
+      ],
       "phase": "V1",
       "route": "/articles/",
       "state": "START metadata at 100/150/200",
@@ -123,28 +135,48 @@
         {
           "id": "scale-100-320",
           "variantId": "metadata-100",
-          "requires": ["synthetic-computed-text", "factor-100", "viewport-320"]
+          "requires": [
+            "synthetic-computed-text",
+            "factor-100",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-150-320",
           "variantId": "metadata-150",
-          "requires": ["synthetic-computed-text", "factor-150", "viewport-320"]
+          "requires": [
+            "synthetic-computed-text",
+            "factor-150",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-200-375",
           "variantId": "metadata-200",
-          "requires": ["synthetic-root-text", "factor-200", "viewport-375"]
+          "requires": [
+            "synthetic-root-text",
+            "factor-200",
+            "viewport-375"
+          ]
         }
       ]
     },
     {
       "id": "VL-V1-LONG-CONTENT",
-      "findings": ["VL-DES-02", "VL-DES-05", "VL-DES-07", "VL-DES-01"],
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-05",
+        "VL-DES-07",
+        "VL-DES-01"
+      ],
       "phase": "V1",
       "route": "/articles/",
       "state": "long Japanese and unbroken ASCII",
       "surface": "START card",
-      "method": ["long-content", "surface-probe"],
+      "method": [
+        "long-content",
+        "surface-probe"
+      ],
       "owner": "e2e/issue-155-v1.spec.ts",
       "requiredForFinal": true,
       "status": "IMPLEMENTED",
@@ -166,19 +198,26 @@
     },
     {
       "id": "VL-V2-HOME-INITIAL",
-      "findings": ["VL-DES-01", "VL-DES-03", "VL-DES-04"],
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-03",
+        "VL-DES-04"
+      ],
       "phase": "V2",
       "route": "/",
       "state": "empty initial/normal first view",
       "surface": "idea form and CTA",
-      "method": ["viewport-reflow", "text-scale"],
+      "method": [
+        "viewport-reflow",
+        "text-scale"
+      ],
       "owner": "Stage B V2 Home spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": ".home-hero",
-        "maturity": "planned"
+        "selector": ".home-execution-hero",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -193,7 +232,11 @@
     },
     {
       "id": "VL-V2-HOME-META",
-      "findings": ["VL-DES-02", "VL-DES-04", "VL-DES-07"],
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-04",
+        "VL-DES-07"
+      ],
       "phase": "V2",
       "route": "/",
       "state": "counter/privacy, validation, examples expanded, max input",
@@ -214,16 +257,40 @@
       ],
       "owner": "Stage B V2 Home spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".idea-meta",
-        "maturity": "planned"
+        "maturity": "measured"
       },
       "variants": [
         {
-          "id": "counter-privacy-validation-examples-expanded-max-input",
-          "state": "counter-privacy-validation-examples-expanded-max-input",
+          "id": "counter-privacy",
+          "state": "counter-privacy",
+          "route": {
+            "kind": "exact",
+            "value": "/"
+          }
+        },
+        {
+          "id": "empty-validation",
+          "state": "empty-validation",
+          "route": {
+            "kind": "exact",
+            "value": "/"
+          }
+        },
+        {
+          "id": "examples-expanded",
+          "state": "examples-expanded",
+          "route": {
+            "kind": "exact",
+            "value": "/"
+          }
+        },
+        {
+          "id": "maximum-input",
+          "state": "maximum-input",
           "route": {
             "kind": "exact",
             "value": "/"
@@ -233,36 +300,53 @@
       "bindings": [
         {
           "id": "scale-100-320",
-          "variantId": "counter-privacy-validation-examples-expanded-max-input",
-          "requires": ["factor-100", "viewport-320"]
+          "variantId": "counter-privacy",
+          "requires": [
+            "factor-100",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-150-320",
-          "variantId": "counter-privacy-validation-examples-expanded-max-input",
-          "requires": ["factor-150", "viewport-320"]
+          "variantId": "examples-expanded",
+          "requires": [
+            "factor-150",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-200-375",
-          "variantId": "counter-privacy-validation-examples-expanded-max-input",
-          "requires": ["factor-200", "viewport-375"]
+          "variantId": "maximum-input",
+          "requires": [
+            "factor-200",
+            "viewport-375"
+          ]
         }
       ]
     },
     {
       "id": "VL-V2-PROJECT-STATES",
-      "findings": ["VL-DES-02", "VL-DES-03", "VL-DES-04"],
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-03",
+        "VL-DES-04"
+      ],
       "phase": "V2",
       "route": "/project/",
       "state": "input/clarification/loading/error/result/done/next/recovery",
       "surface": "Project heading, status, actions",
-      "method": ["viewport-reflow", "semantic-row", "short-height"],
+      "method": [
+        "viewport-reflow",
+        "semantic-row",
+        "short-height"
+      ],
       "owner": "Stage B V2 Project spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": ".project-shell",
-        "maturity": "planned"
+        "selector": ".project-v2-route",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -333,19 +417,27 @@
     },
     {
       "id": "VL-V2-PROJECT-WORKSPACE",
-      "findings": ["VL-DES-03", "VL-DES-04", "VL-DES-05"],
+      "findings": [
+        "VL-DES-03",
+        "VL-DES-04",
+        "VL-DES-05"
+      ],
       "phase": "V2",
       "route": "/project/",
       "state": "workspace and no-workspace; copy/save failure/expanded",
       "surface": "task/workspace/sticky actions",
-      "method": ["long-content", "focus-reachability", "text-scale"],
+      "method": [
+        "long-content",
+        "focus-reachability",
+        "text-scale"
+      ],
       "owner": "Stage B V2 Project spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": ".project-workspace",
-        "maturity": "planned"
+        "selector": ".project-v2-route",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -392,7 +484,11 @@
     },
     {
       "id": "VL-V2-PROJECT-TOKENS",
-      "findings": ["VL-DES-01", "VL-DES-05", "VL-DES-07"],
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-05",
+        "VL-DES-07"
+      ],
       "phase": "V2",
       "route": "/project/",
       "state": "long project/task/note/file/runtime error",
@@ -409,11 +505,11 @@
       ],
       "owner": "Stage B V2 Project spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": ".project-shell",
-        "maturity": "planned"
+        "selector": ".project-v2-route",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -429,23 +525,37 @@
         {
           "id": "scale-100-320",
           "variantId": "long-project-task-note-file-runtime-error",
-          "requires": ["factor-100", "viewport-320"]
+          "requires": [
+            "factor-100",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-150-320",
           "variantId": "long-project-task-note-file-runtime-error",
-          "requires": ["factor-150", "viewport-320"]
+          "requires": [
+            "factor-150",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-200-375",
           "variantId": "long-project-task-note-file-runtime-error",
-          "requires": ["factor-200", "viewport-375"]
+          "requires": [
+            "factor-200",
+            "viewport-375"
+          ]
         }
       ]
     },
     {
       "id": "VL-V3-TOOLS",
-      "findings": ["VL-DES-01", "VL-DES-02", "VL-DES-03", "VL-DES-05"],
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-02",
+        "VL-DES-03",
+        "VL-DES-05"
+      ],
       "phase": "V3",
       "route": "/tools/",
       "state": "goal/filter/search/count/help/reset/empty/error",
@@ -466,11 +576,11 @@
       ],
       "owner": "Stage B V3 directories spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": ".tools-page",
-        "maturity": "planned"
+        "selector": ".tools-explorer",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -542,35 +652,52 @@
         {
           "id": "scale-100-320",
           "variantId": "goal",
-          "requires": ["factor-100", "viewport-320"]
+          "requires": [
+            "factor-100",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-150-320",
           "variantId": "filter",
-          "requires": ["factor-150", "viewport-320"]
+          "requires": [
+            "factor-150",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-200-375",
           "variantId": "search",
-          "requires": ["factor-200", "viewport-375"]
+          "requires": [
+            "factor-200",
+            "viewport-375"
+          ]
         }
       ]
     },
     {
       "id": "VL-V3-GUIDES",
-      "findings": ["VL-DES-02", "VL-DES-03", "VL-DES-05"],
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-03",
+        "VL-DES-05"
+      ],
       "phase": "V3",
       "route": "/guides/",
       "state": "stage/reset/expanded constraints/long values",
       "surface": "stage status and guide results",
-      "method": ["semantic-row", "viewport-reflow", "long-content"],
+      "method": [
+        "semantic-row",
+        "viewport-reflow",
+        "long-content"
+      ],
       "owner": "Stage B V3 directories spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": ".guides-page",
-        "maturity": "planned"
+        "selector": ".guides-explorer",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -585,19 +712,25 @@
     },
     {
       "id": "VL-V3-DIRECTORY-NAV",
-      "findings": ["VL-DES-04", "VL-DES-07"],
+      "findings": [
+        "VL-DES-04",
+        "VL-DES-07"
+      ],
       "phase": "V3",
       "route": "/tools/",
       "state": "return context/back-forward/current ordering",
       "surface": "directory navigation and Project return",
-      "method": ["journey", "focus-reachability"],
+      "method": [
+        "journey",
+        "focus-reachability"
+      ],
       "owner": "Stage B V3 journey spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": ".tools-page",
-        "maturity": "planned"
+        "selector": ".tools-explorer",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -612,19 +745,27 @@
     },
     {
       "id": "VL-V3-COMPARE-TRAY",
-      "findings": ["VL-DES-02", "VL-DES-04", "VL-DES-05"],
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-04",
+        "VL-DES-05"
+      ],
       "phase": "V3",
       "route": "/compare/",
       "state": "0/1/2/4 candidates, limit/remove/clear",
       "surface": "candidate name and remove control",
-      "method": ["semantic-row", "target-size", "long-content"],
+      "method": [
+        "semantic-row",
+        "target-size",
+        "long-content"
+      ],
       "owner": "Stage B V3 Compare spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": ".compare-tray",
-        "maturity": "planned"
+        "selector": ".compare-selection-tray",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -687,7 +828,11 @@
     },
     {
       "id": "VL-V3-COMPARE-TABLE",
-      "findings": ["VL-DES-03", "VL-DES-05", "VL-DES-07"],
+      "findings": [
+        "VL-DES-03",
+        "VL-DES-05",
+        "VL-DES-07"
+      ],
       "phase": "V3",
       "route": "/compare/",
       "state": "differences and long values/status",
@@ -704,11 +849,11 @@
       ],
       "owner": "Stage B V3 Compare spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".compare-page",
-        "maturity": "planned"
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -724,35 +869,50 @@
         {
           "id": "scale-100-320",
           "variantId": "differences-and-long-values-status",
-          "requires": ["factor-100", "viewport-320"]
+          "requires": [
+            "factor-100",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-150-320",
           "variantId": "differences-and-long-values-status",
-          "requires": ["factor-150", "viewport-320"]
+          "requires": [
+            "factor-150",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-200-375",
           "variantId": "differences-and-long-values-status",
-          "requires": ["factor-200", "viewport-375"]
+          "requires": [
+            "factor-200",
+            "viewport-375"
+          ]
         }
       ]
     },
     {
       "id": "VL-V3-COMPARE-NAV",
-      "findings": ["VL-DES-04", "VL-DES-07"],
+      "findings": [
+        "VL-DES-04",
+        "VL-DES-07"
+      ],
       "phase": "V3",
       "route": "/compare/",
       "state": "URL/history/focus/Project return",
       "surface": "picker and comparison controls",
-      "method": ["journey", "focus-reachability"],
+      "method": [
+        "journey",
+        "focus-reachability"
+      ],
       "owner": "Stage B V3 Compare spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".compare-page",
-        "maturity": "planned"
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -767,19 +927,27 @@
     },
     {
       "id": "VL-V3-ARTICLE-HUB",
-      "findings": ["VL-DES-01", "VL-DES-02", "VL-DES-03"],
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-02",
+        "VL-DES-03"
+      ],
       "phase": "V3",
       "route": "/articles/",
       "state": "non-START groups and long metadata",
       "surface": "hub rows/cards",
-      "method": ["viewport-reflow", "semantic-row", "text-scale"],
+      "method": [
+        "viewport-reflow",
+        "semantic-row",
+        "text-scale"
+      ],
       "owner": "Stage B V3 reading spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".article-hub",
-        "maturity": "planned"
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -794,7 +962,11 @@
     },
     {
       "id": "VL-V3-ARTICLE-READING",
-      "findings": ["VL-DES-01", "VL-DES-02", "VL-DES-05"],
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-02",
+        "VL-DES-05"
+      ],
       "phase": "V3",
       "route": "/articles/[slug]/",
       "state": "how-to/code and commercial/pricing/table",
@@ -815,11 +987,11 @@
       ],
       "owner": "Stage B V3 reading spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".article-shell",
-        "maturity": "planned"
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -835,35 +1007,51 @@
         {
           "id": "scale-100-320",
           "variantId": "how-to-code-and-commercial-pricing-table",
-          "requires": ["factor-100", "viewport-320"]
+          "requires": [
+            "factor-100",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-150-320",
           "variantId": "how-to-code-and-commercial-pricing-table",
-          "requires": ["factor-150", "viewport-320"]
+          "requires": [
+            "factor-150",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-200-375",
           "variantId": "how-to-code-and-commercial-pricing-table",
-          "requires": ["factor-200", "viewport-375"]
+          "requires": [
+            "factor-200",
+            "viewport-375"
+          ]
         }
       ]
     },
     {
       "id": "VL-V3-ELEVENLABS",
-      "findings": ["VL-DES-02", "VL-DES-05", "VL-DES-07"],
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-05",
+        "VL-DES-07"
+      ],
       "phase": "V3",
       "route": "/articles/elevenlabs-v4-game-voice/",
       "state": "PR #154 preservation smoke",
       "surface": "article facts/source/affiliate/Project CTA",
-      "method": ["content-regression", "surface-probe"],
+      "method": [
+        "content-regression",
+        "surface-probe"
+      ],
       "owner": "Stage B V3 reading spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".article-shell",
-        "maturity": "planned"
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -878,7 +1066,11 @@
     },
     {
       "id": "VL-V3-TRUST",
-      "findings": ["VL-DES-02", "VL-DES-03", "VL-DES-05"],
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-03",
+        "VL-DES-05"
+      ],
       "phase": "V3",
       "route": "/privacy/|/methodology/|/affiliate-disclosure/",
       "state": "long trust copy/source links",
@@ -894,11 +1086,11 @@
       ],
       "owner": "Stage B V3 trust spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": "main",
-        "maturity": "planned"
+        "selector": ".page-shell",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -913,19 +1105,26 @@
     },
     {
       "id": "VL-V3-DETAILS",
-      "findings": ["VL-DES-02", "VL-DES-03", "VL-DES-05"],
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-03",
+        "VL-DES-05"
+      ],
       "phase": "V3",
       "route": "/tools/[slug]/|/guides/[slug]/|/stacks/",
       "state": "details, loading, error, not-found",
       "surface": "remaining route families",
-      "method": ["route-family", "long-content"],
+      "method": [
+        "route-family",
+        "long-content"
+      ],
       "owner": "Stage B V3 remaining routes spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": "main",
-        "maturity": "planned"
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -963,11 +1162,11 @@
       ],
       "owner": "Stage B V3 shared chrome spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
         "selector": ".site-header",
-        "maturity": "planned"
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -983,17 +1182,26 @@
         {
           "id": "scale-100-320",
           "variantId": "desktop-mobile-menu-expanded",
-          "requires": ["factor-100", "viewport-320"]
+          "requires": [
+            "factor-100",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-150-320",
           "variantId": "desktop-mobile-menu-expanded",
-          "requires": ["factor-150", "viewport-320"]
+          "requires": [
+            "factor-150",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-200-375",
           "variantId": "desktop-mobile-menu-expanded",
-          "requires": ["factor-200", "viewport-375"]
+          "requires": [
+            "factor-200",
+            "viewport-375"
+          ]
         }
       ]
     },
@@ -1019,11 +1227,11 @@
       ],
       "owner": "Stage B V3 shared chrome spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": "footer",
-        "maturity": "planned"
+        "selector": ".site-footer",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -1059,11 +1267,11 @@
       ],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": "#start",
-        "maturity": "planned"
+        "selector": "#start .creation-deck",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -1078,19 +1286,26 @@
     },
     {
       "id": "VL-V4-DECK-COUNTS",
-      "findings": ["VL-DES-03", "VL-DES-06", "VL-DES-07"],
+      "findings": [
+        "VL-DES-03",
+        "VL-DES-06",
+        "VL-DES-07"
+      ],
       "phase": "V4",
       "route": "/articles/#start",
       "state": "0/1/2/3/>3 test fixtures",
       "surface": "deck/list/count/prev/next",
-      "method": ["fixture-counts", "viewport-reflow"],
+      "method": [
+        "fixture-counts",
+        "viewport-reflow"
+      ],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": ".creation-deck",
-        "maturity": "planned"
+        "selector": "#start .creation-deck",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -1137,7 +1352,11 @@
     },
     {
       "id": "VL-V4-DECK-DYNAMIC",
-      "findings": ["VL-DES-01", "VL-DES-04", "VL-DES-06"],
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-04",
+        "VL-DES-06"
+      ],
       "phase": "V4",
       "route": "/articles/#start",
       "state": "late font/failure/root text/spacing/container/content change",
@@ -1158,11 +1377,11 @@
       ],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": ".creation-deck",
-        "maturity": "planned"
+        "selector": "#start .creation-deck",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -1178,23 +1397,36 @@
         {
           "id": "scale-100-320",
           "variantId": "late-font-failure-root-text-spacing-container-content-change",
-          "requires": ["factor-100", "viewport-320"]
+          "requires": [
+            "factor-100",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-150-320",
           "variantId": "late-font-failure-root-text-spacing-container-content-change",
-          "requires": ["factor-150", "viewport-320"]
+          "requires": [
+            "factor-150",
+            "viewport-320"
+          ]
         },
         {
           "id": "scale-200-375",
           "variantId": "late-font-failure-root-text-spacing-container-content-change",
-          "requires": ["factor-200", "viewport-375"]
+          "requires": [
+            "factor-200",
+            "viewport-375"
+          ]
         }
       ]
     },
     {
       "id": "VL-V4-DECK-FOCUS",
-      "findings": ["VL-DES-04", "VL-DES-06", "VL-DES-07"],
+      "findings": [
+        "VL-DES-04",
+        "VL-DES-06",
+        "VL-DES-07"
+      ],
       "phase": "V4",
       "route": "/articles/#start",
       "state": "forced flat while controls/article/other input focused; manual list preference persists",
@@ -1206,11 +1438,11 @@
       ],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": ".creation-deck",
-        "maturity": "planned"
+        "selector": "#start .creation-deck",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -1249,7 +1481,10 @@
     },
     {
       "id": "VL-V4-DECK-INPUT",
-      "findings": ["VL-DES-06", "VL-DES-07"],
+      "findings": [
+        "VL-DES-06",
+        "VL-DES-07"
+      ],
       "phase": "V4",
       "route": "/articles/#start",
       "state": "click/keyboard/pinch-safe vertical scroll/touch cancel/drag-only suppression; one gesture/one article",
@@ -1263,11 +1498,11 @@
       ],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": ".creation-deck",
-        "maturity": "planned"
+        "selector": "#start .creation-deck",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -1282,19 +1517,25 @@
     },
     {
       "id": "VL-V4-DECK-BUDGET",
-      "findings": ["VL-DES-06", "VL-DES-07"],
+      "findings": [
+        "VL-DES-06",
+        "VL-DES-07"
+      ],
       "phase": "V4",
       "route": "/articles/#start",
       "state": "initial enhancement/CLS/assets/JS budget",
       "surface": "SSR-to-deck enhancement",
-      "method": ["cls", "bundle-budget"],
+      "method": [
+        "cls",
+        "bundle-budget"
+      ],
       "owner": "Stage B V4 performance spec",
       "requiredForFinal": true,
-      "status": "PLANNED",
+      "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": ".creation-deck",
-        "maturity": "planned"
+        "selector": "#start .creation-deck",
+        "maturity": "measured"
       },
       "variants": [
         {
@@ -1352,12 +1593,16 @@
     },
     {
       "id": "VL-FINAL-RECONCILE",
-      "findings": ["VL-DES-07"],
+      "findings": [
+        "VL-DES-07"
+      ],
       "phase": "Final",
       "route": "/*",
       "state": "per-ID execution/evidence reconciliation",
       "surface": "matrix and evidence",
-      "method": ["final-execution-validator"],
+      "method": [
+        "final-execution-validator"
+      ],
       "owner": "Stage B final validator",
       "requiredForFinal": true,
       "status": "PLANNED",
@@ -1378,12 +1623,18 @@
     },
     {
       "id": "VL-PROD-DEFERRED",
-      "findings": ["VL-DES-07"],
+      "findings": [
+        "VL-DES-07"
+      ],
       "phase": "Production",
       "route": "https://game-ai-hub.vercel.app",
       "state": "final live acceptance",
       "surface": "Production routes",
-      "method": ["production-browser", "physical-device", "real-browser-zoom"],
+      "method": [
+        "production-browser",
+        "physical-device",
+        "real-browser-zoom"
+      ],
       "owner": "Owner",
       "requiredForFinal": false,
       "status": "OWNER-DEFERRED",

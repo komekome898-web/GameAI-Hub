@@ -35,3 +35,12 @@ Canonical fetch/push origin, authenticated repository access, `origin/main`, res
 No application runtime, product data, public/reference/handoff assets, dependencies, analytics, Production state, or historical V1 screenshots changed. Production remains `UNTESTED / OWNER-DEFERRED`; no Production navigation occurred.
 
 GitHub checks, E2E, observe, and Vercel exact-head status passed for the corrected pushed head. Next action: await commander Stage A re-verification. Do not begin Stage B before that decision.
+
+## Stage B implementation checkpoint
+
+- Stage A was accepted by the commander at `adb677eefebb595e136f557e25a66ae2f2853ba1`; bootstrap reverified canonical fetch/push origin, `origin/main=f26f8d22c3be876878a4c6e0c691dec5d446deff`, authentication, and the same remote branch/PR.
+- V2: Home and Project now opt into the shared Mint Atrium canvas and scoped Crafted Ceramic working planes with natural-height controls and narrow single-column fallbacks.
+- V3: shared canvas/chrome, directory, Compare, article/trust/detail surfaces receive scoped opaque/reflow treatment; content, routes, data, affiliate/SEO behavior and ElevenLabs v4 placement remain unchanged.
+- V4: START uses a client island over the same SSR ordered list. Enhancement is explicit (avoiding hydration CLS), with previous/next/list controls and flat fallbacks for <=340px, reduced motion and forced colors.
+- Local Stage B evidence is under `docs/evidence/issue-157-stage-b/`; the focused Playwright gate passed 3/3 and captured current 390/1440 routes.
+- Honest remaining acceptance boundary: matrix implementation cases are `IMPLEMENTED`, not `VERIFIED`, because all declared dynamic variants and same-observation 150/200 role records were not emitted. Production and physical-device acceptance remain `UNTESTED / OWNER-DEFERRED`.
