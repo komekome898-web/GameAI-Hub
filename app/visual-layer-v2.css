@@ -285,6 +285,7 @@ body.visual-layer-v2 {
   color: var(--v2-ink);
 }
 body.visual-layer-v2 .site-header { background: rgb(250 248 242 / 96%); border-color: var(--v2-edge); }
+body.visual-layer-v2 .site-header .brand { min-height:44px; }
 body.visual-layer-v2 .button:not(.ghost):not(.light) { min-height:48px; height:auto; padding-block:10px; background:var(--v2-primary); border-color:var(--v2-primary); color:#fff; white-space:normal; }
 body.visual-layer-v2 .button:not(.ghost):not(.light):hover { background:var(--v2-primary-hover); }
 body.visual-layer-v2 .button:is(.ghost,.light) { min-height:48px; height:auto; padding-block:10px; white-space:normal; }
