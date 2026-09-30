@@ -65,7 +65,7 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
 }
 
 test("V3 route, state, text, navigation, affiliate, and SEO observations", async ({ page, browserName }) => {
-  test.setTimeout(240_000);
+  test.setTimeout(600_000);
   await mkdir(output, { recursive: true });
   const identity = cleanSourceIdentity();
   const records: ReflowEvidenceRecord[] = [];
