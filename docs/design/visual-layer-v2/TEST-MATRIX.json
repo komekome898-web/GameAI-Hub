@@ -999,7 +999,7 @@
           "state": "how-to-code-and-commercial-pricing-table",
           "route": {
             "kind": "exact",
-            "value": "/articles/example/"
+            "value": "/articles/elevenlabs-commercial-use-game/"
           }
         }
       ],
@@ -1132,7 +1132,7 @@
           "state": "details-loading-error-not-found",
           "route": {
             "kind": "exact",
-            "value": "/tools/example/"
+            "value": "/tools/github-copilot/"
           }
         }
       ]
