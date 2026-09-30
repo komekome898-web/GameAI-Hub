@@ -139,6 +139,9 @@ export type ReflowEvidenceRecord = {
     nonoverlapping: boolean;
     contentVisible: boolean;
     ownedScrollers: number;
+    ordinaryLabelSqueezed?: boolean;
+    labelWidth?: number;
+    naturalLabelWidth?: number;
   };
   spacing?: {
     override: "line-height" | "paragraph" | "letter" | "word";
@@ -274,7 +277,12 @@ export function assertReflowEvidenceManifest(
       typeof record.geometry.nonoverlapping !== "boolean" ||
       typeof record.geometry.contentVisible !== "boolean" ||
       !Number.isInteger(record.geometry.ownedScrollers) ||
-      record.geometry.ownedScrollers < 0
+      record.geometry.ownedScrollers < 0 ||
+      (record.geometry.ordinaryLabelSqueezed !== undefined &&
+        typeof record.geometry.ordinaryLabelSqueezed !== "boolean") ||
+      [record.geometry.labelWidth, record.geometry.naturalLabelWidth].some(
+        (number) => number !== undefined && (!Number.isFinite(number) || number < 0),
+      )
     )
       throw new Error(`${record.id}: invalid geometry`);
     if (
@@ -331,7 +339,8 @@ export function assertReflowEvidenceManifest(
         !record.diagnostics.orderPreserved ||
         !record.diagnostics.associationsPreserved ||
         !record.geometry.nonoverlapping ||
-        !record.geometry.contentVisible)
+        !record.geometry.contentVisible ||
+        record.geometry.ordinaryLabelSqueezed === true)
     )
       throw new Error(`${record.id}: PASS contradicts diagnostics or geometry`);
     if (

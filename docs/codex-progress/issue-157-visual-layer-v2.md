@@ -81,3 +81,29 @@ GitHub checks, E2E, observe, and Vercel exact-head status passed for the correct
   final reconciliation. Those case IDs remain outstanding and Production,
   protected Preview interaction, genuine browser zoom, OS scaling, and
   physical devices remain `UNTESTED / OWNER-DEFERRED`.
+
+## Home evidence binding and CI timing correction
+
+- Retained all ten Home observations and corrected their evidence binding: the
+  declared matrix root is now probed directly, child diagnostics remain
+  separately measured, and the initial H1 participates in the root clipping
+  check rather than only its typography measurement.
+- Semantic-row evidence now records allocated and natural label widths plus the
+  actual `ordinaryLabelSqueezed` result. A contained/nonoverlapping but squeezed
+  label contradicts a PASS record; the focused negative regression proves this
+  failure class is rejected while the existing wrap/stack positives remain.
+- The emitter now writes `PENDING`, then persists either the successful result
+  or a `FAIL` result with validator reasons. It can no longer leave a stale PASS
+  artifact when `validateExecutionSubset` throws.
+- The fragment-interruption regression now samples the pre-wheel position,
+  waits for genuine wheel movement and two animation frames before taking its
+  settled baseline, and still requires no later fragment call or automatic
+  return after deferred fonts resolve. The initial-fragment and later explicit
+  hash-navigation assertions are retained.
+- Newly completed record IDs: the same ten V2 Home IDs were re-executed with
+  corrected binding and squeeze diagnostics. No Project/V3/V1/V4 IDs were
+  newly completed in this checkpoint. Exact remaining work is
+  `VL-V2-PROJECT-STATES`, `VL-V2-PROJECT-WORKSPACE`,
+  `VL-V2-PROJECT-TOKENS`, every V3 case, `VL-V1-LONG-CONTENT`, the outstanding
+  V4 browser-input/dynamic/budget observations, and both final cases. The stop
+  reason is the bounded execution window; final acceptance is not claimed.

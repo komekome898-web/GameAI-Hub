@@ -316,11 +316,23 @@ test("initial-fragment reconciliation yields to the reader and rearms for later 
     (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
   )).toBeGreaterThan(0);
   await page.waitForTimeout(700);
+  const beforeWheel = await page.evaluate(() => ({
+    count: (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
+    y: scrollY,
+  }));
   await page.mouse.wheel(0, 550);
+  await expect.poll(() => page.evaluate((before) => Math.abs(scrollY - before), beforeWheel.y), {
+    message: "the genuine wheel input must move the reader before its settled baseline is sampled",
+    timeout: 2_000,
+  }).toBeGreaterThan(100);
+  await page.evaluate(() => new Promise<void>((resolve) =>
+    requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+  ));
   const interrupted = await page.evaluate(() => ({
     count: (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
     y: scrollY,
   }));
+  expect(interrupted.count).toBe(beforeWheel.count);
   await page.waitForTimeout(1700);
   expect(await page.evaluate(() =>
     Boolean((window as typeof window & { __delayedFontsResolved?: boolean }).__delayedFontsResolved),

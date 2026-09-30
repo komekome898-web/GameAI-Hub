@@ -102,3 +102,20 @@ test("rejects zero surfaces, stale SHA, synthetic physical classification, and u
     /did not achieve requested/,
   );
 });
+
+test("rejects a PASS record whose ordinary semantic label is contained but squeezed", () => {
+  const squeezed = valid();
+  squeezed.records[0].geometry = {
+    ...squeezed.records[0].geometry,
+    ordinaryLabelSqueezed: true,
+    labelWidth: 50,
+    naturalLabelWidth: 140,
+  } as typeof squeezed.records[0]["geometry"] & {
+    ordinaryLabelSqueezed: boolean;
+    labelWidth: number;
+    naturalLabelWidth: number;
+  };
+  expect(() => assertReflowEvidenceManifest(squeezed)).toThrow(
+    /PASS contradicts diagnostics or geometry/,
+  );
+});

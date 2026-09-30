@@ -82,7 +82,13 @@ test("V2 Home observations emit and validate current typed evidence", async ({
     expect(scale.sufficient).toBe(true);
     const focusApplicable = coverage.includes("focus-reachability");
     const targetSizeApplicable = coverage.includes("target-size");
-    const surface = await probeSurface(page, probeSelector, targetSizeApplicable ? 44 : 0);
+    const declaredSelector = caseId === "VL-V2-HOME-INITIAL"
+      ? ".home-execution-hero"
+      : ".idea-meta";
+    const surface = await probeSurface(page, declaredSelector, targetSizeApplicable ? 44 : 0);
+    const childSurface = probeSelector === declaredSelector
+      ? surface
+      : await probeSurface(page, probeSelector, 0);
     const row = await probeSemanticRow(
       page.locator(".idea-meta"),
       "span:first-child",
@@ -112,7 +118,7 @@ test("V2 Home observations emit and validate current typed evidence", async ({
       coverage,
       surface: {
         kind: "dom",
-        selector: caseId === "VL-V2-HOME-INITIAL" ? ".home-execution-hero" : ".idea-meta",
+        selector: declaredSelector,
         matched: surface.matched,
       },
       method,
@@ -132,7 +138,7 @@ test("V2 Home observations emit and validate current typed evidence", async ({
       diagnostics: {
         documentOverflowPx: widths.documentOverflowPx,
         unownedOverflowingElements: widths.unownedOverflowingElements.length,
-        clippedText: surface.clippedText.length,
+        clippedText: surface.clippedText.length + childSurface.clippedText.length,
         undersizedTargets: surface.undersizedTargets.length,
         focusApplicable,
         focusReachable: focusApplicable ? surface.focusReachable : true,
@@ -140,7 +146,15 @@ test("V2 Home observations emit and validate current typed evidence", async ({
         orderPreserved: relationships.orderPreserved,
         associationsPreserved: relationships.associationsPreserved,
       },
-      geometry: { layout: row.layout, nonoverlapping: row.nonoverlapping, contentVisible: surface.clippedText.length === 0 && row.contained, ownedScrollers: widths.ownedLocalScrollers.length },
+      geometry: {
+        layout: row.layout,
+        nonoverlapping: row.nonoverlapping,
+        contentVisible: surface.clippedText.length === 0 && childSurface.clippedText.length === 0 && row.contained,
+        ownedScrollers: widths.ownedLocalScrollers.length,
+        ordinaryLabelSqueezed: row.ordinaryLabelSqueezed,
+        labelWidth: row.labelWidth,
+        naturalLabelWidth: row.naturalLabelWidth,
+      },
       spacing,
       screenshot: `v2/${screenshot}`,
       limitations: ["Synthetic Chromium text stress; not browser zoom, OS scaling, or physical-device evidence."],
@@ -152,7 +166,8 @@ test("V2 Home observations emit and validate current typed evidence", async ({
         !relationships.orderPreserved ||
         !relationships.associationsPreserved ||
         !row.nonoverlapping ||
-        !row.contained
+        !row.contained ||
+        row.ordinaryLabelSqueezed
           ? "FAIL"
           : "PASS",
       review: { kind: "automated", reviewer: "Playwright V2 evidence emitter" },
@@ -189,6 +204,21 @@ test("V2 Home observations emit and validate current typed evidence", async ({
     target: { sha, environment: "local", baseUrl: "http://127.0.0.1:3100", worktreeDiffHash },
     records,
   };
-  await writeFile(path.join(output, "manifest.json"), `${JSON.stringify({ ...manifest, execution: { testedPaths, command: "npx playwright test e2e/issue-157-reflow-evidence.spec.ts", subsetGate: "PASS" } }, null, 2)}\n`);
-  validateExecutionSubset(matrix, manifest, sha, ["VL-V2-HOME-INITIAL", "VL-V2-HOME-META"]);
+  const manifestPath = path.join(output, "manifest.json");
+  const execution = {
+    testedPaths,
+    command: "npx playwright test e2e/issue-157-reflow-evidence.spec.ts",
+    subsetGate: "PENDING",
+    reasons: [] as string[],
+  };
+  try {
+    validateExecutionSubset(matrix, manifest, sha, ["VL-V2-HOME-INITIAL", "VL-V2-HOME-META"]);
+    execution.subsetGate = "PASS";
+  } catch (error) {
+    execution.subsetGate = "FAIL";
+    execution.reasons.push(error instanceof Error ? error.message : String(error));
+    await writeFile(manifestPath, `${JSON.stringify({ ...manifest, execution }, null, 2)}\n`);
+    throw error;
+  }
+  await writeFile(manifestPath, `${JSON.stringify({ ...manifest, execution }, null, 2)}\n`);
 });

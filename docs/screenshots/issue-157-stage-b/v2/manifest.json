@@ -1,10 +1,10 @@
 {
   "schema": "gameai-reflow-evidence/v2",
   "target": {
-    "sha": "b5e0d25a3f02c5fccaeea294d04b9a2c9c4c56ff",
+    "sha": "45e51ca637f64440af74e764bf2ab66284ad14e8",
     "environment": "local",
     "baseUrl": "http://127.0.0.1:3100",
-    "worktreeDiffHash": "25bb6f14642f4361ced780cc3bb02f1c873ff92a9db7b05c09f8331bd2f54dfb"
+    "worktreeDiffHash": "d8fb779512a3bd7c399ddf43247082226d1a7218fffbf9e05d3cb8bc6d9f6d82"
   },
   "records": [
     {
@@ -60,7 +60,10 @@
         "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
-        "ownedScrollers": 0
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 276,
+        "naturalLabelWidth": 41
       },
       "screenshot": "v2/v2-home-initial-320.png",
       "limitations": [
@@ -71,7 +74,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:43:13.352Z"
+      "capturedAt": "2026-09-30T15:15:27.023Z"
     },
     {
       "id": "v2-home-initial-150",
@@ -145,7 +148,10 @@
         "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
-        "ownedScrollers": 0
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 313,
+        "naturalLabelWidth": 65
       },
       "screenshot": "v2/v2-home-initial-150.png",
       "limitations": [
@@ -156,7 +162,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:43:14.456Z"
+      "capturedAt": "2026-09-30T15:15:29.120Z"
     },
     {
       "id": "v2-home-empty-validation",
@@ -220,7 +226,10 @@
         "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
-        "ownedScrollers": 0
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 276,
+        "naturalLabelWidth": 41
       },
       "screenshot": "v2/v2-home-empty-validation.png",
       "limitations": [
@@ -231,7 +240,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:43:15.322Z"
+      "capturedAt": "2026-09-30T15:15:30.334Z"
     },
     {
       "id": "v2-home-meta-100",
@@ -297,7 +306,10 @@
         "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
-        "ownedScrollers": 0
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 276,
+        "naturalLabelWidth": 41
       },
       "screenshot": "v2/v2-home-meta-100.png",
       "limitations": [
@@ -308,7 +320,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:43:16.538Z"
+      "capturedAt": "2026-09-30T15:15:32.186Z"
     },
     {
       "id": "v2-home-examples-150",
@@ -405,7 +417,10 @@
         "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
-        "ownedScrollers": 0
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 276,
+        "naturalLabelWidth": 65
       },
       "screenshot": "v2/v2-home-examples-150.png",
       "limitations": [
@@ -416,7 +431,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:43:17.395Z"
+      "capturedAt": "2026-09-30T15:15:33.252Z"
     },
     {
       "id": "v2-home-maximum-200",
@@ -497,7 +512,10 @@
         "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
-        "ownedScrollers": 0
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 313,
+        "naturalLabelWidth": 123
       },
       "screenshot": "v2/v2-home-maximum-200.png",
       "limitations": [
@@ -508,7 +526,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:43:18.165Z"
+      "capturedAt": "2026-09-30T15:15:34.310Z"
     },
     {
       "id": "v2-home-spacing-line-height",
@@ -572,7 +590,10 @@
         "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
-        "ownedScrollers": 0
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 313,
+        "naturalLabelWidth": 59
       },
       "spacing": {
         "override": "line-height",
@@ -588,7 +609,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:43:18.509Z"
+      "capturedAt": "2026-09-30T15:15:34.809Z"
     },
     {
       "id": "v2-home-spacing-paragraph",
@@ -652,7 +673,10 @@
         "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
-        "ownedScrollers": 0
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 313,
+        "naturalLabelWidth": 59
       },
       "spacing": {
         "override": "paragraph",
@@ -668,7 +692,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:43:18.827Z"
+      "capturedAt": "2026-09-30T15:15:35.285Z"
     },
     {
       "id": "v2-home-spacing-letter",
@@ -732,7 +756,10 @@
         "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
-        "ownedScrollers": 0
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 313,
+        "naturalLabelWidth": 74.21875
       },
       "spacing": {
         "override": "letter",
@@ -748,7 +775,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:43:19.175Z"
+      "capturedAt": "2026-09-30T15:15:35.700Z"
     },
     {
       "id": "v2-home-spacing-word",
@@ -812,7 +839,10 @@
         "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
-        "ownedScrollers": 0
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 313,
+        "naturalLabelWidth": 62.6875
       },
       "spacing": {
         "override": "word",
@@ -828,7 +858,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:43:19.561Z"
+      "capturedAt": "2026-09-30T15:15:36.164Z"
     }
   ],
   "execution": {
@@ -843,6 +873,7 @@
       "docs/design/visual-layer-v2/TEST-MATRIX.json"
     ],
     "command": "npx playwright test e2e/issue-157-reflow-evidence.spec.ts",
-    "subsetGate": "PASS"
+    "subsetGate": "PASS",
+    "reasons": []
   }
 }
