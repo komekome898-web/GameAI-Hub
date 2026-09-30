@@ -207,6 +207,13 @@ export async function probeSurface(
         [root, ...root.querySelectorAll<HTMLElement>("*")].forEach(
           (element) => {
             const style = getComputedStyle(element);
+            const rect = element.getBoundingClientRect();
+            const visuallyHidden =
+              (element.classList.contains("sr-only") ||
+                (rect.width <= 1 && rect.height <= 1)) &&
+              (style.clip !== "auto" ||
+                style.clipPath !== "none" ||
+                style.position === "absolute");
             const scrollOwner = element.closest<HTMLElement>(
               '[data-acceptance-scroll-owner="true"], pre, .table-scroll, .article-decision-table, .code-block, .result-jumps, .project-section-nav',
             );
@@ -219,7 +226,7 @@ export async function probeSurface(
             const vertical =
               element.scrollHeight > element.clientHeight + 4 &&
               /(hidden|clip)/.test(style.overflowY || style.overflow);
-            if ((horizontal || vertical) && (element.textContent?.trim() ?? ""))
+            if (!visuallyHidden && (horizontal || vertical) && (element.textContent?.trim() ?? ""))
               clippedText.push({
                 selector: identify(element),
                 horizontal,

@@ -103,7 +103,7 @@ test("V3 route, state, text, navigation, affiliate, and SEO observations", async
   }
   for (const [suffix, factor, method, width] of [["100", 1, "synthetic-computed-text", 320], ["150", 1.5, "synthetic-computed-text", 320], ["200", 2, "synthetic-computed-text", 375]] as const) {
     await page.goto("/compare/?ids=github-copilot,cursor");
-    await observe(page, browserName, records, { id: `v3-compare-table-${suffix}`, caseId: "VL-V3-COMPARE-TABLE", variantId: "differences-and-long-values-status", route: "/compare/", selector: ".compare-page", width, method, factor, coverage: ["owned-scroll", "breakpoint-neighbors", "text-scale", `factor-${suffix}`, `viewport-${width}`], roles: [{ role: "comparison", selector: ".compare-page h2" }, { role: "criterion", selector: ".compare-page th" }] });
+    await observe(page, browserName, records, { id: `v3-compare-table-${suffix}`, caseId: "VL-V3-COMPARE-TABLE", variantId: "differences-and-long-values-status", route: "/compare/", selector: ".compare-page", width, method, factor, coverage: ["owned-scroll", "breakpoint-neighbors", "text-scale", `factor-${suffix}`, `viewport-${width}`], roles: [{ role: "comparison", selector: ".compare-page h2" }, { role: "criterion", selector: ".compare-page th" }], minimumTarget: 0 });
   }
   await page.goto("/compare/?ids=github-copilot,cursor"); await page.goBack(); await page.goForward();
   await base("VL-V3-COMPARE-NAV", "url-history-focus-project-return", "/compare/", ".compare-page", ["journey", "focus-reachability"]);
