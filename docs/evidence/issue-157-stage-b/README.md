@@ -16,7 +16,7 @@ Tested lineage checkpoint: `e4c769d1af2e27a3738ca1204dcebf9932330c20` plus the c
 
 ## Final gate status at this checkpoint
 
-- `npm run quality` passed (41 files / 306 Vitest tests and repository validators), and `npm run build` generated 71 static pages.
+- `npm run quality` passed (42 files / 311 Vitest tests and repository validators), and `npm run build` generated 71 static pages.
 - The full local E2E attempt produced 125/128 on its first pass. All three failures (an analytics harness connection reset, the Stage B route-smoke timeout under concurrent load, and a missing injected Slice 1 fixture) passed together on focused rerun; the Stage B route smoke now has a 90-second integrated-suite allowance.
 - This package does **not** claim the all-phase final-execution gate. Dynamic same-observation matrix evidence, exhaustive browser multi-pointer/pinch interruption coverage, and the final integrated independent review remain open. Production remains `UNTESTED / OWNER-DEFERRED`.
 - The observed TOC retry was treated as an initial-fragment readiness race: fragment reconciliation now also runs after fonts and known article images settle. The exact focused TOC case passed 10/10 bounded local repetitions after the test was corrected to use a true new-document initial-fragment navigation without weakening its sticky-safe y assertion.
