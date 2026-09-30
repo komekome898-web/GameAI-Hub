@@ -3,7 +3,7 @@
 ## Identity and remote lineage
 
 - Issue: #157
-- Stage: A correction — complete locally; awaiting commander re-verification
+- Stage: A correction — complete and pushed to draft PR #158; awaiting commander re-verification
 - Branch: `codex/issue-157-visual-layer-v2-complete`
 - Base: `f26f8d22c3be876878a4c6e0c691dec5d446deff`
 - First verified remote checkpoint: `187c0ee45cf943029f0bca86e27aab1678231f92`
@@ -34,4 +34,4 @@ Canonical fetch/push origin, authenticated repository access, `origin/main`, res
 
 No application runtime, product data, public/reference/handoff assets, dependencies, analytics, Production state, or historical V1 screenshots changed. Production remains `UNTESTED / OWNER-DEFERRED`; no Production navigation occurred.
 
-Next action: push this coherent correction to the same draft PR #158, update the PR body/check status, and await commander Stage A re-verification. Do not begin Stage B before that decision.
+GitHub checks, E2E, observe, and Vercel exact-head status passed for the corrected pushed head. Next action: await commander Stage A re-verification. Do not begin Stage B before that decision.
