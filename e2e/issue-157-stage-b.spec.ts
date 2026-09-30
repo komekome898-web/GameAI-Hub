@@ -2,7 +2,8 @@ import { expect, test } from "./fixtures";
 import { mkdir } from "node:fs/promises";
 import path from "node:path";
 
-const evidence = path.join(process.cwd(), "docs/evidence/issue-157-stage-b/screenshots");
+// This directory is already included in the CI artifact upload contract.
+const evidence = path.join(process.cwd(), "docs/screenshots/issue-157-stage-b");
 
 test("shared visual layer reflows across representative routes", async ({ page }) => {
   test.setTimeout(90_000);
@@ -108,6 +109,64 @@ test("Creation Deck remains usable when session storage is blocked", async ({ pa
   await expect(page.locator("#start .creation-deck")).toHaveAttribute("data-mode", "deck");
   await page.getByRole("button", { name: "次の記事" }).click();
   await expect(page.locator(".creation-deck-count")).toContainText("3件中2件目");
+});
+
+test("Creation Deck transfers only control focus when forced flat", async ({ page }) => {
+  test.setTimeout(90_000);
+  const openDeck = async () => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.emulateMedia({ reducedMotion: "no-preference", forcedColors: "none" });
+    await page.goto("/articles/#start");
+    const enable = page.getByRole("button", { name: "円環で見る" });
+    if (await enable.isVisible()) await enable.click();
+    await expect(page.locator("#start .creation-deck")).toHaveAttribute("data-mode", "deck");
+  };
+  const activeLink = () => page.locator("#start .creation-deck ol > li > a").first();
+  const currentActiveHref = async () => page.locator("#start .creation-deck li[data-distance='0'] > a").getAttribute("href");
+
+  for (const control of ["前の記事", "一覧で見る", "次の記事"]) {
+    await openDeck();
+    await page.getByRole("button", { name: control }).focus();
+    const href = await currentActiveHref();
+    await page.setViewportSize({ width: 320, height: 844 });
+    const expected = page.locator(`#start .creation-deck a[href='${href}']`);
+    await expect(expected).toBeFocused();
+    await expect(expected).toBeVisible();
+  }
+
+  await openDeck();
+  await page.getByRole("button", { name: "次の記事" }).click();
+  await page.getByRole("button", { name: "一覧で見る" }).focus();
+  await page.setViewportSize({ width: 320, height: 844 });
+  await expect(page.locator("#start .creation-deck ol > li > a").nth(1)).toBeFocused();
+
+  await openDeck();
+  await page.getByRole("button", { name: "次の記事" }).focus();
+  const reducedHref = await currentActiveHref();
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(page.locator(`#start .creation-deck a[href='${reducedHref}']`)).toBeFocused();
+
+  await openDeck();
+  await page.getByRole("button", { name: "前の記事" }).focus();
+  const forcedHref = await currentActiveHref();
+  await page.emulateMedia({ forcedColors: "active" });
+  await expect(page.locator(`#start .creation-deck a[href='${forcedHref}']`)).toBeFocused();
+
+  await openDeck();
+  const article = activeLink();
+  await article.focus();
+  await page.setViewportSize({ width: 320, height: 844 });
+  await expect(article).toBeFocused();
+
+  await openDeck();
+  await page.evaluate(() => {
+    const input = document.createElement("input");
+    input.id = "deck-unrelated-input";
+    document.querySelector("main")?.prepend(input);
+    input.focus();
+  });
+  await page.setViewportSize({ width: 320, height: 844 });
+  await expect(page.locator("#deck-unrelated-input")).toBeFocused();
 });
 
 test("reading and trust planes remain readable and preserve ElevenLabs v4", async ({ page }) => {

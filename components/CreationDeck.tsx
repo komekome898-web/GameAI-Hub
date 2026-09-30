@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent, type MouseEvent, type PointerEvent as ReactPointerEvent } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type FocusEvent as ReactFocusEvent, type KeyboardEvent, type MouseEvent, type PointerEvent as ReactPointerEvent } from "react";
 
 export type CreationDeckItem = {
   href: string;
@@ -22,6 +22,10 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
   const suppressClick = useRef(false);
   const suppressTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const preferredMode = useRef<"list" | "deck">("list");
+  // CSS can remove the controls before a media-query callback runs. Remember
+  // control ownership while focus is still present so fallback can move it to
+  // the active article rather than leaving focus on <body>.
+  const controlFocusOwned = useRef(false);
 
   useEffect(() => {
     try {
@@ -67,11 +71,14 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
     const forced = matchMedia("(forced-colors: active)");
     const update = () => {
-      const next = items.length > 1 && !narrow.matches && !reduced.matches && !forced.matches;
+      // A two-card set remains an ordinary flat rail; the circular treatment
+      // only adds useful spatial context when a third card exists.
+      const next = items.length > 2 && !narrow.matches && !reduced.matches && !forced.matches;
       setAvailable(next);
       cancelGesture();
       if (!next) {
-        if (stage.current?.parentElement?.querySelector(":focus")?.closest(".creation-deck-controls")) {
+        if (controlFocusOwned.current) {
+          controlFocusOwned.current = false;
           stage.current?.querySelectorAll<HTMLAnchorElement>("a")[active]?.focus({ preventScroll: true });
         }
         setMode("list");
@@ -83,6 +90,17 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
     [narrow, reduced, forced].forEach((query) => query.addEventListener("change", update));
     return () => [narrow, reduced, forced].forEach((query) => query.removeEventListener("change", update));
   }, [active, cancelGesture, items.length]);
+
+  useEffect(() => {
+    const rememberFocusOwner = (event: FocusEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      if (target.closest(".creation-deck-controls")) controlFocusOwned.current = true;
+      else if (target !== document.body) controlFocusOwned.current = false;
+    };
+    document.addEventListener("focusin", rememberFocusOwner, true);
+    return () => document.removeEventListener("focusin", rememberFocusOwner, true);
+  }, []);
 
   useEffect(() => {
     const onVisibility = () => {
@@ -118,6 +136,15 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
     if (mode !== "deck" || (event.key !== "ArrowLeft" && event.key !== "ArrowRight")) return;
     event.preventDefault();
     move(event.key === "ArrowLeft" ? -1 : 1);
+  };
+  const recoverHiddenControlFocus = (event: ReactFocusEvent<HTMLDivElement>) => {
+    const controls = event.currentTarget;
+    queueMicrotask(() => {
+      if (!controlFocusOwned.current || document.activeElement !== document.body) return;
+      if (getComputedStyle(controls).display !== "none") return;
+      controlFocusOwned.current = false;
+      stage.current?.querySelectorAll<HTMLAnchorElement>("a")[active]?.focus({ preventScroll: true });
+    });
   };
   const onPointerDown = (event: ReactPointerEvent) => {
     if (mode !== "deck" || !event.isPrimary || gesture.current) {
@@ -156,7 +183,7 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
   };
 
   return <div className="creation-deck" data-mode={mode}>
-    {available && <div className="creation-deck-controls" onKeyDown={onControlsKeyDown}>
+    {available && <div className="creation-deck-controls" onBlurCapture={recoverHiddenControlFocus} onFocusCapture={() => { controlFocusOwned.current = true; }} onKeyDown={onControlsKeyDown}>
       {mode === "deck" && <button type="button" onClick={() => move(-1)} aria-label="前の記事">←</button>}
       <button type="button" aria-pressed={mode === "deck"} onClick={() => changeMode(mode === "list" ? "deck" : "list")}>
         {mode === "list" ? "円環で見る" : "一覧で見る"}

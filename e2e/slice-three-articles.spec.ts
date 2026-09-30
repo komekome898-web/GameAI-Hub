@@ -254,6 +254,10 @@ test("TOC supports mobile disclosure, sticky-safe anchors, initial fragments, an
     .poll(async () => (await heading.boundingBox())?.y ?? -1)
     .toBeGreaterThan(55);
 
+  // Exercise a true initial-fragment document navigation. Reusing the current
+  // article document turns this into a same-document hash transition whose
+  // timing can race Playwright's goto completion and browser restoration.
+  await page.goto("about:blank");
   await page.goto(
     "/articles/ai-browser-game-how-to/#section-3-最初のゲームをaiへ生成してもらう",
   );
