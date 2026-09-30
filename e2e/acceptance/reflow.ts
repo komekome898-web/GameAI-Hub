@@ -221,8 +221,12 @@ export async function probeSurface(
             const ownerStyle = scrollOwner ? getComputedStyle(scrollOwner) : null;
             const ownsHorizontalScroll =
               !!ownerStyle && /(auto|scroll)/.test(`${ownerStyle.overflowX} ${ownerStyle.overflow}`);
+            const hasDirectText = [...element.childNodes].some(
+              (node) => node.nodeType === Node.TEXT_NODE && Boolean(node.textContent?.trim()),
+            );
             const horizontal =
               element.scrollWidth > element.clientWidth + 4 &&
+              (hasDirectText || /(hidden|clip)/.test(style.overflowX || style.overflow)) &&
               !ownsHorizontalScroll;
             const vertical =
               element.scrollHeight > element.clientHeight + 4 &&
