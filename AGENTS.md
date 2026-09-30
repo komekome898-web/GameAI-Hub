@@ -256,6 +256,13 @@ Core invariant:
 
 > Repository state is the source of truth for resumable work.
 
+A GitHub-comment dispatch normally starts a fresh Codex Cloud task in the
+published reusable GameAI-Hub Environment when that Environment is available.
+The fresh task must resume valid Issue, branch, PR, checkpoint, and ledger
+lineage rather than duplicate it: **NEW_TASK does not mean NEW_BRANCH or
+NEW_PR.** Environment preparation and caches never replace origin, auth,
+fetch, base-SHA, and remote write-path verification.
+
 Do not rely on chat history when Git state, Issues, PRs, scoped instructions, or progress ledgers contain the relevant state.
 Preserve unrelated user changes.
 Do not merge to `main` unless the current task explicitly authorizes merge after required acceptance passes.

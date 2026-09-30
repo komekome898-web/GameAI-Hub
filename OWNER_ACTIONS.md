@@ -4,7 +4,7 @@ Codexで実行できない契約・本人確認・秘密情報・法的最終判
 
 | Priority | Action | Required owner operation |
 |---|---|---|
-| P0 | GitHub認証と反映 | GitHub CLIだけが未認証。`gh auth login`で`komekome898-web`へ認証後、Codexに再実行を依頼する（repositoryと既存の`main` / `work`は確認済み）。 |
+| P0 | Codex Cloud認証環境の維持 | GameAI-Hub Cloud Environmentの認可済みcredential/configurationとrepository書込権限を維持する。credential値はrepositoryやchatへ保存しない。Codexは各taskで`CODEX_CLOUD_TASK.md`に従い、環境変数に基づく`gh auth setup-git`、認証確認、実push確認を行う。 |
 | P0 | 公開後QA | 稼働中の **https://game-ai-hub.vercel.app** でdesktop/mobile表示、404、外部リンク、および8件すべてのtool detailを実機確認する。Production Branchは`main`、本番originは同URLに設定済み。 |
 | P1 | ElevenLabs Affiliate運用確認 | Registryではactive登録済み。管理画面で契約状態・リンクの有効性・支払先情報を定期確認し、秘密情報はrepositoryへ保存しない。 |
 | P1 | Meshy Affiliate運用確認 | Registryではactive登録済み。管理画面で契約状態・リンクの有効性・支払先情報を定期確認し、秘密情報はrepositoryへ保存しない。 |
