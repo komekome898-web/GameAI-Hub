@@ -1089,7 +1089,7 @@
       "status": "IMPLEMENTED",
       "surfaceRequirement": {
         "kind": "dom",
-        "selector": ".page-shell",
+        "selector": ".trust-page",
         "maturity": "measured"
       },
       "variants": [
