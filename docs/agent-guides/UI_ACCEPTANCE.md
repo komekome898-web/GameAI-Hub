@@ -2,6 +2,8 @@
 
 Use this guide only when a task materially affects rendered UI, layout, navigation, responsive behavior, or a user-facing journey.
 
+For Visual Layer v2 work, read the [active authority and read order](../design/visual-layer-v2/README.md). Its reflow contract and machine-readable matrix add required method classification, non-vacuous surface matching, semantic-row allocation, and separate design/final-execution gates; they do not replace rendered independent review.
+
 ## 1. Rendered product is the acceptance target
 
 Do not approve UI quality based only on:

@@ -1,0 +1,728 @@
+{
+  "schema": "gameai-reflow-matrix/v1",
+  "authority": "docs/design/visual-layer-v2/README.md",
+  "statusDefinitions": {
+    "PLANNED": "owned but runtime not implemented/executed",
+    "IMPLEMENTED": "surface and test exist; evidence not accepted",
+    "VERIFIED": "executed evidence is attached",
+    "OWNER-DEFERRED": "separate owner-deferred stage; never PASS"
+  },
+  "cases": [
+    {
+      "id": "VL-V0-INVENTORY",
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-03",
+        "VL-DES-07"
+      ],
+      "phase": "V0",
+      "route": "/*",
+      "state": "route/selector/token/breakpoint inventory",
+      "surface": "all current route families",
+      "selector": "repository inventory",
+      "method": [
+        "static-inventory"
+      ],
+      "owner": "Stage A matrix validator",
+      "requiredForFinal": false,
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "VL-V0-CONTRACT",
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-02",
+        "VL-DES-03",
+        "VL-DES-04",
+        "VL-DES-05",
+        "VL-DES-06",
+        "VL-DES-07"
+      ],
+      "phase": "V0",
+      "route": "/*",
+      "state": "active authority and rule traceability",
+      "surface": "all phases",
+      "selector": "active contract",
+      "method": [
+        "document-review"
+      ],
+      "owner": "Stage A independent reviewer",
+      "requiredForFinal": false,
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "VL-V1-METADATA",
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-02",
+        "VL-DES-07"
+      ],
+      "phase": "V1",
+      "route": "/articles/",
+      "state": "START metadata at 100/150/200",
+      "surface": "label and date row",
+      "selector": "#start .v2-start-card-meta",
+      "method": [
+        "viewport-reflow",
+        "synthetic-root-text",
+        "synthetic-computed-text",
+        "factor-100",
+        "factor-150",
+        "factor-200",
+        "viewport-320",
+        "viewport-375"
+      ],
+      "owner": "e2e/issue-155-v1.spec.ts",
+      "requiredForFinal": true,
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "VL-V1-LONG-CONTENT",
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-05",
+        "VL-DES-07",
+        "VL-DES-01"
+      ],
+      "phase": "V1",
+      "route": "/articles/",
+      "state": "long Japanese and unbroken ASCII",
+      "surface": "START card",
+      "selector": "#start .v2-start-card",
+      "method": [
+        "long-content",
+        "surface-probe"
+      ],
+      "owner": "e2e/issue-155-v1.spec.ts",
+      "requiredForFinal": true,
+      "status": "IMPLEMENTED"
+    },
+    {
+      "id": "VL-V2-HOME-INITIAL",
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-03",
+        "VL-DES-04"
+      ],
+      "phase": "V2",
+      "route": "/",
+      "state": "empty initial/normal first view",
+      "surface": "idea form and CTA",
+      "selector": ".home-hero",
+      "method": [
+        "viewport-reflow",
+        "text-scale"
+      ],
+      "owner": "Stage B V2 Home spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V2-HOME-META",
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-04",
+        "VL-DES-07"
+      ],
+      "phase": "V2",
+      "route": "/",
+      "state": "counter/privacy, validation, examples expanded, max input",
+      "surface": "counter, help, error, CTA",
+      "selector": ".idea-meta",
+      "method": [
+        "semantic-row",
+        "text-spacing",
+        "short-height",
+        "factor-100",
+        "factor-150",
+        "factor-200",
+        "viewport-320",
+        "viewport-375",
+        "spacing-line-height",
+        "spacing-paragraph",
+        "spacing-letter",
+        "spacing-word"
+      ],
+      "owner": "Stage B V2 Home spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V2-PROJECT-STATES",
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-03",
+        "VL-DES-04"
+      ],
+      "phase": "V2",
+      "route": "/project/",
+      "state": "input/clarification/loading/error/result/done/next/recovery",
+      "surface": "Project heading, status, actions",
+      "selector": ".project-shell",
+      "method": [
+        "viewport-reflow",
+        "semantic-row",
+        "short-height"
+      ],
+      "owner": "Stage B V2 Project spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V2-PROJECT-WORKSPACE",
+      "findings": [
+        "VL-DES-03",
+        "VL-DES-04",
+        "VL-DES-05"
+      ],
+      "phase": "V2",
+      "route": "/project/",
+      "state": "workspace and no-workspace; copy/save failure/expanded",
+      "surface": "task/workspace/sticky actions",
+      "selector": ".project-workspace",
+      "method": [
+        "long-content",
+        "focus-reachability",
+        "text-scale"
+      ],
+      "owner": "Stage B V2 Project spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V2-PROJECT-TOKENS",
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-05",
+        "VL-DES-07"
+      ],
+      "phase": "V2",
+      "route": "/project/",
+      "state": "long project/task/note/file/runtime error",
+      "surface": "human text and code regions",
+      "selector": ".project-shell",
+      "method": [
+        "synthetic-computed-text",
+        "owned-scroll",
+        "unbroken-token",
+        "factor-100",
+        "factor-150",
+        "factor-200",
+        "viewport-320",
+        "viewport-375"
+      ],
+      "owner": "Stage B V2 Project spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V3-TOOLS",
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-02",
+        "VL-DES-03",
+        "VL-DES-05"
+      ],
+      "phase": "V3",
+      "route": "/tools/",
+      "state": "goal/filter/search/count/help/reset/empty/error",
+      "surface": "results header, filters, cards",
+      "selector": ".tools-page",
+      "method": [
+        "semantic-row",
+        "long-content",
+        "text-spacing",
+        "factor-100",
+        "factor-150",
+        "factor-200",
+        "viewport-320",
+        "viewport-375",
+        "spacing-line-height",
+        "spacing-paragraph",
+        "spacing-letter",
+        "spacing-word"
+      ],
+      "owner": "Stage B V3 directories spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V3-GUIDES",
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-03",
+        "VL-DES-05"
+      ],
+      "phase": "V3",
+      "route": "/guides/",
+      "state": "stage/reset/expanded constraints/long values",
+      "surface": "stage status and guide results",
+      "selector": ".guides-page",
+      "method": [
+        "semantic-row",
+        "viewport-reflow",
+        "long-content"
+      ],
+      "owner": "Stage B V3 directories spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V3-DIRECTORY-NAV",
+      "findings": [
+        "VL-DES-04",
+        "VL-DES-07"
+      ],
+      "phase": "V3",
+      "route": "/tools/",
+      "state": "return context/back-forward/current ordering",
+      "surface": "directory navigation and Project return",
+      "selector": ".tools-page",
+      "method": [
+        "journey",
+        "focus-reachability"
+      ],
+      "owner": "Stage B V3 journey spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V3-COMPARE-TRAY",
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-04",
+        "VL-DES-05"
+      ],
+      "phase": "V3",
+      "route": "/compare/",
+      "state": "0/1/2/4 candidates, limit/remove/clear",
+      "surface": "candidate name and remove control",
+      "selector": ".compare-tray",
+      "method": [
+        "semantic-row",
+        "target-size",
+        "long-content"
+      ],
+      "owner": "Stage B V3 Compare spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V3-COMPARE-TABLE",
+      "findings": [
+        "VL-DES-03",
+        "VL-DES-05",
+        "VL-DES-07"
+      ],
+      "phase": "V3",
+      "route": "/compare/",
+      "state": "differences and long values/status",
+      "surface": "mobile criteria and desktop semantic table",
+      "selector": ".compare-page",
+      "method": [
+        "owned-scroll",
+        "breakpoint-neighbors",
+        "text-scale",
+        "factor-100",
+        "factor-150",
+        "factor-200",
+        "viewport-320",
+        "viewport-375"
+      ],
+      "owner": "Stage B V3 Compare spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V3-COMPARE-NAV",
+      "findings": [
+        "VL-DES-04",
+        "VL-DES-07"
+      ],
+      "phase": "V3",
+      "route": "/compare/",
+      "state": "URL/history/focus/Project return",
+      "surface": "picker and comparison controls",
+      "selector": ".compare-page",
+      "method": [
+        "journey",
+        "focus-reachability"
+      ],
+      "owner": "Stage B V3 Compare spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V3-ARTICLE-HUB",
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-02",
+        "VL-DES-03"
+      ],
+      "phase": "V3",
+      "route": "/articles/",
+      "state": "non-START groups and long metadata",
+      "surface": "hub rows/cards",
+      "selector": ".article-hub",
+      "method": [
+        "viewport-reflow",
+        "semantic-row",
+        "text-scale"
+      ],
+      "owner": "Stage B V3 reading spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V3-ARTICLE-READING",
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-02",
+        "VL-DES-05"
+      ],
+      "phase": "V3",
+      "route": "/articles/[slug]/",
+      "state": "how-to/code and commercial/pricing/table",
+      "surface": "title/meta/source/disclosure/TOC/portals",
+      "selector": ".article-shell",
+      "method": [
+        "long-content",
+        "text-spacing",
+        "owned-scroll",
+        "factor-100",
+        "factor-150",
+        "factor-200",
+        "viewport-320",
+        "viewport-375",
+        "spacing-line-height",
+        "spacing-paragraph",
+        "spacing-letter",
+        "spacing-word"
+      ],
+      "owner": "Stage B V3 reading spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V3-ELEVENLABS",
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-05",
+        "VL-DES-07"
+      ],
+      "phase": "V3",
+      "route": "/articles/elevenlabs-v4-game-voice/",
+      "state": "PR #154 preservation smoke",
+      "surface": "article facts/source/affiliate/Project CTA",
+      "selector": ".article-shell",
+      "method": [
+        "content-regression",
+        "surface-probe"
+      ],
+      "owner": "Stage B V3 reading spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V3-TRUST",
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-03",
+        "VL-DES-05"
+      ],
+      "phase": "V3",
+      "route": "/privacy/|/methodology/|/affiliate-disclosure/",
+      "state": "long trust copy/source links",
+      "surface": "trust reading surfaces",
+      "selector": "main",
+      "method": [
+        "viewport-reflow",
+        "long-content",
+        "text-spacing",
+        "spacing-line-height",
+        "spacing-paragraph",
+        "spacing-letter",
+        "spacing-word"
+      ],
+      "owner": "Stage B V3 trust spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V3-DETAILS",
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-03",
+        "VL-DES-05"
+      ],
+      "phase": "V3",
+      "route": "/tools/[slug]/|/guides/[slug]/|/stacks/",
+      "state": "details, loading, error, not-found",
+      "surface": "remaining route families",
+      "selector": "main",
+      "method": [
+        "route-family",
+        "long-content"
+      ],
+      "owner": "Stage B V3 remaining routes spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-SHARED-HEADER",
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-02",
+        "VL-DES-04",
+        "VL-DES-05",
+        "VL-DES-07"
+      ],
+      "phase": "Shared",
+      "route": "/*",
+      "state": "desktop/mobile/menu expanded",
+      "surface": "Header/nav/menu/skip link",
+      "selector": ".site-header",
+      "method": [
+        "text-scale",
+        "focus-trap",
+        "anchor-offset",
+        "factor-100",
+        "factor-150",
+        "factor-200",
+        "viewport-320",
+        "viewport-375"
+      ],
+      "owner": "Stage B V3 shared chrome spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-SHARED-FOOTER",
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-03",
+        "VL-DES-04",
+        "VL-DES-05",
+        "VL-DES-07"
+      ],
+      "phase": "Shared",
+      "route": "/*",
+      "state": "narrow/enlarged footer groups",
+      "surface": "Footer groups and copy",
+      "selector": "footer",
+      "method": [
+        "viewport-reflow",
+        "semantic-row",
+        "target-size",
+        "focus-reachability",
+        "reading-order"
+      ],
+      "owner": "Stage B V3 shared chrome spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V4-SSR-LIST",
+      "findings": [
+        "VL-DES-02",
+        "VL-DES-04",
+        "VL-DES-05",
+        "VL-DES-06",
+        "VL-DES-07"
+      ],
+      "phase": "V4",
+      "route": "/articles/#start",
+      "state": "JS off/reduced motion/forced colors/<=340; original order, one anchor/card, full content, no clones",
+      "surface": "SSR START list and links",
+      "selector": "#start",
+      "method": [
+        "no-script",
+        "media-preference",
+        "focus-reachability",
+        "link-order",
+        "no-clones",
+        "full-content"
+      ],
+      "owner": "Stage B V4 Deck spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V4-DECK-COUNTS",
+      "findings": [
+        "VL-DES-03",
+        "VL-DES-06",
+        "VL-DES-07"
+      ],
+      "phase": "V4",
+      "route": "/articles/#start",
+      "state": "0/1/2/3/>3 test fixtures",
+      "surface": "deck/list/count/prev/next",
+      "selector": ".creation-deck",
+      "method": [
+        "fixture-counts",
+        "viewport-reflow"
+      ],
+      "owner": "Stage B V4 Deck spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V4-DECK-DYNAMIC",
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-04",
+        "VL-DES-06"
+      ],
+      "phase": "V4",
+      "route": "/articles/#start",
+      "state": "late font/failure/root text/spacing/container/content change",
+      "surface": "deck stage, cards, controls",
+      "selector": ".creation-deck",
+      "method": [
+        "remeasurement",
+        "text-scale",
+        "text-spacing",
+        "factor-100",
+        "factor-150",
+        "factor-200",
+        "viewport-320",
+        "viewport-375",
+        "spacing-line-height",
+        "spacing-paragraph",
+        "spacing-letter",
+        "spacing-word"
+      ],
+      "owner": "Stage B V4 Deck spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V4-DECK-FOCUS",
+      "findings": [
+        "VL-DES-04",
+        "VL-DES-06",
+        "VL-DES-07"
+      ],
+      "phase": "V4",
+      "route": "/articles/#start",
+      "state": "forced flat while controls/article/other input focused; manual list preference persists",
+      "surface": "mode controls and active article",
+      "selector": ".creation-deck",
+      "method": [
+        "focus-reachability",
+        "forced-fallback",
+        "manual-toggle-persistence"
+      ],
+      "owner": "Stage B V4 Deck spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V4-DECK-INPUT",
+      "findings": [
+        "VL-DES-06",
+        "VL-DES-07"
+      ],
+      "phase": "V4",
+      "route": "/articles/#start",
+      "state": "click/keyboard/pinch-safe vertical scroll/touch cancel/drag-only suppression; one gesture/one article",
+      "surface": "cards and controls",
+      "selector": ".creation-deck",
+      "method": [
+        "interaction",
+        "gesture-cancellation",
+        "vertical-scroll",
+        "pinch-preservation",
+        "one-gesture-one-article"
+      ],
+      "owner": "Stage B V4 Deck spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-V4-DECK-BUDGET",
+      "findings": [
+        "VL-DES-06",
+        "VL-DES-07"
+      ],
+      "phase": "V4",
+      "route": "/articles/#start",
+      "state": "initial enhancement/CLS/assets/JS budget",
+      "surface": "SSR-to-deck enhancement",
+      "selector": ".creation-deck",
+      "method": [
+        "cls",
+        "bundle-budget"
+      ],
+      "owner": "Stage B V4 performance spec",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-FINAL-CROSS-ROUTE",
+      "findings": [
+        "VL-DES-01",
+        "VL-DES-02",
+        "VL-DES-03",
+        "VL-DES-04",
+        "VL-DES-05",
+        "VL-DES-06",
+        "VL-DES-07"
+      ],
+      "phase": "Final",
+      "route": "/*",
+      "state": "single local matrix and selected journeys",
+      "surface": "all modified surfaces",
+      "selector": "matrix selectors",
+      "method": [
+        "local-e2e",
+        "independent-render-review",
+        "independent-review",
+        "viewport-320",
+        "viewport-375",
+        "viewport-390",
+        "viewport-1440"
+      ],
+      "owner": "Stage B final acceptance",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-FINAL-RECONCILE",
+      "findings": [
+        "VL-DES-07"
+      ],
+      "phase": "Final",
+      "route": "/*",
+      "state": "per-ID execution/evidence reconciliation",
+      "surface": "matrix and evidence",
+      "selector": "TEST-MATRIX.json",
+      "method": [
+        "final-execution-validator"
+      ],
+      "owner": "Stage B final validator",
+      "requiredForFinal": true,
+      "status": "PLANNED"
+    },
+    {
+      "id": "VL-PROD-DEFERRED",
+      "findings": [
+        "VL-DES-07"
+      ],
+      "phase": "Production",
+      "route": "https://game-ai-hub.vercel.app",
+      "state": "final live acceptance",
+      "surface": "Production routes",
+      "selector": "production surfaces",
+      "method": [
+        "production-browser",
+        "physical-device",
+        "real-browser-zoom"
+      ],
+      "owner": "Owner",
+      "requiredForFinal": false,
+      "status": "OWNER-DEFERRED"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import { expect, test } from "./fixtures";
 import { diagnoseWidths } from "./acceptance/diagnostics";
+import { applyTextMethod, probeSemanticRow, probeSurface } from "./acceptance/reflow";
 
 const evidenceDirectory = "docs/screenshots/issue-155-v1/focused-acceptance";
 
@@ -110,20 +111,9 @@ for (const width of [320, 375]) {
       label: "#start .v2-start-card-label",
       date: "#start .v2-start-card-meta small",
     };
-    const baselineRootPx = await page.evaluate(() => Number.parseFloat(getComputedStyle(document.documentElement).fontSize));
-    const baselineSizes = await page.evaluate((targets) => Object.fromEntries(
-      Object.entries(targets).map(([name, selector]) => [name, Number.parseFloat(getComputedStyle(document.querySelector(selector)!).fontSize)]),
-    ), selectors);
-
-    await page.evaluate((rootPx) => {
-      document.documentElement.style.fontSize = `${rootPx * 2}px`;
-    }, baselineRootPx);
-
-    const enlargedSizes = await page.evaluate((targets) => Object.fromEntries(
-      Object.entries(targets).map(([name, selector]) => [name, Number.parseFloat(getComputedStyle(document.querySelector(selector)!).fontSize)]),
-    ), selectors);
-    for (const name of Object.keys(selectors))
-      expect(enlargedSizes[name], `${name} computed font size`).toBeGreaterThan(baselineSizes[name]);
+    const enlargement = await applyTextMethod(page, Object.entries(selectors).map(([role, selector]) => ({ role, selector })), "synthetic-root-text", 2);
+    expect(enlargement.sufficient).toBe(true);
+    expect(enlargement.measurements.every(({ matched, achievedFactors }) => matched > 0 && achievedFactors.every((factor) => factor >= 1.99))).toBe(true);
 
     const widths = await diagnoseWidths(page);
     expect(widths.documentOverflowPx).toBe(0);
@@ -156,12 +146,34 @@ for (const width of [320, 375]) {
     expect(metadataLayouts).toHaveLength(3);
     expect(metadataLayouts.every(({ contained, fullTextVisible, labelLineCount, nonoverlapping }) =>
       contained && fullTextVisible && labelLineCount === 1 && nonoverlapping)).toBe(true);
+    for (const row of await page.locator("#start .v2-start-card-meta").all()) {
+      const sharedProbe = await probeSemanticRow(row, ".v2-start-card-label", "small");
+      expect(sharedProbe.contained).toBe(true);
+      expect(sharedProbe.nonoverlapping).toBe(true);
+      expect(sharedProbe.ordinaryLabelSqueezed).toBe(false);
+    }
     await page.screenshot({
       path: `${evidenceDirectory}/articles-${width}x844-root-text-200.png`,
       fullPage: true,
     });
   });
 }
+
+test("V1 shared probe records the intermediate 150% metadata state", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 844 });
+  await page.goto("/articles/");
+  const result = await applyTextMethod(page, [
+    { role: "label", selector: "#start .v2-start-card-label" },
+    { role: "date", selector: "#start .v2-start-card-meta small" },
+  ], "synthetic-computed-text", 1.5);
+  expect(result.measurements.every(({ matched, achievedFactors }) => matched === 3 && achievedFactors.every((factor) => factor >= 1.49))).toBe(true);
+  for (const row of await page.locator("#start .v2-start-card-meta").all()) {
+    const layout = await probeSemanticRow(row, ".v2-start-card-label", "small");
+    expect(layout.nonoverlapping).toBe(true);
+    expect(layout.ordinaryLabelSqueezed).toBe(false);
+  }
+  await result.restore();
+});
 
 test("V1 START cards contain long Japanese and unbroken ASCII stress content", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 844 });
@@ -203,6 +215,9 @@ test("V1 START cards contain long Japanese and unbroken ASCII stress content", a
   expect(geometry.textFits).toBe(true);
   expect(geometry.descendantsContained).toBe(true);
   expect(geometry.metadataNonoverlap).toBe(true);
+  const sharedSurface = await probeSurface(page, "#start li:first-child .v2-start-card");
+  expect(sharedSurface.matched).toBe(1);
+  expect(sharedSurface.clippedText).toEqual([]);
   expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
   expect((await diagnoseWidths(page)).unownedOverflowingElements).toEqual([]);
   await firstCard.focus();

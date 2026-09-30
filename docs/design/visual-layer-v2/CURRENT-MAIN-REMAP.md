@@ -1,5 +1,7 @@
 # Visual Layer v2 — Current Main Remap for V1
 
+> **Historical V1 scope:** future work must begin at the [active Visual Layer authority](./README.md). Do not update the measured SHAs below or infer that V1 used the later Issue #157 contract/matrix.
+
 Remap date: 2026-09-30  
 Issue: #155  
 Package baseline inspected by the handoff: `711dcb5df28db7df0b916589c264a97249a661e6`  

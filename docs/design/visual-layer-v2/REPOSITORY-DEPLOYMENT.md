@@ -1,5 +1,7 @@
 # Visual Layer v2 repository deployment
 
+> **Historical deployment record:** current implementation and acceptance work follows the [active Visual Layer authority](./README.md), reflow contract, implementation plan, and test matrix. The original handoff/assets remain unchanged.
+
 Deployment date: 2026-09-30  
 Issue: #155  
 Deployment branch: `codex/issue-155-visual-layer-v2-v1`
