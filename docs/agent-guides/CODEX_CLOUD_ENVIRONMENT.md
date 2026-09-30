@@ -69,19 +69,29 @@ git fetch origin --prune
 git show-ref --verify refs/remotes/origin/main >/dev/null
 git ls-remote --exit-code origin refs/heads/main >/dev/null
 
+test -f package.json
 test -f package-lock.json
 npm ci
 npx playwright install --with-deps chromium
 
 mkdir -p "$fingerprint_dir"
-sha256sum package-lock.json | awk '{print $1}' > "$fingerprint_file"
+dependency_fingerprint="$(
+  {
+    node --version
+    npm --version
+    sha256sum package.json
+    sha256sum package-lock.json
+  } | sha256sum | awk '{print $1}'
+)"
+printf '%s\n' "$dependency_fingerprint" > "$fingerprint_file"
 ```
 
 ### Maintenance
 
 Maintenance never checks out or resets a task branch. It always repairs and
 verifies remote/auth/ref state, but refreshes cached dependencies and Chromium
-only when `node_modules` is absent or the lockfile fingerprint changed.
+only when `node_modules` is absent or the dependency/runtime fingerprint
+changed.
 
 ```bash
 set -euo pipefail
@@ -119,8 +129,16 @@ git fetch origin --prune
 git show-ref --verify refs/remotes/origin/main >/dev/null
 git ls-remote --exit-code origin refs/heads/main >/dev/null
 
+test -f package.json
 test -f package-lock.json
-dependency_fingerprint="$(sha256sum package-lock.json | awk '{print $1}')"
+dependency_fingerprint="$(
+  {
+    node --version
+    npm --version
+    sha256sum package.json
+    sha256sum package-lock.json
+  } | sha256sum | awk '{print $1}'
+)"
 cached_fingerprint=''
 if [ -f "$fingerprint_file" ]; then
   cached_fingerprint="$(cat "$fingerprint_file")"
@@ -135,9 +153,10 @@ fi
 ```
 
 Refresh/publish the Environment after changes to this contract or its Node,
-npm, lockfile, Playwright, or browser requirements. The non-secret fingerprint
-at `$HOME/.cache/gameai-hub/npm-deps.sha256` detects dependency changes; it is
-not evidence that the platform restored a container-cache hit.
+npm, package manifests, Playwright, or browser requirements. The non-secret
+fingerprint at `$HOME/.cache/gameai-hub/npm-deps.sha256` combines the Node and
+npm versions with hashes of `package.json` and `package-lock.json`; it is not
+evidence that the platform restored a container-cache hit.
 
 ## Validation after Environment changes
 
