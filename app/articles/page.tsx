@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { articleCategoryLabels, getArticle } from "@/data/articles";
+import {
+  getStartArticleVisual,
+  type StartArticleSlug,
+} from "@/lib/article-visuals";
 export const metadata: Metadata = {
   title: "AIゲーム開発の記事・実践ガイド",
   description:
@@ -84,8 +88,10 @@ const intents = [
 
 export default function ArticlesPage() {
   return (
-    <div className="page-shell article-hub">
-      <header className="page-head">
+    <div className="visual-layer-v2 articles-v2-route">
+      <div className="v2-atrium-art" aria-hidden="true" />
+      <div className="page-shell article-hub v2-atrium-content">
+        <header className="page-head">
         <p className="eyebrow">AI GAME DEVELOPMENT LIBRARY</p>
         <h1>今の制作課題から、次に読む手順を選ぶ</h1>
         <p className="lead">
@@ -100,8 +106,8 @@ export default function ArticlesPage() {
             </a>
           ))}
         </nav>
-      </header>
-      {groups.map((group) => (
+        </header>
+        {groups.map((group) => (
         <section
           key={group.id}
           id={group.id}
@@ -119,6 +125,44 @@ export default function ArticlesPage() {
             {group.slugs.map((slug, index) => {
               const article = getArticle(slug);
               if (!article) return null;
+              if (group.id === "start") {
+                const visual = getStartArticleVisual(slug as StartArticleSlug);
+                return (
+                  <li key={slug} className="v2-start-card-item">
+                    <Link className="v2-start-card" href={`/articles/${slug}/`}>
+                      <span className="v2-start-card-face">
+                        <span className="v2-start-card-image" aria-hidden="true">
+                          {/* Supplied 480/960 bytes are served directly so the approved assets are not re-encoded. */}
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={visual.src}
+                            srcSet={visual.srcSet}
+                            sizes="(max-width: 340px) calc(100vw - 36px), (max-width: 680px) calc(100vw - 62px), 352px"
+                            width="960"
+                            height="640"
+                            alt=""
+                          />
+                        </span>
+                        <span className="v2-start-card-meta">
+                          <span className="v2-start-card-label">
+                            {index === 0
+                              ? "この目的の入口"
+                              : articleCategoryLabels[article.category]}
+                          </span>
+                          <small>更新 {article.updatedAt}</small>
+                        </span>
+                        <strong>{article.title}</strong>
+                        <span className="v2-start-card-description">
+                          {article.description}
+                        </span>
+                        <span className="v2-start-card-read" aria-hidden="true">
+                          記事を読む <b>→</b>
+                        </span>
+                      </span>
+                    </Link>
+                  </li>
+                );
+              }
               return (
                 <li key={slug}>
                   <Link href={`/articles/${slug}/`}>
@@ -142,8 +186,8 @@ export default function ArticlesPage() {
             })}
           </ol>
         </section>
-      ))}
-      <section className="hub-project-cta">
+        ))}
+        <section className="hub-project-cta">
         <div>
           <span className="system-label">READ → BUILD</span>
           <h2>自分のゲーム条件へ置き換える</h2>
@@ -154,7 +198,8 @@ export default function ArticlesPage() {
         <Link className="button" href="/project">
           制作手順を作る
         </Link>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }

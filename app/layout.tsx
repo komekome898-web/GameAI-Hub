@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
+import "./visual-layer-v2.css";
 import { Header } from "@/components/Header";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { site } from "@/lib/site";

@@ -1,0 +1,271 @@
+/* Issue #155 V1: scoped Mint Atrium and Crafted Ceramic treatment. */
+.visual-layer-v2 {
+  --v2-canvas: #f2f6f2;
+  --v2-ceramic: #faf8f2;
+  --v2-recess: #eef1e9;
+  --v2-ink: #142d2b;
+  --v2-muted: #52645e;
+  --v2-primary: #0b6855;
+  --v2-primary-hover: #075440;
+  --v2-metal: #a59e8e;
+  --v2-edge: #bfc8bc;
+}
+
+.articles-v2-route {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  color: var(--v2-ink);
+}
+
+.articles-v2-route .v2-atrium-art {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 50%;
+  width: 100dvw;
+  height: 620px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background-color: var(--v2-canvas);
+  background-image: linear-gradient(to bottom, transparent 58%, var(--v2-canvas) 100%),
+    url("/visual-v2/backgrounds/mint-atrium-768.webp");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.articles-v2-route .v2-atrium-content {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.articles-v2-route .article-hub > .page-head {
+  margin-inline: calc(var(--space-5) * -1);
+  padding-inline: var(--space-5);
+  border-radius: 0 0 10px 10px;
+  background: rgb(250 248 242 / 94%);
+}
+
+.articles-v2-route #start .article-cluster-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  border-top: 0;
+}
+
+.articles-v2-route #start .v2-start-card-item {
+  min-width: 0;
+  border: 0;
+}
+
+.articles-v2-route #start .v2-start-card {
+  display: block;
+  height: 100%;
+  min-width: 0;
+  padding: 3px;
+  border: 1px solid var(--v2-metal);
+  border-radius: 10px;
+  background: linear-gradient(135deg, #fffdf5 0%, #cac4b6 24%, #f8f6ec 48%, #aaa697 100%);
+  box-shadow: 0 2px 3px rgb(27 45 36 / 12%), 0 12px 24px rgb(27 45 36 / 10%);
+  color: var(--v2-ink);
+  text-decoration: none;
+}
+
+.articles-v2-route #start .v2-start-card:hover {
+  background: linear-gradient(135deg, #fffdf5 0%, #c2bdaf 24%, #f8f6ec 48%, #9f9b8d 100%);
+}
+
+.v2-start-card-face {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: 7px;
+  background: var(--v2-ceramic);
+  box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 #e1ded2;
+}
+
+.v2-start-card-image {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border: 1px solid #b4b2a6;
+  border-radius: 6px;
+  background: var(--v2-recess);
+  box-shadow: inset 0 1px 2px rgb(27 45 36 / 16%);
+}
+
+.v2-start-card-image::after {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 1px 3px rgb(27 45 36 / 14%);
+  content: "";
+  pointer-events: none;
+}
+
+.v2-start-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.v2-start-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.v2-start-card-meta small {
+  color: var(--v2-muted);
+  font-size: var(--type-meta);
+  white-space: nowrap;
+}
+
+.v2-start-card-label {
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--v2-primary);
+  color: #fff;
+  font-size: var(--type-meta);
+  font-weight: 750;
+}
+
+.v2-start-card-face > strong {
+  font-size: var(--type-h3);
+  line-height: var(--leading-h3);
+  overflow-wrap: anywhere;
+}
+
+.v2-start-card-description {
+  color: var(--v2-muted);
+  font-size: var(--type-small);
+  line-height: var(--leading-small);
+}
+
+.v2-start-card-read {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: auto;
+  border: 1px solid #c2c5b6;
+  border-radius: 6px;
+  background: var(--v2-recess);
+  box-shadow: inset 0 1px 3px rgb(40 50 35 / 13%), 0 1px 0 #fff;
+  color: var(--v2-primary);
+  font-weight: 750;
+}
+
+.v2-start-card-read b {
+  color: inherit;
+}
+
+.visual-layer-v2 :is(a, button, input, textarea, select):focus-visible {
+  outline: 3px solid var(--v2-primary);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+@media (min-width: 681px) {
+  .articles-v2-route .v2-atrium-art {
+    height: 740px;
+    background-image: linear-gradient(to bottom, transparent 58%, var(--v2-canvas) 100%),
+      url("/visual-v2/backgrounds/mint-atrium-1280.webp");
+  }
+}
+
+@media (min-width: 1024px) {
+  .articles-v2-route .v2-atrium-art {
+    height: 820px;
+    background-image: linear-gradient(to bottom, transparent 58%, var(--v2-canvas) 100%),
+      url("/visual-v2/backgrounds/mint-atrium-1672.webp");
+  }
+}
+
+@media (max-width: 680px) {
+  .articles-v2-route .article-hub > .page-head {
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+  }
+
+  .articles-v2-route #start .article-cluster-list {
+    grid-template-columns: 1fr;
+  }
+
+  .articles-v2-route #start .v2-start-card {
+    padding: 2px;
+    border-radius: 8px;
+    box-shadow: 0 2px 3px rgb(27 45 36 / 10%), 0 6px 12px rgb(27 45 36 / 8%);
+  }
+
+  .v2-start-card-face {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 340px) {
+  .articles-v2-route .v2-atrium-art {
+    display: none;
+    background-image: none;
+  }
+
+  .articles-v2-route .article-hub > .page-head {
+    margin-inline: 0;
+    padding-inline: 0;
+    background: var(--v2-canvas);
+  }
+
+  .articles-v2-route #start .v2-start-card {
+    padding: 0;
+    border-color: var(--v2-edge);
+    border-radius: 6px;
+    background: var(--v2-ceramic);
+    box-shadow: none;
+  }
+
+  .articles-v2-route #start .v2-start-card-face {
+    box-shadow: none;
+  }
+
+  .articles-v2-route #start .v2-start-card-description {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visual-layer-v2 *,
+  .visual-layer-v2 *::before,
+  .visual-layer-v2 *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .articles-v2-route .v2-atrium-art {
+    display: none;
+  }
+
+  .articles-v2-route .article-hub > .page-head,
+  .articles-v2-route #start .v2-start-card,
+  .v2-start-card-face,
+  .v2-start-card-read {
+    border: 1px solid ButtonText;
+    background: Canvas;
+    box-shadow: none;
+    color: CanvasText;
+  }
+
+  .visual-layer-v2 :focus-visible {
+    outline: 3px solid Highlight;
+    box-shadow: none;
+  }
+}
