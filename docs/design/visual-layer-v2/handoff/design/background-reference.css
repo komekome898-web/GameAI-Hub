@@ -1,0 +1,10 @@
+/* Select one decorative asset per viewport. Paths assume suggested public/visual-v2 placement.
+   Apply to a dedicated aria-hidden layer, NOT body/main ancestors with transform/filter. */
+.v2-atrium-host {position:relative;isolation:isolate;background:#f2f6f2;}
+.v2-atrium-art {position:absolute;inset:0 0 auto;height:620px;z-index:0;pointer-events:none;
+ background:linear-gradient(to bottom,transparent 65%,#f2f6f2 100%),url('/visual-v2/backgrounds/mint-atrium-768.webp') right top / cover no-repeat;}
+.v2-atrium-content {position:relative;z-index:1;min-width:0;}
+@media(min-width:681px){.v2-atrium-art{height:740px;background-image:linear-gradient(to bottom,transparent 65%,#f2f6f2 100%),url('/visual-v2/backgrounds/mint-atrium-1280.webp');}}
+@media(min-width:1024px){.v2-atrium-art{height:820px;background-image:linear-gradient(to bottom,transparent 65%,#f2f6f2 100%),url('/visual-v2/backgrounds/mint-atrium-1672.webp');}}
+@media(max-width:340px){.v2-atrium-art{display:none;background-image:none;}}
+/* Actual text readability is guaranteed by opaque working/reading planes, not image brightness. */
