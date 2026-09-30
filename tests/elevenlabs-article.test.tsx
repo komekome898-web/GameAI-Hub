@@ -60,7 +60,6 @@ describe("ElevenLabs v4 game-voice article", () => {
       "約150msのmedian time to first speech",
       "再現用テスト台本",
       "SSML",
-      "StyleとSpeedスライダーは利用できない",
     ])
       expect(html).toContain(text);
     expect(html).toContain('href="/articles/elevenlabs-commercial-use-game/"');
@@ -92,6 +91,13 @@ describe("ElevenLabs v4 game-voice article", () => {
     expect(html).toContain("製品page: 利用不可 / prompting: 未最適化");
     expect(html).toContain("完全には最適化されず、clone品質が下がり得る");
     expect(html).not.toContain("v3で非対応だったPVCが戻りました");
+    expect(html).toContain("同じ公式ガイド内で説明が一致しない");
+    expect(html).toContain("StyleとSpeedスライダーは利用できない");
+    expect(html).toContain("Speed設定がすべてのモデルで利用できる");
+    expect(html).toContain("現在のv4 UI/APIで動作を確認してから依存する");
+    expect(html).not.toContain(
+      "v4はStabilityとSimilarityを使い、StyleとSpeedスライダーは利用できない。",
+    );
   });
 });
 

@@ -285,7 +285,7 @@ export default function ElevenLabsV4GameVoice() {
               Tags、句読点、文章構造で間を調整する。
             </li>
             <li>
-              v4はStabilityとSimilarityを使い、StyleとSpeedスライダーは利用できない。
+              同じ公式ガイド内で説明が一致しない。v4概要はStabilityとSimilarityを使い、StyleとSpeedスライダーは利用できないとする一方、同ページのFAQはSpeed設定がすべてのモデルで利用できるとする。Styleはv4概要に従い、Speedは現在のv4 UI/APIで動作を確認してから依存する。
             </li>
             <li>
               Audio Tagsと複数話者出力は非決定的で、指示どおりとは限らない。
