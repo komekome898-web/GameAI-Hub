@@ -278,3 +278,54 @@ test("TOC supports mobile disclosure, sticky-safe anchors, initial fragments, an
   expect(await code.evaluate((node) => node.scrollWidth > node.clientWidth)).toBe(true);
   await expect(code).toHaveCSS("overflow-x", "auto");
 });
+
+test("initial-fragment reconciliation yields to the reader and rearms for later navigation", async ({
+  page,
+}) => {
+  test.setTimeout(30_000);
+  await page.addInitScript(() => {
+    const original = Element.prototype.scrollIntoView;
+    Object.defineProperty(window, "__fragmentScrolls", {
+      configurable: true,
+      value: [] as Array<{ id: string; at: number }>,
+    });
+    Element.prototype.scrollIntoView = function (...args) {
+      (window as typeof window & { __fragmentScrolls: Array<{ id: string; at: number }> })
+        .__fragmentScrolls.push({ id: this.id, at: performance.now() });
+      return original.apply(this, args as [ScrollIntoViewOptions]);
+    };
+  });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(
+    "/articles/ai-browser-game-how-to/#section-3-最初のゲームをaiへ生成してもらう",
+  );
+  await expect.poll(() => page.evaluate(() =>
+    (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
+  )).toBeGreaterThan(0);
+  await page.waitForTimeout(700);
+  await page.mouse.wheel(0, 550);
+  const interrupted = await page.evaluate(() => ({
+    count: (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
+    y: scrollY,
+  }));
+  await page.waitForTimeout(1700);
+  expect(await page.evaluate(() =>
+    (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
+  )).toBe(interrupted.count);
+  expect(Math.abs((await page.evaluate(() => scrollY)) - interrupted.y)).toBeLessThan(2);
+
+  await page.evaluate(() => {
+    location.hash = "section-1-まず完成例を動かす";
+  });
+  await expect.poll(() => page.evaluate(() =>
+    (window as typeof window & { __fragmentScrolls: Array<{ id: string }> }).__fragmentScrolls.at(-1)?.id,
+  )).toBe("section-1-まず完成例を動かす");
+  await page.keyboard.press("PageDown");
+  const afterNavigation = await page.evaluate(() =>
+    (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
+  );
+  await page.waitForTimeout(1300);
+  expect(await page.evaluate(() =>
+    (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
+  )).toBe(afterNavigation);
+});

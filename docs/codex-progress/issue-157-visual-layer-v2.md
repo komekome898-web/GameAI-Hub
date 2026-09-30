@@ -62,3 +62,22 @@ GitHub checks, E2E, observe, and Vercel exact-head status passed for the correct
 - The TOC initial-fragment readiness path now reconciles after fonts and known article images settle. The unchanged sticky-safe focused case passed 10/10 bounded local repetitions after its setup was corrected to use a true new-document initial-fragment navigation rather than a same-document hash transition.
 - Completed in this continuation: the focus variants `controls-focused`, `article-focused`, and `other-input-focused`, plus count variants `zero`, `one`, `two`, `three`, and `more-than-three`. `manual-list-preference` remains covered by the existing Stage B restoration test.
 - Still incomplete: VL-V1-LONG-CONTENT current focus evidence; the V2/V3 dynamic state observations and same-observation role-bound 150/200 records; exhaustive VL-V4-DECK-INPUT multi-pointer/pinch/cancel/click-follow-up browser fixtures; typed Stage B manifests for each phase; VL-FINAL-CROSS-ROUTE; and VL-FINAL-RECONCILE. Matrix cases therefore remain `IMPLEMENTED`/`PLANNED`; final acceptance is not claimed.
+
+## Evidence-first continuation from `56ade211`
+
+- Added the first typed Stage B application emitter at
+  `e2e/issue-157-reflow-evidence.spec.ts`. Its V2 Home subset has nine actual
+  records covering `VL-V2-HOME-INITIAL` and all four `VL-V2-HOME-META`
+  variants, including bound 100/150/200 measurements and four independent
+  spacing methods. Output is retained under the CI-uploaded
+  `docs/screenshots/issue-157-stage-b/v2/` path.
+- Actual measurement exposed that Home hid the privacy explanation at the
+  narrow breakpoint. The explanation is now retained and stacks with the
+  counter; the semantic-row probe passes at 320px.
+- Fragment reconciliation now cancels every timer, animation frame, interval,
+  and delayed font/media callback on wheel/touch/key/pointer intent. A later
+  explicit hash navigation starts a new bounded, cancellable cycle.
+- This checkpoint does **not** complete Project V2, V3, remaining V1/V4, or
+  final reconciliation. Those case IDs remain outstanding and Production,
+  protected Preview interaction, genuine browser zoom, OS scaling, and
+  physical devices remain `UNTESTED / OWNER-DEFERRED`.
