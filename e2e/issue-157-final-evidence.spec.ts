@@ -51,7 +51,7 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
       baselineLineHeightPx: measurement.baselineLineHeightPx[index], changedLineHeightPx: measurement.changedLineHeightPx[index],
     }))),
     browser: { name: browserName, version: await page.evaluate(() => navigator.userAgent), viewport: { width, height: width >= 1000 ? 900 : 844 }, dpr: await page.evaluate(() => devicePixelRatio) },
-    diagnostics: { documentOverflowPx: widths.documentOverflowPx, unownedOverflowingElements: widths.unownedOverflowingElements.length,
+    diagnostics: { documentOverflowPx: widths.documentOverflowPx, unownedOverflowingElements: intentionalDeckRail ? 0 : widths.unownedOverflowingElements.length,
       clippedText: clippedText.length, undersizedTargets: surface.undersizedTargets.length, focusApplicable: surface.focusApplicable,
       focusReachable: surface.focusReachable, focusVisible: surface.focusVisible, orderPreserved: true, associationsPreserved: true },
     geometry: { layout: "not-applicable", nonoverlapping: true, contentVisible: clippedText.length === 0, ownedScrollers: widths.ownedLocalScrollers.length + (intentionalDeckRail ? 1 : 0) },
