@@ -4,7 +4,7 @@
     "sha": "0e7f32940c4cae167b75bc424704240b4c4d67f6",
     "environment": "local",
     "baseUrl": "http://127.0.0.1:3100",
-    "worktreeDiffHash": "fcbe6093406acc6fc405ef74077fcd168dfa4dc8c68792c5076f40ff086dd0ba"
+    "worktreeDiffHash": "45f8db3256da8af33b98537afb8ac5540138f5bec8f4c799e588aea316845663"
   },
   "records": [
     {
@@ -114,7 +114,7 @@
         "kind": "automated",
         "reviewer": "Playwright Stage A emitter"
       },
-      "capturedAt": "2026-09-30T10:55:59.119Z"
+      "capturedAt": "2026-09-30T11:01:43.773Z"
     },
     {
       "id": "stage-a-metadata-viewport-320",
@@ -221,7 +221,7 @@
         "kind": "automated",
         "reviewer": "Playwright Stage A emitter"
       },
-      "capturedAt": "2026-09-30T10:55:59.119Z"
+      "capturedAt": "2026-09-30T11:01:43.773Z"
     },
     {
       "id": "stage-a-metadata-150",
@@ -330,7 +330,7 @@
         "kind": "automated",
         "reviewer": "Playwright Stage A emitter"
       },
-      "capturedAt": "2026-09-30T10:56:00.957Z"
+      "capturedAt": "2026-09-30T11:01:44.831Z"
     },
     {
       "id": "stage-a-metadata-200",
@@ -439,7 +439,7 @@
         "kind": "automated",
         "reviewer": "Playwright Stage A emitter"
       },
-      "capturedAt": "2026-09-30T10:56:03.741Z"
+      "capturedAt": "2026-09-30T11:01:46.310Z"
     },
     {
       "id": "stage-a-long-content",
@@ -507,7 +507,7 @@
         "kind": "automated",
         "reviewer": "Playwright Stage A emitter"
       },
-      "capturedAt": "2026-09-30T10:56:05.495Z"
+      "capturedAt": "2026-09-30T11:01:47.368Z"
     }
   ],
   "execution": {

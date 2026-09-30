@@ -8,7 +8,7 @@ Review scope: VL-A-01..04, the executable evidence path, matrix/document consist
 - **High-impact P2 — evidence/subset wording:** emitted long-content evidence was outside the accepted subset but described ambiguously. It remains explicitly `PENDING`; the successful subset is only the actual 100/150/200 metadata observations, while the focused V1 regression retains separate long-content/focus assertions.
 - **High-impact P2 — historical evidence mutation:** the V1 spec previously rewrote a historical screenshot during execution. Historical output is now opt-in via `UPDATE_V1_EVIDENCE=1`; the tracked blob remained `d749833e9b8e755daaf043c39a66aa934e14c537` through final E2E.
 - **High-impact P2 — deferred Production selector:** the OWNER-DEFERRED surface is now explicitly `planned`, not measured.
-- **High-impact P2 — stale evidence identity:** the final emitter was rerun. Manifest hash `fcbe6093406acc6fc405ef74077fcd168dfa4dc8c68792c5076f40ff086dd0ba` exactly matches the SHA-256 of the declared tested-path diff from checkpoint `0e7f32940c4cae167b75bc424704240b4c4d67f6`.
+- **High-impact P2 — stale evidence identity:** the final emitter was rerun. Manifest hash `45f8db3256da8af33b98537afb8ac5540138f5bec8f4c799e588aea316845663` exactly matches the SHA-256 of the declared tested-path diff from checkpoint `0e7f32940c4cae167b75bc424704240b4c4d67f6`.
 
 ## Adversarial retest
 

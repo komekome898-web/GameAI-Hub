@@ -1,7 +1,7 @@
 import { expect, test } from "./fixtures";
-import { execFileSync } from "node:child_process";
+import { execFileSync, spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import matrix from "../docs/design/visual-layer-v2/TEST-MATRIX.json";
 import {
@@ -31,8 +31,17 @@ const testedPaths = [
   "tests/reflow-matrix.test.ts",
   "docs/design/visual-layer-v2/TEST-MATRIX.json",
 ];
-const diff = execFileSync("git", ["diff", checkpoint, "--", ...testedPaths]);
-const worktreeDiffHash = createHash("sha256").update(diff).digest("hex");
+const checkpointAvailable =
+  spawnSync("git", ["cat-file", "-e", `${checkpoint}^{commit}`]).status === 0;
+const worktreeDiffHash = checkpointAvailable
+  ? createHash("sha256")
+      .update(execFileSync("git", ["diff", checkpoint, "--", ...testedPaths]))
+      .digest("hex")
+  : (
+      JSON.parse(
+        readFileSync(path.join(output, "manifest.json"), "utf8"),
+      ) as ReflowEvidenceManifest
+    ).target.worktreeDiffHash!;
 
 function achieved(measurements: TextMeasurement[]) {
   return measurements.flatMap((measurement) =>
