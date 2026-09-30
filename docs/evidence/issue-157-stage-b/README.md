@@ -28,9 +28,9 @@ application manifest. The Playwright emitter records current Home initial,
 validation, counter/privacy, expanded-example, maximum-input, 100/150/200 text,
 and four independent spacing observations. Each record contains matched roles,
 baseline/changed font size and line height, route/state/variant/method/viewport,
-actual diagnostics, and a current screenshot. The manifest identifies the
-checkpoint SHA plus a SHA-256 digest of every runtime/test/contract file used
-by the observation.
+actual diagnostics, and a current screenshot. The manifest identifies an exact
+clean Git source checkpoint and refuses source-tree changes that are not part
+of that checkpoint.
 
 The ten-record V2 Home subset gate passes. Project V2, V3, the remaining V1/V4 cases, and
 the final reconciliation are not covered by that subset and remain non-final.
