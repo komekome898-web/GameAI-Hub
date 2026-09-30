@@ -1,10 +1,10 @@
 {
   "schema": "gameai-reflow-evidence/v2",
   "target": {
-    "sha": "56ade2116b921a47059b22c2e6694ee17ceb759c",
+    "sha": "b5e0d25a3f02c5fccaeea294d04b9a2c9c4c56ff",
     "environment": "local",
     "baseUrl": "http://127.0.0.1:3100",
-    "worktreeDiffHash": "a706695e562f38c94cf9c398a73ccee724ab990df7c0bf564e07a9b1a1cd1b30"
+    "worktreeDiffHash": "25bb6f14642f4361ced780cc3bb02f1c873ff92a9db7b05c09f8331bd2f54dfb"
   },
   "records": [
     {
@@ -16,8 +16,7 @@
         "empty-initial-normal-first-view"
       ],
       "coverage": [
-        "viewport-reflow",
-        "text-scale"
+        "viewport-reflow"
       ],
       "surface": {
         "kind": "dom",
@@ -58,7 +57,7 @@
         "associationsPreserved": true
       },
       "geometry": {
-        "layout": "not-applicable",
+        "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
         "ownedScrollers": 0
@@ -72,7 +71,92 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:27:13.432Z"
+      "capturedAt": "2026-09-30T14:43:13.352Z"
+    },
+    {
+      "id": "v2-home-initial-150",
+      "caseId": "VL-V2-HOME-INITIAL",
+      "variantId": "empty-initial-normal-first-view",
+      "route": "/",
+      "state": [
+        "empty-initial-normal-first-view"
+      ],
+      "coverage": [
+        "synthetic-root-text",
+        "text-scale",
+        "factor-150",
+        "viewport-375"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".home-execution-hero",
+        "matched": 1
+      },
+      "method": "synthetic-root-text",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1.5,
+      "achieved": [
+        {
+          "role": "heading",
+          "baselineFontPx": 30,
+          "changedFontPx": 45,
+          "factor": 1.5,
+          "baselineLineHeightPx": 35.4,
+          "changedLineHeightPx": 53.1
+        },
+        {
+          "role": "counter",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 17.28,
+          "factor": 1.5000000000000002,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 25.92
+        },
+        {
+          "role": "privacy-help",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 17.28,
+          "factor": 1.5000000000000002,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 25.92
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 640
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": false,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "stacked",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2/v2-home-initial-150.png",
+      "limitations": [
+        "Synthetic Chromium text stress; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright V2 evidence emitter"
+      },
+      "capturedAt": "2026-09-30T14:43:14.456Z"
     },
     {
       "id": "v2-home-empty-validation",
@@ -96,20 +180,20 @@
       "requestedFactor": 1,
       "achieved": [
         {
-          "role": "help",
-          "baselineFontPx": 11.52,
-          "changedFontPx": 11.52,
+          "role": "validation-error",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
           "factor": 1,
-          "baselineLineHeightPx": 17.28,
-          "changedLineHeightPx": 17.28
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
         },
         {
-          "role": "counter",
-          "baselineFontPx": 11.52,
-          "changedFontPx": 11.52,
+          "role": "cta",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
           "factor": 1,
-          "baselineLineHeightPx": 17.28,
-          "changedLineHeightPx": 17.28
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
         }
       ],
       "browser": {
@@ -133,7 +217,7 @@
         "associationsPreserved": true
       },
       "geometry": {
-        "layout": "not-applicable",
+        "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
         "ownedScrollers": 0
@@ -147,7 +231,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:27:14.314Z"
+      "capturedAt": "2026-09-30T14:43:15.322Z"
     },
     {
       "id": "v2-home-meta-100",
@@ -173,7 +257,7 @@
       "requestedFactor": 1,
       "achieved": [
         {
-          "role": "help",
+          "role": "counter",
           "baselineFontPx": 11.52,
           "changedFontPx": 11.52,
           "factor": 1,
@@ -181,7 +265,7 @@
           "changedLineHeightPx": 17.28
         },
         {
-          "role": "counter",
+          "role": "privacy-help",
           "baselineFontPx": 11.52,
           "changedFontPx": 11.52,
           "factor": 1,
@@ -210,7 +294,7 @@
         "associationsPreserved": true
       },
       "geometry": {
-        "layout": "not-applicable",
+        "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
         "ownedScrollers": 0
@@ -224,7 +308,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:27:16.877Z"
+      "capturedAt": "2026-09-30T14:43:16.538Z"
     },
     {
       "id": "v2-home-examples-150",
@@ -249,7 +333,39 @@
       "requestedFactor": 1.5,
       "achieved": [
         {
-          "role": "help",
+          "role": "examples-summary",
+          "baselineFontPx": 14,
+          "changedFontPx": 21,
+          "factor": 1.5,
+          "baselineLineHeightPx": 23.8,
+          "changedLineHeightPx": 35.7
+        },
+        {
+          "role": "example-control",
+          "baselineFontPx": 13.76,
+          "changedFontPx": 20.64,
+          "factor": 1.5,
+          "baselineLineHeightPx": 23.392,
+          "changedLineHeightPx": 35.088
+        },
+        {
+          "role": "example-control",
+          "baselineFontPx": 13.76,
+          "changedFontPx": 20.64,
+          "factor": 1.5,
+          "baselineLineHeightPx": 23.392,
+          "changedLineHeightPx": 35.088
+        },
+        {
+          "role": "example-control",
+          "baselineFontPx": 13.76,
+          "changedFontPx": 20.64,
+          "factor": 1.5,
+          "baselineLineHeightPx": 23.392,
+          "changedLineHeightPx": 35.088
+        },
+        {
+          "role": "counter",
           "baselineFontPx": 11.52,
           "changedFontPx": 17.28,
           "factor": 1.5000000000000002,
@@ -257,7 +373,7 @@
           "changedLineHeightPx": 25.92
         },
         {
-          "role": "counter",
+          "role": "privacy-help",
           "baselineFontPx": 11.52,
           "changedFontPx": 17.28,
           "factor": 1.5000000000000002,
@@ -286,7 +402,7 @@
         "associationsPreserved": true
       },
       "geometry": {
-        "layout": "not-applicable",
+        "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
         "ownedScrollers": 0
@@ -300,7 +416,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:27:17.224Z"
+      "capturedAt": "2026-09-30T14:43:17.395Z"
     },
     {
       "id": "v2-home-maximum-200",
@@ -311,7 +427,7 @@
         "maximum-input"
       ],
       "coverage": [
-        "synthetic-root-text",
+        "synthetic-computed-text",
         "factor-200",
         "viewport-375"
       ],
@@ -320,12 +436,28 @@
         "selector": ".idea-meta",
         "matched": 1
       },
-      "method": "synthetic-root-text",
+      "method": "synthetic-computed-text",
       "evidenceClass": "synthetic",
       "requestedFactor": 2,
       "achieved": [
         {
-          "role": "help",
+          "role": "maximum-input",
+          "baselineFontPx": 16,
+          "changedFontPx": 32,
+          "factor": 2,
+          "baselineLineHeightPx": 26.4,
+          "changedLineHeightPx": 52.8
+        },
+        {
+          "role": "cta",
+          "baselineFontPx": 16,
+          "changedFontPx": 32,
+          "factor": 2,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 54.4
+        },
+        {
+          "role": "counter",
           "baselineFontPx": 11.52,
           "changedFontPx": 23.04,
           "factor": 2,
@@ -333,7 +465,7 @@
           "changedLineHeightPx": 34.56
         },
         {
-          "role": "counter",
+          "role": "privacy-help",
           "baselineFontPx": 11.52,
           "changedFontPx": 23.04,
           "factor": 2,
@@ -362,7 +494,7 @@
         "associationsPreserved": true
       },
       "geometry": {
-        "layout": "not-applicable",
+        "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
         "ownedScrollers": 0
@@ -376,7 +508,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:27:18.001Z"
+      "capturedAt": "2026-09-30T14:43:18.165Z"
     },
     {
       "id": "v2-home-spacing-line-height",
@@ -400,7 +532,7 @@
       "requestedFactor": 1,
       "achieved": [
         {
-          "role": "help",
+          "role": "counter",
           "baselineFontPx": 11.52,
           "changedFontPx": 11.52,
           "factor": 1,
@@ -408,7 +540,7 @@
           "changedLineHeightPx": 17.28
         },
         {
-          "role": "counter",
+          "role": "privacy-help",
           "baselineFontPx": 11.52,
           "changedFontPx": 11.52,
           "factor": 1,
@@ -437,7 +569,7 @@
         "associationsPreserved": true
       },
       "geometry": {
-        "layout": "not-applicable",
+        "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
         "ownedScrollers": 0
@@ -456,7 +588,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:27:18.363Z"
+      "capturedAt": "2026-09-30T14:43:18.509Z"
     },
     {
       "id": "v2-home-spacing-paragraph",
@@ -480,7 +612,7 @@
       "requestedFactor": 1,
       "achieved": [
         {
-          "role": "help",
+          "role": "counter",
           "baselineFontPx": 11.52,
           "changedFontPx": 11.52,
           "factor": 1,
@@ -488,7 +620,7 @@
           "changedLineHeightPx": 17.28
         },
         {
-          "role": "counter",
+          "role": "privacy-help",
           "baselineFontPx": 11.52,
           "changedFontPx": 11.52,
           "factor": 1,
@@ -517,7 +649,7 @@
         "associationsPreserved": true
       },
       "geometry": {
-        "layout": "not-applicable",
+        "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
         "ownedScrollers": 0
@@ -536,7 +668,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:27:18.730Z"
+      "capturedAt": "2026-09-30T14:43:18.827Z"
     },
     {
       "id": "v2-home-spacing-letter",
@@ -560,7 +692,7 @@
       "requestedFactor": 1,
       "achieved": [
         {
-          "role": "help",
+          "role": "counter",
           "baselineFontPx": 11.52,
           "changedFontPx": 11.52,
           "factor": 1,
@@ -568,7 +700,7 @@
           "changedLineHeightPx": 17.28
         },
         {
-          "role": "counter",
+          "role": "privacy-help",
           "baselineFontPx": 11.52,
           "changedFontPx": 11.52,
           "factor": 1,
@@ -597,7 +729,7 @@
         "associationsPreserved": true
       },
       "geometry": {
-        "layout": "not-applicable",
+        "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
         "ownedScrollers": 0
@@ -616,7 +748,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:27:19.111Z"
+      "capturedAt": "2026-09-30T14:43:19.175Z"
     },
     {
       "id": "v2-home-spacing-word",
@@ -640,7 +772,7 @@
       "requestedFactor": 1,
       "achieved": [
         {
-          "role": "help",
+          "role": "counter",
           "baselineFontPx": 11.52,
           "changedFontPx": 11.52,
           "factor": 1,
@@ -648,7 +780,7 @@
           "changedLineHeightPx": 17.28
         },
         {
-          "role": "counter",
+          "role": "privacy-help",
           "baselineFontPx": 11.52,
           "changedFontPx": 11.52,
           "factor": 1,
@@ -677,7 +809,7 @@
         "associationsPreserved": true
       },
       "geometry": {
-        "layout": "not-applicable",
+        "layout": "stacked",
         "nonoverlapping": true,
         "contentVisible": true,
         "ownedScrollers": 0
@@ -696,7 +828,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T14:27:19.719Z"
+      "capturedAt": "2026-09-30T14:43:19.561Z"
     }
   ],
   "execution": {

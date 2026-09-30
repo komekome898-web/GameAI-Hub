@@ -294,6 +294,19 @@ test("initial-fragment reconciliation yields to the reader and rearms for later 
         .__fragmentScrolls.push({ id: this.id, at: performance.now() });
       return original.apply(this, args as [ScrollIntoViewOptions]);
     };
+    const delayedFonts = new Promise<FontFaceSet>((resolve) => {
+      window.setTimeout(() => {
+        Object.defineProperty(window, "__delayedFontsResolved", {
+          configurable: true,
+          value: true,
+        });
+        resolve(document.fonts);
+      }, 1400);
+    });
+    Object.defineProperty(document.fonts, "ready", {
+      configurable: true,
+      value: delayedFonts,
+    });
   });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(
@@ -309,6 +322,9 @@ test("initial-fragment reconciliation yields to the reader and rearms for later 
     y: scrollY,
   }));
   await page.waitForTimeout(1700);
+  expect(await page.evaluate(() =>
+    Boolean((window as typeof window & { __delayedFontsResolved?: boolean }).__delayedFontsResolved),
+  )).toBe(true);
   expect(await page.evaluate(() =>
     (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
   )).toBe(interrupted.count);

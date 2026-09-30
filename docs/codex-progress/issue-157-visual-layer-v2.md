@@ -66,7 +66,7 @@ GitHub checks, E2E, observe, and Vercel exact-head status passed for the correct
 ## Evidence-first continuation from `56ade211`
 
 - Added the first typed Stage B application emitter at
-  `e2e/issue-157-reflow-evidence.spec.ts`. Its V2 Home subset has nine actual
+  `e2e/issue-157-reflow-evidence.spec.ts`. Its V2 Home subset has ten actual
   records covering `VL-V2-HOME-INITIAL` and all four `VL-V2-HOME-META`
   variants, including bound 100/150/200 measurements and four independent
   spacing methods. Output is retained under the CI-uploaded
