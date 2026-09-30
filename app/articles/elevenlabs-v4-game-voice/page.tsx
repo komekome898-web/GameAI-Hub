@@ -57,8 +57,8 @@ export default function ElevenLabsV4GameVoice() {
             <div>
               <dt>リアルタイムAI NPC</dt>
               <dd>
-                実行時に文章が変わり、応答速度が必要な場合だけv4
-                Turboを検討する。
+                表現力のあるリアルタイム演技ならv4 Turboを検討する。遅延やコストを優先する場合はFlash
+                v2.5とも比較する。
               </dd>
             </div>
           </dl>
@@ -105,10 +105,10 @@ export default function ElevenLabsV4GameVoice() {
                   <td>90以上</td>
                 </tr>
                 <tr>
-                  <th>文字数上限</th>
+                  <th>公式Model資料のAPI文字数上限</th>
                   <td>5,000</td>
                   <td>10,000</td>
-                  <td>10,000</td>
+                  <td>同じ数値の明記を確認できず</td>
                 </tr>
                 <tr>
                   <th>Audio Tags / 複数話者</th>
@@ -118,7 +118,7 @@ export default function ElevenLabsV4GameVoice() {
                 </tr>
                 <tr>
                   <th>PVC</th>
-                  <td>非対応</td>
+                  <td>製品page: 利用不可 / prompting: 未最適化</td>
                   <td>対応</td>
                   <td>対応</td>
                 </tr>
@@ -135,6 +135,11 @@ export default function ElevenLabsV4GameVoice() {
             Turboの遅延は、モデル資料の「約100msのmedian inference
             latency」と製品・公開資料の「約150msのmedian time to first
             speech」が併存します。推論時間と最初の発声までの時間は同じ指標ではないため、1つの「遅延値」にまとめず、実際の通信・LLM・再生開始を含む構成で測定します。
+          </p>
+          <p>
+            また、公式Model資料はFlash v2.5を約75msの低遅延モデルとして掲載しています。v4
+            Turboは表現力のあるリアルタイムキャラクター／agentの候補ですが、「ElevenLabsで常に最速」とは扱いません。遅延とコストが最優先ならFlash
+            v2.5も同じ実装条件で比較してください。
           </p>
         </section>
 
@@ -223,12 +228,12 @@ export default function ElevenLabsV4GameVoice() {
           <p>
             Text to Dialogueでは各turnに本文と<code>voice_id</code>
             を割り当て、turnごとにAudio
-            Tagsを置けます。話者数の上限は公式資料に明記されていません。出力は非決定的で、seedは一貫性を改善し得ますが同一結果を保証しません。
+            Tagsを置けます。公式資料は、1つのdialogueに話者数の上限はないと明記しています。ただし、これは大人数のcastを1つの制作単位にまとめる推奨ではありません。場面単位に分け、話者別の編集や差し替えが必要かを先に決めます。出力は非決定的で、seedは一貫性を改善し得ますが同一結果を保証しません。
           </p>
           <p>
             長い会話は場面単位に分けます。公式資料は、大規模な会話生成の信頼性のため1リクエストの
             <code>inputs[].text</code>
-            合計を2,000文字以下にするよう勧めています。ダッシュボードでは本文と設定が同じ場合に最大2回の無料再生成が案内されていますが、現行画面も確認してください。
+            合計を2,000文字以下にするよう勧めています。これは信頼性のためのベストプラクティスであり、上表のモデル／API文字数上限とは別です。ダッシュボードでは本文と設定が同じ場合に最大2回の無料再生成が案内されていますが、現行画面も確認してください。
           </p>
           <ul className="article-checkpoints">
             <li>
@@ -260,7 +265,8 @@ export default function ElevenLabsV4GameVoice() {
           <h2>Voice Cloneとキャラクターの一貫性</h2>
           <p>
             IVC（Instant Voice Cloning）は短い試作、PVC（Professional Voice
-            Cloning）は検証を伴う高忠実度の方式という大まかな違いがあります。v4はIVC/PVCに対応し、v3で非対応だったPVCが戻りました。公式v4資料は既存cloneについてv4向けの再学習・fine-tuningが必要になり得るとしています。
+            Cloning）は検証を伴う高忠実度の方式という大まかな違いがあります。公式v4製品ページはPVCがv3で利用できずv4で戻ったと説明する一方、現行のprompting資料はv3のPVCを「完全には最適化されず、clone品質が下がり得る」と説明しており、公式資料間で表現が一致しません。v4はPVCを明示的にサポートし、PVCやVoice
+            Libraryにはv4が現在の推奨先です。公式v4資料は既存cloneについてv4向けの再学習・fine-tuningが必要になり得るとしています。
           </p>
           <p>
             製品資料には約10秒からのcloning表現がありますが、運用docsは品質のためIVCで約1〜2分、PVCではさらに多い清潔な録音を推奨しています。「10秒がベストプラクティス」とは扱いません。権利、本人同意、商用条件は

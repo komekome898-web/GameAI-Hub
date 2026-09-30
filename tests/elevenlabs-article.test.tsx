@@ -71,6 +71,28 @@ describe("ElevenLabs v4 game-voice article", () => {
     expect(html).toContain('rel="sponsored nofollow noopener"');
     expect(html).toContain('href="/project?source=elevenlabs-v4-game-voice"');
   });
+
+  it("preserves the official limits, realtime comparison and PVC discrepancy", () => {
+    const html = renderToStaticMarkup(<ElevenLabsV4GameVoice />);
+
+    expect(html).toContain("公式Model資料のAPI文字数上限");
+    expect(html).toContain(
+      "<th>公式Model資料のAPI文字数上限</th><td>5,000</td><td>10,000</td><td>同じ数値の明記を確認できず</td>",
+    );
+    expect(html).not.toContain(
+      "<th>公式Model資料のAPI文字数上限</th><td>5,000</td><td>10,000</td><td>10,000</td>",
+    );
+    expect(html).toContain("同じ数値の明記を確認できず");
+    expect(html).toContain("1つのdialogueに話者数の上限はない");
+    expect(html).not.toContain("話者数の上限は公式資料に明記されていません");
+    expect(html).toContain("ベストプラクティス");
+    expect(html).toContain("約75msの低遅延モデル");
+    expect(html).toContain("遅延やコストを優先する場合はFlash");
+    expect(html).toContain("公式資料間で表現が一致しません");
+    expect(html).toContain("製品page: 利用不可 / prompting: 未最適化");
+    expect(html).toContain("完全には最適化されず、clone品質が下がり得る");
+    expect(html).not.toContain("v3で非対応だったPVCが戻りました");
+  });
 });
 
 describe("ElevenLabs commercial-use article", () => {

@@ -624,7 +624,7 @@ export const articles = [
     lastVerifiedAt: "2026-09-30",
     author: "AI Iterproof編集部",
     editorialNote:
-      "ElevenLabs公式の機能、v4モデル、API出力形式、料金、規約を2026-09-30に再確認しました。音声の自然さは文章・声・設定で変わるため、代表セリフを実際のゲーム内で検品する手順を基準にしています。",
+      "ElevenLabs公式のv4公開情報を2026-09-30に追加確認しました。既存の機能、Sound Effects、API出力形式、料金、規約の確認日は各sourceに記録しています。音声の自然さは文章・声・設定で変わるため、代表セリフを実際のゲーム内で検品する手順を基準にしています。",
     sources: [
       {
         label: "ElevenLabs: Eleven v4 release",
