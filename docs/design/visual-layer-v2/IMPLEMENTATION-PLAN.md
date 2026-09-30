@@ -6,7 +6,7 @@ The active rules are in `REFLOW-CONTRACT.md`; exact owned cases are in `TEST-MAT
 
 | Phase / family | runtime ownership (inspect before edit) | transition and state coverage | rollback |
 |---|---|---|---|
-| V0 inventory | `app/**`, `components/**`, current CSS/routes; no runtime edit | inventory actual selectors, computed typography and applied breakpoints; all VL-DES IDs have cases | remove Stage A docs/tests only |
+| V0 inventory | `app/**`, `components/**`, current CSS/routes; no runtime edit | reconcile actual selectors, computed typography and applied breakpoints; static inventory ownership is not rendered evidence and future selectors stay explicitly planned | remove Stage A docs/tests only |
 | retained V1 START | `app/articles/page.tsx`, `app/visual-layer-v2.css`, visual mapping | preserve three static links/order, 320 flat fallback, 12px accepted metadata; shared probe at 100/150/200 and long content | do not edit runtime; historical CSS remains |
 | V2 Home | `app/page.tsx`, Home/form components, scoped Visual Layer CSS | empty/max/validation/examples; counter→privacy/help stack; CTA natural height; normal first view versus enlarged/short-height scrolling | remove scoped V2 class/rules; preserve idea→Project and analytics privacy |
 | V2 Project | `app/project/page.tsx`, `components/ProjectGeneratorClient.tsx`, scoped CSS | input/clarify/loading/error/result/task/workspace/no-workspace/done/next/recovery; heading→status→actions; task/workspace one-column fallback; sticky focus-safe normal flow; long notes/file/error; copy/save/expanded states | revert Project-only class/rules; no business/provider/storage migration |

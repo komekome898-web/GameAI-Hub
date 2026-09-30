@@ -1,5 +1,5 @@
 {
-  "schema": "gameai-reflow-matrix/v1",
+  "schema": "gameai-reflow-matrix/v2",
   "authority": "docs/design/visual-layer-v2/README.md",
   "statusDefinitions": {
     "PLANNED": "owned but runtime not implemented/executed",
@@ -10,22 +10,29 @@
   "cases": [
     {
       "id": "VL-V0-INVENTORY",
-      "findings": [
-        "VL-DES-01",
-        "VL-DES-03",
-        "VL-DES-07"
-      ],
+      "findings": ["VL-DES-01", "VL-DES-03", "VL-DES-07"],
       "phase": "V0",
       "route": "/*",
       "state": "route/selector/token/breakpoint inventory",
       "surface": "all current route families",
-      "selector": "repository inventory",
-      "method": [
-        "static-inventory"
-      ],
+      "method": ["static-inventory"],
       "owner": "Stage A matrix validator",
       "requiredForFinal": false,
-      "status": "IMPLEMENTED"
+      "status": "IMPLEMENTED",
+      "surfaceRequirement": {
+        "kind": "static",
+        "artifact": "repository-inventory"
+      },
+      "variants": [
+        {
+          "id": "route-selector-token-breakpoint-inventory",
+          "state": "route-selector-token-breakpoint-inventory",
+          "route": {
+            "kind": "exact",
+            "value": "/repository"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V0-CONTRACT",
@@ -42,26 +49,32 @@
       "route": "/*",
       "state": "active authority and rule traceability",
       "surface": "all phases",
-      "selector": "active contract",
-      "method": [
-        "document-review"
-      ],
+      "method": ["document-review"],
       "owner": "Stage A independent reviewer",
       "requiredForFinal": false,
-      "status": "IMPLEMENTED"
+      "status": "IMPLEMENTED",
+      "surfaceRequirement": {
+        "kind": "static",
+        "artifact": "active-contract"
+      },
+      "variants": [
+        {
+          "id": "active-authority-and-rule-traceability",
+          "state": "active-authority-and-rule-traceability",
+          "route": {
+            "kind": "exact",
+            "value": "/repository"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V1-METADATA",
-      "findings": [
-        "VL-DES-01",
-        "VL-DES-02",
-        "VL-DES-07"
-      ],
+      "findings": ["VL-DES-01", "VL-DES-02", "VL-DES-07"],
       "phase": "V1",
       "route": "/articles/",
       "state": "START metadata at 100/150/200",
       "surface": "label and date row",
-      "selector": "#start .v2-start-card-meta",
       "method": [
         "viewport-reflow",
         "synthetic-root-text",
@@ -74,61 +87,117 @@
       ],
       "owner": "e2e/issue-155-v1.spec.ts",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED"
+      "status": "IMPLEMENTED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": "#start .v2-start-card-meta",
+        "maturity": "measured"
+      },
+      "variants": [
+        {
+          "id": "metadata-100",
+          "state": "metadata-100",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/"
+          }
+        },
+        {
+          "id": "metadata-150",
+          "state": "metadata-150",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/"
+          }
+        },
+        {
+          "id": "metadata-200",
+          "state": "metadata-200",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/"
+          }
+        }
+      ],
+      "bindings": [
+        {
+          "id": "scale-100-320",
+          "variantId": "metadata-100",
+          "requires": ["synthetic-computed-text", "factor-100", "viewport-320"]
+        },
+        {
+          "id": "scale-150-320",
+          "variantId": "metadata-150",
+          "requires": ["synthetic-computed-text", "factor-150", "viewport-320"]
+        },
+        {
+          "id": "scale-200-375",
+          "variantId": "metadata-200",
+          "requires": ["synthetic-root-text", "factor-200", "viewport-375"]
+        }
+      ]
     },
     {
       "id": "VL-V1-LONG-CONTENT",
-      "findings": [
-        "VL-DES-02",
-        "VL-DES-05",
-        "VL-DES-07",
-        "VL-DES-01"
-      ],
+      "findings": ["VL-DES-02", "VL-DES-05", "VL-DES-07", "VL-DES-01"],
       "phase": "V1",
       "route": "/articles/",
       "state": "long Japanese and unbroken ASCII",
       "surface": "START card",
-      "selector": "#start .v2-start-card",
-      "method": [
-        "long-content",
-        "surface-probe"
-      ],
+      "method": ["long-content", "surface-probe"],
       "owner": "e2e/issue-155-v1.spec.ts",
       "requiredForFinal": true,
-      "status": "IMPLEMENTED"
+      "status": "IMPLEMENTED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": "#start li:first-child .v2-start-card",
+        "maturity": "measured"
+      },
+      "variants": [
+        {
+          "id": "long-japanese-and-unbroken-ascii",
+          "state": "long-japanese-and-unbroken-ascii",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V2-HOME-INITIAL",
-      "findings": [
-        "VL-DES-01",
-        "VL-DES-03",
-        "VL-DES-04"
-      ],
+      "findings": ["VL-DES-01", "VL-DES-03", "VL-DES-04"],
       "phase": "V2",
       "route": "/",
       "state": "empty initial/normal first view",
       "surface": "idea form and CTA",
-      "selector": ".home-hero",
-      "method": [
-        "viewport-reflow",
-        "text-scale"
-      ],
+      "method": ["viewport-reflow", "text-scale"],
       "owner": "Stage B V2 Home spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".home-hero",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "empty-initial-normal-first-view",
+          "state": "empty-initial-normal-first-view",
+          "route": {
+            "kind": "exact",
+            "value": "/"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V2-HOME-META",
-      "findings": [
-        "VL-DES-02",
-        "VL-DES-04",
-        "VL-DES-07"
-      ],
+      "findings": ["VL-DES-02", "VL-DES-04", "VL-DES-07"],
       "phase": "V2",
       "route": "/",
       "state": "counter/privacy, validation, examples expanded, max input",
       "surface": "counter, help, error, CTA",
-      "selector": ".idea-meta",
       "method": [
         "semantic-row",
         "text-spacing",
@@ -145,62 +214,189 @@
       ],
       "owner": "Stage B V2 Home spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".idea-meta",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "counter-privacy-validation-examples-expanded-max-input",
+          "state": "counter-privacy-validation-examples-expanded-max-input",
+          "route": {
+            "kind": "exact",
+            "value": "/"
+          }
+        }
+      ],
+      "bindings": [
+        {
+          "id": "scale-100-320",
+          "variantId": "counter-privacy-validation-examples-expanded-max-input",
+          "requires": ["factor-100", "viewport-320"]
+        },
+        {
+          "id": "scale-150-320",
+          "variantId": "counter-privacy-validation-examples-expanded-max-input",
+          "requires": ["factor-150", "viewport-320"]
+        },
+        {
+          "id": "scale-200-375",
+          "variantId": "counter-privacy-validation-examples-expanded-max-input",
+          "requires": ["factor-200", "viewport-375"]
+        }
+      ]
     },
     {
       "id": "VL-V2-PROJECT-STATES",
-      "findings": [
-        "VL-DES-02",
-        "VL-DES-03",
-        "VL-DES-04"
-      ],
+      "findings": ["VL-DES-02", "VL-DES-03", "VL-DES-04"],
       "phase": "V2",
       "route": "/project/",
       "state": "input/clarification/loading/error/result/done/next/recovery",
       "surface": "Project heading, status, actions",
-      "selector": ".project-shell",
-      "method": [
-        "viewport-reflow",
-        "semantic-row",
-        "short-height"
-      ],
+      "method": ["viewport-reflow", "semantic-row", "short-height"],
       "owner": "Stage B V2 Project spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".project-shell",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "input",
+          "state": "input",
+          "route": {
+            "kind": "exact",
+            "value": "/project/"
+          }
+        },
+        {
+          "id": "clarification",
+          "state": "clarification",
+          "route": {
+            "kind": "exact",
+            "value": "/project/"
+          }
+        },
+        {
+          "id": "loading",
+          "state": "loading",
+          "route": {
+            "kind": "exact",
+            "value": "/project/"
+          }
+        },
+        {
+          "id": "error",
+          "state": "error",
+          "route": {
+            "kind": "exact",
+            "value": "/project/"
+          }
+        },
+        {
+          "id": "result",
+          "state": "result",
+          "route": {
+            "kind": "exact",
+            "value": "/project/"
+          }
+        },
+        {
+          "id": "done",
+          "state": "done",
+          "route": {
+            "kind": "exact",
+            "value": "/project/"
+          }
+        },
+        {
+          "id": "next",
+          "state": "next",
+          "route": {
+            "kind": "exact",
+            "value": "/project/"
+          }
+        },
+        {
+          "id": "recovery",
+          "state": "recovery",
+          "route": {
+            "kind": "exact",
+            "value": "/project/"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V2-PROJECT-WORKSPACE",
-      "findings": [
-        "VL-DES-03",
-        "VL-DES-04",
-        "VL-DES-05"
-      ],
+      "findings": ["VL-DES-03", "VL-DES-04", "VL-DES-05"],
       "phase": "V2",
       "route": "/project/",
       "state": "workspace and no-workspace; copy/save failure/expanded",
       "surface": "task/workspace/sticky actions",
-      "selector": ".project-workspace",
-      "method": [
-        "long-content",
-        "focus-reachability",
-        "text-scale"
-      ],
+      "method": ["long-content", "focus-reachability", "text-scale"],
       "owner": "Stage B V2 Project spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".project-workspace",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "workspace",
+          "state": "workspace",
+          "route": {
+            "kind": "exact",
+            "value": "/project/"
+          }
+        },
+        {
+          "id": "no-workspace",
+          "state": "no-workspace",
+          "route": {
+            "kind": "exact",
+            "value": "/project/"
+          }
+        },
+        {
+          "id": "copy-failure",
+          "state": "copy-failure",
+          "route": {
+            "kind": "exact",
+            "value": "/project/"
+          }
+        },
+        {
+          "id": "save-failure",
+          "state": "save-failure",
+          "route": {
+            "kind": "exact",
+            "value": "/project/"
+          }
+        },
+        {
+          "id": "expanded",
+          "state": "expanded",
+          "route": {
+            "kind": "exact",
+            "value": "/project/"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V2-PROJECT-TOKENS",
-      "findings": [
-        "VL-DES-01",
-        "VL-DES-05",
-        "VL-DES-07"
-      ],
+      "findings": ["VL-DES-01", "VL-DES-05", "VL-DES-07"],
       "phase": "V2",
       "route": "/project/",
       "state": "long project/task/note/file/runtime error",
       "surface": "human text and code regions",
-      "selector": ".project-shell",
       "method": [
         "synthetic-computed-text",
         "owned-scroll",
@@ -213,21 +409,47 @@
       ],
       "owner": "Stage B V2 Project spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".project-shell",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "long-project-task-note-file-runtime-error",
+          "state": "long-project-task-note-file-runtime-error",
+          "route": {
+            "kind": "exact",
+            "value": "/project/"
+          }
+        }
+      ],
+      "bindings": [
+        {
+          "id": "scale-100-320",
+          "variantId": "long-project-task-note-file-runtime-error",
+          "requires": ["factor-100", "viewport-320"]
+        },
+        {
+          "id": "scale-150-320",
+          "variantId": "long-project-task-note-file-runtime-error",
+          "requires": ["factor-150", "viewport-320"]
+        },
+        {
+          "id": "scale-200-375",
+          "variantId": "long-project-task-note-file-runtime-error",
+          "requires": ["factor-200", "viewport-375"]
+        }
+      ]
     },
     {
       "id": "VL-V3-TOOLS",
-      "findings": [
-        "VL-DES-01",
-        "VL-DES-02",
-        "VL-DES-03",
-        "VL-DES-05"
-      ],
+      "findings": ["VL-DES-01", "VL-DES-02", "VL-DES-03", "VL-DES-05"],
       "phase": "V3",
       "route": "/tools/",
       "state": "goal/filter/search/count/help/reset/empty/error",
       "surface": "results header, filters, cards",
-      "selector": ".tools-page",
       "method": [
         "semantic-row",
         "long-content",
@@ -244,81 +466,232 @@
       ],
       "owner": "Stage B V3 directories spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".tools-page",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "goal",
+          "state": "goal",
+          "route": {
+            "kind": "exact",
+            "value": "/tools/"
+          }
+        },
+        {
+          "id": "filter",
+          "state": "filter",
+          "route": {
+            "kind": "exact",
+            "value": "/tools/"
+          }
+        },
+        {
+          "id": "search",
+          "state": "search",
+          "route": {
+            "kind": "exact",
+            "value": "/tools/"
+          }
+        },
+        {
+          "id": "count",
+          "state": "count",
+          "route": {
+            "kind": "exact",
+            "value": "/tools/"
+          }
+        },
+        {
+          "id": "help",
+          "state": "help",
+          "route": {
+            "kind": "exact",
+            "value": "/tools/"
+          }
+        },
+        {
+          "id": "reset",
+          "state": "reset",
+          "route": {
+            "kind": "exact",
+            "value": "/tools/"
+          }
+        },
+        {
+          "id": "empty",
+          "state": "empty",
+          "route": {
+            "kind": "exact",
+            "value": "/tools/"
+          }
+        },
+        {
+          "id": "error",
+          "state": "error",
+          "route": {
+            "kind": "exact",
+            "value": "/tools/"
+          }
+        }
+      ],
+      "bindings": [
+        {
+          "id": "scale-100-320",
+          "variantId": "goal",
+          "requires": ["factor-100", "viewport-320"]
+        },
+        {
+          "id": "scale-150-320",
+          "variantId": "filter",
+          "requires": ["factor-150", "viewport-320"]
+        },
+        {
+          "id": "scale-200-375",
+          "variantId": "search",
+          "requires": ["factor-200", "viewport-375"]
+        }
+      ]
     },
     {
       "id": "VL-V3-GUIDES",
-      "findings": [
-        "VL-DES-02",
-        "VL-DES-03",
-        "VL-DES-05"
-      ],
+      "findings": ["VL-DES-02", "VL-DES-03", "VL-DES-05"],
       "phase": "V3",
       "route": "/guides/",
       "state": "stage/reset/expanded constraints/long values",
       "surface": "stage status and guide results",
-      "selector": ".guides-page",
-      "method": [
-        "semantic-row",
-        "viewport-reflow",
-        "long-content"
-      ],
+      "method": ["semantic-row", "viewport-reflow", "long-content"],
       "owner": "Stage B V3 directories spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".guides-page",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "stage-reset-expanded-constraints-long-values",
+          "state": "stage-reset-expanded-constraints-long-values",
+          "route": {
+            "kind": "exact",
+            "value": "/guides/"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V3-DIRECTORY-NAV",
-      "findings": [
-        "VL-DES-04",
-        "VL-DES-07"
-      ],
+      "findings": ["VL-DES-04", "VL-DES-07"],
       "phase": "V3",
       "route": "/tools/",
       "state": "return context/back-forward/current ordering",
       "surface": "directory navigation and Project return",
-      "selector": ".tools-page",
-      "method": [
-        "journey",
-        "focus-reachability"
-      ],
+      "method": ["journey", "focus-reachability"],
       "owner": "Stage B V3 journey spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".tools-page",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "return-context-back-forward-current-ordering",
+          "state": "return-context-back-forward-current-ordering",
+          "route": {
+            "kind": "exact",
+            "value": "/tools/"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V3-COMPARE-TRAY",
-      "findings": [
-        "VL-DES-02",
-        "VL-DES-04",
-        "VL-DES-05"
-      ],
+      "findings": ["VL-DES-02", "VL-DES-04", "VL-DES-05"],
       "phase": "V3",
       "route": "/compare/",
       "state": "0/1/2/4 candidates, limit/remove/clear",
       "surface": "candidate name and remove control",
-      "selector": ".compare-tray",
-      "method": [
-        "semantic-row",
-        "target-size",
-        "long-content"
-      ],
+      "method": ["semantic-row", "target-size", "long-content"],
       "owner": "Stage B V3 Compare spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".compare-tray",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "zero",
+          "state": "zero",
+          "route": {
+            "kind": "exact",
+            "value": "/compare/"
+          }
+        },
+        {
+          "id": "one",
+          "state": "one",
+          "route": {
+            "kind": "exact",
+            "value": "/compare/"
+          }
+        },
+        {
+          "id": "two",
+          "state": "two",
+          "route": {
+            "kind": "exact",
+            "value": "/compare/"
+          }
+        },
+        {
+          "id": "four",
+          "state": "four",
+          "route": {
+            "kind": "exact",
+            "value": "/compare/"
+          }
+        },
+        {
+          "id": "limit",
+          "state": "limit",
+          "route": {
+            "kind": "exact",
+            "value": "/compare/"
+          }
+        },
+        {
+          "id": "remove",
+          "state": "remove",
+          "route": {
+            "kind": "exact",
+            "value": "/compare/"
+          }
+        },
+        {
+          "id": "clear",
+          "state": "clear",
+          "route": {
+            "kind": "exact",
+            "value": "/compare/"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V3-COMPARE-TABLE",
-      "findings": [
-        "VL-DES-03",
-        "VL-DES-05",
-        "VL-DES-07"
-      ],
+      "findings": ["VL-DES-03", "VL-DES-05", "VL-DES-07"],
       "phase": "V3",
       "route": "/compare/",
       "state": "differences and long values/status",
       "surface": "mobile criteria and desktop semantic table",
-      "selector": ".compare-page",
       "method": [
         "owned-scroll",
         "breakpoint-neighbors",
@@ -331,60 +704,101 @@
       ],
       "owner": "Stage B V3 Compare spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".compare-page",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "differences-and-long-values-status",
+          "state": "differences-and-long-values-status",
+          "route": {
+            "kind": "exact",
+            "value": "/compare/"
+          }
+        }
+      ],
+      "bindings": [
+        {
+          "id": "scale-100-320",
+          "variantId": "differences-and-long-values-status",
+          "requires": ["factor-100", "viewport-320"]
+        },
+        {
+          "id": "scale-150-320",
+          "variantId": "differences-and-long-values-status",
+          "requires": ["factor-150", "viewport-320"]
+        },
+        {
+          "id": "scale-200-375",
+          "variantId": "differences-and-long-values-status",
+          "requires": ["factor-200", "viewport-375"]
+        }
+      ]
     },
     {
       "id": "VL-V3-COMPARE-NAV",
-      "findings": [
-        "VL-DES-04",
-        "VL-DES-07"
-      ],
+      "findings": ["VL-DES-04", "VL-DES-07"],
       "phase": "V3",
       "route": "/compare/",
       "state": "URL/history/focus/Project return",
       "surface": "picker and comparison controls",
-      "selector": ".compare-page",
-      "method": [
-        "journey",
-        "focus-reachability"
-      ],
+      "method": ["journey", "focus-reachability"],
       "owner": "Stage B V3 Compare spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".compare-page",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "url-history-focus-project-return",
+          "state": "url-history-focus-project-return",
+          "route": {
+            "kind": "exact",
+            "value": "/compare/"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V3-ARTICLE-HUB",
-      "findings": [
-        "VL-DES-01",
-        "VL-DES-02",
-        "VL-DES-03"
-      ],
+      "findings": ["VL-DES-01", "VL-DES-02", "VL-DES-03"],
       "phase": "V3",
       "route": "/articles/",
       "state": "non-START groups and long metadata",
       "surface": "hub rows/cards",
-      "selector": ".article-hub",
-      "method": [
-        "viewport-reflow",
-        "semantic-row",
-        "text-scale"
-      ],
+      "method": ["viewport-reflow", "semantic-row", "text-scale"],
       "owner": "Stage B V3 reading spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".article-hub",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "non-start-groups-and-long-metadata",
+          "state": "non-start-groups-and-long-metadata",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V3-ARTICLE-READING",
-      "findings": [
-        "VL-DES-01",
-        "VL-DES-02",
-        "VL-DES-05"
-      ],
+      "findings": ["VL-DES-01", "VL-DES-02", "VL-DES-05"],
       "phase": "V3",
       "route": "/articles/[slug]/",
       "state": "how-to/code and commercial/pricing/table",
       "surface": "title/meta/source/disclosure/TOC/portals",
-      "selector": ".article-shell",
       "method": [
         "long-content",
         "text-spacing",
@@ -401,40 +815,74 @@
       ],
       "owner": "Stage B V3 reading spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".article-shell",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "how-to-code-and-commercial-pricing-table",
+          "state": "how-to-code-and-commercial-pricing-table",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/example/"
+          }
+        }
+      ],
+      "bindings": [
+        {
+          "id": "scale-100-320",
+          "variantId": "how-to-code-and-commercial-pricing-table",
+          "requires": ["factor-100", "viewport-320"]
+        },
+        {
+          "id": "scale-150-320",
+          "variantId": "how-to-code-and-commercial-pricing-table",
+          "requires": ["factor-150", "viewport-320"]
+        },
+        {
+          "id": "scale-200-375",
+          "variantId": "how-to-code-and-commercial-pricing-table",
+          "requires": ["factor-200", "viewport-375"]
+        }
+      ]
     },
     {
       "id": "VL-V3-ELEVENLABS",
-      "findings": [
-        "VL-DES-02",
-        "VL-DES-05",
-        "VL-DES-07"
-      ],
+      "findings": ["VL-DES-02", "VL-DES-05", "VL-DES-07"],
       "phase": "V3",
       "route": "/articles/elevenlabs-v4-game-voice/",
       "state": "PR #154 preservation smoke",
       "surface": "article facts/source/affiliate/Project CTA",
-      "selector": ".article-shell",
-      "method": [
-        "content-regression",
-        "surface-probe"
-      ],
+      "method": ["content-regression", "surface-probe"],
       "owner": "Stage B V3 reading spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".article-shell",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "pr-154-preservation-smoke",
+          "state": "pr-154-preservation-smoke",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/elevenlabs-v4-game-voice/"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V3-TRUST",
-      "findings": [
-        "VL-DES-02",
-        "VL-DES-03",
-        "VL-DES-05"
-      ],
+      "findings": ["VL-DES-02", "VL-DES-03", "VL-DES-05"],
       "phase": "V3",
       "route": "/privacy/|/methodology/|/affiliate-disclosure/",
       "state": "long trust copy/source links",
       "surface": "trust reading surfaces",
-      "selector": "main",
       "method": [
         "viewport-reflow",
         "long-content",
@@ -446,27 +894,49 @@
       ],
       "owner": "Stage B V3 trust spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": "main",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "long-trust-copy-source-links",
+          "state": "long-trust-copy-source-links",
+          "route": {
+            "kind": "exact",
+            "value": "/privacy/"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V3-DETAILS",
-      "findings": [
-        "VL-DES-02",
-        "VL-DES-03",
-        "VL-DES-05"
-      ],
+      "findings": ["VL-DES-02", "VL-DES-03", "VL-DES-05"],
       "phase": "V3",
       "route": "/tools/[slug]/|/guides/[slug]/|/stacks/",
       "state": "details, loading, error, not-found",
       "surface": "remaining route families",
-      "selector": "main",
-      "method": [
-        "route-family",
-        "long-content"
-      ],
+      "method": ["route-family", "long-content"],
       "owner": "Stage B V3 remaining routes spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": "main",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "details-loading-error-not-found",
+          "state": "details-loading-error-not-found",
+          "route": {
+            "kind": "exact",
+            "value": "/tools/example/"
+          }
+        }
+      ]
     },
     {
       "id": "VL-SHARED-HEADER",
@@ -481,7 +951,6 @@
       "route": "/*",
       "state": "desktop/mobile/menu expanded",
       "surface": "Header/nav/menu/skip link",
-      "selector": ".site-header",
       "method": [
         "text-scale",
         "focus-trap",
@@ -494,7 +963,39 @@
       ],
       "owner": "Stage B V3 shared chrome spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".site-header",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "desktop-mobile-menu-expanded",
+          "state": "desktop-mobile-menu-expanded",
+          "route": {
+            "kind": "exact",
+            "value": "/"
+          }
+        }
+      ],
+      "bindings": [
+        {
+          "id": "scale-100-320",
+          "variantId": "desktop-mobile-menu-expanded",
+          "requires": ["factor-100", "viewport-320"]
+        },
+        {
+          "id": "scale-150-320",
+          "variantId": "desktop-mobile-menu-expanded",
+          "requires": ["factor-150", "viewport-320"]
+        },
+        {
+          "id": "scale-200-375",
+          "variantId": "desktop-mobile-menu-expanded",
+          "requires": ["factor-200", "viewport-375"]
+        }
+      ]
     },
     {
       "id": "VL-SHARED-FOOTER",
@@ -509,7 +1010,6 @@
       "route": "/*",
       "state": "narrow/enlarged footer groups",
       "surface": "Footer groups and copy",
-      "selector": "footer",
       "method": [
         "viewport-reflow",
         "semantic-row",
@@ -519,7 +1019,22 @@
       ],
       "owner": "Stage B V3 shared chrome spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": "footer",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "narrow-enlarged-footer-groups",
+          "state": "narrow-enlarged-footer-groups",
+          "route": {
+            "kind": "exact",
+            "value": "/"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V4-SSR-LIST",
@@ -534,7 +1049,6 @@
       "route": "/articles/#start",
       "state": "JS off/reduced motion/forced colors/<=340; original order, one anchor/card, full content, no clones",
       "surface": "SSR START list and links",
-      "selector": "#start",
       "method": [
         "no-script",
         "media-preference",
@@ -545,40 +1059,89 @@
       ],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": "#start",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "js-off-reduced-motion-forced-colors-340-original-order-one-a",
+          "state": "js-off-reduced-motion-forced-colors-340-original-order-one-a",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/#start"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V4-DECK-COUNTS",
-      "findings": [
-        "VL-DES-03",
-        "VL-DES-06",
-        "VL-DES-07"
-      ],
+      "findings": ["VL-DES-03", "VL-DES-06", "VL-DES-07"],
       "phase": "V4",
       "route": "/articles/#start",
       "state": "0/1/2/3/>3 test fixtures",
       "surface": "deck/list/count/prev/next",
-      "selector": ".creation-deck",
-      "method": [
-        "fixture-counts",
-        "viewport-reflow"
-      ],
+      "method": ["fixture-counts", "viewport-reflow"],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".creation-deck",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "zero",
+          "state": "zero",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/#start"
+          }
+        },
+        {
+          "id": "one",
+          "state": "one",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/#start"
+          }
+        },
+        {
+          "id": "two",
+          "state": "two",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/#start"
+          }
+        },
+        {
+          "id": "three",
+          "state": "three",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/#start"
+          }
+        },
+        {
+          "id": "more-than-three",
+          "state": "more-than-three",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/#start"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V4-DECK-DYNAMIC",
-      "findings": [
-        "VL-DES-01",
-        "VL-DES-04",
-        "VL-DES-06"
-      ],
+      "findings": ["VL-DES-01", "VL-DES-04", "VL-DES-06"],
       "phase": "V4",
       "route": "/articles/#start",
       "state": "late font/failure/root text/spacing/container/content change",
       "surface": "deck stage, cards, controls",
-      "selector": ".creation-deck",
       "method": [
         "remeasurement",
         "text-scale",
@@ -595,20 +1158,47 @@
       ],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".creation-deck",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "late-font-failure-root-text-spacing-container-content-change",
+          "state": "late-font-failure-root-text-spacing-container-content-change",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/#start"
+          }
+        }
+      ],
+      "bindings": [
+        {
+          "id": "scale-100-320",
+          "variantId": "late-font-failure-root-text-spacing-container-content-change",
+          "requires": ["factor-100", "viewport-320"]
+        },
+        {
+          "id": "scale-150-320",
+          "variantId": "late-font-failure-root-text-spacing-container-content-change",
+          "requires": ["factor-150", "viewport-320"]
+        },
+        {
+          "id": "scale-200-375",
+          "variantId": "late-font-failure-root-text-spacing-container-content-change",
+          "requires": ["factor-200", "viewport-375"]
+        }
+      ]
     },
     {
       "id": "VL-V4-DECK-FOCUS",
-      "findings": [
-        "VL-DES-04",
-        "VL-DES-06",
-        "VL-DES-07"
-      ],
+      "findings": ["VL-DES-04", "VL-DES-06", "VL-DES-07"],
       "phase": "V4",
       "route": "/articles/#start",
       "state": "forced flat while controls/article/other input focused; manual list preference persists",
       "surface": "mode controls and active article",
-      "selector": ".creation-deck",
       "method": [
         "focus-reachability",
         "forced-fallback",
@@ -616,19 +1206,54 @@
       ],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".creation-deck",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "controls-focused",
+          "state": "controls-focused",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/#start"
+          }
+        },
+        {
+          "id": "article-focused",
+          "state": "article-focused",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/#start"
+          }
+        },
+        {
+          "id": "other-input-focused",
+          "state": "other-input-focused",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/#start"
+          }
+        },
+        {
+          "id": "manual-list-preference",
+          "state": "manual-list-preference",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/#start"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V4-DECK-INPUT",
-      "findings": [
-        "VL-DES-06",
-        "VL-DES-07"
-      ],
+      "findings": ["VL-DES-06", "VL-DES-07"],
       "phase": "V4",
       "route": "/articles/#start",
       "state": "click/keyboard/pinch-safe vertical scroll/touch cancel/drag-only suppression; one gesture/one article",
       "surface": "cards and controls",
-      "selector": ".creation-deck",
       "method": [
         "interaction",
         "gesture-cancellation",
@@ -638,26 +1263,49 @@
       ],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".creation-deck",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "click-keyboard-pinch-safe-vertical-scroll-touch-cancel-drag",
+          "state": "click-keyboard-pinch-safe-vertical-scroll-touch-cancel-drag-",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/#start"
+          }
+        }
+      ]
     },
     {
       "id": "VL-V4-DECK-BUDGET",
-      "findings": [
-        "VL-DES-06",
-        "VL-DES-07"
-      ],
+      "findings": ["VL-DES-06", "VL-DES-07"],
       "phase": "V4",
       "route": "/articles/#start",
       "state": "initial enhancement/CLS/assets/JS budget",
       "surface": "SSR-to-deck enhancement",
-      "selector": ".creation-deck",
-      "method": [
-        "cls",
-        "bundle-budget"
-      ],
+      "method": ["cls", "bundle-budget"],
       "owner": "Stage B V4 performance spec",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": ".creation-deck",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "initial-enhancement-cls-assets-js-budget",
+          "state": "initial-enhancement-cls-assets-js-budget",
+          "route": {
+            "kind": "exact",
+            "value": "/articles/#start"
+          }
+        }
+      ]
     },
     {
       "id": "VL-FINAL-CROSS-ROUTE",
@@ -674,7 +1322,6 @@
       "route": "/*",
       "state": "single local matrix and selected journeys",
       "surface": "all modified surfaces",
-      "selector": "matrix selectors",
       "method": [
         "local-e2e",
         "independent-render-review",
@@ -686,43 +1333,75 @@
       ],
       "owner": "Stage B final acceptance",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": "matrix selectors",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "single-local-matrix-and-selected-journeys",
+          "state": "single-local-matrix-and-selected-journeys",
+          "route": {
+            "kind": "exact",
+            "value": "/"
+          }
+        }
+      ]
     },
     {
       "id": "VL-FINAL-RECONCILE",
-      "findings": [
-        "VL-DES-07"
-      ],
+      "findings": ["VL-DES-07"],
       "phase": "Final",
       "route": "/*",
       "state": "per-ID execution/evidence reconciliation",
       "surface": "matrix and evidence",
-      "selector": "TEST-MATRIX.json",
-      "method": [
-        "final-execution-validator"
-      ],
+      "method": ["final-execution-validator"],
       "owner": "Stage B final validator",
       "requiredForFinal": true,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "surfaceRequirement": {
+        "kind": "static",
+        "artifact": "TEST-MATRIX.json"
+      },
+      "variants": [
+        {
+          "id": "per-id-execution-evidence-reconciliation",
+          "state": "per-id-execution-evidence-reconciliation",
+          "route": {
+            "kind": "exact",
+            "value": "/repository"
+          }
+        }
+      ]
     },
     {
       "id": "VL-PROD-DEFERRED",
-      "findings": [
-        "VL-DES-07"
-      ],
+      "findings": ["VL-DES-07"],
       "phase": "Production",
       "route": "https://game-ai-hub.vercel.app",
       "state": "final live acceptance",
       "surface": "Production routes",
-      "selector": "production surfaces",
-      "method": [
-        "production-browser",
-        "physical-device",
-        "real-browser-zoom"
-      ],
+      "method": ["production-browser", "physical-device", "real-browser-zoom"],
       "owner": "Owner",
       "requiredForFinal": false,
-      "status": "OWNER-DEFERRED"
+      "status": "OWNER-DEFERRED",
+      "surfaceRequirement": {
+        "kind": "dom",
+        "selector": "production surfaces",
+        "maturity": "planned"
+      },
+      "variants": [
+        {
+          "id": "final-live-acceptance",
+          "state": "final-live-acceptance",
+          "route": {
+            "kind": "exact",
+            "value": "/"
+          }
+        }
+      ]
     }
   ]
 }
