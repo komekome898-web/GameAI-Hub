@@ -76,8 +76,11 @@ describe("ElevenLabs v4 game-voice article", () => {
 
     expect(html).toContain("公式Model資料のAPI文字数上限");
     expect(html).toContain(
-      "<th>公式Model資料のAPI文字数上限</th><td>5,000</td><td>10,000</td><td>同じ数値の明記を確認できず</td>",
+      '<th>公式Model資料のAPI文字数上限</th><td data-label="v3">5,000</td><td data-label="v4">10,000</td><td data-label="v4 Turbo">同じ数値の明記を確認できず</td>',
     );
+    expect(html.match(/data-label="v3"/g)).toHaveLength(6);
+    expect(html.match(/data-label="v4"/g)).toHaveLength(6);
+    expect(html.match(/data-label="v4 Turbo"/g)).toHaveLength(6);
     expect(html).not.toContain(
       "<th>公式Model資料のAPI文字数上限</th><td>5,000</td><td>10,000</td><td>10,000</td>",
     );

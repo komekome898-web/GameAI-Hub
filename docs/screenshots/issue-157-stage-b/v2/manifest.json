@@ -1,0 +1,878 @@
+{
+  "schema": "gameai-reflow-evidence/v2",
+  "target": {
+    "sha": "76ce5e5fb7f0f53a9877ba3a5984e51c03a0a596",
+    "environment": "local",
+    "baseUrl": "http://127.0.0.1:3100",
+    "sourceIdentity": {
+      "kind": "clean-git-checkpoint",
+      "sha": "76ce5e5fb7f0f53a9877ba3a5984e51c03a0a596",
+      "status": "clean"
+    }
+  },
+  "records": [
+    {
+      "id": "v2-home-initial-320",
+      "caseId": "VL-V2-HOME-INITIAL",
+      "variantId": "empty-initial-normal-first-view",
+      "route": "/",
+      "state": [
+        "empty-initial-normal-first-view"
+      ],
+      "coverage": [
+        "viewport-reflow"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".home-execution-hero",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "heading",
+          "baselineFontPx": 30,
+          "changedFontPx": 30,
+          "factor": 1,
+          "baselineLineHeightPx": 35.4,
+          "changedLineHeightPx": 35.4
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 320,
+          "height": 640
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "stacked",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 276,
+        "naturalLabelWidth": 41
+      },
+      "screenshot": "v2/v2-home-initial-320.png",
+      "limitations": [
+        "Synthetic Chromium text stress; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright V2 evidence emitter"
+      },
+      "capturedAt": "2026-10-01T02:19:45.522Z"
+    },
+    {
+      "id": "v2-home-initial-150",
+      "caseId": "VL-V2-HOME-INITIAL",
+      "variantId": "empty-initial-normal-first-view",
+      "route": "/",
+      "state": [
+        "empty-initial-normal-first-view"
+      ],
+      "coverage": [
+        "synthetic-root-text",
+        "text-scale",
+        "factor-150",
+        "viewport-375"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".home-execution-hero",
+        "matched": 1
+      },
+      "method": "synthetic-root-text",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1.5,
+      "achieved": [
+        {
+          "role": "heading",
+          "baselineFontPx": 30,
+          "changedFontPx": 45,
+          "factor": 1.5,
+          "baselineLineHeightPx": 35.4,
+          "changedLineHeightPx": 53.1
+        },
+        {
+          "role": "counter",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 17.28,
+          "factor": 1.5000000000000002,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 25.92
+        },
+        {
+          "role": "privacy-help",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 17.28,
+          "factor": 1.5000000000000002,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 25.92
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 640
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "stacked",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 313,
+        "naturalLabelWidth": 65
+      },
+      "screenshot": "v2/v2-home-initial-150.png",
+      "limitations": [
+        "Synthetic Chromium text stress; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright V2 evidence emitter"
+      },
+      "capturedAt": "2026-10-01T02:19:50.413Z"
+    },
+    {
+      "id": "v2-home-empty-validation",
+      "caseId": "VL-V2-HOME-META",
+      "variantId": "empty-validation",
+      "route": "/",
+      "state": [
+        "empty-validation"
+      ],
+      "coverage": [
+        "semantic-row",
+        "short-height"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".idea-meta",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "validation-error",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "cta",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 320,
+          "height": 640
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": false,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "stacked",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 276,
+        "naturalLabelWidth": 41
+      },
+      "screenshot": "v2/v2-home-empty-validation.png",
+      "limitations": [
+        "Synthetic Chromium text stress; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright V2 evidence emitter"
+      },
+      "capturedAt": "2026-10-01T02:19:53.069Z"
+    },
+    {
+      "id": "v2-home-meta-100",
+      "caseId": "VL-V2-HOME-META",
+      "variantId": "counter-privacy",
+      "route": "/",
+      "state": [
+        "counter-privacy"
+      ],
+      "coverage": [
+        "synthetic-computed-text",
+        "factor-100",
+        "viewport-320",
+        "semantic-row"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".idea-meta",
+        "matched": 1
+      },
+      "method": "synthetic-computed-text",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "counter",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 11.52,
+          "factor": 1,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 17.28
+        },
+        {
+          "role": "privacy-help",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 11.52,
+          "factor": 1,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 17.28
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 320,
+          "height": 640
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": false,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "stacked",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 276,
+        "naturalLabelWidth": 41
+      },
+      "screenshot": "v2/v2-home-meta-100.png",
+      "limitations": [
+        "Synthetic Chromium text stress; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright V2 evidence emitter"
+      },
+      "capturedAt": "2026-10-01T02:19:56.404Z"
+    },
+    {
+      "id": "v2-home-examples-150",
+      "caseId": "VL-V2-HOME-META",
+      "variantId": "examples-expanded",
+      "route": "/",
+      "state": [
+        "examples-expanded"
+      ],
+      "coverage": [
+        "synthetic-computed-text",
+        "factor-150",
+        "viewport-320"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".idea-meta",
+        "matched": 1
+      },
+      "method": "synthetic-computed-text",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1.5,
+      "achieved": [
+        {
+          "role": "examples-summary",
+          "baselineFontPx": 14,
+          "changedFontPx": 21,
+          "factor": 1.5,
+          "baselineLineHeightPx": 23.8,
+          "changedLineHeightPx": 35.7
+        },
+        {
+          "role": "example-control",
+          "baselineFontPx": 13.76,
+          "changedFontPx": 20.64,
+          "factor": 1.5,
+          "baselineLineHeightPx": 23.392,
+          "changedLineHeightPx": 35.088
+        },
+        {
+          "role": "example-control",
+          "baselineFontPx": 13.76,
+          "changedFontPx": 20.64,
+          "factor": 1.5,
+          "baselineLineHeightPx": 23.392,
+          "changedLineHeightPx": 35.088
+        },
+        {
+          "role": "example-control",
+          "baselineFontPx": 13.76,
+          "changedFontPx": 20.64,
+          "factor": 1.5,
+          "baselineLineHeightPx": 23.392,
+          "changedLineHeightPx": 35.088
+        },
+        {
+          "role": "counter",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 17.28,
+          "factor": 1.5000000000000002,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 25.92
+        },
+        {
+          "role": "privacy-help",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 17.28,
+          "factor": 1.5000000000000002,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 25.92
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 320,
+          "height": 640
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": false,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "stacked",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 276,
+        "naturalLabelWidth": 65
+      },
+      "screenshot": "v2/v2-home-examples-150.png",
+      "limitations": [
+        "Synthetic Chromium text stress; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright V2 evidence emitter"
+      },
+      "capturedAt": "2026-10-01T02:20:00.728Z"
+    },
+    {
+      "id": "v2-home-maximum-200",
+      "caseId": "VL-V2-HOME-META",
+      "variantId": "maximum-input",
+      "route": "/",
+      "state": [
+        "maximum-input"
+      ],
+      "coverage": [
+        "synthetic-computed-text",
+        "factor-200",
+        "viewport-375"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".idea-meta",
+        "matched": 1
+      },
+      "method": "synthetic-computed-text",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 2,
+      "achieved": [
+        {
+          "role": "maximum-input",
+          "baselineFontPx": 16,
+          "changedFontPx": 32,
+          "factor": 2,
+          "baselineLineHeightPx": 26.4,
+          "changedLineHeightPx": 52.8
+        },
+        {
+          "role": "cta",
+          "baselineFontPx": 16,
+          "changedFontPx": 32,
+          "factor": 2,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 54.4
+        },
+        {
+          "role": "counter",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 23.04,
+          "factor": 2,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 34.56
+        },
+        {
+          "role": "privacy-help",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 23.04,
+          "factor": 2,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 34.56
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 640
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": false,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "stacked",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 313,
+        "naturalLabelWidth": 123
+      },
+      "screenshot": "v2/v2-home-maximum-200.png",
+      "limitations": [
+        "Synthetic Chromium text stress; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright V2 evidence emitter"
+      },
+      "capturedAt": "2026-10-01T02:20:05.022Z"
+    },
+    {
+      "id": "v2-home-spacing-line-height",
+      "caseId": "VL-V2-HOME-META",
+      "variantId": "counter-privacy",
+      "route": "/",
+      "state": [
+        "counter-privacy"
+      ],
+      "coverage": [
+        "text-spacing",
+        "spacing-line-height"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".idea-meta",
+        "matched": 1
+      },
+      "method": "text-spacing",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "counter",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 11.52,
+          "factor": 1,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 17.28
+        },
+        {
+          "role": "privacy-help",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 11.52,
+          "factor": 1,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 17.28
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 640
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": false,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "stacked",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 313,
+        "naturalLabelWidth": 59
+      },
+      "spacing": {
+        "override": "line-height",
+        "language": "ja",
+        "applicable": true
+      },
+      "screenshot": "v2/v2-home-spacing-line-height.png",
+      "limitations": [
+        "Synthetic Chromium text stress; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright V2 evidence emitter"
+      },
+      "capturedAt": "2026-10-01T02:20:05.916Z"
+    },
+    {
+      "id": "v2-home-spacing-paragraph",
+      "caseId": "VL-V2-HOME-META",
+      "variantId": "counter-privacy",
+      "route": "/",
+      "state": [
+        "counter-privacy"
+      ],
+      "coverage": [
+        "text-spacing",
+        "spacing-paragraph"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".idea-meta",
+        "matched": 1
+      },
+      "method": "text-spacing",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "counter",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 11.52,
+          "factor": 1,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 17.28
+        },
+        {
+          "role": "privacy-help",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 11.52,
+          "factor": 1,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 17.28
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 640
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": false,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "stacked",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 313,
+        "naturalLabelWidth": 59
+      },
+      "spacing": {
+        "override": "paragraph",
+        "language": "ja",
+        "applicable": true
+      },
+      "screenshot": "v2/v2-home-spacing-paragraph.png",
+      "limitations": [
+        "Synthetic Chromium text stress; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright V2 evidence emitter"
+      },
+      "capturedAt": "2026-10-01T02:20:06.946Z"
+    },
+    {
+      "id": "v2-home-spacing-letter",
+      "caseId": "VL-V2-HOME-META",
+      "variantId": "counter-privacy",
+      "route": "/",
+      "state": [
+        "counter-privacy"
+      ],
+      "coverage": [
+        "text-spacing",
+        "spacing-letter"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".idea-meta",
+        "matched": 1
+      },
+      "method": "text-spacing",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "counter",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 11.52,
+          "factor": 1,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 17.28
+        },
+        {
+          "role": "privacy-help",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 11.52,
+          "factor": 1,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 17.28
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 640
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": false,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "stacked",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 313,
+        "naturalLabelWidth": 74.21875
+      },
+      "spacing": {
+        "override": "letter",
+        "language": "ja",
+        "applicable": true
+      },
+      "screenshot": "v2/v2-home-spacing-letter.png",
+      "limitations": [
+        "Synthetic Chromium text stress; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright V2 evidence emitter"
+      },
+      "capturedAt": "2026-10-01T02:20:07.880Z"
+    },
+    {
+      "id": "v2-home-spacing-word",
+      "caseId": "VL-V2-HOME-META",
+      "variantId": "counter-privacy",
+      "route": "/",
+      "state": [
+        "counter-privacy"
+      ],
+      "coverage": [
+        "text-spacing",
+        "spacing-word"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".idea-meta",
+        "matched": 1
+      },
+      "method": "text-spacing",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "counter",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 11.52,
+          "factor": 1,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 17.28
+        },
+        {
+          "role": "privacy-help",
+          "baselineFontPx": 11.52,
+          "changedFontPx": 11.52,
+          "factor": 1,
+          "baselineLineHeightPx": 17.28,
+          "changedLineHeightPx": 17.28
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 640
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": false,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "stacked",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 313,
+        "naturalLabelWidth": 62.6875
+      },
+      "spacing": {
+        "override": "word",
+        "language": "ja",
+        "applicable": true
+      },
+      "screenshot": "v2/v2-home-spacing-word.png",
+      "limitations": [
+        "Synthetic Chromium text stress; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright V2 evidence emitter"
+      },
+      "capturedAt": "2026-10-01T02:20:08.776Z"
+    }
+  ],
+  "execution": {
+    "sourceIdentity": {
+      "kind": "clean-git-checkpoint",
+      "sha": "76ce5e5fb7f0f53a9877ba3a5984e51c03a0a596",
+      "status": "clean"
+    },
+    "command": "npx playwright test e2e/issue-157-reflow-evidence.spec.ts",
+    "subsetGate": "PASS",
+    "reasons": []
+  }
+}

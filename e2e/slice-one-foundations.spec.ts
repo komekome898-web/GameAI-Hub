@@ -55,6 +55,9 @@ test.describe("Issue 137 Slice 1 foundations", () => {
   test("intrinsic text, focus and owned scrollers satisfy the shared contract", async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 844 });
     await page.goto("/");
+    // Wait for the application hydration boundary before replacing the body;
+    // otherwise a late concurrent hydration can erase this disposable fixture.
+    await expect(page.locator(".home-execution-hero")).toBeVisible();
     await page.evaluate(({ idea, token }) => { document.body.innerHTML = `
       <main class="ui-shell"><div class="ui-stack">
         <p class="ui-contain-text" data-user-content="true">${idea}${token}</p>

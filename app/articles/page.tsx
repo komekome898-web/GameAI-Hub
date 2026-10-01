@@ -5,6 +5,7 @@ import {
   getStartArticleVisual,
   type StartArticleSlug,
 } from "@/lib/article-visuals";
+import { CreationDeck } from "@/components/CreationDeck";
 export const metadata: Metadata = {
   title: "AIゲーム開発の記事・実践ガイド",
   description:
@@ -121,48 +122,14 @@ export default function ArticlesPage() {
             </div>
             <p>{group.description}</p>
           </div>
-          <ol className="article-cluster-list">
+          {group.id === "start" ? <CreationDeck items={group.slugs.map((slug, index) => {
+            const article = getArticle(slug)!;
+            const visual = getStartArticleVisual(slug as StartArticleSlug);
+            return { href: `/articles/${slug}/`, title: article.title, description: article.description, updatedAt: article.updatedAt, label: index === 0 ? "この目的の入口" : articleCategoryLabels[article.category], image: visual };
+          })} /> : <ol className="article-cluster-list">
             {group.slugs.map((slug, index) => {
               const article = getArticle(slug);
               if (!article) return null;
-              if (group.id === "start") {
-                const visual = getStartArticleVisual(slug as StartArticleSlug);
-                return (
-                  <li key={slug} className="v2-start-card-item">
-                    <Link className="v2-start-card" href={`/articles/${slug}/`}>
-                      <span className="v2-start-card-face">
-                        <span className="v2-start-card-image" aria-hidden="true">
-                          {/* Supplied 480/960 bytes are served directly so the approved assets are not re-encoded. */}
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={visual.src}
-                            srcSet={visual.srcSet}
-                            sizes="(max-width: 340px) calc(100vw - 36px), (max-width: 680px) calc(100vw - 62px), 352px"
-                            width="960"
-                            height="640"
-                            alt=""
-                          />
-                        </span>
-                        <span className="v2-start-card-meta">
-                          <span className="v2-start-card-label">
-                            {index === 0
-                              ? "この目的の入口"
-                              : articleCategoryLabels[article.category]}
-                          </span>
-                          <small>更新 {article.updatedAt}</small>
-                        </span>
-                        <strong>{article.title}</strong>
-                        <span className="v2-start-card-description">
-                          {article.description}
-                        </span>
-                        <span className="v2-start-card-read" aria-hidden="true">
-                          記事を読む <b>→</b>
-                        </span>
-                      </span>
-                    </Link>
-                  </li>
-                );
-              }
               return (
                 <li key={slug}>
                   <Link href={`/articles/${slug}/`}>
@@ -184,7 +151,7 @@ export default function ArticlesPage() {
                 </li>
               );
             })}
-          </ol>
+          </ol>}
         </section>
         ))}
         <section className="hub-project-cta">

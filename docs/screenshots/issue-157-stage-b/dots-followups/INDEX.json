@@ -1,0 +1,40 @@
+{
+  "testedSourceSha": "e4bb01e5a1d39ceef402925e9e8251c71c695f11",
+  "capturedAt": "2026-10-01",
+  "result": "five bounded follow-ups passed locally",
+  "items": {
+    "V-01": {
+      "result": "fixed-and-verified",
+      "method": "375px responsive table plus 1440px adjacent desktop header check",
+      "paths": ["v01-elevenlabs-table-375.png", "v01-elevenlabs-table-1440.png"]
+    },
+    "V-02": {
+      "result": "fixed-and-verified",
+      "method": "synthetic computed text at 100%/320px, 150%/320px, and 200%/375px; line-fragment containment and separation assertions",
+      "paths": [
+        "../v2-project/project-tokens-100-filename.png",
+        "../v2-project/project-tokens-150-filename.png",
+        "../v2-project/project-tokens-200-filename.png",
+        "../v2-project/project-tokens-100.png",
+        "../v2-project/project-tokens-150.png",
+        "../v2-project/project-tokens-200.png"
+      ]
+    },
+    "V-03": {
+      "result": "fixed-and-verified",
+      "method": "375px synthetic root text 200% plus 1440px normal adjacent check",
+      "paths": ["v03-voice-root-200-375.png", "v03-3d-root-200-375.png"]
+    },
+    "E-01": {
+      "result": "evidence-completed",
+      "method": "usable Deck entered first; actual strong title and span description measured at 1.5 line height and 2em description margin",
+      "paths": ["e01-deck-line-height.png", "e01-deck-paragraph-spacing.png"]
+    },
+    "E-02": {
+      "result": "evidence-completed",
+      "method": "native Chromium/CDP touch ownership with active resize, controlled hidden visibility, and additional-pointer interruptions; actual local link navigation; explicit list selection and same-session reload",
+      "paths": [],
+      "limitations": ["Controlled document visibility state, not an OS tab switch.", "Chromium/CDP touch input, not a physical touch device."]
+    }
+  }
+}

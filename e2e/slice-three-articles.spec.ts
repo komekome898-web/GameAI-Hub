@@ -254,6 +254,10 @@ test("TOC supports mobile disclosure, sticky-safe anchors, initial fragments, an
     .poll(async () => (await heading.boundingBox())?.y ?? -1)
     .toBeGreaterThan(55);
 
+  // Exercise a true initial-fragment document navigation. Reusing the current
+  // article document turns this into a same-document hash transition whose
+  // timing can race Playwright's goto completion and browser restoration.
+  await page.goto("about:blank");
   await page.goto(
     "/articles/ai-browser-game-how-to/#section-3-最初のゲームをaiへ生成してもらう",
   );
@@ -273,4 +277,85 @@ test("TOC supports mobile disclosure, sticky-safe anchors, initial fragments, an
   expect(widths.documentOverflowPx).toBe(0);
   expect(await code.evaluate((node) => node.scrollWidth > node.clientWidth)).toBe(true);
   await expect(code).toHaveCSS("overflow-x", "auto");
+});
+
+test("initial-fragment reconciliation yields to the reader and rearms for later navigation", async ({
+  page,
+}) => {
+  test.setTimeout(30_000);
+  await page.addInitScript(() => {
+    const original = Element.prototype.scrollIntoView;
+    Object.defineProperty(window, "__fragmentScrolls", {
+      configurable: true,
+      value: [] as Array<{ id: string; at: number }>,
+    });
+    Element.prototype.scrollIntoView = function (...args) {
+      (window as typeof window & { __fragmentScrolls: Array<{ id: string; at: number }> })
+        .__fragmentScrolls.push({ id: this.id, at: performance.now() });
+      return original.apply(this, args as [ScrollIntoViewOptions]);
+    };
+    const delayedFonts = new Promise<FontFaceSet>((resolve) => {
+      window.setTimeout(() => {
+        Object.defineProperty(window, "__delayedFontsResolved", {
+          configurable: true,
+          value: true,
+        });
+        resolve(document.fonts);
+      }, 1400);
+    });
+    Object.defineProperty(document.fonts, "ready", {
+      configurable: true,
+      value: delayedFonts,
+    });
+  });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(
+    "/articles/ai-browser-game-how-to/#section-3-最初のゲームをaiへ生成してもらう",
+  );
+  await expect.poll(() => page.evaluate(() =>
+    (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
+  )).toBeGreaterThan(0);
+  await page.waitForTimeout(700);
+  const beforeWheel = await page.evaluate(() => ({
+    count: (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
+    y: scrollY,
+  }));
+  await page.mouse.wheel(0, 550);
+  await expect.poll(() => page.evaluate((before) => Math.abs(scrollY - before), beforeWheel.y), {
+    message: "the genuine wheel input must move the reader before its settled baseline is sampled",
+    timeout: 2_000,
+  }).toBeGreaterThan(100);
+  await page.evaluate(() => new Promise<void>((resolve) =>
+    requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+  ));
+  const interrupted = await page.evaluate(() => ({
+    count: (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
+    y: scrollY,
+  }));
+  // A scheduled reconciliation may finish between the pre-wheel sample and
+  // the browser applying wheel input. The post-wheel settled sample is the
+  // cancellation baseline; no later font/media callback may add to it.
+  await page.waitForTimeout(1700);
+  expect(await page.evaluate(() =>
+    Boolean((window as typeof window & { __delayedFontsResolved?: boolean }).__delayedFontsResolved),
+  )).toBe(true);
+  expect(await page.evaluate(() =>
+    (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
+  )).toBe(interrupted.count);
+  expect(Math.abs((await page.evaluate(() => scrollY)) - interrupted.y)).toBeLessThan(2);
+
+  await page.evaluate(() => {
+    location.hash = "section-1-まず完成例を動かす";
+  });
+  await expect.poll(() => page.evaluate(() =>
+    (window as typeof window & { __fragmentScrolls: Array<{ id: string }> }).__fragmentScrolls.at(-1)?.id,
+  )).toBe("section-1-まず完成例を動かす");
+  await page.keyboard.press("PageDown");
+  const afterNavigation = await page.evaluate(() =>
+    (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
+  );
+  await page.waitForTimeout(1300);
+  expect(await page.evaluate(() =>
+    (window as typeof window & { __fragmentScrolls: unknown[] }).__fragmentScrolls.length,
+  )).toBe(afterNavigation);
 });

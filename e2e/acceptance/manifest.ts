@@ -1,11 +1,16 @@
 export const evidenceManifestVersion = "gameai-rendered-evidence/v1" as const;
+export const reflowEvidenceVersion = "gameai-reflow-evidence/v2" as const;
 
 export type EvidenceRecord = {
   id: string;
   route: string;
   viewport: { width: number; height: number };
   zoom: { mode: "none" | "browser-emulation"; factor: number };
-  emulation: { viewport: boolean; physicalDevice: boolean; userAgentProfile?: string };
+  emulation: {
+    viewport: boolean;
+    physicalDevice: boolean;
+    userAgentProfile?: string;
+  };
   state: string[];
   screenshot: string;
   diagnostics: {
@@ -26,27 +31,351 @@ export type EvidenceManifest = {
   records: EvidenceRecord[];
 };
 
-export function assertEvidenceManifest(value: unknown): asserts value is EvidenceManifest {
-  if (!value || typeof value !== "object") throw new Error("manifest must be an object");
+export function assertEvidenceManifest(
+  value: unknown,
+): asserts value is EvidenceManifest {
+  if (!value || typeof value !== "object")
+    throw new Error("manifest must be an object");
   const manifest = value as Partial<EvidenceManifest>;
-  if (manifest.schema !== evidenceManifestVersion) throw new Error("unsupported evidence schema");
-  if (!manifest.target || !/^[0-9a-f]{7,40}$/.test(manifest.target.sha)) throw new Error("target.sha must be a Git SHA");
-  if (!manifest.target.baseUrl || !["local", "preview", "production"].includes(manifest.target.environment ?? ""))
+  if (manifest.schema !== evidenceManifestVersion)
+    throw new Error("unsupported evidence schema");
+  if (!manifest.target || !/^[0-9a-f]{7,40}$/.test(manifest.target.sha))
+    throw new Error("target.sha must be a Git SHA");
+  if (
+    !manifest.target.baseUrl ||
+    !["local", "preview", "production"].includes(
+      manifest.target.environment ?? "",
+    )
+  )
     throw new Error("target environment is incomplete");
-  try { new URL(manifest.target.baseUrl); } catch { throw new Error("target.baseUrl must be an absolute URL"); }
-  if (!Array.isArray(manifest.records) || manifest.records.length === 0) throw new Error("manifest needs evidence records");
+  try {
+    new URL(manifest.target.baseUrl);
+  } catch {
+    throw new Error("target.baseUrl must be an absolute URL");
+  }
+  if (!Array.isArray(manifest.records) || manifest.records.length === 0)
+    throw new Error("manifest needs evidence records");
   const ids = new Set<string>();
   for (const record of manifest.records) {
-    if (!record.id || ids.has(record.id)) throw new Error("record ids must be non-empty and unique");
+    if (!record.id || ids.has(record.id))
+      throw new Error("record ids must be non-empty and unique");
     ids.add(record.id);
-    if (!record.route.startsWith("/")) throw new Error(`${record.id}: route must be root-relative`);
-    if (!Number.isInteger(record.viewport.width) || !Number.isInteger(record.viewport.height) || record.viewport.width <= 0 || record.viewport.height <= 0) throw new Error(`${record.id}: invalid viewport`);
-    if (!Number.isFinite(record.zoom.factor) || record.zoom.factor < 1) throw new Error(`${record.id}: invalid zoom factor`);
-    if (!record.screenshot || !Array.isArray(record.state)) throw new Error(`${record.id}: missing state or screenshot`);
+    if (!record.route.startsWith("/"))
+      throw new Error(`${record.id}: route must be root-relative`);
+    if (
+      !Number.isInteger(record.viewport.width) ||
+      !Number.isInteger(record.viewport.height) ||
+      record.viewport.width <= 0 ||
+      record.viewport.height <= 0
+    )
+      throw new Error(`${record.id}: invalid viewport`);
+    if (!Number.isFinite(record.zoom.factor) || record.zoom.factor < 1)
+      throw new Error(`${record.id}: invalid zoom factor`);
+    if (!record.screenshot || !Array.isArray(record.state))
+      throw new Error(`${record.id}: missing state or screenshot`);
     if (record.emulation.physicalDevice && record.emulation.viewport)
-      throw new Error(`${record.id}: viewport emulation cannot be physical-device evidence`);
+      throw new Error(
+        `${record.id}: viewport emulation cannot be physical-device evidence`,
+      );
     for (const value of Object.values(record.diagnostics))
-      if (!Number.isFinite(value) || value < 0) throw new Error(`${record.id}: invalid diagnostics`);
-    if (!record.provenance.runner || Number.isNaN(Date.parse(record.provenance.capturedAt))) throw new Error(`${record.id}: missing provenance`);
+      if (!Number.isFinite(value) || value < 0)
+        throw new Error(`${record.id}: invalid diagnostics`);
+    if (
+      !record.provenance.runner ||
+      Number.isNaN(Date.parse(record.provenance.capturedAt))
+    )
+      throw new Error(`${record.id}: missing provenance`);
+  }
+}
+
+export type ReflowEvidenceRecord = {
+  id: string;
+  caseId: string;
+  variantId: string;
+  route: string;
+  state: string[];
+  coverage: string[];
+  surface:
+    | { kind: "dom"; selector: string; matched: number }
+    | { kind: "static"; artifact: string };
+  method:
+    | "viewport-reflow"
+    | "synthetic-root-text"
+    | "synthetic-computed-text"
+    | "text-spacing"
+    | "browser-zoom"
+    | "cdp-pinch"
+    | "os-text"
+    | "physical-device";
+  evidenceClass: "responsive" | "synthetic" | "browser" | "os" | "physical";
+  requestedFactor: number;
+  achieved: Array<{
+    role: string;
+    baselineFontPx: number;
+    changedFontPx: number;
+    factor: number;
+    baselineLineHeightPx: number | null;
+    changedLineHeightPx: number | null;
+  }>;
+  browser: {
+    name: string;
+    version: string;
+    viewport: { width: number; height: number };
+    dpr: number;
+  };
+  diagnostics: {
+    documentOverflowPx: number;
+    unownedOverflowingElements: number;
+    clippedText: number;
+    undersizedTargets: number;
+    focusApplicable: boolean;
+    focusReachable: boolean;
+    focusVisible: boolean;
+    orderPreserved: boolean;
+    associationsPreserved: boolean;
+  };
+  geometry: {
+    layout: "inline" | "stacked" | "not-applicable";
+    nonoverlapping: boolean;
+    contentVisible: boolean;
+    ownedScrollers: number;
+    ordinaryLabelSqueezed?: boolean;
+    labelWidth?: number;
+    naturalLabelWidth?: number;
+  };
+  spacing?: {
+    override: "line-height" | "paragraph" | "letter" | "word";
+    language: string;
+    applicable: boolean;
+  };
+  screenshot: string;
+  limitations: string[];
+  reviewerDecision: "PASS" | "FAIL" | "PENDING";
+  review: { kind: "automated" | "independent"; reviewer: string };
+  capturedAt: string;
+};
+
+export type ReflowEvidenceManifest = {
+  schema: typeof reflowEvidenceVersion;
+  target: {
+    sha: string;
+    environment: "local" | "preview" | "production";
+    baseUrl: string;
+    worktreeDiffHash?: string;
+    sourceIdentity?: {
+      kind: "clean-git-checkpoint";
+      sha: string;
+      status: "clean";
+    };
+  };
+  records: ReflowEvidenceRecord[];
+};
+
+export function assertReflowEvidenceManifest(
+  value: unknown,
+  expectedSha?: string,
+): asserts value is ReflowEvidenceManifest {
+  if (!value || typeof value !== "object")
+    throw new Error("reflow manifest must be an object");
+  const manifest = value as ReflowEvidenceManifest;
+  if (manifest.schema !== reflowEvidenceVersion)
+    throw new Error("unsupported reflow evidence schema");
+  if (!/^[0-9a-f]{40}$/.test(manifest.target?.sha ?? ""))
+    throw new Error("target.sha must be an exact Git SHA");
+  if (!["local", "preview", "production"].includes(manifest.target.environment))
+    throw new Error("invalid target environment");
+  try {
+    new URL(manifest.target.baseUrl);
+  } catch {
+    throw new Error("target.baseUrl must be absolute");
+  }
+  if (expectedSha && manifest.target.sha !== expectedSha)
+    throw new Error("evidence SHA does not match target SHA");
+  if (
+    manifest.target.sourceIdentity &&
+    (manifest.target.sourceIdentity.kind !== "clean-git-checkpoint" ||
+      manifest.target.sourceIdentity.status !== "clean" ||
+      manifest.target.sourceIdentity.sha !== manifest.target.sha)
+  )
+    throw new Error("evidence source identity does not match target SHA");
+  if (!Array.isArray(manifest.records) || manifest.records.length === 0)
+    throw new Error("reflow manifest needs records");
+  const methods = new Set([
+    "viewport-reflow",
+    "synthetic-root-text",
+    "synthetic-computed-text",
+    "text-spacing",
+    "browser-zoom",
+    "cdp-pinch",
+    "os-text",
+    "physical-device",
+  ]);
+  const methodClasses: Record<string, string> = {
+    "viewport-reflow": "responsive",
+    "synthetic-root-text": "synthetic",
+    "synthetic-computed-text": "synthetic",
+    "text-spacing": "synthetic",
+    "browser-zoom": "browser",
+    "cdp-pinch": "browser",
+    "os-text": "os",
+    "physical-device": "physical",
+  };
+  const ids = new Set<string>();
+  for (const record of manifest.records) {
+    if (!record.id || ids.has(record.id))
+      throw new Error("record IDs must be non-empty and unique");
+    ids.add(record.id);
+    if (
+      !record.caseId ||
+      !record.variantId ||
+      !record.route.startsWith("/") ||
+      !Array.isArray(record.state) ||
+      !record.state.length ||
+      record.state.some((item) => !item) ||
+      !Array.isArray(record.coverage) ||
+      !record.coverage.length ||
+      record.coverage.some((item) => !item)
+    )
+      throw new Error(`${record.id}: invalid case/route/state/coverage`);
+    if (
+      !record.surface ||
+      (record.surface.kind === "dom" &&
+        (!record.surface.selector ||
+          !Number.isInteger(record.surface.matched) ||
+          record.surface.matched <= 0)) ||
+      (record.surface.kind === "static" && !record.surface.artifact)
+    )
+      throw new Error(`${record.id}: missing or zero matched surface`);
+    if (
+      !methods.has(record.method) ||
+      record.evidenceClass !== methodClasses[record.method]
+    )
+      throw new Error(`${record.id}: method/evidence classification mismatch`);
+    if (!["PASS", "FAIL", "PENDING"].includes(record.reviewerDecision))
+      throw new Error(`${record.id}: invalid reviewer decision`);
+    if (
+      !record.review?.reviewer ||
+      !["automated", "independent"].includes(record.review.kind)
+    )
+      throw new Error(`${record.id}: invalid review provenance`);
+    if (
+      !Number.isFinite(record.requestedFactor) ||
+      record.requestedFactor < 1 ||
+      !record.achieved.length ||
+      record.achieved.some(
+        ({
+          baselineFontPx,
+          changedFontPx,
+          factor,
+          baselineLineHeightPx,
+          changedLineHeightPx,
+        }) =>
+          ![baselineFontPx, changedFontPx, factor].every(
+            (number) => Number.isFinite(number) && number > 0,
+          ) ||
+          Math.abs(changedFontPx / baselineFontPx - factor) > 0.02 ||
+          ![baselineLineHeightPx, changedLineHeightPx].every(
+            (number) =>
+              number === null || (Number.isFinite(number) && number > 0),
+          ),
+      )
+    )
+      throw new Error(`${record.id}: invalid achieved text sizes`);
+    if (
+      !record.geometry ||
+      !["inline", "stacked", "not-applicable"].includes(
+        record.geometry.layout,
+      ) ||
+      typeof record.geometry.nonoverlapping !== "boolean" ||
+      typeof record.geometry.contentVisible !== "boolean" ||
+      !Number.isInteger(record.geometry.ownedScrollers) ||
+      record.geometry.ownedScrollers < 0 ||
+      (record.geometry.ordinaryLabelSqueezed !== undefined &&
+        typeof record.geometry.ordinaryLabelSqueezed !== "boolean") ||
+      [record.geometry.labelWidth, record.geometry.naturalLabelWidth].some(
+        (number) => number !== undefined && (!Number.isFinite(number) || number < 0),
+      )
+    )
+      throw new Error(`${record.id}: invalid geometry`);
+    if (
+      record.method === "text-spacing" &&
+      (!record.spacing ||
+        !record.spacing.language ||
+        typeof record.spacing.applicable !== "boolean" ||
+        !["line-height", "paragraph", "letter", "word"].includes(
+          record.spacing.override,
+        ))
+    )
+      throw new Error(`${record.id}: spacing applicability is required`);
+    if (
+      !Array.isArray(record.limitations) ||
+      record.limitations.some((item) => typeof item !== "string")
+    )
+      throw new Error(`${record.id}: invalid limitations`);
+    if (
+      [
+        record.diagnostics.focusApplicable,
+        record.diagnostics.focusReachable,
+        record.diagnostics.focusVisible,
+        record.diagnostics.orderPreserved,
+        record.diagnostics.associationsPreserved,
+      ].some((value) => typeof value !== "boolean")
+    )
+      throw new Error(`${record.id}: invalid focus/order diagnostic`);
+    for (const value of [
+      record.browser.viewport.width,
+      record.browser.viewport.height,
+      record.browser.dpr,
+      record.diagnostics.documentOverflowPx,
+      record.diagnostics.unownedOverflowingElements,
+      record.diagnostics.clippedText,
+      record.diagnostics.undersizedTargets,
+    ])
+      if (!Number.isFinite(value) || value < 0)
+        throw new Error(`${record.id}: invalid browser/diagnostic number`);
+    if (
+      record.browser.viewport.width <= 0 ||
+      record.browser.viewport.height <= 0 ||
+      record.browser.dpr <= 0
+    )
+      throw new Error(`${record.id}: browser geometry must be positive`);
+    if (
+      record.reviewerDecision === "PASS" &&
+      (record.diagnostics.documentOverflowPx > 0 ||
+        record.diagnostics.unownedOverflowingElements > 0 ||
+        record.diagnostics.clippedText > 0 ||
+        record.diagnostics.undersizedTargets > 0 ||
+        (record.diagnostics.focusApplicable &&
+          (!record.diagnostics.focusReachable ||
+            !record.diagnostics.focusVisible)) ||
+        !record.diagnostics.orderPreserved ||
+        !record.diagnostics.associationsPreserved ||
+        !record.geometry.nonoverlapping ||
+        !record.geometry.contentVisible ||
+        record.geometry.ordinaryLabelSqueezed === true)
+    )
+      throw new Error(`${record.id}: PASS contradicts diagnostics or geometry`);
+    if (
+      record.reviewerDecision === "PASS" &&
+      [
+        "synthetic-root-text",
+        "synthetic-computed-text",
+        "browser-zoom",
+        "os-text",
+      ].includes(record.method) &&
+      record.achieved.some(
+        ({ factor }) => Math.abs(factor - record.requestedFactor) > 0.05,
+      )
+    )
+      throw new Error(
+        `${record.id}: PASS did not achieve requested text scale`,
+      );
+    if (
+      !record.screenshot ||
+      !record.browser.name ||
+      !record.browser.version ||
+      Number.isNaN(Date.parse(record.capturedAt))
+    )
+      throw new Error(`${record.id}: incomplete capture provenance`);
   }
 }

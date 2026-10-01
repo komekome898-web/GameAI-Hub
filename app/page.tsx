@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const examples = ["Unityでモンスター収集RPG", "Godotで2Dアクション", "Steam向け3Dホラー"];
 
 export default function Home() {
-  return <>
+  return <div className="home-v2-route">
     <section className="home-execution-hero" aria-labelledby="home-title">
       <div className="home-execution-copy">
         <p className="system-label">AIゲーム制作の実行ナビ</p>
@@ -65,5 +65,5 @@ export default function Home() {
     </section>
 
     <aside className="home-trust-note" aria-label="情報の扱い"><strong>根拠と入力内容を大切にします。</strong><p>ゲーム案はアクセス解析へ送りません。料金や商用条件は一次情報で確認し、不明な点を推測で埋めません。</p><Link href="/methodology">調査・評価方法を見る →</Link></aside>
-  </>;
+  </div>;
 }

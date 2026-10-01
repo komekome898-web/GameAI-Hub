@@ -68,21 +68,79 @@ export function ArticleReadingGuide({ article }: { article: ArticleRecord }) {
   }, []);
   useEffect(() => {
     if (!entries.length || !window.location.hash) return;
-    const revealFragment = () => {
-      document
-        .getElementById(decodeURIComponent(window.location.hash.slice(1)))
-        ?.scrollIntoView();
-    };
-    const frame = requestAnimationFrame(revealFragment);
-    // Next's restoration and late web-font/layout work can run after hydration.
-    // Re-apply the initial fragment after those passes instead of leaving the
-    // reader at the top of a long article.
-    const timers = [150, 600].map((delay) =>
-      window.setTimeout(revealFragment, delay),
-    );
-    return () => {
+    let active = true;
+    let generation = 0;
+    let userInterrupted = false;
+    let frame = 0;
+    let timers: number[] = [];
+    let stabilityInterval = 0;
+    let stabilityTimeout = 0;
+    const clearScheduled = () => {
       cancelAnimationFrame(frame);
       timers.forEach((timer) => window.clearTimeout(timer));
+      timers = [];
+      window.clearInterval(stabilityInterval);
+      window.clearTimeout(stabilityTimeout);
+    };
+    const revealFragment = (hash: string, scheduledGeneration: number) => {
+      if (
+        !active ||
+        userInterrupted ||
+        generation !== scheduledGeneration ||
+        window.location.hash !== hash
+      )
+        return;
+      document
+        .getElementById(decodeURIComponent(hash.slice(1)))
+        // Initial/deep-link reconciliation must be immediate. Repeated smooth
+        // scrolls can continually restart while layout is settling.
+        ?.scrollIntoView({ behavior: "instant" as ScrollBehavior });
+    };
+    const stopForUser = () => {
+      userInterrupted = true;
+      clearScheduled();
+    };
+    const schedule = () => {
+      clearScheduled();
+      userInterrupted = false;
+      const hash = window.location.hash;
+      const scheduledGeneration = ++generation;
+      const reveal = () => revealFragment(hash, scheduledGeneration);
+      frame = requestAnimationFrame(reveal);
+      timers = [150, 600, 1200, 2000].map((delay) =>
+        window.setTimeout(reveal, delay),
+      );
+      stabilityInterval = window.setInterval(reveal, 250);
+      stabilityTimeout = window.setTimeout(
+        () => window.clearInterval(stabilityInterval),
+        8000,
+      );
+      const images = Array.from(
+        document.querySelectorAll<HTMLImageElement>(".article-content img"),
+      );
+      const mediaReady = images.map((image) =>
+        image.complete
+          ? Promise.resolve()
+          : (image.decode?.().catch(() => undefined) ?? Promise.resolve()),
+      );
+      void Promise.all([
+        document.fonts?.ready ?? Promise.resolve(),
+        ...mediaReady,
+      ]).then(reveal);
+    };
+    ["pointerdown", "wheel", "touchstart", "keydown"].forEach((type) =>
+      window.addEventListener(type, stopForUser, { passive: true }),
+    );
+    window.addEventListener("hashchange", schedule);
+    schedule();
+    return () => {
+      active = false;
+      generation += 1;
+      clearScheduled();
+      ["pointerdown", "wheel", "touchstart", "keydown"].forEach((type) =>
+        window.removeEventListener(type, stopForUser),
+      );
+      window.removeEventListener("hashchange", schedule);
     };
   }, [entries]);
   useEffect(() => {

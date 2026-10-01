@@ -94,39 +94,39 @@ export default function ElevenLabsV4GameVoice() {
               <tbody>
                 <tr>
                   <th>主目的</th>
-                  <td>表現豊かなTTS</td>
-                  <td>高品質な演技・長い文脈</td>
-                  <td>対話・低遅延</td>
+                  <td data-label="v3">表現豊かなTTS</td>
+                  <td data-label="v4">高品質な演技・長い文脈</td>
+                  <td data-label="v4 Turbo">対話・低遅延</td>
                 </tr>
                 <tr>
                   <th>対応言語</th>
-                  <td>70以上</td>
-                  <td>90以上</td>
-                  <td>90以上</td>
+                  <td data-label="v3">70以上</td>
+                  <td data-label="v4">90以上</td>
+                  <td data-label="v4 Turbo">90以上</td>
                 </tr>
                 <tr>
                   <th>公式Model資料のAPI文字数上限</th>
-                  <td>5,000</td>
-                  <td>10,000</td>
-                  <td>同じ数値の明記を確認できず</td>
+                  <td data-label="v3">5,000</td>
+                  <td data-label="v4">10,000</td>
+                  <td data-label="v4 Turbo">同じ数値の明記を確認できず</td>
                 </tr>
                 <tr>
                   <th>Audio Tags / 複数話者</th>
-                  <td>対応 / Text to Dialogue対応</td>
-                  <td>対応 / Text to Dialogue対応</td>
-                  <td>対応 / 対話用途</td>
+                  <td data-label="v3">対応 / Text to Dialogue対応</td>
+                  <td data-label="v4">対応 / Text to Dialogue対応</td>
+                  <td data-label="v4 Turbo">対応 / 対話用途</td>
                 </tr>
                 <tr>
                   <th>PVC</th>
-                  <td>製品page: 利用不可 / prompting: 未最適化</td>
-                  <td>対応</td>
-                  <td>対応</td>
+                  <td data-label="v3">製品page: 利用不可 / prompting: 未最適化</td>
+                  <td data-label="v4">対応</td>
+                  <td data-label="v4 Turbo">対応</td>
                 </tr>
                 <tr>
                   <th>ゲーム用途</th>
-                  <td>既存制作の比較候補</td>
-                  <td>固定音声・VN・カットシーン</td>
-                  <td>リアルタイムAI NPC</td>
+                  <td data-label="v3">既存制作の比較候補</td>
+                  <td data-label="v4">固定音声・VN・カットシーン</td>
+                  <td data-label="v4 Turbo">リアルタイムAI NPC</td>
                 </tr>
               </tbody>
             </table>

@@ -26,7 +26,7 @@ const footerGroups = [
 ] as const;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="ja" data-scroll-behavior="smooth"><body className={`${sans.variable} ${serif.variable}`}>
+  return <html lang="ja" data-scroll-behavior="smooth"><body className={`${sans.variable} ${serif.variable} visual-layer-v2`}>
     <a className="skip-link" href="#main-content">本文へスキップ</a>
     <Header />
     <main id="main-content" tabIndex={-1}>{children}</main>
