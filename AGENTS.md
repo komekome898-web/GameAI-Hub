@@ -247,6 +247,11 @@ Prefer:
 Detailed article and publishing rules are scoped under `app/articles/AGENTS.md`.
 Growth, SEO, acquisition, retention, or monetization strategy work should also read `docs/GROWTH_STRATEGY.md`.
 
+For explicitly requested Japanese readability edits, use the repository-local
+[`yomiyasu` skill](.agents/skills/yomiyasu/SKILL.md). It is advisory and limited
+to the requested prose; it does not authorize article publication or changes to
+acceptance/audit records, and never replaces the protections above.
+
 ## 11. Cloud Task execution and repository truth
 
 For Codex Cloud Tasks, follow `CODEX_CLOUD_TASK.md`.
