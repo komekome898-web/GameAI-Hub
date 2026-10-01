@@ -17,3 +17,8 @@
   visibly disclosed reference settings, without invented schema mappings.
 - Delivery head/PR: use the branch and draft PR GitHub refs for final SHA; this
   ledger is included in that commit. No legacy Work dispatch or account changes.
+- Review follow-up: corrected three premature screenshots after measuring the
+  220ms deck transitions and mobile resize viewport settling. Original images
+  retained as `transient-*`; settled card/title/CTA bounds asserted by E2E.
+  Three input tests plus ESLint/typecheck pass. Runtime/CSS unchanged from
+  `8a3ef48ec9db7859e08bd7086f7f91e2b90c270f`; no persistent local layout bug found.

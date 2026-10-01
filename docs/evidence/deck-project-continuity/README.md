@@ -89,3 +89,38 @@ npx playwright test e2e/measurement-baseline.spec.ts -g 'article → Project'
 Local execution reused the already-built localhost server via a temporary config;
 the retained specs also run with the repository config. Native CDP touch tests
 explicitly skip non-Chromium engines instead of pretending to cover WebKit.
+
+## Independent-review follow-up: settled captures
+
+The reviewer correctly flagged the original `after-deck-375/390.png` as clipped
+and `after-list-320.png` as narrow/off-center. Those images were **not valid
+settled-layout evidence**. They are preserved unchanged as `transient-deck-375.png`,
+`transient-deck-390.png` and `transient-list-320.png`; the three `after-*` files now
+contain settled captures inspected with the active/first card, full title and CTA
+visible. No application code or CSS changed in this correction.
+
+A bounded reproduction on runtime commit
+`8a3ef48ec9db7859e08bd7086f7f91e2b90c270f` sampled immediate and settled geometry
+(`capture-stabilization-samples.json`). Immediately after a wrap swipe, the
+newly active card was still transitioning from its previous right-hand position:
+x≈279 at 375px / x≈286 at 390px, with three running transitions. After settling,
+the active transform was identity and its horizontal bounds were 35.5–339.5 and
+43–347 respectively. Immediately after the interrupted mouse drag + resize,
+Chromium's mobile viewport temporarily expanded to 535px at scale ≈0.598 while
+transforms were running. It then settled to 320px at scale 1, no animation,
+`transform:none`, and list-card bounds 8–312. Fresh 320px and reload checks agreed.
+No persistent final-layout defect was reproduced in this local Chromium check.
+
+The retained E2E capture helper now waits (bounded by the normal 10s assertion
+timeout) for font readiness, no running deck animations, the requested layout
+and visual viewport width, and scale 1. It then instant-scrolls the active card
+(or first list card) into the center, waits two animation frames, and asserts
+that card, title and CTA bounds are all within the viewport and below the 56px
+header boundary before capture. `settled-capture-geometry.json` records those
+bounds. This replaces the previous immediate `data-mode`/count-only screenshot
+readiness check; screenshots do not disable animation or force a different layout.
+
+All three input tests (375 touch, 390 touch, mouse/320 fallback) pass with these
+stronger capture assertions; targeted ESLint and TypeScript checks pass. The
+previous full quality/build/10-test results apply to the unchanged application
+runtime. This evidence correction is not Safari/WebKit acceptance.

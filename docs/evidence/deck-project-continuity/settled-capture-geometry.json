@@ -1,0 +1,86 @@
+[
+  {
+    "case": "settled-deck-375",
+    "innerWidth": 375,
+    "viewportWidth": 375,
+    "scale": 1,
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "card": {
+      "left": 35.5,
+      "right": 339.5,
+      "top": 207.1875,
+      "bottom": 708.921875,
+      "width": 304
+    },
+    "title": {
+      "left": 52.5,
+      "right": 322.5,
+      "top": 454.578125,
+      "bottom": 534.359375,
+      "width": 270
+    },
+    "cta": {
+      "left": 52.5,
+      "right": 322.5,
+      "top": 647.921875,
+      "bottom": 691.921875,
+      "width": 270
+    }
+  },
+  {
+    "case": "settled-deck-390",
+    "innerWidth": 390,
+    "viewportWidth": 390,
+    "scale": 1,
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "card": {
+      "left": 43,
+      "right": 347,
+      "top": 207.34375,
+      "bottom": 709.078125,
+      "width": 304
+    },
+    "title": {
+      "left": 60,
+      "right": 330,
+      "top": 454.734375,
+      "bottom": 534.515625,
+      "width": 270
+    },
+    "cta": {
+      "left": 60,
+      "right": 330,
+      "top": 648.078125,
+      "bottom": 692.078125,
+      "width": 270
+    }
+  },
+  {
+    "case": "settled-list-320",
+    "innerWidth": 320,
+    "viewportWidth": 320,
+    "scale": 1,
+    "transform": "none",
+    "card": {
+      "left": 8,
+      "right": 312,
+      "top": 207.34375,
+      "bottom": 707.734375,
+      "width": 304
+    },
+    "title": {
+      "left": 23,
+      "right": 297,
+      "top": 455.390625,
+      "bottom": 535.171875,
+      "width": 274
+    },
+    "cta": {
+      "left": 23,
+      "right": 297,
+      "top": 648.734375,
+      "bottom": 692.734375,
+      "width": 274
+    }
+  }
+]

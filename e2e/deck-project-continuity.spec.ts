@@ -1,4 +1,4 @@
-import { test, expect, type Page } from './fixtures';
+import { test, expect, type Page, type TestInfo } from './fixtures';
 
 test.use({ viewport: { width: 375, height: 844 }, isMobile: true, hasTouch: true });
 test.beforeEach(async ({ context }) => {
@@ -17,6 +17,40 @@ async function cardPoint(page: Page, target = 'img') {
   const box = await card.boundingBox();
   if (!box) throw new Error('Active card missing');
   return { x: box.x + box.width / 2, y: box.y + Math.min(40, box.height / 2) };
+}
+
+// DOM state changes precede the 220ms transform transition. A mid-drag resize
+// can also temporarily change Chromium's mobile layout viewport/page scale.
+// Capture only the settled surface, not the first frame with the new data-mode.
+async function captureSettledDeck(page: Page, testInfo: TestInfo, width: number, mode: 'deck' | 'list', filename: string) {
+  await page.evaluate(() => document.fonts.ready);
+  await expect.poll(() => page.locator('.creation-deck').evaluate((deck, expected) => {
+    const viewport = window.visualViewport;
+    return deck.getAttribute('data-mode') === expected.mode &&
+      Math.abs(innerWidth - expected.width) < 1 &&
+      (!viewport || (Math.abs(viewport.width - expected.width) < 1 && Math.abs(viewport.scale - 1) < .001)) &&
+      !deck.getAnimations({ subtree: true }).some(animation => animation.playState === 'running');
+  }, { width, mode })).toBe(true);
+  const active = page.locator(mode === 'deck' ? '.creation-deck li[data-distance="0"]' : '.creation-deck li').first();
+  await active.evaluate(element => element.scrollIntoView({ block: 'center', behavior: 'instant' }));
+  await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+  const geometry = await active.evaluate(element => {
+    const rect = (node: Element) => {
+      const box = node.getBoundingClientRect();
+      return { left: box.left, right: box.right, top: box.top, bottom: box.bottom, width: box.width };
+    };
+    return { innerWidth, viewportWidth: visualViewport?.width, scale: visualViewport?.scale,
+      transform: getComputedStyle(element).transform, card: rect(element),
+      title: rect(element.querySelector('strong')!), cta: rect(element.querySelector('.v2-start-card-read')!) };
+  });
+  for (const box of [geometry.card, geometry.title, geometry.cta]) {
+    expect(box.left).toBeGreaterThanOrEqual(0);
+    expect(box.right).toBeLessThanOrEqual(width);
+    expect(box.top).toBeGreaterThanOrEqual(56); // below the sticky site header
+    expect(box.bottom).toBeLessThanOrEqual(page.viewportSize()!.height);
+  }
+  await testInfo.attach(`settled-${mode}-${width}`, { body: JSON.stringify(geometry, null, 2), contentType: 'application/json' });
+  await page.screenshot({ path: testInfo.outputPath(filename) });
 }
 
 for (const width of [375, 390]) {
@@ -67,8 +101,7 @@ for (const width of [375, 390]) {
     expect(traces.every(event => event.trusted)).toBe(true);
     expect(traces.some(event => event.type === 'lostpointercapture' && event.target === 'IMG')).toBe(true);
     await testInfo.attach('browser-generated-touch-events', { body: JSON.stringify(traces, null, 2), contentType: 'application/json' });
-    await page.locator('.creation-deck-controls').scrollIntoViewIfNeeded();
-    await page.screenshot({ path: testInfo.outputPath(`deck-${width}.png`) });
+    await captureSettledDeck(page, testInfo, width, 'deck', `deck-${width}.png`);
     const { x, y } = await cardPoint(page);
     const scrollBefore = await page.evaluate(() => scrollY);
     await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
@@ -102,8 +135,7 @@ test('native mouse dragging, controls, resize and reduced-motion fallback', asyn
   await page.mouse.up();
   await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'list');
   await expect(page.locator('.creation-deck-controls')).toHaveCount(0);
-  await page.locator('#start').scrollIntoViewIfNeeded();
-  await page.screenshot({ path: testInfo.outputPath('list-320.png') });
+  await captureSettledDeck(page, testInfo, 320, 'list', 'list-320.png');
   await page.setViewportSize({ width: 390, height: 844 });
   await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'deck');
   await expect(count).toContainText('3件中2件目');
