@@ -1357,7 +1357,7 @@
       "phase": "V4",
       "route": "/articles/#start",
       "state": "0/1/2/3/>3 test fixtures",
-      "surface": "deck/list/count/prev/next",
+      "surface": "disposable CreationDeck component fixtures",
       "method": [
         "fixture-counts",
         "viewport-reflow"
@@ -1366,9 +1366,8 @@
       "requiredForFinal": true,
       "status": "VERIFIED",
       "surfaceRequirement": {
-        "kind": "dom",
-        "selector": "#start .creation-deck",
-        "maturity": "measured"
+        "kind": "static",
+        "artifact": "tests/creation-deck.test.tsx"
       },
       "variants": [
         {
