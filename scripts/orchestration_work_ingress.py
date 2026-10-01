@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Trusted ingress for a ChatGPT Work candidate written through its GitHub App."""
+from orchestration_mode import legacy_only
 import json
 import os
 
@@ -29,6 +30,7 @@ def _candidate_from_event(event):
     return None
 
 
+@legacy_only
 def main():
     event = adapter.strict_json(open(os.environ["ORCH_GITHUB_EVENT"]).read())
     if event.get("action") != "created" or not event.get("issue", {}).get("pull_request"):

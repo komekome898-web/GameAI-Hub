@@ -1,5 +1,11 @@
 # Work acceptance and bridge boundary
 
+> Legacy protocol retained for history and regression tests. Current operation is
+> **owner-directed**; the automatic dispatch/retry/result-ingress instructions below
+> are inactive. For new work follow [どっさん司令塔運用](OWNER_DIRECTED_OPERATIONS.md).
+> Do not configure new Work tasks, emit legacy result markers or treat どっさん's
+> report as Work/model attestation. Required evidence and independent review remain.
+
 ## Required profiles
 
 `.github/orchestration/profiles.json` revision 2 is authoritative. Preview, ordinary research and evidence require `work-standard` = GPT-5.6 Sol / Medium. Production final acceptance, P0/P1 independent verification, security/privacy/integrity and orchestration E2E require `work-critical` = GPT-5.6 Sol / Medium. A run pins ID and revision. Never silently fall back; unavailable configuration blocks.
@@ -26,4 +32,4 @@ Production begins with the capability handshake in `orchestration/production-acc
 
 ## Result contract
 
-Return exactly one `gameai-acceptance/v1` JSON marker. Required fields include immutable result/claim IDs, run/task version, stage/attempt, repository/Issue/PR/SHA, environment, targets, required profile/revision, actor provenance, verdict and findings. Provenance is overwritten from the GitHub event envelope rather than accepted from payload text. The ingress is disabled by an empty actor allowlist until a real write-capable Work App/bot is observed and enrolled; never guess or forward it as `github-actions[bot]`. Use stable finding IDs and severity. `UNTESTED` cannot become PASS; P0/P1/high-impact P2 block.
+Return exactly one `gameai-acceptance/v1` JSON marker. Required fields include immutable result/claim IDs, run/task version, stage/attempt, repository/Issue/PR/SHA, environment, targets, required profile/revision, actor provenance, verdict and findings. Provenance is overwritten from the GitHub event envelope rather than accepted from payload text. The generic acceptance ingress has an empty actor allowlist, but the dedicated connector ingress separately trusts App ID `1144995`. The operation-mode guard disables both routes; the empty generic allowlist alone does not stop Work. In legacy mode, never guess or forward it as `github-actions[bot]`. Use stable finding IDs and severity. `UNTESTED` cannot become PASS; P0/P1/high-impact P2 block.

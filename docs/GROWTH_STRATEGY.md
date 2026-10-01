@@ -204,63 +204,29 @@ Affiliate payout must never influence recommendation ranking, scoring or editori
 
 Do not optimize pageviews at the expense of activation, completion or trust.
 
-## 8. Work allocation: Chat / Work / Codex
+## 8. Work allocation: owner / どっさん / Codex / independent review
 
-### Chat — strategy and orchestration
-Chat is responsible for:
-- growth strategy
-- keyword/content-cluster prioritization
-- content briefs
-- funnel design
-- monetization design
-- interpreting Search Console/GA4 findings
-- writing precise implementation/research instructions for Work and Codex
-- GitHub coordination when useful
+- **Owner** decides objectives, priorities, adopted proposals and merge.
+- **どっさん** coordinates requirements, strategy, design/materials, briefs, task instructions, progress and result verification. This includes interpreting Search Console/GA4 evidence and proposing content/product work for owner adoption.
+- **Codex Cloud** implements the instructed scope and runs tests/build/E2E. SEO/content systems, metadata, links, analytics or articles change only under the approved brief. GitHub writes stay within user authorization; documented procedures confer no additional permission.
+- **Independent reviewer** examines evidence separately from implementer self-evaluation. Live SERP/competitor research and rendered Preview/Production acceptance go to an explicitly assigned capable reviewer, not automatically to a Work task. Source inspection cannot establish rendered acceptance.
 
-Chat should not treat code inspection as final rendered UX acceptance.
-
-### Work — browser research and real-world acceptance
-Work is responsible for:
-- live Google/SERP research
-- competitor/site research
-- production-site interaction
-- article readability/usefulness review
-- mobile review
-- CTA / affiliate-flow review
-- post-deploy acceptance
-- Search Console inspection when available
-
-Work should treat actual search results and rendered production behavior as primary evidence, not PR descriptions.
-
-### Codex — implementation and technical content system
-Codex is responsible for:
-- SEO/content infrastructure
-- article/category/tag systems
-- structured data
-- metadata/canonicals/sitemap
-- internal-link/related-content components
-- analytics events
-- article implementation from approved briefs
-- Tool/Compare/Guide integration
-- tests/build/E2E
-- branch/checkpoint/push/PR/merge workflow when explicitly approved
-
-Codex must follow `AGENTS.md`, relevant scoped `AGENTS.md`, issue acceptance criteria and checkpoint/push rules. It must not mass-generate unreviewed low-value content.
+Implementation stays in one coherent unit; investigation/design may run in parallel.
+Do not mass-generate unreviewed low-value content. Follow root/scoped `AGENTS.md`
+and [current operating instructions](agent-guides/OWNER_DIRECTED_OPERATIONS.md).
+Read-only research/review requires no push checkpoint.
 
 ## 9. Standard operating pipeline
 
-Use this pipeline for substantial growth/content work:
-
-1. **Chat** defines objective, target audience, funnel hypothesis and research questions.
-2. **Work** researches actual SERPs/competitors/user experience and returns evidence.
-3. **Chat** converts evidence into a prioritized content/product brief with measurable success criteria.
-4. **Codex** implements on a protected branch with checkpoints and tests.
-5. **Work** reviews the rendered Preview/Production page as a real user and checks search/content intent.
-6. **Codex** fixes P0/P1/high-impact P2 findings and reruns gates.
-7. **Work** rechecks if the change affects rendered UX/content.
-8. Merge only when required acceptance criteria pass.
-9. **Search Console + GA4** provide post-launch performance evidence.
-10. **Chat** reviews performance and chooses the next cluster/experiment.
+1. **Owner + どっさん** clarify the objective, audience, scope and research questions; the owner selects priorities.
+2. **Assigned researcher** gathers current primary evidence from search, competitors and actual user journeys within the instructed access scope.
+3. **どっさん** prepares a brief and measurable acceptance criteria; the owner adopts the proposal.
+4. **Codex Cloud** implements and tests one scoped unit in the saved Environment; authorized delivery uses one branch/PR with Issue/SHA lineage.
+5. **Independent reviewer** evaluates the exact target SHA and applicable rendered journeys, keeping Preview, Production, saved images and physical devices distinct.
+6. **Codex Cloud** fixes authorized P0/P1/high-impact P2 findings and reruns relevant gates; **reviewer** rechecks affected criteria.
+7. **Owner** separately authorizes merge only after required checks and acceptance pass. Head changes invalidate old acceptance/approval.
+8. **Assigned reviewer** verifies authorized post-deploy journeys; Search Console/GA4 supply performance evidence.
+9. **どっさん** reports results/options and **owner** selects the next action. No unrelated automatic continuation.
 
 ## 10. Phase roadmap
 
@@ -281,7 +247,7 @@ Deliverables:
 - sitemap/index coverage
 - editorial/source/updated-date conventions
 - first 10 pillar pages
-- Work browser acceptance
+- Independent rendered browser acceptance
 - Search Console measurement baseline
 
 ### Phase 2 — Cluster expansion

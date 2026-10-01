@@ -1,5 +1,10 @@
 # GameAI-Hub Codex Cloud Environment contract
 
+Current tasks follow [owner-directed operations](OWNER_DIRECTED_OPERATIONS.md).
+Launching the saved Environment and posting a GitHub Codex mention are distinct
+routes, each limited to explicit user instructions. This migration does not change
+account-side settings or recreate the saved Environment.
+
 This is the single repository-side contract and authoritative script reference
 for the ChatGPT-managed reusable **GameAI-Hub** Codex Cloud Environment for
 `komekome898-web/GameAI-Hub`. Account-side Environment settings must match this

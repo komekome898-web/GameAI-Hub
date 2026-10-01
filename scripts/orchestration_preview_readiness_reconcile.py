@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Reconcile Preview readiness after PR/head observation has converged."""
+from orchestration_mode import legacy_only
 from urllib.parse import urlparse
 
 import orchestration_github as adapter
@@ -28,6 +29,7 @@ def current_vercel_success(sha):
     return status, parts[2]
 
 
+@legacy_only
 def main():
     query = adapter.gh(
         f'search/issues?q=repo:{adapter.REPO}+is:issue+%22gameai-orchestration-index:v1%22&per_page=100'

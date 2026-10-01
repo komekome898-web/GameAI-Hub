@@ -1,6 +1,7 @@
 {
   "schema": "gameai-work-profiles/v1",
   "revision": 2,
+  "scope": "Legacy Work contracts only; not a model requirement or execution attestation for owner-directed tasks. Existing profile IDs/revision are preserved for historical claims.",
   "profiles": {
     "work-standard": { "model": "GPT-5.6 Sol", "reasoning": "medium", "uses": ["preview_acceptance", "research", "normal_evidence"] },
     "work-critical": { "model": "GPT-5.6 Sol", "reasoning": "medium", "uses": ["production_acceptance", "p0_p1_validation", "security_privacy", "orchestration_e2e"] }

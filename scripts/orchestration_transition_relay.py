@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Relay an owner-authored Issue transition command into repository_dispatch."""
+from orchestration_mode import legacy_only
 import os
 
 import orchestration_github as adapter
@@ -8,6 +9,7 @@ from orchestration import Rejected
 MARKER = "<!-- gameai-transition-command:v1 -->"
 
 
+@legacy_only
 def main():
     event = adapter.strict_json(open(os.environ["ORCH_GITHUB_EVENT"]).read())
     issue = event.get("issue") or {}

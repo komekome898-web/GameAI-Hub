@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Fail closed when a Work dispatch contract receives no ACK or result."""
+from orchestration_mode import legacy_only
 import datetime as dt
 import os
 
@@ -7,6 +8,7 @@ import orchestration_github as adapter
 from orchestration import Rejected, reduce
 
 
+@legacy_only
 def reconcile_issue(number, now=None):
     comment, manifest = adapter.find_manifest(number)
     adapter.verify_task(number, manifest)
@@ -30,6 +32,7 @@ def reconcile_issue(number, now=None):
     return out
 
 
+@legacy_only
 def main():
     requested = os.getenv("ORCH_ISSUE")
     numbers = [int(requested)] if requested else [item["number"] for item in adapter.gh(f'search/issues?q=repo:{adapter.REPO}+is:issue+%22gameai-orchestration-index:v1%22&per_page=100').get("items", [])]

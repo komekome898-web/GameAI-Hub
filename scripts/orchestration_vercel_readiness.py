@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Derive Preview readiness from GitHub's Vercel status and bot evidence."""
+from orchestration_mode import legacy_only
 import os
 import re
 import time
@@ -48,6 +49,7 @@ def matching_preview(pr_number, deployment_id, attempts=6, delay_seconds=5):
     raise Rejected("Vercel bot Preview evidence did not converge within bounded retry")
 
 
+@legacy_only
 def main():
     event = adapter.strict_json(open(os.environ["ORCH_GITHUB_EVENT"]).read())
     if event.get("context") != "Vercel" or event.get("state") != "success":
