@@ -17,8 +17,8 @@
     "affiliate:set": "node --import tsx scripts/set-affiliate.ts && npm run affiliate:sync",
     "affiliate:sync": "node --import tsx scripts/sync-affiliates.ts",
     "quality": "npm run affiliate:sync && npm run lint && npm run typecheck && npm test && npm run validate:data && npm run check:affiliates && npm run check:sitemap && npm run validate:content && npm run test:orchestration && npm run validate:workflows",
-    "test:e2e": "playwright test",
-    "test:issue-157-final": "ISSUE_157_FINAL=1 playwright test e2e/issue-157-reflow-evidence.spec.ts e2e/issue-157-project-evidence.spec.ts e2e/stage-a-evidence.spec.ts -g 'V2 Home|Issue 157 Project|Stage A executed' && ISSUE_157_FINAL=1 playwright test e2e/issue-157-stage-b.spec.ts && ISSUE_157_FINAL=1 playwright test e2e/issue-157-final-evidence.spec.ts -g 'V3 route|V4 dynamic' && ISSUE_157_FINAL=1 playwright test e2e/issue-157-final-evidence.spec.ts -g 'final cross-route'",
+    "test:e2e": "playwright test --grep-invert 'final cross-route evidence reconciles every required local case$' && playwright test e2e/issue-157-final-evidence.spec.ts --grep 'final cross-route evidence reconciles every required local case$' --output=test-results/final-reconciliation",
+    "test:issue-157-final": "playwright test e2e/issue-157-reflow-evidence.spec.ts e2e/issue-157-project-evidence.spec.ts e2e/stage-a-evidence.spec.ts -g 'V2 Home|Issue 157 Project|Stage A executed' && playwright test e2e/issue-157-stage-b.spec.ts && playwright test e2e/issue-157-final-evidence.spec.ts -g 'V3 route|V4 dynamic' && playwright test e2e/issue-157-final-evidence.spec.ts -g 'final cross-route'",
     "validate:content": "node --import tsx scripts/validate-articles.ts",
     "test:orchestration": "python -m unittest scripts/tests/test_orchestration.py scripts/tests/test_hotfix_reconcile.py scripts/tests/test_orchestration_browser_recovery.py",
     "validate:workflows": "python scripts/validate-orchestration.py"

@@ -5,10 +5,6 @@ const baseURL = `http://127.0.0.1:${port}`;
 
 export default defineConfig({
   testDir: './e2e',
-  // The final evidence spec has its own ordered runner because reconciliation
-  // consumes manifests emitted by several other specs. The ordinary regression
-  // suite must not race that dependency chain.
-  testIgnore: process.env.ISSUE_157_FINAL ? undefined : '**/issue-157-final-evidence.spec.ts',
   outputDir: 'test-results',
   fullyParallel: false,
   workers: process.env.CI ? 1 : 2,
