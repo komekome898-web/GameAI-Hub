@@ -579,7 +579,7 @@
       ],
       "phase": "V3",
       "route": "/tools/",
-      "state": "goal/filter/search/count/help/reset/empty/error",
+      "state": "goal/filter/search/count/help/reset/empty",
       "surface": "results header, filters, cards",
       "method": [
         "semantic-row",
@@ -659,14 +659,6 @@
             "kind": "exact",
             "value": "/tools/"
           }
-        },
-        {
-          "id": "error",
-          "state": "error",
-          "route": {
-            "kind": "exact",
-            "value": "/tools/"
-          }
         }
       ],
       "bindings": [
@@ -697,6 +689,12 @@
       ],
       "evidence": [
         "docs/screenshots/issue-157-stage-b/final/v3-manifest.json"
+      ],
+      "notApplicable": [
+        {
+          "state": "error",
+          "reason": "The Tools directory has no product error state; an empty search is covered by the empty variant and is not relabeled as an error."
+        }
       ]
     },
     {
@@ -1163,7 +1161,7 @@
       ],
       "phase": "V3",
       "route": "/tools/[slug]/|/guides/[slug]/|/stacks/",
-      "state": "details, loading, error, not-found",
+      "state": "existing detail route",
       "surface": "remaining route families",
       "method": [
         "route-family",
@@ -1179,8 +1177,8 @@
       },
       "variants": [
         {
-          "id": "details-loading-error-not-found",
-          "state": "details-loading-error-not-found",
+          "id": "details",
+          "state": "details",
           "route": {
             "kind": "exact",
             "value": "/tools/github-copilot/"
@@ -1189,6 +1187,12 @@
       ],
       "evidence": [
         "docs/screenshots/issue-157-stage-b/final/v3-manifest.json"
+      ],
+      "notApplicable": [
+        {
+          "state": "loading/error/not-found",
+          "reason": "The statically generated detail route exposes no user-triggerable loading or error state; unknown slugs resolve through Next not-found outside the measured detail surface."
+        }
       ]
     },
     {

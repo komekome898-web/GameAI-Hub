@@ -153,7 +153,7 @@ test("V3 route, state, text, navigation, affiliate, and SEO observations", async
   await base("VL-V3-ELEVENLABS", "pr-154-preservation-smoke", "/articles/elevenlabs-v4-game-voice/", ".article-shell", ["content-regression", "surface-probe"], undefined, 0);
   await base("VL-V3-TRUST", "long-trust-copy-source-links", "/privacy/", ".trust-page", ["viewport-reflow", "long-content"], undefined, 0);
   for (const override of ["line-height", "paragraph", "letter", "word"] as const) await observe(page, browserName, records, { id: `v3-trust-spacing-${override}`, caseId: "VL-V3-TRUST", variantId: "long-trust-copy-source-links", route: "/privacy/", selector: ".trust-page", method: "text-spacing", coverage: ["text-spacing", `spacing-${override}`], spacing: { override, language: "ja", applicable: true }, minimumTarget: 0 });
-  await base("VL-V3-DETAILS", "details-loading-error-not-found", "/tools/github-copilot/", "main", ["route-family", "long-content"], undefined, 0);
+  await base("VL-V3-DETAILS", "details", "/tools/github-copilot/", "main", ["route-family", "long-content"], undefined, 0);
   for (const [suffix, factor, method, width] of [["100", 1, "synthetic-computed-text", 320], ["150", 1.5, "synthetic-computed-text", 320], ["200", 2, "synthetic-computed-text", 375]] as const) {
     await page.goto("/");
     const menu = page.locator(".site-header button").first();
