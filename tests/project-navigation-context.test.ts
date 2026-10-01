@@ -26,6 +26,18 @@ describe('local project navigation context', () => {
     expect(readProjectNavigationContext()).toBeNull();
   });
 
+  it('round-trips article attribution through both emitted return anchors', () => {
+    for (const anchor of ['', '#beginner-action-title', '#build-progress-title']) {
+      expect(saveProjectNavigationContext(brief, `${route}&source=ai-browser-game-how-to${anchor}`)).toBe(true);
+      expect(readProjectNavigationContext()?.returnUrl).toBe(`${route}&source=ai-browser-game-how-to`);
+    }
+  });
+
+  it.each(['&source=', '&source=private%20idea', '&source=https%3A%2F%2Fevil.example', '&source=guide&source=other', '&draft=' + 'b'.repeat(32), '#unknown', '&redirect=elsewhere'])('does not weaken return validation for article attribution: %s', suffix => {
+    expect(saveProjectNavigationContext(brief, route + suffix)).toBe(false);
+    expect(readProjectNavigationContext()).toBeNull();
+  });
+
   it('sanitizes shared state before retaining it in the return URL', () => {
     const maliciousShared = `/project?${new URLSearchParams({ v: '1', p: JSON.stringify(brief) })}`;
     expect(saveProjectNavigationContext(brief, maliciousShared)).toBe(true);

@@ -25,6 +25,22 @@ afterEach(() => {
 });
 
 describe("Project Generator client", () => {
+  it("keeps a selected Stack separate from an older session idea and labels inherited values", async () => {
+    sessionStorage.setItem("gameai:project-idea", "古い別のゲーム");
+    history.replaceState(null, "", "/builder?template=2d-rpg");
+    render(<ProjectGeneratorClient />);
+    expect(await screen.findByText(/既成Stack「2D RPG 制作構成」/)).toBeTruthy();
+    expect(screen.queryByText("古い別のゲーム")).toBeNull();
+    fireEvent.change(screen.getByLabelText(/どんなゲームを作りたいですか？/), { target: { value: "2D RPGを作りたい。Unity。" } });
+    fireEvent.click(screen.getByRole("button", { name: "制作ロードマップを作る" }));
+    await screen.findByRole("heading", { name: /読み取った条件/ });
+    expect((document.querySelector('#project-field-engine') as HTMLSelectElement).value).toBe('unity');
+    expect((document.querySelector('#project-field-budget') as HTMLSelectElement).value).toBe('low');
+    expect(screen.getAllByText('Stackから引継ぎ・要確認').length).toBeGreaterThan(0);
+    fireEvent.change(document.querySelector('#project-field-budget')!, { target: { value: 'free' } });
+    expect(document.querySelector('#project-field-budget')?.closest('label')?.textContent).toContain('ここで確認');
+  });
+
   it("starts from free text without putting the description in analytics", () => {
     const listener = vi.fn();
     window.addEventListener("gameai:event", listener);

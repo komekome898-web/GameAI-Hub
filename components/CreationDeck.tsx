@@ -167,6 +167,7 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
 
   const move = (delta: number) => setActive((index) => (index + delta + items.length) % items.length);
   const changeMode = (next: "list" | "deck") => {
+    cancelGesture();
     setMode(next);
     preferredMode.current = next;
     try {
@@ -197,11 +198,16 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
     });
   };
   const onPointerDown = (event: ReactPointerEvent) => {
-    if (mode !== "deck" || !event.isPrimary || gesture.current) {
+    if (mode !== "deck" || !event.isPrimary || event.button !== 0 || gesture.current) {
       cancelGesture();
       return;
     }
     gesture.current = { pointerId: event.pointerId, x: event.clientX, y: event.clientY, dragging: false };
+  };
+  const onLostPointerCapture = (event: ReactPointerEvent) => {
+    // Touch starts with implicit capture on the image/link. Transferring it to
+    // the stage emits a bubbling loss from that child; it is not cancellation.
+    if (event.target === event.currentTarget && gesture.current?.pointerId === event.pointerId) cancelGesture();
   };
   const onPointerMove = (event: ReactPointerEvent) => {
     const start = gesture.current;
@@ -248,7 +254,7 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
       {mode === "deck" && <button type="button" onClick={() => move(1)} aria-label="次の記事">→</button>}
       {mode === "deck" && <span className="creation-deck-count" aria-live="polite">{items.length}件中{active + 1}件目、{items[active]?.title}</span>}
     </div>}
-    <ol ref={stage} className="article-cluster-list" style={mode === "deck" && deckHeight ? { minHeight: deckHeight } : undefined} onClickCapture={onClickCapture} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerEnd} onPointerCancel={cancelGesture} onLostPointerCapture={cancelGesture}>
+    <ol ref={stage} className="article-cluster-list" style={mode === "deck" && deckHeight ? { minHeight: deckHeight } : undefined} onClickCapture={onClickCapture} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerEnd} onPointerCancel={cancelGesture} onLostPointerCapture={onLostPointerCapture} onDragStart={(event) => { if (mode === "deck") event.preventDefault(); }}>
       {items.map((item, index) => {
         const distance = ((index - active + items.length + Math.floor(items.length / 2)) % items.length) - Math.floor(items.length / 2);
         return <li key={item.href} className="v2-start-card-item" data-distance={mode === "deck" ? Math.max(-2, Math.min(2, distance)) : undefined}>
