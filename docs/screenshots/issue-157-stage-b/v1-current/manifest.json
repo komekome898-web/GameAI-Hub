@@ -1,12 +1,12 @@
 {
   "schema": "gameai-reflow-evidence/v2",
   "target": {
-    "sha": "ac461e477f47bcb55d71f7fbdf70174e7a9c52a8",
+    "sha": "ed42a337a03ba410523323e4b290e42dc38fec44",
     "environment": "local",
     "baseUrl": "http://127.0.0.1:3100",
     "sourceIdentity": {
       "kind": "clean-git-checkpoint",
-      "sha": "ac461e477f47bcb55d71f7fbdf70174e7a9c52a8",
+      "sha": "ed42a337a03ba410523323e4b290e42dc38fec44",
       "status": "clean"
     }
   },
@@ -121,7 +121,7 @@
         "kind": "automated",
         "reviewer": "Playwright Stage A emitter"
       },
-      "capturedAt": "2026-10-01T00:09:12.390Z"
+      "capturedAt": "2026-10-01T02:10:16.502Z"
     },
     {
       "id": "stage-a-metadata-viewport-320",
@@ -231,7 +231,7 @@
         "kind": "automated",
         "reviewer": "Playwright Stage A emitter"
       },
-      "capturedAt": "2026-10-01T00:09:12.390Z"
+      "capturedAt": "2026-10-01T02:10:16.502Z"
     },
     {
       "id": "stage-a-metadata-150",
@@ -343,7 +343,7 @@
         "kind": "automated",
         "reviewer": "Playwright Stage A emitter"
       },
-      "capturedAt": "2026-10-01T00:09:15.364Z"
+      "capturedAt": "2026-10-01T02:10:20.182Z"
     },
     {
       "id": "stage-a-metadata-200",
@@ -455,7 +455,7 @@
         "kind": "automated",
         "reviewer": "Playwright Stage A emitter"
       },
-      "capturedAt": "2026-10-01T00:09:19.809Z"
+      "capturedAt": "2026-10-01T02:10:26.388Z"
     },
     {
       "id": "stage-a-long-content",
@@ -523,7 +523,7 @@
         "kind": "automated",
         "reviewer": "Playwright Stage A emitter"
       },
-      "capturedAt": "2026-10-01T00:09:23.190Z"
+      "capturedAt": "2026-10-01T02:10:30.599Z"
     }
   ],
   "execution": {

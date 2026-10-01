@@ -5,11 +5,11 @@
 - Issue: #157; branch: `codex/issue-157-visual-layer-v2-complete`; draft PR #158.
 - Base: `f26f8d22c3be876878a4c6e0c691dec5d446deff`.
 - Submitted runtime checkpoint: `ee1bec3a90b55fa42271d3ceab5a8479c06009ba`.
-- Current final integrated acceptance checkpoint: `ac461e477f47bcb55d71f7fbdf70174e7a9c52a8`.
+- Current corrected final integrated acceptance checkpoint: `ed42a337a03ba410523323e4b290e42dc38fec44`.
 - **Runtime implementation remaining: NONE.**
-- **Local final acceptance: PASS** at the checkpoint above. The combined 99-record manifest is `docs/screenshots/issue-157-stage-b/final/manifest.json`; V1, V2 Home, V2 Project, V3, V4, cross-route, and final reconciliation records all bind to that exact clean source SHA.
+- **Local final acceptance: PASS** at the checkpoint above. The combined 115-record manifest is `docs/screenshots/issue-157-stage-b/final/manifest.json`; V1, V2 Home, V2 Project, corrected V3/V4 actions, measured cross-route captures, and final reconciliation all bind to that exact clean source SHA.
 - Independent review found one high-impact P2 at 200% Deck text; content-fit fallback was added and the refreshed 200% capture confirms the same ordered list is retained without overlapping circular neighbors. No P0/P1/high-impact P2 remains in the reviewed local captures.
-- Remote quality/build run `36786860145` and exact-head Vercel passed. Remote full E2E run `36786860155` completed successfully.
+- At the preceding remote head, quality/build run `36795444535`, Vercel, and E2E run `36795444492` passed (134 passed / 1 skipped). Current-head remote checks are reported separately and are not inferred from those runs.
 - Production, protected Preview interaction, physical devices, genuine browser zoom, and OS scaling remain `UNTESTED / OWNER-DEFERRED`. No Production navigation or merge occurred.
 
 ## Stage A correction delivered
@@ -127,3 +127,13 @@ GitHub checks, E2E, observe, and Vercel exact-head status passed for the correct
 - Focus applicability is derived from rendered interactive DOM. Closed-details, disabled, inert, and hidden descendants are excluded; native labelled-input targets use their actual label hit area. The unchanged-shadow and covered-target negative controls remain in the contract suite.
 - The Stage B base-button rule no longer overrides `.button.ghost` or `.button.light`; Project primary/secondary hierarchy is retained. Narrow or short clarification actions fall back to natural flow rather than obscuring focused fields.
 - Still outstanding: V3 application observations, current V1 long-content reconciliation, remaining V4 browser-input/dynamic/budget observations, and both final cases. Production, protected Preview interaction, genuine browser zoom, OS scaling, and physical devices remain `UNTESTED / OWNER-DEFERRED`.
+
+## Corrected final emitter and execution order
+
+- The required final command now runs current V1, Home, Project, Stage B, V3, V4, and final reconciliation in explicit dependency order. Final reconciliation has no success-via-skip path: a missing or stale source manifest fails.
+- V3 now performs the declared spacing overrides, explicit Compare 0/1/2/4/limit/remove/clear actions and assertions, expanded/reset directory actions, and an expanded mobile Header observation. The nonexistent Tools error state and unavailable static-detail loading/error state are recorded as not applicable with source reasons rather than fabricated from empty search results or a normal detail route.
+- V4 cancellation occurs during the owned pointer gesture, CDP multi-touch is classified separately from synthetic pointer dispatch, and normal click/keyboard recovery is asserted. Count evidence is bound to the executed disposable component fixtures rather than the published three-link page.
+- The Deck rail exception is limited to descendants of inactive side cards; active-card containment is measured before the rail root is exempted. Unrelated document overflow and active-card clipping still fail.
+- The budget record measures CLS plus emitted Deck JS/CSS gzip sizes. At the tested checkpoint: CLS `0`, Deck JS `2585` bytes gzip, Deck CSS `3021` bytes gzip, against the existing `8192`-byte targets; route image assets transferred `39158` encoded bytes.
+- Final cross-route records are newly executed at 320/375/390/1440 across Home, Project, Tools, Compare, and Articles. The independent-review record references the retained review artifact instead of stamping a new reviewer decision onto a footer screenshot.
+- Consolidated acceptance exposed one current runtime defect: the mobile menu close control clipped at 200% synthetic computed text. Its fixed width was replaced with a 44px minimum plus natural inline padding, and the 200% Header observation passed on rerun.

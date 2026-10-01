@@ -1,12 +1,12 @@
 {
   "schema": "gameai-reflow-evidence/v2",
   "target": {
-    "sha": "ac461e477f47bcb55d71f7fbdf70174e7a9c52a8",
+    "sha": "ed42a337a03ba410523323e4b290e42dc38fec44",
     "environment": "local",
     "baseUrl": "http://127.0.0.1:3100",
     "sourceIdentity": {
       "kind": "clean-git-checkpoint",
-      "sha": "ac461e477f47bcb55d71f7fbdf70174e7a9c52a8",
+      "sha": "ed42a337a03ba410523323e4b290e42dc38fec44",
       "status": "clean"
     }
   },
@@ -87,7 +87,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:04.061Z"
+      "capturedAt": "2026-10-01T02:12:10.093Z"
     },
     {
       "id": "v3-tools-filter",
@@ -163,7 +163,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:06.077Z"
+      "capturedAt": "2026-10-01T02:12:10.982Z"
     },
     {
       "id": "v3-tools-search",
@@ -239,7 +239,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:08.205Z"
+      "capturedAt": "2026-10-01T02:12:12.050Z"
     },
     {
       "id": "v3-tools-count",
@@ -314,7 +314,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:09.809Z"
+      "capturedAt": "2026-10-01T02:12:13.211Z"
     },
     {
       "id": "v3-tools-help",
@@ -389,7 +389,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:11.202Z"
+      "capturedAt": "2026-10-01T02:12:14.011Z"
     },
     {
       "id": "v3-tools-reset",
@@ -464,7 +464,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:14.960Z"
+      "capturedAt": "2026-10-01T02:12:16.389Z"
     },
     {
       "id": "v3-tools-empty",
@@ -539,82 +539,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:17.414Z"
-    },
-    {
-      "id": "v3-tools-error",
-      "caseId": "VL-V3-TOOLS",
-      "variantId": "error",
-      "route": "/tools/",
-      "state": [
-        "error"
-      ],
-      "coverage": [
-        "error"
-      ],
-      "surface": {
-        "kind": "dom",
-        "selector": ".tools-explorer",
-        "matched": 1
-      },
-      "method": "viewport-reflow",
-      "evidenceClass": "responsive",
-      "requestedFactor": 1,
-      "achieved": [
-        {
-          "role": "results",
-          "baselineFontPx": 16,
-          "changedFontPx": 16,
-          "factor": 1,
-          "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
-        },
-        {
-          "role": "control",
-          "baselineFontPx": 16,
-          "changedFontPx": 16,
-          "factor": 1,
-          "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
-        }
-      ],
-      "browser": {
-        "name": "chromium",
-        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
-        "viewport": {
-          "width": 320,
-          "height": 844
-        },
-        "dpr": 1
-      },
-      "diagnostics": {
-        "documentOverflowPx": 0,
-        "unownedOverflowingElements": 0,
-        "clippedText": 0,
-        "undersizedTargets": 0,
-        "focusApplicable": true,
-        "focusReachable": true,
-        "focusVisible": true,
-        "orderPreserved": true,
-        "associationsPreserved": true
-      },
-      "geometry": {
-        "layout": "not-applicable",
-        "nonoverlapping": true,
-        "contentVisible": true,
-        "ownedScrollers": 0
-      },
-      "screenshot": "final/v3-tools-error.png",
-      "limitations": [
-        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
-        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
-      ],
-      "reviewerDecision": "PASS",
-      "review": {
-        "kind": "automated",
-        "reviewer": "Issue #157 final evidence emitter"
-      },
-      "capturedAt": "2026-10-01T00:06:18.869Z"
+      "capturedAt": "2026-10-01T02:12:17.318Z"
     },
     {
       "id": "v3-tools-spacing-line-height",
@@ -643,7 +568,7 @@
           "changedFontPx": 11.52,
           "factor": 1,
           "baselineLineHeightPx": 16.128,
-          "changedLineHeightPx": 16.128
+          "changedLineHeightPx": 17.28
         },
         {
           "role": "surface",
@@ -651,7 +576,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 40.8,
-          "changedLineHeightPx": 40.8
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -659,7 +584,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -667,7 +592,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -675,7 +600,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -683,7 +608,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -691,7 +616,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -699,7 +624,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -707,7 +632,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -715,7 +640,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -723,7 +648,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -731,7 +656,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -739,7 +664,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -747,7 +672,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -755,7 +680,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -763,7 +688,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -771,7 +696,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -779,7 +704,7 @@
           "changedFontPx": 11.52,
           "factor": 1,
           "baselineLineHeightPx": 16.128,
-          "changedLineHeightPx": 16.128
+          "changedLineHeightPx": 17.28
         },
         {
           "role": "surface",
@@ -787,7 +712,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -795,7 +720,7 @@
           "changedFontPx": 12.16,
           "factor": 1,
           "baselineLineHeightPx": 20.672,
-          "changedLineHeightPx": 20.672
+          "changedLineHeightPx": 18.24
         },
         {
           "role": "surface",
@@ -803,7 +728,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -811,7 +736,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -819,7 +744,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -827,7 +752,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -835,7 +760,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -843,7 +768,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -851,7 +776,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -859,7 +784,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -867,7 +792,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -875,7 +800,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -883,7 +808,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -891,7 +816,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -899,7 +824,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -907,7 +832,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -915,7 +840,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -923,7 +848,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -931,7 +856,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -939,7 +864,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -947,7 +872,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -955,7 +880,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -963,7 +888,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -971,7 +896,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -979,7 +904,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -987,7 +912,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -995,7 +920,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1003,7 +928,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1011,7 +936,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1019,7 +944,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1027,7 +952,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1035,7 +960,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1043,7 +968,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1051,7 +976,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1059,7 +984,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1067,7 +992,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1075,7 +1000,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1083,7 +1008,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1091,7 +1016,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1099,7 +1024,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1107,7 +1032,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1115,7 +1040,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1123,7 +1048,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1131,7 +1056,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1139,7 +1064,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1147,7 +1072,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1155,7 +1080,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1163,7 +1088,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1171,7 +1096,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1179,7 +1104,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1187,7 +1112,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1195,7 +1120,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1203,7 +1128,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1211,7 +1136,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1219,7 +1144,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1227,7 +1152,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1235,7 +1160,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1243,7 +1168,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1251,7 +1176,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1259,7 +1184,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1267,7 +1192,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1275,7 +1200,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1283,7 +1208,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1291,7 +1216,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1299,7 +1224,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1307,7 +1232,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1315,7 +1240,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1323,7 +1248,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1331,7 +1256,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1339,7 +1264,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1347,7 +1272,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1355,7 +1280,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1363,7 +1288,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1371,7 +1296,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1379,7 +1304,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1387,7 +1312,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1395,7 +1320,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1403,7 +1328,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1411,7 +1336,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1419,7 +1344,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1427,7 +1352,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1435,7 +1360,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1443,7 +1368,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1451,7 +1376,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1459,7 +1384,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1467,7 +1392,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1475,7 +1400,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1483,7 +1408,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1491,7 +1416,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1499,7 +1424,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1507,7 +1432,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1515,7 +1440,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1523,7 +1448,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1531,7 +1456,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1539,7 +1464,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1547,7 +1472,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1555,7 +1480,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1563,7 +1488,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1571,7 +1496,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1579,7 +1504,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1587,7 +1512,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1595,7 +1520,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1603,7 +1528,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1611,7 +1536,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1619,7 +1544,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1627,7 +1552,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1635,7 +1560,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1643,7 +1568,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1651,7 +1576,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1659,7 +1584,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1667,7 +1592,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1675,7 +1600,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1683,7 +1608,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1691,7 +1616,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1699,7 +1624,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1707,7 +1632,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1715,7 +1640,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1723,7 +1648,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1731,7 +1656,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1739,7 +1664,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1747,7 +1672,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1755,7 +1680,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1763,7 +1688,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1771,7 +1696,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1779,7 +1704,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1787,7 +1712,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1795,7 +1720,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1803,7 +1728,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1811,7 +1736,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1819,7 +1744,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1827,7 +1752,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1835,7 +1760,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1843,7 +1768,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1851,7 +1776,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1859,7 +1784,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1867,7 +1792,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1875,7 +1800,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1883,7 +1808,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1891,7 +1816,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1899,7 +1824,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1907,7 +1832,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1915,7 +1840,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1923,7 +1848,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1931,7 +1856,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 32.3,
-          "changedLineHeightPx": 32.3
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -1939,7 +1864,7 @@
           "changedFontPx": 13.12,
           "factor": 1,
           "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
+          "changedLineHeightPx": 19.68
         },
         {
           "role": "surface",
@@ -1947,7 +1872,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1955,7 +1880,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -1963,7 +1888,7 @@
           "changedFontPx": 11.52,
           "factor": 1,
           "baselineLineHeightPx": 16.128,
-          "changedLineHeightPx": 16.128
+          "changedLineHeightPx": 17.28
         },
         {
           "role": "surface",
@@ -1971,7 +1896,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 40.8,
-          "changedLineHeightPx": 40.8
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -1979,7 +1904,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -1987,7 +1912,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         }
       ],
       "browser": {
@@ -2031,7 +1956,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:25.061Z"
+      "capturedAt": "2026-10-01T02:12:20.616Z"
     },
     {
       "id": "v3-tools-spacing-paragraph",
@@ -3448,7 +3373,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:29.011Z"
+      "capturedAt": "2026-10-01T02:12:23.028Z"
     },
     {
       "id": "v3-tools-spacing-letter",
@@ -4865,7 +4790,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:32.759Z"
+      "capturedAt": "2026-10-01T02:12:25.308Z"
     },
     {
       "id": "v3-tools-spacing-word",
@@ -6282,7 +6207,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:36.767Z"
+      "capturedAt": "2026-10-01T02:12:27.383Z"
     },
     {
       "id": "v3-VL-V3-GUIDES-stage-reset-expanded-constraints-long-values",
@@ -6345,14 +6270,6 @@
           "factor": 1,
           "baselineLineHeightPx": 27.2,
           "changedLineHeightPx": 27.2
-        },
-        {
-          "role": "surface",
-          "baselineFontPx": 13.12,
-          "changedFontPx": 13.12,
-          "factor": 1,
-          "baselineLineHeightPx": 22.304,
-          "changedLineHeightPx": 22.304
         },
         {
           "role": "surface",
@@ -6441,6 +6358,102 @@
           "factor": 1,
           "baselineLineHeightPx": 27.2,
           "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 12.16,
+          "changedFontPx": 12.16,
+          "factor": 1,
+          "baselineLineHeightPx": 20.672,
+          "changedLineHeightPx": 20.672
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 19,
+          "changedFontPx": 19,
+          "factor": 1,
+          "baselineLineHeightPx": 32.3,
+          "changedLineHeightPx": 32.3
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 19,
+          "changedFontPx": 19,
+          "factor": 1,
+          "baselineLineHeightPx": 32.3,
+          "changedLineHeightPx": 32.3
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 12.16,
+          "changedFontPx": 12.16,
+          "factor": 1,
+          "baselineLineHeightPx": 20.672,
+          "changedLineHeightPx": 20.672
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 19,
+          "changedFontPx": 19,
+          "factor": 1,
+          "baselineLineHeightPx": 32.3,
+          "changedLineHeightPx": 32.3
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 19,
+          "changedFontPx": 19,
+          "factor": 1,
+          "baselineLineHeightPx": 32.3,
+          "changedLineHeightPx": 32.3
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 12.16,
+          "changedFontPx": 12.16,
+          "factor": 1,
+          "baselineLineHeightPx": 20.672,
+          "changedLineHeightPx": 20.672
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 19,
+          "changedFontPx": 19,
+          "factor": 1,
+          "baselineLineHeightPx": 32.3,
+          "changedLineHeightPx": 32.3
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 19,
+          "changedFontPx": 19,
+          "factor": 1,
+          "baselineLineHeightPx": 32.3,
+          "changedLineHeightPx": 32.3
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
         }
       ],
       "browser": {
@@ -6479,7 +6492,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:40.285Z"
+      "capturedAt": "2026-10-01T02:12:29.578Z"
     },
     {
       "id": "v3-VL-V3-DIRECTORY-NAV-return-context-back-forward-current-ordering",
@@ -7147,7 +7160,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:47.905Z"
+      "capturedAt": "2026-10-01T02:12:34.255Z"
     },
     {
       "id": "v3-VL-V3-COMPARE-TRAY-zero",
@@ -7224,7 +7237,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:50.357Z"
+      "capturedAt": "2026-10-01T02:12:35.890Z"
     },
     {
       "id": "v3-VL-V3-COMPARE-TRAY-one",
@@ -7317,7 +7330,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:54.472Z"
+      "capturedAt": "2026-10-01T02:12:38.397Z"
     },
     {
       "id": "v3-VL-V3-COMPARE-TRAY-two",
@@ -7426,7 +7439,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:06:59.278Z"
+      "capturedAt": "2026-10-01T02:12:40.841Z"
     },
     {
       "id": "v3-VL-V3-COMPARE-TRAY-four",
@@ -7457,6 +7470,22 @@
           "factor": 1,
           "baselineLineHeightPx": 31.68,
           "changedLineHeightPx": 31.68
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
         },
         {
           "role": "surface",
@@ -7551,7 +7580,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:07:03.400Z"
+      "capturedAt": "2026-10-01T02:12:44.035Z"
     },
     {
       "id": "v3-VL-V3-COMPARE-TRAY-limit",
@@ -7692,7 +7721,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:07:08.501Z"
+      "capturedAt": "2026-10-01T02:12:47.119Z"
     },
     {
       "id": "v3-VL-V3-COMPARE-TRAY-remove",
@@ -7723,22 +7752,6 @@
           "factor": 1,
           "baselineLineHeightPx": 31.68,
           "changedLineHeightPx": 31.68
-        },
-        {
-          "role": "surface",
-          "baselineFontPx": 16,
-          "changedFontPx": 16,
-          "factor": 1,
-          "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
-        },
-        {
-          "role": "surface",
-          "baselineFontPx": 16,
-          "changedFontPx": 16,
-          "factor": 1,
-          "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
         },
         {
           "role": "surface",
@@ -7833,7 +7846,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:07:14.020Z"
+      "capturedAt": "2026-10-01T02:12:48.662Z"
     },
     {
       "id": "v3-VL-V3-COMPARE-TRAY-clear",
@@ -7872,70 +7885,6 @@
           "factor": 1,
           "baselineLineHeightPx": 27.2,
           "changedLineHeightPx": 27.2
-        },
-        {
-          "role": "surface",
-          "baselineFontPx": 16,
-          "changedFontPx": 16,
-          "factor": 1,
-          "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
-        },
-        {
-          "role": "surface",
-          "baselineFontPx": 16,
-          "changedFontPx": 16,
-          "factor": 1,
-          "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
-        },
-        {
-          "role": "surface",
-          "baselineFontPx": 16,
-          "changedFontPx": 16,
-          "factor": 1,
-          "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
-        },
-        {
-          "role": "surface",
-          "baselineFontPx": 16,
-          "changedFontPx": 16,
-          "factor": 1,
-          "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
-        },
-        {
-          "role": "surface",
-          "baselineFontPx": 16,
-          "changedFontPx": 16,
-          "factor": 1,
-          "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
-        },
-        {
-          "role": "surface",
-          "baselineFontPx": 16,
-          "changedFontPx": 16,
-          "factor": 1,
-          "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
-        },
-        {
-          "role": "surface",
-          "baselineFontPx": 16,
-          "changedFontPx": 16,
-          "factor": 1,
-          "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
-        },
-        {
-          "role": "surface",
-          "baselineFontPx": 16,
-          "changedFontPx": 16,
-          "factor": 1,
-          "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
         }
       ],
       "browser": {
@@ -7952,7 +7901,7 @@
         "unownedOverflowingElements": 0,
         "clippedText": 0,
         "undersizedTargets": 0,
-        "focusApplicable": true,
+        "focusApplicable": false,
         "focusReachable": true,
         "focusVisible": true,
         "orderPreserved": true,
@@ -7974,7 +7923,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:07:19.066Z"
+      "capturedAt": "2026-10-01T02:12:49.239Z"
     },
     {
       "id": "v3-compare-table-100",
@@ -8189,7 +8138,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:07:23.363Z"
+      "capturedAt": "2026-10-01T02:12:51.838Z"
     },
     {
       "id": "v3-compare-table-150",
@@ -8404,7 +8353,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:07:27.660Z"
+      "capturedAt": "2026-10-01T02:12:54.407Z"
     },
     {
       "id": "v3-compare-table-200",
@@ -8619,7 +8568,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:07:32.335Z"
+      "capturedAt": "2026-10-01T02:12:57.238Z"
     },
     {
       "id": "v3-compare-navigation",
@@ -9583,7 +9532,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:07:40.460Z"
+      "capturedAt": "2026-10-01T02:13:02.145Z"
     },
     {
       "id": "v3-VL-V3-ARTICLE-HUB-non-start-groups-and-long-metadata",
@@ -9884,7 +9833,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:07:45.059Z"
+      "capturedAt": "2026-10-01T02:13:04.984Z"
     },
     {
       "id": "v3-reading-100",
@@ -10202,7 +10151,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:07:51.971Z"
+      "capturedAt": "2026-10-01T02:13:08.610Z"
     },
     {
       "id": "v3-reading-150",
@@ -10520,7 +10469,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:07:56.259Z"
+      "capturedAt": "2026-10-01T02:13:10.883Z"
     },
     {
       "id": "v3-reading-200",
@@ -10838,7 +10787,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:00.753Z"
+      "capturedAt": "2026-10-01T02:13:13.220Z"
     },
     {
       "id": "v3-reading-spacing-line-height",
@@ -10867,7 +10816,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -10875,7 +10824,7 @@
           "changedFontPx": 12.48,
           "factor": 1,
           "baselineLineHeightPx": 21.216,
-          "changedLineHeightPx": 21.216
+          "changedLineHeightPx": 18.72
         },
         {
           "role": "surface",
@@ -10883,7 +10832,7 @@
           "changedFontPx": 11.52,
           "factor": 1,
           "baselineLineHeightPx": 16.128,
-          "changedLineHeightPx": 16.128
+          "changedLineHeightPx": 17.28
         },
         {
           "role": "surface",
@@ -10891,7 +10840,7 @@
           "changedFontPx": 33,
           "factor": 1,
           "baselineLineHeightPx": 41.25,
-          "changedLineHeightPx": 41.25
+          "changedLineHeightPx": 49.5
         },
         {
           "role": "surface",
@@ -10899,7 +10848,7 @@
           "changedFontPx": 17.28,
           "factor": 1,
           "baselineLineHeightPx": 29.376,
-          "changedLineHeightPx": 29.376
+          "changedLineHeightPx": 25.92
         },
         {
           "role": "surface",
@@ -10907,7 +10856,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 26.4,
-          "changedLineHeightPx": 26.4
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -10915,7 +10864,7 @@
           "changedFontPx": 17,
           "factor": 1,
           "baselineLineHeightPx": 29.75,
-          "changedLineHeightPx": 29.75
+          "changedLineHeightPx": 25.5
         },
         {
           "role": "surface",
@@ -11059,7 +11008,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11067,7 +11016,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11075,7 +11024,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11083,7 +11032,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11091,7 +11040,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11099,7 +11048,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11107,7 +11056,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11115,7 +11064,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11123,7 +11072,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11131,7 +11080,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11139,7 +11088,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11147,7 +11096,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11155,7 +11104,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11163,7 +11112,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11171,7 +11120,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11179,7 +11128,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11187,7 +11136,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11195,7 +11144,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11203,7 +11152,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 26.6,
-          "changedLineHeightPx": 26.6
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -11211,7 +11160,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11219,7 +11168,7 @@
           "changedFontPx": 19,
           "factor": 1,
           "baselineLineHeightPx": 26.6,
-          "changedLineHeightPx": 26.6
+          "changedLineHeightPx": 28.5
         },
         {
           "role": "surface",
@@ -11227,7 +11176,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11235,7 +11184,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11243,7 +11192,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11251,7 +11200,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11259,7 +11208,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11267,7 +11216,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11275,7 +11224,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11283,7 +11232,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11291,7 +11240,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11299,7 +11248,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11307,7 +11256,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11315,7 +11264,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11323,7 +11272,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11331,7 +11280,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11339,7 +11288,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11347,7 +11296,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11355,7 +11304,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11363,7 +11312,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11371,7 +11320,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11379,7 +11328,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -11387,7 +11336,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11395,7 +11344,7 @@
           "changedFontPx": 14,
           "factor": 1,
           "baselineLineHeightPx": 23.8,
-          "changedLineHeightPx": 23.8
+          "changedLineHeightPx": 21
         },
         {
           "role": "surface",
@@ -11403,7 +11352,7 @@
           "changedFontPx": 14,
           "factor": 1,
           "baselineLineHeightPx": 23.8,
-          "changedLineHeightPx": 23.8
+          "changedLineHeightPx": 21
         },
         {
           "role": "surface",
@@ -11411,7 +11360,7 @@
           "changedFontPx": 11.52,
           "factor": 1,
           "baselineLineHeightPx": 21.312,
-          "changedLineHeightPx": 21.312
+          "changedLineHeightPx": 17.28
         },
         {
           "role": "surface",
@@ -11419,7 +11368,7 @@
           "changedFontPx": 30,
           "factor": 1,
           "baselineLineHeightPx": 37.5,
-          "changedLineHeightPx": 37.5
+          "changedLineHeightPx": 45
         },
         {
           "role": "surface",
@@ -11427,7 +11376,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 29.6,
-          "changedLineHeightPx": 29.6
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11435,7 +11384,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11443,7 +11392,7 @@
           "changedFontPx": 11.52,
           "factor": 1,
           "baselineLineHeightPx": 21.312,
-          "changedLineHeightPx": 21.312
+          "changedLineHeightPx": 17.28
         },
         {
           "role": "surface",
@@ -11451,7 +11400,7 @@
           "changedFontPx": 30,
           "factor": 1,
           "baselineLineHeightPx": 37.5,
-          "changedLineHeightPx": 37.5
+          "changedLineHeightPx": 45
         },
         {
           "role": "surface",
@@ -11459,7 +11408,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 29.6,
-          "changedLineHeightPx": 29.6
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11467,7 +11416,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 29.6,
-          "changedLineHeightPx": 29.6
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11475,7 +11424,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 29.6,
-          "changedLineHeightPx": 29.6
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11483,7 +11432,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 29.6,
-          "changedLineHeightPx": 29.6
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11491,7 +11440,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 29.6,
-          "changedLineHeightPx": 29.6
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11499,7 +11448,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 29.6,
-          "changedLineHeightPx": 29.6
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11507,7 +11456,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 29.6,
-          "changedLineHeightPx": 29.6
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11515,7 +11464,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 29.6,
-          "changedLineHeightPx": 29.6
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11523,7 +11472,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 29.6,
-          "changedLineHeightPx": 29.6
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11531,7 +11480,7 @@
           "changedFontPx": 11.52,
           "factor": 1,
           "baselineLineHeightPx": 21.312,
-          "changedLineHeightPx": 21.312
+          "changedLineHeightPx": 17.28
         },
         {
           "role": "surface",
@@ -11539,7 +11488,7 @@
           "changedFontPx": 30,
           "factor": 1,
           "baselineLineHeightPx": 37.5,
-          "changedLineHeightPx": 37.5
+          "changedLineHeightPx": 45
         },
         {
           "role": "surface",
@@ -11547,7 +11496,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 29.6,
-          "changedLineHeightPx": 29.6
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11555,7 +11504,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 29.6,
-          "changedLineHeightPx": 29.6
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -11563,7 +11512,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 29.6,
-          "changedLineHeightPx": 29.6
+          "changedLineHeightPx": 24
         }
       ],
       "browser": {
@@ -11607,7 +11556,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:07.843Z"
+      "capturedAt": "2026-10-01T02:13:16.389Z"
     },
     {
       "id": "v3-reading-spacing-paragraph",
@@ -12376,7 +12325,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:11.815Z"
+      "capturedAt": "2026-10-01T02:13:18.879Z"
     },
     {
       "id": "v3-reading-spacing-letter",
@@ -13145,7 +13094,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:15.802Z"
+      "capturedAt": "2026-10-01T02:13:20.847Z"
     },
     {
       "id": "v3-reading-spacing-word",
@@ -13914,7 +13863,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:19.586Z"
+      "capturedAt": "2026-10-01T02:13:22.980Z"
     },
     {
       "id": "v3-VL-V3-ELEVENLABS-pr-154-preservation-smoke",
@@ -14678,7 +14627,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:26.495Z"
+      "capturedAt": "2026-10-01T02:13:26.681Z"
     },
     {
       "id": "v3-VL-V3-TRUST-long-trust-copy-source-links",
@@ -15074,7 +15023,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:30.577Z"
+      "capturedAt": "2026-10-01T02:13:29.108Z"
     },
     {
       "id": "v3-trust-spacing-line-height",
@@ -15103,7 +15052,7 @@
           "changedFontPx": 11.52,
           "factor": 1,
           "baselineLineHeightPx": 16.128,
-          "changedLineHeightPx": 16.128
+          "changedLineHeightPx": 17.28
         },
         {
           "role": "surface",
@@ -15111,7 +15060,7 @@
           "changedFontPx": 30,
           "factor": 1,
           "baselineLineHeightPx": 36.6,
-          "changedLineHeightPx": 36.6
+          "changedLineHeightPx": 45
         },
         {
           "role": "surface",
@@ -15119,7 +15068,7 @@
           "changedFontPx": 17,
           "factor": 1,
           "baselineLineHeightPx": 29.75,
-          "changedLineHeightPx": 29.75
+          "changedLineHeightPx": 25.5
         },
         {
           "role": "surface",
@@ -15127,7 +15076,7 @@
           "changedFontPx": 14,
           "factor": 1,
           "baselineLineHeightPx": 23.8,
-          "changedLineHeightPx": 23.8
+          "changedLineHeightPx": 21
         },
         {
           "role": "surface",
@@ -15135,7 +15084,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15143,7 +15092,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15151,7 +15100,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15159,7 +15108,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15167,7 +15116,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15175,7 +15124,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15183,7 +15132,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15191,7 +15140,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -15199,7 +15148,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15207,7 +15156,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15215,7 +15164,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15223,7 +15172,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15231,7 +15180,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15239,7 +15188,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -15247,7 +15196,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15255,7 +15204,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15263,7 +15212,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15271,7 +15220,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -15279,7 +15228,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15287,7 +15236,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15295,7 +15244,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -15303,7 +15252,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15311,7 +15260,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15319,7 +15268,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15327,7 +15276,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -15335,7 +15284,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15343,7 +15292,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15351,7 +15300,7 @@
           "changedFontPx": 17.6,
           "factor": 1,
           "baselineLineHeightPx": 29.92,
-          "changedLineHeightPx": 29.92
+          "changedLineHeightPx": 26.4
         },
         {
           "role": "surface",
@@ -15359,7 +15308,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15367,7 +15316,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15375,7 +15324,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15383,7 +15332,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -15391,7 +15340,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15399,7 +15348,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15407,7 +15356,7 @@
           "changedFontPx": 24,
           "factor": 1,
           "baselineLineHeightPx": 31.68,
-          "changedLineHeightPx": 31.68
+          "changedLineHeightPx": 36
         },
         {
           "role": "surface",
@@ -15415,7 +15364,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15423,7 +15372,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         },
         {
           "role": "surface",
@@ -15431,7 +15380,7 @@
           "changedFontPx": 16,
           "factor": 1,
           "baselineLineHeightPx": 28,
-          "changedLineHeightPx": 28
+          "changedLineHeightPx": 24
         }
       ],
       "browser": {
@@ -15475,7 +15424,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:32.517Z"
+      "capturedAt": "2026-10-01T02:13:30.031Z"
     },
     {
       "id": "v3-trust-spacing-paragraph",
@@ -15876,7 +15825,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:34.992Z"
+      "capturedAt": "2026-10-01T02:13:31.061Z"
     },
     {
       "id": "v3-trust-spacing-letter",
@@ -16277,7 +16226,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:36.985Z"
+      "capturedAt": "2026-10-01T02:13:32.207Z"
     },
     {
       "id": "v3-trust-spacing-word",
@@ -16678,15 +16627,15 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:39.001Z"
+      "capturedAt": "2026-10-01T02:13:33.161Z"
     },
     {
-      "id": "v3-VL-V3-DETAILS-details-loading-error-not-found",
+      "id": "v3-VL-V3-DETAILS-details",
       "caseId": "VL-V3-DETAILS",
-      "variantId": "details-loading-error-not-found",
+      "variantId": "details",
       "route": "/tools/github-copilot/",
       "state": [
-        "details-loading-error-not-found"
+        "details"
       ],
       "coverage": [
         "route-family",
@@ -16984,7 +16933,7 @@
         "contentVisible": true,
         "ownedScrollers": 0
       },
-      "screenshot": "final/v3-VL-V3-DETAILS-details-loading-error-not-found.png",
+      "screenshot": "final/v3-VL-V3-DETAILS-details.png",
       "limitations": [
         "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
         "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
@@ -16994,7 +16943,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:42.070Z"
+      "capturedAt": "2026-10-01T02:13:35.359Z"
     },
     {
       "id": "v3-header-100",
@@ -17035,6 +16984,22 @@
           "factor": 1,
           "baselineLineHeightPx": 36.72,
           "changedLineHeightPx": 36.72
+        },
+        {
+          "role": "menu",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "menu",
+          "baselineFontPx": 25.6,
+          "changedFontPx": 25.6,
+          "factor": 1,
+          "baselineLineHeightPx": 25.6,
+          "changedLineHeightPx": 25.6
         }
       ],
       "browser": {
@@ -17073,7 +17038,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:45.587Z"
+      "capturedAt": "2026-10-01T02:13:37.820Z"
     },
     {
       "id": "v3-header-150",
@@ -17114,6 +17079,22 @@
           "factor": 1.4999999999999998,
           "baselineLineHeightPx": 36.72,
           "changedLineHeightPx": 55.08
+        },
+        {
+          "role": "menu",
+          "baselineFontPx": 16,
+          "changedFontPx": 24,
+          "factor": 1.5,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 40.8
+        },
+        {
+          "role": "menu",
+          "baselineFontPx": 25.6,
+          "changedFontPx": 38.4,
+          "factor": 1.4999999999999998,
+          "baselineLineHeightPx": 25.6,
+          "changedLineHeightPx": 38.4
         }
       ],
       "browser": {
@@ -17152,7 +17133,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:47.056Z"
+      "capturedAt": "2026-10-01T02:13:40.003Z"
     },
     {
       "id": "v3-header-200",
@@ -17193,6 +17174,22 @@
           "factor": 2,
           "baselineLineHeightPx": 36.72,
           "changedLineHeightPx": 73.44
+        },
+        {
+          "role": "menu",
+          "baselineFontPx": 16,
+          "changedFontPx": 32,
+          "factor": 2,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 54.4
+        },
+        {
+          "role": "menu",
+          "baselineFontPx": 25.6,
+          "changedFontPx": 51.2,
+          "factor": 2,
+          "baselineLineHeightPx": 25.6,
+          "changedLineHeightPx": 51.2
         }
       ],
       "browser": {
@@ -17231,7 +17228,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:48.414Z"
+      "capturedAt": "2026-10-01T02:13:42.518Z"
     },
     {
       "id": "v3-VL-SHARED-FOOTER-narrow-enlarged-footer-groups",
@@ -17344,7 +17341,7 @@
         "unownedOverflowingElements": 0,
         "clippedText": 0,
         "undersizedTargets": 0,
-        "focusApplicable": true,
+        "focusApplicable": false,
         "focusReachable": true,
         "focusVisible": true,
         "orderPreserved": true,
@@ -17366,7 +17363,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T00:08:50.455Z"
+      "capturedAt": "2026-10-01T02:13:43.016Z"
     }
   ],
   "execution": {
