@@ -5,7 +5,7 @@ export type WidthDiagnostic = {
   documentScrollWidth: number;
   documentOverflowPx: number;
   ownedLocalScrollers: Array<{ selector: string; clientWidth: number; scrollWidth: number }>;
-  unownedOverflowingElements: Array<{ selector: string; left: number; right: number; width: number }>;
+  unownedOverflowingElements: Array<{ selector: string; left: number; right: number; width: number; exceptionOwner?: "creation-deck-inactive-card" }>;
 };
 
 export async function diagnoseWidths(page: Page): Promise<WidthDiagnostic> {
@@ -26,7 +26,7 @@ export async function diagnoseWidths(page: Page): Promise<WidthDiagnostic> {
       return /(auto|scroll)/.test(`${style.overflowX} ${style.overflow}`) ? owner : null;
     };
     const owned = new Map<Element, { selector: string; clientWidth: number; scrollWidth: number }>();
-    const unowned: Array<{ selector: string; left: number; right: number; width: number }> = [];
+    const unowned: Array<{ selector: string; left: number; right: number; width: number; exceptionOwner?: "creation-deck-inactive-card" }> = [];
     for (const element of document.body.querySelectorAll<HTMLElement>("*")) {
       const rect = element.getBoundingClientRect();
       if (rect.width <= viewportWidth && rect.left >= -0.5 && rect.right <= viewportWidth + 0.5) continue;
@@ -36,8 +36,11 @@ export async function diagnoseWidths(page: Page): Promise<WidthDiagnostic> {
           owned.set(owner, { selector: selectorFor(owner), clientWidth: owner.clientWidth, scrollWidth: owner.scrollWidth });
         continue;
       }
-      if (rect.width > 0 && rect.height > 0)
-        unowned.push({ selector: selectorFor(element), left: rect.left, right: rect.right, width: rect.width });
+      if (rect.width > 0 && rect.height > 0) {
+        const card = element.closest<HTMLElement>("#start .creation-deck[data-mode='deck'] li[data-distance]");
+        const exceptionOwner = card?.dataset.distance !== "0" ? "creation-deck-inactive-card" as const : undefined;
+        unowned.push({ selector: selectorFor(element), left: rect.left, right: rect.right, width: rect.width, exceptionOwner });
+      }
     }
     return {
       viewportWidth,

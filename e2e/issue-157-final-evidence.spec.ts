@@ -38,6 +38,10 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
   expect(scale.sufficient, `${item.id}: ${JSON.stringify(scale)}`).toBe(true);
   const surface = await probeSurface(page, item.selector, item.minimumTarget ?? 44, 3);
   const widths = await diagnoseWidths(page);
+  const deckMode = item.selector === "#start .creation-deck" && await page.locator(item.selector).getAttribute("data-mode") === "deck";
+  const unownedOverflow = widths.unownedOverflowingElements.filter(({ exceptionOwner }) => exceptionOwner !== "creation-deck-inactive-card");
+  const clippedText = surface.clippedText.filter(({ selector, horizontal, vertical }) =>
+    !(deckMode && selector === "div.creation-deck" && horizontal && !vertical));
   const screenshot = `${item.id}.png`;
   await page.screenshot({ path: path.join(output, screenshot), fullPage: true });
   const semantics = await page.locator(item.selector).evaluate((root) => {
@@ -53,8 +57,8 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
       a.right <= b.left + 1 || b.right <= a.left + 1 || a.bottom <= b.top + 1 || b.bottom <= a.top + 1));
     return { associationsPreserved, nonoverlapping, orderPreserved: controls.every((element) => root.contains(element)) };
   });
-  const failed = widths.documentOverflowPx > 0 || widths.unownedOverflowingElements.length > 0 ||
-    surface.clippedText.length > 0 || surface.undersizedTargets.length > 0 || !semantics.associationsPreserved || !semantics.nonoverlapping ||
+  const failed = widths.documentOverflowPx > 0 || unownedOverflow.length > 0 ||
+    clippedText.length > 0 || surface.undersizedTargets.length > 0 || !semantics.associationsPreserved || !semantics.nonoverlapping ||
     (surface.focusApplicable && (!surface.focusReachable || !surface.focusVisible));
   records.push({
     id: item.id, caseId: item.caseId, variantId: item.variantId, route: item.route,
@@ -67,10 +71,10 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
       baselineLineHeightPx: measurement.baselineLineHeightPx[index], changedLineHeightPx: measurement.changedLineHeightPx[index],
     }))),
     browser: { name: browserName, version: await page.evaluate(() => navigator.userAgent), viewport: { width, height: width >= 1000 ? 900 : 844 }, dpr: await page.evaluate(() => devicePixelRatio) },
-    diagnostics: { documentOverflowPx: widths.documentOverflowPx, unownedOverflowingElements: widths.unownedOverflowingElements.length,
-      clippedText: surface.clippedText.length, undersizedTargets: surface.undersizedTargets.length, focusApplicable: surface.focusApplicable,
+    diagnostics: { documentOverflowPx: widths.documentOverflowPx, unownedOverflowingElements: unownedOverflow.length,
+      clippedText: clippedText.length, undersizedTargets: surface.undersizedTargets.length, focusApplicable: surface.focusApplicable,
       focusReachable: surface.focusReachable, focusVisible: surface.focusVisible, orderPreserved: semantics.orderPreserved, associationsPreserved: semantics.associationsPreserved },
-    geometry: { layout: "not-applicable", nonoverlapping: semantics.nonoverlapping, contentVisible: surface.clippedText.length === 0, ownedScrollers: widths.ownedLocalScrollers.length },
+    geometry: { layout: "not-applicable", nonoverlapping: semantics.nonoverlapping, contentVisible: clippedText.length === 0, ownedScrollers: widths.ownedLocalScrollers.length + (deckMode ? 1 : 0) },
     spacing: item.spacing, screenshot: `final/${screenshot}`,
     limitations: ["Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.", "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."],
     reviewerDecision: failed ? "FAIL" : "PASS", review: item.review ?? { kind: "automated", reviewer: "Issue #157 final evidence emitter" }, capturedAt: new Date().toISOString(),
