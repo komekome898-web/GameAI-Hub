@@ -49,7 +49,7 @@ The consolidated local run passed `npm run quality` (42 files / 313 Vitest tests
 
 Independent rendered review found no P0/P1 across sampled normal/stress Home, Project, Deck, reading, Compare, and Tools captures. Its high-impact P2 about measuring controls only after they appeared was corrected with the two-stage control-fit gate and a dedicated overflowing-control regression. Production, protected Preview interaction, genuine browser zoom, OS scaling, and physical devices remain `UNTESTED / OWNER-DEFERRED`.
 
-The implementation status and acceptance status are deliberately separate: runtime omissions are now **NONE**, while typed V3, remaining V1/V4, and final-reconciliation observations remain unexecuted. The final-execution validator therefore remains non-PASS; missing evidence is not described as missing screen implementation.
+At that completed-runtime checkpoint, implementation and acceptance were deliberately separate: runtime omissions were **NONE**, while typed V3, remaining V1/V4, and final reconciliation were still unexecuted. The later final package below supersedes only that acceptance boundary; missing evidence was never described as missing screen implementation.
 
 ## Final integrated package
 
