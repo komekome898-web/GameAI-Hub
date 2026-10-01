@@ -47,7 +47,8 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
       const labelledBy = element.getAttribute("aria-labelledby");
       return !labelledBy || labelledBy.split(/\s+/).every((id) => document.getElementById(id));
     });
-    const rects = controls.map((element) => element.getBoundingClientRect());
+    const rects = [...root.children].filter((element) => (element as HTMLElement).getClientRects().length > 0)
+      .map((element) => element.getBoundingClientRect());
     const nonoverlapping = rects.every((a, index) => rects.slice(index + 1).every((b) =>
       a.right <= b.left + 1 || b.right <= a.left + 1 || a.bottom <= b.top + 1 || b.bottom <= a.top + 1));
     return { associationsPreserved, nonoverlapping, orderPreserved: controls.every((element) => root.contains(element)) };
