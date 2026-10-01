@@ -1,12 +1,12 @@
 {
   "schema": "gameai-reflow-evidence/v2",
   "target": {
-    "sha": "76ce5e5fb7f0f53a9877ba3a5984e51c03a0a596",
+    "sha": "e4bb01e5a1d39ceef402925e9e8251c71c695f11",
     "environment": "local",
     "baseUrl": "http://127.0.0.1:3100",
     "sourceIdentity": {
       "kind": "clean-git-checkpoint",
-      "sha": "76ce5e5fb7f0f53a9877ba3a5984e51c03a0a596",
+      "sha": "e4bb01e5a1d39ceef402925e9e8251c71c695f11",
       "status": "clean"
     }
   },
@@ -84,7 +84,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:19:45.302Z"
+      "capturedAt": "2026-10-01T05:50:59.822Z"
     },
     {
       "id": "project-state-loading",
@@ -150,7 +150,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:19:46.442Z"
+      "capturedAt": "2026-10-01T05:51:01.031Z"
     },
     {
       "id": "project-state-clarification",
@@ -227,7 +227,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:19:49.327Z"
+      "capturedAt": "2026-10-01T05:51:03.692Z"
     },
     {
       "id": "project-state-error",
@@ -293,7 +293,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:19:57.312Z"
+      "capturedAt": "2026-10-01T05:51:11.543Z"
     },
     {
       "id": "project-state-result",
@@ -367,7 +367,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:20:13.212Z"
+      "capturedAt": "2026-10-01T05:51:27.175Z"
     },
     {
       "id": "project-workspace",
@@ -434,7 +434,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:20:23.397Z"
+      "capturedAt": "2026-10-01T05:51:31.822Z"
     },
     {
       "id": "project-workspace-expanded",
@@ -510,7 +510,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:20:29.936Z"
+      "capturedAt": "2026-10-01T05:51:35.934Z"
     },
     {
       "id": "project-workspace-copy-failure",
@@ -584,7 +584,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:20:35.526Z"
+      "capturedAt": "2026-10-01T05:51:40.181Z"
     },
     {
       "id": "project-workspace-save-failure",
@@ -650,7 +650,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:20:45.514Z"
+      "capturedAt": "2026-10-01T05:51:47.940Z"
     },
     {
       "id": "project-state-done",
@@ -716,7 +716,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:20:49.712Z"
+      "capturedAt": "2026-10-01T05:51:52.123Z"
     },
     {
       "id": "project-state-next",
@@ -782,7 +782,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:20:54.079Z"
+      "capturedAt": "2026-10-01T05:51:56.311Z"
     },
     {
       "id": "project-state-recovery",
@@ -856,7 +856,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:21:00.284Z"
+      "capturedAt": "2026-10-01T05:52:04.032Z"
     },
     {
       "id": "project-no-workspace",
@@ -922,7 +922,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:21:09.754Z"
+      "capturedAt": "2026-10-01T05:52:12.731Z"
     },
     {
       "id": "project-tokens-100",
@@ -977,8 +977,8 @@
           "baselineFontPx": 16,
           "changedFontPx": 16,
           "factor": 1,
-          "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 27.2
+          "baselineLineHeightPx": 24,
+          "changedLineHeightPx": 24
         },
         {
           "role": "runtime-error",
@@ -1024,7 +1024,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:21:21.569Z"
+      "capturedAt": "2026-10-01T05:52:23.190Z"
     },
     {
       "id": "project-tokens-150",
@@ -1079,8 +1079,8 @@
           "baselineFontPx": 16,
           "changedFontPx": 24,
           "factor": 1.5,
-          "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 40.8
+          "baselineLineHeightPx": 24,
+          "changedLineHeightPx": 36
         },
         {
           "role": "runtime-error",
@@ -1126,7 +1126,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:21:28.067Z"
+      "capturedAt": "2026-10-01T05:52:29.157Z"
     },
     {
       "id": "project-tokens-200",
@@ -1181,8 +1181,8 @@
           "baselineFontPx": 16,
           "changedFontPx": 32,
           "factor": 2,
-          "baselineLineHeightPx": 27.2,
-          "changedLineHeightPx": 54.4
+          "baselineLineHeightPx": 24,
+          "changedLineHeightPx": 48
         },
         {
           "role": "runtime-error",
@@ -1228,7 +1228,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:21:33.946Z"
+      "capturedAt": "2026-10-01T05:52:35.280Z"
     }
   ],
   "execution": {

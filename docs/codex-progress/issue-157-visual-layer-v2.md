@@ -137,3 +137,10 @@ GitHub checks, E2E, observe, and Vercel exact-head status passed for the correct
 - The budget record measures CLS plus emitted Deck JS/CSS gzip sizes. At the tested checkpoint: CLS `0`, Deck JS `2585` bytes gzip, Deck CSS `3021` bytes gzip, against the existing `8192`-byte targets; route image assets transferred `39158` encoded bytes.
 - Final cross-route records are newly executed at 320/375/390/1440 across Home, Project, Tools, Compare, and Articles. The independent-review record references the retained review artifact instead of stamping a new reviewer decision onto a footer screenshot.
 - Consolidated acceptance exposed one current runtime defect: the mobile menu close control clipped at 200% synthetic computed text. Its fixed width was replaced with a 44px minimum plus natural inline padding, and the 200% Header observation passed on rerun.
+
+## Independent Dots follow-up correction
+
+- Tested source checkpoint `e4bb01e5a1d39ceef402925e9e8251c71c695f11` addresses the five bounded findings without changing article facts, links, analytics, affiliate behavior, or the adopted visual direction.
+- V-01 adds the existing v3/v4/v4 Turbo column names to every mobile comparison value while retaining desktop headers. V-02 makes the Project filename label one natural-height block. V-03 gives non-START mobile article copy a full-width row below its compact number/arrow row.
+- E-01 measures the actual Deck `strong` title and description `span` at 1.5 line-height and 2em description spacing. E-02 owns a gesture before resize, controlled-hidden visibility, and additional-pointer cancellation, then proves recovery, actual local article navigation, and explicit list-preference reload retention.
+- Focused rendered evidence and the item-to-path/method/result index are under `docs/screenshots/issue-157-stage-b/dots-followups/`. Physical touch and OS tab switching remain untested and are not claimed.
