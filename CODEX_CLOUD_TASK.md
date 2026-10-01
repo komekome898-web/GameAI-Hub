@@ -26,7 +26,17 @@ Production site: `https://game-ai-hub.vercel.app`
 
 ## Standard task and Environment model
 
-The default operating model is:
+Current coordination follows [owner-directed operations](docs/agent-guides/OWNER_DIRECTED_OPERATIONS.md).
+The owner approves scope; どっさん launches the scoped task in the saved Environment.
+A GitHub Codex mention is a separate, explicitly authorized launch route, never
+an automatic fallback. Preserve Issue/branch/PR/SHA lineage and record which route
+actually ran; do not create a mention merely because a saved task cannot start.
+
+All branch/push/PR procedures below apply only to user-authorized writes. They do
+not confer permission. Read-only investigation/review verifies read access,
+origin/fetch and base SHA, but needs no write-path proof or push checkpoint.
+
+The execution continuity model is:
 
 > **fresh Codex Cloud task + published reusable GameAI-Hub Environment + resume existing GitHub repository lineage**
 
@@ -198,7 +208,11 @@ Required sequence:
 7. verify the remote branch/ref and pushed SHA from GitHub
 8. only then start substantial audit/research/implementation
 
-If the task is strictly read-only and explicitly forbids repository writes, record that exception and do not claim a durable handoff.
+For read-only investigation/review, no explicit prohibition is needed: do not
+create a branch, commit or push checkpoint. Record the read-only exception and
+base SHA, and do not claim a durable repository handoff.
+For an authorized write task, pushing the unmodified base SHA to a dedicated new
+branch is sufficient initial proof; an empty commit is unnecessary.
 
 For a new long-running or interruption-prone task, prove that work can be preserved remotely before investing heavily in implementation.
 
@@ -376,7 +390,7 @@ Do not interpret merge authorization as permission to ignore:
 - CI failures
 - unresolved P0/P1/high-impact P2
 
-If the task does not explicitly authorize merge, stop at a merge-ready PR.
+If the task does not explicitly authorize merge, stop at a PR (draft while independent review is pending).
 
 ## 10. Merge and deployment completion
 

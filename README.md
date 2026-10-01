@@ -4,12 +4,14 @@ GameAI Hubは、日本語のAIゲーム開発ユーザーが「どのAIを使う
 
 現在のプロジェクト方針は、検索流入・コンテンツ・Project Generator・制作継続・自然な収益化を1つの成長ループとして設計することです。
 
-- **成長戦略 / SEO / コンテンツ / 収益化 / Chat・Work・Codexの役割分担:** [`docs/GROWTH_STRATEGY.md`](docs/GROWTH_STRATEGY.md)
+- **成長戦略 / SEO / コンテンツ / 収益化 / オーナー・どっさん・Codex・独立レビューの役割分担:** [`docs/GROWTH_STRATEGY.md`](docs/GROWTH_STRATEGY.md)
 - **Codexの恒久実行ルール:** [`AGENTS.md`](AGENTS.md)
 - **Codex Cloud Taskの環境復元・checkpoint・PR・merge・復旧手順:** [`CODEX_CLOUD_TASK.md`](CODEX_CLOUD_TASK.md)
 - **再利用可能なGameAI-Hub Cloud Environment契約:** [`docs/agent-guides/CODEX_CLOUD_ENVIRONMENT.md`](docs/agent-guides/CODEX_CLOUD_ENVIRONMENT.md)
 - **運用上の人間作業:** [`OWNER_ACTIONS.md`](OWNER_ACTIONS.md)
 - **デプロイ / ロールバック:** [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md)
+
+運用はユーザー承認の**どっさん司令塔方式**です。オーナーが目的・優先順位・採用案・mergeを決め、どっさんが要件相談・設計/素材・指示・進行管理・結果確認を担当し、Codex Cloudが指示範囲の実装とテストを行います。独立レビューは実装者の自己評価と分離します。[現行運用手順](docs/agent-guides/OWNER_DIRECTED_OPERATIONS.md)を参照してください。旧Work自動依頼は停止モードで保持し、保存済みEnvironment起動とGitHubメンションを区別します。手順の記載自体はGitHub操作の許可ではありません。
 
 次の大型プロジェクトは **GameAI Hub Content & SEO Engine — Phase 1** です。記事数の量産を先に行わず、SEO監査・キーワードマップ・コンテンツ設計・内部リンク・構造化データ・計測・最初の柱記事群を先に整備します。
 

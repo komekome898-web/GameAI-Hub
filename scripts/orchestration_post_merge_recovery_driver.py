@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Replay owner-authorized merge recovery and exact-SHA Production readiness from a recovery PR event."""
+from orchestration_mode import legacy_only
 import os
 import urllib.request
 from urllib.parse import urlparse
@@ -13,6 +14,7 @@ CANONICAL_ISSUE = 74
 PRODUCTION_URL = "https://game-ai-hub.vercel.app"
 
 
+@legacy_only
 def _production_readiness():
     comment, manifest = adapter.find_manifest(CANONICAL_ISSUE)
     adapter.verify_task(CANONICAL_ISSUE, manifest)
@@ -104,6 +106,7 @@ def _current_reconcile_request(owner):
     return max(matches, key=lambda item: int(item["id"]))
 
 
+@legacy_only
 def main():
     event = adapter.strict_json(open(os.environ["ORCH_GITHUB_EVENT"]).read())
     pr = event.get("pull_request") or {}

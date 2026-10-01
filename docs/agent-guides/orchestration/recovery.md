@@ -1,4 +1,10 @@
 # Recovery
+
+> Legacy protocol retained for history and regression tests. Current operation is
+> **owner-directed**; the automatic dispatch/retry/result-ingress instructions below
+> are inactive. For new work follow [どっさん司令塔運用](../OWNER_DIRECTED_OPERATIONS.md).
+> Do not configure new Work tasks, emit legacy result markers or treat どっさん's
+> report as Work/model attestation. Required evidence and independent review remain.
 Re-read repository truth. Preserve branch/PR and human edits. Classify human, technical or external blocking. Every blocked mutation must provide `why`, `what`, `need`, `next`, and `resume`; the reducer fills safe explicit defaults rather than emitting a bare blocked state. Use **Orchestration human control** for cancel/supersede/migration and re-run the event or named workflow for technical recovery. Infrastructure/quota outages increment only their own counters and never consume repair revisions.
 
 Codex repeat mentions create fresh tasks rather than resuming a prior thread.

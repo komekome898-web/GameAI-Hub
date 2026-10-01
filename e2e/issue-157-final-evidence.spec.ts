@@ -117,11 +117,25 @@ test("V3 route, state, text, navigation, affiliate, and SEO observations", async
   for (const override of ["line-height", "paragraph", "letter", "word"] as const) await observe(page, browserName, records, { id: `v3-tools-spacing-${override}`, caseId: "VL-V3-TOOLS", variantId: "help", route: "/tools/", selector: ".tools-explorer", method: "text-spacing", coverage: ["text-spacing", `spacing-${override}`], spacing: { override, language: "ja", applicable: true } });
 
   await page.goto("/guides/");
-  await page.locator(".guide-stage-options button").first().click();
+  const guideLinks = page.locator(".guide-resource-list h3 a");
+  const allGuideLinks = await guideLinks.evaluateAll((links) => links.map((link) => link.getAttribute("href")));
+  expect(allGuideLinks.length).toBeGreaterThan(1);
+  const startStage = page.getByRole("button", { name: /^始める/ });
+  await startStage.click();
+  await expect(page).toHaveURL((url) => url.searchParams.get("stage") === "start");
+  await expect(startStage).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator(".guide-stage-status")).toContainText("「始める」を表示中");
+  await expect(page.locator(".guide-results-head")).toContainText("1件");
+  await expect(guideLinks).toHaveCount(1);
+  await expect(guideLinks).toHaveAttribute("href", "/guides/codex-game-development-brief/");
   const guideDetails = page.locator(".guides-explorer details").first();
   if (await guideDetails.count()) await guideDetails.locator("summary").click();
-  const guideReset = page.getByRole("button", { name: /解除|リセット/ }).first();
-  if (await guideReset.count()) await guideReset.click();
+  await page.getByRole("button", { name: "選択を解除", exact: true }).click();
+  await expect(page).toHaveURL((url) => !url.searchParams.has("stage"));
+  await expect(startStage).toHaveAttribute("aria-pressed", "false");
+  await expect(page.locator(".guide-stage-status")).toHaveText("すべての制作段階を表示中");
+  await expect(page.locator(".guide-results-head")).toContainText(`${allGuideLinks.length}件`);
+  await expect.poll(() => guideLinks.evaluateAll((links) => links.map((link) => link.getAttribute("href")))).toEqual(allGuideLinks);
   await base("VL-V3-GUIDES", "stage-reset-expanded-constraints-long-values", "/guides/", ".guides-explorer", ["semantic-row", "viewport-reflow", "long-content"]);
   await page.goto("/tools/?goal=code"); await page.goBack(); await page.goForward();
   await base("VL-V3-DIRECTORY-NAV", "return-context-back-forward-current-ordering", "/tools/", ".tools-explorer", ["journey", "focus-reachability"]);

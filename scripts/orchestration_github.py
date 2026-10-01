@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """GitHub adapter for the reducer. Comments are optimistic cooperative storage, not CAS."""
+from orchestration_mode import legacy_only, legacy_automation_enabled
 import base64, datetime as dt, hashlib, json, os, subprocess, sys, urllib.parse, urllib.request, uuid
 from orchestration import Rejected, acceptance_event, create_hotfix, projection, reduce, summary
 
@@ -117,6 +118,7 @@ def render_codex_dispatch(manifest):
     return instructions + "\n\n" + block(CODEX_DISPATCH, contract)
 
 
+@legacy_only
 def ensure_codex_dispatch(number, manifest):
     """Idempotently materialize a requested dispatch as exactly one Issue comment."""
     claim = manifest.get("codex_outbox") or {}
@@ -161,6 +163,7 @@ def render_work_dispatch(manifest):
     return instructions + "\n\n" + block(WORK_DISPATCH, contract)
 
 
+@legacy_only
 def ensure_work_dispatch(number, manifest, *, record=False):
     """Crash-safe, idempotent projection of a runnable acceptance claim onto its PR."""
     claim = manifest.get("acceptance_claim") or {}
@@ -259,6 +262,7 @@ def readiness_envelope(manifest, payload):
     )
 
 
+@legacy_only
 def init():
     number = int(os.environ["ORCH_ISSUE"]); version = int(os.environ["ORCH_TASK_VERSION"]); source = issue(number)
     try:
@@ -284,6 +288,7 @@ def envelope(manifest, payload, operation):
     return {"operation": operation, "run_id": manifest["run_id"], "canonical_task_version": manifest["canonical_task_version"], "expected_manifest_revision": manifest["revision"], "generation": manifest["generation"], "from_stage": manifest["stage"], "from_status": manifest["status"], "transition_id": payload.get("transition_id") or os.getenv("GITHUB_RUN_ID") + ":" + os.getenv("GITHUB_RUN_ATTEMPT", "1"), "repository": manifest["repository"], "issue": manifest["issue"], **payload}
 
 
+@legacy_only
 def ingest():
     raw = os.environ.get("ORCH_PAYLOAD", "{}"); payload = strict_json(raw); number = int(payload.get("issue", 0)); comment, manifest = find_manifest(number); verify_task(number, manifest)
     kind = os.environ.get("ORCH_EVENT_NAME"); trusted = json.load(open(".github/orchestration/trusted-actors.json")); sender = os.environ.get("ORCH_SENDER", "")
@@ -328,6 +333,9 @@ def observed_deployment(payload):
 
 
 def human():
+    if os.environ.get("ORCH_OPERATION") == "resume" and not legacy_automation_enabled():
+        print("SUPPRESSED owner resume: legacy automation disabled; use an explicit owner-directed task")
+        return False
     number = int(os.environ["ORCH_ISSUE"]); comment, manifest = find_manifest(number); verify_task(number, manifest)
     trusted = json.load(open(".github/orchestration/trusted-actors.json")); actor = os.environ.get("GITHUB_ACTOR", "")
     if actor not in trusted.get("human_approvers", []): raise Rejected("human approver not enrolled")
@@ -373,6 +381,7 @@ def bind():
     gate_status(out["binding"]["head_sha"], "pending", f"Issue #{number}: awaiting fresh Preview PASS and authorization")
 
 
+@legacy_only
 def create_child_hotfix(parent_issue, parent_comment, parent, result_id):
     count = parent.get("lineage", {}).get("hotfix_count", 0) + 1; maximum = parent.get("lineage", {}).get("max_hotfixes", 2)
     if count > maximum:
@@ -445,6 +454,7 @@ def reconcile():
         except Rejected: pass
 
 
+@legacy_only
 def dispatch():
     """Crash-safe replay: manifest mutation precedes comment projection."""
     number = int(os.environ["ORCH_ISSUE"]); _, manifest = find_manifest(number); verify_task(number, manifest)

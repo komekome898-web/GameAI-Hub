@@ -5,6 +5,7 @@ The durable trigger is the parent Run Manifest itself: a Production Acceptance
 FAIL plus its persisted last_acceptance result. That record is written before
 any child Issue side effect, so reconciliation can resume after any later crash.
 """
+from orchestration_mode import legacy_only
 import json
 import os
 import subprocess
@@ -81,6 +82,7 @@ def ensure_index(issue_number, manifest_comment, child):
         }))
 
 
+@legacy_only
 def ensure_child(parent_issue, parent, op):
     created = find_existing_child(op)
     if created is None:
@@ -118,6 +120,7 @@ def ensure_child(parent_issue, parent, op):
     return child_issue, child
 
 
+@legacy_only
 def reconcile_issue(parent_issue):
     parent_comment, parent = adapter.find_manifest(parent_issue)
     active_child = parent.get("lineage", {}).get("active_child_issue")
@@ -150,6 +153,7 @@ def reconcile_issue(parent_issue):
     return True
 
 
+@legacy_only
 def reconcile_all():
     requested = os.getenv("ORCH_ISSUE", "").strip()
     if requested:

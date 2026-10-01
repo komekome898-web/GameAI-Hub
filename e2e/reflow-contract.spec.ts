@@ -194,3 +194,58 @@ test("surface positive case records reachable focus and minimum target", async (
   expect(result.undersizedTargets).toEqual([]);
   expect(result.focusReachable).toBe(true);
 });
+
+test("text measurements reject changed target count, identity and order at either boundary", async ({ page }) => {
+  // Inject the DOM commit at the exact browser-call boundary, without timing/retries.
+  const evaluateHandle = page.evaluateHandle;
+  for (const boundary of ["before-apply", "before-measure"] as const) {
+    for (const mutation of ["add", "remove", "replace", "reorder"] as const) {
+      await page.setContent('<main><p style="font-size:12px">one</p><p style="font-size:18px">two</p></main>');
+      const changeTargets = () => page.evaluate((kind) => {
+        const main = document.querySelector("main")!;
+        const first = main.firstElementChild!;
+        if (kind === "add") main.append(first.cloneNode(true));
+        if (kind === "remove") first.remove();
+        if (kind === "replace") first.replaceWith(first.cloneNode(true));
+        if (kind === "reorder") main.append(first);
+      }, mutation);
+      Object.defineProperty(page, "evaluateHandle", { configurable: true, value: async (...args: unknown[]) => {
+        const handle = await Reflect.apply(evaluateHandle, page, args);
+        if (boundary === "before-apply") await changeTargets();
+        else {
+          const evaluate = handle.evaluate;
+          let calls = 0;
+          Object.defineProperty(handle, "evaluate", { configurable: true, value: async (...values: unknown[]) => {
+            const result = await Reflect.apply(evaluate, handle, values);
+            if (++calls === 1) await changeTargets();
+            return result;
+          } });
+        }
+        return handle;
+      } });
+      try {
+        await expect(applyTextMethod(page, [{ role: "fixture", selector: "main p" }], "none"))
+          .rejects.toThrow(/fixture: text measurement targets changed \(identity\/order\/count\)/);
+      } finally {
+        Object.defineProperty(page, "evaluateHandle", { configurable: true, value: evaluateHandle });
+      }
+    }
+  }
+});
+
+test("text restore rejects changed targets and restores only original elements", async ({ page }) => {
+  await page.setContent('<main><p id="one" style="font-size:12px">one</p><p id="two" style="font-size:18px">two</p></main>');
+  const result = await applyTextMethod(page, [{ role: "fixture", selector: "main p" }], "synthetic-computed-text", 2);
+  expect(result.sufficient).toBe(true);
+  await page.evaluate(() => {
+    const main = document.querySelector("main")!;
+    main.append(document.querySelector("#one")!);
+    const replacement = document.createElement("p");
+    replacement.id = "replacement";
+    replacement.style.fontSize = "29px";
+    document.querySelector("#two")!.replaceWith(replacement);
+  });
+  await expect(result.restore()).rejects.toThrow(/text measurement targets changed/);
+  await expect(page.locator("#one")).toHaveCSS("font-size", "12px");
+  await expect(page.locator("#replacement")).toHaveCSS("font-size", "29px");
+});

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Owner-only reconciliation for a PR merged before durable Preview PASS/authorization."""
+from orchestration_mode import legacy_only
 import os
 import urllib.request
 from urllib.parse import urlparse
@@ -15,6 +16,7 @@ def _ensure_production_work_dispatch(manifest):
     """Project exactly one current Production claim onto the bound merged PR."""
     return adapter.ensure_work_dispatch(manifest["issue"], manifest, record=True)
 
+@legacy_only
 def _production_readiness(number, manifest_comment, manifest, merge_sha):
     """Derive exact Production readiness from GitHub's Vercel status for the merge SHA."""
     if (manifest.get("stage"), manifest.get("status")) != ("production_acceptance", "pending"):
@@ -119,6 +121,7 @@ def _production_readiness(number, manifest_comment, manifest, merge_sha):
     return ready
 
 
+@legacy_only
 def reconcile_production_pending(number):
     """Repository-owned relay after an already authorized/observed merge; no owner marker required."""
     manifest_comment, manifest = adapter.find_manifest(number)
@@ -132,6 +135,7 @@ def reconcile_production_pending(number):
     return _production_readiness(number, manifest_comment, manifest, binding["merge_sha"])
 
 
+@legacy_only
 def reconcile(event):
     issue = event.get("issue") or {}
     event_comment = event.get("comment") or {}
@@ -229,6 +233,7 @@ def reconcile(event):
     return _production_readiness(number, current_comment, current, request["merge_sha"])
 
 
+@legacy_only
 def main():
     event = adapter.strict_json(open(os.environ["ORCH_GITHUB_EVENT"]).read())
     reconcile(event)

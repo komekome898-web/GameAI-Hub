@@ -1,5 +1,11 @@
 # Repository orchestration v1
 
+> Legacy protocol retained for history and regression tests. Current operation is
+> **owner-directed**; the automatic dispatch/retry/result-ingress instructions below
+> are inactive. For new work follow [どっさん司令塔運用](OWNER_DIRECTED_OPERATIONS.md).
+> Do not configure new Work tasks, emit legacy result markers or treat どっさん's
+> report as Work/model attestation. Required evidence and independent review remain.
+
 ## Authority and lifecycle
 
 The versioned Canonical Task comment is requirements/intent. The single fixed Run Manifest comment is the only mutable machine-state authority. Labels are projections; result comments are untrusted inputs; evidence/decisions are history; `docs/codex-progress` is only a Codex checkpoint. None overrides the manifest.
