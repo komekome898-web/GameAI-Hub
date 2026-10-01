@@ -240,7 +240,7 @@ test("final cross-route evidence reconciles every required local case", async ({
     for (const [routeName, route, selector] of [["home", "/", ".home-execution-hero"], ["project", "/project/", ".project-start-page"], ["tools", "/tools/", ".tools-explorer"], ["compare", "/compare/", ".compare-page"], ["articles", "/articles/", ".article-hub"]] as const) {
       const captured: ReflowEvidenceRecord[] = [];
       await observe(page, browserName, captured, { id: `cross-route-capture-${routeName}-${width}`, caseId: "VL-FINAL-CROSS-ROUTE", variantId: "single-local-matrix-and-selected-journeys", route, selector, width, coverage: ["local-e2e", `viewport-${width}`], minimumTarget: 0 });
-      records.push({ ...captured[0], route: "/", surface: { kind: "static", artifact: `cross-route:${routeName}:${width}` } });
+      records.push({ ...captured[0], route: "/", surface: { kind: "static", artifact: "final-integrated-review" }, limitations: [...captured[0].limitations, `Cross-route source: ${routeName} at ${width}px.`] });
     }
   }
   const reviewSource = records.find((record) => record.reviewerDecision === "PASS")!;
