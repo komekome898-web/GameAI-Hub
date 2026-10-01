@@ -50,3 +50,7 @@ The consolidated local run passed `npm run quality` (42 files / 313 Vitest tests
 Independent rendered review found no P0/P1 across sampled normal/stress Home, Project, Deck, reading, Compare, and Tools captures. Its high-impact P2 about measuring controls only after they appeared was corrected with the two-stage control-fit gate and a dedicated overflowing-control regression. Production, protected Preview interaction, genuine browser zoom, OS scaling, and physical devices remain `UNTESTED / OWNER-DEFERRED`.
 
 The implementation status and acceptance status are deliberately separate: runtime omissions are now **NONE**, while typed V3, remaining V1/V4, and final-reconciliation observations remain unexecuted. The final-execution validator therefore remains non-PASS; missing evidence is not described as missing screen implementation.
+
+## Final integrated package
+
+The final local package is under `docs/screenshots/issue-157-stage-b/final/`. `manifest.json` combines 99 typed observations and records a passing final-execution gate at clean source checkpoint `ac461e477f47bcb55d71f7fbdf70174e7a9c52a8`. It includes current V3 route/state/text observations, V4 dynamic/input/focus/count/budget observations, current V1 long-content focus evidence, and final cross-route reconciliation. The package is local Chromium evidence only; Production, protected Preview interaction, physical devices, genuine browser zoom, and OS scaling remain untested/owner-deferred.

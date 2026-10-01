@@ -1,12 +1,12 @@
 {
   "schema": "gameai-reflow-evidence/v2",
   "target": {
-    "sha": "042744f5f3e1097582065a056ce5bcb4ce2bf8d3",
+    "sha": "ac461e477f47bcb55d71f7fbdf70174e7a9c52a8",
     "environment": "local",
     "baseUrl": "http://127.0.0.1:3100",
     "sourceIdentity": {
       "kind": "clean-git-checkpoint",
-      "sha": "042744f5f3e1097582065a056ce5bcb4ce2bf8d3",
+      "sha": "ac461e477f47bcb55d71f7fbdf70174e7a9c52a8",
       "status": "clean"
     }
   },
@@ -84,7 +84,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:36:49.773Z"
+      "capturedAt": "2026-10-01T00:06:04.270Z"
     },
     {
       "id": "project-state-loading",
@@ -150,7 +150,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:36:50.774Z"
+      "capturedAt": "2026-10-01T00:06:05.198Z"
     },
     {
       "id": "project-state-clarification",
@@ -227,7 +227,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:36:53.381Z"
+      "capturedAt": "2026-10-01T00:06:07.721Z"
     },
     {
       "id": "project-state-error",
@@ -293,7 +293,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:37:01.086Z"
+      "capturedAt": "2026-10-01T00:06:14.409Z"
     },
     {
       "id": "project-state-result",
@@ -367,7 +367,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:37:16.806Z"
+      "capturedAt": "2026-10-01T00:06:29.591Z"
     },
     {
       "id": "project-workspace",
@@ -434,7 +434,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:37:30.110Z"
+      "capturedAt": "2026-10-01T00:06:38.203Z"
     },
     {
       "id": "project-workspace-expanded",
@@ -510,7 +510,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:37:42.173Z"
+      "capturedAt": "2026-10-01T00:06:50.008Z"
     },
     {
       "id": "project-workspace-copy-failure",
@@ -584,7 +584,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:37:52.613Z"
+      "capturedAt": "2026-10-01T00:07:00.979Z"
     },
     {
       "id": "project-workspace-save-failure",
@@ -650,7 +650,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:38:04.764Z"
+      "capturedAt": "2026-10-01T00:07:16.486Z"
     },
     {
       "id": "project-state-done",
@@ -716,7 +716,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:38:14.061Z"
+      "capturedAt": "2026-10-01T00:07:25.502Z"
     },
     {
       "id": "project-state-next",
@@ -782,7 +782,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:38:20.388Z"
+      "capturedAt": "2026-10-01T00:07:35.209Z"
     },
     {
       "id": "project-state-recovery",
@@ -856,7 +856,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:38:35.516Z"
+      "capturedAt": "2026-10-01T00:07:47.718Z"
     },
     {
       "id": "project-no-workspace",
@@ -922,7 +922,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:38:52.355Z"
+      "capturedAt": "2026-10-01T00:08:01.467Z"
     },
     {
       "id": "project-tokens-100",
@@ -1024,7 +1024,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:39:11.768Z"
+      "capturedAt": "2026-10-01T00:08:19.755Z"
     },
     {
       "id": "project-tokens-150",
@@ -1126,7 +1126,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:39:17.711Z"
+      "capturedAt": "2026-10-01T00:08:31.355Z"
     },
     {
       "id": "project-tokens-200",
@@ -1228,7 +1228,7 @@
         "kind": "automated",
         "reviewer": "Playwright Project evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:39:24.355Z"
+      "capturedAt": "2026-10-01T00:08:43.182Z"
     }
   ],
   "execution": {

@@ -1,0 +1,2109 @@
+{
+  "schema": "gameai-reflow-evidence/v2",
+  "target": {
+    "sha": "ac461e477f47bcb55d71f7fbdf70174e7a9c52a8",
+    "environment": "local",
+    "baseUrl": "http://127.0.0.1:3100",
+    "sourceIdentity": {
+      "kind": "clean-git-checkpoint",
+      "sha": "ac461e477f47bcb55d71f7fbdf70174e7a9c52a8",
+      "status": "clean"
+    }
+  },
+  "records": [
+    {
+      "id": "v4-deck-input",
+      "caseId": "VL-V4-DECK-INPUT",
+      "variantId": "click-keyboard-pinch-safe-vertical-scroll-touch-cancel-drag",
+      "route": "/articles/#start",
+      "state": [
+        "click-keyboard-pinch-safe-vertical-scroll-touch-cancel-drag-"
+      ],
+      "coverage": [
+        "interaction",
+        "gesture-cancellation",
+        "vertical-scroll",
+        "pinch-preservation",
+        "one-gesture-one-article"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "cdp-pinch",
+      "evidenceClass": "browser",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "screenshot": "final/v4-deck-input.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:08:58.265Z"
+    },
+    {
+      "id": "v4-dynamic-100",
+      "caseId": "VL-V4-DECK-DYNAMIC",
+      "variantId": "late-font-failure-root-text-spacing-container-content-change",
+      "route": "/articles/#start",
+      "state": [
+        "late-font-failure-root-text-spacing-container-content-change"
+      ],
+      "coverage": [
+        "remeasurement",
+        "text-scale",
+        "factor-100",
+        "viewport-320"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "synthetic-computed-text",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "card-title",
+          "baselineFontPx": 19,
+          "changedFontPx": 19,
+          "factor": 1,
+          "baselineLineHeightPx": 26.6,
+          "changedLineHeightPx": 26.6
+        },
+        {
+          "role": "card-title",
+          "baselineFontPx": 19,
+          "changedFontPx": 19,
+          "factor": 1,
+          "baselineLineHeightPx": 26.6,
+          "changedLineHeightPx": 26.6
+        },
+        {
+          "role": "card-title",
+          "baselineFontPx": 19,
+          "changedFontPx": 19,
+          "factor": 1,
+          "baselineLineHeightPx": 26.6,
+          "changedLineHeightPx": 26.6
+        },
+        {
+          "role": "description",
+          "baselineFontPx": 14,
+          "changedFontPx": 14,
+          "factor": 1,
+          "baselineLineHeightPx": 22.4,
+          "changedLineHeightPx": 22.4
+        },
+        {
+          "role": "description",
+          "baselineFontPx": 14,
+          "changedFontPx": 14,
+          "factor": 1,
+          "baselineLineHeightPx": 22.4,
+          "changedLineHeightPx": 22.4
+        },
+        {
+          "role": "description",
+          "baselineFontPx": 14,
+          "changedFontPx": 14,
+          "factor": 1,
+          "baselineLineHeightPx": 22.4,
+          "changedLineHeightPx": 22.4
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 320,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "final/v4-dynamic-100.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:08:59.961Z"
+    },
+    {
+      "id": "v4-dynamic-150",
+      "caseId": "VL-V4-DECK-DYNAMIC",
+      "variantId": "late-font-failure-root-text-spacing-container-content-change",
+      "route": "/articles/#start",
+      "state": [
+        "late-font-failure-root-text-spacing-container-content-change"
+      ],
+      "coverage": [
+        "remeasurement",
+        "text-scale",
+        "factor-150",
+        "viewport-320"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "synthetic-computed-text",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1.5,
+      "achieved": [
+        {
+          "role": "card-title",
+          "baselineFontPx": 19,
+          "changedFontPx": 28.5,
+          "factor": 1.5,
+          "baselineLineHeightPx": 26.6,
+          "changedLineHeightPx": 39.9
+        },
+        {
+          "role": "card-title",
+          "baselineFontPx": 19,
+          "changedFontPx": 28.5,
+          "factor": 1.5,
+          "baselineLineHeightPx": 26.6,
+          "changedLineHeightPx": 39.9
+        },
+        {
+          "role": "card-title",
+          "baselineFontPx": 19,
+          "changedFontPx": 28.5,
+          "factor": 1.5,
+          "baselineLineHeightPx": 26.6,
+          "changedLineHeightPx": 39.9
+        },
+        {
+          "role": "description",
+          "baselineFontPx": 14,
+          "changedFontPx": 21,
+          "factor": 1.5,
+          "baselineLineHeightPx": 22.4,
+          "changedLineHeightPx": 33.6
+        },
+        {
+          "role": "description",
+          "baselineFontPx": 14,
+          "changedFontPx": 21,
+          "factor": 1.5,
+          "baselineLineHeightPx": 22.4,
+          "changedLineHeightPx": 33.6
+        },
+        {
+          "role": "description",
+          "baselineFontPx": 14,
+          "changedFontPx": 21,
+          "factor": 1.5,
+          "baselineLineHeightPx": 22.4,
+          "changedLineHeightPx": 33.6
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 320,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "final/v4-dynamic-150.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:02.111Z"
+    },
+    {
+      "id": "v4-dynamic-200",
+      "caseId": "VL-V4-DECK-DYNAMIC",
+      "variantId": "late-font-failure-root-text-spacing-container-content-change",
+      "route": "/articles/#start",
+      "state": [
+        "late-font-failure-root-text-spacing-container-content-change"
+      ],
+      "coverage": [
+        "remeasurement",
+        "text-scale",
+        "factor-200",
+        "viewport-375"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "synthetic-computed-text",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 2,
+      "achieved": [
+        {
+          "role": "card-title",
+          "baselineFontPx": 19,
+          "changedFontPx": 38,
+          "factor": 2,
+          "baselineLineHeightPx": 26.6,
+          "changedLineHeightPx": 53.2
+        },
+        {
+          "role": "card-title",
+          "baselineFontPx": 19,
+          "changedFontPx": 38,
+          "factor": 2,
+          "baselineLineHeightPx": 26.6,
+          "changedLineHeightPx": 53.2
+        },
+        {
+          "role": "card-title",
+          "baselineFontPx": 19,
+          "changedFontPx": 38,
+          "factor": 2,
+          "baselineLineHeightPx": 26.6,
+          "changedLineHeightPx": 53.2
+        },
+        {
+          "role": "description",
+          "baselineFontPx": 14,
+          "changedFontPx": 28,
+          "factor": 2,
+          "baselineLineHeightPx": 22.4,
+          "changedLineHeightPx": 44.8
+        },
+        {
+          "role": "description",
+          "baselineFontPx": 14,
+          "changedFontPx": 28,
+          "factor": 2,
+          "baselineLineHeightPx": 22.4,
+          "changedLineHeightPx": 44.8
+        },
+        {
+          "role": "description",
+          "baselineFontPx": 14,
+          "changedFontPx": 28,
+          "factor": 2,
+          "baselineLineHeightPx": 22.4,
+          "changedLineHeightPx": 44.8
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "final/v4-dynamic-200.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:05.006Z"
+    },
+    {
+      "id": "v4-dynamic-spacing-line-height",
+      "caseId": "VL-V4-DECK-DYNAMIC",
+      "variantId": "late-font-failure-root-text-spacing-container-content-change",
+      "route": "/articles/#start",
+      "state": [
+        "late-font-failure-root-text-spacing-container-content-change"
+      ],
+      "coverage": [
+        "text-spacing",
+        "spacing-line-height"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "text-spacing",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "spacing": {
+        "override": "line-height",
+        "language": "ja",
+        "applicable": true
+      },
+      "screenshot": "final/v4-dynamic-spacing-line-height.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:07.119Z"
+    },
+    {
+      "id": "v4-dynamic-spacing-paragraph",
+      "caseId": "VL-V4-DECK-DYNAMIC",
+      "variantId": "late-font-failure-root-text-spacing-container-content-change",
+      "route": "/articles/#start",
+      "state": [
+        "late-font-failure-root-text-spacing-container-content-change"
+      ],
+      "coverage": [
+        "text-spacing",
+        "spacing-paragraph"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "text-spacing",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "spacing": {
+        "override": "paragraph",
+        "language": "ja",
+        "applicable": true
+      },
+      "screenshot": "final/v4-dynamic-spacing-paragraph.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:09.189Z"
+    },
+    {
+      "id": "v4-dynamic-spacing-letter",
+      "caseId": "VL-V4-DECK-DYNAMIC",
+      "variantId": "late-font-failure-root-text-spacing-container-content-change",
+      "route": "/articles/#start",
+      "state": [
+        "late-font-failure-root-text-spacing-container-content-change"
+      ],
+      "coverage": [
+        "text-spacing",
+        "spacing-letter"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "text-spacing",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "spacing": {
+        "override": "letter",
+        "language": "ja",
+        "applicable": true
+      },
+      "screenshot": "final/v4-dynamic-spacing-letter.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:11.726Z"
+    },
+    {
+      "id": "v4-dynamic-spacing-word",
+      "caseId": "VL-V4-DECK-DYNAMIC",
+      "variantId": "late-font-failure-root-text-spacing-container-content-change",
+      "route": "/articles/#start",
+      "state": [
+        "late-font-failure-root-text-spacing-container-content-change"
+      ],
+      "coverage": [
+        "text-spacing",
+        "spacing-word"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "text-spacing",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "spacing": {
+        "override": "word",
+        "language": "ja",
+        "applicable": true
+      },
+      "screenshot": "final/v4-dynamic-spacing-word.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:13.989Z"
+    },
+    {
+      "id": "v4-VL-V4-SSR-LIST-js-off-reduced-motion-forced-colors-340-original-order-one-a",
+      "caseId": "VL-V4-SSR-LIST",
+      "variantId": "js-off-reduced-motion-forced-colors-340-original-order-one-a",
+      "route": "/articles/#start",
+      "state": [
+        "js-off-reduced-motion-forced-colors-340-original-order-one-a"
+      ],
+      "coverage": [
+        "no-script",
+        "media-preference",
+        "focus-reachability",
+        "link-order",
+        "no-clones",
+        "full-content"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "screenshot": "final/v4-VL-V4-SSR-LIST-js-off-reduced-motion-forced-colors-340-original-order-one-a.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:16.074Z"
+    },
+    {
+      "id": "v4-VL-V4-DECK-COUNTS-zero",
+      "caseId": "VL-V4-DECK-COUNTS",
+      "variantId": "zero",
+      "route": "/articles/#start",
+      "state": [
+        "zero"
+      ],
+      "coverage": [
+        "fixture-counts",
+        "viewport-reflow"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "screenshot": "final/v4-VL-V4-DECK-COUNTS-zero.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:18.177Z"
+    },
+    {
+      "id": "v4-VL-V4-DECK-COUNTS-one",
+      "caseId": "VL-V4-DECK-COUNTS",
+      "variantId": "one",
+      "route": "/articles/#start",
+      "state": [
+        "one"
+      ],
+      "coverage": [
+        "fixture-counts",
+        "viewport-reflow"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "screenshot": "final/v4-VL-V4-DECK-COUNTS-one.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:19.407Z"
+    },
+    {
+      "id": "v4-VL-V4-DECK-COUNTS-two",
+      "caseId": "VL-V4-DECK-COUNTS",
+      "variantId": "two",
+      "route": "/articles/#start",
+      "state": [
+        "two"
+      ],
+      "coverage": [
+        "fixture-counts",
+        "viewport-reflow"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "screenshot": "final/v4-VL-V4-DECK-COUNTS-two.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:21.789Z"
+    },
+    {
+      "id": "v4-VL-V4-DECK-COUNTS-three",
+      "caseId": "VL-V4-DECK-COUNTS",
+      "variantId": "three",
+      "route": "/articles/#start",
+      "state": [
+        "three"
+      ],
+      "coverage": [
+        "fixture-counts",
+        "viewport-reflow"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "screenshot": "final/v4-VL-V4-DECK-COUNTS-three.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:23.600Z"
+    },
+    {
+      "id": "v4-VL-V4-DECK-COUNTS-more-than-three",
+      "caseId": "VL-V4-DECK-COUNTS",
+      "variantId": "more-than-three",
+      "route": "/articles/#start",
+      "state": [
+        "more-than-three"
+      ],
+      "coverage": [
+        "fixture-counts",
+        "viewport-reflow"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "screenshot": "final/v4-VL-V4-DECK-COUNTS-more-than-three.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:24.929Z"
+    },
+    {
+      "id": "v4-VL-V4-DECK-FOCUS-controls-focused",
+      "caseId": "VL-V4-DECK-FOCUS",
+      "variantId": "controls-focused",
+      "route": "/articles/#start",
+      "state": [
+        "controls-focused"
+      ],
+      "coverage": [
+        "focus-reachability",
+        "forced-fallback",
+        "manual-toggle-persistence"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "screenshot": "final/v4-VL-V4-DECK-FOCUS-controls-focused.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:25.899Z"
+    },
+    {
+      "id": "v4-VL-V4-DECK-FOCUS-article-focused",
+      "caseId": "VL-V4-DECK-FOCUS",
+      "variantId": "article-focused",
+      "route": "/articles/#start",
+      "state": [
+        "article-focused"
+      ],
+      "coverage": [
+        "focus-reachability",
+        "forced-fallback",
+        "manual-toggle-persistence"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "screenshot": "final/v4-VL-V4-DECK-FOCUS-article-focused.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:26.909Z"
+    },
+    {
+      "id": "v4-VL-V4-DECK-FOCUS-other-input-focused",
+      "caseId": "VL-V4-DECK-FOCUS",
+      "variantId": "other-input-focused",
+      "route": "/articles/#start",
+      "state": [
+        "other-input-focused"
+      ],
+      "coverage": [
+        "focus-reachability",
+        "forced-fallback",
+        "manual-toggle-persistence"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "screenshot": "final/v4-VL-V4-DECK-FOCUS-other-input-focused.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:27.877Z"
+    },
+    {
+      "id": "v4-VL-V4-DECK-FOCUS-manual-list-preference",
+      "caseId": "VL-V4-DECK-FOCUS",
+      "variantId": "manual-list-preference",
+      "route": "/articles/#start",
+      "state": [
+        "manual-list-preference"
+      ],
+      "coverage": [
+        "focus-reachability",
+        "forced-fallback",
+        "manual-toggle-persistence"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "screenshot": "final/v4-VL-V4-DECK-FOCUS-manual-list-preference.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:28.876Z"
+    },
+    {
+      "id": "v4-VL-V4-DECK-BUDGET-initial-enhancement-cls-assets-js-budget",
+      "caseId": "VL-V4-DECK-BUDGET",
+      "variantId": "initial-enhancement-cls-assets-js-budget",
+      "route": "/articles/#start",
+      "state": [
+        "initial-enhancement-cls-assets-js-budget"
+      ],
+      "coverage": [
+        "cls",
+        "bundle-budget"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": "#start .creation-deck",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "surface",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": {
+          "width": 375,
+          "height": 844
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 1
+      },
+      "screenshot": "final/v4-VL-V4-DECK-BUDGET-initial-enhancement-cls-assets-js-budget.png",
+      "limitations": [
+        "Local Chromium automation; not physical-device, browser-zoom, OS-scaling, protected Preview, or Production evidence.",
+        "Keyboard focus is bounded to the first three applicable targets; existing journey suites cover the remaining controls."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Issue #157 final evidence emitter"
+      },
+      "capturedAt": "2026-10-01T00:09:29.895Z"
+    }
+  ],
+  "execution": {
+    "subsetGate": "PASS",
+    "cls": 0,
+    "command": "npx playwright test e2e/issue-157-final-evidence.spec.ts"
+  }
+}

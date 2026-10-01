@@ -47,3 +47,9 @@ An independent source/screenshot review found three blocking gaps in the first P
 The independent reviewer inspected current normal/stress Home, Project, Deck, reading, Compare, and Tools captures and the runtime diff. No P0/P1 visual defect was found. One high-impact P2 was identified: the first fit-safe implementation accepted an absent Deck control node as fitting and did not guarantee a post-mount control measurement. The correction now mounts a candidate control group, validates its real client/scroll width in a layout effect before exposing availability, and falls back to the unchanged list on failure. A disposable overflowing-control regression accompanies the fix. Pointer/drag cancellation still clears both the queued animation frame and transient transform.
 
 The independent review did not execute physical devices, Preview, Production, genuine browser/OS zoom, or every temporal pointer/pinch path. Those limitations remain explicit rather than being promoted to PASS.
+
+## Final integrated review — 2026-09-30
+
+The independent reviewer inspected the current V1/V2/V3/V4 normal and stress captures. No P0 or P1 was found. One high-impact P2 was found in `final/v4-dynamic-200.png`: enlarged neighbor-card text visually interfered with the active circular card. The Deck fit gate now rejects title text above 32px or description text above 24px and retains the same ordered list. The refreshed 200% capture shows the list fallback with readable natural-height cards; second pass found no remaining P0, P1, or high-impact P2.
+
+The reviewer also confirmed task-first route continuity and source-level preservation of Compare canonical/noindex behavior, ElevenLabs v4 metadata, and sponsored affiliate rel/events. Local Chromium evidence does not establish Production, protected Preview, physical-device, genuine browser-zoom, or OS-scaling acceptance.

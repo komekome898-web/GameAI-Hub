@@ -1,12 +1,12 @@
 {
   "schema": "gameai-reflow-evidence/v2",
   "target": {
-    "sha": "042744f5f3e1097582065a056ce5bcb4ce2bf8d3",
+    "sha": "ac461e477f47bcb55d71f7fbdf70174e7a9c52a8",
     "environment": "local",
     "baseUrl": "http://127.0.0.1:3100",
     "sourceIdentity": {
       "kind": "clean-git-checkpoint",
-      "sha": "042744f5f3e1097582065a056ce5bcb4ce2bf8d3",
+      "sha": "ac461e477f47bcb55d71f7fbdf70174e7a9c52a8",
       "status": "clean"
     }
   },
@@ -78,7 +78,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:36:50.736Z"
+      "capturedAt": "2026-10-01T00:08:49.655Z"
     },
     {
       "id": "v2-home-initial-150",
@@ -166,7 +166,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:36:54.966Z"
+      "capturedAt": "2026-10-01T00:08:53.257Z"
     },
     {
       "id": "v2-home-empty-validation",
@@ -244,7 +244,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:36:58.170Z"
+      "capturedAt": "2026-10-01T00:08:56.382Z"
     },
     {
       "id": "v2-home-meta-100",
@@ -324,7 +324,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:37:00.910Z"
+      "capturedAt": "2026-10-01T00:08:59.234Z"
     },
     {
       "id": "v2-home-examples-150",
@@ -435,7 +435,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:37:04.776Z"
+      "capturedAt": "2026-10-01T00:09:01.885Z"
     },
     {
       "id": "v2-home-maximum-200",
@@ -530,7 +530,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:37:08.581Z"
+      "capturedAt": "2026-10-01T00:09:04.971Z"
     },
     {
       "id": "v2-home-spacing-line-height",
@@ -613,7 +613,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:37:09.755Z"
+      "capturedAt": "2026-10-01T00:09:05.820Z"
     },
     {
       "id": "v2-home-spacing-paragraph",
@@ -696,7 +696,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:37:10.700Z"
+      "capturedAt": "2026-10-01T00:09:06.519Z"
     },
     {
       "id": "v2-home-spacing-letter",
@@ -779,7 +779,7 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:37:11.681Z"
+      "capturedAt": "2026-10-01T00:09:07.495Z"
     },
     {
       "id": "v2-home-spacing-word",
@@ -862,13 +862,13 @@
         "kind": "automated",
         "reviewer": "Playwright V2 evidence emitter"
       },
-      "capturedAt": "2026-09-30T22:37:12.557Z"
+      "capturedAt": "2026-10-01T00:09:08.275Z"
     }
   ],
   "execution": {
     "sourceIdentity": {
       "kind": "clean-git-checkpoint",
-      "sha": "042744f5f3e1097582065a056ce5bcb4ce2bf8d3",
+      "sha": "ac461e477f47bcb55d71f7fbdf70174e7a9c52a8",
       "status": "clean"
     },
     "command": "npx playwright test e2e/issue-157-reflow-evidence.spec.ts",

@@ -1,16 +1,16 @@
 # Issue 157 — Visual Layer v2 all-phase contract progress
 
-## Identity and remote lineage
+## Identity and current status
 
-- Issue: #157
-- Stage: A correction — complete and pushed to draft PR #158; awaiting commander re-verification
-- Branch: `codex/issue-157-visual-layer-v2-complete`
-- Base: `f26f8d22c3be876878a4c6e0c691dec5d446deff`
-- First verified remote checkpoint: `187c0ee45cf943029f0bca86e27aab1678231f92`
-- Prior Stage A head: `0e7f32940c4cae167b75bc424704240b4c4d67f6`
-- Runtime boundary: documentation and test infrastructure only; V2–V4 runtime implementation has not started.
-
-Canonical fetch/push origin, authenticated repository access, `origin/main`, resumed branch/PR lineage, and the remote write path were verified before substantial work.
+- Issue: #157; branch: `codex/issue-157-visual-layer-v2-complete`; draft PR #158.
+- Base: `f26f8d22c3be876878a4c6e0c691dec5d446deff`.
+- Submitted runtime checkpoint: `ee1bec3a90b55fa42271d3ceab5a8479c06009ba`.
+- Current final integrated acceptance checkpoint: `ac461e477f47bcb55d71f7fbdf70174e7a9c52a8`.
+- **Runtime implementation remaining: NONE.**
+- **Local final acceptance: PASS** at the checkpoint above. The combined 99-record manifest is `docs/screenshots/issue-157-stage-b/final/manifest.json`; V1, V2 Home, V2 Project, V3, V4, cross-route, and final reconciliation records all bind to that exact clean source SHA.
+- Independent review found one high-impact P2 at 200% Deck text; content-fit fallback was added and the refreshed 200% capture confirms the same ordered list is retained without overlapping circular neighbors. No P0/P1/high-impact P2 remains in the reviewed local captures.
+- Remote quality/build run `36786860145` and exact-head Vercel passed. Remote full E2E run `36786860155` completed successfully.
+- Production, protected Preview interaction, physical devices, genuine browser zoom, and OS scaling remain `UNTESTED / OWNER-DEFERRED`. No Production navigation or merge occurred.
 
 ## Stage A correction delivered
 

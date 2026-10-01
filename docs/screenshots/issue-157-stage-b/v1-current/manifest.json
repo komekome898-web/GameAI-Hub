@@ -1,12 +1,12 @@
 {
   "schema": "gameai-reflow-evidence/v2",
   "target": {
-    "sha": "042744f5f3e1097582065a056ce5bcb4ce2bf8d3",
+    "sha": "ac461e477f47bcb55d71f7fbdf70174e7a9c52a8",
     "environment": "local",
     "baseUrl": "http://127.0.0.1:3100",
     "sourceIdentity": {
       "kind": "clean-git-checkpoint",
-      "sha": "042744f5f3e1097582065a056ce5bcb4ce2bf8d3",
+      "sha": "ac461e477f47bcb55d71f7fbdf70174e7a9c52a8",
       "status": "clean"
     }
   },
@@ -121,7 +121,7 @@
         "kind": "automated",
         "reviewer": "Playwright Stage A emitter"
       },
-      "capturedAt": "2026-09-30T22:38:57.117Z"
+      "capturedAt": "2026-10-01T00:09:12.390Z"
     },
     {
       "id": "stage-a-metadata-viewport-320",
@@ -231,7 +231,7 @@
         "kind": "automated",
         "reviewer": "Playwright Stage A emitter"
       },
-      "capturedAt": "2026-09-30T22:38:57.117Z"
+      "capturedAt": "2026-10-01T00:09:12.390Z"
     },
     {
       "id": "stage-a-metadata-150",
@@ -343,7 +343,7 @@
         "kind": "automated",
         "reviewer": "Playwright Stage A emitter"
       },
-      "capturedAt": "2026-09-30T22:39:00.572Z"
+      "capturedAt": "2026-10-01T00:09:15.364Z"
     },
     {
       "id": "stage-a-metadata-200",
@@ -455,7 +455,7 @@
         "kind": "automated",
         "reviewer": "Playwright Stage A emitter"
       },
-      "capturedAt": "2026-09-30T22:39:06.612Z"
+      "capturedAt": "2026-10-01T00:09:19.809Z"
     },
     {
       "id": "stage-a-long-content",
@@ -518,12 +518,12 @@
         "Disposable DOM stress content; published article data was not changed.",
         "The bounded focus probe returned verified; the directly affected V1 spec also retains its first-card focus assertion."
       ],
-      "reviewerDecision": "PENDING",
+      "reviewerDecision": "PASS",
       "review": {
         "kind": "automated",
         "reviewer": "Playwright Stage A emitter"
       },
-      "capturedAt": "2026-09-30T22:39:10.297Z"
+      "capturedAt": "2026-10-01T00:09:23.190Z"
     }
   ],
   "execution": {
