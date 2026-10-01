@@ -217,12 +217,26 @@ test("V4 dynamic input, cancellation, follow-up, focus, and budget observations"
   for (const count of [0, 1, 2, 3, 5]) records.push({ ...records.at(-1)!, id: `v4-count-fixture-${count}`, caseId: "VL-V4-DECK-COUNTS", variantId: count === 5 ? "more-than-three" : ["zero", "one", "two", "three"][count], state: [count === 5 ? "more-than-three" : ["zero", "one", "two", "three"][count]], coverage: ["fixture-counts", "viewport-reflow"], surface: { kind: "static", artifact: "tests/creation-deck.test.tsx" }, screenshot: "not-applicable: component fixture", limitations: ["Executed by the required Vitest step; component-fixture evidence, not a browser observation."], review: { kind: "automated", reviewer: "creation-deck disposable item-count fixtures" } });
   await generic("VL-V4-DECK-FOCUS", ["controls-focused", "article-focused", "other-input-focused", "manual-list-preference"], ["focus-reachability", "forced-fallback", "manual-toggle-persistence"]);
   await page.setViewportSize({ width: 390, height: 844 }); await page.goto("/articles/#start");
-  const performanceValues = await page.evaluate(() => ({
-    cls: performance.getEntriesByType("layout-shift").reduce((sum, entry) => sum + ((entry as PerformanceEntry & { value?: number }).value ?? 0), 0),
-    routeJsBytes: performance.getEntriesByType("resource").filter((entry) => entry.name.includes("/_next/static/") && entry.name.endsWith(".js")).reduce((sum, entry) => sum + ((entry as PerformanceResourceTiming).encodedBodySize || 0), 0),
-    routeAssetBytes: performance.getEntriesByType("resource").filter((entry) => /\.(webp|png|jpg|svg)(\?|$)/.test(entry.name)).reduce((sum, entry) => sum + ((entry as PerformanceResourceTiming).encodedBodySize || 0), 0),
-  }));
+  const performanceValues = await page.evaluate(async () => {
+    const resources = performance.getEntriesByType("resource").map((entry) => entry.name);
+    const gzipSize = async (text: string) => {
+      const stream = new Blob([text]).stream().pipeThrough(new CompressionStream("gzip"));
+      return (await new Response(stream).arrayBuffer()).byteLength;
+    };
+    const measured = await Promise.all(resources.filter((url) => /\.(js|css)(\?|$)/.test(url)).map(async (url) => {
+      const text = await fetch(url).then((response) => response.text());
+      return { url, text, gzipBytes: await gzipSize(text) };
+    }));
+    return {
+      cls: performance.getEntriesByType("layout-shift").reduce((sum, entry) => sum + ((entry as PerformanceEntry & { value?: number }).value ?? 0), 0),
+      deckJsGzipBytes: measured.filter(({ url, text }) => url.endsWith(".js") && text.includes("gameai.creationDeck.mode")).reduce((sum, item) => sum + item.gzipBytes, 0),
+      deckCssGzipBytes: measured.filter(({ url, text }) => url.endsWith(".css") && text.includes(".creation-deck")).reduce((sum, item) => sum + item.gzipBytes, 0),
+      routeAssetBytes: performance.getEntriesByType("resource").filter((entry) => /\.(webp|png|jpg|svg)(\?|$)/.test(entry.name)).reduce((sum, entry) => sum + ((entry as PerformanceResourceTiming).encodedBodySize || 0), 0),
+    };
+  });
   expect(performanceValues.cls).toBeLessThan(.1);
+  expect(performanceValues.deckJsGzipBytes).toBeGreaterThan(0); expect(performanceValues.deckJsGzipBytes).toBeLessThanOrEqual(8192);
+  expect(performanceValues.deckCssGzipBytes).toBeGreaterThan(0); expect(performanceValues.deckCssGzipBytes).toBeLessThanOrEqual(8192);
   await generic("VL-V4-DECK-BUDGET", ["initial-enhancement-cls-assets-js-budget"], ["cls", "bundle-budget"]);
   const manifest: ReflowEvidenceManifest = { schema: reflowEvidenceVersion, target: { sha: identity.sha, environment: "local", baseUrl: "http://127.0.0.1:3100", sourceIdentity: identity }, records };
   validateExecutionSubset(matrix, manifest, identity.sha, v4Ids);
