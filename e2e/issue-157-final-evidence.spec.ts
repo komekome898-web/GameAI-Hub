@@ -229,7 +229,7 @@ test("V4 dynamic input, cancellation, follow-up, focus, and budget observations"
     }));
     return {
       cls: performance.getEntriesByType("layout-shift").reduce((sum, entry) => sum + ((entry as PerformanceEntry & { value?: number }).value ?? 0), 0),
-      deckJsGzipBytes: measured.filter(({ url, text }) => url.endsWith(".js") && text.includes("gameai.creationDeck.mode")).reduce((sum, item) => sum + item.gzipBytes, 0),
+      deckJsGzipBytes: measured.filter(({ url, text }) => url.endsWith(".js") && text.includes("creation-deck-count")).reduce((sum, item) => sum + item.gzipBytes, 0),
       deckCssGzipBytes: measured.filter(({ url, text }) => url.endsWith(".css") && text.includes(".creation-deck")).reduce((sum, item) => sum + item.gzipBytes, 0),
       routeAssetBytes: performance.getEntriesByType("resource").filter((entry) => /\.(webp|png|jpg|svg)(\?|$)/.test(entry.name)).reduce((sum, entry) => sum + ((entry as PerformanceResourceTiming).encodedBodySize || 0), 0),
     };
