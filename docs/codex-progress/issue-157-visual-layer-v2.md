@@ -5,7 +5,7 @@
 - Issue: #157; branch: `codex/issue-157-visual-layer-v2-complete`; draft PR #158.
 - Base: `f26f8d22c3be876878a4c6e0c691dec5d446deff`.
 - Submitted runtime checkpoint: `ee1bec3a90b55fa42271d3ceab5a8479c06009ba`.
-- Current corrected final integrated acceptance checkpoint: `ed42a337a03ba410523323e4b290e42dc38fec44`.
+- Current corrected final integrated acceptance checkpoint: `76ce5e5c02437036c3b9b1bac9c2256ec7faf19a`.
 - **Runtime implementation remaining: NONE.**
 - **Local final acceptance: PASS** at the checkpoint above. The combined 115-record manifest is `docs/screenshots/issue-157-stage-b/final/manifest.json`; V1, V2 Home, V2 Project, corrected V3/V4 actions, measured cross-route captures, and final reconciliation all bind to that exact clean source SHA.
 - Independent review found one high-impact P2 at 200% Deck text; content-fit fallback was added and the refreshed 200% capture confirms the same ordered list is retained without overlapping circular neighbors. No P0/P1/high-impact P2 remains in the reviewed local captures.

@@ -1,12 +1,12 @@
 {
   "schema": "gameai-reflow-evidence/v2",
   "target": {
-    "sha": "ed42a337a03ba410523323e4b290e42dc38fec44",
+    "sha": "76ce5e5fb7f0f53a9877ba3a5984e51c03a0a596",
     "environment": "local",
     "baseUrl": "http://127.0.0.1:3100",
     "sourceIdentity": {
       "kind": "clean-git-checkpoint",
-      "sha": "ed42a337a03ba410523323e4b290e42dc38fec44",
+      "sha": "76ce5e5fb7f0f53a9877ba3a5984e51c03a0a596",
       "status": "clean"
     }
   },
@@ -87,7 +87,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:10.093Z"
+      "capturedAt": "2026-10-01T02:23:39.347Z"
     },
     {
       "id": "v3-tools-filter",
@@ -163,7 +163,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:10.982Z"
+      "capturedAt": "2026-10-01T02:23:40.337Z"
     },
     {
       "id": "v3-tools-search",
@@ -239,7 +239,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:12.050Z"
+      "capturedAt": "2026-10-01T02:23:41.352Z"
     },
     {
       "id": "v3-tools-count",
@@ -314,7 +314,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:13.211Z"
+      "capturedAt": "2026-10-01T02:23:42.189Z"
     },
     {
       "id": "v3-tools-help",
@@ -389,7 +389,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:14.011Z"
+      "capturedAt": "2026-10-01T02:23:42.895Z"
     },
     {
       "id": "v3-tools-reset",
@@ -464,7 +464,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:16.389Z"
+      "capturedAt": "2026-10-01T02:23:45.500Z"
     },
     {
       "id": "v3-tools-empty",
@@ -539,7 +539,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:17.318Z"
+      "capturedAt": "2026-10-01T02:23:46.313Z"
     },
     {
       "id": "v3-tools-spacing-line-height",
@@ -1956,7 +1956,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:20.616Z"
+      "capturedAt": "2026-10-01T02:23:49.815Z"
     },
     {
       "id": "v3-tools-spacing-paragraph",
@@ -3373,7 +3373,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:23.028Z"
+      "capturedAt": "2026-10-01T02:23:52.076Z"
     },
     {
       "id": "v3-tools-spacing-letter",
@@ -4790,7 +4790,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:25.308Z"
+      "capturedAt": "2026-10-01T02:23:54.319Z"
     },
     {
       "id": "v3-tools-spacing-word",
@@ -6207,7 +6207,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:27.383Z"
+      "capturedAt": "2026-10-01T02:23:56.475Z"
     },
     {
       "id": "v3-VL-V3-GUIDES-stage-reset-expanded-constraints-long-values",
@@ -6492,7 +6492,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:29.578Z"
+      "capturedAt": "2026-10-01T02:23:58.871Z"
     },
     {
       "id": "v3-VL-V3-DIRECTORY-NAV-return-context-back-forward-current-ordering",
@@ -7160,7 +7160,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:34.255Z"
+      "capturedAt": "2026-10-01T02:24:03.626Z"
     },
     {
       "id": "v3-VL-V3-COMPARE-TRAY-zero",
@@ -7237,7 +7237,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:35.890Z"
+      "capturedAt": "2026-10-01T02:24:05.324Z"
     },
     {
       "id": "v3-VL-V3-COMPARE-TRAY-one",
@@ -7330,7 +7330,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:38.397Z"
+      "capturedAt": "2026-10-01T02:24:07.905Z"
     },
     {
       "id": "v3-VL-V3-COMPARE-TRAY-two",
@@ -7439,7 +7439,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:40.841Z"
+      "capturedAt": "2026-10-01T02:24:10.389Z"
     },
     {
       "id": "v3-VL-V3-COMPARE-TRAY-four",
@@ -7580,7 +7580,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:44.035Z"
+      "capturedAt": "2026-10-01T02:24:13.402Z"
     },
     {
       "id": "v3-VL-V3-COMPARE-TRAY-limit",
@@ -7721,7 +7721,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:47.119Z"
+      "capturedAt": "2026-10-01T02:24:16.681Z"
     },
     {
       "id": "v3-VL-V3-COMPARE-TRAY-remove",
@@ -7846,7 +7846,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:48.662Z"
+      "capturedAt": "2026-10-01T02:24:18.420Z"
     },
     {
       "id": "v3-VL-V3-COMPARE-TRAY-clear",
@@ -7923,7 +7923,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:49.239Z"
+      "capturedAt": "2026-10-01T02:24:19.046Z"
     },
     {
       "id": "v3-compare-table-100",
@@ -8138,7 +8138,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:51.838Z"
+      "capturedAt": "2026-10-01T02:24:21.737Z"
     },
     {
       "id": "v3-compare-table-150",
@@ -8353,7 +8353,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:54.407Z"
+      "capturedAt": "2026-10-01T02:24:24.284Z"
     },
     {
       "id": "v3-compare-table-200",
@@ -8568,7 +8568,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:12:57.238Z"
+      "capturedAt": "2026-10-01T02:24:26.971Z"
     },
     {
       "id": "v3-compare-navigation",
@@ -9532,7 +9532,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:02.145Z"
+      "capturedAt": "2026-10-01T02:24:31.842Z"
     },
     {
       "id": "v3-VL-V3-ARTICLE-HUB-non-start-groups-and-long-metadata",
@@ -9833,7 +9833,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:04.984Z"
+      "capturedAt": "2026-10-01T02:24:34.497Z"
     },
     {
       "id": "v3-reading-100",
@@ -10151,7 +10151,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:08.610Z"
+      "capturedAt": "2026-10-01T02:24:38.085Z"
     },
     {
       "id": "v3-reading-150",
@@ -10469,7 +10469,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:10.883Z"
+      "capturedAt": "2026-10-01T02:24:40.200Z"
     },
     {
       "id": "v3-reading-200",
@@ -10787,7 +10787,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:13.220Z"
+      "capturedAt": "2026-10-01T02:24:42.827Z"
     },
     {
       "id": "v3-reading-spacing-line-height",
@@ -11556,7 +11556,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:16.389Z"
+      "capturedAt": "2026-10-01T02:24:45.976Z"
     },
     {
       "id": "v3-reading-spacing-paragraph",
@@ -12325,7 +12325,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:18.879Z"
+      "capturedAt": "2026-10-01T02:24:48.022Z"
     },
     {
       "id": "v3-reading-spacing-letter",
@@ -13094,7 +13094,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:20.847Z"
+      "capturedAt": "2026-10-01T02:24:50.026Z"
     },
     {
       "id": "v3-reading-spacing-word",
@@ -13863,7 +13863,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:22.980Z"
+      "capturedAt": "2026-10-01T02:24:51.937Z"
     },
     {
       "id": "v3-VL-V3-ELEVENLABS-pr-154-preservation-smoke",
@@ -14627,7 +14627,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:26.681Z"
+      "capturedAt": "2026-10-01T02:24:55.775Z"
     },
     {
       "id": "v3-VL-V3-TRUST-long-trust-copy-source-links",
@@ -15023,7 +15023,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:29.108Z"
+      "capturedAt": "2026-10-01T02:24:58.293Z"
     },
     {
       "id": "v3-trust-spacing-line-height",
@@ -15424,7 +15424,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:30.031Z"
+      "capturedAt": "2026-10-01T02:24:59.254Z"
     },
     {
       "id": "v3-trust-spacing-paragraph",
@@ -15825,7 +15825,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:31.061Z"
+      "capturedAt": "2026-10-01T02:25:00.312Z"
     },
     {
       "id": "v3-trust-spacing-letter",
@@ -16226,7 +16226,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:32.207Z"
+      "capturedAt": "2026-10-01T02:25:01.607Z"
     },
     {
       "id": "v3-trust-spacing-word",
@@ -16627,7 +16627,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:33.161Z"
+      "capturedAt": "2026-10-01T02:25:02.547Z"
     },
     {
       "id": "v3-VL-V3-DETAILS-details",
@@ -16943,7 +16943,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:35.359Z"
+      "capturedAt": "2026-10-01T02:25:04.792Z"
     },
     {
       "id": "v3-header-100",
@@ -17038,7 +17038,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:37.820Z"
+      "capturedAt": "2026-10-01T02:25:07.213Z"
     },
     {
       "id": "v3-header-150",
@@ -17133,7 +17133,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:40.003Z"
+      "capturedAt": "2026-10-01T02:25:09.537Z"
     },
     {
       "id": "v3-header-200",
@@ -17228,7 +17228,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:42.518Z"
+      "capturedAt": "2026-10-01T02:25:11.858Z"
     },
     {
       "id": "v3-VL-SHARED-FOOTER-narrow-enlarged-footer-groups",
@@ -17363,7 +17363,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:43.016Z"
+      "capturedAt": "2026-10-01T02:25:12.490Z"
     }
   ],
   "execution": {

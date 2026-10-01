@@ -1,12 +1,12 @@
 {
   "schema": "gameai-reflow-evidence/v2",
   "target": {
-    "sha": "ed42a337a03ba410523323e4b290e42dc38fec44",
+    "sha": "76ce5e5fb7f0f53a9877ba3a5984e51c03a0a596",
     "environment": "local",
     "baseUrl": "http://127.0.0.1:3100",
     "sourceIdentity": {
       "kind": "clean-git-checkpoint",
-      "sha": "ed42a337a03ba410523323e4b290e42dc38fec44",
+      "sha": "76ce5e5fb7f0f53a9877ba3a5984e51c03a0a596",
       "status": "clean"
     }
   },
@@ -120,7 +120,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:47.413Z"
+      "capturedAt": "2026-10-01T02:25:17.068Z"
     },
     {
       "id": "v4-dynamic-100",
@@ -230,7 +230,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:48.513Z"
+      "capturedAt": "2026-10-01T02:25:18.230Z"
     },
     {
       "id": "v4-dynamic-150",
@@ -340,7 +340,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:49.523Z"
+      "capturedAt": "2026-10-01T02:25:19.347Z"
     },
     {
       "id": "v4-dynamic-200",
@@ -450,7 +450,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:51.014Z"
+      "capturedAt": "2026-10-01T02:25:21.036Z"
     },
     {
       "id": "v4-dynamic-spacing-line-height",
@@ -563,7 +563,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:52.422Z"
+      "capturedAt": "2026-10-01T02:25:22.223Z"
     },
     {
       "id": "v4-dynamic-spacing-paragraph",
@@ -676,7 +676,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:53.468Z"
+      "capturedAt": "2026-10-01T02:25:23.180Z"
     },
     {
       "id": "v4-dynamic-spacing-letter",
@@ -789,7 +789,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:54.423Z"
+      "capturedAt": "2026-10-01T02:25:24.139Z"
     },
     {
       "id": "v4-dynamic-spacing-word",
@@ -902,7 +902,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:13:55.249Z"
+      "capturedAt": "2026-10-01T02:25:25.341Z"
     },
     {
       "id": "v4-VL-V4-SSR-LIST-js-off-reduced-motion-forced-colors-340-original-order-one-a",
@@ -1014,7 +1014,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:14:01.575Z"
+      "capturedAt": "2026-10-01T02:25:32.528Z"
     },
     {
       "id": "v4-count-fixture-0",
@@ -1120,7 +1120,7 @@
         "kind": "automated",
         "reviewer": "creation-deck disposable item-count fixtures"
       },
-      "capturedAt": "2026-10-01T02:14:01.575Z"
+      "capturedAt": "2026-10-01T02:25:32.528Z"
     },
     {
       "id": "v4-count-fixture-1",
@@ -1226,7 +1226,7 @@
         "kind": "automated",
         "reviewer": "creation-deck disposable item-count fixtures"
       },
-      "capturedAt": "2026-10-01T02:14:01.575Z"
+      "capturedAt": "2026-10-01T02:25:32.528Z"
     },
     {
       "id": "v4-count-fixture-2",
@@ -1332,7 +1332,7 @@
         "kind": "automated",
         "reviewer": "creation-deck disposable item-count fixtures"
       },
-      "capturedAt": "2026-10-01T02:14:01.575Z"
+      "capturedAt": "2026-10-01T02:25:32.528Z"
     },
     {
       "id": "v4-count-fixture-3",
@@ -1438,7 +1438,7 @@
         "kind": "automated",
         "reviewer": "creation-deck disposable item-count fixtures"
       },
-      "capturedAt": "2026-10-01T02:14:01.575Z"
+      "capturedAt": "2026-10-01T02:25:32.528Z"
     },
     {
       "id": "v4-count-fixture-5",
@@ -1544,7 +1544,7 @@
         "kind": "automated",
         "reviewer": "creation-deck disposable item-count fixtures"
       },
-      "capturedAt": "2026-10-01T02:14:01.575Z"
+      "capturedAt": "2026-10-01T02:25:32.528Z"
     },
     {
       "id": "v4-VL-V4-DECK-FOCUS-controls-focused",
@@ -1653,7 +1653,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:14:02.645Z"
+      "capturedAt": "2026-10-01T02:25:33.587Z"
     },
     {
       "id": "v4-VL-V4-DECK-FOCUS-article-focused",
@@ -1762,7 +1762,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:14:03.654Z"
+      "capturedAt": "2026-10-01T02:25:34.614Z"
     },
     {
       "id": "v4-VL-V4-DECK-FOCUS-other-input-focused",
@@ -1871,7 +1871,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:14:04.775Z"
+      "capturedAt": "2026-10-01T02:25:35.631Z"
     },
     {
       "id": "v4-VL-V4-DECK-FOCUS-manual-list-preference",
@@ -1980,7 +1980,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:14:05.695Z"
+      "capturedAt": "2026-10-01T02:25:36.693Z"
     },
     {
       "id": "v4-VL-V4-DECK-BUDGET-initial-enhancement-cls-assets-js-budget",
@@ -2088,7 +2088,7 @@
         "kind": "automated",
         "reviewer": "Issue #157 final evidence emitter"
       },
-      "capturedAt": "2026-10-01T02:14:07.290Z"
+      "capturedAt": "2026-10-01T02:25:38.439Z"
     }
   ],
   "execution": {
