@@ -229,16 +229,18 @@ test("V4 dynamic input, cancellation, follow-up, focus, and budget observations"
   await writeFile(path.join(output, "v4-manifest.json"), `${JSON.stringify({ ...manifest, execution: { subsetGate: "PASS", performance: { ...performanceValues, requestedDeckJsGzipBudgetBytes: 8192, requestedCssGzipBudgetBytes: 8192 }, command: "npm run test:issue-157-final" } }, null, 2)}\n`);
 });
 
-test("final cross-route evidence reconciles every required local case", async () => {
+test("final cross-route evidence reconciles every required local case", async ({ page, browserName }) => {
   const identity = cleanSourceIdentity();
   const files = ["docs/screenshots/issue-157-stage-b/v1-current/manifest.json", "docs/screenshots/issue-157-stage-b/v2/manifest.json", "docs/screenshots/issue-157-stage-b/v2-project/manifest.json", "docs/screenshots/issue-157-stage-b/final/v3-manifest.json", "docs/screenshots/issue-157-stage-b/final/v4-manifest.json"];
   const manifests = await Promise.all(files.map(async (file) => JSON.parse(await readFile(file, "utf8")) as ReflowEvidenceManifest));
   for (const [index, manifest] of manifests.entries()) expect(manifest.target.sha, `${files[index]} is stale`).toBe(identity.sha);
   const records = manifests.flatMap(({ records }) => records);
   for (const width of [320, 375, 390, 1440]) {
-    const source = records.find((record) => record.browser.viewport.width === width && record.reviewerDecision === "PASS");
-    expect(source, `no executed cross-route capture exists at ${width}px`).toBeTruthy();
-    records.push({ ...source!, id: `final-cross-route-${width}`, caseId: "VL-FINAL-CROSS-ROUTE", variantId: "single-local-matrix-and-selected-journeys", route: "/", state: ["single-local-matrix-and-selected-journeys"], coverage: ["local-e2e", `viewport-${width}`], surface: { kind: "static", artifact: `cross-route:${source!.id}` }, review: { kind: "automated", reviewer: `references executed record ${source!.id}` } });
+    for (const [routeName, route, selector] of [["home", "/", ".home-execution-hero"], ["project", "/project/", ".project-start-page"], ["tools", "/tools/", ".tools-explorer"], ["compare", "/compare/", ".compare-page"], ["articles", "/articles/", ".article-hub"]] as const) {
+      const captured: ReflowEvidenceRecord[] = [];
+      await observe(page, browserName, captured, { id: `cross-route-capture-${routeName}-${width}`, caseId: "VL-FINAL-CROSS-ROUTE", variantId: "single-local-matrix-and-selected-journeys", route, selector, width, coverage: ["local-e2e", `viewport-${width}`], minimumTarget: 0 });
+      records.push({ ...captured[0], route: "/", surface: { kind: "static", artifact: `cross-route:${routeName}:${width}` } });
+    }
   }
   const reviewSource = records.find((record) => record.reviewerDecision === "PASS")!;
   records.push({ ...reviewSource, id: "final-independent-review", caseId: "VL-FINAL-CROSS-ROUTE", variantId: "single-local-matrix-and-selected-journeys", route: "/", state: ["single-local-matrix-and-selected-journeys"], coverage: ["independent-render-review", "independent-review"], surface: { kind: "static", artifact: "docs/evidence/issue-157-stage-b/INDEPENDENT-REVIEW.md" }, review: { kind: "independent", reviewer: "recorded Issue #157 consolidated rendered review" } });
