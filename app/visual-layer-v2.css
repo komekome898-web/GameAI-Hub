@@ -323,6 +323,7 @@ body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
 .visual-layer-v2 :is(.tools-explorer,.guides-explorer,.compare-page,.article-shell,.page-shell,.detail,.stack-detail) { min-width:0; }
 .visual-layer-v2 :is(.tool-rows article,.compare-selected-services li,.sources li,.article-row-copy,.article-header-meta) { min-width:0; }
 .visual-layer-v2 :is(.compare-remove,.compare-selection-head button,.menu-button,.mobile-menu-close) { min-width:44px; min-height:44px; height:auto; }
+.visual-layer-v2 .mobile-menu-close { width:auto; padding-inline:12px; }
 .visual-layer-v2 .compare-scroll { background:#fff; border-color:var(--v2-edge); }
 .visual-layer-v2 article.page-shell,
 .visual-layer-v2 .article-shell { background:#fff; padding-inline:clamp(12px,4vw,48px); }
