@@ -59,11 +59,13 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
         const cardWidth = card.getBoundingClientRect().width;
         const title = card.querySelector<HTMLElement>("strong");
         const description = card.querySelector<HTMLElement>(".v2-start-card-description");
-        const titleSize = title ? Number.parseFloat(getComputedStyle(title).fontSize) : Number.NaN;
-        const descriptionSize = description ? Number.parseFloat(getComputedStyle(description).fontSize) : Number.NaN;
+        const titleSizeText = title ? getComputedStyle(title).fontSize : "";
+        const descriptionSizeText = description ? getComputedStyle(description).fontSize : "";
+        const titleSize = Number.parseFloat(titleSizeText);
+        const descriptionSize = Number.parseFloat(descriptionSizeText);
         return Number.isFinite(cardWidth) && cardWidth >= 240 &&
-          Number.isFinite(titleSize) && titleSize <= 32 &&
-          Number.isFinite(descriptionSize) && descriptionSize <= 24;
+          Boolean(title) && (!titleSizeText || (Number.isFinite(titleSize) && titleSize <= 32)) &&
+          Boolean(description) && (!descriptionSizeText || (Number.isFinite(descriptionSize) && descriptionSize <= 24));
       });
       if (!Number.isFinite(height) || height <= 16 || !cardsFit) {
         failSafe();
