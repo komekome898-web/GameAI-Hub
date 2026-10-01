@@ -18,8 +18,8 @@ export default function MeshyGameDevelopmentGuide() {
         <ArticleHeader
           article={article}
           eyebrow="3D ASSET / FIRST IMPORT"
-          title="Meshy AIの使い方｜ゲーム用3Dモデルを作ってUnity・Blenderへ持っていく手順"
-          lead="Meshyは、文章や画像から3Dモデルを生成できるツールです。このガイドは初めてゲーム用3D素材を作る人が、単純な小物かクリーチャーを1つ生成し、BlenderまたはUnityへ読み込み、実際に使えるか判断するところまで進むための手順です。"
+          title="Meshy AIの使い方｜ゲーム用3Dモデルの生成からUnity・Blenderへの読み込みまで"
+          lead="Meshyは、文章や画像から3Dモデルを生成できるツールです。初めてゲーム用3D素材を作る人に向けて、手順を紹介します。単純な小物かクリーチャーを1つ生成し、BlenderまたはUnityへ読み込みます。ゴールは、実際に使えるか判断することです。"
           promoted
         >
           <div className="article-contract">
@@ -102,7 +102,7 @@ export default function MeshyGameDevelopmentGuide() {
         <section>
           <h2>3. 生成結果を選び、書き出す前に検査する</h2>
           <p>
-            最初の候補を自動的に採用しません。前・横・後ろから見て、シルエット、裏側の読みやすさ、浮いた破片、穴や不自然な突起、テクスチャの継ぎ目、ゲーム内の用途を邪魔する形を確認します。生成されたtopologyが自動的にゲーム向けとは限りません。
+            最初の候補をそのまま採用せず、前・横・後ろから確認します。シルエットや裏側の読みやすさに加え、浮いた破片、穴や不自然な突起がないかも見てください。テクスチャの継ぎ目や、ゲーム内の用途を邪魔する形も確認します。生成されたトポロジーが、そのままゲーム向けとは限りません。
           </p>
           <p>
             たとえば開閉する宝箱なら、ふたと本体を分けて動かせる必要があるかも先に判断します。必要な構造を満たさないモデルは、見栄えだけで採用しません。
