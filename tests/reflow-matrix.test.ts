@@ -176,10 +176,15 @@ function completeEvidence(complete: ReflowMatrix) {
 describe("Visual Layer all-phase matrix", () => {
   test("has complete, owned design coverage", () =>
     expect(validateDesignCoverage(matrix).cases.length).toBeGreaterThan(20));
-  test("does not falsely count planned implementation as final PASS", () =>
+  test("does not falsely count planned implementation as final PASS", () => {
+    const incomplete = structuredClone(matrix) as ReflowMatrix;
+    const planned = incomplete.cases.find(({ requiredForFinal, phase }) => requiredForFinal && phase !== "Production")!;
+    planned.status = "PLANNED";
+    delete planned.evidence;
     expect(() =>
-      validateFinalExecution(matrix, { target: { sha }, records: [] }, sha),
-    ).toThrow(/PLANNED/));
+      validateFinalExecution(incomplete, { target: { sha }, records: [] }, sha),
+    ).toThrow(/PLANNED/);
+  });
   test("binds route, surface, and every declared variant", () => {
     const item = validateDesignCoverage(matrix).cases.find(
       ({ id }) => id === "VL-V1-METADATA",
