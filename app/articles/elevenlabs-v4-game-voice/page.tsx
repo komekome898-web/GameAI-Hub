@@ -18,8 +18,8 @@ export default function ElevenLabsV4GameVoice() {
         <ArticleHeader
           article={article}
           eyebrow="VOICE / MODEL DECISION"
-          title="ElevenLabs v4とは？ゲーム音声で何が変わった？v3との違い・日本語・Turboを解説"
-          lead="固定セリフ、複数話者のカットシーン、リアルタイムAI NPCを混同せず、代表的な日本語セリフで採用可否を決めるためのゲーム制作者向けガイドです。"
+          title="ElevenLabs v4とは？ゲーム音声の変化・v3との違い・日本語・Turboを解説"
+          lead="ゲーム制作者向けに、代表的な日本語セリフで採用可否を決める方法を解説します。固定セリフ、複数話者のカットシーン、リアルタイムAI NPCを分けて考えます。"
           promoted
         >
           <div className="article-contract">
@@ -205,11 +205,9 @@ export default function ElevenLabsV4GameVoice() {
         </section>
 
         <section>
-          <h2>Audio Tagsは「キャラクターへの演技指示」</h2>
+          <h2>Audio Tagsでキャラクターの演技を指示する</h2>
           <p>
-            <code>[whispering]</code>、<code>[shouting]</code>、
-            <code>[laughing]</code>、<code>[sighs]</code>
-            などを、感情、声量、反応、音の演出として使えます。閉じたコマンド一覧ではなく自然言語の指示です。
+            <code>[whispering]</code>、<code>[shouting]</code>、<code>[laughing]</code>、<code>[sighs]</code>などのタグで、感情、声量、反応、音の演出を指定できます。決まったコマンドの一覧ではなく、自然言語による指示です。
           </p>
           <ul>
             <li>一度に「1行・1感情」から始める</li>
@@ -218,8 +216,7 @@ export default function ElevenLabsV4GameVoice() {
             <li>プレビューだけでなくBGM・効果音入りのゲーム内で聞く</li>
           </ul>
           <p>
-            公式もAudio
-            Tagsを開発中の領域と説明しています。効かない、過剰に演じる、発話指示と効果音要求の意図がずれる場合があるため、結果は保証されません。
+            公式もAudio Tagsは開発中の領域だと説明しています。タグが効かなかったり、演技が過剰になったりする場合があります。発話の指示と効果音の要求で意図がずれる場合もあり、結果は保証されません。
           </p>
         </section>
 

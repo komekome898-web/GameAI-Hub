@@ -1,0 +1,101 @@
+{
+  "environment": "local production build, Chromium, viewport emulation; CSS zoom 2 at 320px is a stress test, not physical-device accessibility zoom",
+  "results": [
+    {
+      "slug": "elevenlabs-v4-game-voice",
+      "viewport": {
+        "name": "desktop",
+        "width": 1280,
+        "height": 900,
+        "zoom": 1
+      },
+      "overflow": false,
+      "pageErrors": [],
+      "assertions": "PASS"
+    },
+    {
+      "slug": "elevenlabs-v4-game-voice",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812,
+        "zoom": 1
+      },
+      "overflow": false,
+      "pageErrors": [],
+      "assertions": "PASS"
+    },
+    {
+      "slug": "elevenlabs-v4-game-voice",
+      "viewport": {
+        "name": "320",
+        "width": 320,
+        "height": 720,
+        "zoom": 1
+      },
+      "overflow": false,
+      "pageErrors": [],
+      "assertions": "PASS"
+    },
+    {
+      "slug": "elevenlabs-v4-game-voice",
+      "viewport": {
+        "name": "320-zoom200",
+        "width": 320,
+        "height": 720,
+        "zoom": 2
+      },
+      "overflow": false,
+      "pageErrors": [],
+      "assertions": "PASS"
+    },
+    {
+      "slug": "meshy-game-development-guide",
+      "viewport": {
+        "name": "desktop",
+        "width": 1280,
+        "height": 900,
+        "zoom": 1
+      },
+      "overflow": false,
+      "pageErrors": [],
+      "assertions": "PASS"
+    },
+    {
+      "slug": "meshy-game-development-guide",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812,
+        "zoom": 1
+      },
+      "overflow": false,
+      "pageErrors": [],
+      "assertions": "PASS"
+    },
+    {
+      "slug": "meshy-game-development-guide",
+      "viewport": {
+        "name": "320",
+        "width": 320,
+        "height": 720,
+        "zoom": 1
+      },
+      "overflow": false,
+      "pageErrors": [],
+      "assertions": "PASS"
+    },
+    {
+      "slug": "meshy-game-development-guide",
+      "viewport": {
+        "name": "320-zoom200",
+        "width": 320,
+        "height": 720,
+        "zoom": 2
+      },
+      "overflow": false,
+      "pageErrors": [],
+      "assertions": "PASS"
+    }
+  ]
+}

@@ -299,7 +299,7 @@ export const articles = [
   {
     slug: "meshy-game-development-guide",
     title:
-      "Meshy AIの使い方｜ゲーム用3Dモデルを作ってUnity・Blenderへ持っていく手順",
+      "Meshy AIの使い方｜ゲーム用3Dモデルの生成からUnity・Blenderへの読み込みまで",
     description:
       "Meshyで最初のゲーム用3Dアセットを作り、FBXまたはGLBでBlender・Unityへ読み込み、実際の制作環境で採用可否を確認する手順。",
     category: "tool",
@@ -399,7 +399,7 @@ export const articles = [
   {
     slug: "elevenlabs-v4-game-voice",
     title:
-      "ElevenLabs v4とは？ゲーム音声で何が変わった？v3との違い・日本語・Turboを解説",
+      "ElevenLabs v4とは？ゲーム音声の変化・v3との違い・日本語・Turboを解説",
     description:
       "ElevenLabs v4 / v4 Turboを固定ゲーム音声、複数話者カットシーン、リアルタイムAI NPCで選び分け、日本語セリフの発音・演技・一貫性を検品するガイド。",
     category: "tool",
