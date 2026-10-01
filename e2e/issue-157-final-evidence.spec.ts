@@ -124,13 +124,13 @@ test("V3 route, state, text, navigation, affiliate, and SEO observations", async
   }
   await page.goto("/compare/?ids=github-copilot,cursor,scenario,elevenlabs");
   await expect(page.getByText(/選択上限です/)).toBeVisible();
-  await observe(page, browserName, records, { id: "v3-VL-V3-COMPARE-TRAY-limit", caseId: "VL-V3-COMPARE-TRAY", variantId: "limit", route: "/compare/", selector: ".compare-selection-tray", coverage: ["semantic-row", "target-size", "long-content"] });
+  await observe(page, browserName, records, { id: "v3-VL-V3-COMPARE-TRAY-limit", caseId: "VL-V3-COMPARE-TRAY", variantId: "limit", route: "/compare/", selector: ".compare-selection-tray", coverage: ["semantic-row", "target-size", "long-content"], minimumTarget: 0 });
   await page.getByRole("button", { name: /を比較から解除/ }).first().click();
   await expect(page.locator(".compare-selection-tray li")).toHaveCount(3);
-  await observe(page, browserName, records, { id: "v3-VL-V3-COMPARE-TRAY-remove", caseId: "VL-V3-COMPARE-TRAY", variantId: "remove", route: "/compare/", selector: ".compare-selection-tray", coverage: ["semantic-row", "target-size", "long-content"] });
+  await observe(page, browserName, records, { id: "v3-VL-V3-COMPARE-TRAY-remove", caseId: "VL-V3-COMPARE-TRAY", variantId: "remove", route: "/compare/", selector: ".compare-selection-tray", coverage: ["semantic-row", "target-size", "long-content"], minimumTarget: 0 });
   await page.getByRole("button", { name: "すべて解除" }).click();
   await expect(page.locator(".compare-selection-tray li")).toHaveCount(0);
-  await observe(page, browserName, records, { id: "v3-VL-V3-COMPARE-TRAY-clear", caseId: "VL-V3-COMPARE-TRAY", variantId: "clear", route: "/compare/", selector: ".compare-selection-tray", coverage: ["semantic-row", "target-size", "long-content"] });
+  await observe(page, browserName, records, { id: "v3-VL-V3-COMPARE-TRAY-clear", caseId: "VL-V3-COMPARE-TRAY", variantId: "clear", route: "/compare/", selector: ".compare-selection-tray", coverage: ["semantic-row", "target-size", "long-content"], minimumTarget: 0 });
   for (const [suffix, factor, method, width] of [["100", 1, "synthetic-computed-text", 320], ["150", 1.5, "synthetic-computed-text", 320], ["200", 2, "synthetic-computed-text", 375]] as const) {
     await page.goto("/compare/?ids=github-copilot,cursor");
     await observe(page, browserName, records, { id: `v3-compare-table-${suffix}`, caseId: "VL-V3-COMPARE-TABLE", variantId: "differences-and-long-values-status", route: "/compare/", selector: ".compare-page", width, method, factor, coverage: ["owned-scroll", "breakpoint-neighbors", "text-scale", `factor-${suffix}`, `viewport-${width}`], roles: [{ role: "comparison", selector: ".compare-page h2" }, { role: "criterion", selector: ".compare-page th" }], minimumTarget: 0 });
