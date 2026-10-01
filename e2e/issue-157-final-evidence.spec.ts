@@ -128,6 +128,7 @@ test("V3 route, state, text, navigation, affiliate, and SEO observations", async
   await page.getByRole("button", { name: /を比較から解除/ }).first().click();
   await expect(page.locator(".compare-selection-tray li")).toHaveCount(3);
   await observe(page, browserName, records, { id: "v3-VL-V3-COMPARE-TRAY-remove", caseId: "VL-V3-COMPARE-TRAY", variantId: "remove", route: "/compare/", selector: ".compare-selection-tray", coverage: ["semantic-row", "target-size", "long-content"], minimumTarget: 0 });
+  await page.locator(".compare-picker-panel > summary").click();
   await page.getByRole("button", { name: "すべて解除" }).click();
   await expect(page.locator(".compare-selection-tray li")).toHaveCount(0);
   await observe(page, browserName, records, { id: "v3-VL-V3-COMPARE-TRAY-clear", caseId: "VL-V3-COMPARE-TRAY", variantId: "clear", route: "/compare/", selector: ".compare-selection-tray", coverage: ["semantic-row", "target-size", "long-content"], minimumTarget: 0 });
