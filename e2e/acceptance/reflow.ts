@@ -30,7 +30,7 @@ export async function applyTextMethod(
   if (!roles.length) throw new Error("text roles must not be empty");
   if (!Number.isFinite(factor) || factor < 1)
     throw new Error("text factor must be finite and at least 1");
-  const snapshot = await page.evaluate(
+  const snapshot = await page.evaluateHandle(
     (targets) =>
       targets.map(({ role, selector }) => {
         const elements = [...document.querySelectorAll<HTMLElement>(selector)];
@@ -41,10 +41,17 @@ export async function applyTextMethod(
         return {
           role,
           selector,
+          root: document.documentElement,
           rootInline: document.documentElement.style.fontSize,
+          assertStable: () => {
+            const current = [...document.querySelectorAll<HTMLElement>(selector)];
+            if (current.length !== elements.length || current.some((element, index) => element !== elements[index]))
+              throw new Error(`${role}: text measurement targets changed (identity/order/count): ${selector}; expected ${elements.length}, found ${current.length}`);
+          },
           elements: elements.map((element) => {
             const style = getComputedStyle(element);
             return {
+              element,
               fontSize: Number.parseFloat(style.fontSize),
               lineHeight:
                 style.lineHeight === "normal"
@@ -64,100 +71,113 @@ export async function applyTextMethod(
     roles,
   );
 
-  await page.evaluate(
-    ({ targets, selectedMethod, selectedFactor }) => {
-      if (selectedMethod === "synthetic-root-text") {
-        const baseline = Number.parseFloat(
-          getComputedStyle(document.documentElement).fontSize,
-        );
-        document.documentElement.style.fontSize = `${baseline * selectedFactor}px`;
-      }
-      targets.forEach(({ selector, elements }) => {
-        [...document.querySelectorAll<HTMLElement>(selector)].forEach(
-          (element, index) => {
-            const baseline = elements[index];
-            if (selectedMethod === "synthetic-computed-text") {
-              element.style.fontSize = `${baseline.fontSize * selectedFactor}px`;
-              if (baseline.lineHeight !== null)
-                element.style.lineHeight = `${baseline.lineHeight * selectedFactor}px`;
-            } else if (selectedMethod === "spacing-line-height")
-              element.style.lineHeight = "1.5";
-            else if (selectedMethod === "spacing-paragraph")
-              element.style.marginBottom = "2em";
-            else if (selectedMethod === "spacing-letter")
-              element.style.letterSpacing = ".12em";
-            else if (selectedMethod === "spacing-word")
-              element.style.wordSpacing = ".16em";
-          },
-        );
+  const cleanup = async () => {
+    try {
+      await snapshot.evaluate((targets) => {
+        targets[0].root.style.fontSize = targets[0].rootInline;
+        targets.forEach(({ elements }) => elements.forEach(({ element, inline }) => Object.assign(element.style, inline)));
       });
-    },
-    { targets: snapshot, selectedMethod: method, selectedFactor: factor },
-  );
+    } finally {
+      await snapshot.dispose();
+    }
+  };
 
-  const measurements: TextMeasurement[] = await page.evaluate(
-    (targets) =>
-      targets.map(({ role, selector, elements }) => {
-        const changed = [
-          ...document.querySelectorAll<HTMLElement>(selector),
-        ].map((element) => getComputedStyle(element));
-        return {
-          role,
-          selector,
-          matched: changed.length,
-          baselineFontPx: elements.map(({ fontSize }) => fontSize),
-          changedFontPx: changed.map((style) =>
-            Number.parseFloat(style.fontSize),
-          ),
-          achievedFactors: changed.map(
-            (style, index) =>
-              Number.parseFloat(style.fontSize) / elements[index].fontSize,
-          ),
-          baselineLineHeightPx: elements.map(({ lineHeight }) => lineHeight),
-          changedLineHeightPx: changed.map((style) =>
-            style.lineHeight === "normal"
-              ? null
-              : Number.parseFloat(style.lineHeight),
-          ),
-        };
-      }),
-    snapshot,
-  );
-
-  const sufficient =
-    measurements.length === roles.length &&
-    measurements.every(
-      (measurement) =>
-        measurement.matched > 0 &&
-        measurement.matched === measurement.baselineFontPx.length &&
-        measurement.achievedFactors.length === measurement.matched &&
-        measurement.achievedFactors.every(
-          (achieved) =>
-            Number.isFinite(achieved) &&
-            (method === "synthetic-root-text" ||
-            method === "synthetic-computed-text"
-              ? Math.abs(achieved - factor) <= 0.05
-              : true),
-        ),
-    );
-  return {
-    method,
-    requestedFactor: factor,
-    measurements,
-    sufficient,
-    restore: async () =>
-      page.evaluate((targets) => {
-        document.documentElement.style.fontSize = targets[0]?.rootInline ?? "";
+  try {
+    await snapshot.evaluate(
+      (targets, { selectedMethod, selectedFactor }) => {
+        targets.forEach((target) => target.assertStable());
+        if (selectedMethod === "synthetic-root-text") {
+          const baseline = Number.parseFloat(
+            getComputedStyle(document.documentElement).fontSize,
+          );
+          document.documentElement.style.fontSize = `${baseline * selectedFactor}px`;
+        }
         targets.forEach(({ selector, elements }) => {
           [...document.querySelectorAll<HTMLElement>(selector)].forEach(
             (element, index) => {
-              const original = elements[index].inline;
-              Object.assign(element.style, original);
+              const baseline = elements[index];
+              if (selectedMethod === "synthetic-computed-text") {
+                element.style.fontSize = `${baseline.fontSize * selectedFactor}px`;
+                if (baseline.lineHeight !== null)
+                  element.style.lineHeight = `${baseline.lineHeight * selectedFactor}px`;
+              } else if (selectedMethod === "spacing-line-height")
+                element.style.lineHeight = "1.5";
+              else if (selectedMethod === "spacing-paragraph")
+                element.style.marginBottom = "2em";
+              else if (selectedMethod === "spacing-letter")
+                element.style.letterSpacing = ".12em";
+              else if (selectedMethod === "spacing-word")
+                element.style.wordSpacing = ".16em";
             },
           );
         });
-      }, snapshot),
-  };
+      },
+      { selectedMethod: method, selectedFactor: factor },
+    );
+
+    const measurements: TextMeasurement[] = await snapshot.evaluate(
+      (targets) => {
+        targets.forEach((target) => target.assertStable());
+        return targets.map(({ role, selector, elements }) => {
+          const changed = [
+            ...document.querySelectorAll<HTMLElement>(selector),
+          ].map((element) => getComputedStyle(element));
+          return {
+            role,
+            selector,
+            matched: changed.length,
+            baselineFontPx: elements.map(({ fontSize }) => fontSize),
+            changedFontPx: changed.map((style) =>
+              Number.parseFloat(style.fontSize),
+            ),
+            achievedFactors: changed.map(
+              (style, index) =>
+                Number.parseFloat(style.fontSize) / elements[index].fontSize,
+            ),
+            baselineLineHeightPx: elements.map(({ lineHeight }) => lineHeight),
+            changedLineHeightPx: changed.map((style) =>
+              style.lineHeight === "normal"
+                ? null
+                : Number.parseFloat(style.lineHeight),
+            ),
+          };
+        });
+      },
+    );
+
+    const sufficient =
+      measurements.length === roles.length &&
+      measurements.every(
+        (measurement) =>
+          measurement.matched > 0 &&
+          measurement.matched === measurement.baselineFontPx.length &&
+          measurement.achievedFactors.length === measurement.matched &&
+          measurement.achievedFactors.every(
+            (achieved) =>
+              Number.isFinite(achieved) &&
+              (method === "synthetic-root-text" ||
+              method === "synthetic-computed-text"
+                ? Math.abs(achieved - factor) <= 0.05
+                : true),
+          ),
+      );
+    return {
+      method,
+      requestedFactor: factor,
+      measurements,
+      sufficient,
+      restore: async () => {
+        try {
+          await snapshot.evaluate((targets) => targets.forEach((target) => target.assertStable()));
+        } finally {
+          await cleanup();
+        }
+      },
+    };
+  } catch (error) {
+    await cleanup();
+    throw error;
+  }
 }
 
 export type SurfaceProbe = {
