@@ -214,6 +214,23 @@ test("Issue 157 Project states, workspace, and token observations validate", asy
         { role: "file-name", selector: ".beginner-file-label" },
         { role: "runtime-error", selector: ".stuck-panel textarea" },
       ] });
+    const fileLabel = await page.locator(".beginner-file-label").evaluate((label) => {
+      const bounds = label.getBoundingClientRect();
+      const range = document.createRange();
+      range.selectNodeContents(label);
+      const lines = Array.from(range.getClientRects()).filter((rect) => rect.width > 0 && rect.height > 0);
+      return {
+        display: getComputedStyle(label).display,
+        lineCount: lines.length,
+        contained: lines.every((line) => line.top >= bounds.top - 1 && line.bottom <= bounds.bottom + 1),
+        separated: lines.every((line, index) => index === 0 || line.top >= lines[index - 1].bottom - 1),
+      };
+    });
+    expect(fileLabel.display).toBe("block");
+    expect(fileLabel.lineCount).toBeGreaterThan(1);
+    expect(fileLabel.contained).toBe(true);
+    expect(fileLabel.separated).toBe(true);
+    await page.locator(".beginner-file-label").screenshot({ path: path.join(output, `project-tokens-${suffix}-filename.png`) });
   }
 
   const manifest: ReflowEvidenceManifest = { schema: reflowEvidenceVersion, target: { sha: identity.sha, environment: "local", baseUrl: "http://127.0.0.1:3100", sourceIdentity: identity }, records };

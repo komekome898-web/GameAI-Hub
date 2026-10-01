@@ -1,0 +1,29 @@
+{
+  "testedConditions": {
+    "V-01": [
+      "v01-elevenlabs-table-375.png",
+      "v01-elevenlabs-table-1440.png"
+    ],
+    "V-02": [
+      "../v2-project/project-tokens-100.png",
+      "../v2-project/project-tokens-150.png",
+      "../v2-project/project-tokens-200.png"
+    ],
+    "V-03": [
+      "v03-voice-root-200-375.png",
+      "v03-3d-root-200-375.png"
+    ],
+    "E-01": [
+      "e01-deck-line-height.png",
+      "e01-deck-paragraph-spacing.png"
+    ],
+    "E-02": "actual mouse ownership plus controlled synthetic hidden/additional-pointer interruption; no physical touch or OS tab switch"
+  },
+  "viewportMethods": [
+    "375px viewport",
+    "1440px adjacent desktop",
+    "synthetic-root-text 200%",
+    "spacing-line-height",
+    "spacing-paragraph"
+  ]
+}
