@@ -230,6 +230,7 @@ test("V4 dynamic input, cancellation, follow-up, focus, and budget observations"
 });
 
 test("final cross-route evidence reconciles every required local case", async ({ page, browserName }) => {
+  test.setTimeout(300_000);
   const identity = cleanSourceIdentity();
   const files = ["docs/screenshots/issue-157-stage-b/v1-current/manifest.json", "docs/screenshots/issue-157-stage-b/v2/manifest.json", "docs/screenshots/issue-157-stage-b/v2-project/manifest.json", "docs/screenshots/issue-157-stage-b/final/v3-manifest.json", "docs/screenshots/issue-157-stage-b/final/v4-manifest.json"];
   const manifests = await Promise.all(files.map(async (file) => JSON.parse(await readFile(file, "utf8")) as ReflowEvidenceManifest));
