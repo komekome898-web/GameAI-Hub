@@ -39,9 +39,16 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
   const surface = await probeSurface(page, item.selector, item.minimumTarget ?? 44, 3);
   const widths = await diagnoseWidths(page);
   const deckMode = item.selector === "#start .creation-deck" && await page.locator(item.selector).getAttribute("data-mode") === "deck";
+  const deckActiveContained = !deckMode || await page.locator(item.selector).evaluate((root) => {
+    const active = root.querySelector<HTMLElement>("li[data-distance='0']");
+    const stage = root.querySelector<HTMLElement>("ol");
+    if (!active || !stage) return false;
+    const activeRect = active.getBoundingClientRect(); const stageRect = stage.getBoundingClientRect();
+    return activeRect.top >= stageRect.top - 1 && activeRect.bottom <= stageRect.bottom + 1 && active.scrollHeight <= stage.clientHeight + 1;
+  });
   const unownedOverflow = widths.unownedOverflowingElements.filter(({ exceptionOwner }) => exceptionOwner !== "creation-deck-inactive-card");
-  const clippedText = surface.clippedText.filter(({ selector, horizontal, vertical }) =>
-    !(deckMode && selector === "div.creation-deck" && horizontal && !vertical));
+  const clippedText = surface.clippedText.filter(({ selector }) =>
+    !(deckMode && deckActiveContained && selector === "div.creation-deck"));
   const screenshot = `${item.id}.png`;
   await page.screenshot({ path: path.join(output, screenshot), fullPage: true });
   const semantics = await page.locator(item.selector).evaluate((root) => {
