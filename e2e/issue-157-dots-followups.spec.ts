@@ -14,7 +14,7 @@ async function openDeck(page: Page) {
   await expect(page.locator("#start .creation-deck")).toHaveAttribute("data-mode", "deck");
 }
 
-async function beginOwnedMouseDrag(page: Page) {
+async function beginOwnedCdpTouchDrag(page: Page) {
   const stage = page.locator("#start .creation-deck ol");
   const activeCard = stage.locator("li[data-distance='0'] a");
   await activeCard.scrollIntoViewIfNeeded();
@@ -104,7 +104,7 @@ test("E-02 cancels owned gestures and preserves click and list preference recove
   const deck = page.locator("#start .creation-deck");
   const count = page.locator(".creation-deck-count");
 
-  let drag = await beginOwnedMouseDrag(page);
+  let drag = await beginOwnedCdpTouchDrag(page);
   await page.setViewportSize({ width: 390, height: 844 });
   await expect.poll(() => drag.stage.evaluate((node) => getComputedStyle(node).getPropertyValue("--deck-drag-x"))).toBe("");
   await drag.cdp.send("Input.dispatchTouchEvent", { type: "touchCancel", touchPoints: [] });
@@ -112,7 +112,7 @@ test("E-02 cancels owned gestures and preserves click and list preference recove
   await page.getByRole("button", { name: "次の記事" }).click();
   await expect(count).toContainText("2件目");
 
-  drag = await beginOwnedMouseDrag(page);
+  drag = await beginOwnedCdpTouchDrag(page);
   await page.evaluate(() => {
     Object.defineProperty(document, "visibilityState", { configurable: true, get: () => "hidden" });
     document.dispatchEvent(new Event("visibilitychange"));
@@ -124,7 +124,7 @@ test("E-02 cancels owned gestures and preserves click and list preference recove
   await page.getByRole("button", { name: "前の記事" }).click();
   await expect(count).toContainText("1件目");
 
-  drag = await beginOwnedMouseDrag(page);
+  drag = await beginOwnedCdpTouchDrag(page);
   await drag.cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [
     { id: 7, x: drag.box.x + drag.box.width * .42, y: drag.box.y + 102 },
     { id: 99, x: drag.box.x + 20, y: drag.box.y + 20 },
@@ -135,7 +135,7 @@ test("E-02 cancels owned gestures and preserves click and list preference recove
   await page.getByRole("button", { name: "次の記事" }).click();
   await expect(count).toContainText("2件目");
 
-  drag = await beginOwnedMouseDrag(page);
+  drag = await beginOwnedCdpTouchDrag(page);
   await drag.cdp.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [{ id: 7, x: drag.box.x + drag.box.width * .12, y: drag.box.y + 102 }] });
   await drag.cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
   await drag.cdp.detach();
@@ -158,7 +158,7 @@ test("E-02 cancels owned gestures and preserves click and list preference recove
       "V-02": ["../v2-project/project-tokens-100.png", "../v2-project/project-tokens-150.png", "../v2-project/project-tokens-200.png"],
       "V-03": ["v03-voice-root-200-375.png", "v03-3d-root-200-375.png"],
       "E-01": ["e01-deck-line-height.png", "e01-deck-paragraph-spacing.png"],
-      "E-02": "actual mouse ownership plus controlled synthetic hidden/additional-pointer interruption; no physical touch or OS tab switch",
+      "E-02": "native Chromium/CDP touch ownership plus controlled hidden visibility and additional-pointer interruption; no physical touch or OS tab switch",
     },
     viewportMethods: ["375px viewport", "1440px adjacent desktop", "synthetic-root-text 200%", "spacing-line-height", "spacing-paragraph"],
   }, null, 2)}\n`);
