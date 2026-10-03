@@ -1,19 +1,22 @@
 // @vitest-environment jsdom
-import { renderToStaticMarkup } from 'react-dom/server';
+import { renderToReadableStream } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
 import ArticlesPage from '@/app/articles/page';
 import { articles, getArticleGroups, validateArticles, type ArticleRecord } from '@/data/articles';
 
+// Next's App Router compiler aliases next/dynamic to this real SSR loader.
+vi.mock('next/dynamic', async () => ({ default: (await import('next/dist/shared/lib/app-dynamic')).default }));
+
 vi.mock('next/link', () => ({ default: ({href, children, ...props}: React.ComponentProps<'a'>) => <a href={href} {...props}>{children}</a> }));
 
 describe('published purpose registry', () => {
-  it('projects every published article once, in approved category order', () => {
+  it('projects every published article once, in approved category order', async () => {
     const groups = getArticleGroups();
     expect(groups.map(g => [g.id, g.articles.length])).toEqual([['start',5],['3d',3],['voice',3],['practice',5],['games',0]]);
     expect(groups[0].articles.map(a => a.slug)).toEqual(['ai-browser-game-how-to','before-asking-ai-build-game','small-first-success','github-beginner-game-development','ai-tool-comparison-later']);
     expect(groups[2].articles.map(a => a.slug)).toEqual(['elevenlabs-game-development-guide','elevenlabs-v4-game-voice','elevenlabs-commercial-use-game']);
     expect(new Set(groups.flatMap(g => g.articles.map(a => a.slug))).size).toBe(16);
-    const html = renderToStaticMarkup(<ArticlesPage />);
+    const html = await new Response(await renderToReadableStream(<ArticlesPage />)).text();
     for (const article of articles) expect(html.split(`href="/articles/${article.slug}/"`), article.slug).toHaveLength(2);
     expect(html).toContain('ゲーム制作外の検証事例');
     expect(html).not.toContain('href="#games"');

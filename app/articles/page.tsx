@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArticleHub } from "@/components/ArticleHub";
+import { ArticleBrowser } from "@/components/ArticleBrowser";
 import { getHubGroups } from "@/lib/article-hub-groups";
 export const metadata: Metadata = {
   title: "AIゲーム開発の記事・実践ガイド",
@@ -26,7 +26,7 @@ export default function ArticlesPage() {
           ゲームを動かす、素材を作る、公開条件を確かめる。読み終えた後に何を作り、どう確認するかが分かる記事を目的別に探せます。
         </p>
         </header>
-        <ArticleHub groups={getHubGroups()} />
+        <ArticleBrowser groups={getHubGroups()} />
         <section className="hub-project-cta">
         <div>
           <span className="system-label">READ → BUILD</span>

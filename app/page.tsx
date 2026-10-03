@@ -3,7 +3,7 @@ import Link from "next/link";
 import { site, siteDescriptionLines } from "@/lib/site";
 import { ProjectIdeaForm } from "@/components/ProjectGeneratorClient";
 
-import { ArticleHub } from "@/components/ArticleHub";
+import { ArticleBrowser } from "@/components/ArticleBrowser";
 import { getHubGroups } from "@/lib/article-hub-groups";
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function Home() {
     </header>
     <section className="home-category-entry" aria-labelledby="home-categories-title">
       <h2 id="home-categories-title">気になる制作から、めくって探す。</h2>
-      <ArticleHub groups={getHubGroups()} home />
+      <ArticleBrowser groups={getHubGroups()} home />
     </section>
     <section className="home-execution-hero" aria-labelledby="home-idea-title">
       <div className="home-execution-copy">
