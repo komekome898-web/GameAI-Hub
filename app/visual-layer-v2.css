@@ -347,7 +347,7 @@ body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
 .articles-v2-route .article-cluster .creation-deck .v2-start-card-face > strong { grid-column:1; grid-row:3; font-size:1.125rem; line-height:1.5; }
 .articles-v2-route .article-cluster .creation-deck .v2-start-card-description { grid-column:1; grid-row:4; z-index:1; margin:0; font-size:1rem; line-height:1.65; }
 .articles-v2-route .article-cluster .creation-deck[data-mode="deck"] .v2-start-card-description[data-expanded="false"] { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden; }
-.articles-v2-route .article-cluster .creation-deck .v2-start-card-expand { grid-column:1; grid-row:5; z-index:1; min-height:44px; justify-self:start; background:transparent; border:0; color:var(--v2-primary); text-decoration:underline; font:inherit; }
+.articles-v2-route .article-cluster .creation-deck .v2-start-card-expand { grid-column:1; grid-row:5; z-index:1; min-height:48px; justify-self:start; background:transparent; border:0; color:var(--v2-primary); text-decoration:underline; font:inherit; }
 .articles-v2-route .article-cluster .creation-deck .v2-start-card-read { grid-column:1; grid-row:6; }
 .articles-v2-route .article-cluster .creation-deck .v2-start-card:has(.v2-start-card-face:focus-visible) { outline:3px solid var(--v2-primary); outline-offset:-3px; }
 .articles-v2-route .article-cluster .creation-deck[data-mode="deck"] .v2-start-card::after { content:""; position:absolute; inset:0; z-index:2; background:#243b30; opacity:var(--deck-shade,0); pointer-events:none; border-radius:inherit; }
