@@ -6,18 +6,19 @@ const baselineRoutes = ["/", "/project", "/articles", "/tools", "/guides", "/com
 
 test.describe("Issue 137 Slice 2 Home composition", () => {
   for (const viewport of acceptanceViewports) {
-    test(`primary idea action and bounded title at ${viewport.width}x${viewport.height}`, async ({ page, context }) => {
+    test(`primary category entry, retained idea action and bounded title at ${viewport.width}x${viewport.height}`, async ({ page, context }) => {
       const collectorAttempts = await installAcceptanceNetworkGuard(context);
       await page.setViewportSize(viewport);
       await page.goto("/");
       const h1 = page.getByRole("heading", { level: 1 });
-      const action = page.getByRole("button", { name: "最初の作業を作る" });
-      await expect(h1).toHaveText(/作りたいゲームから、次の1作業を決める。/);
+      const action = page.locator(".home-category-entry .v2-start-card-read").first();
+      await expect(page.getByRole("button", { name: "最初の作業を作る" })).toBeVisible();
+      await expect(h1).toHaveText(/GameBuildiary/);
       await expect(action).toBeVisible();
       const [headingBox, actionBox] = await Promise.all([h1.boundingBox(), action.boundingBox()]);
       if (viewport.width < 400) {
         expect(headingBox?.height).toBeLessThan(150);
-        expect(actionBox?.y).toBeLessThan(600);
+        expect(actionBox?.y).toBeLessThan(viewport.height);
         expect((actionBox?.y ?? 0) + (actionBox?.height ?? 0)).toBeLessThanOrEqual(viewport.height);
       }
       expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
@@ -53,7 +54,7 @@ test.describe("Issue 137 Slice 2 Home composition", () => {
     await expect(trigger).toBeFocused();
     await trigger.click();
     await dialog.getByRole("link", { name: /記事/ }).click();
-    await expect(page).toHaveURL(/\/articles\/#categories$/);
+    await expect(page).toHaveURL(/\/articles\/.*#categories$/);
     await expect(page.getByRole("dialog", { name: "サイトメニュー" })).toHaveCount(0);
   });
 

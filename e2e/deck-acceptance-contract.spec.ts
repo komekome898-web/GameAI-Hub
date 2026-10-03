@@ -73,3 +73,19 @@ for (const phase of ['expanded', 'list'] as const) {
     await expect(verifyDeckSummaryRecovery(page)).rejects.toThrow('summary must retain its original DOM node');
   });
 }
+
+
+test('width diagnostic owns only a contained clipped inactive arc', async ({ page }) => {
+  await page.setViewportSize({ width:390, height:844 });
+  await page.setContent(`<div class="creation-deck" data-mode="deck" style="position:relative;overflow:clip;width:350px;height:100px">
+    <ol><li id="inactive" data-distance="1" style="position:absolute;left:-160px;width:300px;height:50px">neighbor</li>
+    <li id="active" data-distance="0" style="position:absolute;left:0;width:300px;height:50px">active</li></ol></div>`);
+  const owned = await diagnoseWidths(page);
+  expect(owned.documentOverflowPx).toBe(0);
+  expect(owned.unownedOverflowingElements).toEqual([]);
+  expect(owned.ownedClippedDeckElements.some(e => e.selector === '#inactive')).toBe(true);
+  await page.locator('#active').evaluate(element => element.style.left='-100px');
+  expect((await diagnoseWidths(page)).unownedOverflowingElements.some(e => e.selector === '#active')).toBe(true);
+  await page.locator('.creation-deck').evaluate(element => element.style.overflow='visible');
+  expect((await diagnoseWidths(page)).unownedOverflowingElements.some(e => e.selector === '#inactive')).toBe(true);
+});

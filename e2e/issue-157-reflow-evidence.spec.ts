@@ -165,8 +165,8 @@ test("V2 Home observations emit and validate current typed evidence", async ({
 
   await page.goto("/");
   await expect(page.locator(".home-execution-hero")).toBeVisible();
-  await observe({ id: "v2-home-initial-320", caseId: "VL-V2-HOME-INITIAL", variantId: "empty-initial-normal-first-view", width: 320, method: "viewport-reflow", coverage: ["viewport-reflow"], textRoles: [{ role: "heading", selector: ".home-execution-hero h1" }], probeSelector: ".home-execution-hero .project-idea-card" });
-  await observe({ id: "v2-home-initial-150", caseId: "VL-V2-HOME-INITIAL", variantId: "empty-initial-normal-first-view", width: 375, method: "synthetic-root-text", factor: 1.5, coverage: ["synthetic-root-text", "text-scale", "factor-150", "viewport-375"], textRoles: [{ role: "heading", selector: ".home-execution-hero h1" }, ...roles], probeSelector: ".home-execution-hero .project-idea-card" });
+  await observe({ id: "v2-home-initial-320", caseId: "VL-V2-HOME-INITIAL", variantId: "empty-initial-normal-first-view", width: 320, method: "viewport-reflow", coverage: ["viewport-reflow"], textRoles: [{ role: "heading", selector: ".home-execution-hero h2" }], probeSelector: ".home-execution-hero .project-idea-card" });
+  await observe({ id: "v2-home-initial-150", caseId: "VL-V2-HOME-INITIAL", variantId: "empty-initial-normal-first-view", width: 375, method: "synthetic-root-text", factor: 1.5, coverage: ["synthetic-root-text", "text-scale", "factor-150", "viewport-375"], textRoles: [{ role: "heading", selector: ".home-execution-hero h2" }, ...roles], probeSelector: ".home-execution-hero .project-idea-card" });
 
   await page.getByRole("button", { name: "最初の作業を作る" }).click();
   await expect(page.locator(".home-execution-hero [role=alert]")).toBeVisible();

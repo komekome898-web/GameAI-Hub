@@ -134,3 +134,25 @@ describe("CreationDeck disposable item-count fixtures", () => {
   });
 
 });
+
+
+describe("shared category cards", () => {
+  it("uses category labels/counts without invented dates and isolates explicit mode", async () => {
+    installUsableGeometry();
+    vi.stubGlobal("matchMedia", vi.fn(() => ({ matches:false, addEventListener:vi.fn(), removeEventListener:vi.fn() })));
+    sessionStorage.setItem("category-fixture-mode", "list");
+    const categories = [0,1,2,3].map(index => ({ ...item(index), updatedAt:undefined, image:undefined, count:index+3 }));
+    const view = render(<><CreationDeck kind="category" items={categories} defaultMode="deck" preferenceKey="category-fixture-mode" /><CreationDeck items={[item(0),item(1),item(2)]} defaultMode="deck" /></>);
+    const decks = view.container.querySelectorAll('.creation-deck');
+    await waitFor(() => expect(decks[1].getAttribute('data-mode')).toBe('deck'));
+    expect(decks[0].getAttribute('data-mode')).toBe('list');
+    expect(decks[0].textContent).toContain('3本の記事');
+    expect(decks[0].textContent).not.toContain('更新');
+    expect(decks[0].textContent).toContain('記事を見る');
+    fireEvent.click(decks[0].querySelector('button')!);
+    await waitFor(() => expect(decks[0].getAttribute('data-mode')).toBe('deck'));
+    expect(decks[0].querySelector('[aria-label="次のカテゴリ"]')).not.toBeNull();
+    expect(decks[1].querySelector('[aria-label="次の記事"]')).not.toBeNull();
+    expect(sessionStorage.getItem('gameai-creation-deck-mode')).toBeNull();
+  });
+});

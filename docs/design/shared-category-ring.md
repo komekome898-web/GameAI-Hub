@@ -1,0 +1,12 @@
+# Shared category/article circular cards — approved scope
+
+Source: owner delegation 01a0f210-6698-766f-b8b3-d686388b203d, 2026-10-03.
+Base/main and initial remote checkpoint: 93124abba0d91b9e527baae27028967948f23fb4 (PR164; PR162 inertia included).
+Branch: feat/gamebuildiary-shared-category-ring. Delivery: draft PR, commit/push, required CI and Library evidence. No merge, manual deployment, Production or Preview interaction.
+
+Home order: adopted GameBuildiary / ビルダイアリー identity and description, category cards, then 「作りたいものが決まったら」 idea input. Preserve start and Project continuation.
+Use CreationDeck and its existing motion controller for Home categories, /articles categories and category articles. Extend only content/control labels and mount-local preference/focus ownership; do not change physics. Public category membership/order/counts derive from the registry: start5, 3d3, voice3, practice5. games0 stays a noninteractive matching preparation card outside the ring. No articles, body rewrites, dates or images invented.
+
+Selection uses stable IDs, replaces URL on committed card movement, pushes only navigation. Entry context is a closed home/articles enum, never an arbitrary return URL. Home and articles entry memories are isolated; explicit URL selection wins. Body return preserves article and entry. Existing hashes, all-list, no-JS links and Project data remain usable.
+
+Acceptance: Home category entry precedes input; all three layers share operation; return restores original entry/card/focus/scroll; games cannot navigate; all 16 article URLs, advertising, analytics and Project survive. Maintain first deck on supported screens, persisted explicit list, <=340px/reduced-motion/forced-colors/measurement failure fallback and sparse counts. Verify 320/375/390/desktop and enlarged text; flick/inertia/recontact, adjacent/central taps, buttons/list/focus; moving Back, rapid selection, reload/history, no-JS and absent images. Local targeted gates first, consolidated quality/build/relevant E2E on candidate. Save diff/screens/operation records/CI logs/manifest to Library. Independent review belongs to coordinator on exact candidate SHA; physical Safari remains owner verification, not automated PASS.

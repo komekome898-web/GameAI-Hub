@@ -3,6 +3,9 @@ import Link from "next/link";
 import { site, siteDescriptionLines } from "@/lib/site";
 import { ProjectIdeaForm } from "@/components/ProjectGeneratorClient";
 
+import { ArticleHub } from "@/components/ArticleHub";
+import { getHubGroups } from "@/lib/article-hub-groups";
+
 export const metadata: Metadata = {
   title: "作りたいゲームから制作ロードマップを作る",
   description: site.description,
@@ -14,11 +17,17 @@ const examples = ["Unityでモンスター収集RPG", "Godotで2Dアクション
 
 export default function Home() {
   return <div className="home-v2-route">
-    <section className="home-execution-hero" aria-labelledby="home-title">
+    <header className="home-brand-intro" aria-labelledby="home-title">
+      <h1 id="home-title">{site.name}<span>{site.nickname}</span></h1>
+      <p className="home-outcome home-brand-description">{siteDescriptionLines.map(line => <span key={line}>{line}</span>)}</p>
+    </header>
+    <section className="home-category-entry" aria-labelledby="home-categories-title">
+      <h2 id="home-categories-title">気になる制作から、めくって探す。</h2>
+      <ArticleHub groups={getHubGroups()} home />
+    </section>
+    <section className="home-execution-hero" aria-labelledby="home-idea-title">
       <div className="home-execution-copy">
-        <p className="system-label">{site.name} / {site.nickname}</p>
-        <h1 id="home-title">作りたいゲームから、<span>次の1作業を決める。</span></h1>
-        <p className="home-outcome home-brand-description">{siteDescriptionLines.map(line => <span key={line}>{line}</span>)}</p>
+        <h2 id="home-idea-title">作りたいものが決まったら</h2>
         <ProjectIdeaForm location="home" />
         <a className="home-example-link" href="#home-example">入力後の完成イメージを見る <span aria-hidden="true">↓</span></a>
       </div>

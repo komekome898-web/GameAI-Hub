@@ -180,10 +180,11 @@ test('Issue 135 journey keeps analytics local and navigates Home to cluster, art
  const collectorRequests:string[]=[];
  await page.route(/google-analytics|googletagmanager|analytics\.google/,route=>{collectorRequests.push(route.request().url());return route.abort()});
  await page.goto('/');
- await expect(page.getByRole('heading',{level:1,name:/次の1作業を決める/})).toBeVisible();
+ await expect(page.getByRole('heading',{level:1,name:/GameBuildiary/})).toBeVisible();
  await page.getByRole('link',{name:/記事へ/}).first().click();
- await expect(page).toHaveURL(/\/articles\/#categories$/);
- await page.locator('[data-category="voice"]').click();
+ await expect(page).toHaveURL(/\/articles\/.*#categories$/);
+ await page.locator('[data-category="voice"]').focus();
+ await page.locator('[data-category="voice"]').locator("strong").click();
   await expect(page.getByRole('heading',{name:'音と声を作る', exact:true})).toBeVisible();
  await page.getByRole('link',{name:/ゲーム開発向けElevenLabs使い方ガイド/}).locator('strong').click();
  await expect(page.getByRole('navigation',{name:'この記事の目次'})).toBeVisible();

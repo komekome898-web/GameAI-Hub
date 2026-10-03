@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type FocusEvent as ReactFocusEvent, type KeyboardEvent } from "react";
+import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type FocusEvent as ReactFocusEvent, type KeyboardEvent, type MouseEvent } from "react";
 
 import { useCreationDeckMotion } from "./useCreationDeckMotion";
 
@@ -10,18 +10,22 @@ export type CreationDeckItem = {
   href: string;
   title: string;
   description: string;
-  updatedAt: string;
+  updatedAt?: string;
+  count?: number;
   label: string;
   image?: { src: string; srcSet: string };
 };
 
-export function CreationDeck({ items, initialId, defaultMode = "list", forceList = false, onCommitted, onOpen }: {
+export function CreationDeck({ items, initialId, defaultMode = "list", forceList = false, onCommitted, onOpen, onActivate, kind = "article", preferenceKey = "gameai-creation-deck-mode" }: {
   items: CreationDeckItem[];
   initialId?: string;
   defaultMode?: "list" | "deck";
   forceList?: boolean;
   onCommitted?: (id: string) => void;
   onOpen?: (id: string) => void;
+  onActivate?: (event: MouseEvent<HTMLAnchorElement>, id: string) => void;
+  kind?: "article" | "category";
+  preferenceKey?: string;
 }) {
   const [mode, setMode] = useState<"list" | "deck">("list");
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
@@ -44,12 +48,12 @@ export function CreationDeck({ items, initialId, defaultMode = "list", forceList
 
   useEffect(() => {
     try {
-      const saved = sessionStorage.getItem("gameai-creation-deck-mode");
+      const saved = sessionStorage.getItem(preferenceKey);
       preferredMode.current = saved === "list" || saved === "deck" ? saved : defaultMode;
     } catch {
       preferredMode.current = defaultMode;
     }
-  }, [defaultMode]);
+  }, [defaultMode, preferenceKey]);
 
   useEffect(() => { if (activeId && mode === "deck") onCommitted?.(activeId); }, [activeId, mode, onCommitted]);
 
@@ -156,7 +160,7 @@ export function CreationDeck({ items, initialId, defaultMode = "list", forceList
     const rememberFocusOwner = (event: FocusEvent) => {
       const target = event.target;
       if (!(target instanceof Element)) return;
-      if (target.closest(".creation-deck-controls")) controlFocusOwned.current = true;
+      if (controls.current?.contains(target)) controlFocusOwned.current = true;
       else if (target !== document.body) controlFocusOwned.current = false;
     };
     document.addEventListener("focusin", rememberFocusOwner, true);
@@ -168,7 +172,7 @@ export function CreationDeck({ items, initialId, defaultMode = "list", forceList
     setMode(next);
     preferredMode.current = next;
     try {
-      sessionStorage.setItem("gameai-creation-deck-mode", next);
+      sessionStorage.setItem(preferenceKey, next);
     } catch {
       // The in-memory preference remains usable when storage is unavailable.
     }
@@ -189,30 +193,30 @@ export function CreationDeck({ items, initialId, defaultMode = "list", forceList
   };
   return <div ref={root} className="creation-deck" data-mode={mode} data-available={available ? "true" : "false"}>
     {candidate && <div ref={controls} className="creation-deck-controls" onBlurCapture={recoverHiddenControlFocus} onFocusCapture={() => { controlFocusOwned.current = true; }} onKeyDown={onControlsKeyDown}>
-      {mode === "deck" && <button type="button" onClick={() => move(-1)} aria-label="前の記事">←</button>}
+      {mode === "deck" && <button type="button" onClick={() => move(-1)} aria-label={kind === "category" ? "前のカテゴリ" : "前の記事"}>←</button>}
       {mode === "deck" && <span className="creation-deck-count" aria-hidden="true">{active + 1} / {items.length}</span>}
-      {mode === "deck" && <button type="button" onClick={() => move(1)} aria-label="次の記事">→</button>}
+      {mode === "deck" && <button type="button" onClick={() => move(1)} aria-label={kind === "category" ? "次のカテゴリ" : "次の記事"}>→</button>}
       <button type="button" aria-pressed={mode === "deck"} onClick={() => changeMode(mode === "list" ? "deck" : "list")}>
         {mode === "list" ? "円環で見る" : "一覧で見る"}
       </button>
       {mode === "deck" && <span className="creation-deck-status sr-only" aria-live="polite">{items.length}件中{active + 1}件目、{items[active]?.title}</span>}
     </div>}
-    {items.length === 0 && <p>現在、表示できる記事はありません。</p>}
+    {items.length === 0 && <p>現在、表示できる{kind === "category" ? "カテゴリ" : "記事"}はありません。</p>}
     <ol ref={stage} className="article-cluster-list" style={mode === "deck" && deckHeight ? { minHeight: deckHeight } : undefined} onDragStart={(event) => { if (mode === "deck") event.preventDefault(); }}>
       {items.map((item, index) => {
         const descriptionId = `${descriptionPrefix}-${index}`;
         const isExpanded = mode === "list" || expanded.has(item.id);
         return <li key={item.id} data-deck-id={item.id} className="v2-start-card-item">
           <div className="v2-start-card">
-            <Link className="v2-start-card-face" href={item.href} aria-label={item.title} onClick={() => onOpen?.(item.id)}>
+            <Link className="v2-start-card-face" href={item.href} aria-label={item.title} data-category={kind === "category" ? item.id : undefined} onClick={event => { onOpen?.(item.id); onActivate?.(event, item.id); }}>
               {item.image && <span className="v2-start-card-image" aria-hidden="true">
                 {/* Approved source bytes are served without re-encoding. */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={item.image.src} srcSet={item.image.srcSet} sizes="(max-width: 680px) calc(100vw - 96px), 272px" width="960" height="640" alt="" />
               </span>}
-              <span className="v2-start-card-meta"><span className="v2-start-card-label">{item.label}</span><small>更新 {item.updatedAt}</small></span>
+              <span className="v2-start-card-meta"><span className="v2-start-card-label">{item.label}</span>{kind === "category" ? <small>{item.count}本の記事</small> : <small>更新 {item.updatedAt}</small>}</span>
               <strong>{item.title}</strong>
-              <span className="v2-start-card-read" aria-hidden="true">記事を読む <b>→</b></span>
+              <span className="v2-start-card-read" aria-hidden="true">{kind === "category" ? "記事を見る" : "記事を読む"} <b>→</b></span>
             </Link>
             <p id={descriptionId} className="v2-start-card-description" data-expanded={isExpanded}>{item.description}</p>
             {mode === "deck" && <button className="v2-start-card-expand" type="button" aria-expanded={isExpanded} aria-controls={descriptionId} onClick={() => setExpanded(old => {
