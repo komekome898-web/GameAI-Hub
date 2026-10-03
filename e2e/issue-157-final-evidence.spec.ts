@@ -208,6 +208,10 @@ test("V4 dynamic input, cancellation, follow-up, focus, and budget observations"
   await expect(page.locator(".creation-deck-status")).toContainText("1件目");
   await page.dispatchEvent(gestureTarget, "pointerdown", { pointerId: 8, pointerType: "touch", isPrimary: true, clientX: box!.x + box!.width * .75, clientY: box!.y + 100 });
   await page.dispatchEvent(gestureTarget, "pointermove", { pointerId: 8, pointerType: "touch", isPrimary: true, clientX: box!.x + box!.width * .25, clientY: box!.y + 105 });
+  // Design2.0: this legacy V4 route checks paused placement and cancellation.
+  // Free inertia/passage order are measured in creation-deck-inertia.spec.ts;
+  // a final ID alone cannot prove travel when three cards complete a full turn.
+  await page.waitForTimeout(150);
   await page.dispatchEvent(gestureTarget, "pointerup", { pointerId: 8, pointerType: "touch", isPrimary: true, clientX: box!.x + box!.width * .25, clientY: box!.y + 105 });
   await expect(page.locator(".creation-deck-status")).toContainText("2件目");
   await page.mouse.wheel(0, 300); const y = await page.evaluate(() => scrollY); expect(y).toBeGreaterThan(0);
@@ -220,7 +224,7 @@ test("V4 dynamic input, cancellation, follow-up, focus, and budget observations"
   await page.getByRole("button", { name: "前の記事" }).click();
   await expect(page.locator(".creation-deck-status")).toContainText("2件目");
   await expect(links.nth(2)).toHaveAttribute("href", /articles/);
-  const inputCoverage = ["interaction", "gesture-cancellation", "vertical-scroll", "pinch-preservation", "one-gesture-one-article"];
+  const inputCoverage = ["interaction", "gesture-cancellation", "vertical-scroll", "pinch-preservation", "paused-drag-placement"];
   await observe(page, browserName, records, { id: "v4-deck-input", caseId: "VL-V4-DECK-INPUT", variantId: "click-keyboard-pinch-safe-vertical-scroll-touch-cancel-drag", route: "/articles/#start", selector: "#start .creation-deck", method: "cdp-pinch", coverage: inputCoverage });
   for (const [suffix, factor, method, width] of [["100", 1, "synthetic-computed-text", 320], ["150", 1.5, "synthetic-computed-text", 320], ["200", 2, "synthetic-computed-text", 375]] as const) await observe(page, browserName, records, { id: `v4-dynamic-${suffix}`, caseId: "VL-V4-DECK-DYNAMIC", variantId: "late-font-failure-root-text-spacing-container-content-change", route: "/articles/#start", selector: "#start .creation-deck", width, method, factor, coverage: ["remeasurement", "text-scale", `factor-${suffix}`, `viewport-${width}`], roles: [{ role: "card-title", selector: "#start .v2-start-card strong" }, { role: "description", selector: "#start .v2-start-card-description" }] });
   for (const override of ["line-height", "paragraph", "letter", "word"] as const) await observe(page, browserName, records, { id: `v4-dynamic-spacing-${override}`, caseId: "VL-V4-DECK-DYNAMIC", variantId: "late-font-failure-root-text-spacing-container-content-change", route: "/articles/#start", selector: "#start .creation-deck", method: "text-spacing", coverage: ["text-spacing", `spacing-${override}`], spacing: { override, language: "ja", applicable: true } });

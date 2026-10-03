@@ -93,3 +93,7 @@
   materialize via required helper. Parent receives docs/design/creation-deck-inertia.md
   to update the same identity, as authorized. No silent replacement/bypass.
 - No merge/manual deploy/Preview or Production navigation authorized.
+- Final evidence audit found the old V4 one-gesture/one-article tag and assertion.
+  Replaced it with paused-placement coverage; free-inertia travel/order remain
+  independently measured in the new suite. Superseded1fa738c local full run and
+  E2E CI were stopped to avoid spending more on an obsolete evidence contract.
