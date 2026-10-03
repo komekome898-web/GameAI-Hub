@@ -1,0 +1,6 @@
+{
+  "method": "local production-mode build; actual shared chunk gzip",
+  "path": ".next/static/chunks/28_eta-46fm0o.js",
+  "gzip_bytes": 7438,
+  "budget_bytes": 8192
+}

@@ -1,0 +1,63 @@
+
+Running 1 test using 1 worker
+
+(node:30364) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/1] e2e/creation-deck-summary.spec.ts:46:5 › long category visible height grows, close remains, resize/font/content remeasure without lost focus
+e2e/creation-deck-summary.spec.ts:46:5 › long category visible height grows, close remains, resize/font/content remeasure without lost focus
+summary fallback debug 304 <button class="v2-start-card-expand" type="button" aria-expanded="true" aria-controls="_r_0_-0">概要を閉じる</button>
+
+summary focus debug {
+  focus: '<body class="visual-layer-v2"><main class="articles-v2-route"><section id="start" class="article-cluster"><div><button>短い内容に更新</button><button>長い内容に更新</button></div><div class="creation-deck" data-mode="list" data-available="false"><ol class="article-cluster-list" data-motion="idle" data-motion-pos=',
+  cards: [
+    { width: 304, font: '22.5px' },
+    { width: 304, font: '22.5px' },
+    { width: 304, font: '22.5px' }
+  ],
+  stage: 304
+}
+
+  1) e2e/creation-deck-summary.spec.ts:46:5 › long category visible height grows, close remains, resize/font/content remeasure without lost focus 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('[data-deck-id="summary-0"]').locator('a')
+    Expected: focused
+    Received: inactive
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toBeFocused" with timeout 10000ms
+      - waiting for locator('[data-deck-id="summary-0"]').locator('a')
+        24 × locator resolved to <a href="#summary-0" aria-label="検証用カテゴリ 1" data-category="summary-0" class="v2-start-card-face">…</a>
+           - unexpected value "inactive"
+
+
+      70 |   await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'list');
+      71 |   console.log('summary focus debug', await page.evaluate(() => ({ focus: document.activeElement?.outerHTML.slice(0, 300), cards: [...document.querySelectorAll('.creation-deck li')].map(e => ({ width: (e as HTMLElement).offsetWidth, font: getComputedStyle(e.querySelector('strong')!).fontSize })), stage: document.querySelector('.creation-deck ol')!.getBoundingClientRect().width })));
+    > 72 |   await expect(button).toHaveCount(0); await expect(card.locator('a')).toBeFocused();
+         |                                                                        ^
+      73 |   expect((await geometry(summary)).full).toBeLessThanOrEqual((await geometry(summary)).visible + 1);
+      74 |   await page.setViewportSize({ width: 390, height: 900 }); await idle(page);
+      75 |   await expect(button).toHaveCount(1); await button.click();
+        at /workspace/GameAI-Hub/e2e/creation-deck-summary.spec.ts:72:72
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/creation-deck-summary-long-35dec-emeasure-without-lost-focus/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/creation-deck-summary-long-35dec-emeasure-without-lost-focus/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/creation-deck-summary-long-35dec-emeasure-without-lost-focus/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/creation-deck-summary-long-35dec-emeasure-without-lost-focus/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  1 failed
+    e2e/creation-deck-summary.spec.ts:46:5 › long category visible height grows, close remains, resize/font/content remeasure without lost focus 
