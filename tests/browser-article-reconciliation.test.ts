@@ -4,9 +4,9 @@ import { describe, expect, it } from "vitest";
 const page = readFileSync("app/articles/ai-browser-game-how-to/page.tsx", "utf8");
 
 describe("browser article reconciliation", () => {
-  it("keeps the SEO title and AI Iterproof reader-facing brand", () => {
+  it("keeps the SEO title and GameBuildiary reader-facing brand", () => {
     expect(page).toContain("AIでブラウザゲームを作る方法【初心者向け】1つのHTMLをAIで作って動かす");
-    expect(page).toContain("AI Iterproof");
+    expect(page).toContain("GameBuildiary");
     expect(page).not.toMatch(/GameAI Hub|>Hub</);
   });
 

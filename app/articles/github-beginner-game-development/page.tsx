@@ -17,10 +17,10 @@ function ReturnToProject({ position }: { position: "start" | "end" }) {
     >
       <p className="eyebrow">RETURN TO YOUR TASK</p>
       <h2 id={titleId}>Projectからこの記事を開いた人</h2>
-      <p><strong>元のGameAI Hubタブへ戻ります。</strong>新しいProjectを作る必要はありません。</p>
+      <p><strong>元のGameBuildiaryタブへ戻ります。</strong>新しいProjectを作る必要はありません。</p>
       <ol>
         <li>このGitHub記事のタブを閉じる。</li>
-        <li>元のGameAI Hubタブを選ぶ。</li>
+        <li>元のGameBuildiaryタブを選ぶ。</li>
         <li>ゲーム案・現在のtask・進捗が残っていることを確認する。</li>
         <li>「GitHubを使ったことがある — Copilotへ」から制作を続ける。</li>
       </ol>
@@ -49,7 +49,7 @@ export default function Page() {
             <strong>
               Copilotで最初のHTMLを作るだけなら、GitHubアカウントは必要ですがrepositoryはまだ不要です。
             </strong>
-            まず元のGameAI Hubのtaskへ戻ってゲームを動かして構いません。
+            まず元のGameBuildiaryのtaskへ戻ってゲームを動かして構いません。
           </p>
           <dl>
             <div>
@@ -207,7 +207,7 @@ export default function Page() {
             <li>
               ファイル名へ <code>index.html</code> と入力する。
             </li>
-            <li>GameAI Hubで動いたコード全文を編集欄へ貼る。</li>
+            <li>GameBuildiaryで動いたコード全文を編集欄へ貼る。</li>
             <li>
               <strong>Commit changes...</strong> を押し、短い説明（例：
               <code>Add first playable game</code>）を入力して確定する。
@@ -284,7 +284,7 @@ export default function Page() {
           </ul>
         </section>
         <section>
-          <h2>12. 元のGameAI Hub作業へ戻る</h2>
+          <h2>12. 元のGameBuildiary作業へ戻る</h2>
           <p>
             新しいProjectは作りません。Safari／Chrome／PCブラウザのタブ一覧から、開いたままのGameAI
             Hubを選びます。指示をCopilotへ送り、返った <code>index.html</code>{" "}

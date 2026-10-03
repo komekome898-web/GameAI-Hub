@@ -13,8 +13,10 @@ async function idle(page: Page) {
   })).toBe(true);
 }
 async function open(page: Page) {
-  await page.goto('/articles/#start');
-  await page.getByRole('button', { name: '円環で見る', exact: true }).click();
+  await page.goto('/articles/#voice');
+  await expect(page.locator('.creation-deck')).toHaveCount(1);
+  await expect(page.locator('.creation-deck')).toHaveAttribute('data-available', 'true');
+  await page.getByRole('button', { name: '円環で見る', exact: true }).count().then(async n => { if (n) await page.getByRole('button', { name: '円環で見る', exact: true }).click(); });
   await idle(page);
 }
 for (const fallback of ['resize', 'reduced-motion'] as const) for (const expanded of [false, true]) {
@@ -44,7 +46,7 @@ for (const fallback of ['resize', 'reduced-motion'] as const) for (const expande
     await expect(overview).toHaveCount(0);
     await expect(links.nth(1)).toBeFocused();
     await expect(links.nth(1)).toHaveAttribute('data-review-prevent-scroll', 'true');
-    await expect(links.nth(1)).toHaveAttribute('href', /before-asking-ai-build-game/);
+    await expect(links.nth(1)).toHaveAttribute('href', /elevenlabs-v4-game-voice/);
     await info.attach('focus-after-fallback', { body: JSON.stringify(await links.nth(1).evaluate(e => ({ href: e.getAttribute('href'), active: document.activeElement === e, scrollY }))), contentType: 'application/json' });
     const restore = async () => {
       await page.setViewportSize({ width: 390, height: 844 });
@@ -85,7 +87,7 @@ for (const phase of ['pending', 'vertical'] as const) for (const interrupted of 
     await expect(stage(page)).toHaveAttribute('data-motion-pos', after!);
     const count = page.locator('.creation-deck-count');
     const active = Number((await count.textContent())!.split('/')[0]);
-    const image = stage(page).locator('li[data-distance="0"] img');
+    const image = stage(page).locator('li[data-distance="0"] strong');
     const imageBox = (await image.boundingBox())!;
     const sx = imageBox.x + imageBox.width / 2, sy = imageBox.y + 40;
     await page.mouse.move(sx, sy); await page.mouse.down();

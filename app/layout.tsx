@@ -5,17 +5,17 @@ import "./globals.css";
 import "./visual-layer-v2.css";
 import { Header } from "@/components/Header";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
-import { site } from "@/lib/site";
+import { site, siteDescriptionLines } from "@/lib/site";
 
 const sans = Noto_Sans_JP({ weight: "variable", preload: false, display: "swap", variable: "--font-sans", fallback: ["Hiragino Kaku Gothic ProN", "Yu Gothic", "sans-serif"] });
 const serif = Noto_Serif_JP({ weight: "variable", preload: false, display: "swap", variable: "--font-serif", fallback: ["Hiragino Mincho ProN", "Yu Mincho", "serif"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: "AI Iterproof | AIゲーム開発ツール比較", template: "%s | AI Iterproof" },
+  title: { default: `${site.name} | ${site.nickname}`, template: `%s | ${site.name}` },
   description: site.description,
   alternates: { canonical: "/" },
-  openGraph: { type: "website", locale: "ja_JP", siteName: site.name, title: "AI Iterproof", description: site.description, url: "/" },
+  openGraph: { type: "website", locale: "ja_JP", siteName: site.name, title: site.name, description: site.description, url: "/" },
   verification: { google: "Y1_xmHBdIKo83dDqi8vEHDQcBn20dWrcHMZNmW-C724" },
 };
 
@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <Header />
     <main id="main-content" tabIndex={-1}>{children}</main>
     <footer className="site-footer">
-      <div className="footer-brand"><strong>GameAI Hub</strong><p>ゲーム案を、今日の成果物と根拠のあるAI選びへ。</p></div>
+      <div className="footer-brand"><strong>{site.name}</strong><small>{site.nickname}</small><p className="footer-description">{siteDescriptionLines.map(line => <span key={line}>{line}</span>)}</p></div>
       <nav className="footer-groups" aria-label="フッターナビゲーション">
         {footerGroups.map((group) => <div key={group.title}><strong>{group.title}</strong>{group.links.map(([href, label]) => <Link key={href} href={href}>{label}</Link>)}</div>)}
       </nav>

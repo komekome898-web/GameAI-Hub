@@ -13,7 +13,7 @@ import { verificationStatusLabel } from '@/lib/verification-status';
 const stageById=new Map(productionStages.map(stage=>[stage.id,stage]));
 const status=(value:string)=>({yes:'あり',no:'なし',conditional:'条件付き',unknown:'不明',not_applicable:'対象外'}[value]??value);
 export function generateStaticParams(){return stackTemplates.map(stack=>({slug:stack.slug}));}
-export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params;const stack=getStackTemplate(slug);if(!stack)return {};return {title:stack.title,description:stack.summary,alternates:{canonical:`/stacks/${slug}/`},openGraph:{title:`${stack.title} | GameAI Hub`,description:stack.summary,url:`/stacks/${slug}/`}};}
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params;const stack=getStackTemplate(slug);if(!stack)return {};return {title:stack.title,description:stack.summary,alternates:{canonical:`/stacks/${slug}/`},openGraph:{title:`${stack.title} | GameBuildiary`,description:stack.summary,url:`/stacks/${slug}/`}};}
 
 export default async function StackPage({params}:{params:Promise<{slug:string}>}){
   const {slug}=await params;const stack=getStackTemplate(slug);if(!stack)notFound();

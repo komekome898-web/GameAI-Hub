@@ -74,7 +74,7 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="header-inner">
-        <Link className="brand" href="/" aria-label="GameAI Hub ホーム">
+        <Link className="brand" href="/" aria-label="GameBuildiary ホーム">
           <span className="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 32 32">
               <path d="M6 7h20v18H6z" />
@@ -82,8 +82,8 @@ export function Header() {
             </svg>
           </span>
           <span className="brand-copy">
-            <strong>GameAI Hub</strong>
-            <small>AI Iterproof</small>
+            <strong>GameBuildiary</strong>
+            <small>ビルダイアリー</small>
           </span>
         </Link>
         <nav className="main-nav" aria-label="メインナビゲーション">

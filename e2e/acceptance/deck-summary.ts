@@ -12,10 +12,11 @@ export async function waitForSettledDeck(page: Page) {
        stage.dataset.motionPos === stage.dataset.motionTarget && Number.isInteger(Number(stage.dataset.motionPos)) &&
        stage.clientHeight >= Math.max(...[...stage.children].map(c => (c as HTMLElement).scrollHeight), 0));
     if (!stable()) return false;
+    const mode = root.getAttribute('data-mode');
     const before = stage.getBoundingClientRect();
     await new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
     const after = stage.getBoundingClientRect();
-    return stable() && ['x', 'y', 'width', 'height'].every(k => Math.abs(before[k as 'x'] - after[k as 'x']) < .5);
+    return stable() && root.getAttribute('data-mode') === mode && ['x', 'y', 'width', 'height'].every(k => Math.abs(before[k as 'x'] - after[k as 'x']) < .5);
   })).toBe(true);
 }
 
@@ -23,7 +24,6 @@ export async function waitForSettledDeck(page: Page) {
 export async function verifyDeckSummaryRecovery(page: Page, text?: { roles: TextRole[]; method: TextMethod; factor: number }): Promise<Set<string>> {
   const deck = page.locator('#start .creation-deck');
   for (const card of await deck.locator('ol > li').all()) await expect(card.locator('p.v2-start-card-description')).toHaveCount(1);
-  if (await deck.getAttribute('data-mode') !== 'deck') return new Set();
   const apply = () => text ? applyTextMethod(page, text.roles, text.method, text.factor) : Promise.resolve({ restore: async () => {} });
   let scale = await apply();
   await waitForSettledDeck(page);

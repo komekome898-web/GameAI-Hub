@@ -1,50 +1,39 @@
 // @vitest-environment jsdom
-import { render } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
-import ArticlesPage from "@/app/articles/page";
-import { getArticle } from "@/data/articles";
-import { startArticleVisuals } from "@/lib/article-visuals";
+import { renderToStaticMarkup } from 'react-dom/server';
+import { describe, expect, it, vi } from 'vitest';
+import ArticlesPage from '@/app/articles/page';
+import { articles, getArticleGroups, validateArticles, type ArticleRecord } from '@/data/articles';
 
-vi.mock("next/link", () => ({
-  default: ({ href, children, ...props }: React.ComponentProps<"a">) => (
-    <a href={href} {...props}>
-      {children}
-    </a>
-  ),
-}));
+vi.mock('next/link', () => ({ default: ({href, children, ...props}: React.ComponentProps<'a'>) => <a href={href} {...props}>{children}</a> }));
 
-const startSlugs = [
-  "ai-browser-game-how-to",
-  "before-asking-ai-build-game",
-  "github-beginner-game-development",
-] as const;
-
-describe("Visual Layer v2 article hub V1", () => {
-  it("keeps four static lists and gives START one link per preserved article", () => {
-    const { container } = render(<ArticlesPage />);
-    expect(container.querySelectorAll(".article-cluster-list")).toHaveLength(4);
-    expect(container.querySelectorAll("#start button")).toHaveLength(0);
-    expect(container.querySelectorAll("#start li a")).toHaveLength(3);
-
-    const links = Array.from(container.querySelectorAll<HTMLAnchorElement>("#start li a"));
-    expect(links.map((link) => link.getAttribute("href"))).toEqual(
-      startSlugs.map((slug) => `/articles/${slug}/`),
-    );
-    for (const [index, slug] of startSlugs.entries()) {
-      const article = getArticle(slug)!;
-      expect(links[index].textContent).toContain(article.title);
-      expect(links[index].closest("li")?.querySelector(".v2-start-card-description")?.textContent).toBe(article.description);
-      expect(links[index].querySelector(".v2-start-card-description")).toBeNull();
-      expect(links[index].textContent).toContain(article.updatedAt);
-      expect(links[index].querySelector("img")?.getAttribute("alt")).toBe("");
-    }
+describe('published purpose registry', () => {
+  it('projects every published article once, in approved category order', () => {
+    const groups = getArticleGroups();
+    expect(groups.map(g => [g.id, g.articles.length])).toEqual([['start',5],['3d',3],['voice',3],['practice',5],['games',0]]);
+    expect(groups[0].articles.map(a => a.slug)).toEqual(['ai-browser-game-how-to','before-asking-ai-build-game','small-first-success','github-beginner-game-development','ai-tool-comparison-later']);
+    expect(groups[2].articles.map(a => a.slug)).toEqual(['elevenlabs-game-development-guide','elevenlabs-v4-game-voice','elevenlabs-commercial-use-game']);
+    expect(new Set(groups.flatMap(g => g.articles.map(a => a.slug))).size).toBe(16);
+    const html = renderToStaticMarkup(<ArticlesPage />);
+    for (const article of articles) expect(html.split(`href="/articles/${article.slug}/"`), article.slug).toHaveLength(2);
+    expect(html).toContain('ゲーム制作外の検証事例');
+    expect(html).not.toContain('href="#games"');
   });
-
-  it("maps only the approved START articles to their supplied covers", () => {
-    expect(startArticleVisuals).toEqual({
-      "ai-browser-game-how-to": "game-creation",
-      "before-asking-ai-build-game": "planning",
-      "github-beginner-game-development": "development",
-    });
+  it('automatically reflects additions, unpublishing and reordering', () => {
+    const base = articles.find(a => a.purpose === 'start')!;
+    const added: ArticleRecord = { ...base, slug: 'new-test-article', purposeOrder: 9 };
+    let records: ArticleRecord[] = [...articles, added];
+    expect(getArticleGroups(records)[0].articles.at(-1)?.slug).toBe(added.slug);
+    records = records.map(a => a.slug === added.slug ? { ...a, purposeOrder: 1 } : a.purpose === 'start' && a.purposeOrder === 1 ? { ...a, purposeOrder: 8 } : a);
+    expect(getArticleGroups(records)[0].articles[0].slug).toBe(added.slug);
+    records = records.map(a => a.slug === added.slug ? { ...a, publicationStatus: 'draft' } : a);
+    expect(getArticleGroups(records)[0].articles).toHaveLength(5);
+  });
+  it('rejects missing/unknown membership, duplicate order and duplicate registration', () => {
+    const base: ArticleRecord = { ...articles[0] };
+    expect(validateArticles([], [{ id: "start" }, { id: "start" }])).toContain("duplicate purpose category");
+    expect(validateArticles([{ ...base, purpose: undefined } as unknown as ArticleRecord])).toContain(`unknown or missing purpose: ${base.slug}`);
+    expect(validateArticles([{ ...base, purpose: 'unknown' } as unknown as ArticleRecord])).toContain(`unknown or missing purpose: ${base.slug}`);
+    expect(validateArticles([base, { ...base, slug: 'duplicate-order' }])).toContain(`duplicate purpose order: ${base.purpose}:${base.purposeOrder}`);
+    expect(validateArticles([base, base])).toContain(`duplicate slug: ${base.slug}`);
   });
 });

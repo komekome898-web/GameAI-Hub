@@ -7,4 +7,4 @@ const items: CreationDeckItem[] = Array.from({ length: count }, (_, i) => ({
   description: `識別番号 ${i + 1}。同じ円環コンポーネントの多件数検証。公開記事ではありません。`,
   label: `TEST ${i + 1}`, updatedAt: '2026-10-03', image: { src: '/visual-v2/thumbnails/planning-480.webp', srcSet: '' },
 }));
-createRoot(document.getElementById('start')!).render(<CreationDeck items={items} />);
+createRoot(document.getElementById('start')!).render(<CreationDeck items={items} defaultMode={new URL(location.href).searchParams.has('automatic') ? 'deck' : 'list'} />);

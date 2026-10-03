@@ -53,7 +53,7 @@ test.describe("Issue 137 Slice 2 Home composition", () => {
     await expect(trigger).toBeFocused();
     await trigger.click();
     await dialog.getByRole("link", { name: /記事/ }).click();
-    await expect(page).toHaveURL(/\/articles\/?$/);
+    await expect(page).toHaveURL(/\/articles\/#categories$/);
     await expect(page.getByRole("dialog", { name: "サイトメニュー" })).toHaveCount(0);
   });
 

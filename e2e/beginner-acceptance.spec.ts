@@ -8,6 +8,27 @@ import {
   type TestInfo,
 } from "./fixtures";
 
+// Match the existing article-runner timing contract: iframe-local stability
+// does not include smooth scrolling of the parent page. Keep real mouse clicks.
+async function clickStableGameButton(page: Page, button: Locator) {
+  await expect(button).toBeVisible();
+  await page.locator('iframe[title="作ったゲームの動作確認"]').evaluate(frame => frame.scrollIntoView({ behavior: "instant", block: "center" }));
+  await button.evaluate(element => element.scrollIntoView({ behavior: "instant", block: "center" }));
+  await expect.poll(() => page.locator('iframe[title="作ったゲームの動作確認"]').evaluate(async frame => {
+    let stable = 0;
+    let previous = frame.getBoundingClientRect();
+    for (let sample = 0; sample < 120; sample++) {
+      await new Promise<void>(resolve => requestAnimationFrame(() => resolve()));
+      const current = frame.getBoundingClientRect();
+      stable = ['x', 'y', 'width', 'height'].every(key => Math.abs(current[key as 'x'] - previous[key as 'x']) < .1) ? stable + 1 : 0;
+      previous = current;
+      if (stable >= 12) return true;
+    }
+    return false;
+  })).toBe(true);
+  await button.click();
+}
+
 // This is a runner fixture, not an AI response or proof that an AI generated a game.
 // Its only purpose is to exercise paste → play → save → reopen in the real UI.
 const runnerFixture = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>動作確認用ゲーム</title><style>body{font:18px sans-serif;padding:16px}button{min-height:48px;padding:12px}p{overflow-wrap:anywhere}</style></head><body><main><h1>動作確認用ゲーム</h1><p id="result">開始できます</p><button onclick="document.getElementById('result').textContent='クリアしました'">ゴールへ進む</button><button onclick="document.getElementById('result').textContent='開始できます'">やり直す</button></main></body></html>`;
@@ -498,7 +519,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
     await expect(frameElement).toHaveAttribute("sandbox", "allow-scripts");
     const game = page.frameLocator('iframe[title="作ったゲームの動作確認"]');
     await expect(game.getByText("開始できます", { exact: true })).toBeVisible();
-    await game.getByRole("button", { name: "ゴールへ進む" }).click();
+    await clickStableGameButton(page, game.getByRole("button", { name: "ゴールへ進む" }));
     await expect(
       game.getByText("クリアしました", { exact: true }),
     ).toBeVisible();
@@ -516,7 +537,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
       "--- 編集中のindex.html ---",
     );
     await retainScreenshot(page, testInfo, "combined-copy-320");
-    await game.getByRole("button", { name: "やり直す" }).click();
+    await clickStableGameButton(page, game.getByRole("button", { name: "やり直す" }));
     await expect(game.getByText("開始できます", { exact: true })).toBeVisible();
 
     const downloadEvent = page.waitForEvent("download");
@@ -544,7 +565,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
     await page
       .getByRole("button", { name: "ゲームを表示", exact: true })
       .click();
-    await game.getByRole("button", { name: "ゴールへ進む" }).click();
+    await clickStableGameButton(page, game.getByRole("button", { name: "ゴールへ進む" }));
     await expect(
       game.getByText("クリアしました", { exact: true }),
     ).toBeVisible();
@@ -599,7 +620,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
       .getByRole("button", { name: "ゲームを表示", exact: true })
       .click();
     const game = page.frameLocator('iframe[title="作ったゲームの動作確認"]');
-    await game.getByRole("button", { name: "エラーを起こす" }).click();
+    await clickStableGameButton(page, game.getByRole("button", { name: "エラーを起こす" }));
     await expect(
       page
         .getByRole("alert")
@@ -614,7 +635,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
     await page
       .getByRole("button", { name: "ここで詰まった", exact: true })
       .click();
-    await game.getByRole("button", { name: "拒否を起こす" }).click();
+    await clickStableGameButton(page, game.getByRole("button", { name: "拒否を起こす" }));
     await expect(
       page
         .getByRole("alert")

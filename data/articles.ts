@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { site } from "@/lib/site";
+import { articlePurposes, type ArticlePurpose } from "@/data/article-purposes";
 
 export const articleCategories = [
   "field-note",
@@ -26,6 +28,9 @@ export type ArticleRecord = {
   title: string;
   description: string;
   category: ArticleCategory;
+  purpose: ArticlePurpose;
+  purposeOrder: number;
+  contextNote?: string;
   tags: readonly string[];
   publicationStatus: "published" | "draft" | "research_required";
   publishedAt: string;
@@ -55,6 +60,8 @@ export const articleCategoryLabels: Record<ArticleCategory, string> = {
 export const articles = [
   {
     slug: "meshy-pricing-credits-game",
+    purpose: "3d",
+    purposeOrder: 2,
     title:
       "Meshy AIの料金は？無料版・Pro・Premium・Ultraの違いとゲーム開発のクレジット目安",
     description:
@@ -185,6 +192,8 @@ export const articles = [
   },
   {
     slug: "meshy-commercial-use-game",
+    purpose: "3d",
+    purposeOrder: 3,
     title:
       "Meshy AIは商用利用できる？無料版・有料版のライセンスとゲーム利用条件",
     description:
@@ -298,6 +307,8 @@ export const articles = [
   },
   {
     slug: "meshy-game-development-guide",
+    purpose: "3d",
+    purposeOrder: 1,
     title:
       "Meshy AIの使い方｜ゲーム用3Dモデルの生成からUnity・Blenderへの読み込みまで",
     description:
@@ -398,6 +409,8 @@ export const articles = [
   },
   {
     slug: "elevenlabs-v4-game-voice",
+    purpose: "voice",
+    purposeOrder: 2,
     title:
       "ElevenLabs v4とは？ゲーム音声の変化・v3との違い・日本語・Turboを解説",
     description:
@@ -511,6 +524,8 @@ export const articles = [
   },
   {
     slug: "elevenlabs-commercial-use-game",
+    purpose: "voice",
+    purposeOrder: 3,
     title: "ElevenLabsの商用利用ガイド｜ゲーム音声で確認すべき権利とプラン",
     description:
       "ElevenLabsの音声を商用ゲームで使う前に確認すべきプラン、Commercial License、Free利用、入力素材の権利、Voice Cloningの同意条件をゲーム制作者向けに整理。",
@@ -612,6 +627,8 @@ export const articles = [
   },
   {
     slug: "elevenlabs-game-development-guide",
+    purpose: "voice",
+    purposeOrder: 1,
     title:
       "ゲーム開発向けElevenLabs使い方ガイド｜日本語音声・効果音・APIの選び方",
     description:
@@ -712,6 +729,8 @@ export const articles = [
   },
   {
     slug: "github-beginner-game-development",
+    purpose: "start",
+    purposeOrder: 4,
     title:
       "GitHubの使い方【ゲーム開発初心者向け】登録・リポジトリ作成・ファイル保存まで",
     description:
@@ -790,7 +809,7 @@ export const articles = [
       },
       {
         href: "/methodology/",
-        label: "AI Iterproofの調査・評価方法",
+        label: "GameBuildiaryの調査・評価方法",
         reason: "公式確認と実測、未確認をどう分けるか確認する",
         kind: "reference",
       },
@@ -805,6 +824,8 @@ export const articles = [
   },
   {
     slug: "ai-browser-game-how-to",
+    purpose: "start",
+    purposeOrder: 1,
     title:
       "AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む",
     description:
@@ -868,6 +889,8 @@ export const articles = [
   },
   {
     slug: "ai-fantasy",
+    purpose: "practice",
+    purposeOrder: 4,
     title: "AIに幻想を抱くあなたへ",
     description:
       "AIに任せれば全部うまくいく、と思っていた私が、実際の開発で何度も失敗してわかったこと。AIは魔法ではない。使う側の検証と判断が必要だ。",
@@ -895,7 +918,7 @@ export const articles = [
       },
       {
         href: "/methodology/",
-        label: "AI Iterproofの調査・評価方法",
+        label: "GameBuildiaryの調査・評価方法",
         reason: "確認済み情報と不明情報の扱いを確認する",
         kind: "reference",
       },
@@ -909,6 +932,8 @@ export const articles = [
   },
   {
     slug: "ai-usage-guide",
+    purpose: "practice",
+    purposeOrder: 1,
     title: "AIの正しい使い方",
     description:
       "AIに期待しすぎて何度も失敗した私が、初めてAIを使う人に向けて、プロンプトの書き方、失敗時の対処法、用途別のAIの使い分けを実体験ベースで整理する。",
@@ -971,6 +996,8 @@ export const articles = [
   },
   {
     slug: "ai-delegation-trap",
+    purpose: "practice",
+    purposeOrder: 3,
     title: "AIにゲーム開発を丸投げすると、なぜ途中で詰むのか",
     description:
       "AIにゲーム全体を一気に作らせるより、最小の1プレイと観察できる完了条件に分けた方が初心者は進みやすい。AIゲーム開発を丸投げしないための実践的な考え方。",
@@ -1013,6 +1040,8 @@ export const articles = [
   },
   {
     slug: "before-asking-ai-build-game",
+    purpose: "start",
+    purposeOrder: 2,
     title: "AIに「ゲームを作って」と頼む前に決めるべき5つのこと",
     description:
       "AIへゲーム制作を頼む前に、最初の1プレイ、実行環境、成果物、完了条件、次の1作業を決める。初心者がAIゲーム開発を始める前の実践チェック。",
@@ -1055,6 +1084,8 @@ export const articles = [
   },
   {
     slug: "ai-completion-claim",
+    purpose: "practice",
+    purposeOrder: 2,
     title: "AIが「完成しました」と言っても信用してはいけない理由",
     description:
       "AIの「完成」「修正済み」「問題なし」を最終判断にせず、実物・再現手順・観察可能な完了条件で確認するための品質管理の考え方。",
@@ -1082,7 +1113,7 @@ export const articles = [
       },
       {
         href: "/methodology/",
-        label: "AI Iterproofの調査・評価方法",
+        label: "GameBuildiaryの調査・評価方法",
         reason: "確認済み情報と不明情報をどう分けるかを見る",
         kind: "reference",
       },
@@ -1097,6 +1128,8 @@ export const articles = [
   },
   {
     slug: "ai-tool-comparison-later",
+    purpose: "start",
+    purposeOrder: 5,
     title: "ゲーム開発初心者ほど、AIツール比較を後回しにした方がいい",
     description:
       "AIツールを先に大量比較するより、今必要な成果物を決めてから選ぶ方が初心者は迷いにくい。制作工程の中でAIを選ぶ考え方。",
@@ -1139,6 +1172,8 @@ export const articles = [
   },
   {
     slug: "small-first-success",
+    purpose: "start",
+    purposeOrder: 3,
     title: "AIでゲームを作るなら、最初の成功体験は小さい方がいい",
     description:
       "企画書ではなく、キャラクターが動く・台詞が進むなど小さなプレイ可能状態を最初の成功にする。AIゲーム開発を続けやすくする進め方。",
@@ -1181,6 +1216,9 @@ export const articles = [
   },
   {
     slug: "ai-auto-trading-reality",
+    purpose: "practice",
+    purposeOrder: 5,
+    contextNote: "ゲーム制作外の検証事例",
     title:
       "AI自動売買は本当に稼げる？最新AI Claude Fable 5.1にトレード研究を丸投げして分かった現実",
     description:
@@ -1228,15 +1266,25 @@ export const publishedArticles = articles.filter(
   (article) => article.publicationStatus === "published",
 );
 
-export function validateArticles(records: readonly ArticleRecord[]) {
+export function validateArticles(records: readonly ArticleRecord[], purposes: readonly { id: string }[] = articlePurposes) {
   const errors: string[] = [];
   const seen = new Set<string>();
+  const purposeSlots = new Set<string>();
+  const purposeIds = purposes.map(p => p.id);
+  if (new Set(purposeIds).size !== purposeIds.length) errors.push("duplicate purpose category");
   const publishedSlugs = new Set(
     records
       .filter((a) => a.publicationStatus === "published")
       .map((a) => a.slug),
   );
   for (const a of records) {
+    if (!purposes.some(p => p.id === a.purpose)) errors.push(`unknown or missing purpose: ${a.slug}`);
+    if (!Number.isInteger(a.purposeOrder) || a.purposeOrder < 1) errors.push(`invalid purpose order: ${a.slug}`);
+    if (a.publicationStatus === "published") {
+      const slot = `${a.purpose}:${a.purposeOrder}`;
+      if (purposeSlots.has(slot)) errors.push(`duplicate purpose order: ${slot}`);
+      purposeSlots.add(slot);
+    }
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(a.slug))
       errors.push(`invalid slug: ${a.slug}`);
     if (seen.has(a.slug)) errors.push(`duplicate slug: ${a.slug}`);
@@ -1318,7 +1366,7 @@ export function articleMetadata(article: ArticleRecord): Metadata {
     alternates: { canonical: articlePath(article) },
     openGraph: {
       type: "article",
-      title: `${article.title} | AI Iterproof`,
+      title: `${article.title} | ${site.name}`,
       description: article.description,
       url: articlePath(article),
       publishedTime: article.publishedAt,
@@ -1327,4 +1375,9 @@ export function articleMetadata(article: ArticleRecord): Metadata {
     },
     authors: [{ name: article.author }],
   };
+}
+
+/** Published entry projections share membership, order and counts. */
+export function getArticleGroups(records: readonly ArticleRecord[] = articles) {
+  return articlePurposes.map(purpose => ({ ...purpose, articles: records.filter(article => article.publicationStatus === "published" && article.purpose === purpose.id).sort((a, b) => a.purposeOrder - b.purposeOrder || a.slug.localeCompare(b.slug)) }));
 }

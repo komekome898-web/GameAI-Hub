@@ -1,16 +1,18 @@
 import { test, expect, type Page } from './fixtures';
 
-const stage = (page: Page) => page.locator('#start .creation-deck ol');
+const stage = (page: Page) => page.locator('#voice .creation-deck ol');
 async function idle(page: Page) {
   await expect(stage(page)).toHaveAttribute('data-motion', 'idle');
   await expect(stage(page)).toHaveAttribute('data-motion-raf', '0');
 }
 async function open(page: Page) {
   await page.setViewportSize({ width: 375, height: 844 });
-  await page.goto('/articles/#start');
-  await page.getByRole('button', { name: '円環で見る', exact: true }).click();
+  await page.goto('/articles/#voice');
+  await expect(page.locator('.creation-deck')).toHaveCount(1);
+  await expect(page.locator('.creation-deck')).toHaveAttribute('data-available', 'true');
+  await page.getByRole('button', { name: '円環で見る', exact: true }).count().then(async n => { if (n) await page.getByRole('button', { name: '円環で見る', exact: true }).click(); });
   await idle(page);
-  await stage(page).locator('li[data-distance="0"] img').scrollIntoViewIfNeeded();
+  await stage(page).locator('li[data-distance="0"] strong').scrollIntoViewIfNeeded();
 }
 test.beforeEach(async ({ context }) => {
   await context.route('**/*', r => new URL(r.request().url()).hostname === '127.0.0.1' ? r.continue() : r.abort());
@@ -30,7 +32,7 @@ const cases: { name: string; events: Input[]; index: number; captures: number }[
 for (const c of cases) test(`synthetic sparse sequence: ${c.name}`, async ({ page }, info) => {
   await open(page);
   const record = await stage(page).evaluate((root, events) => {
-    const element = root as HTMLElement, target = root.querySelector('li[data-distance="0"] img')!;
+    const element = root as HTMLElement, target = root.querySelector('li[data-distance="0"] strong')!;
     const box = target.getBoundingClientRect(), x = box.x + box.width / 2, y = box.y + box.height / 2;
     const started = performance.now(), phases: string[] = [];
     let captures = 0;
@@ -51,7 +53,7 @@ for (const c of cases) test(`synthetic sparse sequence: ${c.name}`, async ({ pag
   if (c.name.startsWith('diagonal')) expect(record.phases[1]).toBe('pending');
   await idle(page);
   await expect(page.locator('.creation-deck-count')).toHaveText(`${c.index + 1} / 3`);
-  await expect(page).toHaveURL(/\/articles\/#start$/);
+  await expect(page).toHaveURL(/\/articles\/\?hubArticle=[^#]+#voice$/);
   // A cancelled/stale interaction must not poison the next ordinary action.
   await page.getByRole('button', { name: '次の記事', exact: true }).click(); await idle(page);
   await expect(page.locator('.creation-deck-count')).toHaveText(`${(c.index + 1) % 3 + 1} / 3`);
@@ -61,7 +63,7 @@ for (const c of cases) test(`synthetic sparse sequence: ${c.name}`, async ({ pag
 test('native mouse survives height-only resize, but cancels changed width, step and availability', async ({ page }, info) => {
   await open(page);
   const begin = async () => {
-    const image = stage(page).locator('li[data-distance="0"] img'); await image.scrollIntoViewIfNeeded();
+    const image = stage(page).locator('li[data-distance="0"] strong'); await image.scrollIntoViewIfNeeded();
     const b = (await image.boundingBox())!, x = b.x + b.width / 2, y = b.y + b.height / 2;
     await page.mouse.move(x, y); await page.mouse.down(); await page.mouse.move(x - 32, y, { steps: 2 });
     await expect(stage(page)).toHaveAttribute('data-motion', 'dragging');
@@ -101,7 +103,7 @@ test('native Chromium short touch retains vertical scrolling coexistence', async
   await open(page);
   const cdp = await context.newCDPSession(page);
   await cdp.send('Emulation.setTouchEmulationEnabled', { enabled: true });
-  const b = (await stage(page).locator('li[data-distance="0"] img').boundingBox())!;
+  const b = (await stage(page).locator('li[data-distance="0"] strong').boundingBox())!;
   const x = b.x + b.width / 2, y = b.y + b.height / 2;
   await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
   await page.waitForTimeout(20);
@@ -127,7 +129,7 @@ test('active identity publication does not cancel a newly started contact', asyn
       if (phase === 'settling') sawSettling = true;
       if (!sawSettling || phase !== 'idle') return;
       observer.disconnect();
-      const target = root.querySelector('li[data-distance="0"] img')!;
+      const target = root.querySelector('li[data-distance="0"] strong')!;
       const b = target.getBoundingClientRect();
       target.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerId: 93, pointerType: 'touch', isPrimary: true, button: 0, clientX: b.x + 20, clientY: b.y + 20 }));
       (root as HTMLElement).dataset.testContactStarted = 'true';
@@ -141,7 +143,7 @@ test('active identity publication does not cancel a newly started contact', asyn
   await page.waitForTimeout(100);
   await expect(stage(page)).toHaveAttribute('data-motion', 'pending');
   await stage(page).evaluate(root => {
-    const target = root.querySelector('li[data-distance="0"] img')!, b = target.getBoundingClientRect();
+    const target = root.querySelector('li[data-distance="0"] strong')!, b = target.getBoundingClientRect();
     target.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerId: 93, pointerType: 'touch', isPrimary: true, button: 0, clientX: b.x + 20, clientY: b.y + 20 }));
   });
   await idle(page);

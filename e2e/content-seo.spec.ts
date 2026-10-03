@@ -22,7 +22,7 @@ for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'mobile-32
  test(`ElevenLabs commercial-use guide renders its decision path — ${viewport.name}`,async({page})=>{
   await mkdir('docs/screenshots/elevenlabs-commercial-use-game',{recursive:true});
   await page.setViewportSize({width:viewport.width,height:viewport.height});
-  await page.goto('/articles/');
+  await page.goto('/articles/#all');
   await expect(page.getByRole('link',{name:/ElevenLabsの商用利用ガイド/})).toHaveAttribute('href','/articles/elevenlabs-commercial-use-game/');
   await page.goto('/articles/elevenlabs-commercial-use-game/');
   await expect(page.getByRole('heading',{level:1,name:'ElevenLabsの商用利用ガイド｜ゲーム音声で確認すべき権利とプラン'})).toBeVisible();
@@ -46,10 +46,10 @@ for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'mobile-32
 for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'zoom-320',width:320,height:640},{name:'desktop',width:1280,height:900}]){
  test(`article discovery and Project handoff — ${viewport.name}`,async({page})=>{
   await page.setViewportSize({width:viewport.width,height:viewport.height});
-  await page.goto('/articles/');
+  await page.goto('/articles/#all');
   if(viewport.name==='zoom-320')await page.evaluate(()=>{document.documentElement.style.zoom='2'});
   await expect(page.getByRole('heading',{name:/今の制作課題から/})).toBeVisible();
-  await page.getByRole('link',{name:/AIでブラウザゲームを作る方法/}).click();
+  await page.getByRole('link',{name:/AIでブラウザゲームを作る方法/}).locator('strong').click();
   await expect(page.getByRole('navigation',{name:'パンくず'})).toBeVisible();
   await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(2);
   await expect(page.getByRole('heading',{name:'まず完成例を動かす'})).toBeVisible();
@@ -182,9 +182,10 @@ test('Issue 135 journey keeps analytics local and navigates Home to cluster, art
  await page.goto('/');
  await expect(page.getByRole('heading',{level:1,name:/次の1作業を決める/})).toBeVisible();
  await page.getByRole('link',{name:/記事へ/}).first().click();
- await expect(page).toHaveURL(/\/articles\/$/);
- await expect(page.getByRole('heading',{name:'ゲーム音声を作る・公開条件を確かめる'})).toBeVisible();
- await page.getByRole('link',{name:/ゲーム開発向けElevenLabs使い方ガイド/}).click();
+ await expect(page).toHaveURL(/\/articles\/#categories$/);
+ await page.locator('[data-category="voice"]').click();
+  await expect(page.getByRole('heading',{name:'音と声を作る', exact:true})).toBeVisible();
+ await page.getByRole('link',{name:/ゲーム開発向けElevenLabs使い方ガイド/}).locator('strong').click();
  await expect(page.getByRole('navigation',{name:'この記事の目次'})).toBeVisible();
  await page.getByRole('link',{name:'音声が本当に必要か分からない場合'}).click();
  await expect(page).toHaveURL(/#voice-project-plan$/);

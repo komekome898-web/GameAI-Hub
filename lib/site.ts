@@ -11,10 +11,17 @@ function normalizeSiteOrigin(value: string | undefined): string {
   }
 }
 
+export const siteDescriptionLines = [
+  'AIでゲームを作ってみたいあなたへ',
+  'ツール選びから作り方や作品の実例までサポート',
+  '次はあなたのアイデアを遊べるゲームに',
+] as const;
+
 export const site = {
-  name: 'AI Iterproof',
+  name: 'GameBuildiary',
+  nickname: 'ビルダイアリー',
   url: normalizeSiteOrigin(process.env.NEXT_PUBLIC_SITE_URL),
-  description: 'AIゲーム開発ツールを、料金・商用利用・対応環境から日本語で比較できる意思決定サービス',
+  description: siteDescriptionLines.join('。'),
 };
 
 /** Returns an absolute HTTPS URL suitable for canonical and structured-data fields. */

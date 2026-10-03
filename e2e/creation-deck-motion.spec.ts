@@ -13,12 +13,14 @@ async function idle(page: Page) {
   })).toBe(true);
 }
 async function open(page: Page) {
-  await page.goto('/articles/#start');
-  await page.getByRole('button', { name: '円環で見る', exact: true }).click();
+  await page.goto('/articles/#voice');
+  await expect(page.locator('.creation-deck')).toHaveCount(1);
+  await expect(page.locator('.creation-deck')).toHaveAttribute('data-available', 'true');
+  await page.getByRole('button', { name: '円環で見る', exact: true }).count().then(async n => { if (n) await page.getByRole('button', { name: '円環で見る', exact: true }).click(); });
   await idle(page);
 }
 async function point(page: Page) {
-  const image = page.locator('.creation-deck li[data-distance="0"] img');
+  const image = page.locator('.creation-deck li[data-distance="0"] strong');
   await image.scrollIntoViewIfNeeded();
   const b = (await image.boundingBox())!;
   return { x: b.x + b.width / 2, y: b.y + b.height / 2 };
@@ -56,7 +58,7 @@ test('all cards follow fractional position and interrupted snap resumes without 
   await page.evaluate(() => new Promise(r => requestAnimationFrame(r)));
   expect(Number(await stage(page).getAttribute('data-motion-pos'))).toBeCloseTo(pos + 40 / (304 * .56), 2);
   await page.mouse.up(); await idle(page);
-  await expect(page).toHaveURL(/\/articles\/#start$/);
+  await expect(page).toHaveURL(/\/articles\/\?hubArticle=[^#]+#voice$/);
   await info.attach('continuous-card-positions', { body: JSON.stringify(snapshots, null, 2), contentType: 'application/json' });
 });
 
@@ -109,12 +111,12 @@ test('trusted short flick, paused release, twenty wraps, repeated controls and k
 
 test('neighbor tap centers, overview expands the same node, list and large text remain readable', async ({ page }, info) => {
   await open(page); await point(page);
-  const neighbor = stage(page).locator('li[data-distance="1"] img');
+  const neighbor = stage(page).locator('li[data-distance="1"] strong');
   const box = (await neighbor.boundingBox())!;
   const stageBox = (await stage(page).boundingBox())!;
   await page.touchscreen.tap(stageBox.x + stageBox.width - 4, box.y + 30);
   await idle(page); await expect(status(page)).toContainText('3件中2件目');
-  await expect(page).toHaveURL(/\/articles\/#start$/);
+  await expect(page).toHaveURL(/\/articles\/\?hubArticle=[^#]+#voice$/);
   const active = stage(page).locator('li[data-distance="0"]');
   const overview = active.locator('.v2-start-card-description');
   const id = await overview.getAttribute('id');
@@ -168,7 +170,10 @@ test('long drag chooses two cards; capture loss and resize return to the committ
 
 test('failed images keep article links, summaries and natural card height', async ({ page }, info) => {
   await page.route(/\.(webp|png|avif)(\?|$)/, route => route.abort());
-  await open(page); await point(page);
+  await page.goto('/articles/#start');
+  await expect(page.locator('.creation-deck')).toHaveCount(1);
+  await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'deck');
+  await point(page);
   const card = stage(page).locator('li[data-distance="0"]');
   await expect(card.locator('a')).toHaveAccessibleName(/AIでブラウザゲーム/);
   await expect(card.locator('.v2-start-card-description')).toBeVisible();

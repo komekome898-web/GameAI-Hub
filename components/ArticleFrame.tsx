@@ -28,7 +28,8 @@ export function ArticleFrame({
     description: article.description,
     datePublished: article.publishedAt,
     dateModified: article.updatedAt,
-    author: { "@type": "Organization", name: site.name },
+    // Preserve the existing author identity; rebranding applies to the publisher.
+    author: { "@type": "Organization", name: "AI Iterproof" },
     publisher: {
       "@type": "Organization",
       name: site.name,
