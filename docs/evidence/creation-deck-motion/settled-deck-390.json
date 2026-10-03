@@ -1,0 +1,27 @@
+{
+  "innerWidth": 390,
+  "viewportWidth": 390,
+  "scale": 1,
+  "transform": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.000833333, 0, 0, 0, 1)",
+  "card": {
+    "left": 43,
+    "right": 347,
+    "top": 212.34375,
+    "bottom": 703.3125,
+    "width": 304
+  },
+  "title": {
+    "left": 60,
+    "right": 330,
+    "top": 410.140625,
+    "bottom": 491.140625,
+    "width": 270
+  },
+  "cta": {
+    "left": 60,
+    "right": 330,
+    "top": 642.3125,
+    "bottom": 686.3125,
+    "width": 270
+  }
+}

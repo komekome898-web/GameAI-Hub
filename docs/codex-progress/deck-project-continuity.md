@@ -22,3 +22,15 @@
   retained as `transient-*`; settled card/title/CTA bounds asserted by E2E.
   Three input tests plus ESLint/typecheck pass. Runtime/CSS unchanged from
   `8a3ef48ec9db7859e08bd7086f7f91e2b90c270f`; no persistent local layout bug found.
+
+## Adopted continuous deck design 1.2
+
+- Continuing the same branch/PR from `ca272aa12cb9022c2730cd01e6c229ff9e41ce5a`.
+- Scope: pure motion helper, one-rAF hook, START card component/scoped CSS, stable
+  slug adapter, focused regressions. Prior Project handoff fixes remain intact.
+- Authority: Library `libfile_76f8a2e6f8108191a0f4da92d6885f1d` v3, design 1.2;
+  full text previously read. Original DOCX transfer failed; owner approved using
+  the retrieved text. No category/name/article-content changes.
+- Evidence and validation: `docs/evidence/creation-deck-motion/README.md`.
+- Next: parent independent exact-head review and physical Safari/Brave feel check.
+  No merge/deploy/Production/Preview authorization; PR remains draft.

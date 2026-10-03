@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { render, waitFor } from "@testing-library/react";
+import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { CreationDeck, type CreationDeckItem } from "@/components/CreationDeck";
 
@@ -8,6 +8,7 @@ vi.mock("next/link", () => ({
 }));
 
 const item = (index: number): CreationDeckItem => ({
+  id: `fixture-${index}`,
   href: `/articles/fixture-${index}/`,
   title: `Fixture ${index}`,
   description: `Description ${index}`,
@@ -17,8 +18,10 @@ const item = (index: number): CreationDeckItem => ({
 });
 
 afterEach(() => {
+  cleanup();
   sessionStorage.clear();
   vi.restoreAllMocks();
+  vi.unstubAllGlobals();
 });
 
 const installUsableGeometry = () => {
@@ -50,7 +53,7 @@ describe("CreationDeck disposable item-count fixtures", () => {
     })));
     const items = Array.from({ length: count }, (_, index) => item(index));
     const view = render(<CreationDeck items={items} />);
-    const anchors = Array.from(view.container.querySelectorAll<HTMLAnchorElement>("ol > li > a"));
+    const anchors = Array.from(view.container.querySelectorAll<HTMLAnchorElement>("ol > li a"));
     expect(anchors).toHaveLength(count);
     expect(new Set(anchors.map(({ href }) => href)).size).toBe(count);
     if (count <= 2) {
@@ -72,7 +75,7 @@ describe("CreationDeck disposable item-count fixtures", () => {
     const view = render(<CreationDeck items={[item(0), item(1), item(2)]} />);
     await waitFor(() => expect(view.container.querySelector(".creation-deck-controls")).toBeNull());
     expect(view.container.querySelector(".creation-deck")?.getAttribute("data-mode")).toBe("list");
-    expect(view.container.querySelectorAll("ol > li > a")).toHaveLength(3);
+    expect(view.container.querySelectorAll("ol > li a")).toHaveLength(3);
   });
 
   it("falls back before exposing controls when their initial layout does not fit", async () => {
@@ -90,6 +93,44 @@ describe("CreationDeck disposable item-count fixtures", () => {
     await waitFor(() => expect(view.container.querySelector(".creation-deck")?.getAttribute("data-available")).toBe("false"));
     expect(view.container.querySelector(".creation-deck")?.getAttribute("data-mode")).toBe("list");
     expect(view.container.querySelector(".creation-deck-controls")).toBeNull();
-    expect(view.container.querySelectorAll("ol > li > a")).toHaveLength(3);
+    expect(view.container.querySelectorAll("ol > li a")).toHaveLength(3);
   });
+  it("retains the selected ID across reorder and href change; removal/count changes safely fall back", async () => {
+    installUsableGeometry();
+    vi.stubGlobal("matchMedia", vi.fn(() => ({ matches: false, addEventListener: vi.fn(), removeEventListener: vi.fn() })));
+    const items = [item(0), item(1), item(2)];
+    const view = render(<CreationDeck items={items} />);
+    await waitFor(() => expect(view.getByRole('button', { name: '円環で見る' })).toBeTruthy());
+    fireEvent.click(view.getByRole('button', { name: '円環で見る' }));
+    const originalLink = view.getByRole('link', { name: 'Fixture 1' });
+    fireEvent.focusIn(originalLink);
+    await waitFor(() => expect(view.container.querySelector('.creation-deck-count')?.textContent).toBe('2 / 3'));
+    view.rerender(<CreationDeck items={[{ ...items[1], href: '/changed/' }, items[2], items[0]]} />);
+    await waitFor(() => expect(view.container.querySelector('.creation-deck-count')?.textContent).toBe('1 / 3'));
+    expect(view.getByRole('link', { name: 'Fixture 1' })).toBe(originalLink);
+    view.rerender(<CreationDeck items={[items[2], items[0], item(3)]} />);
+    await waitFor(() => expect(view.container.querySelector('.creation-deck-status')?.textContent).toContain('Fixture 2'));
+    for (const count of [2, 1, 0]) {
+      view.rerender(<CreationDeck items={items.slice(0, count)} />);
+      await waitFor(() => expect(view.container.querySelector('.creation-deck')?.getAttribute('data-mode')).toBe('list'));
+      expect(view.container.querySelectorAll('a')).toHaveLength(count);
+      expect(view.container.querySelector('ol')?.getAttribute('data-motion-raf')).toBe('0');
+    }
+    view.unmount();
+  });
+
+  it("cancels the one scheduled motion frame when unmounted", async () => {
+    installUsableGeometry();
+    vi.stubGlobal("matchMedia", vi.fn(() => ({ matches: false, addEventListener: vi.fn(), removeEventListener: vi.fn() })));
+    const request = vi.fn(() => 42), cancel = vi.fn();
+    vi.stubGlobal('requestAnimationFrame', request); vi.stubGlobal('cancelAnimationFrame', cancel);
+    const view = render(<CreationDeck items={[item(0), item(1), item(2)]} />);
+    await waitFor(() => expect(view.getByRole('button', { name: '円環で見る' })).toBeTruthy());
+    fireEvent.click(view.getByRole('button', { name: '円環で見る' }));
+    fireEvent.click(view.getByRole('button', { name: '次の記事' }));
+    expect(request).toHaveBeenCalledTimes(1);
+    view.unmount();
+    expect(cancel).toHaveBeenCalledWith(42);
+  });
+
 });

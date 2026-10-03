@@ -19,14 +19,15 @@ async function cardPoint(page: Page, target = 'img') {
   return { x: box.x + box.width / 2, y: box.y + Math.min(40, box.height / 2) };
 }
 
-// DOM state changes precede the 220ms transform transition. A mid-drag resize
+// rAF motion must reach idle/zero pending frames before capture. A mid-drag resize
 // can also temporarily change Chromium's mobile layout viewport/page scale.
 // Capture only the settled surface, not the first frame with the new data-mode.
 async function captureSettledDeck(page: Page, testInfo: TestInfo, width: number, mode: 'deck' | 'list', filename: string) {
   await page.evaluate(() => document.fonts.ready);
   await expect.poll(() => page.locator('.creation-deck').evaluate((deck, expected) => {
     const viewport = window.visualViewport;
-    return deck.getAttribute('data-mode') === expected.mode &&
+    const motion = deck.querySelector<HTMLElement>('ol')?.dataset;
+    return motion?.motion === 'idle' && motion.motionRaf === '0' && motion.motionPos === motion.motionTarget && deck.getAttribute('data-mode') === expected.mode &&
       Math.abs(innerWidth - expected.width) < 1 &&
       (!viewport || (Math.abs(viewport.width - expected.width) < 1 && Math.abs(viewport.scale - 1) < .001)) &&
       !deck.getAnimations({ subtree: true }).some(animation => animation.playState === 'running');
@@ -34,6 +35,12 @@ async function captureSettledDeck(page: Page, testInfo: TestInfo, width: number,
   const active = page.locator(mode === 'deck' ? '.creation-deck li[data-distance="0"]' : '.creation-deck li').first();
   await active.evaluate(element => element.scrollIntoView({ block: 'center', behavior: 'instant' }));
   await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+  await expect.poll(() => active.evaluate(async element => {
+    const before = element.getBoundingClientRect();
+    await new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
+    const after = element.getBoundingClientRect();
+    return ['x', 'y', 'width', 'height'].every(key => Math.abs(before[key as 'x'] - after[key as 'x']) < .5);
+  })).toBe(true);
   const geometry = await active.evaluate(element => {
     const rect = (node: Element) => {
       const box = node.getBoundingClientRect();
@@ -58,7 +65,7 @@ for (const width of [375, 390]) {
     test.skip(browserName !== 'chromium', 'CDP touch injection is Chromium-only; never claim this as WebKit or physical Safari coverage.');
     await page.setViewportSize({ width, height: 844 });
     await openDeck(page);
-    const count = page.locator('.creation-deck-count');
+    const count = page.locator('.creation-deck-status');
     const cdp = await page.context().newCDPSession(page);
     const traces: { type: string; trusted: boolean; target: string }[] = [];
     await page.exposeFunction('recordDeckInput', (event: typeof traces[number]) => traces.push(event));
@@ -77,6 +84,7 @@ for (const width of [375, 390]) {
         await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: x + dx * i / 10, y, id: 1 }] });
         await page.waitForTimeout(16);
       }
+      if (Math.abs(dx) < 30) await page.waitForTimeout(150); // stale motion must not flick
       if (interrupt === 'multitouch') await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: x + dx, y, id: 1 }, { x, y: y + 50, id: 2 }] });
       await cdp.send('Input.dispatchTouchEvent', { type: interrupt === 'cancel' ? 'touchCancel' : 'touchEnd', touchPoints: [] });
     };
@@ -88,7 +96,7 @@ for (const width of [375, 390]) {
     await expect(count).toContainText('3件中1件目');
     await swipe(-100, 'img', 'multitouch');
     await expect(count).toContainText('3件中1件目');
-    await swipe(-20); // recognized drag, below release threshold
+    await swipe(-20); // short drag plus pause: no velocity assist
     await expect(count).toContainText('3件中1件目');
     await swipe(-100);
     await expect(count).toContainText('3件中2件目');
@@ -109,14 +117,14 @@ for (const width of [375, 390]) {
     await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
     await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(scrollBefore + 30);
     await expect(count).toContainText('3件中1件目');
-    await page.locator('.creation-deck li[data-distance="0"] a').tap();
+    await page.locator('.creation-deck li[data-distance="0"] img').tap();
     await expect(page).toHaveURL(/\/articles\/ai-browser-game-how-to\/$/);
   });
 }
 
 test('native mouse dragging, controls, resize and reduced-motion fallback', async ({ page }, testInfo) => {
   await openDeck(page);
-  const count = page.locator('.creation-deck-count');
+  const count = page.locator('.creation-deck-status');
   for (const target of ['img', 'strong']) {
     const { x, y } = await cardPoint(page, target);
     await page.mouse.move(x, y);
@@ -141,7 +149,7 @@ test('native mouse dragging, controls, resize and reduced-motion fallback', asyn
   await expect(count).toContainText('3件中2件目');
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'list');
-  await expect(page.locator('.creation-deck ol > li > a')).toHaveCount(3);
+  await expect(page.locator('.creation-deck ol > li a')).toHaveCount(3);
 });
 
 test('actual Stack CTA carries supported conditions into editable Project confirmation', async ({ page }, testInfo) => {

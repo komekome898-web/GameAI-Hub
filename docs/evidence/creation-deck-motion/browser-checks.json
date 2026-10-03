@@ -1,0 +1,738 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/GameAI-Hub/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "/tmp/gameai-final.config.cjs",
+      "-g",
+      "native Chromium|native mouse|actual Stack|article-origin Project|direct Project|all cards follow|trusted short|neighbor tap|long drag|failed images|Creation Deck|article → Project|E-01|E-02"
+    ],
+    "configFile": "/tmp/gameai-final.config.cjs",
+    "rootDir": "/workspace/GameAI-Hub/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/gameai-final-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/workspace/GameAI-Hub/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "deck-project-continuity.spec.ts",
+          "creation-deck-motion.spec.ts",
+          "issue-157-stage-b.spec.ts",
+          "measurement-baseline.spec.ts",
+          "issue-157-dots-followups.spec.ts",
+          "issue-155-v1.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/tmp/gameai-final-e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "creation-deck-motion.spec.ts",
+      "file": "creation-deck-motion.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "all cards follow fractional position and interrupted snap resumes without a jump",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3119,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:33:32.884Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "continuous-card-positions",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJkeCI6IC0yMCwKICAgICJwb3MiOiAwLjExNzQ4MTIwMzAwNzUxODgsCiAgICAidHJhbnNmb3JtcyI6IFsKICAgICAgInRyYW5zbGF0ZVgoLTIwcHgpIHBlcnNwZWN0aXZlKDEyMDBweCkgcm90YXRlWSgwLjgyMjM2OGRlZykgc2NhbGUoMC45OTI5NTEpIiwKICAgICAgInRyYW5zbGF0ZVgoMTUwLjI0cHgpIHBlcnNwZWN0aXZlKDEyMDBweCkgcm90YXRlWSgtNi4xNzc2M2RlZykgc2NhbGUoMC45NDcwNDkpIiwKICAgICAgInRyYW5zbGF0ZVgoLTE5MC4yNHB4KSBwZXJzcGVjdGl2ZSgxMjAwcHgpIHJvdGF0ZVkoN2RlZykgc2NhbGUoMC45NCkiCiAgICBdCiAgfSwKICB7CiAgICAiZHgiOiAtNjAsCiAgICAicG9zIjogMC4zNTI0NDM2MDkwMjI1NTY0LAogICAgInRyYW5zZm9ybXMiOiBbCiAgICAgICJ0cmFuc2xhdGVYKC02MHB4KSBwZXJzcGVjdGl2ZSgxMjAwcHgpIHJvdGF0ZVkoMi40NjcxMWRlZykgc2NhbGUoMC45Nzg4NTMpIiwKICAgICAgInRyYW5zbGF0ZVgoMTEwLjI0cHgpIHBlcnNwZWN0aXZlKDEyMDBweCkgcm90YXRlWSgtNC41MzI4OWRlZykgc2NhbGUoMC45NjExNDcpIiwKICAgICAgInRyYW5zbGF0ZVgoLTIzMC4yNHB4KSBwZXJzcGVjdGl2ZSgxMjAwcHgpIHJvdGF0ZVkoN2RlZykgc2NhbGUoMC45NCkiCiAgICBdCiAgfSwKICB7CiAgICAiZHgiOiAtMTIwLAogICAgInBvcyI6IDAuNzA0ODg3MjE4MDQ1MTEyOCwKICAgICJ0cmFuc2Zvcm1zIjogWwogICAgICAidHJhbnNsYXRlWCgtMTIwcHgpIHBlcnNwZWN0aXZlKDEyMDBweCkgcm90YXRlWSg0LjkzNDIxZGVnKSBzY2FsZSgwLjk1NzcwNykiLAogICAgICAidHJhbnNsYXRlWCg1MC4yNHB4KSBwZXJzcGVjdGl2ZSgxMjAwcHgpIHJvdGF0ZVkoLTIuMDY1NzlkZWcpIHNjYWxlKDAuOTgyMjkzKSIsCiAgICAgICJ0cmFuc2xhdGVYKDIyMC40OHB4KSBwZXJzcGVjdGl2ZSgxMjAwcHgpIHJvdGF0ZVkoLTdkZWcpIHNjYWxlKDAuOTQpIgogICAgXQogIH0sCiAgewogICAgImR4IjogMjAsCiAgICAicG9zIjogLTAuMTE3NDgxMjAzMDA3NTE4OCwKICAgICJ0cmFuc2Zvcm1zIjogWwogICAgICAidHJhbnNsYXRlWCgyMHB4KSBwZXJzcGVjdGl2ZSgxMjAwcHgpIHJvdGF0ZVkoLTAuODIyMzY4ZGVnKSBzY2FsZSgwLjk5Mjk1MSkiLAogICAgICAidHJhbnNsYXRlWCgxOTAuMjRweCkgcGVyc3BlY3RpdmUoMTIwMHB4KSByb3RhdGVZKC03ZGVnKSBzY2FsZSgwLjk0KSIsCiAgICAgICJ0cmFuc2xhdGVYKC0xNTAuMjRweCkgcGVyc3BlY3RpdmUoMTIwMHB4KSByb3RhdGVZKDYuMTc3NjNkZWcpIHNjYWxlKDAuOTQ3MDQ5KSIKICAgIF0KICB9LAogIHsKICAgICJkeCI6IDYwLAogICAgInBvcyI6IC0wLjM1MjQ0MzYwOTAyMjU1NjQsCiAgICAidHJhbnNmb3JtcyI6IFsKICAgICAgInRyYW5zbGF0ZVgoNjBweCkgcGVyc3BlY3RpdmUoMTIwMHB4KSByb3RhdGVZKC0yLjQ2NzExZGVnKSBzY2FsZSgwLjk3ODg1MykiLAogICAgICAidHJhbnNsYXRlWCgyMzAuMjRweCkgcGVyc3BlY3RpdmUoMTIwMHB4KSByb3RhdGVZKC03ZGVnKSBzY2FsZSgwLjk0KSIsCiAgICAgICJ0cmFuc2xhdGVYKC0xMTAuMjRweCkgcGVyc3BlY3RpdmUoMTIwMHB4KSByb3RhdGVZKDQuNTMyODlkZWcpIHNjYWxlKDAuOTYxMTQ3KSIKICAgIF0KICB9LAogIHsKICAgICJkeCI6IDEyMCwKICAgICJwb3MiOiAtMC43MDQ4ODcyMTgwNDUxMTI4LAogICAgInRyYW5zZm9ybXMiOiBbCiAgICAgICJ0cmFuc2xhdGVYKDEyMHB4KSBwZXJzcGVjdGl2ZSgxMjAwcHgpIHJvdGF0ZVkoLTQuOTM0MjFkZWcpIHNjYWxlKDAuOTU3NzA3KSIsCiAgICAgICJ0cmFuc2xhdGVYKC0yMjAuNDhweCkgcGVyc3BlY3RpdmUoMTIwMHB4KSByb3RhdGVZKDdkZWcpIHNjYWxlKDAuOTQpIiwKICAgICAgInRyYW5zbGF0ZVgoLTUwLjI0cHgpIHBlcnNwZWN0aXZlKDEyMDBweCkgcm90YXRlWSgyLjA2NTc5ZGVnKSBzY2FsZSgwLjk4MjI5MykiCiAgICBdCiAgfQpd"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "50d6f4b19467f47c87a0-11c2784e2848bdac3e97",
+          "file": "creation-deck-motion.spec.ts",
+          "line": 28,
+          "column": 5
+        },
+        {
+          "title": "trusted short flick, paused release, twenty wraps, repeated controls and keyboard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 100000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 52731,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:33:36.268Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "50d6f4b19467f47c87a0-3b654b383ca7f44a08b6",
+          "file": "creation-deck-motion.spec.ts",
+          "line": 62,
+          "column": 5
+        },
+        {
+          "title": "neighbor tap centers, overview expands the same node, list and large text remain readable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1798,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:34:29.010Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "50d6f4b19467f47c87a0-79cc0be34411d06e4f72",
+          "file": "creation-deck-motion.spec.ts",
+          "line": 97,
+          "column": 5
+        },
+        {
+          "title": "long drag chooses two cards; capture loss and resize return to the committed card",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3179,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:34:30.821Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "50d6f4b19467f47c87a0-75e283d55d3b653e07b4",
+          "file": "creation-deck-motion.spec.ts",
+          "line": 125,
+          "column": 5
+        },
+        {
+          "title": "failed images keep article links, summaries and natural card height",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1198,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:34:34.009Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "50d6f4b19467f47c87a0-c511f78d1f85930ff951",
+          "file": "creation-deck-motion.spec.ts",
+          "line": 155,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "deck-project-continuity.spec.ts",
+      "file": "deck-project-continuity.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "native Chromium touch swipes survive capture transfer and interruptions at 375",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11557,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:34:35.237Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "browser-generated-touch-events",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAicG9pbnRlcnVwIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJsb3N0cG9pbnRlcmNhcHR1cmUiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJPTCIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiU1RST05HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiU1RST05HIgogIH0sCiAgewogICAgInR5cGUiOiAicG9pbnRlcnVwIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJsb3N0cG9pbnRlcmNhcHR1cmUiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJPTCIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAicG9pbnRlcmNhbmNlbCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVydXAiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJJTUciCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVydXAiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJJTUciCiAgfSwKICB7CiAgICAidHlwZSI6ICJsb3N0cG9pbnRlcmNhcHR1cmUiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJJTUciCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfQpd"
+                    },
+                    {
+                      "name": "settled-deck-375",
+                      "contentType": "application/json",
+                      "body": "ewogICJpbm5lcldpZHRoIjogMzc1LAogICJ2aWV3cG9ydFdpZHRoIjogMzc1LAogICJzY2FsZSI6IDEsCiAgInRyYW5zZm9ybSI6ICJtYXRyaXgzZCgxLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAxLCAtMC4wMDA4MzMzMzMsIDAsIDAsIDAsIDEpIiwKICAiY2FyZCI6IHsKICAgICJsZWZ0IjogMzUuNSwKICAgICJyaWdodCI6IDMzOS41LAogICAgInRvcCI6IDIxMi4xODc1LAogICAgImJvdHRvbSI6IDcwMy4xNTYyNSwKICAgICJ3aWR0aCI6IDMwNAogIH0sCiAgInRpdGxlIjogewogICAgImxlZnQiOiA1Mi41LAogICAgInJpZ2h0IjogMzIyLjUsCiAgICAidG9wIjogNDA5Ljk4NDM3NSwKICAgICJib3R0b20iOiA0OTAuOTg0Mzc1LAogICAgIndpZHRoIjogMjcwCiAgfSwKICAiY3RhIjogewogICAgImxlZnQiOiA1Mi41LAogICAgInJpZ2h0IjogMzIyLjUsCiAgICAidG9wIjogNjQyLjE1NjI1LAogICAgImJvdHRvbSI6IDY4Ni4xNTYyNSwKICAgICJ3aWR0aCI6IDI3MAogIH0KfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c508cd8aa48e8b95221-1352cdeb9fcc5b48a48c",
+          "file": "deck-project-continuity.spec.ts",
+          "line": 64,
+          "column": 7
+        },
+        {
+          "title": "native Chromium touch swipes survive capture transfer and interruptions at 390",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11668,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:34:46.804Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "browser-generated-touch-events",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAicG9pbnRlcnVwIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJsb3N0cG9pbnRlcmNhcHR1cmUiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJPTCIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiU1RST05HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiU1RST05HIgogIH0sCiAgewogICAgInR5cGUiOiAicG9pbnRlcnVwIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJsb3N0cG9pbnRlcmNhcHR1cmUiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJPTCIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAicG9pbnRlcmNhbmNlbCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVydXAiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJJTUciCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVydXAiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJJTUciCiAgfSwKICB7CiAgICAidHlwZSI6ICJsb3N0cG9pbnRlcmNhcHR1cmUiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJJTUciCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfQpd"
+                    },
+                    {
+                      "name": "settled-deck-390",
+                      "contentType": "application/json",
+                      "body": "ewogICJpbm5lcldpZHRoIjogMzkwLAogICJ2aWV3cG9ydFdpZHRoIjogMzkwLAogICJzY2FsZSI6IDEsCiAgInRyYW5zZm9ybSI6ICJtYXRyaXgzZCgxLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAxLCAtMC4wMDA4MzMzMzMsIDAsIDAsIDAsIDEpIiwKICAiY2FyZCI6IHsKICAgICJsZWZ0IjogNDMsCiAgICAicmlnaHQiOiAzNDcsCiAgICAidG9wIjogMjEyLjM0Mzc1LAogICAgImJvdHRvbSI6IDcwMy4zMTI1LAogICAgIndpZHRoIjogMzA0CiAgfSwKICAidGl0bGUiOiB7CiAgICAibGVmdCI6IDYwLAogICAgInJpZ2h0IjogMzMwLAogICAgInRvcCI6IDQxMC4xNDA2MjUsCiAgICAiYm90dG9tIjogNDkxLjE0MDYyNSwKICAgICJ3aWR0aCI6IDI3MAogIH0sCiAgImN0YSI6IHsKICAgICJsZWZ0IjogNjAsCiAgICAicmlnaHQiOiAzMzAsCiAgICAidG9wIjogNjQyLjMxMjUsCiAgICAiYm90dG9tIjogNjg2LjMxMjUsCiAgICAid2lkdGgiOiAyNzAKICB9Cn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c508cd8aa48e8b95221-ee00d7968db2b570ffd1",
+          "file": "deck-project-continuity.spec.ts",
+          "line": 64,
+          "column": 7
+        },
+        {
+          "title": "native mouse dragging, controls, resize and reduced-motion fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5262,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:34:58.487Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "settled-list-320",
+                      "contentType": "application/json",
+                      "body": "ewogICJpbm5lcldpZHRoIjogMzIwLAogICJ2aWV3cG9ydFdpZHRoIjogMzIwLAogICJzY2FsZSI6IDEsCiAgInRyYW5zZm9ybSI6ICJub25lIiwKICAiY2FyZCI6IHsKICAgICJsZWZ0IjogOCwKICAgICJyaWdodCI6IDMxMiwKICAgICJ0b3AiOiAyMjEuMzQzNzUsCiAgICAiYm90dG9tIjogNjk0LjcwMzEyNSwKICAgICJ3aWR0aCI6IDMwNAogIH0sCiAgInRpdGxlIjogewogICAgImxlZnQiOiAyNSwKICAgICJyaWdodCI6IDI5NSwKICAgICJ0b3AiOiA0MTkuMTQwNjI1LAogICAgImJvdHRvbSI6IDUwMC4xNDA2MjUsCiAgICAid2lkdGgiOiAyNzAKICB9LAogICJjdGEiOiB7CiAgICAibGVmdCI6IDI1LAogICAgInJpZ2h0IjogMjk1LAogICAgInRvcCI6IDYzMy43MDMxMjUsCiAgICAiYm90dG9tIjogNjc3LjcwMzEyNSwKICAgICJ3aWR0aCI6IDI3MAogIH0KfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c508cd8aa48e8b95221-f146466e48e3c2d9688c",
+          "file": "deck-project-continuity.spec.ts",
+          "line": 125,
+          "column": 5
+        },
+        {
+          "title": "actual Stack CTA carries supported conditions into editable Project confirmation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1464,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:35:03.759Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c508cd8aa48e8b95221-e2350eef09d4c9361a4d",
+          "file": "deck-project-continuity.spec.ts",
+          "line": 155,
+          "column": 5
+        },
+        {
+          "title": "article-origin Project survives repeated Tools and Compare returns",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4800,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:35:05.231Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c508cd8aa48e8b95221-3ca5b42bbd9bface6cec",
+          "file": "deck-project-continuity.spec.ts",
+          "line": 179,
+          "column": 7
+        },
+        {
+          "title": "direct Project survives repeated Tools and Compare returns",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4726,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:35:10.041Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c508cd8aa48e8b95221-6f3d1341f3115c2817c6",
+          "file": "deck-project-continuity.spec.ts",
+          "line": 179,
+          "column": 7
+        }
+      ]
+    },
+    {
+      "title": "issue-157-dots-followups.spec.ts",
+      "file": "issue-157-dots-followups.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "E-01 measures actual Deck title line-height and description paragraph spacing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1372,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:35:14.781Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a079bd31d5b55a553f31-78f6752953d064d7a9db",
+          "file": "issue-157-dots-followups.spec.ts",
+          "line": 79,
+          "column": 5
+        },
+        {
+          "title": "E-02 cancels owned gestures and preserves click and list preference recovery",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6023,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:35:16.163Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a079bd31d5b55a553f31-3e6d2e1c318edcd945d9",
+          "file": "issue-157-dots-followups.spec.ts",
+          "line": 103,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "issue-157-stage-b.spec.ts",
+      "file": "issue-157-stage-b.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Creation Deck is explicit, preserves links, and retains a list fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8349,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:35:22.200Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42706e8ef18efb197d68-3d8f28f78c41db15dfd1",
+          "file": "issue-157-stage-b.spec.ts",
+          "line": 28,
+          "column": 5
+        },
+        {
+          "title": "Creation Deck remains usable when session storage is blocked",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2108,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:35:30.562Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42706e8ef18efb197d68-14d79c33f3734d3c1751",
+          "file": "issue-157-stage-b.spec.ts",
+          "line": 99,
+          "column": 5
+        },
+        {
+          "title": "Creation Deck transfers only control focus when forced flat",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2630,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:35:32.681Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42706e8ef18efb197d68-a7cf68a75f2c3f07367c",
+          "file": "issue-157-stage-b.spec.ts",
+          "line": 114,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "measurement-baseline.spec.ts",
+      "file": "measurement-baseline.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "article → Project → first completion → next task is observable without raw input",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4602,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:35:35.324Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4267ffa9b3b8c97798be-7a1e8ed5de17ade803f0",
+          "file": "measurement-baseline.spec.ts",
+          "line": 30,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-03T01:33:32.475Z",
+    "duration": 127605.29400000001,
+    "expected": 17,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
