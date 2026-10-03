@@ -17,15 +17,15 @@ test.beforeEach(async ({ context }) => {
 });
 
 type Input = { type: 'pointermove' | 'pointerup' | 'pointercancel'; x: number; y: number; t: number };
-const cases: { name: string; events: Input[]; next: boolean; captures: number }[] = [
-  { name: '12ms final movement arrives only on up', events: [{ type: 'pointerup', x: -32, y: 0, t: 12 }], next: true, captures: 0 },
-  { name: 'one sparse move after90ms', events: [{ type: 'pointermove', x: -32, y: 0, t: 90 }, { type: 'pointerup', x: -32, y: 0, t: 95 }], next: true, captures: 1 },
-  { name: 'diagonal wobble remains pending until horizontal up', events: [{ type: 'pointermove', x: -9, y: 10, t: 20 }, { type: 'pointerup', x: -32, y: 12, t: 40 }], next: true, captures: 0 },
-  { name: 'committed vertical never revives on horizontal up', events: [{ type: 'pointermove', x: -3, y: 14, t: 20 }, { type: 'pointerup', x: -32, y: 14, t: 40 }], next: false, captures: 0 },
-  { name: 'long hold followed by release is not a flick', events: [{ type: 'pointerup', x: -32, y: 0, t: 500 }], next: false, captures: 0 },
-  { name: 'paused movement plus tiny release jitter stays put', events: [{ type: 'pointermove', x: -32, y: 0, t: 40 }, { type: 'pointerup', x: -32.3, y: 0, t: 200 }], next: false, captures: 1 },
-  { name: 'tiny fast movement stays put', events: [{ type: 'pointerup', x: -9, y: 0, t: 8 }], next: false, captures: 0 },
-  { name: 'cancel never becomes a flick on later up', events: [{ type: 'pointermove', x: -32, y: 0, t: 20 }, { type: 'pointercancel', x: -32, y: 0, t: 25 }, { type: 'pointerup', x: -50, y: 0, t: 30 }], next: false, captures: 1 },
+const cases: { name: string; events: Input[]; index: number; captures: number }[] = [
+  { name: '12ms final movement arrives only on up', events: [{ type: 'pointerup', x: -32, y: 0, t: 12 }], index: 0, captures: 0 },
+  { name: 'one sparse move after90ms', events: [{ type: 'pointermove', x: -32, y: 0, t: 90 }, { type: 'pointerup', x: -32, y: 0, t: 95 }], index: 1, captures: 1 },
+  { name: 'diagonal wobble remains pending until horizontal up', events: [{ type: 'pointermove', x: -9, y: 10, t: 20 }, { type: 'pointerup', x: -32, y: 12, t: 40 }], index: 2, captures: 0 },
+  { name: 'committed vertical never revives on horizontal up', events: [{ type: 'pointermove', x: -3, y: 14, t: 20 }, { type: 'pointerup', x: -32, y: 14, t: 40 }], index: 0, captures: 0 },
+  { name: 'long hold followed by release is not a flick', events: [{ type: 'pointerup', x: -32, y: 0, t: 500 }], index: 0, captures: 0 },
+  { name: 'paused movement plus tiny release jitter stays put', events: [{ type: 'pointermove', x: -32, y: 0, t: 40 }, { type: 'pointerup', x: -32.3, y: 0, t: 200 }], index: 0, captures: 1 },
+  { name: 'tiny fast movement stays put', events: [{ type: 'pointerup', x: -9, y: 0, t: 8 }], index: 0, captures: 0 },
+  { name: 'cancel never becomes a flick on later up', events: [{ type: 'pointermove', x: -32, y: 0, t: 20 }, { type: 'pointercancel', x: -32, y: 0, t: 25 }, { type: 'pointerup', x: -50, y: 0, t: 30 }], index: 0, captures: 1 },
 ];
 for (const c of cases) test(`synthetic sparse sequence: ${c.name}`, async ({ page }, info) => {
   await open(page);
@@ -50,11 +50,11 @@ for (const c of cases) test(`synthetic sparse sequence: ${c.name}`, async ({ pag
   expect(record.captures).toBe(c.captures);
   if (c.name.startsWith('diagonal')) expect(record.phases[1]).toBe('pending');
   await idle(page);
-  await expect(page.locator('.creation-deck-count')).toHaveText(c.next ? '2 / 3' : '1 / 3');
+  await expect(page.locator('.creation-deck-count')).toHaveText(`${c.index + 1} / 3`);
   await expect(page).toHaveURL(/\/articles\/#start$/);
   // A cancelled/stale interaction must not poison the next ordinary action.
   await page.getByRole('button', { name: '次の記事', exact: true }).click(); await idle(page);
-  await expect(page.locator('.creation-deck-count')).toHaveText(c.next ? '3 / 3' : '2 / 3');
+  await expect(page.locator('.creation-deck-count')).toHaveText(`${(c.index + 1) % 3 + 1} / 3`);
   await info.attach('input-sequence', { body: JSON.stringify(record, null, 2), contentType: 'application/json' });
 });
 
@@ -77,7 +77,7 @@ test('native mouse survives height-only resize, but cancels changed width, step 
   await page.mouse.move(point.x - 100, point.y, { steps: 3 });
   await page.screenshot({ path: info.outputPath('height-only-drag-375.png') });
   records.push({ kind: 'height-only', phase: await stage(page).getAttribute('data-motion') });
-  await page.mouse.up(); await idle(page); await expect(page.locator('.creation-deck-count')).toHaveText('2 / 3');
+  await page.waitForTimeout(150); await page.mouse.up(); await idle(page); await expect(page.locator('.creation-deck-count')).toHaveText('2 / 3');
   await begin(); await page.setViewportSize({ width: 390, height: 700 }); await idle(page);
   await page.mouse.up(); await expect(page.locator('.creation-deck-count')).toHaveText('2 / 3');
   records.push({ kind: 'width-change', result: 'cancelled to committed article' });
@@ -107,13 +107,14 @@ test('native Chromium short touch retains vertical scrolling coexistence', async
   await page.waitForTimeout(20);
   await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: x - 32, y: y + 8 }] });
   await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
-  await idle(page); await expect(page.locator('.creation-deck-count')).toHaveText('2 / 3');
+  await expect(stage(page)).toHaveAttribute('data-motion', 'coasting');
+  await idle(page); const selected = await page.locator('.creation-deck-count').textContent();
   const before = await page.evaluate(() => scrollY);
   await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
   for (let i = 1; i <= 8; i++) await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x, y: y - i * 12 }] });
   await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
   await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(before + 20);
-  await idle(page); await expect(page.locator('.creation-deck-count')).toHaveText('2 / 3');
+  await idle(page); await expect(page.locator('.creation-deck-count')).toHaveText(selected!);
   await info.attach('native-touch', { body: JSON.stringify({ input: 'Chromium CDP touch', horizontal: { dx: -32, dy: 8, moveEvents: 1 }, verticalScrollDelta: await page.evaluate(() => scrollY) - before, physicalSafari: 'UNTESTED' }), contentType: 'application/json' });
 });
 

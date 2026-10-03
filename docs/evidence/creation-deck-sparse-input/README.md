@@ -1,3 +1,5 @@
+> Historical contract: the owner-approved [inertia design2.0](../../design/creation-deck-inertia.md) supersedes the no-free-inertia/one-card release rules below.
+
 # Owner-approved sparse-input adjustment — 2026-10-03
 
 Scope: three changes on PR #162 after owner-reported failure on iPhone SE3,

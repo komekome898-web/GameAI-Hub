@@ -84,7 +84,7 @@ for (const width of [375, 390]) {
         await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: x + dx * i / 10, y, id: 1 }] });
         await page.waitForTimeout(16);
       }
-      if (Math.abs(dx) < 30) await page.waitForTimeout(150); // stale motion must not flick
+      await page.waitForTimeout(150); // distance-only navigation; free inertia is covered separately
       if (interrupt === 'multitouch') await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: x + dx, y, id: 1 }, { x, y: y + 50, id: 2 }] });
       await cdp.send('Input.dispatchTouchEvent', { type: interrupt === 'cancel' ? 'touchCancel' : 'touchEnd', touchPoints: [] });
     };
@@ -130,6 +130,7 @@ test('native mouse dragging, controls, resize and reduced-motion fallback', asyn
     await page.mouse.move(x, y);
     await page.mouse.down();
     await page.mouse.move(x - 100, y, { steps: 12 });
+    await page.waitForTimeout(150); // commit placed article without momentum
     await page.mouse.up();
     await expect(count).toContainText(target === 'img' ? '3件中2件目' : '3件中3件目');
   }

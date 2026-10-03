@@ -89,7 +89,7 @@ for (const phase of ['pending', 'vertical'] as const) for (const interrupted of 
     const imageBox = (await image.boundingBox())!;
     const sx = imageBox.x + imageBox.width / 2, sy = imageBox.y + 40;
     await page.mouse.move(sx, sy); await page.mouse.down();
-    await page.mouse.move(sx - 100, sy, { steps: 8 }); await page.mouse.up(); await idle(page);
+    await page.mouse.move(sx - 100, sy, { steps: 8 }); await page.waitForTimeout(150); await page.mouse.up(); // distance-only recovery gesture await idle(page);
     await expect(count).toHaveText(`${active % 3 + 1} / 3`);
     await info.attach('outside-release', { body: JSON.stringify({ phase, interrupted, before, after, final: await count.textContent() }), contentType: 'application/json' });
   });

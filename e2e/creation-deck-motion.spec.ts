@@ -41,6 +41,7 @@ test('all cards follow fractional position and interrupted snap resumes without 
     await expect(status(page)).toContainText('3件中1件目');
     snapshots.push({ dx, ...state });
   }
+  await page.waitForTimeout(150); // inspect placement, not free inertia
   await page.mouse.up(); await idle(page);
   await expect(status(page)).toContainText('3件中3件目');
   await page.getByRole('button', { name: '次の記事', exact: true }).click();
@@ -66,16 +67,28 @@ test('trusted short flick, paused release, twenty wraps, repeated controls and k
   const swipe = async (dx: number, pause = 0) => {
     const { x, y } = await point(page);
     await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
-    for (let i = 1; i <= 6; i++) {
-      await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: x + dx * i / 6, y }] });
+    const steps = pause ? 6 : 1;
+    if (!pause) await page.waitForTimeout(20);
+    for (let i = 1; i <= steps; i++) {
+      await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: x + dx * i / steps, y }] });
       await page.waitForTimeout(16);
     }
     if (pause) await page.waitForTimeout(pause);
     await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    if (!pause) {
+      await expect(stage(page)).toHaveAttribute('data-motion', 'coasting');
+      const before = Number(await stage(page).getAttribute('data-motion-pos'));
+      await page.waitForTimeout(40);
+      const after = Number(await stage(page).getAttribute('data-motion-pos'));
+      expect((after - before) * -Math.sign(dx)).toBeGreaterThan(0);
+    }
     await idle(page);
   };
-  await swipe(-32); await expect(status(page)).toContainText('3件中2件目');
-  await swipe(32); await expect(status(page)).toContainText('3件中1件目');
+  await swipe(-32); await swipe(32);
+  // Momentum can pass multiple articles. Normalize only for discrete-control assertions.
+  while (!(await page.locator('.creation-deck-count').textContent())!.startsWith('1 /')) {
+    await page.getByRole('button', { name: '次の記事', exact: true }).click(); await idle(page);
+  }
   await swipe(-24, 150); await expect(status(page)).toContainText('3件中1件目');
   // Each step is a complete release/settle; no accumulating position or rAF leak.
   for (let i = 1; i <= 60; i++) {
@@ -127,6 +140,7 @@ test('long drag chooses two cards; capture loss and resize return to the committ
   const p = await point(page);
   await page.mouse.move(p.x, p.y); await page.mouse.down();
   await page.mouse.move(p.x - 304 * .56 * 2.2, p.y, { steps: 20 });
+  await page.waitForTimeout(150); // slow/paused2.2-card placement, not a fast fling
   await page.mouse.up(); await idle(page);
   await expect(status(page)).toContainText('3件中3件目');
   const q = await point(page);

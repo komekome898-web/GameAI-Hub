@@ -72,3 +72,24 @@
   interpret prior CI or new synthetic/native Chromium checks as Safari PASS.
 - Same draft PR; exact tested checkpoint and final CI/evidence in task handoff.
   No merge, Preview/Production navigation, manual deploy or category expansion.
+
+## Owner-approved inertia design2.0 —2026-10-03
+
+- Same PR162/branch; main7ad41ac (PR163) preserved by merge d04b947.
+- Supersedes one-card assistance/no-free-inertia with exponential coast, capped
+  recent directional velocity and nearest-card final alignment. Stable nodes,
+  invisible rear band plus skipped-frame seam masking;12/30 test-only fixtures.
+- Newer valid release coordinates, including reversal, remain meaningful; stale
+  ordered samples cannot rewind. Trailing drag click/focus cannot undo selection.
+  True interruptions retain committed-card safety; blur also stops free coast.
+- Initial7 focused failures:1 repeated-open fixture issue and6 legacy one-card
+  expectations. Corrected localized24 passed. Independent source review found
+  fresh reversal averaging; fixed with latest-direction velocity, mirrored tests.
+  Additional9 passed;1 release-record timing failure fixed and rerun1 passed.
+- Reviewer found no remaining source blocker; static captures cannot establish
+  physical Safari feel. Final quality/full E2E/normal CI and exact-head evidence
+  will be recorded in PR and Library handoff, not inferred from this checkpoint.
+- Library design identity libfile_76f8a2e6f8108191a0f4da92d6885f1d v3 could not
+  materialize via required helper. Parent receives docs/design/creation-deck-inertia.md
+  to update the same identity, as authorized. No silent replacement/bypass.
+- No merge/manual deploy/Preview or Production navigation authorized.

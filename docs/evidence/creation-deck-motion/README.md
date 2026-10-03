@@ -1,3 +1,5 @@
+> Historical contract: the owner-approved [inertia design2.0](../../design/creation-deck-inertia.md) supersedes the no-free-inertia/one-card release rules below.
+
 # Continuous START article deck — adopted design 1.2
 
 Implementation on `fix/deck-project-continuity`, continuing draft PR #162 from
