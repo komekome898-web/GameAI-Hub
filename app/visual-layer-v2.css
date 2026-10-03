@@ -359,7 +359,7 @@ body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
   .project-v2-route :is(.beginner-action-grid,.plan-phase>div,.today-grid) { grid-template-columns:1fr; }
 }
 @media (max-width:680px) {
-  .home-v2-route .home-execution-hero { margin-top:12px; padding:20px 13px 30px; }
+  .home-v2-route .home-execution-hero { margin-top:8px; padding:12px 13px 30px; }
   .project-v2-route :is(.project-result-actions,.detail-actions,.beginner-action-buttons) { display:grid; grid-template-columns:1fr; }
   .visual-layer-v2 :is(.section-head,.results-head,.guide-results-head,.guide-stage-status,.compare-selection-head,.article-header-meta) { display:grid; grid-template-columns:1fr; }
   .visual-layer-v2 :is(.goal-groups,.compare-selection-tray,.compare-picker-panel) { padding-inline:10px; }
