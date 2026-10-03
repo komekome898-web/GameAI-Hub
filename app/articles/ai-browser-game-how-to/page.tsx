@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { ArticleFrame } from "@/components/ArticleFrame";
 import { ArticleHeader } from "@/components/ArticleHeader";
 import { ArticleProjectLink } from "@/components/ArticleProjectLink";
@@ -7,21 +6,7 @@ import { CopyTextButton } from "@/components/CopyTextButton";
 import { articleMetadata, getArticle } from "@/data/articles";
 
 const article = getArticle("ai-browser-game-how-to")!;
-const seoTitle =
-  "AIでブラウザゲームを作る方法【初心者向け】1つのHTMLをAIで作って動かす";
-const seoDescription =
-  "ゲーム制作未経験でも、AIに指示して1つのindex.htmlを作り、ブラウザで実行・修正・保存・復旧する手順。PC・iPhone・Android向けに、最初の1画面ゲームから次の作業まで解説。";
-const baseMetadata = articleMetadata(article);
-export const metadata: Metadata = {
-  ...baseMetadata,
-  title: seoTitle,
-  description: seoDescription,
-  openGraph: {
-    ...baseMetadata.openGraph,
-    title: seoTitle,
-    description: seoDescription,
-  },
-};
+export const metadata = articleMetadata(article);
 
 const gameIdea = `モンスターと1対1で戦う2Dブラウザゲームを作りたい。
 ゲーム制作は初めてです。まず画像と音声なしで、
@@ -117,13 +102,10 @@ export default function AiBrowserGameHowTo() {
         <ArticleHeader
           article={article}
           eyebrow="BROWSER GAME / ONE PLAYABLE FILE"
-          title="AIでブラウザゲームを作る方法【初心者向け】1つのHTMLをAIで作って動かす"
+          title={article.title}
           lead={
             <>
-              ゲーム制作もプログラミングも初めてなら、最初から大作を作る必要はありません。この手順ではAIに1対1のモンスターバトルを作ってもらい、
-              <strong>HTML・CSS・JavaScriptをまとめた1つの index.html</strong>を
-              {"GameBuildiary"}
-              へ貼って実行します。完成例、AI生成版、1変更の練習を区別し、保存・復旧して次の作業へ進みます。
+              「たたかう」でHPが減り「もう一度」で遊び直せる1画面のモンスターバトルを作ります。まず掲載された完成例を動かし 次に同じ条件でAIへ生成を頼みます。返ってきた<code>index.html</code>をGameBuildiaryに貼って動作を確認し 保存します。その後は掲載完成例に戻り 敵の名前を1か所だけ変えましょう
             </>
           }
         >
@@ -264,7 +246,13 @@ export default function AiBrowserGameHowTo() {
             <code>enemyName</code> は要求しません。
           </p>
           <p>
-            条件を満たしたら「この版は動いたと記録」し、「index.htmlを保存」でAI生成版を手元にも残します。出力が要件と違う場合は、最初に失敗したStepと実際の表示をAIへ返します。
+            条件を満たしたら「この版は動いたと記録」を押し「index.htmlを保存」でAI生成版を手元に残します。保存されるのは 最後に「ゲームを表示」した版です。コードを直した後は 再表示して動作を確かめてから保存してください
+          </p>
+          <p>
+            再開するときは「保存したゲームを開く」からファイルを選び「ゲームを表示」を押します。保存したHTMLを端末で直接開く場合は このページの表示枠による保護は引き継がれません。知らないコードへ個人情報やAPIキーを入れないでください
+          </p>
+          <p>
+            出力が要件と違う場合は 最初に失敗したStepと実際の表示をAIへ返します
           </p>
         </section>
 
