@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { articleCategoryLabels, getArticleGroups } from "@/data/articles";
-import {
-  getStartArticleVisual,
-  type StartArticleSlug,
-} from "@/lib/article-visuals";
-import { ArticleHub } from "@/components/ArticleHub";
-import { startArticleVisuals } from "@/lib/article-visuals";
+import { ArticleBrowser } from "@/components/ArticleBrowser";
+import { getHubGroups } from "@/lib/article-hub-groups";
 export const metadata: Metadata = {
   title: "AIゲーム開発の記事・実践ガイド",
   description:
@@ -31,15 +26,7 @@ export default function ArticlesPage() {
           ゲームを動かす、素材を作る、公開条件を確かめる。読み終えた後に何を作り、どう確認するかが分かる記事を目的別に探せます。
         </p>
         </header>
-        <ArticleHub groups={getArticleGroups().map(group => ({
-          id: group.id, title: group.title, description: group.description,
-          items: group.articles.map(article => ({
-            id: article.slug, href: `/articles/${article.slug}/`, title: article.title,
-            description: article.description, updatedAt: article.updatedAt,
-            label: article.contextNote ?? articleCategoryLabels[article.category],
-            image: article.slug in startArticleVisuals ? getStartArticleVisual(article.slug as StartArticleSlug) : undefined,
-          })),
-        }))} />
+        <ArticleBrowser groups={getHubGroups()} />
         <section className="hub-project-cta">
         <div>
           <span className="system-label">READ → BUILD</span>

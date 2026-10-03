@@ -1,0 +1,455 @@
+
+> gameai-hub@0.1.0 quality
+> npm run affiliate:sync && npm run lint && npm run typecheck && npm test && npm run validate:data && npm run check:affiliates && npm run check:sitemap && npm run validate:content && npm run test:orchestration && npm run validate:workflows
+
+
+> gameai-hub@0.1.0 affiliate:sync
+> node --import tsx scripts/sync-affiliates.ts
+
+Synced affiliate state for 29 services
+
+> gameai-hub@0.1.0 lint
+> eslint .
+
+
+/workspace/GameAI-Hub/.summary-playwright.config.ts
+  2:1  warning  Assign object to a variable before exporting as module default  import/no-anonymous-default-export
+
+✖ 1 problem (0 errors, 1 warning)
+
+
+> gameai-hub@0.1.0 typecheck
+> tsc --noEmit
+
+
+> gameai-hub@0.1.0 test
+> vitest run
+
+
+ RUN  v4.0.6 /workspace/GameAI-Hub
+
+stdout | tests/builder.test.tsx > builder > keeps answers when moving safely backward
+[GameAI analytics] builder_start { page: '/builder' }
+[GameAI analytics] builder_step { step: 1, page: '/builder' }
+
+stdout | tests/project-generator-client.test.tsx > Project Generator client > keeps a selected Stack separate from an older session idea and labels inherited values
+[GameAI analytics] project_start {
+  page: '/project',
+  source_context: 'project',
+  route_category: 'project'
+}
+
+stdout | tests/project-generator-client.test.tsx > Project Generator client > starts from free text without putting the description in analytics
+[GameAI analytics] project_start { page: '/', source_context: 'home', route_category: 'home' }
+
+stdout | tests/project-generator-client.test.tsx > Project Generator client > continues to the project route when session storage is unavailable
+[GameAI analytics] project_start { page: '/', source_context: 'home', route_category: 'home' }
+
+stdout | tests/builder.test.tsx > builder > announces and focuses each step-specific heading
+[GameAI analytics] builder_start { page: '/builder' }
+[GameAI analytics] builder_step { step: 1, page: '/builder' }
+[GameAI analytics] builder_step { step: 2, page: '/builder' }
+[GameAI analytics] builder_step { step: 3, page: '/builder' }
+[GameAI analytics] builder_step { step: 4, page: '/builder' }
+[GameAI analytics] builder_complete { page: '/builder', game_type: '2d', budget: 'low' }
+
+stderr | tests/builder.test.tsx > builder > announces and focuses each step-specific heading
+Not implemented: Window's scrollTo() method
+
+stdout | tests/project-generator-client.test.tsx > Project Generator client > keeps the idea in memory when session storage is unavailable
+[GameAI analytics] project_start { page: '/', source_context: 'home', route_category: 'home' }
+
+stdout | tests/compare.test.tsx > compare > explains beginner browser versus desktop setup and returns to the same draft
+[GameAI analytics] compare_view { services: [ 'github-copilot', 'cursor' ], page: '/compare' }
+
+stdout | tests/builder.test.tsx > builder > completes four progressive steps into an actionable production map
+[GameAI analytics] builder_start { page: '/builder' }
+[GameAI analytics] builder_step { step: 1, page: '/builder' }
+[GameAI analytics] builder_step { step: 2, page: '/builder' }
+[GameAI analytics] builder_step { step: 3, page: '/builder' }
+[GameAI analytics] builder_step { step: 4, page: '/builder' }
+[GameAI analytics] builder_complete { page: '/builder', game_type: '2d', budget: 'low' }
+
+stderr | tests/builder.test.tsx > builder > completes four progressive steps into an actionable production map
+Not implemented: Window's scrollTo() method
+
+stdout | tests/builder.test.tsx > builder > emits builder completion only on completion
+[GameAI analytics] builder_start { page: '/builder' }
+[GameAI analytics] builder_step { step: 1, page: '/builder' }
+[GameAI analytics] builder_step { step: 2, page: '/builder' }
+[GameAI analytics] builder_step { step: 3, page: '/builder' }
+[GameAI analytics] builder_step { step: 4, page: '/builder' }
+[GameAI analytics] builder_complete { page: '/builder', game_type: '2d', budget: 'low' }
+
+stderr | tests/builder.test.tsx > builder > emits builder completion only on completion
+Not implemented: Window's scrollTo() method
+
+stdout | tests/compare.test.tsx > compare > enforces four selections and persistently explains the limit
+[GameAI analytics] compare_view {
+  services: [ 'github-copilot', 'cursor', 'scenario', 'elevenlabs' ],
+  page: '/compare'
+}
+
+stdout | tests/builder.test.tsx > builder > hands a recommended stage pair to the compare ids contract
+[GameAI analytics] builder_start { page: '/builder' }
+[GameAI analytics] builder_step { step: 1, page: '/builder' }
+[GameAI analytics] builder_step { step: 2, page: '/builder' }
+[GameAI analytics] builder_step { step: 3, page: '/builder' }
+[GameAI analytics] builder_step { step: 4, page: '/builder' }
+[GameAI analytics] builder_complete { page: '/builder', game_type: '2d', budget: 'low' }
+
+stderr | tests/builder.test.tsx > builder > hands a recommended stage pair to the compare ids contract
+Not implemented: Window's scrollTo() method
+
+stdout | tests/compare.test.tsx > compare > keeps picker search and focus while selection updates the URL
+[GameAI analytics] compare_view { services: [ 'github-copilot', 'cursor', 'meshy' ], page: '/compare' }
+
+stdout | tests/builder.test.tsx > builder > labels conditional commercial-use primaries and links directly to their official terms
+[GameAI analytics] builder_start { page: '/builder' }
+[GameAI analytics] builder_step { step: 1, page: '/builder' }
+[GameAI analytics] builder_step { step: 2, page: '/builder' }
+[GameAI analytics] builder_step { step: 3, page: '/builder' }
+[GameAI analytics] builder_step { step: 4, page: '/builder' }
+[GameAI analytics] builder_complete { page: '/builder', game_type: '2d', budget: 'low' }
+
+stderr | tests/builder.test.tsx > builder > labels conditional commercial-use primaries and links directly to their official terms
+Not implemented: Window's scrollTo() method
+
+stdout | tests/builder.test.tsx > builder > shows conditional-use warnings, terms, and manual checks on an alternative
+[GameAI analytics] builder_start { page: '/builder' }
+[GameAI analytics] builder_step { step: 1, page: '/builder' }
+[GameAI analytics] builder_step { step: 2, page: '/builder' }
+[GameAI analytics] builder_step { step: 3, page: '/builder' }
+[GameAI analytics] builder_step { step: 4, page: '/builder' }
+[GameAI analytics] builder_complete { page: '/builder', game_type: '2d', budget: 'low' }
+
+stderr | tests/builder.test.tsx > builder > shows conditional-use warnings, terms, and manual checks on an alternative
+Not implemented: Window's scrollTo() method
+
+stdout | tests/project-generator-client.test.tsx > Project Generator client > shows inferred provenance, blocks unknown critical fields, then creates an actionable plan
+[GameAI analytics] project_clarify { missing_count: 2 }
+[GameAI analytics] project_generated {
+  game_type: '2d',
+  budget: 'low',
+  source_context: 'project',
+  route_category: 'project'
+}
+
+stdout | tests/compare.test.tsx > compare > syncs selections and difference mode on browser back and forward
+[GameAI analytics] compare_view { services: [ 'meshy', 'scenario' ], page: '/compare' }
+
+stdout | tests/builder.test.tsx > builder > shows assumptions, requirement groups and candidate verification before action
+[GameAI analytics] builder_start { page: '/builder' }
+[GameAI analytics] builder_step { step: 1, page: '/builder' }
+[GameAI analytics] builder_step { step: 2, page: '/builder' }
+[GameAI analytics] builder_step { step: 3, page: '/builder' }
+[GameAI analytics] builder_step { step: 4, page: '/builder' }
+[GameAI analytics] builder_complete { page: '/builder', game_type: '2d', budget: 'low' }
+
+stderr | tests/builder.test.tsx > builder > shows assumptions, requirement groups and candidate verification before action
+Not implemented: Window's scrollTo() method
+
+ ✓ tests/builder.test.tsx (9 tests) 1864ms
+     ✓ hands a recommended stage pair to the compare ids contract  346ms
+stdout | tests/compare.test.tsx > compare > links unknown and conditional facts to direct official verification sources
+[GameAI analytics] compare_view { services: [ 'github-copilot' ], page: '/compare' }
+
+ ✓ tests/compare.test.tsx (11 tests) 2064ms
+     ✓ explains beginner browser versus desktop setup and returns to the same draft  657ms
+     ✓ renders selected candidates, leading differences, and decision fields  311ms
+     ✓ syncs selections and difference mode on browser back and forward  476ms
+stdout | tests/project-generator-client.test.tsx > Project Generator client > routes a shared draft with critical unknowns through clarification and preserves it on edit
+[GameAI analytics] project_generated {
+  game_type: '3d',
+  budget: 'low',
+  source_context: 'project',
+  route_category: 'project'
+}
+
+stdout | tests/contextual-task-tool-guide.test.tsx > ContextualTaskToolGuide > renders the contextual affiliate CTA with safe task and article attribution
+[GameAI analytics] outbound_click {
+  service: 'elevenlabs',
+  service_id: 'elevenlabs',
+  page: '/project',
+  placement: 'project-task-tool',
+  sub_id: 'elevenlabs__-project__project-task-tool',
+  production_stage: 'audio',
+  source_context: 'project',
+  route_category: 'project',
+  affiliate: true,
+  article_slug: 'ai-browser-game-how-to',
+  task_stage: 'audio',
+  task_index: 7
+}
+[GameAI analytics] affiliate_click {
+  service: 'elevenlabs',
+  service_id: 'elevenlabs',
+  page: '/project',
+  placement: 'project-task-tool',
+  sub_id: 'elevenlabs__-project__project-task-tool',
+  production_stage: 'audio',
+  source_context: 'project',
+  route_category: 'project',
+  affiliate: true,
+  article_slug: 'ai-browser-game-how-to',
+  task_stage: 'audio',
+  task_index: 7
+}
+
+ ✓ tests/beginner-game-workspace.test.tsx (8 tests) 585ms
+ ✓ tests/contextual-task-tool-guide.test.tsx (7 tests) 618ms
+stdout | tests/project-generator-client.test.tsx > Project Generator client > requires an explicit decision for extracted game details and lets included text be corrected
+[GameAI analytics] project_clarify { missing_count: 1 }
+[GameAI analytics] project_clarify { missing_count: 1 }
+[GameAI analytics] project_generated {
+  game_type: '3d',
+  budget: 'low',
+  source_context: 'project',
+  route_category: 'project'
+}
+
+stdout | tests/outbound-link.test.tsx > OutboundLink > discloses affiliate status and preserves events
+[GameAI analytics] affiliate_impression {
+  service_id: 'elevenlabs',
+  page: 'builder-result',
+  placement: 'voice',
+  production_stage: 'audio',
+  source_context: 'builder',
+  route_category: 'builder',
+  affiliate: true
+}
+[GameAI analytics] outbound_click {
+  service: 'elevenlabs',
+  service_id: 'elevenlabs',
+  page: 'builder-result',
+  placement: 'voice',
+  sub_id: 'elevenlabs__builder-result__voice',
+  production_stage: 'audio',
+  source_context: 'builder',
+  route_category: 'builder',
+  affiliate: true
+}
+[GameAI analytics] affiliate_click {
+  service: 'elevenlabs',
+  service_id: 'elevenlabs',
+  page: 'builder-result',
+  placement: 'voice',
+  sub_id: 'elevenlabs__builder-result__voice',
+  production_stage: 'audio',
+  source_context: 'builder',
+  route_category: 'builder',
+  affiliate: true
+}
+
+stdout | tests/outbound-link.test.tsx > OutboundLink > uses official fallback without affiliate event
+[GameAI analytics] outbound_click {
+  service: 'github-copilot',
+  service_id: 'github-copilot',
+  page: '/compare',
+  placement: 'primary',
+  sub_id: 'github-copilot__-compare__primary',
+  production_stage: 'other',
+  source_context: 'compare',
+  route_category: 'compare',
+  affiliate: false
+}
+
+ ✓ tests/outbound-link.test.tsx (4 tests) 268ms
+ ✓ tests/creation-deck.test.tsx (10 tests) 613ms
+ ✓ tests/conversation-evidence.test.tsx (7 tests) 169ms
+ ✓ tests/tools-explorer.test.tsx (2 tests) 374ms
+stdout | tests/project-generator-client.test.tsx > Project Generator client > blocks implementation while the engine is unresolved and regenerates after adoption
+[GameAI analytics] first_task_viewed {
+  task: 'environment',
+  task_index: 0,
+  task_stage: 'setup',
+  source_context: 'project',
+  route_category: 'project'
+}
+
+ ✓ tests/project-generator-client.test.tsx (11 tests) 5655ms
+     ✓ keeps a selected Stack separate from an older session idea and labels inherited values  313ms
+     ✓ shows inferred provenance, blocks unknown critical fields, then creates an actionable plan  1213ms
+     ✓ routes a shared draft with critical unknowns through clarification and preserves it on edit  885ms
+     ✓ requires an explicit decision for extracted game details and lets included text be corrected  946ms
+     ✓ blocks implementation while the engine is unresolved and regenerates after adoption  1817ms
+     ✓ deletes all local project data and keeps the live status outside the collapsed utility  332ms
+stdout | tests/article-reading-system.test.tsx > shared article reading system > builds a summary and real heading links for long articles
+[GameAI analytics] article_view {
+  article_slug: 'meshy-game-development-guide',
+  route_category: 'article'
+}
+
+ ✓ tests/foundation-ui.test.tsx (3 tests) 185ms
+stdout | tests/article-reading-system.test.tsx > shared article reading system > retains Article and Breadcrumb structured data
+[GameAI analytics] article_view {
+  article_slug: 'elevenlabs-commercial-use-game',
+  route_category: 'article'
+}
+
+ ✓ tests/article-reading-system.test.tsx (3 tests) 307ms
+ ✓ tests/trust-pages.test.tsx (2 tests) 138ms
+stdout | tests/article-affiliate-ctas.test.tsx > ArticleAffiliateCtas > uses registry URLs, discloses affiliation, and sends outbound before affiliate events
+[GameAI analytics] affiliate_impression {
+  service_id: 'meshy',
+  page: '/articles/ai-fantasy',
+  placement: 'fantasy_tools_inline',
+  production_stage: 'assets',
+  source_context: 'article',
+  route_category: 'article',
+  affiliate: true,
+  article_slug: 'ai-fantasy'
+}
+[GameAI analytics] outbound_click {
+  service: 'meshy',
+  service_id: 'meshy',
+  page: '/articles/ai-fantasy',
+  placement: 'fantasy_tools_inline',
+  sub_id: 'meshy__-articles-ai-fantasy__fantasy_tools_inline',
+  production_stage: 'assets',
+  source_context: 'article',
+  route_category: 'article',
+  affiliate: true,
+  article_slug: 'ai-fantasy'
+}
+[GameAI analytics] affiliate_click {
+  service: 'meshy',
+  service_id: 'meshy',
+  page: '/articles/ai-fantasy',
+  placement: 'fantasy_tools_inline',
+  sub_id: 'meshy__-articles-ai-fantasy__fantasy_tools_inline',
+  production_stage: 'assets',
+  source_context: 'article',
+  route_category: 'article',
+  affiliate: true,
+  article_slug: 'ai-fantasy'
+}
+
+stdout | tests/article-affiliate-ctas.test.tsx > ArticleAffiliateCtas > keeps the official fallback as outbound-only when no affiliate URL is registered
+[GameAI analytics] outbound_click {
+  service: 'meshy',
+  service_id: 'meshy',
+  page: '/articles/ai-fantasy',
+  placement: 'fantasy_tools_inline',
+  sub_id: 'meshy__-articles-ai-fantasy__fantasy_tools_inline',
+  production_stage: 'assets',
+  source_context: 'article',
+  route_category: 'article',
+  affiliate: false,
+  article_slug: 'ai-fantasy'
+}
+
+ ✓ tests/article-affiliate-ctas.test.tsx (2 tests) 209ms
+stdout | tests/article-engine.test.tsx > article content engine > measures an article mount once across rerenders
+[GameAI analytics] article_view { article_slug: 'ai-fantasy', route_category: 'article' }
+
+ ✓ tests/directory-state.test.tsx (2 tests) 210ms
+stdout | tests/article-engine.test.tsx > article content engine > measures one contextual Project handoff without raw text
+[GameAI analytics] article_to_project {
+  page: '/articles/ai-fantasy',
+  placement: 'article_end',
+  article_slug: 'ai-fantasy',
+  cta_placement: 'article_end',
+  source_context: 'article',
+  route_category: 'article'
+}
+
+stdout | tests/article-engine.test.tsx > article content engine > measures an inline article handoff with its exercise placement
+[GameAI analytics] article_to_project {
+  page: '/articles/ai-browser-game-how-to',
+  placement: 'article_body_after_exercise',
+  article_slug: 'ai-browser-game-how-to',
+  cta_placement: 'article_body_after_exercise',
+  source_context: 'article',
+  route_category: 'article'
+}
+
+stderr | tests/article-engine.test.tsx
+Not implemented: navigation to another Document
+
+stderr | tests/article-engine.test.tsx
+Not implemented: navigation to another Document
+
+ ✓ tests/article-engine.test.tsx (5 tests) 244ms
+ ✓ tests/avoidance-intent-preservation.test.ts (1 test) 28ms
+ ✓ tests/privacy.test.tsx (1 test) 177ms
+ ✓ tests/project-generator.test.ts (59 tests) 115ms
+ ✓ tests/project-interpret-route.test.ts (3 tests) 16ms
+ ✓ tests/elevenlabs-article.test.tsx (6 tests) 33ms
+ ✓ tests/articles-v2.test.tsx (3 tests) 58ms
+ ✓ tests/project-navigation-context.test.ts (19 tests) 11ms
+ ✓ tests/meshy-article.test.tsx (9 tests) 58ms
+ ✓ tests/beginner-workflow.test.ts (7 tests) 38ms
+ ✓ tests/project-provider.test.ts (14 tests) 44ms
+ ✓ tests/contextual-project-tool.test.ts (5 tests) 37ms
+ ✓ tests/seo.test.ts (5 tests) 36ms
+stdout | tests/analytics.test.ts > analytics measurement baseline > keeps diagnostics but no dormant queue when eligibility is unknown
+[GameAI analytics] project_generated { game_type: '2d', budget: 'free' }
+
+ ✓ tests/analytics.test.ts (16 tests) 14ms
+ ✓ tests/intent-preservation.test.ts (11 tests) 49ms
+ ✓ tests/recommendation.test.ts (28 tests) 39ms
+ ✓ tests/affiliate-validation.test.ts (4 tests) 6ms
+ ✓ tests/services.test.ts (5 tests) 16ms
+ ✓ tests/reflow-matrix.test.ts (6 tests) 35ms
+ ✓ tests/safe-project-return.test.ts (12 tests) 4ms
+ ✓ tests/browser-article-reconciliation.test.ts (3 tests) 6ms
+ ✓ tests/service-provenance.test.ts (3 tests) 6ms
+ ✓ tests/creation-deck-motion.test.ts (13 tests) 42ms
+ ✓ tests/security.test.ts (4 tests) 5ms
+ ✓ tests/project-stack-handoff.test.ts (7 tests) 7ms
+ ✓ tests/reflow-evidence.test.ts (3 tests) 5ms
+ ✓ tests/decision-data.test.ts (5 tests) 7ms
+ ✓ tests/vercel-csp.test.ts (1 test) 3ms
+ ✓ tests/ui-theme-contract.test.ts (3 tests) 2ms
+ ✓ tests/verification-status.test.ts (5 tests) 2ms
+
+ Test Files  44 passed (44)
+      Tests  347 passed (347)
+   Start at  16:00:34
+   Duration  16.93s (transform 2.60s, setup 0ms, collect 7.24s, tests 14.40s, environment 22.08s, prepare 225ms)
+
+
+> gameai-hub@0.1.0 validate:data
+> node --import tsx scripts/validate-services.ts && node --import tsx scripts/validate-decision-data.ts && node --import tsx scripts/validate-recommendation-coverage.ts
+
+Validated 29 services with claim and capability provenance
+Validated 8 stacks and 12 recommendation rules
+Validated recommendation coverage across 8 required user journeys
+
+> gameai-hub@0.1.0 check:affiliates
+> node --import tsx scripts/validate-affiliates.ts
+
+Affiliate links are centrally managed and consistent
+
+> gameai-hub@0.1.0 check:sitemap
+> node --import tsx scripts/check-sitemap.ts
+
+Sitemap contains 64 canonical URLs
+
+> gameai-hub@0.1.0 validate:content
+> node --import tsx scripts/validate-articles.ts
+
+Validated 16 article records
+
+> gameai-hub@0.1.0 test:orchestration
+> python -m unittest scripts/tests/test_orchestration.py scripts/tests/test_hotfix_reconcile.py scripts/tests/test_orchestration_browser_recovery.py scripts/tests/test_operation_mode.py
+
+............................................................................
+----------------------------------------------------------------------
+Ran 76 tests in 0.184s
+
+OK
+SUPPRESSED orchestration_github.ensure_codex_dispatch: legacy automation disabled; owner instruction required
+SUPPRESSED orchestration_github.ensure_work_dispatch: legacy automation disabled; owner instruction required
+SUPPRESSED orchestration_github.create_child_hotfix: legacy automation disabled; owner instruction required
+SUPPRESSED orchestration_hotfix_reconcile.ensure_child: legacy automation disabled; owner instruction required
+SUPPRESSED orchestration_github.ingest: legacy automation disabled; owner instruction required
+SUPPRESSED owner resume: legacy automation disabled; use an explicit owner-directed task
+SUPPRESSED orchestration_github.ensure_work_dispatch: legacy automation disabled; owner instruction required
+
+> gameai-hub@0.1.0 validate:workflows
+> python scripts/validate-orchestration.py
+
+orchestration contracts, writer concurrency, and workflows valid
+owner-directed mode and affiliate PR delivery valid

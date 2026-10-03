@@ -1,0 +1,9 @@
+{
+  "width": 320,
+  "entry": "/articles/#categories",
+  "method": "Chromium viewport emulation",
+  "flow": "start → list/fallback → voice → browser Back → reload → ring when supported",
+  "returnedUrl": "http://127.0.0.1:3100/articles/?hubCategory=voice#categories",
+  "historyBefore": 2,
+  "focus": "voice"
+}

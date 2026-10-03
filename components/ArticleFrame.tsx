@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArticleProjectCta } from "@/components/ArticleProjectCta";
 import { ArticleAnalytics } from "@/components/ArticleAnalytics";
+import { ArticleReturnLink } from "@/components/ArticleReturnLink";
 import { ArticleReadingGuide } from "@/components/ArticleReadingGuide";
 import {
   articleCategoryLabels,
@@ -76,7 +77,7 @@ export function ArticleFrame({
       <nav className="breadcrumbs" aria-label="パンくず">
         <Link href="/">ホーム</Link>
         <span>/</span>
-        <Link href="/articles">記事</Link>
+        <ArticleReturnLink slug={article.slug} purpose={article.purpose} />
         <span>/</span>
         <span>{article.title}</span>
       </nav>

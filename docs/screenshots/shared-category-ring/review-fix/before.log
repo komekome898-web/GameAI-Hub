@@ -1,0 +1,180 @@
+
+Running 4 tests using 1 worker
+
+(node:24186) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/4] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 320
+  1) e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 320 
+
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected pattern: /hubCategory=start/
+    Received string:  "http://127.0.0.1:3100/"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toHaveURL" with timeout 10000ms
+        23 × locator resolved to <html lang="ja" data-scroll-behavior="smooth">…</html>
+           - unexpected value "http://127.0.0.1:3100/"
+
+
+      18 |     await page.goto(entry); await idle(page);
+      19 |     await page.locator('[data-category="start"]').focus();
+    > 20 |     await expect(page).toHaveURL(/hubCategory=start/);
+         |                        ^
+      21 |     if (width > 340) await page.getByRole('button', { name: '一覧で見る', exact: true }).click();
+      22 |     await expect(deck(page)).toHaveAttribute('data-mode', 'list');
+      23 |     const historyBefore = await page.evaluate(() => history.length);
+        at /workspace/GameAI-Hub/e2e/shared-category-ring.spec.ts:20:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/shared-category-ring-list--74cf8--selected-voice-from-at-320/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/shared-category-ring-list--74cf8--selected-voice-from-at-320/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/shared-category-ring-list--74cf8--selected-voice-from-at-320/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/shared-category-ring-list--74cf8--selected-voice-from-at-320/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:24349) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/4] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 390
+  2) e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 390 
+
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected pattern: /hubCategory=voice.*#categories$/
+    Received string:  "http://127.0.0.1:3100/?hubCategory=start#categories"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toHaveURL" with timeout 10000ms
+        24 × locator resolved to <html lang="ja" data-scroll-behavior="smooth">…</html>
+           - unexpected value "http://127.0.0.1:3100/?hubCategory=start#categories"
+
+
+      27 |     expect(await page.evaluate(() => history.length)).toBe(historyBefore + 1);
+      28 |     await page.goBack(); await idle(page);
+    > 29 |     await expect(page).toHaveURL(/hubCategory=voice.*#categories$/);
+         |                        ^
+      30 |     await expect(deck(page)).toHaveAttribute('data-mode', 'list');
+      31 |     await expect(page.locator('[data-category="voice"]')).toBeFocused();
+      32 |     const returnedUrl = page.url();
+        at /workspace/GameAI-Hub/e2e/shared-category-ring.spec.ts:29:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/shared-category-ring-list--8120c--selected-voice-from-at-390/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/shared-category-ring-list--8120c--selected-voice-from-at-390/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/shared-category-ring-list--8120c--selected-voice-from-at-390/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/shared-category-ring-list--8120c--selected-voice-from-at-390/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:24499) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/4] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 320
+  3) e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 320 
+
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected pattern: /hubCategory=start/
+    Received string:  "http://127.0.0.1:3100/articles/#categories"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toHaveURL" with timeout 10000ms
+        24 × locator resolved to <html lang="ja" data-scroll-behavior="smooth">…</html>
+           - unexpected value "http://127.0.0.1:3100/articles/#categories"
+
+
+      18 |     await page.goto(entry); await idle(page);
+      19 |     await page.locator('[data-category="start"]').focus();
+    > 20 |     await expect(page).toHaveURL(/hubCategory=start/);
+         |                        ^
+      21 |     if (width > 340) await page.getByRole('button', { name: '一覧で見る', exact: true }).click();
+      22 |     await expect(deck(page)).toHaveAttribute('data-mode', 'list');
+      23 |     const historyBefore = await page.evaluate(() => history.length);
+        at /workspace/GameAI-Hub/e2e/shared-category-ring.spec.ts:20:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/shared-category-ring-list--b63fc--articles-categories-at-320/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/shared-category-ring-list--b63fc--articles-categories-at-320/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/shared-category-ring-list--b63fc--articles-categories-at-320/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/shared-category-ring-list--b63fc--articles-categories-at-320/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:24640) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[4/4] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 390
+  4) e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 390 
+
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected pattern: /hubCategory=voice.*#categories$/
+    Received string:  "http://127.0.0.1:3100/articles/?hubCategory=start#categories"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toHaveURL" with timeout 10000ms
+        24 × locator resolved to <html lang="ja" data-scroll-behavior="smooth">…</html>
+           - unexpected value "http://127.0.0.1:3100/articles/?hubCategory=start#categories"
+
+
+      27 |     await expect(page).toHaveURL(/#voice$/); await idle(page);
+      28 |     expect(await page.evaluate(() => history.length)).toBe(historyBefore + 1);
+    > 29 |     await page.goBack(); await idle(page);
+         |                        ^
+      30 |     await expect(page).toHaveURL(/hubCategory=voice.*#categories$/);
+      31 |     await expect(deck(page)).toHaveAttribute('data-mode', 'list');
+      32 |     await expect(page.locator('[data-category="voice"]')).toBeFocused();
+        at /workspace/GameAI-Hub/e2e/shared-category-ring.spec.ts:29:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/shared-category-ring-list--b608a--articles-categories-at-390/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/shared-category-ring-list--b608a--articles-categories-at-390/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/shared-category-ring-list--b608a--articles-categories-at-390/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/shared-category-ring-list--b608a--articles-categories-at-390/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  4 failed
+    e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 320 
+    e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 390 
+    e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 320 
+    e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 390 

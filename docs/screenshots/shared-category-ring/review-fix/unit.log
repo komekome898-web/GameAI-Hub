@@ -1,0 +1,11 @@
+
+ RUN  v4.0.6 /workspace/GameAI-Hub
+
+ ✓ tests/articles-v2.test.tsx (3 tests) 67ms
+ ✓ tests/creation-deck.test.tsx (10 tests) 680ms
+
+ Test Files  2 passed (2)
+      Tests  13 passed (13)
+   Start at  15:00:23
+   Duration  1.73s (transform 385ms, setup 0ms, collect 615ms, tests 747ms, environment 1.18s, prepare 13ms)
+
