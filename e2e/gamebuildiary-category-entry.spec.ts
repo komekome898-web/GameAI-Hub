@@ -132,7 +132,7 @@ test('no JavaScript exposes all sixteen normal article links once', async ({ bro
   const page = await context.newPage();
   await page.goto('/articles/');
   await expect(page.locator('.creation-deck li a')).toHaveCount(16);
-  await page.locator('#voice li a').nth(1).click();
+  await page.locator('#voice li a').nth(1).locator('strong').click();
   await expect(page).toHaveURL(/elevenlabs-v4-game-voice\/$/);
   await context.close();
 });
