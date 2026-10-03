@@ -180,6 +180,11 @@ for (const width of [320, 375]) {
           const date = row.querySelector<HTMLElement>("small")!;
           const labelRect = label.getBoundingClientRect();
           const dateRect = date.getBoundingClientRect();
+          const natural = label.cloneNode(true) as HTMLElement;
+          Object.assign(natural.style, { position: 'absolute', visibility: 'hidden', width: 'max-content', maxWidth: 'none', flex: 'none', whiteSpace: 'nowrap' });
+          row.append(natural);
+          const naturalWidth = natural.getBoundingClientRect().width;
+          natural.remove();
           const labelTextRange = document.createRange();
           labelTextRange.selectNodeContents(label);
           const verticalOverlap =
@@ -203,6 +208,8 @@ for (const width of [320, 375]) {
               date.scrollWidth <= date.clientWidth + 1 &&
               date.scrollHeight <= date.clientHeight + 1,
             labelLineCount: labelTextRange.getClientRects().length,
+            naturalFits: naturalWidth <= rowRect.width + .5,
+            separated: verticalOverlap > 0 ? horizontalGap >= 7 : verticalGap >= 7,
             nonoverlapping:
               verticalOverlap > 0 ? horizontalGap >= 0 : verticalGap >= 0,
           };
@@ -211,11 +218,11 @@ for (const width of [320, 375]) {
     expect(metadataLayouts).toHaveLength(3);
     expect(
       metadataLayouts.every(
-        ({ contained, fullTextVisible, labelLineCount, nonoverlapping }) =>
+        ({ contained, fullTextVisible, labelLineCount, naturalFits, nonoverlapping, separated }) =>
           contained &&
           fullTextVisible &&
-          labelLineCount === 1 &&
-          nonoverlapping,
+          (!naturalFits || labelLineCount === 1) &&
+          nonoverlapping && separated,
       ),
     ).toBe(true);
     for (const row of await page.locator("#start .v2-start-card-meta").all()) {

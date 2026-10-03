@@ -6,6 +6,7 @@ import { diagnoseWidths } from "./acceptance/diagnostics";
 import { reflowEvidenceVersion, type ReflowEvidenceManifest, type ReflowEvidenceRecord } from "./acceptance/manifest";
 import { applyTextMethod, probeSurface, type TextMethod, type TextRole } from "./acceptance/reflow";
 import { validateExecutionSubset, validateFinalExecution } from "./acceptance/reflow-matrix";
+import { verifyDeckSummaryRecovery, waitForSettledDeck } from "./acceptance/deck-summary";
 import { cleanSourceIdentity } from "./acceptance/source-identity";
 
 test.describe.configure({ mode: "serial" });
@@ -34,9 +35,14 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
       ? (`spacing-${item.spacing?.override}` as TextMethod)
       : method as TextMethod;
   const roles = item.roles ?? [{ role: "surface", selector: `${item.selector} :is(h1,h2,h3,p,a,button)` }];
+  const isDeckSurface = item.selector === "#start .creation-deck";
+  if (isDeckSurface) await waitForSettledDeck(page);
+  const recoveredSummaries = isDeckSurface ? await verifyDeckSummaryRecovery(page, { roles, method: textMethod, factor: item.factor ?? 1 }) : new Set<string>();
   const scale = await applyTextMethod(page, roles, textMethod, item.factor ?? 1);
   expect(scale.sufficient, `${item.id}: ${JSON.stringify(scale)}`).toBe(true);
+  if (isDeckSurface) await waitForSettledDeck(page);
   const surface = await probeSurface(page, item.selector, item.minimumTarget ?? 44, 3);
+  if (isDeckSurface) await waitForSettledDeck(page);
   const widths = await diagnoseWidths(page);
   const deckMode = item.selector === "#start .creation-deck" && await page.locator(item.selector).getAttribute("data-mode") === "deck";
   const deckActiveContained = !deckMode || await page.locator(item.selector).evaluate((root) => {
@@ -47,8 +53,9 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
     return activeRect.top >= stageRect.top - 1 && activeRect.bottom <= stageRect.bottom + 1 && active.scrollHeight <= stage.clientHeight + 1;
   });
   const unownedOverflow = widths.unownedOverflowingElements.filter(({ exceptionOwner }) => exceptionOwner !== "creation-deck-inactive-card");
-  const clippedText = surface.clippedText.filter(({ selector }) =>
-    !(deckMode && deckActiveContained && selector === "div.creation-deck"));
+  const clippedText = surface.clippedText.filter(({ selector, horizontal, vertical }) =>
+    !(deckMode && deckActiveContained && horizontal && !vertical && selector === "div.creation-deck") &&
+    !(deckMode && vertical && !horizontal && recoveredSummaries.has(selector)));
   const screenshot = `${item.id}.png`;
   await page.screenshot({ path: path.join(output, screenshot), fullPage: true });
   const semantics = await page.locator(item.selector).evaluate((root) => {

@@ -38,7 +38,7 @@ export async function diagnoseWidths(page: Page): Promise<WidthDiagnostic> {
       }
       if (rect.width > 0 && rect.height > 0) {
         const card = element.closest<HTMLElement>("#start .creation-deck[data-mode='deck'] li[data-distance]");
-        const exceptionOwner = card?.dataset.distance !== "0" ? "creation-deck-inactive-card" as const : undefined;
+        const exceptionOwner = card && Number.isFinite(Number(card.dataset.distance)) && Number(card.dataset.distance) !== 0 ? "creation-deck-inactive-card" as const : undefined;
         unowned.push({ selector: selectorFor(element), left: rect.left, right: rect.right, width: rect.width, exceptionOwner });
       }
     }

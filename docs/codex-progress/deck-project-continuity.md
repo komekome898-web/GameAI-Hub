@@ -46,3 +46,12 @@
   evidence remains unchanged. No deletion-focus/crop/category expansion.
 - Previous remote E2E failed on 017085b; detailed logs blocked by HTTP 403,
   specific failing test unknown. Final-head CI and re-review remain separate.
+
+## Acceptance alignment authorized after independent diagnosis
+
+- Test-only alignment for natural-width metadata wrapping and verified,
+  recoverable three-line summaries; ownership checks are narrowed, not broadened.
+- Contract and negative fixtures: `docs/evidence/deck-acceptance-alignment/README.md`.
+- Final full-E2E/reconciliation evidence is delivered separately through Library
+  with the exact clean source checkpoint; current CI is reported in the handoff.
+- Runtime, prior P2 repairs and Project handoffs remain unchanged.
