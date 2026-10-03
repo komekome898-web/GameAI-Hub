@@ -117,9 +117,16 @@ test("Creation Deck transfers only control focus when forced flat", async ({ pag
     await page.setViewportSize({ width: 390, height: 844 });
     await page.emulateMedia({ reducedMotion: "no-preference", forcedColors: "none" });
     await page.goto("/articles/#start");
-    const enable = page.getByRole("button", { name: "円環で見る" });
-    if (await enable.isVisible()) await enable.click();
-    await expect(page.locator("#start .creation-deck")).toHaveAttribute("data-mode", "deck");
+    const deck = page.locator("#start .creation-deck");
+    await expect(deck).toHaveAttribute("data-available", "true");
+    await expect(deck).toHaveAttribute("data-mode", /^(list|deck)$/);
+    if (await deck.getAttribute("data-mode") === "list") {
+      const enable = page.getByRole("button", { name: "円環で見る", exact: true });
+      await expect(enable).toBeVisible();
+      await expect(enable).toBeEnabled();
+      await enable.click();
+    }
+    await expect(deck).toHaveAttribute("data-mode", "deck");
   };
   const activeLink = () => page.locator("#start .creation-deck ol > li a").first();
   const currentActiveHref = async () => page.locator("#start .creation-deck li[data-distance='0'] a").getAttribute("href");

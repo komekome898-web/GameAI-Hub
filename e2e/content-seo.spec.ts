@@ -1,4 +1,5 @@
 import { expect, test } from './fixtures';
+import type { Locator } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 
 for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'mobile-320',width:320,height:640},{name:'desktop',width:1280,height:900}]){
@@ -77,14 +78,34 @@ test('browser-game article supports play, one change, and recovery',async({page}
  await page.getByRole('button',{name:'ゲームを表示'}).click();
  const game=page.frameLocator('iframe[title="作ったゲームの動作確認"]');
  await expect(game.getByText('スライム HP: 18')).toBeVisible();
+ const clickGameButton = async (button: Locator) => {
+  await expect(button).toBeVisible();
+  await expect(button).toBeEnabled();
+  await button.scrollIntoViewIfNeeded();
+  // iframe-local actionability does not cover smooth scrolling of its parent.
+  await expect.poll(() => page.locator('iframe[title="作ったゲームの動作確認"]').evaluate(async frame => {
+   let stable = 0;
+   let previous = frame.getBoundingClientRect();
+   for (let sample = 0; sample < 120; sample++) {
+    await new Promise<void>(resolve => requestAnimationFrame(() => resolve()));
+    const current = frame.getBoundingClientRect();
+    stable = ['x', 'y', 'width', 'height'].every(key => Math.abs(current[key as 'x'] - previous[key as 'x']) < .1) ? stable + 1 : 0;
+    previous = current;
+    if (stable >= 12) return true;
+   }
+   return false;
+  })).toBe(true);
+  await button.click();
+ };
  const fight=game.getByRole('button',{name:'たたかう'});
- await fight.click();
+ await clickGameButton(fight);
  await expect(game.getByText('スライム HP: 12')).toBeVisible();
- await fight.click();
- await fight.click();
+ await clickGameButton(fight);
+ await expect(game.getByText('スライム HP: 6')).toBeVisible();
+ await clickGameButton(fight);
  await expect(game.getByText('スライムに勝った！')).toBeVisible();
  await expect(fight).toBeDisabled();
- await game.getByRole('button',{name:'もう一度'}).click();
+ await clickGameButton(game.getByRole('button',{name:'もう一度'}));
  await expect(game.getByText('スライム HP: 18')).toBeVisible();
  await page.getByRole('button',{name:'この版は動いたと記録'}).click();
  const editor=page.getByLabel('ゲームのコード');

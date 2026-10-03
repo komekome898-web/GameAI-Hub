@@ -55,3 +55,9 @@
 - Final full-E2E/reconciliation evidence is delivered separately through Library
   with the exact clean source checkpoint; current CI is reported in the handoff.
 - Runtime, prior P2 repairs and Project handoffs remain unchanged.
+
+- Owner follow-up authorized readiness repairs for game iframe input, V4 client
+  initialization, and deck focus setup, plus original-summary DOM identity checks.
+  Assertions, real click counts, retries and runtime remain unchanged; HP6 and
+  identical-node replacement negatives strengthen coverage. Previous failing run
+  is retained separately and is not represented as a pass.

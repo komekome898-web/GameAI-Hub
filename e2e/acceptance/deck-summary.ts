@@ -33,8 +33,12 @@ export async function verifyDeckSummaryRecovery(page: Page, text?: { roles: Text
     const summary = card.querySelector<HTMLElement>('p.v2-start-card-description[data-expanded="false"]');
     return summary ? [{ index, id: summary.id, selector: `#${CSS.escape(summary.id)}`, text: summary.textContent ?? '' }] : [];
   }));
+  // Keep the original DOM objects: an identical ID/text on a replacement is not recovery.
+  const originalSummaries = await deck.locator('li p.v2-start-card-description').elementHandles();
+  try {
   const assertFull = async (index: number, text: string, id: string) => {
     const summary = deck.locator('li').nth(index).locator('p.v2-start-card-description');
+    expect(await summary.evaluate((current, original) => current === original, originalSummaries[index]), 'summary must retain its original DOM node').toBe(true);
     await expect(summary).toHaveAttribute('id', id);
     await expect(summary).toHaveText(text);
     await expect(summary).toBeVisible();
@@ -84,4 +88,7 @@ export async function verifyDeckSummaryRecovery(page: Page, text?: { roles: Text
   await original.nth(index).locator('a').focus();
   await waitForSettledDeck(page);
   return new Set(candidates.map(c => c.selector));
+  } finally {
+    await Promise.all(originalSummaries.map(node => node.dispose()));
+  }
 }

@@ -238,6 +238,10 @@ test("V4 dynamic input, cancellation, follow-up, focus, and budget observations"
   for (const count of [0, 1, 2, 3, 5]) records.push({ ...records.at(-1)!, id: `v4-count-fixture-${count}`, caseId: "VL-V4-DECK-COUNTS", variantId: count === 5 ? "more-than-three" : ["zero", "one", "two", "three"][count], state: [count === 5 ? "more-than-three" : ["zero", "one", "two", "three"][count]], coverage: ["fixture-counts", "viewport-reflow"], surface: { kind: "static", artifact: "tests/creation-deck.test.tsx" }, screenshot: "not-applicable: component fixture", limitations: ["Executed by the required Vitest step; component-fixture evidence, not a browser observation."], review: { kind: "automated", reviewer: "creation-deck disposable item-count fixtures" } });
   await generic("VL-V4-DECK-FOCUS", ["controls-focused", "article-focused", "other-input-focused", "manual-list-preference"], ["focus-reachability", "forced-fallback", "manual-toggle-persistence"]);
   await page.setViewportSize({ width: 390, height: 844 }); await page.goto("/articles/#start");
+  // The SSR list can be stable before hydration replaces its controls. Wait for
+  // the client's fit/media checks before retaining measurement target objects.
+  await expect(page.locator("#start .creation-deck")).toHaveAttribute("data-available", "true");
+  await waitForSettledDeck(page);
   const performanceValues = await page.evaluate(async () => {
     const resources = performance.getEntriesByType("resource").map((entry) => entry.name);
     const gzipSize = async (text: string) => {

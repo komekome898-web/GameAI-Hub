@@ -53,3 +53,22 @@ test('overflow outside an actual inactive card never receives the deck owner', a
   expect(record).toBeDefined();
   expect(record!.exceptionOwner).toBeUndefined();
 });
+
+for (const phase of ['expanded', 'list'] as const) {
+  test(`recovery rejects an identical replacement summary after ${phase}`, async ({ page }) => {
+    await page.locator('.creation-deck').evaluate((root, when) => {
+      const summary = root.querySelector('p.v2-start-card-description')!;
+      const observer = new MutationObserver(() => {
+        const ready = when === 'expanded'
+          ? root.getAttribute('data-mode') === 'deck' && summary.getAttribute('data-expanded') === 'true'
+          : root.getAttribute('data-mode') === 'list';
+        if (ready) {
+          observer.disconnect();
+          summary.replaceWith(summary.cloneNode(true));
+        }
+      });
+      observer.observe(root, { attributes: true, subtree: true });
+    }, phase);
+    await expect(verifyDeckSummaryRecovery(page)).rejects.toThrow('summary must retain its original DOM node');
+  });
+}

@@ -50,3 +50,23 @@ are not silently rewritten as earlier acceptance evidence.
 
 Physical Safari/Brave feel, OS focus and VoiceOver remain UNTESTED. No merge,
 auto-merge, deploy command, Production/Preview navigation or legacy dispatch.
+
+## Readiness and node-identity follow-up
+
+The 2e7074e full run had 167 passes, two first-attempt flakes (V4 budget
+measurement and deck focus setup), and one game-article failure; its separate
+115-record reconciliation passed. Those results are retained in the prior
+Library blocker ZIP and are not treated as a successful full run.
+
+The owner subsequently authorized three test-only readiness changes: wait for
+parent iframe geometry to stop scrolling before each existing real game-button
+click; await client deck availability before V4 budget measurement; await deck
+availability and assert mode before deciding whether focus setup needs the real
+circular-mode toggle. The game still receives exactly three attack clicks, with
+HP18 →12 →6 →victory and reset/recovery assertions. No forced click, added retry,
+extra attack, runtime or content change is used.
+
+Recovery also retains original paragraph DOM handles and requires identity after
+expansion and list transition. Two negative fixtures clone and replace a summary
+with identical ID/text after each transition; both must fail the identity check.
+Final logs and exact-head evidence are supplied in the new Library handoff.
