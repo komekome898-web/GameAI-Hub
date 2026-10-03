@@ -45,9 +45,9 @@ test("Slice 3 representative routes meet the rendered reading contract", async (
 
       if (route.id === "hub") {
         await expect(
-          page.getByRole("navigation", { name: "制作目的から記事を選ぶ" }),
+          page.getByRole("region", { name: "制作目的から記事を選ぶ" }),
         ).toBeVisible();
-        await expect(page.locator(".article-cluster-list")).toHaveCount(4);
+        await expect(page.locator(".hub-category-card")).toHaveCount(5);
       } else {
         await expect(page.locator(".article-answer")).toBeVisible();
         await expect(

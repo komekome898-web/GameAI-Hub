@@ -15,7 +15,7 @@ export function generateStaticParams(){return getServices().map(s=>({slug:s.slug
 
 export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{
   const {slug}=await params;const s=getService(slug);if(!s)return {};
-  return {title:`${s.name}：ゲーム開発での使い方・料金・商用利用`,description:s.conclusion,alternates:{canonical:`/tools/${slug}/`},openGraph:{title:`${s.name} | GameAI Hub`,description:s.summary,url:`/tools/${slug}/`}}
+  return {title:`${s.name}：ゲーム開発での使い方・料金・商用利用`,description:s.conclusion,alternates:{canonical:`/tools/${slug}/`},openGraph:{title:`${s.name} | GameBuildiary`,description:s.summary,url:`/tools/${slug}/`}}
 }
 
 export default async function ToolPage({params}:{params:Promise<{slug:string}>}){

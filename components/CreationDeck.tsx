@@ -12,10 +12,17 @@ export type CreationDeckItem = {
   description: string;
   updatedAt: string;
   label: string;
-  image: { src: string; srcSet: string };
+  image?: { src: string; srcSet: string };
 };
 
-export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
+export function CreationDeck({ items, initialId, defaultMode = "list", forceList = false, onCommitted, onOpen }: {
+  items: CreationDeckItem[];
+  initialId?: string;
+  defaultMode?: "list" | "deck";
+  forceList?: boolean;
+  onCommitted?: (id: string) => void;
+  onOpen?: (id: string) => void;
+}) {
   const [mode, setMode] = useState<"list" | "deck">("list");
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const descriptionPrefix = useId();
@@ -27,9 +34,9 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
   const root = useRef<HTMLDivElement>(null);
   const controls = useRef<HTMLDivElement>(null);
   const ids = useMemo(() => items.map(item => item.id), [items]);
-  const { activeId, move, cancel: cancelGesture } = useCreationDeckMotion(stage, ids, mode === "deck" && available);
+  const { activeId, move, cancel: cancelGesture } = useCreationDeckMotion(stage, ids, mode === "deck" && available, initialId);
   const active = Math.max(0, ids.indexOf(activeId));
-  const preferredMode = useRef<"list" | "deck">("list");
+  const preferredMode = useRef<"list" | "deck">(defaultMode);
   // CSS can remove the controls before a media-query callback runs. Remember
   // control ownership while focus is still present so fallback can move it to
   // the active article rather than leaving focus on <body>.
@@ -37,11 +44,14 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
 
   useEffect(() => {
     try {
-      preferredMode.current = sessionStorage.getItem("gameai-creation-deck-mode") === "deck" ? "deck" : "list";
+      const saved = sessionStorage.getItem("gameai-creation-deck-mode");
+      preferredMode.current = saved === "list" || saved === "deck" ? saved : defaultMode;
     } catch {
-      preferredMode.current = "list";
+      preferredMode.current = defaultMode;
     }
-  }, []);
+  }, [defaultMode]);
+
+  useEffect(() => { if (activeId && mode === "deck") onCommitted?.(activeId); }, [activeId, mode, onCommitted]);
 
   useLayoutEffect(() => {
     const root = stage.current;
@@ -118,7 +128,7 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
     const update = () => {
       // A two-card set remains an ordinary flat rail; the circular treatment
       // only adds useful spatial context when a third card exists.
-      const next = items.length > 2 && fitUsable && !narrow.matches && !reduced.matches && !forced.matches;
+      const next = !forceList && items.length > 2 && fitUsable && !narrow.matches && !reduced.matches && !forced.matches;
       setCandidate(next);
       if (!next) setAvailable(false);
       if (!next) {
@@ -140,7 +150,7 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
     update();
     [narrow, reduced, forced].forEach((query) => query.addEventListener("change", update));
     return () => [narrow, reduced, forced].forEach((query) => query.removeEventListener("change", update));
-  }, [active, cancelGesture, fitUsable, items.length]);
+  }, [active, cancelGesture, fitUsable, forceList, items.length]);
 
   useEffect(() => {
     const rememberFocusOwner = (event: FocusEvent) => {
@@ -194,12 +204,12 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
         const isExpanded = mode === "list" || expanded.has(item.id);
         return <li key={item.id} data-deck-id={item.id} className="v2-start-card-item">
           <div className="v2-start-card">
-            <Link className="v2-start-card-face" href={item.href} aria-label={item.title}>
-              <span className="v2-start-card-image" aria-hidden="true">
+            <Link className="v2-start-card-face" href={item.href} aria-label={item.title} onClick={() => onOpen?.(item.id)}>
+              {item.image && <span className="v2-start-card-image" aria-hidden="true">
                 {/* Approved source bytes are served without re-encoding. */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={item.image.src} srcSet={item.image.srcSet} sizes="(max-width: 680px) calc(100vw - 96px), 272px" width="960" height="640" alt="" />
-              </span>
+              </span>}
               <span className="v2-start-card-meta"><span className="v2-start-card-label">{item.label}</span><small>更新 {item.updatedAt}</small></span>
               <strong>{item.title}</strong>
               <span className="v2-start-card-read" aria-hidden="true">記事を読む <b>→</b></span>

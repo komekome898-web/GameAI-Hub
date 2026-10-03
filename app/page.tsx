@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { site, siteDescriptionLines } from "@/lib/site";
 import { ProjectIdeaForm } from "@/components/ProjectGeneratorClient";
 
 export const metadata: Metadata = {
   title: "作りたいゲームから制作ロードマップを作る",
-  description: "ゲーム案を入力すると、今日やること、制作ロードマップ、使うAI、具体的なPrompt、完了条件を整理します。",
+  description: site.description,
   alternates: { canonical: "/" },
   openGraph: { url: "/" },
 };
@@ -15,7 +16,8 @@ export default function Home() {
   return <div className="home-v2-route">
     <section className="home-execution-hero" aria-labelledby="home-title">
       <div className="home-execution-copy">
-        <p className="system-label">AIゲーム制作の実行ナビ</p>
+        <p className="system-label">{site.name} / {site.nickname}</p>
+        <p className="home-brand-description">{siteDescriptionLines.map(line => <span key={line}>{line}</span>)}</p>
         <h1 id="home-title">作りたいゲームから、<span>次の1作業を決める。</span></h1>
         <p className="home-outcome">ゲーム案を1文で入力すると、<strong>今日やること・使うAI・コピーする指示・完了条件</strong>をまとめたProjectが始まります。</p>
         <ProjectIdeaForm location="home" />

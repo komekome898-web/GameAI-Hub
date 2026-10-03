@@ -22,7 +22,7 @@ for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'mobile-32
  test(`ElevenLabs commercial-use guide renders its decision path — ${viewport.name}`,async({page})=>{
   await mkdir('docs/screenshots/elevenlabs-commercial-use-game',{recursive:true});
   await page.setViewportSize({width:viewport.width,height:viewport.height});
-  await page.goto('/articles/');
+  await page.goto('/articles/#all');
   await expect(page.getByRole('link',{name:/ElevenLabsの商用利用ガイド/})).toHaveAttribute('href','/articles/elevenlabs-commercial-use-game/');
   await page.goto('/articles/elevenlabs-commercial-use-game/');
   await expect(page.getByRole('heading',{level:1,name:'ElevenLabsの商用利用ガイド｜ゲーム音声で確認すべき権利とプラン'})).toBeVisible();
@@ -46,10 +46,10 @@ for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'mobile-32
 for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'zoom-320',width:320,height:640},{name:'desktop',width:1280,height:900}]){
  test(`article discovery and Project handoff — ${viewport.name}`,async({page})=>{
   await page.setViewportSize({width:viewport.width,height:viewport.height});
-  await page.goto('/articles/');
+  await page.goto('/articles/#all');
   if(viewport.name==='zoom-320')await page.evaluate(()=>{document.documentElement.style.zoom='2'});
   await expect(page.getByRole('heading',{name:/今の制作課題から/})).toBeVisible();
-  await page.getByRole('link',{name:/AIでブラウザゲームを作る方法/}).click();
+  await page.getByRole('link',{name:/AIでブラウザゲームを作る方法/}).locator('strong').click();
   await expect(page.getByRole('navigation',{name:'パンくず'})).toBeVisible();
   await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(2);
   await expect(page.getByRole('heading',{name:'まず完成例を動かす'})).toBeVisible();

@@ -25,22 +25,21 @@ test("shared visual layer reflows across representative routes", async ({ page }
   }
 });
 
-test("Creation Deck is explicit, preserves links, and retains a list fallback", async ({ page }) => {
+test("Creation Deck starts circular, preserves links, and retains a list fallback", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/articles/#start");
   const deck = page.locator("#start .creation-deck");
   const links = deck.locator("ol > li a");
-  await expect(links).toHaveCount(3);
-  await expect(deck).toHaveAttribute("data-mode", "list");
-  await page.getByRole("button", { name: "円環で見る" }).click();
+  await expect(links).toHaveCount(5);
+  await expect(deck).toHaveAttribute("data-mode", "deck");
   await expect(deck).toHaveAttribute("data-mode", "deck");
   const stage = deck.locator("ol");
-  const followingSection = page.locator("#start").locator("xpath=following-sibling::section[1]");
+  const followingSection = page.locator(".hub-project-cta");
   const sampleGeometry = async () => page.evaluate(() => new Promise<{ stage: number; next: number; content: number }[]>((resolve) => {
     const samples: { stage: number; next: number; content: number }[] = [];
     const collect = () => {
       const stageElement = document.querySelector("#start .creation-deck ol");
-      const next = document.querySelector("#start")?.nextElementSibling;
+      const next = document.querySelector(".hub-project-cta");
       const content = Math.max(...Array.from(stageElement?.children ?? [], (child) => (child as HTMLElement).scrollHeight), 0);
       samples.push({ stage: stageElement?.getBoundingClientRect().height ?? 0, next: next?.getBoundingClientRect().top ?? 0, content });
       if (samples.length === 8) resolve(samples);
@@ -59,11 +58,11 @@ test("Creation Deck is explicit, preserves links, and retains a list fallback", 
   await expect(stage).toBeVisible();
   await expect(followingSection).toBeVisible();
   await page.getByRole("button", { name: "次の記事" }).click();
-  await expect(page.locator(".creation-deck-status")).toContainText("3件中2件目");
+  await expect(page.locator(".creation-deck-status")).toContainText("5件中2件目");
   await page.getByRole("button", { name: "次の記事" }).press("ArrowLeft");
-  await expect(page.locator(".creation-deck-status")).toContainText("3件中1件目");
+  await expect(page.locator(".creation-deck-status")).toContainText("5件中1件目");
   await links.nth(2).focus();
-  await expect(page.locator(".creation-deck-status")).toContainText("3件中3件目");
+  await expect(page.locator(".creation-deck-status")).toContainText("5件中3件目");
   await expect(links.nth(2)).toBeFocused();
   await page.setViewportSize({ width: 600, height: 844 });
   assertSettled(await sampleGeometry());
@@ -93,7 +92,7 @@ test("Creation Deck is explicit, preserves links, and retains a list fallback", 
 
   await page.setViewportSize({ width: 320, height: 844 });
   await expect(page.getByRole("button", { name: "円環で見る" })).toHaveCount(0);
-  await expect(links).toHaveCount(3);
+  await expect(links).toHaveCount(5);
 });
 
 test("Creation Deck remains usable when session storage is blocked", async ({ page }) => {
@@ -103,12 +102,10 @@ test("Creation Deck remains usable when session storage is blocked", async ({ pa
   });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/articles/#start");
-  const toggle = page.getByRole("button", { name: "円環で見る" });
-  await expect(toggle).toBeVisible();
-  await toggle.click();
+  await expect(page.locator(".creation-deck")).toHaveCount(1);
   await expect(page.locator("#start .creation-deck")).toHaveAttribute("data-mode", "deck");
   await page.getByRole("button", { name: "次の記事" }).click();
-  await expect(page.locator(".creation-deck-status")).toContainText("3件中2件目");
+  await expect(page.locator(".creation-deck-status")).toContainText("5件中2件目");
 });
 
 test("Creation Deck transfers only control focus when forced flat", async ({ page }) => {
@@ -143,7 +140,7 @@ test("Creation Deck transfers only control focus when forced flat", async ({ pag
 
   await openDeck();
   await page.getByRole("button", { name: "次の記事" }).click();
-  await expect(page.locator(".creation-deck-status")).toContainText("3件中2件目");
+  await expect(page.locator(".creation-deck-status")).toContainText("5件中2件目");
   await page.getByRole("button", { name: "一覧で見る" }).focus();
   await page.setViewportSize({ width: 320, height: 844 });
   await expect(page.locator("#start .creation-deck ol > li a").nth(1)).toBeFocused();

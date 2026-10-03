@@ -9,9 +9,10 @@ type Controller = { move: (delta: number) => void; reveal: (id: string) => void;
 const noop = () => {};
 
 /** Owns a single animation clock. Article text, routes and categories stay outside. */
-export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>, ids: string[], enabled: boolean) {
-  const [activeId, setActiveId] = useState(ids[0] ?? '');
-  const committed = useRef(ids[0] ?? '');
+export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>, ids: string[], enabled: boolean, initialId?: string) {
+  const seed = initialId && ids.includes(initialId) ? initialId : ids[0] ?? '';
+  const [activeId, setActiveId] = useState(seed);
+  const committed = useRef(seed);
   const api = useRef<Controller>({ move: noop, reveal: noop, cancel: noop });
   const idsKey = JSON.stringify(ids);
 

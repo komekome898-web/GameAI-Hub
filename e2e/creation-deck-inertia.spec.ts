@@ -21,9 +21,8 @@ test.beforeEach(async ({ context }) => {
 });
 async function open(page: Page, count = 3) {
   await page.setViewportSize({ width: 390, height: 844 });
-  if (count === 3) { await page.goto('/articles/#start'); await page.reload(); }
-  else {
-    await page.route('**/__inertia_fixture?*', r => r.fulfill({ contentType: 'text/html', body: `<!doctype html><html lang="ja"><meta name="viewport" content="width=device-width,initial-scale=1"><style>${css}</style><body class="visual-layer-v2"><main class="articles-v2-route"><section id="start"></section></main><script>${bundle}</script></body></html>` }));
+  {
+    await page.route('**/__inertia_fixture?*', r => r.fulfill({ contentType: 'text/html', body: `<!doctype html><html lang="ja"><meta name="viewport" content="width=device-width,initial-scale=1"><style>${css}</style><body class="visual-layer-v2"><main class="articles-v2-route"><section id="start" class="article-cluster"></section></main><script>${bundle}</script></body></html>` }));
     await page.goto(`/__inertia_fixture?count=${count}`);
   }
   if (await page.getByRole('button', { name: '円環で見る', exact: true }).count()) await page.getByRole('button', { name: '円環で見る', exact: true }).click();
@@ -241,4 +240,13 @@ test('a delayed animation frame hides cards crossing the circular seam', async (
   result.after.forEach((c, i) => { if (Math.abs(c.distance - result.before[i].distance) > 1.5) { crossings++; expect(c.opacity).toBe(0); } });
   expect(crossings).toBeGreaterThan(0); await idle(page);
   await info.attach('delayed-frame-seam', { body: JSON.stringify(result), contentType: 'application/json' });
+});
+
+for (const count of [0, 1, 2]) test(`${count} items remain an ordinary static list even with automatic deck preference`, async ({ page }) => {
+  await page.route('**/__inertia_fixture?*', r => r.fulfill({ contentType: 'text/html', body: `<!doctype html><html lang="ja"><meta name="viewport" content="width=device-width,initial-scale=1"><style>${css}</style><body class="visual-layer-v2"><main class="articles-v2-route"><section id="start" class="article-cluster"></section></main><script>${bundle}</script></body></html>` }));
+  await page.goto(`/__inertia_fixture?count=${count}&automatic`);
+  await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'list');
+  await expect(page.locator('.creation-deck li a')).toHaveCount(count);
+  await expect(page.locator('.creation-deck-controls')).toHaveCount(0);
+  if (!count) await expect(page.getByText('現在、表示できる記事はありません。')).toBeVisible();
 });

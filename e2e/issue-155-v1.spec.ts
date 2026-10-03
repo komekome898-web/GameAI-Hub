@@ -14,10 +14,12 @@ const evidenceDirectory =
 const startHrefs = [
   "/articles/ai-browser-game-how-to/",
   "/articles/before-asking-ai-build-game/",
+  "/articles/small-first-success/",
   "/articles/github-beginner-game-development/",
+  "/articles/ai-tool-comparison-later/",
 ];
 
-test("V1 keeps the article hub static, complete, and responsive", async ({
+test("START retains complete responsive article cards after category selection", async ({
   browser,
 }) => {
   test.setTimeout(90_000);
@@ -34,16 +36,16 @@ test("V1 keeps the article hub static, complete, and responsive", async ({
       if (request.url().includes("/visual-v2/backgrounds/mint-atrium-"))
         backgroundRequests.push(request.url());
     });
-    await page.goto("http://127.0.0.1:3100/articles/");
+    await page.goto("http://127.0.0.1:3100/articles/#start");
 
-    await expect(page.locator(".article-cluster-list")).toHaveCount(4);
-    await expect(page.locator("#start li a")).toHaveCount(3);
+    await expect(page.locator(".article-cluster-list")).toHaveCount(1);
+    await expect(page.locator("#start li a")).toHaveCount(5);
     expect(
       await page
         .locator("#start li a")
         .evaluateAll((links) => links.map((link) => link.getAttribute("href"))),
     ).toEqual(startHrefs);
-    await expect(page.getByRole("button", { name: "円環で見る" })).toHaveCount(viewport.width <= 340 ? 0 : 1);
+    await expect(page.getByRole("button", { name: "一覧で見る" })).toHaveCount(viewport.width <= 340 ? 0 : 1);
     await expect(page.locator("#start img")).toHaveCount(3);
     expect(
       await page
@@ -78,11 +80,11 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
     viewport: { width: 320, height: 844 },
   });
   const noScriptPage = await noScript.newPage();
-  await noScriptPage.goto("http://127.0.0.1:3100/articles/");
-  await expect(noScriptPage.locator("#start li a")).toHaveCount(3);
+  await noScriptPage.goto("http://127.0.0.1:3100/articles/#start");
+  await expect(noScriptPage.locator("#start li a")).toHaveCount(5);
   await expect(
     noScriptPage.locator("#start .v2-start-card-description"),
-  ).toHaveCount(3);
+  ).toHaveCount(5);
   expect((await diagnoseWidths(noScriptPage)).documentOverflowPx).toBe(0);
   await noScript.close();
 
@@ -94,8 +96,8 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
     forcedColors: "active",
     reducedMotion: "reduce",
   });
-  await forcedPage.goto("http://127.0.0.1:3100/articles/");
-  await expect(forcedPage.locator("#start li a")).toHaveCount(3);
+  await forcedPage.goto("http://127.0.0.1:3100/articles/#start");
+  await expect(forcedPage.locator("#start li a")).toHaveCount(5);
   await forcedPage.locator("#start li a").first().focus();
   await expect(forcedPage.locator("#start li a").first()).toBeFocused();
   expect((await diagnoseWidths(forcedPage)).documentOverflowPx).toBe(0);
@@ -108,7 +110,7 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
     route.abort(),
   );
   const failurePage = await failure.newPage();
-  await failurePage.goto("http://127.0.0.1:3100/articles/");
+  await failurePage.goto("http://127.0.0.1:3100/articles/#start");
   const imageWells = await failurePage
     .locator("#start .v2-start-card-image")
     .evaluateAll((wells) =>
@@ -120,7 +122,7 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
   expect(
     imageWells.every((well) => Math.abs(well.width / well.height - 2) < 0.02),
   ).toBe(true);
-  await expect(failurePage.locator("#start li a")).toHaveCount(3);
+  await expect(failurePage.locator("#start li a")).toHaveCount(5);
   expect((await diagnoseWidths(failurePage)).documentOverflowPx).toBe(0);
   await failure.close();
 
@@ -128,13 +130,13 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
     viewport: { width: 320, height: 844 },
   });
   const zoomedPage = await zoomed.newPage();
-  await zoomedPage.goto("http://127.0.0.1:3100/articles/");
+  await zoomedPage.goto("http://127.0.0.1:3100/articles/#start");
   const cdp = await zoomed.newCDPSession(zoomedPage);
   await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: 2 });
   await expect
     .poll(() => zoomedPage.evaluate(() => window.visualViewport?.scale ?? 1))
     .toBeGreaterThanOrEqual(1.9);
-  await expect(zoomedPage.locator("#start li a")).toHaveCount(3);
+  await expect(zoomedPage.locator("#start li a")).toHaveCount(5);
   expect((await diagnoseWidths(zoomedPage)).documentOverflowPx).toBe(0);
   await cdp.detach();
   await zoomed.close();
@@ -145,7 +147,7 @@ for (const width of [320, 375]) {
     page,
   }) => {
     await page.setViewportSize({ width, height: 844 });
-    await page.goto("/articles/");
+    await page.goto("/articles/#start");
 
     const selectors = {
       title: "#start .v2-start-card-face > strong",
@@ -170,7 +172,7 @@ for (const width of [320, 375]) {
     const widths = await diagnoseWidths(page);
     expect(widths.documentOverflowPx).toBe(0);
     expect(widths.unownedOverflowingElements).toEqual([]);
-    await expect(page.locator("#start li a")).toHaveCount(3);
+    await expect(page.locator("#start li a")).toHaveCount(5);
     const metadataLayouts = await page
       .locator("#start .v2-start-card-meta")
       .evaluateAll((rows) =>
@@ -215,7 +217,7 @@ for (const width of [320, 375]) {
           };
         }),
       );
-    expect(metadataLayouts).toHaveLength(3);
+    expect(metadataLayouts).toHaveLength(5);
     expect(
       metadataLayouts.every(
         ({ contained, fullTextVisible, labelLineCount, naturalFits, nonoverlapping, separated }) =>
@@ -246,7 +248,7 @@ test("V1 shared probe records the intermediate 150% metadata state", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 320, height: 844 });
-  await page.goto("/articles/");
+  await page.goto("/articles/#start");
   const result = await applyTextMethod(
     page,
     [
@@ -259,7 +261,7 @@ test("V1 shared probe records the intermediate 150% metadata state", async ({
   expect(
     result.measurements.every(
       ({ matched, achievedFactors }) =>
-        matched === 3 && achievedFactors.every((factor) => factor >= 1.49),
+        matched === 5 && achievedFactors.every((factor) => factor >= 1.49),
     ),
   ).toBe(true);
   for (const row of await page.locator("#start .v2-start-card-meta").all()) {
@@ -274,7 +276,7 @@ test("V1 START cards contain long Japanese and unbroken ASCII stress content", a
   page,
 }) => {
   await page.setViewportSize({ width: 320, height: 844 });
-  await page.goto("/articles/");
+  await page.goto("/articles/#start");
   const stress = {
     title:
       "はじめてのゲーム制作で画面いっぱいに長く続く日本語の題名を読みやすく確認するための検証用タイトル",
@@ -376,7 +378,7 @@ test("mobile menu returns focus on Escape and preserves surrounding keyboard ord
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/articles/");
+  await page.goto("/articles/#start");
   const menuButton = page.getByRole("button", { name: "メニューを開く" });
   await menuButton.click();
   await expect(
@@ -389,6 +391,6 @@ test("mobile menu returns focus on Escape and preserves surrounding keyboard ord
   await expect(menuButton).toBeFocused();
   await page.keyboard.press("Shift+Tab");
   await expect(
-    page.getByRole("link", { name: "GameAI Hub ホーム" }),
+    page.getByRole("link", { name: "GameBuildiary ホーム" }),
   ).toBeFocused();
 });

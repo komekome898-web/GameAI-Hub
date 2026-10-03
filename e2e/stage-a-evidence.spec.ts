@@ -61,7 +61,7 @@ test("emit and validate the Stage A executed subset", async ({
     ["metadata-200", 2, "synthetic-root-text", 375],
   ] as const) {
     await page.setViewportSize({ width, height: 844 });
-    await page.goto("/articles/");
+    await page.goto("/articles/#start");
     const scale = await applyTextMethod(page, roles, method, factor);
     expect(scale.sufficient).toBe(true);
     const row = await probeSemanticRow(
@@ -140,7 +140,7 @@ test("emit and validate the Stage A executed subset", async ({
     }
   }
   await page.setViewportSize({ width: 320, height: 844 });
-  await page.goto("/articles/");
+  await page.goto("/articles/#start");
   await page
     .locator("#start .v2-start-card")
     .first()

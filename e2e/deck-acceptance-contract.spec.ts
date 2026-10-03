@@ -7,12 +7,13 @@ test.beforeEach(async ({ page, context }) => {
   await context.route('**/*', r => new URL(r.request().url()).hostname === '127.0.0.1' ? r.continue() : r.abort());
   await page.setViewportSize({ width: 375, height: 844 });
   await page.goto('/articles/#start');
-  await page.getByRole('button', { name: '円環で見る', exact: true }).click();
+  await expect(page.locator('.creation-deck')).toHaveCount(1);
+  await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'deck');
 });
 
 test('summary exception is earned through real expansion and list recovery, not shared with other clipping', async ({ page }) => {
   const verified = await verifyDeckSummaryRecovery(page);
-  expect(verified.size).toBe(3);
+  expect(verified.size).toBe(5);
   await page.locator('.creation-deck').evaluate(root => {
     const p = document.createElement('p'); p.id = 'unrelated-clipped-copy'; p.textContent = 'Do not hide this text. '.repeat(30);
     p.style.cssText = 'height:10px;overflow:hidden'; root.append(p);

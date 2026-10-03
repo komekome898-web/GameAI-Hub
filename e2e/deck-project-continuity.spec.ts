@@ -7,11 +7,13 @@ test.beforeEach(async ({ context }) => {
 });
 
 async function openDeck(page: Page) {
-  await page.goto('/articles/#start');
-  await page.getByRole('button', { name: '円環で見る', exact: true }).click();
+  await page.goto('/articles/#voice');
+  await expect(page.locator('.creation-deck')).toHaveCount(1);
+  await expect(page.locator('.creation-deck')).toHaveAttribute('data-available', 'true');
+  await page.getByRole('button', { name: '円環で見る', exact: true }).count().then(async n => { if (n) await page.getByRole('button', { name: '円環で見る', exact: true }).click(); });
   await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'deck');
 }
-async function cardPoint(page: Page, target = 'img') {
+async function cardPoint(page: Page, target = 'strong') {
   const card = page.locator(`.creation-deck li[data-distance="0"] ${target}`);
   await card.scrollIntoViewIfNeeded();
   const box = await card.boundingBox();
@@ -77,7 +79,7 @@ for (const width of [375, 390]) {
         }, true);
       }
     });
-    const swipe = async (dx: number, target = 'img', interrupt?: 'cancel' | 'multitouch') => {
+    const swipe = async (dx: number, target = 'strong', interrupt?: 'cancel' | 'multitouch') => {
       const { x, y } = await cardPoint(page, target);
       await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y, id: 1 }] });
       for (let i = 1; i <= 10; i++) {
@@ -92,9 +94,9 @@ for (const width of [375, 390]) {
     await expect(count).toContainText('3件中2件目');
     await swipe(100, 'strong');
     await expect(count).toContainText('3件中1件目');
-    await swipe(-100, 'img', 'cancel');
+    await swipe(-100, 'strong', 'cancel');
     await expect(count).toContainText('3件中1件目');
-    await swipe(-100, 'img', 'multitouch');
+    await swipe(-100, 'strong', 'multitouch');
     await expect(count).toContainText('3件中1件目');
     await swipe(-20); // short drag plus pause: no velocity assist
     await expect(count).toContainText('3件中1件目');
@@ -104,10 +106,10 @@ for (const width of [375, 390]) {
     await expect(count).toContainText('3件中3件目');
     await swipe(-100);
     await expect(count).toContainText('3件中1件目');
-    await expect(page).toHaveURL(/\/articles\/#start$/);
+    await expect(page).toHaveURL(/\/articles\/\?hubArticle=[^#]+#voice$/);
     expect(traces.length).toBeGreaterThan(10);
     expect(traces.every(event => event.trusted)).toBe(true);
-    expect(traces.some(event => event.type === 'lostpointercapture' && event.target === 'IMG')).toBe(true);
+    expect(traces.some(event => event.type === 'lostpointercapture' && event.target === 'STRONG')).toBe(true);
     await testInfo.attach('browser-generated-touch-events', { body: JSON.stringify(traces, null, 2), contentType: 'application/json' });
     await captureSettledDeck(page, testInfo, width, 'deck', `deck-${width}.png`);
     const { x, y } = await cardPoint(page);
@@ -117,22 +119,22 @@ for (const width of [375, 390]) {
     await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
     await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(scrollBefore + 30);
     await expect(count).toContainText('3件中1件目');
-    await page.locator('.creation-deck li[data-distance="0"] img').tap();
-    await expect(page).toHaveURL(/\/articles\/ai-browser-game-how-to\/$/);
+    await page.locator('.creation-deck li[data-distance="0"] strong').tap();
+    await expect(page).toHaveURL(/\/articles\/elevenlabs-game-development-guide\/$/);
   });
 }
 
 test('native mouse dragging, controls, resize and reduced-motion fallback', async ({ page }, testInfo) => {
   await openDeck(page);
   const count = page.locator('.creation-deck-status');
-  for (const target of ['img', 'strong']) {
+  for (const target of ['strong', '.v2-start-card-read']) {
     const { x, y } = await cardPoint(page, target);
     await page.mouse.move(x, y);
     await page.mouse.down();
     await page.mouse.move(x - 100, y, { steps: 12 });
     await page.waitForTimeout(150); // commit placed article without momentum
     await page.mouse.up();
-    await expect(count).toContainText(target === 'img' ? '3件中2件目' : '3件中3件目');
+    await expect(count).toContainText(target === 'strong' ? '3件中2件目' : '3件中3件目');
   }
   await page.getByRole('button', { name: '次の記事', exact: true }).click();
   await expect(count).toContainText('3件中1件目');
