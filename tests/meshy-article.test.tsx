@@ -105,6 +105,8 @@ describe("Meshy pricing and credit article", () => {
     expect(html).toContain('href="/articles/meshy-commercial-use-game/"');
     expect(html).toContain('href="/articles/meshy-game-development-guide/"');
     expect(html).toContain("meshy_pricing_plan_check");
+    expect(html).toContain('<a href="https://www.meshy.ai/pricing">公式料金表を確認する</a>');
+    expect(html).toContain("必要量の式を作った後で");
     expect(html.match(/href="https:\/\/www\.meshy\.ai\?via=gameaihub"/g)).toHaveLength(1);
     const destination = getService("meshy")!.affiliateUrl!;
     expect(html).toContain(`href="${destination.replaceAll("&", "&amp;")}"`);
