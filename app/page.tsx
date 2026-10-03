@@ -17,9 +17,8 @@ export default function Home() {
     <section className="home-execution-hero" aria-labelledby="home-title">
       <div className="home-execution-copy">
         <p className="system-label">{site.name} / {site.nickname}</p>
-        <p className="home-brand-description">{siteDescriptionLines.map(line => <span key={line}>{line}</span>)}</p>
         <h1 id="home-title">作りたいゲームから、<span>次の1作業を決める。</span></h1>
-        <p className="home-outcome">ゲーム案を1文で入力すると、<strong>今日やること・使うAI・コピーする指示・完了条件</strong>をまとめたProjectが始まります。</p>
+        <p className="home-outcome home-brand-description">{siteDescriptionLines.map(line => <span key={line}>{line}</span>)}</p>
         <ProjectIdeaForm location="home" />
         <a className="home-example-link" href="#home-example">入力後の完成イメージを見る <span aria-hidden="true">↓</span></a>
       </div>

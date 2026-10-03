@@ -4,7 +4,7 @@ Approved scope: owner-directed task, 2026-10-03, source thread
 01a0f210-6698-766f-b8b3-d686388b203d. Base: def36c2 (PR162 and PR163).
 
 - Use GameBuildiary / ビルダイアリー and the owner's three description lines on
-  current site surfaces. Preserve authors, article prose/dates, historical
+  current site surfaces. Preserve authors, article substance/dates (only present-day site-name references change), historical
   records, URLs, canonicals, identifiers, analytics and Project context.
 - Store one purpose category and order on each article record, separate from
   editorial `category`. One validated published registry supplies categories,

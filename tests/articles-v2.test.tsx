@@ -23,13 +23,14 @@ describe('published purpose registry', () => {
     const added: ArticleRecord = { ...base, slug: 'new-test-article', purposeOrder: 9 };
     let records: ArticleRecord[] = [...articles, added];
     expect(getArticleGroups(records)[0].articles.at(-1)?.slug).toBe(added.slug);
-    records = records.map(a => a.slug === added.slug ? { ...a, purposeOrder: 0 } : a);
+    records = records.map(a => a.slug === added.slug ? { ...a, purposeOrder: 1 } : a.purpose === 'start' && a.purposeOrder === 1 ? { ...a, purposeOrder: 8 } : a);
     expect(getArticleGroups(records)[0].articles[0].slug).toBe(added.slug);
     records = records.map(a => a.slug === added.slug ? { ...a, publicationStatus: 'draft' } : a);
     expect(getArticleGroups(records)[0].articles).toHaveLength(5);
   });
   it('rejects missing/unknown membership, duplicate order and duplicate registration', () => {
     const base: ArticleRecord = { ...articles[0] };
+    expect(validateArticles([], [{ id: "start" }, { id: "start" }])).toContain("duplicate purpose category");
     expect(validateArticles([{ ...base, purpose: undefined } as unknown as ArticleRecord])).toContain(`unknown or missing purpose: ${base.slug}`);
     expect(validateArticles([{ ...base, purpose: 'unknown' } as unknown as ArticleRecord])).toContain(`unknown or missing purpose: ${base.slug}`);
     expect(validateArticles([base, { ...base, slug: 'duplicate-order' }])).toContain(`duplicate purpose order: ${base.purpose}:${base.purposeOrder}`);

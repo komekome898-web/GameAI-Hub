@@ -389,5 +389,6 @@ body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
 .hub-view-navigation { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin: 1.5rem 0; }
 .article-hub-browser a:focus-visible { outline: 3px solid #34644d; outline-offset: 5px; }
 .home-brand-description span, .footer-description span { display: block; }
-.home-brand-description { line-height: 1.9; margin-block: 1rem; }
 @media (max-width: 680px) { .hub-category-grid { grid-template-columns: minmax(0, 1fr); } }
+
+.hub-view-navigation a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 8px; }

@@ -1266,17 +1266,19 @@ export const publishedArticles = articles.filter(
   (article) => article.publicationStatus === "published",
 );
 
-export function validateArticles(records: readonly ArticleRecord[]) {
+export function validateArticles(records: readonly ArticleRecord[], purposes: readonly { id: string }[] = articlePurposes) {
   const errors: string[] = [];
   const seen = new Set<string>();
   const purposeSlots = new Set<string>();
+  const purposeIds = purposes.map(p => p.id);
+  if (new Set(purposeIds).size !== purposeIds.length) errors.push("duplicate purpose category");
   const publishedSlugs = new Set(
     records
       .filter((a) => a.publicationStatus === "published")
       .map((a) => a.slug),
   );
   for (const a of records) {
-    if (!articlePurposes.some(p => p.id === a.purpose)) errors.push(`unknown or missing purpose: ${a.slug}`);
+    if (!purposes.some(p => p.id === a.purpose)) errors.push(`unknown or missing purpose: ${a.slug}`);
     if (!Number.isInteger(a.purposeOrder) || a.purposeOrder < 1) errors.push(`invalid purpose order: ${a.slug}`);
     if (a.publicationStatus === "published") {
       const slot = `${a.purpose}:${a.purposeOrder}`;

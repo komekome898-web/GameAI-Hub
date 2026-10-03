@@ -108,7 +108,7 @@ export default function AiDelegationTrapArticle(){return <ArticleFrame article={
     <p>派手さはない。</p>
     <p>でも、ゲーム制作をしたことがない人にとって一番必要なのは、完璧なプロンプト集でも大量のAIツール一覧でもない。</p>
     <p>「今これをする」「こうなれば成功」「終わったら次へ」という道筋だ。</p>
-    <p>GameAI Hubも、その考え方を中心に作っている。</p>
+    <p>GameBuildiaryも、その考え方を中心に作っている。</p>
     <p>作りたいゲームがあるなら、まず完成形を全部説明しようとしなくていい。最初に動かす1つを決めるところから始めればいい。</p>
   </section>
 

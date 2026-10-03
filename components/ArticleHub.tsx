@@ -40,6 +40,10 @@ export function ArticleHub({ groups }: { groups: HubGroup[] }) {
       url.hash = view;
       if (article) url.searchParams.set('hubArticle', article); else url.searchParams.delete('hubArticle');
       history.replaceState(history.state, '', url);
+      if (group && memory.current.category !== group.id) {
+        memory.current.category = group.id;
+        memory.current.categoryScroll = -1; // no category-screen position for this URL yet
+      }
       memory.current.view = view;
       if (article) memory.current.articles[view] = article;
       setSelection(old => ({ view, article, revision: (old?.revision ?? 0) + 1 }));
@@ -60,11 +64,17 @@ export function ArticleHub({ groups }: { groups: HubGroup[] }) {
     window.addEventListener('pointerdown', stopFocus, true);
     window.addEventListener('keydown', stopFocus, true);
     const firstFrame = requestAnimationFrame(() => { secondFrame = requestAnimationFrame(() => {
+    window.removeEventListener('pointerdown', stopFocus, true);
+    window.removeEventListener('keydown', stopFocus, true);
     if (interrupted) return;
     const root = region.current;
     if (selection.view === 'categories') {
       const link = Array.from(root?.querySelectorAll<HTMLAnchorElement>('a[data-category]') ?? []).find(link => link.dataset.category === memory.current.category);
-      if (link) { link.focus({ preventScroll: true }); window.scrollTo({ top: memory.current.categoryScroll, behavior: 'instant' }); }
+      if (link) {
+        link.focus({ preventScroll: true });
+        if (memory.current.categoryScroll >= 0) window.scrollTo({ top: memory.current.categoryScroll, behavior: 'instant' });
+        else link.scrollIntoView({ block: 'center', behavior: 'instant' });
+      }
     } else if (selection.article) {
       const link = Array.from(root?.querySelectorAll<HTMLAnchorElement>('[data-deck-id] a') ?? []).find(link => link.closest<HTMLElement>('[data-deck-id]')?.dataset.deckId === selection.article);
       link?.focus({ preventScroll: true });

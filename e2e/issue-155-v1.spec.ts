@@ -11,6 +11,12 @@ const evidenceDirectory =
     ? "docs/screenshots/issue-155-v1/focused-acceptance"
     : "test-results/issue-155-v1-current-run";
 
+// These retained V1 cases verify the explicitly selected static list. Initial
+// circular mode across all categories is covered by gamebuildiary-category-entry.
+test.beforeEach(async ({ context }) => {
+  await context.addInitScript(() => sessionStorage.setItem('gameai-creation-deck-mode', 'list'));
+});
+
 const startHrefs = [
   "/articles/ai-browser-game-how-to/",
   "/articles/before-asking-ai-build-game/",
@@ -19,7 +25,7 @@ const startHrefs = [
   "/articles/ai-tool-comparison-later/",
 ];
 
-test("START retains complete responsive article cards after category selection", async ({
+test("Explicit START list retains complete responsive article cards", async ({
   browser,
 }) => {
   test.setTimeout(90_000);
@@ -30,6 +36,7 @@ test("START retains complete responsive article cards after category selection",
     { width: 1440, height: 900 },
   ]) {
     const context = await browser.newContext({ viewport });
+    await context.addInitScript(() => sessionStorage.setItem('gameai-creation-deck-mode', 'list'));
     const backgroundRequests: string[] = [];
     const page = await context.newPage();
     page.on("request", (request) => {
@@ -37,6 +44,7 @@ test("START retains complete responsive article cards after category selection",
         backgroundRequests.push(request.url());
     });
     await page.goto("http://127.0.0.1:3100/articles/#start");
+  await expect(page.locator(".creation-deck")).toHaveCount(1);
 
     await expect(page.locator(".article-cluster-list")).toHaveCount(1);
     await expect(page.locator("#start li a")).toHaveCount(5);
@@ -45,7 +53,7 @@ test("START retains complete responsive article cards after category selection",
         .locator("#start li a")
         .evaluateAll((links) => links.map((link) => link.getAttribute("href"))),
     ).toEqual(startHrefs);
-    await expect(page.getByRole("button", { name: "一覧で見る" })).toHaveCount(viewport.width <= 340 ? 0 : 1);
+    await expect(page.getByRole("button", { name: "円環で見る" })).toHaveCount(viewport.width <= 340 ? 0 : 1);
     await expect(page.locator("#start img")).toHaveCount(3);
     expect(
       await page
@@ -97,6 +105,7 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
     reducedMotion: "reduce",
   });
   await forcedPage.goto("http://127.0.0.1:3100/articles/#start");
+  await expect(forcedPage.locator(".creation-deck")).toHaveCount(1);
   await expect(forcedPage.locator("#start li a")).toHaveCount(5);
   await forcedPage.locator("#start li a").first().focus();
   await expect(forcedPage.locator("#start li a").first()).toBeFocused();
@@ -106,11 +115,13 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
   const failure = await browser.newContext({
     viewport: { width: 390, height: 844 },
   });
+  await failure.addInitScript(() => sessionStorage.setItem('gameai-creation-deck-mode', 'list'));
   await failure.route("**/visual-v2/thumbnails/*.webp", (route) =>
     route.abort(),
   );
   const failurePage = await failure.newPage();
   await failurePage.goto("http://127.0.0.1:3100/articles/#start");
+  await expect(failurePage.locator(".creation-deck")).toHaveCount(1);
   const imageWells = await failurePage
     .locator("#start .v2-start-card-image")
     .evaluateAll((wells) =>
@@ -131,6 +142,7 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
   });
   const zoomedPage = await zoomed.newPage();
   await zoomedPage.goto("http://127.0.0.1:3100/articles/#start");
+  await expect(zoomedPage.locator(".creation-deck")).toHaveCount(1);
   const cdp = await zoomed.newCDPSession(zoomedPage);
   await cdp.send("Emulation.setPageScaleFactor", { pageScaleFactor: 2 });
   await expect
@@ -148,6 +160,7 @@ for (const width of [320, 375]) {
   }) => {
     await page.setViewportSize({ width, height: 844 });
     await page.goto("/articles/#start");
+  await expect(page.locator(".creation-deck")).toHaveCount(1);
 
     const selectors = {
       title: "#start .v2-start-card-face > strong",
@@ -249,6 +262,7 @@ test("V1 shared probe records the intermediate 150% metadata state", async ({
 }) => {
   await page.setViewportSize({ width: 320, height: 844 });
   await page.goto("/articles/#start");
+  await expect(page.locator(".creation-deck")).toHaveCount(1);
   const result = await applyTextMethod(
     page,
     [
@@ -277,6 +291,7 @@ test("V1 START cards contain long Japanese and unbroken ASCII stress content", a
 }) => {
   await page.setViewportSize({ width: 320, height: 844 });
   await page.goto("/articles/#start");
+  await expect(page.locator(".creation-deck")).toHaveCount(1);
   const stress = {
     title:
       "はじめてのゲーム制作で画面いっぱいに長く続く日本語の題名を読みやすく確認するための検証用タイトル",
@@ -379,6 +394,7 @@ test("mobile menu returns focus on Escape and preserves surrounding keyboard ord
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/articles/#start");
+  await expect(page.locator(".creation-deck")).toHaveCount(1);
   const menuButton = page.getByRole("button", { name: "メニューを開く" });
   await menuButton.click();
   await expect(

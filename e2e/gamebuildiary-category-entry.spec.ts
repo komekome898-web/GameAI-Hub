@@ -88,6 +88,9 @@ test('all-list roundtrip, explicit URL precedence and removed IDs', async ({ pag
   expect(new URL(page.url()).searchParams.get('preserved')).toBe('yes');
   await page.goto('/articles/?hubArticle=removed#voice'); await idle(page);
   await expect(current(page)).toHaveAttribute('data-deck-id', 'elevenlabs-game-development-guide');
+  await page.goto('/articles/#3d'); await idle(page);
+  await page.getByRole('link', { name: '← カテゴリへ戻る' }).click();
+  await expect(page.locator('[data-category="3d"]')).toBeFocused();
   await page.goto('/articles/#deleted-category');
   await expect(page.locator('.hub-category-card')).toHaveCount(5);
 });
