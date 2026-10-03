@@ -732,18 +732,18 @@ export const articles = [
     purpose: "start",
     purposeOrder: 4,
     title:
-      "GitHubの使い方【ゲーム開発初心者向け】登録・リポジトリ作成・ファイル保存まで",
+      "GitHubの使い方と画面の見方｜初心者がゲームのHTMLを保存するまで",
     description:
-      "ゲーム開発初心者がGitHub account、repository、Copilot、Pagesの違いを理解し、Web画面だけでindex.htmlを保存する手順。",
+      "GitHubの登録からCode画面の見方とindex.htmlの保存までをWeb画面で解説。リポジトリの公開範囲やbranchの確認方法と Copilot・GitHub Pagesとの違いも整理します",
     category: "beginner",
     tags: ["GitHub", "ゲーム開発", "初心者", "HTML"],
     publishedAt: "2026-09-04",
-    updatedAt: "2026-09-04",
+    updatedAt: "2026-10-04",
     publicationStatus: "published",
-    lastVerifiedAt: "2026-09-04",
+    lastVerifiedAt: "2026-10-04",
     author: "AI Iterproof編集部",
     editorialNote:
-      "GitHub公式Docsの手順とラベルを2026-09-04に確認して構成しています。ログイン後の新規アカウントによる全操作は実測しておらず、UIはアカウントや更新により異なる場合があります。",
+      "GitHub公式Docsをもとに構成しています。2026-10-04にリポジトリ作成・ファイル保存・branch・Pull requestの説明だけを再確認しました。その他の項目は今回再確認していません。ログイン後の所有者画面で全手順を通した実測はしていないため 表示や配置が異なる場合があります。各出典の確認日は下記のとおりです",
     sources: [
       {
         label: "GitHub Docs: Creating an account on GitHub",
@@ -755,7 +755,7 @@ export const articles = [
         label: "GitHub Docs: Create a repository",
         url: "https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository",
         kind: "primary",
-        verifiedAt: "2026-09-04",
+        verifiedAt: "2026-10-04",
       },
       {
         label: "GitHub Docs: About repositories and visibility",
@@ -773,7 +773,7 @@ export const articles = [
         label: "GitHub Docs: Adding a file to a repository",
         url: "https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository",
         kind: "primary",
-        verifiedAt: "2026-09-04",
+        verifiedAt: "2026-10-04",
       },
       {
         label: "GitHub Docs: About commits",
@@ -793,12 +793,36 @@ export const articles = [
         kind: "primary",
         verifiedAt: "2026-09-04",
       },
+      {
+        label: "GitHub Docs: Creating new files",
+        url: "https://docs.github.com/en/repositories/working-with-files/managing-files/creating-new-files",
+        kind: "primary",
+        verifiedAt: "2026-10-04",
+      },
+      {
+        label: "GitHub Docs: Branches",
+        url: "https://docs.github.com/en/pull-requests/reference/branches",
+        kind: "primary",
+        verifiedAt: "2026-10-04",
+      },
+      {
+        label: "GitHub Docs: Pull requests",
+        url: "https://docs.github.com/en/pull-requests/reference/pull-requests",
+        kind: "primary",
+        verifiedAt: "2026-10-04",
+      },
+      {
+        label: "GitHub Docs: Managing branches within your repository",
+        url: "https://docs.github.com/en/pull-requests/how-tos/commit-changes/managing-branches-within-your-repository",
+        kind: "primary",
+        verifiedAt: "2026-10-04",
+      },
     ],
     related: [
       {
         href: "/articles/ai-browser-game-how-to/",
         label: "AIでブラウザゲームを作る方法",
-        reason: "保存する前に1つのindex.htmlを作ってHubで動かす",
+        reason: "保存する前に1つのindex.htmlを作ってGameBuildiaryで動かす",
         kind: "article",
       },
       {
@@ -827,13 +851,13 @@ export const articles = [
     purpose: "start",
     purposeOrder: 1,
     title:
-      "AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む",
+      "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方",
     description:
-      "初心者がAIの返した1つのindex.htmlを貼り付けて実行し、勝敗とやり直しを確認し、保存・復旧して同じゲームの次の作業へ進む手順。",
+      "AIに1つのHTMLでモンスターバトルを作ってもらい このページで実行。攻撃・HP・勝利・やり直しを確認します。完成例を使った敵名変更と 動いた版の保存・復旧までを解説",
     category: "beginner",
     tags: ["AIゲーム開発", "ブラウザゲーム", "初心者", "HTML"],
     publishedAt: "2026-09-04",
-    updatedAt: "2026-09-08",
+    updatedAt: "2026-10-04",
     publicationStatus: "published",
     lastVerifiedAt: "2026-09-08",
     author: "AI Iterproof編集部",

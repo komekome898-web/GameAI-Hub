@@ -39,8 +39,10 @@ export default function Page() {
           <p className="eyebrow">GITHUB FOR FIRST GAME</p>
           <h1>{article.title}</h1>
           <p className="lead">
-            Gitやコマンドを先に覚えず、Web画面で1つの <code>index.html</code>{" "}
-            を残すまでを案内します。画面名はGitHub公式Docsで確認し、ログイン後の所有者画面は実アカウントでの通し実測をしていません。
+            AIで作ったゲームの<code>index.html</code>をGitHubに保存するためのガイドです。コマンドは使わず アカウントの準備から保存場所とCode画面を見ていきます。先にゲームを動かしたい人は <a href="/articles/ai-browser-game-how-to/">ブラウザゲームの作り方</a>へ進めます。Projectから来た人は 元の制作タブへ戻って続けられます
+          </p>
+          <p>
+            画面名と手順はGitHub公式Docsをもとにしています。ログイン後の所有者画面で全手順を通した実測はしていないため 表示や配置が異なる場合があります
           </p>
         </header>
         <section className="article-contract">
@@ -183,6 +185,9 @@ export default function Page() {
               <li><strong>License：</strong>None／後で決める</li>
             </ul>
           </aside>
+          <p>
+            Copilotへの指示欄が表示されても 今回は入力せずに進めます。ここでは すでに動いた<code>index.html</code>を保存する場所だけを用意します
+          </p>
           <Success>
             上部に <code>username / my-first-browser-game</code> と表示される。
           </Success>
@@ -209,19 +214,24 @@ export default function Page() {
             </li>
             <li>GameBuildiaryで動いたコード全文を編集欄へ貼る。</li>
             <li>
-              <strong>Commit changes...</strong> を押し、短い説明（例：
-              <code>Add first playable game</code>）を入力して確定する。
+              「Commit changes...」を押し 変更の説明に「Add first playable game」などを入力する
+            </li>
+            <li>
+              現在のbranchへ保存するか 新しいbranchへ保存するかを確認する。GitHub公式Docsは default branchでの変更に新しいbranchとPull requestを使う方法を勧めています
+            </li>
+            <li>
+              画面の「Commit changes」または「Propose changes」で確定する。新しいbranchを選んだ場合は そのbranch名を控える
             </li>
           </ol>
+          <p>
+            branch（ブランチ）は 変更を分けて記録するための仕組みです。新しいbranchへ保存しただけでは mainなどの元のbranchに反映されません。Pull requestは変更を取り込む提案で 統合する操作は別に必要です。まずは保存したbranchをCode画面で選び <code>index.html</code>を開けることを確認します
+          </p>
           <h3>端末に保存したファイルをupload</h3>
           <p>
-            <strong>Add file → Upload files</strong> を押し、ファイル選択から{" "}
-            <code>index.html</code>{" "}
-            を選び、同様にcommitします。PCのドラッグ操作は必須ではありません。
+            端末にあるファイルを使うなら「Add file → Upload files」を開き「choose your files」から<code>index.html</code>を選びます。変更の説明と保存先branchを確認して確定してください。PCのドラッグ操作は必須ではありません
           </p>
           <Success>
-            Code画面の一覧に <code>index.html</code>{" "}
-            があり、押すとコードが見える。
+            保存先のbranchを選ぶと一覧に<code>index.html</code>があり 開くと保存したコード全文を確認できる
           </Success>
         </section>
         <section>
@@ -252,7 +262,7 @@ export default function Page() {
             Pagesはrepository内のHTML等をWebサイトとして公開する機能です。保存だけなら設定不要です。公開範囲や利用条件を確認してから、後の公開手順で設定します。
           </p>
           <Success>
-            今は保存までならPagesを有効にせず、Code画面にindex.htmlが残っている。
+            保存したbranchのCode画面にindex.htmlが残っている。保存だけならPagesの設定は不要
           </Success>
         </section>
         <section>
@@ -270,25 +280,27 @@ export default function Page() {
               自分に書き込み権限があるrepositoryか、Codeタブか確認。
             </li>
             <li>
+              <strong>mainにindex.htmlが見つからない：</strong>保存時に新しいbranchを選んでいないか確認する。Code画面でそのbranchへ切り替える
+            </li>
+            <li>
               <strong>index.html.txtになった：</strong>
               ファイル名をCode画面で確認し、正確にindex.htmlへ直す。
             </li>
             <li>
               <strong>commitできない：</strong>
-              変更内容があるか、必須の説明欄が表示されていないか確認。
+              変更内容があるか、必須の説明欄が表示されていないか確認。権限やrepositoryのルールで制限されている場合は 分からないまま保護設定を外さず 所有者へ確認します
             </li>
             <li>
               <strong>スマホ：</strong>
-              長押しでコピー／ペーストし、iPhoneはSafariのタブ一覧とFiles/Downloads、AndroidはChromeのタブ一覧とDownloadsから元のHubやファイルを探します。実機での成功保証ではありません。
+              長押しでコピー／ペーストし、iPhoneはSafariのタブ一覧とFiles/Downloads、AndroidはChromeのタブ一覧とDownloadsから元のGameBuildiaryやファイルを探します。実機での成功保証ではありません。
             </li>
           </ul>
         </section>
         <section>
           <h2>12. 元のGameBuildiary作業へ戻る</h2>
           <p>
-            新しいProjectは作りません。Safari／Chrome／PCブラウザのタブ一覧から、開いたままのGameAI
-            Hubを選びます。指示をCopilotへ送り、返った <code>index.html</code>{" "}
-            全文をHubへ貼って「ゲームを表示」します。
+            新しいProjectは作りません。Safari／Chrome／PCブラウザのタブ一覧から、開いたままのGameBuildiaryを選びます。指示をCopilotへ送り、返った <code>index.html</code>{" "}
+            全文をGameBuildiaryへ貼って「ゲームを表示」します。
           </p>
           <Success>
             同じtask、ゲーム案、完了条件が残った画面へ戻れている。
