@@ -1,0 +1,13 @@
+{
+  "width": 390,
+  "method": "Chromium viewport emulation, not physical Safari",
+  "positions": [
+    56,
+    207.8125,
+    1161.890625
+  ],
+  "historyBefore": 2,
+  "returnUrl": "http://127.0.0.1:3100/?hubCategory=voice#categories",
+  "flow": "Home voice → v4 body → reload → article breadcrumb → original Home voice",
+  "focus": "voice"
+}

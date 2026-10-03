@@ -1,0 +1,1088 @@
+diff --git a/app/articles/page.tsx b/app/articles/page.tsx
+index cfc1b57..ac8bf30 100644
+--- a/app/articles/page.tsx
++++ b/app/articles/page.tsx
+@@ -1,12 +1,7 @@
+ import type { Metadata } from "next";
+ import Link from "next/link";
+-import { articleCategoryLabels, getArticleGroups } from "@/data/articles";
+-import {
+-  getStartArticleVisual,
+-  type StartArticleSlug,
+-} from "@/lib/article-visuals";
+-import { ArticleHub } from "@/components/ArticleHub";
+-import { startArticleVisuals } from "@/lib/article-visuals";
++import { ArticleBrowser } from "@/components/ArticleBrowser";
++import { getHubGroups } from "@/lib/article-hub-groups";
+ export const metadata: Metadata = {
+   title: "AIゲーム開発の記事・実践ガイド",
+   description:
+@@ -31,15 +26,7 @@ export default function ArticlesPage() {
+           ゲームを動かす、素材を作る、公開条件を確かめる。読み終えた後に何を作り、どう確認するかが分かる記事を目的別に探せます。
+         </p>
+         </header>
+-        <ArticleHub groups={getArticleGroups().map(group => ({
+-          id: group.id, title: group.title, description: group.description,
+-          items: group.articles.map(article => ({
+-            id: article.slug, href: `/articles/${article.slug}/`, title: article.title,
+-            description: article.description, updatedAt: article.updatedAt,
+-            label: article.contextNote ?? articleCategoryLabels[article.category],
+-            image: article.slug in startArticleVisuals ? getStartArticleVisual(article.slug as StartArticleSlug) : undefined,
+-          })),
+-        }))} />
++        <ArticleBrowser groups={getHubGroups()} />
+         <section className="hub-project-cta">
+         <div>
+           <span className="system-label">READ → BUILD</span>
+diff --git a/app/page.tsx b/app/page.tsx
+index 0a1feff..dae5132 100644
+--- a/app/page.tsx
++++ b/app/page.tsx
+@@ -3,6 +3,9 @@ import Link from "next/link";
+ import { site, siteDescriptionLines } from "@/lib/site";
+ import { ProjectIdeaForm } from "@/components/ProjectGeneratorClient";
+ 
++import { ArticleBrowser } from "@/components/ArticleBrowser";
++import { getHubGroups } from "@/lib/article-hub-groups";
++
+ export const metadata: Metadata = {
+   title: "作りたいゲームから制作ロードマップを作る",
+   description: site.description,
+@@ -14,11 +17,17 @@ const examples = ["Unityでモンスター収集RPG", "Godotで2Dアクション
+ 
+ export default function Home() {
+   return <div className="home-v2-route">
+-    <section className="home-execution-hero" aria-labelledby="home-title">
++    <header className="home-brand-intro" aria-labelledby="home-title">
++      <h1 id="home-title">{site.name}<span>{site.nickname}</span></h1>
++      <p className="home-outcome home-brand-description">{siteDescriptionLines.map(line => <span key={line}>{line}</span>)}</p>
++    </header>
++    <section className="home-category-entry" aria-labelledby="home-categories-title">
++      <h2 id="home-categories-title">気になる制作から、めくって探す。</h2>
++      <ArticleBrowser groups={getHubGroups()} home />
++    </section>
++    <section className="home-execution-hero" aria-labelledby="home-idea-title">
+       <div className="home-execution-copy">
+-        <p className="system-label">{site.name} / {site.nickname}</p>
+-        <h1 id="home-title">作りたいゲームから、<span>次の1作業を決める。</span></h1>
+-        <p className="home-outcome home-brand-description">{siteDescriptionLines.map(line => <span key={line}>{line}</span>)}</p>
++        <h2 id="home-idea-title">作りたいものが決まったら</h2>
+         <ProjectIdeaForm location="home" />
+         <a className="home-example-link" href="#home-example">入力後の完成イメージを見る <span aria-hidden="true">↓</span></a>
+       </div>
+diff --git a/app/visual-layer-v2.css b/app/visual-layer-v2.css
+index bc4b6ce..9e54c7e 100644
+--- a/app/visual-layer-v2.css
++++ b/app/visual-layer-v2.css
+@@ -55,12 +55,12 @@
+   border-top: 0;
+ }
+ 
+-.articles-v2-route .article-cluster .v2-start-card-item {
++.article-cluster .v2-start-card-item {
+   min-width: 0;
+   border: 0;
+ }
+ 
+-.articles-v2-route .article-cluster .v2-start-card {
++.article-cluster .v2-start-card {
+   display: block;
+   height: 100%;
+   min-width: 0;
+@@ -73,7 +73,7 @@
+   text-decoration: none;
+ }
+ 
+-.articles-v2-route .article-cluster .v2-start-card:hover {
++.article-cluster .v2-start-card:hover {
+   background: linear-gradient(135deg, #fffdf5 0%, #c2bdaf 24%, #f8f6ec 48%, #9f9b8d 100%);
+ }
+ 
+@@ -204,7 +204,7 @@
+     grid-template-columns: 1fr;
+   }
+ 
+-  .articles-v2-route .article-cluster .v2-start-card {
++  .article-cluster .v2-start-card {
+     padding: 2px;
+     border-radius: 8px;
+     box-shadow: 0 2px 3px rgb(27 45 36 / 10%), 0 6px 12px rgb(27 45 36 / 8%);
+@@ -227,7 +227,7 @@
+     background: var(--v2-canvas);
+   }
+ 
+-  .articles-v2-route .article-cluster .v2-start-card {
++  .article-cluster .v2-start-card {
+     padding: 0;
+     border-color: var(--v2-edge);
+     border-radius: 6px;
+@@ -235,11 +235,11 @@
+     box-shadow: none;
+   }
+ 
+-  .articles-v2-route .article-cluster .v2-start-card-face {
++  .article-cluster .v2-start-card-face {
+     box-shadow: none;
+   }
+ 
+-  .articles-v2-route .article-cluster .v2-start-card-description {
++  .article-cluster .v2-start-card-description {
+     display: block;
+   }
+ }
+@@ -260,7 +260,7 @@
+   }
+ 
+   .articles-v2-route .article-hub > .page-head,
+-  .articles-v2-route .article-cluster .v2-start-card,
++  .article-cluster .v2-start-card,
+   .v2-start-card-face,
+   .v2-start-card-read {
+     border: 1px solid ButtonText;
+@@ -337,20 +337,20 @@ body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
+ .creation-deck-controls button { min-width:44px; min-height:44px; padding:8px 12px; border:1px solid #78877f; border-radius:6px; background:var(--v2-ceramic); color:var(--v2-primary); font-weight:750; }
+ .creation-deck-count { color:var(--v2-muted); font-size:.875rem; line-height:1.5; white-space:nowrap; }
+ .creation-deck[data-mode="deck"] { overflow:clip; padding:4px; }
+-.articles-v2-route .article-cluster .creation-deck[data-mode="deck"] .article-cluster-list { position:relative; display:block; touch-action:pan-y pinch-zoom; }
++.article-cluster .creation-deck[data-mode="deck"] .article-cluster-list { position:relative; display:block; touch-action:pan-y pinch-zoom; }
+ .creation-deck[data-mode="deck"] .v2-start-card-item { position:absolute; inset-inline:0; top:0; width:min(304px,calc(100vw - 64px)); margin-inline:auto; transform-origin:top center; transition:none; }
+-.articles-v2-route .article-cluster .creation-deck .v2-start-card { position:relative; display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:repeat(6,auto); gap:10px; padding:16px; background:var(--v2-ceramic); border-radius:7px; }
+-.articles-v2-route .article-cluster .creation-deck .v2-start-card-face { display:grid; grid-column:1; grid-row:1 / 7; grid-template-columns:minmax(0,1fr); grid-template-rows:subgrid; padding:0; background:transparent; box-shadow:none; color:inherit; text-decoration:none; }
+-.articles-v2-route .article-cluster .creation-deck .v2-start-card-image { grid-column:1; grid-row:1; aspect-ratio:2 / 1; }
+-.articles-v2-route .article-cluster .creation-deck .v2-start-card-meta { grid-column:1; grid-row:2; }
+-.articles-v2-route .article-cluster .creation-deck :is(.v2-start-card-meta small,.v2-start-card-label) { font-size:.875rem; }
+-.articles-v2-route .article-cluster .creation-deck .v2-start-card-face > strong { grid-column:1; grid-row:3; font-size:1.125rem; line-height:1.5; }
+-.articles-v2-route .article-cluster .creation-deck .v2-start-card-description { grid-column:1; grid-row:4; z-index:1; margin:0; font-size:1rem; line-height:1.65; }
+-.articles-v2-route .article-cluster .creation-deck[data-mode="deck"] .v2-start-card-description[data-expanded="false"] { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden; }
+-.articles-v2-route .article-cluster .creation-deck .v2-start-card-expand { grid-column:1; grid-row:5; z-index:1; min-height:48px; justify-self:start; background:transparent; border:0; color:var(--v2-primary); text-decoration:underline; font:inherit; }
+-.articles-v2-route .article-cluster .creation-deck .v2-start-card-read { grid-column:1; grid-row:6; }
+-.articles-v2-route .article-cluster .creation-deck .v2-start-card:has(.v2-start-card-face:focus-visible) { outline:3px solid var(--v2-primary); outline-offset:-3px; }
+-.articles-v2-route .article-cluster .creation-deck[data-mode="deck"] .v2-start-card::after { content:""; position:absolute; inset:0; z-index:2; background:#243b30; opacity:var(--deck-shade,0); pointer-events:none; border-radius:inherit; }
++.article-cluster .creation-deck .v2-start-card { position:relative; display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:repeat(6,auto); gap:10px; padding:16px; background:var(--v2-ceramic); border-radius:7px; }
++.article-cluster .creation-deck .v2-start-card-face { display:grid; grid-column:1; grid-row:1 / 7; grid-template-columns:minmax(0,1fr); grid-template-rows:subgrid; padding:0; background:transparent; box-shadow:none; color:inherit; text-decoration:none; }
++.article-cluster .creation-deck .v2-start-card-image { grid-column:1; grid-row:1; aspect-ratio:2 / 1; }
++.article-cluster .creation-deck .v2-start-card-meta { grid-column:1; grid-row:2; }
++.article-cluster .creation-deck :is(.v2-start-card-meta small,.v2-start-card-label) { font-size:.875rem; }
++.article-cluster .creation-deck .v2-start-card-face > strong { grid-column:1; grid-row:3; font-size:1.125rem; line-height:1.5; }
++.article-cluster .creation-deck .v2-start-card-description { grid-column:1; grid-row:4; z-index:1; margin:0; font-size:1rem; line-height:1.65; }
++.article-cluster .creation-deck[data-mode="deck"] .v2-start-card-description[data-expanded="false"] { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden; }
++.article-cluster .creation-deck .v2-start-card-expand { grid-column:1; grid-row:5; z-index:1; min-height:48px; justify-self:start; background:transparent; border:0; color:var(--v2-primary); text-decoration:underline; font:inherit; }
++.article-cluster .creation-deck .v2-start-card-read { grid-column:1; grid-row:6; }
++.article-cluster .creation-deck .v2-start-card:has(.v2-start-card-face:focus-visible) { outline:3px solid var(--v2-primary); outline-offset:-3px; }
++.article-cluster .creation-deck[data-mode="deck"] .v2-start-card::after { content:""; position:absolute; inset:0; z-index:2; background:#243b30; opacity:var(--deck-shade,0); pointer-events:none; border-radius:inherit; }
+ .article-shell > .breadcrumbs > :is(a, span:not(:last-child)) { flex:0 0 auto; white-space:nowrap; }
+ .article-shell > .breadcrumbs > span:last-child { min-width:0; overflow-wrap:anywhere; }
+ 
+@@ -374,7 +374,7 @@ body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
+   body.visual-layer-v2 { background-image:none; }
+   .creation-deck-controls { display:none; }
+   .creation-deck[data-mode="deck"] { overflow:visible; padding:0; }
+-  .articles-v2-route .article-cluster .creation-deck[data-mode="deck"] .article-cluster-list { display:grid; min-height:0; }
++  .article-cluster .creation-deck[data-mode="deck"] .article-cluster-list { display:grid; min-height:0; }
+   .creation-deck[data-mode="deck"] .v2-start-card-item { position:static; width:auto; opacity:1; transform:none!important; pointer-events:auto; }
+ }
+ 
+@@ -392,3 +392,17 @@ body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
+ @media (max-width: 680px) { .hub-category-grid { grid-template-columns: minmax(0, 1fr); } }
+ 
+ .hub-view-navigation a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 8px; }
++
++/* Shared category entry uses the same card material and intrinsic sizing. */
++.category-cluster .article-cluster-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,272px),1fr)); gap:16px; list-style:none; padding:0; }
++.category-cluster .v2-start-card { border:1px solid var(--v2-edge); box-shadow:0 2px 3px rgb(27 45 36 / 10%),0 12px 24px rgb(27 45 36 / 7%); color:var(--v2-primary); }
++.category-cluster .v2-start-card-item { min-width:0; }
++.category-cluster .v2-start-card-meta { display:flex; flex-wrap:wrap; gap:8px; }
++.category-cluster .v2-start-card-meta > * { flex:0 0 auto; max-width:100%; }
++.category-cluster .hub-preparation { position:relative; display:grid; gap:10px; padding:16px; margin:24px auto 0; max-width:32rem; background:var(--v2-ceramic); border-radius:7px; }
++.hub-preparation p { margin:0; line-height:1.65; }
++.home-category-entry { padding-block:20px; min-width:0; }
++.home-v2-route .home-brand-intro { padding:24px 0 8px; }
++.home-brand-intro h1 { margin:0 0 8px; font-size:clamp(1.8rem,5vw,2.75rem); line-height:1.3; }
++.home-brand-intro h1 span { display:inline-block; font-size:1rem; margin-inline-start:12px; }
++.home-v2-route .home-execution-hero { margin-top:24px; }
+diff --git a/components/ArticleBrowser.tsx b/components/ArticleBrowser.tsx
+new file mode 100644
+index 0000000..5c7be16
+--- /dev/null
++++ b/components/ArticleBrowser.tsx
+@@ -0,0 +1,10 @@
++"use client";
++
++import dynamic from "next/dynamic";
++import type { HubGroup } from "./ArticleHub";
++
++// Both entry routes load the same browser chunk. SSR stays enabled so category
++// and article links are present without JavaScript; physics stays in CreationDeck.
++export const ArticleBrowser = dynamic<{ groups: HubGroup[]; home?: boolean }>(
++  () => import("./ArticleHub").then(module => module.ArticleHub),
++);
+diff --git a/components/ArticleFrame.tsx b/components/ArticleFrame.tsx
+index 6c036c3..aa15b69 100644
+--- a/components/ArticleFrame.tsx
++++ b/components/ArticleFrame.tsx
+@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
+ import Link from "next/link";
+ import { ArticleProjectCta } from "@/components/ArticleProjectCta";
+ import { ArticleAnalytics } from "@/components/ArticleAnalytics";
++import { ArticleReturnLink } from "@/components/ArticleReturnLink";
+ import { ArticleReadingGuide } from "@/components/ArticleReadingGuide";
+ import {
+   articleCategoryLabels,
+@@ -76,7 +77,7 @@ export function ArticleFrame({
+       <nav className="breadcrumbs" aria-label="パンくず">
+         <Link href="/">ホーム</Link>
+         <span>/</span>
+-        <Link href="/articles">記事</Link>
++        <ArticleReturnLink slug={article.slug} purpose={article.purpose} />
+         <span>/</span>
+         <span>{article.title}</span>
+       </nav>
+diff --git a/components/ArticleHub.tsx b/components/ArticleHub.tsx
+index 3c40e31..97f950c 100644
+--- a/components/ArticleHub.tsx
++++ b/components/ArticleHub.tsx
+@@ -5,39 +5,42 @@ import { CreationDeck, type CreationDeckItem } from './CreationDeck';
+ 
+ export type HubGroup = { id: string; title: string; description: string; items: CreationDeckItem[] };
+ type Memory = { view: string; articles: Record<string, string>; category: string; categoryScroll: number };
+-type Selection = { view: string; article?: string; revision: number };
+-const storageKey = 'gameai-article-hub';
++type Selection = { view: string; article?: string; category?: string; entryHome?: boolean; revision: number };
+ const emptyMemory = (): Memory => ({ view: 'categories', articles: {}, category: '', categoryScroll: 0 });
+ 
+-export function ArticleHub({ groups }: { groups: HubGroup[] }) {
++export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?: boolean }) {
++  const storageKey = useCallback(() => home ? "gameai-home-categories" : new URL(location.href).searchParams.get("hubEntry") === "home" ? "gameai-home-article-hub" : "gameai-article-hub", [home]);
+   const [selection, setSelection] = useState<Selection | null>(null);
+   const memory = useRef<Memory>(emptyMemory());
+   const region = useRef<HTMLDivElement>(null);
+   const all = groups.flatMap(group => group.items);
+   const persist = useCallback(() => {
+-    try { sessionStorage.setItem(storageKey, JSON.stringify(memory.current)); } catch { /* in-memory fallback */ }
+-  }, []);
++    try { sessionStorage.setItem(storageKey(), JSON.stringify(memory.current)); } catch { /* in-memory fallback */ }
++  }, [storageKey]);
+ 
+   useEffect(() => {
+     const allItems = groups.flatMap(group => group.items);
+     try {
+-      const saved = JSON.parse(sessionStorage.getItem(storageKey) ?? 'null');
++      const saved = JSON.parse(sessionStorage.getItem(storageKey()) ?? 'null');
+       if (saved && typeof saved.view === 'string' && saved.articles && typeof saved.articles === 'object') {
+         memory.current = { view: saved.view, articles: saved.articles, category: typeof saved.category === 'string' ? saved.category : '', categoryScroll: Number.isFinite(saved.categoryScroll) ? saved.categoryScroll : 0 };
+       }
+     } catch { /* corrupt/unavailable storage starts at categories */ }
+     const restore = () => {
+       const url = new URL(location.href);
++      if (home && url.hash && url.hash !== '#categories' && !groups.some(group => `#${group.id}` === url.hash)) return;
+       const explicit = Boolean(url.hash);
+       const requested = explicit ? url.hash.slice(1) : memory.current.view;
+       const group = groups.find(group => group.id === requested && group.items.length);
+-      const view = group?.id ?? (requested === 'all' ? 'all' : 'categories');
++      const view = home ? 'categories' : group?.id ?? (requested === 'all' ? 'all' : 'categories');
++      const category = groups.find(g => g.items.length && g.id === url.searchParams.get('hubCategory'))?.id ?? (home ? group?.id : undefined);
++      if (category) memory.current.category = category;
+       const items = view === 'all' ? allItems : group?.items ?? [];
+       const requestedArticle = url.searchParams.get('hubArticle') ?? (explicit ? undefined : memory.current.articles[view]);
+       const article = items.find(item => item.id === requestedArticle)?.id ?? items[0]?.id;
+       // Give even the initial entry an explicit identity: Back must not consult
+       // the newer session view when returning to the original category screen.
+-      url.hash = view;
++      if (!home || url.hash === '#categories' || category) url.hash = view;
+       if (article) url.searchParams.set('hubArticle', article); else url.searchParams.delete('hubArticle');
+       history.replaceState(history.state, '', url);
+       if (group && memory.current.category !== group.id) {
+@@ -46,16 +49,16 @@ export function ArticleHub({ groups }: { groups: HubGroup[] }) {
+       }
+       memory.current.view = view;
+       if (article) memory.current.articles[view] = article;
+-      setSelection(old => ({ view, article, revision: (old?.revision ?? 0) + 1 }));
++      setSelection(old => ({ view, article, category: memory.current.category, entryHome: url.searchParams.get('hubEntry') === 'home', revision: (old?.revision ?? 0) + 1 }));
+     };
+     restore();
+     window.addEventListener('popstate', restore);
+     window.addEventListener('hashchange', restore);
+     return () => { window.removeEventListener('popstate', restore); window.removeEventListener('hashchange', restore); };
+-  }, [groups]);
++  }, [groups, home, storageKey]);
+ 
+   useEffect(() => {
+-    if (!selection) return;
++    if (!selection || (home && location.hash && location.hash !== '#categories')) return;
+     // Next route restoration may focus its heading during commit. Restore our
+     // specific anchor after that commit, cancelling when navigation changes.
+     let secondFrame = 0;
+@@ -69,7 +72,7 @@ export function ArticleHub({ groups }: { groups: HubGroup[] }) {
+     if (interrupted) return;
+     const root = region.current;
+     if (selection.view === 'categories') {
+-      const link = Array.from(root?.querySelectorAll<HTMLAnchorElement>('a[data-category]') ?? []).find(link => link.dataset.category === memory.current.category);
++      const link = Array.from(root?.querySelectorAll<HTMLAnchorElement>('[data-deck-id] a[data-category]') ?? []).find(link => link.dataset.category === memory.current.category);
+       if (link) {
+         link.focus({ preventScroll: true });
+         if (memory.current.categoryScroll >= 0) window.scrollTo({ top: memory.current.categoryScroll, behavior: 'instant' });
+@@ -84,10 +87,16 @@ export function ArticleHub({ groups }: { groups: HubGroup[] }) {
+     }
+     }); });
+     return () => { cancelAnimationFrame(firstFrame); cancelAnimationFrame(secondFrame); window.removeEventListener('pointerdown', stopFocus, true); window.removeEventListener('keydown', stopFocus, true); };
+-  }, [selection]);
++  }, [selection, home]);
+ 
+   const navigate = (event: MouseEvent<HTMLAnchorElement>, view: string) => {
+     if (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
++    if (home) {
++      if (groups.some(group => group.id === view && group.items.length)) memory.current.category = view;
++      memory.current.categoryScroll = scrollY;
++      persist();
++      return;
++    }
+     event.preventDefault();
+     if (selection?.view === 'categories') {
+       memory.current.category = view;
+@@ -98,10 +107,12 @@ export function ArticleHub({ groups }: { groups: HubGroup[] }) {
+     memory.current.view = view;
+     const url = new URL(location.href);
+     url.hash = view;
++    if (groups.some(group => group.id === view && group.items.length)) url.searchParams.set('hubCategory', view);
++    else if (view === 'categories' && memory.current.category) url.searchParams.set('hubCategory', memory.current.category);
+     if (article) url.searchParams.set('hubArticle', article); else url.searchParams.delete('hubArticle');
+     history.pushState(null, '', url);
+     persist();
+-    setSelection(old => ({ view, article, revision: (old?.revision ?? 0) + 1 }));
++    setSelection(old => ({ view, article, category: memory.current.category, entryHome: url.searchParams.get('hubEntry') === 'home', revision: (old?.revision ?? 0) + 1 }));
+   };
+   const rememberArticle = useCallback((id: string) => {
+     const view = memory.current.view;
+@@ -114,24 +125,40 @@ export function ArticleHub({ groups }: { groups: HubGroup[] }) {
+     history.replaceState(history.state, '', url);
+     persist();
+   }, [persist]);
++  const rememberCategory = useCallback((id: string) => {
++    const url = new URL(location.href);
++    if (memory.current.view !== "categories" || (home ? url.pathname !== "/" : url.pathname.replace(/\/$/, "") !== "/articles")) return;
++    memory.current.category = id;
++    url.searchParams.set('hubCategory', id);
++    history.replaceState(history.state, '', url);
++    persist();
++  }, [persist, home]);
++  const openArticle = (id: string) => {
++    rememberArticle(id);
++    try { sessionStorage.setItem('gameai-article-return', JSON.stringify({ id, href: location.pathname + location.search + location.hash })); } catch { /* ordinary article link stays usable */ }
++  };
+   const view = selection?.view;
+-  const visibleGroups = !selection ? groups.filter(g => g.items.length) : groups.filter(g => g.id === view);
++  const visibleGroups = home ? [] : !selection ? groups.filter(g => g.items.length) : groups.filter(g => g.id === view);
+   return <div ref={region} className="article-hub-browser" id={!selection ? "all" : undefined}>
+     {(!selection || view === 'categories') && <section id="categories" aria-label="制作目的から記事を選ぶ">
+-      <div className="hub-category-grid">{groups.map(group => <div key={group.id} className="hub-category-card">
+-        {group.items.length ? <a href={`#${group.id}`} data-category={group.id} onClick={event => navigate(event, group.id)}><h2>{group.title}</h2><p>{group.description}</p><strong>{group.items.length}本の記事 →</strong></a> : <div aria-disabled="true"><h2>{group.title}</h2><p>{group.description}</p><strong>準備中 · {group.items.length}件</strong></div>}
+-      </div>)}</div>
++      <div className="article-cluster category-cluster">
++        <CreationDeck key={`categories:${selection?.revision ?? 'ssr'}`} kind="category" items={groups.filter(group => group.items.length).map(group => ({
++          id: group.id, title: group.title, description: group.description, count: group.items.length, label: '制作カテゴリ',
++          href: home ? `/articles/?hubEntry=home&hubCategory=${group.id}#${group.id}` : `#${group.id}`,
++        }))} initialId={selection?.category || undefined} defaultMode="deck" preferenceKey={home ? 'gameai-home-category-mode' : 'gameai-category-mode'} onCommitted={rememberCategory} onActivate={(event, id) => navigate(event, id)} />
++        {groups.filter(group => !group.items.length).map(group => <div key={group.id} className="v2-start-card hub-preparation" aria-disabled="true"><span className="v2-start-card-label">制作カテゴリ</span><strong>{group.title}</strong><p>{group.description}</p><span>準備中 · 0件</span></div>)}
++      </div>
+     </section>}
+     <nav className="hub-view-navigation" aria-label="記事の表示">
+-      {selection && view !== 'categories' && <a href="#categories" onClick={event => navigate(event, 'categories')}>← カテゴリへ戻る</a>}
+-      {view !== 'all' && <a href="#all" data-category="all" onClick={event => navigate(event, 'all')}>すべての記事を見る（{all.length}本） →</a>}
++      {selection && view !== 'categories' && <a href={selection.entryHome ? `/?hubCategory=${selection.category ?? ""}#categories` : "#categories"} onClick={event => { if (new URL(location.href).searchParams.get('hubEntry') !== 'home') navigate(event, 'categories'); }}>← カテゴリへ戻る</a>}
++      {view !== 'all' && <a href={home ? "/articles/#all" : "#all"} data-category="all" onClick={event => navigate(event, 'all')}>すべての記事を見る（{all.length}本） →</a>}
+     </nav>
+     {visibleGroups.map(group => <section key={`${group.id}:${selection?.revision ?? 'ssr'}`} id={group.id} className="article-cluster" aria-labelledby={`${group.id}-title`}>
+       <div className="section-head"><div><h2 id={`${group.id}-title`}>{group.title}</h2><span>{group.items.length}本の記事</span></div><p>{group.description}</p></div>
+-      <CreationDeck items={group.items} initialId={selection?.article} defaultMode={selection ? "deck" : "list"} onCommitted={selection ? rememberArticle : undefined} onOpen={rememberArticle} />
++      <CreationDeck items={group.items} initialId={selection?.article} defaultMode={selection ? "deck" : "list"} onCommitted={selection ? rememberArticle : undefined} onOpen={openArticle} />
+     </section>)}
+     {view === 'all' && <section id="all" className="article-cluster" aria-labelledby="all-title"><h2 id="all-title">すべての記事（{all.length}本）</h2>
+-      <CreationDeck key={`all:${selection?.revision ?? 'ssr'}`} items={all} initialId={selection?.article} forceList onOpen={rememberArticle} />
++      <CreationDeck key={`all:${selection?.revision ?? 'ssr'}`} items={all} initialId={selection?.article} forceList onOpen={openArticle} />
+     </section>}
+   </div>;
+ }
+diff --git a/components/ArticleReturnLink.tsx b/components/ArticleReturnLink.tsx
+new file mode 100644
+index 0000000..44de062
+--- /dev/null
++++ b/components/ArticleReturnLink.tsx
+@@ -0,0 +1,29 @@
++"use client";
++
++import Link from "next/link";
++import { useEffect, useState } from "react";
++
++/** Only a validated article-hub route can replace the ordinary breadcrumb. */
++export function ArticleReturnLink({ slug, purpose }: { slug: string; purpose: string }) {
++  const [href, setHref] = useState('/articles');
++  useEffect(() => {
++    let active = true;
++    queueMicrotask(() => {
++    try {
++      const saved = JSON.parse(sessionStorage.getItem('gameai-article-return') ?? 'null');
++      if (saved?.id !== slug || typeof saved.href !== 'string' || !saved.href.startsWith('/articles/')) return;
++      const url = new URL(saved.href, location.origin);
++      if (url.origin !== location.origin || url.pathname !== '/articles/' || url.searchParams.get('hubArticle') !== slug) return;
++      if (url.hash !== '#all' && url.hash !== `#${purpose}`) return;
++      const safe = new URL('/articles/', location.origin);
++      safe.hash = url.hash;
++      safe.searchParams.set('hubArticle', slug);
++      if (url.searchParams.get('hubEntry') === 'home') safe.searchParams.set('hubEntry', 'home');
++      if (url.hash !== '#all') safe.searchParams.set('hubCategory', purpose);
++      if (active) setHref(safe.pathname + safe.search + safe.hash);
++    } catch { /* invalid/unavailable session keeps the ordinary breadcrumb */ }
++    });
++    return () => { active = false; };
++  }, [slug, purpose]);
++  return <Link href={href}>記事</Link>;
++}
+diff --git a/components/CreationDeck.tsx b/components/CreationDeck.tsx
+index dde60d2..3bdd5be 100644
+--- a/components/CreationDeck.tsx
++++ b/components/CreationDeck.tsx
+@@ -1,7 +1,7 @@
+ "use client";
+ 
+ import Link from "next/link";
+-import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type FocusEvent as ReactFocusEvent, type KeyboardEvent } from "react";
++import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type FocusEvent as ReactFocusEvent, type KeyboardEvent, type MouseEvent } from "react";
+ 
+ import { useCreationDeckMotion } from "./useCreationDeckMotion";
+ 
+@@ -10,18 +10,22 @@ export type CreationDeckItem = {
+   href: string;
+   title: string;
+   description: string;
+-  updatedAt: string;
++  updatedAt?: string;
++  count?: number;
+   label: string;
+   image?: { src: string; srcSet: string };
+ };
+ 
+-export function CreationDeck({ items, initialId, defaultMode = "list", forceList = false, onCommitted, onOpen }: {
++export function CreationDeck({ items, initialId, defaultMode = "list", forceList = false, onCommitted, onOpen, onActivate, kind = "article", preferenceKey = "gameai-creation-deck-mode" }: {
+   items: CreationDeckItem[];
+   initialId?: string;
+   defaultMode?: "list" | "deck";
+   forceList?: boolean;
+   onCommitted?: (id: string) => void;
+   onOpen?: (id: string) => void;
++  onActivate?: (event: MouseEvent<HTMLAnchorElement>, id: string) => void;
++  kind?: "article" | "category";
++  preferenceKey?: string;
+ }) {
+   const [mode, setMode] = useState<"list" | "deck">("list");
+   const [expanded, setExpanded] = useState<Set<string>>(new Set());
+@@ -44,12 +48,12 @@ export function CreationDeck({ items, initialId, defaultMode = "list", forceList
+ 
+   useEffect(() => {
+     try {
+-      const saved = sessionStorage.getItem("gameai-creation-deck-mode");
++      const saved = sessionStorage.getItem(preferenceKey);
+       preferredMode.current = saved === "list" || saved === "deck" ? saved : defaultMode;
+     } catch {
+       preferredMode.current = defaultMode;
+     }
+-  }, [defaultMode]);
++  }, [defaultMode, preferenceKey]);
+ 
+   useEffect(() => { if (activeId && mode === "deck") onCommitted?.(activeId); }, [activeId, mode, onCommitted]);
+ 
+@@ -156,7 +160,7 @@ export function CreationDeck({ items, initialId, defaultMode = "list", forceList
+     const rememberFocusOwner = (event: FocusEvent) => {
+       const target = event.target;
+       if (!(target instanceof Element)) return;
+-      if (target.closest(".creation-deck-controls")) controlFocusOwned.current = true;
++      if (controls.current?.contains(target)) controlFocusOwned.current = true;
+       else if (target !== document.body) controlFocusOwned.current = false;
+     };
+     document.addEventListener("focusin", rememberFocusOwner, true);
+@@ -168,7 +172,7 @@ export function CreationDeck({ items, initialId, defaultMode = "list", forceList
+     setMode(next);
+     preferredMode.current = next;
+     try {
+-      sessionStorage.setItem("gameai-creation-deck-mode", next);
++      sessionStorage.setItem(preferenceKey, next);
+     } catch {
+       // The in-memory preference remains usable when storage is unavailable.
+     }
+@@ -189,30 +193,30 @@ export function CreationDeck({ items, initialId, defaultMode = "list", forceList
+   };
+   return <div ref={root} className="creation-deck" data-mode={mode} data-available={available ? "true" : "false"}>
+     {candidate && <div ref={controls} className="creation-deck-controls" onBlurCapture={recoverHiddenControlFocus} onFocusCapture={() => { controlFocusOwned.current = true; }} onKeyDown={onControlsKeyDown}>
+-      {mode === "deck" && <button type="button" onClick={() => move(-1)} aria-label="前の記事">←</button>}
++      {mode === "deck" && <button type="button" onClick={() => move(-1)} aria-label={kind === "category" ? "前のカテゴリ" : "前の記事"}>←</button>}
+       {mode === "deck" && <span className="creation-deck-count" aria-hidden="true">{active + 1} / {items.length}</span>}
+-      {mode === "deck" && <button type="button" onClick={() => move(1)} aria-label="次の記事">→</button>}
++      {mode === "deck" && <button type="button" onClick={() => move(1)} aria-label={kind === "category" ? "次のカテゴリ" : "次の記事"}>→</button>}
+       <button type="button" aria-pressed={mode === "deck"} onClick={() => changeMode(mode === "list" ? "deck" : "list")}>
+         {mode === "list" ? "円環で見る" : "一覧で見る"}
+       </button>
+       {mode === "deck" && <span className="creation-deck-status sr-only" aria-live="polite">{items.length}件中{active + 1}件目、{items[active]?.title}</span>}
+     </div>}
+-    {items.length === 0 && <p>現在、表示できる記事はありません。</p>}
++    {items.length === 0 && <p>現在、表示できる{kind === "category" ? "カテゴリ" : "記事"}はありません。</p>}
+     <ol ref={stage} className="article-cluster-list" style={mode === "deck" && deckHeight ? { minHeight: deckHeight } : undefined} onDragStart={(event) => { if (mode === "deck") event.preventDefault(); }}>
+       {items.map((item, index) => {
+         const descriptionId = `${descriptionPrefix}-${index}`;
+         const isExpanded = mode === "list" || expanded.has(item.id);
+         return <li key={item.id} data-deck-id={item.id} className="v2-start-card-item">
+           <div className="v2-start-card">
+-            <Link className="v2-start-card-face" href={item.href} aria-label={item.title} onClick={() => onOpen?.(item.id)}>
++            <Link className="v2-start-card-face" href={item.href} aria-label={item.title} data-category={kind === "category" ? item.id : undefined} onClick={event => { onOpen?.(item.id); onActivate?.(event, item.id); }}>
+               {item.image && <span className="v2-start-card-image" aria-hidden="true">
+                 {/* Approved source bytes are served without re-encoding. */}
+                 {/* eslint-disable-next-line @next/next/no-img-element */}
+                 <img src={item.image.src} srcSet={item.image.srcSet} sizes="(max-width: 680px) calc(100vw - 96px), 272px" width="960" height="640" alt="" />
+               </span>}
+-              <span className="v2-start-card-meta"><span className="v2-start-card-label">{item.label}</span><small>更新 {item.updatedAt}</small></span>
++              <span className="v2-start-card-meta"><span className="v2-start-card-label">{item.label}</span>{kind === "category" ? <small>{item.count}本の記事</small> : <small>更新 {item.updatedAt}</small>}</span>
+               <strong>{item.title}</strong>
+-              <span className="v2-start-card-read" aria-hidden="true">記事を読む <b>→</b></span>
++              <span className="v2-start-card-read" aria-hidden="true">{kind === "category" ? "記事を見る" : "記事を読む"} <b>→</b></span>
+             </Link>
+             <p id={descriptionId} className="v2-start-card-description" data-expanded={isExpanded}>{item.description}</p>
+             {mode === "deck" && <button className="v2-start-card-expand" type="button" aria-expanded={isExpanded} aria-controls={descriptionId} onClick={() => setExpanded(old => {
+diff --git a/docs/design/shared-category-ring.md b/docs/design/shared-category-ring.md
+new file mode 100644
+index 0000000..89aa642
+--- /dev/null
++++ b/docs/design/shared-category-ring.md
+@@ -0,0 +1,14 @@
++# Shared category/article circular cards — approved scope
++
++Source: owner delegation 01a0f210-6698-766f-b8b3-d686388b203d, 2026-10-03.
++Base/main and initial remote checkpoint: 93124abba0d91b9e527baae27028967948f23fb4 (PR164; PR162 inertia included).
++Branch: feat/gamebuildiary-shared-category-ring. Delivery: draft PR, commit/push, required CI and Library evidence. No merge, manual deployment, Production or Preview interaction.
++
++Home order: adopted GameBuildiary / ビルダイアリー identity and description, category cards, then 「作りたいものが決まったら」 idea input. Preserve start and Project continuation.
++Use CreationDeck and its existing motion controller for Home categories, /articles categories and category articles. Extend only content/control labels and mount-local preference/focus ownership; do not change physics. Public category membership/order/counts derive from the registry: start5, 3d3, voice3, practice5. games0 stays a noninteractive matching preparation card outside the ring. No articles, body rewrites, dates or images invented.
++
++Selection uses stable IDs, replaces URL on committed card movement, pushes only navigation. Entry context is a closed home/articles enum, never an arbitrary return URL. Home and articles entry memories are isolated; explicit URL selection wins. Body return preserves article and entry. Existing hashes, all-list, no-JS links and Project data remain usable.
++
++Acceptance: Home category entry precedes input; all three layers share operation; return restores original entry/card/focus/scroll; games cannot navigate; all 16 article URLs, advertising, analytics and Project survive. Maintain first deck on supported screens, persisted explicit list, <=340px/reduced-motion/forced-colors/measurement failure fallback and sparse counts. Verify 320/375/390/desktop and enlarged text; flick/inertia/recontact, adjacent/central taps, buttons/list/focus; moving Back, rapid selection, reload/history, no-JS and absent images. Local targeted gates first, consolidated quality/build/relevant E2E on candidate. Save diff/screens/operation records/CI logs/manifest to Library. Independent review belongs to coordinator on exact candidate SHA; physical Safari remains owner verification, not automated PASS.
++
++Performance acceptance: a small SSR-enabled ArticleBrowser load boundary keeps Home and /articles using one shared browser chunk rather than duplicating the deck in route/prefetch bundles. Existing 8 KiB gzip deck budget remains unchanged. Unit SSR uses the real App Router dynamic loader alias and streaming render; actual no-JS route evidence remains required.
+diff --git a/e2e/acceptance/diagnostics.ts b/e2e/acceptance/diagnostics.ts
+index 5cb018c..32f99b0 100644
+--- a/e2e/acceptance/diagnostics.ts
++++ b/e2e/acceptance/diagnostics.ts
+@@ -4,6 +4,7 @@ export type WidthDiagnostic = {
+   viewportWidth: number;
+   documentScrollWidth: number;
+   documentOverflowPx: number;
++  ownedClippedDeckElements: Array<{ selector: string; owner: string }>;
+   ownedLocalScrollers: Array<{ selector: string; clientWidth: number; scrollWidth: number }>;
+   unownedOverflowingElements: Array<{ selector: string; left: number; right: number; width: number; exceptionOwner?: "creation-deck-inactive-card" }>;
+ };
+@@ -26,6 +27,7 @@ export async function diagnoseWidths(page: Page): Promise<WidthDiagnostic> {
+       return /(auto|scroll)/.test(`${style.overflowX} ${style.overflow}`) ? owner : null;
+     };
+     const owned = new Map<Element, { selector: string; clientWidth: number; scrollWidth: number }>();
++    const clipped: Array<{ selector: string; owner: string }> = [];
+     const unowned: Array<{ selector: string; left: number; right: number; width: number; exceptionOwner?: "creation-deck-inactive-card" }> = [];
+     for (const element of document.body.querySelectorAll<HTMLElement>("*")) {
+       const rect = element.getBoundingClientRect();
+@@ -37,8 +39,19 @@ export async function diagnoseWidths(page: Page): Promise<WidthDiagnostic> {
+         continue;
+       }
+       if (rect.width > 0 && rect.height > 0) {
+-        const card = element.closest<HTMLElement>("#start .creation-deck[data-mode='deck'] li[data-distance]");
+-        const exceptionOwner = card && Number.isFinite(Number(card.dataset.distance)) && Number(card.dataset.distance) !== 0 ? "creation-deck-inactive-card" as const : undefined;
++        const card = element.closest<HTMLElement>(".creation-deck[data-mode='deck'] li[data-distance]");
++        const deck = card?.closest<HTMLElement>(".creation-deck");
++        const deckRect = deck?.getBoundingClientRect();
++        const clips = deck && /^(clip|hidden)$/.test(getComputedStyle(deck).overflowX);
++        // Only the inactive arc has intentional travel outside the viewport.
++        // The clip boundary must itself fit; active cards and unrelated content
++        // always remain part of the strict document-width diagnostic.
++        if (card && Number.isFinite(Number(card.dataset.distance)) && Number(card.dataset.distance) !== 0 &&
++          clips && deckRect && deckRect.left >= -.5 && deckRect.right <= viewportWidth + .5) {
++          clipped.push({ selector: selectorFor(element), owner: selectorFor(deck!) });
++          continue;
++        }
++        const exceptionOwner = undefined;
+         unowned.push({ selector: selectorFor(element), left: rect.left, right: rect.right, width: rect.width, exceptionOwner });
+       }
+     }
+@@ -46,6 +59,7 @@ export async function diagnoseWidths(page: Page): Promise<WidthDiagnostic> {
+       viewportWidth,
+       documentScrollWidth: root.scrollWidth,
+       documentOverflowPx: Math.max(0, root.scrollWidth - viewportWidth),
++      ownedClippedDeckElements: clipped,
+       ownedLocalScrollers: [...owned.values()],
+       unownedOverflowingElements: unowned.slice(0, 30),
+     };
+diff --git a/e2e/content-seo.spec.ts b/e2e/content-seo.spec.ts
+index cafbabd..732687e 100644
+--- a/e2e/content-seo.spec.ts
++++ b/e2e/content-seo.spec.ts
+@@ -180,10 +180,11 @@ test('Issue 135 journey keeps analytics local and navigates Home to cluster, art
+  const collectorRequests:string[]=[];
+  await page.route(/google-analytics|googletagmanager|analytics\.google/,route=>{collectorRequests.push(route.request().url());return route.abort()});
+  await page.goto('/');
+- await expect(page.getByRole('heading',{level:1,name:/次の1作業を決める/})).toBeVisible();
++ await expect(page.getByRole('heading',{level:1,name:/GameBuildiary/})).toBeVisible();
+  await page.getByRole('link',{name:/記事へ/}).first().click();
+- await expect(page).toHaveURL(/\/articles\/#categories$/);
+- await page.locator('[data-category="voice"]').click();
++ await expect(page).toHaveURL(/\/articles\/.*#categories$/);
++ await page.locator('[data-category="voice"]').focus();
++ await page.locator('[data-category="voice"]').locator("strong").click();
+   await expect(page.getByRole('heading',{name:'音と声を作る', exact:true})).toBeVisible();
+  await page.getByRole('link',{name:/ゲーム開発向けElevenLabs使い方ガイド/}).locator('strong').click();
+  await expect(page.getByRole('navigation',{name:'この記事の目次'})).toBeVisible();
+diff --git a/e2e/deck-acceptance-contract.spec.ts b/e2e/deck-acceptance-contract.spec.ts
+index 8053638..91fad1d 100644
+--- a/e2e/deck-acceptance-contract.spec.ts
++++ b/e2e/deck-acceptance-contract.spec.ts
+@@ -73,3 +73,19 @@ for (const phase of ['expanded', 'list'] as const) {
+     await expect(verifyDeckSummaryRecovery(page)).rejects.toThrow('summary must retain its original DOM node');
+   });
+ }
++
++
++test('width diagnostic owns only a contained clipped inactive arc', async ({ page }) => {
++  await page.setViewportSize({ width:390, height:844 });
++  await page.setContent(`<div class="creation-deck" data-mode="deck" style="position:relative;overflow:clip;width:350px;height:100px">
++    <ol><li id="inactive" data-distance="1" style="position:absolute;left:-160px;width:300px;height:50px">neighbor</li>
++    <li id="active" data-distance="0" style="position:absolute;left:0;width:300px;height:50px">active</li></ol></div>`);
++  const owned = await diagnoseWidths(page);
++  expect(owned.documentOverflowPx).toBe(0);
++  expect(owned.unownedOverflowingElements).toEqual([]);
++  expect(owned.ownedClippedDeckElements.some(e => e.selector === '#inactive')).toBe(true);
++  await page.locator('#active').evaluate(element => element.style.left='-100px');
++  expect((await diagnoseWidths(page)).unownedOverflowingElements.some(e => e.selector === '#active')).toBe(true);
++  await page.locator('.creation-deck').evaluate(element => element.style.overflow='visible');
++  expect((await diagnoseWidths(page)).unownedOverflowingElements.some(e => e.selector === '#inactive')).toBe(true);
++});
+diff --git a/e2e/gamebuildiary-category-entry.spec.ts b/e2e/gamebuildiary-category-entry.spec.ts
+index 758c2ac..e6f1773 100644
+--- a/e2e/gamebuildiary-category-entry.spec.ts
++++ b/e2e/gamebuildiary-category-entry.spec.ts
+@@ -2,7 +2,7 @@ import { test, expect, type Page } from './fixtures';
+ import { mkdir, writeFile } from 'node:fs/promises';
+ import { getArticleGroups } from '../data/articles';
+ 
+-const evidence = 'docs/screenshots/gamebuildiary-category-entry';
++const evidence = 'docs/screenshots/shared-category-ring';
+ const idle = async (page: Page) => { await expect(page.locator('.creation-deck')).toHaveCount(1); await expect(page.locator('.creation-deck ol')).toHaveAttribute('data-motion', 'idle'); };
+ const current = (page: Page) => page.locator('.creation-deck li[data-distance="0"]');
+ let pageErrors: string[] = [];
+@@ -16,14 +16,16 @@ for (const width of [320, 375, 390, 1440]) test(`category entry and all public a
+   await mkdir(evidence, { recursive: true });
+   await page.setViewportSize({ width, height: 900 });
+   await page.goto('/articles/');
+-  await expect(page.locator('.hub-category-card')).toHaveCount(5);
+-  await expect(page.locator('.creation-deck')).toHaveCount(0);
+-  await expect(page.locator('.hub-category-card [aria-disabled="true"]')).toContainText('準備中 · 0件');
++  await expect(page.locator('#categories [data-deck-id]')).toHaveCount(4);
++  await expect(page.locator('.creation-deck')).toHaveCount(1);
++  await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', width <= 340 ? 'list' : 'deck');
++  await expect(page.locator('.hub-preparation[aria-disabled="true"]')).toContainText('準備中 · 0件');
+   await expect(page.locator('[href="#games"]')).toHaveCount(0);
+   await page.screenshot({ path: `${evidence}/categories-${width}.png`, fullPage: true });
+   const operations = [];
+   for (const group of getArticleGroups().filter(g => g.articles.length)) {
+-    await page.locator(`[data-category="${group.id}"]`).click();
++    await page.locator(`[data-category="${group.id}"]`).focus();
++    await page.locator(`[data-category="${group.id}"]`).locator("strong").click();
+     await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', width <= 340 ? 'list' : 'deck');
+     await idle(page);
+     expect(await page.locator('.creation-deck li a').evaluateAll(links => links.map(a => a.getAttribute('href')))).toEqual(group.articles.map(a => `/articles/${a.slug}/`));
+@@ -45,7 +47,7 @@ for (const width of [320, 375, 390, 1440]) test(`category entry and all public a
+ test('voice v4 roundtrip, category focus, history and list selection', async ({ page }) => {
+   await page.setViewportSize({ width: 390, height: 844 });
+   await page.goto('/articles/');
+-  await page.locator('[data-category="voice"]').click();
++  await page.locator('[data-category="voice"]').focus(); await page.locator('[data-category="voice"]').locator("strong").click();
+   const historyLength = await page.evaluate(() => history.length);
+   await page.getByRole('button', { name: '次の記事', exact: true }).click(); await idle(page);
+   await expect(current(page)).toHaveAttribute('data-deck-id', 'elevenlabs-v4-game-voice');
+@@ -64,12 +66,12 @@ test('voice v4 roundtrip, category focus, history and list selection', async ({
+   await expect(current(page)).toHaveAttribute('data-deck-id', 'elevenlabs-v4-game-voice');
+   await page.goForward();
+   await expect(page.locator('[data-category="voice"]')).toBeFocused();
+-  await page.locator('[data-category="voice"]').click();
++  await page.locator('[data-category="voice"]').focus(); await page.locator('[data-category="voice"]').locator("strong").click();
+   await page.getByRole('button', { name: '一覧で見る', exact: true }).click();
+   await page.reload();
+   await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'list');
+   await page.getByRole('link', { name: '← カテゴリへ戻る' }).click();
+-  await page.locator('[data-category="start"]').click();
++  await page.locator('[data-category="start"]').focus(); await page.locator('[data-category="start"]').locator("strong").click();
+   await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'list');
+ });
+ 
+@@ -92,18 +94,18 @@ test('all-list roundtrip, explicit URL precedence and removed IDs', async ({ pag
+   await page.getByRole('link', { name: '← カテゴリへ戻る' }).click();
+   await expect(page.locator('[data-category="3d"]')).toBeFocused();
+   await page.goto('/articles/#deleted-category');
+-  await expect(page.locator('.hub-category-card')).toHaveCount(5);
++  await expect(page.locator('#categories [data-deck-id]')).toHaveCount(4);
+ });
+ 
+ test('rapid controls and back during motion do not publish a transient article', async ({ page }) => {
+   await page.setViewportSize({ width: 390, height: 844 });
+   await page.goto('/articles/');
+-  await page.locator('[data-category="voice"]').click(); await idle(page);
++  await page.locator('[data-category="voice"]').focus(); await page.locator('[data-category="voice"]').locator("strong").click(); await idle(page);
+   await page.getByRole('button', { name: '次の記事', exact: true }).click({ clickCount: 4, delay: 20 }); await idle(page);
+   await expect(current(page)).toHaveAttribute('data-deck-id', 'elevenlabs-v4-game-voice');
+   await page.getByRole('button', { name: '次の記事', exact: true }).click();
+   await page.goBack();
+-  await expect(page.locator('.hub-category-card')).toHaveCount(5);
++  await expect(page.locator('#categories [data-deck-id]')).toHaveCount(4);
+   await page.goForward(); await idle(page);
+   await expect(current(page)).toHaveAttribute('data-deck-id', 'elevenlabs-v4-game-voice');
+ });
+@@ -134,7 +136,7 @@ test('no JavaScript exposes all sixteen normal article links once', async ({ bro
+   const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 844 } });
+   const page = await context.newPage();
+   await page.goto('/articles/');
+-  await expect(page.locator('.creation-deck li a')).toHaveCount(16);
++  await expect(page.locator('.article-cluster:not(.category-cluster) .creation-deck li a')).toHaveCount(16);
+   await page.locator('#voice li a').nth(1).locator('strong').click();
+   await expect(page).toHaveURL(/elevenlabs-v4-game-voice\/$/);
+   await context.close();
+diff --git a/e2e/issue-157-final-evidence.spec.ts b/e2e/issue-157-final-evidence.spec.ts
+index c5006e1..a745900 100644
+--- a/e2e/issue-157-final-evidence.spec.ts
++++ b/e2e/issue-157-final-evidence.spec.ts
+@@ -28,6 +28,7 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
+   await page.setViewportSize({ width, height: width >= 1000 ? 900 : 844 });
+   if (new URL(page.url()).pathname !== new URL(item.route, "http://local").pathname) await page.goto(item.route);
+   await expect(page.locator(item.selector)).toBeVisible();
++  if (item.route.startsWith("/compare")) await expect(page.locator(".compare-picker-panel")).toBeVisible();
+   const method = item.method ?? "viewport-reflow";
+   const textMethod: TextMethod = method === "viewport-reflow"
+     ? "none"
+@@ -52,9 +53,22 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
+     const activeRect = active.getBoundingClientRect(); const stageRect = stage.getBoundingClientRect();
+     return activeRect.top >= stageRect.top - 1 && activeRect.bottom <= stageRect.bottom + 1 && active.scrollHeight <= stage.clientHeight + 1;
+   });
++  const clippedDeckOwned = await page.locator(item.selector).evaluate(surface => {
++    const selector = '.creation-deck[data-mode="deck"]';
++    const decks = surface.matches(selector) ? [surface] : [...surface.querySelectorAll(selector)];
++    return decks.length > 0 && decks.every(deck => {
++      const active = deck.querySelector<HTMLElement>('li[data-distance="0"]');
++      const stage = deck.querySelector<HTMLElement>('ol');
++      if (!active || !stage || !/^(clip|hidden)$/.test(getComputedStyle(deck).overflowX)) return false;
++      const boundary = deck.getBoundingClientRect(), card = active.getBoundingClientRect(), rail = stage.getBoundingClientRect();
++      return boundary.left >= -.5 && boundary.right <= document.documentElement.clientWidth + .5 &&
++        card.left >= boundary.left - 1 && card.right <= boundary.right + 1 &&
++        card.top >= rail.top - 1 && card.bottom <= rail.bottom + 1 && active.scrollHeight <= stage.clientHeight + 1;
++    });
++  });
+   const unownedOverflow = widths.unownedOverflowingElements.filter(({ exceptionOwner }) => exceptionOwner !== "creation-deck-inactive-card");
+   const clippedText = surface.clippedText.filter(({ selector, horizontal, vertical }) =>
+-    !(deckMode && deckActiveContained && horizontal && !vertical && selector === "div.creation-deck") &&
++    !(clippedDeckOwned && deckActiveContained && horizontal && !vertical && selector === "div.creation-deck") &&
+     !(deckMode && vertical && !horizontal && recoveredSummaries.has(selector)));
+   const screenshot = `${item.id}.png`;
+   await page.screenshot({ path: path.join(output, screenshot), fullPage: true });
+diff --git a/e2e/issue-157-reflow-evidence.spec.ts b/e2e/issue-157-reflow-evidence.spec.ts
+index 277f64a..c9466b8 100644
+--- a/e2e/issue-157-reflow-evidence.spec.ts
++++ b/e2e/issue-157-reflow-evidence.spec.ts
+@@ -165,8 +165,8 @@ test("V2 Home observations emit and validate current typed evidence", async ({
+ 
+   await page.goto("/");
+   await expect(page.locator(".home-execution-hero")).toBeVisible();
+-  await observe({ id: "v2-home-initial-320", caseId: "VL-V2-HOME-INITIAL", variantId: "empty-initial-normal-first-view", width: 320, method: "viewport-reflow", coverage: ["viewport-reflow"], textRoles: [{ role: "heading", selector: ".home-execution-hero h1" }], probeSelector: ".home-execution-hero .project-idea-card" });
+-  await observe({ id: "v2-home-initial-150", caseId: "VL-V2-HOME-INITIAL", variantId: "empty-initial-normal-first-view", width: 375, method: "synthetic-root-text", factor: 1.5, coverage: ["synthetic-root-text", "text-scale", "factor-150", "viewport-375"], textRoles: [{ role: "heading", selector: ".home-execution-hero h1" }, ...roles], probeSelector: ".home-execution-hero .project-idea-card" });
++  await observe({ id: "v2-home-initial-320", caseId: "VL-V2-HOME-INITIAL", variantId: "empty-initial-normal-first-view", width: 320, method: "viewport-reflow", coverage: ["viewport-reflow"], textRoles: [{ role: "heading", selector: ".home-execution-hero h2" }], probeSelector: ".home-execution-hero .project-idea-card" });
++  await observe({ id: "v2-home-initial-150", caseId: "VL-V2-HOME-INITIAL", variantId: "empty-initial-normal-first-view", width: 375, method: "synthetic-root-text", factor: 1.5, coverage: ["synthetic-root-text", "text-scale", "factor-150", "viewport-375"], textRoles: [{ role: "heading", selector: ".home-execution-hero h2" }, ...roles], probeSelector: ".home-execution-hero .project-idea-card" });
+ 
+   await page.getByRole("button", { name: "最初の作業を作る" }).click();
+   await expect(page.locator(".home-execution-hero [role=alert]")).toBeVisible();
+diff --git a/e2e/shared-category-ring.spec.ts b/e2e/shared-category-ring.spec.ts
+new file mode 100644
+index 0000000..ba4ca35
+--- /dev/null
++++ b/e2e/shared-category-ring.spec.ts
+@@ -0,0 +1,119 @@
++import { test, expect, type Page } from './fixtures';
++import { mkdir, writeFile } from 'node:fs/promises';
++
++const evidence = 'docs/screenshots/shared-category-ring';
++const deck = (page: Page) => page.locator('.creation-deck');
++const current = (page: Page) => deck(page).locator('li[data-distance="0"]');
++const idle = async (page: Page) => { await expect(deck(page).locator('ol')).toHaveAttribute('data-motion', 'idle'); };
++test.beforeEach(async ({ context }) => {
++  await context.route('**/*', r => new URL(r.request().url()).hostname === '127.0.0.1' ? r.continue() : r.abort());
++});
++
++for (const width of [320,375,390,1440]) test(`Home order and complete return context at ${width}`, async ({ page }) => {
++  await mkdir(evidence, { recursive:true });
++  await page.setViewportSize({ width, height:width === 1440 ? 900 : 844 });
++  await page.goto('/');
++  await expect(deck(page)).toHaveAttribute('data-mode', width <= 340 ? 'list' : 'deck'); await idle(page);
++  const positions = await page.evaluate(() => ['.home-brand-intro','.home-category-entry','.home-execution-hero'].map(selector => document.querySelector(selector)!.getBoundingClientRect().top + scrollY));
++  expect(positions[0]).toBeLessThan(positions[1]); expect(positions[1]).toBeLessThan(positions[2]);
++  expect((await deck(page).boundingBox())!.y).toBeLessThan(page.viewportSize()!.height);
++  if (width > 340) expect((await current(page).locator('.v2-start-card-read').boundingBox())!.y).toBeLessThan(page.viewportSize()!.height);
++  await page.screenshot({path:`${evidence}/home-first-${width}.png`});
++  const historyBefore = await page.evaluate(() => history.length);
++  await page.locator('[data-category="voice"]').focus(); await idle(page);
++  expect(await page.evaluate(() => history.length)).toBe(historyBefore);
++  await page.locator('[data-category="voice"]').locator("strong").click();
++  await expect(page).toHaveURL(/hubEntry=home.*#voice$/); await idle(page);
++  if (width > 340) { await page.getByRole('button',{name:'次の記事',exact:true}).click(); await idle(page); }
++  else await page.locator('[data-deck-id="elevenlabs-v4-game-voice"] a').focus();
++  await page.locator('[data-deck-id="elevenlabs-v4-game-voice"] strong').click();
++  await expect(page).toHaveURL(/elevenlabs-v4-game-voice\/$/);
++  await page.reload();
++  await page.getByRole('navigation',{name:'パンくず'}).getByRole('link',{name:'記事',exact:true}).click();
++  await expect(page).toHaveURL(/hubArticle=elevenlabs-v4-game-voice.*#voice$/); await idle(page);
++  await expect(page.locator('[data-deck-id="elevenlabs-v4-game-voice"] a')).toBeFocused();
++  await page.getByRole('link',{name:'← カテゴリへ戻る'}).click();
++  await expect(page).toHaveURL(/\/\?hubCategory=voice#categories$/); await idle(page);
++  await expect(page.locator('[data-category="voice"]')).toBeFocused();
++  if (width > 340) await expect(current(page)).toHaveAttribute('data-deck-id','voice');
++  await page.screenshot({path:`${evidence}/home-return-${width}.png`});
++  await expect(page.locator('.hub-preparation a, .hub-preparation button')).toHaveCount(0);
++  await expect(page.locator('.hub-preparation')).toContainText('準備中 · 0件');
++  await writeFile(`${evidence}/home-operations-${width}.json`,JSON.stringify({width,method:'Chromium viewport emulation, not physical Safari',positions,historyBefore,returnUrl:page.url(),flow:'Home voice → v4 body → reload → article breadcrumb → original Home voice',focus:await page.locator(':focus').getAttribute('data-category')},null,2));
++});
++
++test('entry preferences and focus ownership remain separate across mounts', async ({ page }) => {
++  await page.setViewportSize({width:390,height:844});
++  await page.goto('/'); await idle(page);
++  await page.getByRole('button',{name:'一覧で見る',exact:true}).click();
++  await page.goto('/articles/#categories'); await idle(page);
++  await expect(deck(page)).toHaveAttribute('data-mode','deck');
++  await page.locator('[data-category="voice"]').focus(); await page.locator('[data-category="voice"]').locator("strong").click(); await idle(page);
++  await expect(deck(page)).toHaveAttribute('data-mode','deck');
++  await page.getByRole('button',{name:'一覧で見る',exact:true}).click();
++  await page.getByRole('link',{name:'← カテゴリへ戻る'}).click(); await idle(page);
++  await expect(deck(page)).toHaveAttribute('data-mode','deck');
++  await page.goto('/'); await idle(page);
++  await expect(deck(page)).toHaveAttribute('data-mode','list');
++  await page.emulateMedia({reducedMotion:'reduce'});
++  await page.goto('/articles/#categories'); await expect(deck(page)).toHaveAttribute('data-mode','list');
++  await page.emulateMedia({reducedMotion:'no-preference',forcedColors:'active'});
++  await expect(deck(page)).toHaveAttribute('data-mode','list');
++});
++
++test('category tiny flick, inertia, recontact and navigation history use shared motion', async ({ page }) => {
++  await page.setViewportSize({width:390,height:844});
++  await page.goto('/'); await idle(page);
++  const count = await page.evaluate(() => history.length);
++  const drag = async (dx:number, steps:number, pause=0) => {
++    const box = (await current(page).locator('strong').boundingBox())!;
++    const x=box.x+box.width/2,y=box.y+box.height/2;
++    await page.mouse.move(x,y); await page.mouse.down();
++    await page.mouse.move(x+dx,y,{steps}); if(pause) await page.waitForTimeout(pause); await page.mouse.up();
++  };
++  await drag(-30,2); await idle(page);
++  await expect(page).toHaveURL(/hubCategory=/);
++  await drag(-180,2);
++  const stage=deck(page).locator('ol');
++  await expect(stage).toHaveAttribute('data-motion',/inertia|snapping|idle/);
++  // Recontact during free travel, reverse, and release. No navigation may occur.
++  const box=(await deck(page).boundingBox())!;
++  await page.mouse.move(box.x+box.width/2,box.y+100); await page.mouse.down();
++  await page.mouse.move(box.x+box.width/2+90,box.y+100,{steps:3}); await page.mouse.up(); await idle(page);
++  expect(new URL(page.url()).pathname).toBe('/');
++  expect(await page.evaluate(() => history.length)).toBe(count);
++  await page.getByRole('button',{name:'次のカテゴリ',exact:true}).click({clickCount:4,delay:20});
++  await page.goto('/articles/#categories'); await idle(page);
++  await page.locator('[data-category="voice"]').focus(); await page.locator('[data-category="voice"]').locator("strong").click(); await idle(page);
++  await page.getByRole('button',{name:'次の記事',exact:true}).click(); await page.goBack(); await idle(page);
++  await expect(page.locator('[data-category="voice"]')).toBeFocused();
++});
++
++for (const width of [320,375]) test(`category enlarged Japanese remains usable at ${width}`, async ({page}) => {
++  await page.setViewportSize({width,height:900}); await page.goto('/');
++  await page.evaluate(() => document.documentElement.style.fontSize='200%');
++  await expect(deck(page)).toHaveAttribute('data-mode','list');
++  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
++  await page.screenshot({path:`${evidence}/home-root200-${width}.png`,fullPage:true});
++});
++
++test('Home no-JS category links reach actual articles, unsafe context is ignored', async ({browser,page}) => {
++  const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:844}});
++  const nojs=await context.newPage(); await nojs.goto('/');
++  await nojs.locator('[data-category="voice"]').locator('strong').click();
++  await expect(nojs.locator('#voice li a')).toHaveCount(3); await context.close();
++  await page.goto('/articles/?hubEntry=https://evil.example&return=https://evil.example#voice'); await idle(page);
++  await expect(page.getByRole('link',{name:'← カテゴリへ戻る'})).toHaveAttribute('href','#categories');
++});
++
++
++test('Home example fragment remains native and Project input survives', async ({page}) => {
++  await page.goto('/');
++  await page.locator('.home-example-link').click();
++  await expect(page).toHaveURL(/#home-example$/);
++  await expect(page.locator('#home-example')).toBeInViewport();
++  await page.locator('.home-execution-hero textarea').fill('ブラウザでタップして猫を育てるゲーム');
++  await page.locator('.home-execution-hero button[type=submit]').click();
++  await expect(page).toHaveURL(/project/);
++  await expect(page.locator('body')).toContainText('猫');
++});
+diff --git a/e2e/slice-three-articles.spec.ts b/e2e/slice-three-articles.spec.ts
+index add70ce..3751d0d 100644
+--- a/e2e/slice-three-articles.spec.ts
++++ b/e2e/slice-three-articles.spec.ts
+@@ -47,7 +47,8 @@ test("Slice 3 representative routes meet the rendered reading contract", async (
+         await expect(
+           page.getByRole("region", { name: "制作目的から記事を選ぶ" }),
+         ).toBeVisible();
+-        await expect(page.locator(".hub-category-card")).toHaveCount(5);
++        await expect(page.locator("#categories [data-deck-id]")).toHaveCount(4);
++        await expect(page.locator(".hub-preparation")).toHaveCount(1);
+       } else {
+         await expect(page.locator(".article-answer")).toBeVisible();
+         await expect(
+diff --git a/e2e/slice-two-home-chrome.spec.ts b/e2e/slice-two-home-chrome.spec.ts
+index 31a8a3d..656e4ca 100644
+--- a/e2e/slice-two-home-chrome.spec.ts
++++ b/e2e/slice-two-home-chrome.spec.ts
+@@ -6,18 +6,19 @@ const baselineRoutes = ["/", "/project", "/articles", "/tools", "/guides", "/com
+ 
+ test.describe("Issue 137 Slice 2 Home composition", () => {
+   for (const viewport of acceptanceViewports) {
+-    test(`primary idea action and bounded title at ${viewport.width}x${viewport.height}`, async ({ page, context }) => {
++    test(`primary category entry, retained idea action and bounded title at ${viewport.width}x${viewport.height}`, async ({ page, context }) => {
+       const collectorAttempts = await installAcceptanceNetworkGuard(context);
+       await page.setViewportSize(viewport);
+       await page.goto("/");
+       const h1 = page.getByRole("heading", { level: 1 });
+-      const action = page.getByRole("button", { name: "最初の作業を作る" });
+-      await expect(h1).toHaveText(/作りたいゲームから、次の1作業を決める。/);
++      const action = page.locator(".home-category-entry .v2-start-card-read").first();
++      await expect(page.getByRole("button", { name: "最初の作業を作る" })).toBeVisible();
++      await expect(h1).toHaveText(/GameBuildiary/);
+       await expect(action).toBeVisible();
+       const [headingBox, actionBox] = await Promise.all([h1.boundingBox(), action.boundingBox()]);
+       if (viewport.width < 400) {
+         expect(headingBox?.height).toBeLessThan(150);
+-        expect(actionBox?.y).toBeLessThan(600);
++        expect(actionBox?.y).toBeLessThan(viewport.height);
+         expect((actionBox?.y ?? 0) + (actionBox?.height ?? 0)).toBeLessThanOrEqual(viewport.height);
+       }
+       expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
+@@ -53,7 +54,7 @@ test.describe("Issue 137 Slice 2 Home composition", () => {
+     await expect(trigger).toBeFocused();
+     await trigger.click();
+     await dialog.getByRole("link", { name: /記事/ }).click();
+-    await expect(page).toHaveURL(/\/articles\/#categories$/);
++    await expect(page).toHaveURL(/\/articles\/.*#categories$/);
+     await expect(page.getByRole("dialog", { name: "サイトメニュー" })).toHaveCount(0);
+   });
+ 
+diff --git a/e2e/slice-zero-acceptance.spec.ts b/e2e/slice-zero-acceptance.spec.ts
+index f163352..9644459 100644
+--- a/e2e/slice-zero-acceptance.spec.ts
++++ b/e2e/slice-zero-acceptance.spec.ts
+@@ -24,14 +24,14 @@ test.describe("Issue 137 Slice 0 rendered baselines", () => {
+     test(`Home is capturable with provenance at ${viewport.width}x${viewport.height}`, async ({ page }, testInfo) => {
+       await page.setViewportSize(viewport);
+       await page.goto("/");
+-      await expect(page.getByRole("heading", { level: 1, name: /次の1作業を決める/ })).toBeVisible();
++      await expect(page.getByRole("heading", { level: 1, name: /GameBuildiary/ })).toBeVisible();
+       const diagnostics = await diagnoseWidths(page);
+       const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
+       if (viewport.width < 400) {
+-        // Slice 2 replaces the expected-open density baseline with the bounded Home contract.
++        // Approved category-first Home retains a bounded brand and visible category CTA.
+         expect(heading?.height, "Home H1 must use the bounded scale").toBeLessThan(150);
+-        const primaryAction = await page.getByRole("button", { name: "最初の作業を作る" }).boundingBox();
+-        expect(primaryAction?.y, "the primary action must remain in the first-view composition").toBeLessThan(600);
++        const primaryAction = await page.locator(".home-category-entry .v2-start-card-read").first().boundingBox();
++        expect(primaryAction?.y, "the category entry must remain in the first-view composition").toBeLessThan(viewport.height);
+       }
+       const record = await captureEvidence(page, testInfo, {
+         id: `home-${viewport.id}`,
+@@ -39,7 +39,7 @@ test.describe("Issue 137 Slice 0 rendered baselines", () => {
+         viewport: { width: viewport.width, height: viewport.height },
+         zoom: { mode: "none", factor: 1 },
+         emulation: { viewport: true, physicalDevice: false, userAgentProfile: "Desktop Chrome" },
+-        state: [viewport.width < 400 ? "slice-two-home-composition" : "desktop-reference"],
++        state: [viewport.width < 400 ? "shared-category-ring-home-composition" : "desktop-reference"],
+         diagnostics: {
+           documentOverflowPx: diagnostics.documentOverflowPx,
+           ownedLocalScrollers: diagnostics.ownedLocalScrollers.length,
+diff --git a/lib/article-hub-groups.ts b/lib/article-hub-groups.ts
+new file mode 100644
+index 0000000..0e32cf4
+--- /dev/null
++++ b/lib/article-hub-groups.ts
+@@ -0,0 +1,14 @@
++import { articleCategoryLabels, getArticleGroups } from '@/data/articles';
++import { getStartArticleVisual, startArticleVisuals, type StartArticleSlug } from '@/lib/article-visuals';
++
++export function getHubGroups() {
++  return getArticleGroups().map(group => ({
++    id: group.id, title: group.title, description: group.description,
++    items: group.articles.map(article => ({
++      id: article.slug, href: `/articles/${article.slug}/`, title: article.title,
++      description: article.description, updatedAt: article.updatedAt,
++      label: article.contextNote ?? articleCategoryLabels[article.category],
++      image: article.slug in startArticleVisuals ? getStartArticleVisual(article.slug as StartArticleSlug) : undefined,
++    })),
++  }));
++}
+diff --git a/tests/articles-v2.test.tsx b/tests/articles-v2.test.tsx
+index 5680254..3466826 100644
+--- a/tests/articles-v2.test.tsx
++++ b/tests/articles-v2.test.tsx
+@@ -1,19 +1,22 @@
+ // @vitest-environment jsdom
+-import { renderToStaticMarkup } from 'react-dom/server';
++import { renderToReadableStream } from 'react-dom/server';
+ import { describe, expect, it, vi } from 'vitest';
+ import ArticlesPage from '@/app/articles/page';
+ import { articles, getArticleGroups, validateArticles, type ArticleRecord } from '@/data/articles';
+ 
++// Next's App Router compiler aliases next/dynamic to this real SSR loader.
++vi.mock('next/dynamic', async () => ({ default: (await import('next/dist/shared/lib/app-dynamic')).default }));
++
+ vi.mock('next/link', () => ({ default: ({href, children, ...props}: React.ComponentProps<'a'>) => <a href={href} {...props}>{children}</a> }));
+ 
+ describe('published purpose registry', () => {
+-  it('projects every published article once, in approved category order', () => {
++  it('projects every published article once, in approved category order', async () => {
+     const groups = getArticleGroups();
+     expect(groups.map(g => [g.id, g.articles.length])).toEqual([['start',5],['3d',3],['voice',3],['practice',5],['games',0]]);
+     expect(groups[0].articles.map(a => a.slug)).toEqual(['ai-browser-game-how-to','before-asking-ai-build-game','small-first-success','github-beginner-game-development','ai-tool-comparison-later']);
+     expect(groups[2].articles.map(a => a.slug)).toEqual(['elevenlabs-game-development-guide','elevenlabs-v4-game-voice','elevenlabs-commercial-use-game']);
+     expect(new Set(groups.flatMap(g => g.articles.map(a => a.slug))).size).toBe(16);
+-    const html = renderToStaticMarkup(<ArticlesPage />);
++    const html = await new Response(await renderToReadableStream(<ArticlesPage />)).text();
+     for (const article of articles) expect(html.split(`href="/articles/${article.slug}/"`), article.slug).toHaveLength(2);
+     expect(html).toContain('ゲーム制作外の検証事例');
+     expect(html).not.toContain('href="#games"');
+diff --git a/tests/creation-deck.test.tsx b/tests/creation-deck.test.tsx
+index bcb367b..acb5a9b 100644
+--- a/tests/creation-deck.test.tsx
++++ b/tests/creation-deck.test.tsx
+@@ -134,3 +134,25 @@ describe("CreationDeck disposable item-count fixtures", () => {
+   });
+ 
+ });
++
++
++describe("shared category cards", () => {
++  it("uses category labels/counts without invented dates and isolates explicit mode", async () => {
++    installUsableGeometry();
++    vi.stubGlobal("matchMedia", vi.fn(() => ({ matches:false, addEventListener:vi.fn(), removeEventListener:vi.fn() })));
++    sessionStorage.setItem("category-fixture-mode", "list");
++    const categories = [0,1,2,3].map(index => ({ ...item(index), updatedAt:undefined, image:undefined, count:index+3 }));
++    const view = render(<><CreationDeck kind="category" items={categories} defaultMode="deck" preferenceKey="category-fixture-mode" /><CreationDeck items={[item(0),item(1),item(2)]} defaultMode="deck" /></>);
++    const decks = view.container.querySelectorAll('.creation-deck');
++    await waitFor(() => expect(decks[1].getAttribute('data-mode')).toBe('deck'));
++    expect(decks[0].getAttribute('data-mode')).toBe('list');
++    expect(decks[0].textContent).toContain('3本の記事');
++    expect(decks[0].textContent).not.toContain('更新');
++    expect(decks[0].textContent).toContain('記事を見る');
++    fireEvent.click(decks[0].querySelector('button')!);
++    await waitFor(() => expect(decks[0].getAttribute('data-mode')).toBe('deck'));
++    expect(decks[0].querySelector('[aria-label="次のカテゴリ"]')).not.toBeNull();
++    expect(decks[1].querySelector('[aria-label="次の記事"]')).not.toBeNull();
++    expect(sessionStorage.getItem('gameai-creation-deck-mode')).toBeNull();
++  });
++});

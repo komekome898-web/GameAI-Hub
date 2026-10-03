@@ -1,0 +1,41 @@
+const { chromium } = require('/workspace/GameAI-Hub/node_modules/playwright');
+const fs = require('node:fs'); const assert = require('node:assert/strict');
+(async()=>{
+ const browser=await chromium.launch({executablePath:'/usr/bin/chromium'});
+ const context=await browser.newContext({viewport:{width:390,height:844}});
+ await context.route('**/*',r=>new URL(r.request().url()).hostname==='127.0.0.1'?r.continue():r.abort());
+ const page=await context.newPage(); const records=[];
+ const idle=()=>page.waitForFunction(()=>{const s=document.querySelector('.creation-deck ol');return s?.dataset.motion==='idle'&&s.dataset.motionRaf==='0'});
+ const open=async(route)=>{await page.goto('http://127.0.0.1:3100'+route);await page.waitForFunction(()=>document.querySelector('.creation-deck')?.dataset.mode==='deck');await idle();};
+ const sample=async(times,recontact=false)=>page.locator('.creation-deck ol').evaluate(async(root,{times,recontact})=>{
+   const node=root.querySelector('li[data-distance="0"] strong'), card=node.closest('li');
+   const step=card.offsetWidth*.56, started=performance.now(), frames=[];
+   const capture=root.setPointerCapture;root.setPointerCapture=()=>{};
+   const fire=(type,pos,t)=>{const e=new PointerEvent(type,{bubbles:true,pointerId:91,pointerType:'touch',isPrimary:true,button:0,clientX:220-pos*step,clientY:200});Object.defineProperty(e,'timeStamp',{value:started+t});node.dispatchEvent(e);};
+   let running=true;const record=()=>{frames.push({pos:Number(root.dataset.motionPos),phase:root.dataset.motion,speed:Number(root.dataset.motionSpeed),ids:[...root.children].map(c=>c.dataset.deckId)});if(running)requestAnimationFrame(record);};
+   fire('pointerdown',0,0);fire('pointermove',.1,times[0]);await new Promise(r=>requestAnimationFrame(r));fire('pointermove',.2,times[1]);await new Promise(r=>requestAnimationFrame(r));fire('pointerup',.2,times[1]+1);record();
+   const release={pos:Number(root.dataset.motionPos),phase:root.dataset.motion,speed:Number(root.dataset.motionSpeed)};
+   let grab;
+   if(recontact){await new Promise(r=>requestAnimationFrame(r));const before=Number(root.dataset.motionPos);fire('pointerdown',0,times[1]+20);const held=Number(root.dataset.motionPos);fire('pointermove',-.1,times[1]+30);await new Promise(r=>requestAnimationFrame(r));fire('pointermove',-.2,times[1]+40);fire('pointerup',-.2,times[1]+41);grab={before,held,reverseSpeed:Number(root.dataset.motionSpeed),reversePhase:root.dataset.motion};}
+   root.setPointerCapture=capture;
+   await new Promise((resolve,reject)=>{const limit=setTimeout(()=>{running=false;reject(Error('did not settle'))},4000);const check=()=>{if(root.dataset.motion==='idle'&&root.dataset.motionRaf==='0'){clearTimeout(limit);running=false;resolve();}else requestAnimationFrame(check);};check();});
+   return {release,grab,frames,final:Number(root.dataset.motionPos),method:'synthetic controlled PointerEvent timing on actual production-build category component; rAF motion'};
+ },{times,recontact});
+ const travel=r=>{let total=0,prev=r.release.pos;for(const frame of r.frames){let d=frame.pos-prev;if(d>2)d-=4;if(d< -2)d+=4;total+=d;prev=frame.pos;}return total;};
+ for(const route of ['/?hubCategory=start#categories','/articles/?hubCategory=start#categories']){
+   await open(route);const beforeHistory=await page.evaluate(()=>history.length);const slow=await sample([20,100]);
+   await open(route);const fast=await sample([10,20]);
+   assert(travel(fast)>travel(slow)+1.5);assert(fast.frames.every(f=>new Set(f.ids).size===4));
+   await open(route);const reverse=await sample([10,20],true);assert(Math.abs(reverse.grab.before-reverse.grab.held)<.001);assert(reverse.grab.reverseSpeed<0);
+   await open(route);const point=await page.locator('.creation-deck ol').evaluate(root=>{const n=root.querySelector('li[data-distance="1"] strong').getBoundingClientRect(),active=root.querySelector('li[data-distance="0"]').getBoundingClientRect(),clip=root.closest('.creation-deck').getBoundingClientRect();return {x:(Math.max(n.left,active.right+2)+Math.min(n.right,clip.right-2))/2,y:n.top+n.height/2};});
+   await page.mouse.click(point.x,point.y);await idle();
+   assert.equal(new URL(page.url()).pathname,new URL('http://127.0.0.1:3100'+route).pathname);
+   assert.equal(await page.locator('.creation-deck li[data-distance="0"]').getAttribute('data-deck-id'),'3d');
+   const afterNeighbor=await page.evaluate(()=>history.length);
+   await page.locator('.creation-deck li[data-distance="0"] strong').click();
+   await page.waitForURL(/#3d$/);await idle();assert.equal(await page.locator('.creation-deck li').count(),3);
+   records.push({route,beforeHistory,afterNeighbor,slow,fast,reverse,slowTravel:travel(slow),fastTravel:travel(fast),neighbor:'first tap centers 3d, same route',center:'second tap opens 3d article ring',url:page.url()});
+ }
+ fs.writeFileSync('/workspace/GameAI-Hub/docs/screenshots/shared-category-ring/category-motion-operations.json',JSON.stringify({viewport:{width:390,height:844},physicalSafari:'UNTESTED',records},null,2));
+ await browser.close();console.log('PASS: both category mounts, velocity-dependent multi-card coast, fractional grab/reversal, neighbor then central tap');
+})().catch(e=>{console.error(e);process.exit(1)});
