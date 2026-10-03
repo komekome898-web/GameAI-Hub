@@ -28,6 +28,7 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
   await page.setViewportSize({ width, height: width >= 1000 ? 900 : 844 });
   if (new URL(page.url()).pathname !== new URL(item.route, "http://local").pathname) await page.goto(item.route);
   await expect(page.locator(item.selector)).toBeVisible();
+  if (item.route.startsWith("/compare")) await expect(page.locator(".compare-picker-panel")).toBeVisible();
   const method = item.method ?? "viewport-reflow";
   const textMethod: TextMethod = method === "viewport-reflow"
     ? "none"
@@ -52,9 +53,22 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
     const activeRect = active.getBoundingClientRect(); const stageRect = stage.getBoundingClientRect();
     return activeRect.top >= stageRect.top - 1 && activeRect.bottom <= stageRect.bottom + 1 && active.scrollHeight <= stage.clientHeight + 1;
   });
+  const clippedDeckOwned = await page.locator(item.selector).evaluate(surface => {
+    const selector = '.creation-deck[data-mode="deck"]';
+    const decks = surface.matches(selector) ? [surface] : [...surface.querySelectorAll(selector)];
+    return decks.length > 0 && decks.every(deck => {
+      const active = deck.querySelector<HTMLElement>('li[data-distance="0"]');
+      const stage = deck.querySelector<HTMLElement>('ol');
+      if (!active || !stage || !/^(clip|hidden)$/.test(getComputedStyle(deck).overflowX)) return false;
+      const boundary = deck.getBoundingClientRect(), card = active.getBoundingClientRect(), rail = stage.getBoundingClientRect();
+      return boundary.left >= -.5 && boundary.right <= document.documentElement.clientWidth + .5 &&
+        card.left >= boundary.left - 1 && card.right <= boundary.right + 1 &&
+        card.top >= rail.top - 1 && card.bottom <= rail.bottom + 1 && active.scrollHeight <= stage.clientHeight + 1;
+    });
+  });
   const unownedOverflow = widths.unownedOverflowingElements.filter(({ exceptionOwner }) => exceptionOwner !== "creation-deck-inactive-card");
   const clippedText = surface.clippedText.filter(({ selector, horizontal, vertical }) =>
-    !(deckMode && deckActiveContained && horizontal && !vertical && selector === "div.creation-deck") &&
+    !(clippedDeckOwned && deckActiveContained && horizontal && !vertical && selector === "div.creation-deck") &&
     !(deckMode && vertical && !horizontal && recoveredSummaries.has(selector)));
   const screenshot = `${item.id}.png`;
   await page.screenshot({ path: path.join(output, screenshot), fullPage: true });
