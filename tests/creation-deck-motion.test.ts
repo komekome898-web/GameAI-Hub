@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { ringDelta, ringIndex, releaseTarget, settleStep, velocity, cardPose } from '@/lib/creation-deck-motion';
+import { ringDelta, ringIndex, intentAxis, releaseTarget, settleStep, velocity, cardPose } from '@/lib/creation-deck-motion';
 
 describe('continuous circular deck contract', () => {
   it('keeps shortest distances continuous across turns and hides the wrap seam', () => {
@@ -16,11 +16,24 @@ describe('continuous circular deck contract', () => {
     expect(cardPose(1.5, 170).opacity).toBe(0);
     expect(cardPose(1.2, 170).opacity).toBeCloseTo(1);
   });
-  it('uses recent velocity only, rejecting paused or undersampled contacts', () => {
+  it('uses bounded recent motion without rejecting a short sampling interval', () => {
     expect(velocity([{pos: 0, time: 0}, {pos: .18, time: 80}], 90)).toBeCloseTo(2.25);
     expect(velocity([{pos: 0, time: 0}, {pos: .18, time: 80}], 230)).toBe(0);
     expect(velocity([{pos: .18, time: 80}], 90)).toBe(0);
-    expect(velocity([{pos: 0, time: 70}, {pos: .18, time: 80}], 90)).toBe(0);
+    expect(velocity([{pos: 0, time: 70}, {pos: .18, time: 80}], 90)).toBeCloseTo(11.25);
+  });
+  it('keeps a bounded preceding sample for sparse motion, without inventing long-hold velocity', () => {
+    expect(velocity([{pos: 0, time: 0}, {pos: .18, time: 90}], 95)).toBeCloseTo(2);
+    expect(velocity([{pos: 0, time: 0}, {pos: .18, time: 500}], 500)).toBe(0);
+    expect(velocity([{pos: 0, time: 0}, {pos: .18, time: 80}, {pos: .181, time: 240}], 240)).toBe(0);
+    expect(velocity([{pos: 0, time: 0}, {pos: .02, time: 8}], 8)).toBe(0);
+    expect(velocity([{pos: .18, time: 200}, {pos: .181, time: 216}], 216)).toBe(0);
+  });
+  it.each([
+    [7, 0, 'pending'], [8, 8, 'pending'], [9, 10, 'pending'],
+    [12, 10, 'dragging'], [-12, -10, 'dragging'], [10, 12, 'vertical'],
+  ] as const)('resolves (%i,%i) with symmetric confidence as %s', (dx, dy, expected) => {
+    expect(intentAxis(dx, dy)).toBe(expected);
   });
   it('assists short flicks, but never adds a third card to a 2.2-card drag', () => {
     expect(releaseTarget(.18, 0, 1)).toBe(1);

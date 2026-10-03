@@ -91,3 +91,12 @@ and formula tests are not substitutes. The prior WebKit installation attempt
 was blocked by HTTP 403 from supported mirrors; it was not retried or bypassed.
 Independent exact-head review and owner merge approval remain separate. No merge,
 auto-merge, deployment command, legacy Work dispatch or account change occurred.
+
+## Subsequent owner-approved adjustment
+
+The conditions above describe the original design1.2 implementation. After an
+owner-reported Safari acceptance failure, the owner authorized the narrow
+[sparse-input adjustment](../creation-deck-sparse-input/README.md). It replaces
+16ms minimum sample eligibility and the asymmetric initial direction rule,
+and limits unnecessary resize/active-publication cancellation. This is a new
+approved condition, not retrospective conformance or physical Safari PASS.

@@ -61,3 +61,14 @@
   Assertions, real click counts, retries and runtime remain unchanged; HP6 and
   identical-node replacement negatives strengthen coverage. Previous failing run
   is retained separately and is not represented as a pass.
+
+## Owner-reported Safari failure: approved limited repair
+
+- Resume from2ba302c; owner approved sparse flick estimation, diagonal/up intent,
+  and unnecessary resize/active cancellation changes after read-only diagnosis.
+- Updated conditions and evidence boundaries:
+  `docs/evidence/creation-deck-sparse-input/README.md`.
+- Keep vertical scroll/pinch, genuine cancellation and fallback focus. Do not
+  interpret prior CI or new synthetic/native Chromium checks as Safari PASS.
+- Same draft PR; exact tested checkpoint and final CI/evidence in task handoff.
+  No merge, Preview/Production navigation, manual deploy or category expansion.

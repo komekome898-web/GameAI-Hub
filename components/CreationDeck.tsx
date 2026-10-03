@@ -121,8 +121,8 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
       const next = items.length > 2 && fitUsable && !narrow.matches && !reduced.matches && !forced.matches;
       setCandidate(next);
       if (!next) setAvailable(false);
-      cancelGesture();
       if (!next) {
+        cancelGesture();
         // Only a currently focused overview button is about to disappear.
         // Surviving links and focus outside this deck keep their ownership.
         const focused = document.activeElement;

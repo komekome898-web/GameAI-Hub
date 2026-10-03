@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useLayoutEffect, useRef, useState, type RefObject } from 'react';
-import { cardPose, deckMotion, releaseTarget, ringDelta, ringIndex, settleStep, velocity, type MotionSample } from '@/lib/creation-deck-motion';
+import { cardPose, deckMotion, intentAxis, releaseTarget, ringDelta, ringIndex, settleStep, velocity, type MotionSample } from '@/lib/creation-deck-motion';
 
 type Phase = 'idle' | 'pending' | 'vertical' | 'dragging' | 'settling';
 type Contact = { id: number; x: number; y: number; dx: number; startPos: number; moved: number; interrupted: boolean; cardId?: string; samples: MotionSample[]; target: EventTarget | null };
@@ -28,6 +28,7 @@ export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>,
     let disposed = false;
     let pos = retained, target = retained, phase: Phase = 'idle';
     let frame: number | undefined, lastTime = 0, stepPx = 170;
+    let measured = false, viewportWidth = 0, stageWidth = 0;
     let contact: Contact | null = null;
     let clickGuard: { id: number; until: number; cardId?: string; target: EventTarget | null } | null = null;
     const running = enabled && count >= 3;
@@ -108,8 +109,10 @@ export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>,
       settle(Math.round(pos + ringDelta(index, pos, count)), immediate);
     };
     const measure = () => {
-      const width = cards[0]?.offsetWidth;
-      if (width) stepPx = width * deckMotion.step;
+      const nextStep = cards[0]?.offsetWidth ? cards[0].offsetWidth * deckMotion.step : stepPx;
+      const nextViewport = window.innerWidth, nextStage = element.clientWidth;
+      if (running && measured && (nextViewport !== viewportWidth || nextStage !== stageWidth || nextStep !== stepPx)) cancel(true);
+      viewportWidth = nextViewport; stageWidth = nextStage; stepPx = nextStep; measured = true;
       render();
     };
     const cardId = (node: EventTarget | null) => node instanceof Element ? node.closest<HTMLElement>('[data-deck-id]')?.dataset.deckId : undefined;
@@ -129,7 +132,8 @@ export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>,
       current.moved = Math.max(current.moved, Math.hypot(dx, dy));
       if (dx !== current.dx) {
         current.samples.push({ pos: current.startPos - dx / stepPx, time: event.timeStamp });
-        current.samples = current.samples.filter(point => point.time >= event.timeStamp - deckMotion.windowMs);
+        // Keep one predecessor for a sparse window; velocity still rejects old gaps.
+        while (current.samples.length > 2 && current.samples[1].time < event.timeStamp - deckMotion.windowMs) current.samples.shift();
       }
       current.dx = dx;
       return { dx, dy };
@@ -139,10 +143,8 @@ export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>,
       if (!current || event.pointerId !== current.id) return;
       const { dx, dy } = sample(event, current);
       if (phase === 'pending') {
-        if (Math.abs(dy) >= deckMotion.intent && Math.abs(dy) >= Math.abs(dx)) phase = 'vertical';
-        else if (Math.abs(dx) >= deckMotion.intent && Math.abs(dx) > Math.abs(dy) * deckMotion.ratio) {
-          phase = 'dragging'; element.setPointerCapture(event.pointerId);
-        }
+        phase = intentAxis(dx, dy);
+        if (phase === 'dragging') element.setPointerCapture(event.pointerId);
       }
       if (phase === 'dragging') queue();
       element.dataset.motion = phase;
@@ -150,8 +152,10 @@ export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>,
     const onUp = (event: PointerEvent) => {
       const current = contact;
       if (!current || event.pointerId !== current.id) return;
-      sample(event, current);
-      const previousPhase = phase;
+      const { dx, dy } = sample(event, current);
+      // The final coordinates may be the first decisive movement. Never capture
+      // a released pointer, and never revive vertical or cancelled contacts.
+      const previousPhase = phase === 'pending' ? intentAxis(dx, dy) : phase;
       contact = null;
       unwatchContact();
       releaseCapture(current.id);
@@ -191,7 +195,7 @@ export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>,
       if (index >= 0) settle(index, true);
     };
     const onFocus = (event: FocusEvent) => { const id = cardId(event.target); if (id) reveal(id); };
-    const onResize = () => { cancel(true); measure(); };
+    const onResize = () => { measure(); };
     const onVisibility = () => { if (document.visibilityState !== 'visible') cancel(true); };
     const onSecondPointer = (event: PointerEvent) => { if (contact && event.pointerId !== contact.id) cancel(); };
     const controller: Controller = { move: delta => { if (contact) cancel(true); settle(target + delta); }, reveal, cancel: () => cancel(true) };
