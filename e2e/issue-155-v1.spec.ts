@@ -37,10 +37,10 @@ test("V1 keeps the article hub static, complete, and responsive", async ({
     await page.goto("http://127.0.0.1:3100/articles/");
 
     await expect(page.locator(".article-cluster-list")).toHaveCount(4);
-    await expect(page.locator("#start li > a")).toHaveCount(3);
+    await expect(page.locator("#start li a")).toHaveCount(3);
     expect(
       await page
-        .locator("#start li > a")
+        .locator("#start li a")
         .evaluateAll((links) => links.map((link) => link.getAttribute("href"))),
     ).toEqual(startHrefs);
     await expect(page.getByRole("button", { name: "円環で見る" })).toHaveCount(viewport.width <= 340 ? 0 : 1);
@@ -79,7 +79,7 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
   });
   const noScriptPage = await noScript.newPage();
   await noScriptPage.goto("http://127.0.0.1:3100/articles/");
-  await expect(noScriptPage.locator("#start li > a")).toHaveCount(3);
+  await expect(noScriptPage.locator("#start li a")).toHaveCount(3);
   await expect(
     noScriptPage.locator("#start .v2-start-card-description"),
   ).toHaveCount(3);
@@ -95,9 +95,9 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
     reducedMotion: "reduce",
   });
   await forcedPage.goto("http://127.0.0.1:3100/articles/");
-  await expect(forcedPage.locator("#start li > a")).toHaveCount(3);
-  await forcedPage.locator("#start li > a").first().focus();
-  await expect(forcedPage.locator("#start li > a").first()).toBeFocused();
+  await expect(forcedPage.locator("#start li a")).toHaveCount(3);
+  await forcedPage.locator("#start li a").first().focus();
+  await expect(forcedPage.locator("#start li a").first()).toBeFocused();
   expect((await diagnoseWidths(forcedPage)).documentOverflowPx).toBe(0);
   await forced.close();
 
@@ -118,9 +118,9 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
       }),
     );
   expect(
-    imageWells.every((well) => Math.abs(well.width / well.height - 1.5) < 0.02),
+    imageWells.every((well) => Math.abs(well.width / well.height - 2) < 0.02),
   ).toBe(true);
-  await expect(failurePage.locator("#start li > a")).toHaveCount(3);
+  await expect(failurePage.locator("#start li a")).toHaveCount(3);
   expect((await diagnoseWidths(failurePage)).documentOverflowPx).toBe(0);
   await failure.close();
 
@@ -134,7 +134,7 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
   await expect
     .poll(() => zoomedPage.evaluate(() => window.visualViewport?.scale ?? 1))
     .toBeGreaterThanOrEqual(1.9);
-  await expect(zoomedPage.locator("#start li > a")).toHaveCount(3);
+  await expect(zoomedPage.locator("#start li a")).toHaveCount(3);
   expect((await diagnoseWidths(zoomedPage)).documentOverflowPx).toBe(0);
   await cdp.detach();
   await zoomed.close();
@@ -170,7 +170,7 @@ for (const width of [320, 375]) {
     const widths = await diagnoseWidths(page);
     expect(widths.documentOverflowPx).toBe(0);
     expect(widths.unownedOverflowingElements).toEqual([]);
-    await expect(page.locator("#start li > a")).toHaveCount(3);
+    await expect(page.locator("#start li a")).toHaveCount(3);
     const metadataLayouts = await page
       .locator("#start .v2-start-card-meta")
       .evaluateAll((rows) =>
@@ -180,6 +180,11 @@ for (const width of [320, 375]) {
           const date = row.querySelector<HTMLElement>("small")!;
           const labelRect = label.getBoundingClientRect();
           const dateRect = date.getBoundingClientRect();
+          const natural = label.cloneNode(true) as HTMLElement;
+          Object.assign(natural.style, { position: 'absolute', visibility: 'hidden', width: 'max-content', maxWidth: 'none', flex: 'none', whiteSpace: 'nowrap' });
+          row.append(natural);
+          const naturalWidth = natural.getBoundingClientRect().width;
+          natural.remove();
           const labelTextRange = document.createRange();
           labelTextRange.selectNodeContents(label);
           const verticalOverlap =
@@ -203,6 +208,8 @@ for (const width of [320, 375]) {
               date.scrollWidth <= date.clientWidth + 1 &&
               date.scrollHeight <= date.clientHeight + 1,
             labelLineCount: labelTextRange.getClientRects().length,
+            naturalFits: naturalWidth <= rowRect.width + .5,
+            separated: verticalOverlap > 0 ? horizontalGap >= 7 : verticalGap >= 7,
             nonoverlapping:
               verticalOverlap > 0 ? horizontalGap >= 0 : verticalGap >= 0,
           };
@@ -211,11 +218,11 @@ for (const width of [320, 375]) {
     expect(metadataLayouts).toHaveLength(3);
     expect(
       metadataLayouts.every(
-        ({ contained, fullTextVisible, labelLineCount, nonoverlapping }) =>
+        ({ contained, fullTextVisible, labelLineCount, naturalFits, nonoverlapping, separated }) =>
           contained &&
           fullTextVisible &&
-          labelLineCount === 1 &&
-          nonoverlapping,
+          (!naturalFits || labelLineCount === 1) &&
+          nonoverlapping && separated,
       ),
     ).toBe(true);
     for (const row of await page.locator("#start .v2-start-card-meta").all()) {
@@ -347,8 +354,8 @@ test("V1 START cards contain long Japanese and unbroken ASCII stress content", a
   expect(sharedSurface.clippedText).toEqual([]);
   expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
   expect((await diagnoseWidths(page)).unownedOverflowingElements).toEqual([]);
-  await firstCard.focus();
-  await expect(firstCard).toBeFocused();
+  await firstCard.locator("a").focus();
+  await expect(firstCard.locator("a")).toBeFocused();
   expect(
     await firstCard.evaluate((card) => {
       const style = getComputedStyle(card);

@@ -23,7 +23,8 @@ async function beginOwnedCdpTouchDrag(page: Page) {
   const cdp = await page.context().newCDPSession(page);
   await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ id: 7, x: box!.x + box!.width * .72, y: box!.y + 100 }] });
   await cdp.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [{ id: 7, x: box!.x + box!.width * .42, y: box!.y + 102 }] });
-  await expect.poll(() => stage.evaluate((node) => getComputedStyle(node).getPropertyValue("--deck-drag-x"))).not.toBe("");
+  await expect(stage).toHaveAttribute("data-motion", "dragging");
+  await expect.poll(() => stage.getAttribute("data-motion-pos")).not.toBe(await stage.getAttribute("data-motion-target"));
   return { stage, box: box!, cdp };
 }
 
@@ -102,11 +103,12 @@ test("E-01 measures actual Deck title line-height and description paragraph spac
 test("E-02 cancels owned gestures and preserves click and list preference recovery", async ({ page }) => {
   await openDeck(page);
   const deck = page.locator("#start .creation-deck");
-  const count = page.locator(".creation-deck-count");
+  const count = page.locator(".creation-deck-status");
 
   let drag = await beginOwnedCdpTouchDrag(page);
   await page.setViewportSize({ width: 390, height: 844 });
-  await expect.poll(() => drag.stage.evaluate((node) => getComputedStyle(node).getPropertyValue("--deck-drag-x"))).toBe("");
+  await expect(drag.stage).toHaveAttribute("data-motion", "idle");
+  await expect(drag.stage).toHaveAttribute("data-motion-raf", "0");
   await drag.cdp.send("Input.dispatchTouchEvent", { type: "touchCancel", touchPoints: [] });
   await drag.cdp.detach();
   await page.getByRole("button", { name: "次の記事" }).click();
@@ -117,7 +119,8 @@ test("E-02 cancels owned gestures and preserves click and list preference recove
     Object.defineProperty(document, "visibilityState", { configurable: true, get: () => "hidden" });
     document.dispatchEvent(new Event("visibilitychange"));
   });
-  await expect.poll(() => drag.stage.evaluate((node) => getComputedStyle(node).getPropertyValue("--deck-drag-x"))).toBe("");
+  await expect(drag.stage).toHaveAttribute("data-motion", "idle");
+  await expect(drag.stage).toHaveAttribute("data-motion-raf", "0");
   await drag.cdp.send("Input.dispatchTouchEvent", { type: "touchCancel", touchPoints: [] });
   await drag.cdp.detach();
   await page.evaluate(() => Object.defineProperty(document, "visibilityState", { configurable: true, get: () => "visible" }));
@@ -129,7 +132,8 @@ test("E-02 cancels owned gestures and preserves click and list preference recove
     { id: 7, x: drag.box.x + drag.box.width * .42, y: drag.box.y + 102 },
     { id: 99, x: drag.box.x + 20, y: drag.box.y + 20 },
   ] });
-  await expect.poll(() => drag.stage.evaluate((node) => getComputedStyle(node).getPropertyValue("--deck-drag-x"))).toBe("");
+  await expect(drag.stage).toHaveAttribute("data-motion", "idle");
+  await expect(drag.stage).toHaveAttribute("data-motion-raf", "0");
   await drag.cdp.send("Input.dispatchTouchEvent", { type: "touchCancel", touchPoints: [] });
   await drag.cdp.detach();
   await page.getByRole("button", { name: "次の記事" }).click();
@@ -142,7 +146,7 @@ test("E-02 cancels owned gestures and preserves click and list preference recove
   await expect(page).toHaveURL(/\/articles\/$|\/articles\/#start$/);
   const expectedHref = await deck.locator("li[data-distance='0'] a").getAttribute("href");
   const expectedUrl = new URL(expectedHref!, page.url()).href;
-  await deck.locator("li[data-distance='0'] a").click();
+  await deck.locator("li[data-distance='0'] .v2-start-card-read").click();
   await expect(page).toHaveURL(expectedUrl);
 
   await page.goto("/articles/#start");

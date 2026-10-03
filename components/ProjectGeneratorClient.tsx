@@ -33,6 +33,8 @@ import {
   clearProjectNavigationContext,
 } from "@/lib/project/navigation-context";
 
+import { inheritStackConditions, projectStackHandoff } from "@/lib/project/stack-handoff";
+
 const examples = [
   "モンスター収集とバトルのブラウザゲームを作りたい。ゲーム制作は初めてです。",
   "Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。",
@@ -460,6 +462,18 @@ function isProviderInterpretation(
   );
 }
 
+function StackHandoffNotice({ handoff }: { handoff: NonNullable<ReturnType<typeof projectStackHandoff>> }) {
+  return <section className="shared-draft-note project-stack-handoff" aria-label="Stackからの引継ぎ">
+    <strong>既成Stack「{handoff.title}」の条件を引き継ぎます。</strong>
+    <p>入力文に明記した条件を優先し、未指定の対応項目だけを補います。次の確認画面で変更できます。</p>
+    <details><summary>自動で反映しない元の設定</summary>
+      <p>次の設定は参照用です。Projectの条件へ直接対応しないため、計画には自動反映しません。必要な内容は入力文や制作工程の選択で指定してください。</p>
+      <ul>{handoff.reference.map(value => <li key={value}>{value}</li>)}</ul>
+      <Link href={`/stacks/${handoff.slug}`}>元のStackを確認する</Link>
+    </details>
+  </section>;
+}
+
 export function ProjectGeneratorClient() {
   const [brief, setBrief] = useState<ProjectBrief | null>(null);
   const [evidence, setEvidence] = useState<Set<Field>>(new Set());
@@ -471,6 +485,8 @@ export function ProjectGeneratorClient() {
     Record<string, "include" | "ignore">
   >({});
   const [sharedDraft, setSharedDraft] = useState(false);
+  const [stackHandoff, setStackHandoff] = useState<ReturnType<typeof projectStackHandoff>>(null);
+  const [inheritedFields, setInheritedFields] = useState<Set<Field>>(new Set());
   const [plan, setPlan] = useState<ProjectPlan | null>(null);
   const [error, setError] = useState("");
   const [interpretationStatus, setInterpretationStatus] = useState<
@@ -490,6 +506,9 @@ export function ProjectGeneratorClient() {
         if (cancelled) return;
         try {
           const params = new URLSearchParams(location.search);
+          const handoff = projectStackHandoff(params.get("template"));
+          setStackHandoff(handoff);
+          setInheritedFields(new Set());
           const localDraft = readPrivateDraft(params);
           const shared = decodeProjectState(params);
           if (localDraft) {
@@ -507,8 +526,7 @@ export function ProjectGeneratorClient() {
             setBrief(null);
             const idea =
               params.get("idea")?.slice(0, 1200) ||
-              browserStorage("session")?.getItem(originalIdeaSessionKey) ||
-              pendingProjectIdea;
+              (!handoff && (browserStorage("session")?.getItem(originalIdeaSessionKey) || pendingProjectIdea));
             if (idea) {
               pendingProjectIdea = "";
               void beginInterpretation(idea);
@@ -554,7 +572,11 @@ export function ProjectGeneratorClient() {
       };
     }
     const start = initialBrief(idea, outcome.interpretation);
-    setBrief(start.brief);
+    const handoff = projectStackHandoff(new URLSearchParams(location.search).get("template"));
+    const inherited = inheritStackConditions(start.brief, handoff, start.conflicts);
+    setStackHandoff(handoff);
+    setInheritedFields(new Set(inherited.inherited));
+    setBrief(inherited.brief);
     setEvidence(
       outcome.status.mode === "provider" ? new Set() : start.evidence,
     );
@@ -602,6 +624,7 @@ export function ProjectGeneratorClient() {
             決まっていないことを推測で埋めず、必要な条件だけ確認します。
           </p>
         </header>
+        {stackHandoff && <StackHandoffNotice handoff={stackHandoff} />}
         <ProjectIdeaForm
           location="project"
           onIdea={(idea) => {
@@ -793,9 +816,10 @@ export function ProjectGeneratorClient() {
         <p className="project-stage-label">ステップ 2 / 3 · 条件を確認</p>
         <h1>読み取った条件を確認してください</h1>
         <p className="lead">
-          自由文に明記された条件だけを選択済みにしました。「未確認」は選び直してから計画を作ります。
+          {stackHandoff ? "入力文の条件を優先し、未指定の対応項目はStackから引き継ぎました。各項目を確認・変更してから計画を作ります。" : "自由文に明記された条件だけを選択済みにしました。「未確認」は選び直してから計画を作ります。"}
         </p>
       </header>
+      {stackHandoff && <StackHandoffNotice handoff={stackHandoff} />}
       {interpretationStatus && (
         <p className="shared-draft-note" role="status">
           <strong>
@@ -1010,6 +1034,11 @@ export function ProjectGeneratorClient() {
                 value={brief[field]}
                 onChange={(event) => {
                   update(field, event.target.value as never);
+                  setInheritedFields((old) => {
+                    const next = new Set(old);
+                    next.delete(field);
+                    return next;
+                  });
                   setEvidence((old) => {
                     const next = new Set(old);
                     next.delete(field);
@@ -1037,6 +1066,8 @@ export function ProjectGeneratorClient() {
               >
                 {providerConfirmation.has(field)
                   ? "AI抽出・要確認"
+                  : inheritedFields.has(field)
+                    ? "Stackから引継ぎ・要確認"
                   : evidence.has(field)
                     ? "入力文に明記"
                     : brief[field] === "unknown"

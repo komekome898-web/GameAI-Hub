@@ -1562,14 +1562,14 @@
       ],
       "phase": "V4",
       "route": "/articles/#start",
-      "state": "click/keyboard/pinch-safe vertical scroll/touch cancel/drag-only suppression; one gesture/one article",
+      "state": "click/keyboard/pinch-safe vertical scroll/touch cancel/drag-only suppression; paused drag placement (free inertia: creation-deck-inertia.spec.ts)",
       "surface": "cards and controls",
       "method": [
         "interaction",
         "gesture-cancellation",
         "vertical-scroll",
         "pinch-preservation",
-        "one-gesture-one-article"
+        "paused-drag-placement"
       ],
       "owner": "Stage B V4 Deck spec",
       "requiredForFinal": true,

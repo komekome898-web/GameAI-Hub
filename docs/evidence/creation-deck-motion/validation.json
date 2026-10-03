@@ -1,0 +1,24 @@
+{
+  "quality": {
+    "status": "PASS",
+    "vitest": 336,
+    "python": 76,
+    "other": "lint, typecheck, data/content/affiliate/sitemap/workflow validators"
+  },
+  "build": "PASS",
+  "additional_browser_tests": [
+    {
+      "test": "V1 remains readable without JavaScript and in forced colors",
+      "status": "PASS"
+    },
+    {
+      "test": "V1 START cards contain long Japanese and unbroken ASCII stress content",
+      "status": "PASS"
+    }
+  ],
+  "browser": "Chromium 151.0.7922.173",
+  "runtime": "local production build",
+  "physical_Safari_Brave": "UNTESTED",
+  "DOCX_local_transfer": "FAILED; full Library text read; owner authorized use",
+  "source_parent": "ca272aa12cb9022c2730cd01e6c229ff9e41ce5a"
+}

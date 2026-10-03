@@ -1,0 +1,177 @@
+[
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "OL"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "OL"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "STRONG"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "STRONG"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "OL"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "OL"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "pointercancel",
+    "trusted": true,
+    "target": "OL"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "OL"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "OL"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "OL"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "OL"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "OL"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "OL"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "OL"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "OL"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "OL"
+  },
+  {
+    "type": "pointerdown",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "IMG"
+  },
+  {
+    "type": "pointerup",
+    "trusted": true,
+    "target": "OL"
+  },
+  {
+    "type": "lostpointercapture",
+    "trusted": true,
+    "target": "OL"
+  }
+]

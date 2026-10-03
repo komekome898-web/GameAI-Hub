@@ -24,16 +24,17 @@ describe("Visual Layer v2 article hub V1", () => {
     const { container } = render(<ArticlesPage />);
     expect(container.querySelectorAll(".article-cluster-list")).toHaveLength(4);
     expect(container.querySelectorAll("#start button")).toHaveLength(0);
-    expect(container.querySelectorAll("#start li > a")).toHaveLength(3);
+    expect(container.querySelectorAll("#start li a")).toHaveLength(3);
 
-    const links = Array.from(container.querySelectorAll<HTMLAnchorElement>("#start li > a"));
+    const links = Array.from(container.querySelectorAll<HTMLAnchorElement>("#start li a"));
     expect(links.map((link) => link.getAttribute("href"))).toEqual(
       startSlugs.map((slug) => `/articles/${slug}/`),
     );
     for (const [index, slug] of startSlugs.entries()) {
       const article = getArticle(slug)!;
       expect(links[index].textContent).toContain(article.title);
-      expect(links[index].textContent).toContain(article.description);
+      expect(links[index].closest("li")?.querySelector(".v2-start-card-description")?.textContent).toBe(article.description);
+      expect(links[index].querySelector(".v2-start-card-description")).toBeNull();
       expect(links[index].textContent).toContain(article.updatedAt);
       expect(links[index].querySelector("img")?.getAttribute("alt")).toBe("");
     }

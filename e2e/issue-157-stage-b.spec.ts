@@ -29,7 +29,7 @@ test("Creation Deck is explicit, preserves links, and retains a list fallback", 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/articles/#start");
   const deck = page.locator("#start .creation-deck");
-  const links = deck.locator("ol > li > a");
+  const links = deck.locator("ol > li a");
   await expect(links).toHaveCount(3);
   await expect(deck).toHaveAttribute("data-mode", "list");
   await page.getByRole("button", { name: "円環で見る" }).click();
@@ -59,11 +59,11 @@ test("Creation Deck is explicit, preserves links, and retains a list fallback", 
   await expect(stage).toBeVisible();
   await expect(followingSection).toBeVisible();
   await page.getByRole("button", { name: "次の記事" }).click();
-  await expect(page.locator(".creation-deck-count")).toContainText("3件中2件目");
+  await expect(page.locator(".creation-deck-status")).toContainText("3件中2件目");
   await page.getByRole("button", { name: "次の記事" }).press("ArrowLeft");
-  await expect(page.locator(".creation-deck-count")).toContainText("3件中1件目");
+  await expect(page.locator(".creation-deck-status")).toContainText("3件中1件目");
   await links.nth(2).focus();
-  await expect(page.locator(".creation-deck-count")).toContainText("3件中3件目");
+  await expect(page.locator(".creation-deck-status")).toContainText("3件中3件目");
   await expect(links.nth(2)).toBeFocused();
   await page.setViewportSize({ width: 600, height: 844 });
   assertSettled(await sampleGeometry());
@@ -108,7 +108,7 @@ test("Creation Deck remains usable when session storage is blocked", async ({ pa
   await toggle.click();
   await expect(page.locator("#start .creation-deck")).toHaveAttribute("data-mode", "deck");
   await page.getByRole("button", { name: "次の記事" }).click();
-  await expect(page.locator(".creation-deck-count")).toContainText("3件中2件目");
+  await expect(page.locator(".creation-deck-status")).toContainText("3件中2件目");
 });
 
 test("Creation Deck transfers only control focus when forced flat", async ({ page }) => {
@@ -117,12 +117,19 @@ test("Creation Deck transfers only control focus when forced flat", async ({ pag
     await page.setViewportSize({ width: 390, height: 844 });
     await page.emulateMedia({ reducedMotion: "no-preference", forcedColors: "none" });
     await page.goto("/articles/#start");
-    const enable = page.getByRole("button", { name: "円環で見る" });
-    if (await enable.isVisible()) await enable.click();
-    await expect(page.locator("#start .creation-deck")).toHaveAttribute("data-mode", "deck");
+    const deck = page.locator("#start .creation-deck");
+    await expect(deck).toHaveAttribute("data-available", "true");
+    await expect(deck).toHaveAttribute("data-mode", /^(list|deck)$/);
+    if (await deck.getAttribute("data-mode") === "list") {
+      const enable = page.getByRole("button", { name: "円環で見る", exact: true });
+      await expect(enable).toBeVisible();
+      await expect(enable).toBeEnabled();
+      await enable.click();
+    }
+    await expect(deck).toHaveAttribute("data-mode", "deck");
   };
-  const activeLink = () => page.locator("#start .creation-deck ol > li > a").first();
-  const currentActiveHref = async () => page.locator("#start .creation-deck li[data-distance='0'] > a").getAttribute("href");
+  const activeLink = () => page.locator("#start .creation-deck ol > li a").first();
+  const currentActiveHref = async () => page.locator("#start .creation-deck li[data-distance='0'] a").getAttribute("href");
 
   for (const control of ["前の記事", "一覧で見る", "次の記事"]) {
     await openDeck();
@@ -136,9 +143,10 @@ test("Creation Deck transfers only control focus when forced flat", async ({ pag
 
   await openDeck();
   await page.getByRole("button", { name: "次の記事" }).click();
+  await expect(page.locator(".creation-deck-status")).toContainText("3件中2件目");
   await page.getByRole("button", { name: "一覧で見る" }).focus();
   await page.setViewportSize({ width: 320, height: 844 });
-  await expect(page.locator("#start .creation-deck ol > li > a").nth(1)).toBeFocused();
+  await expect(page.locator("#start .creation-deck ol > li a").nth(1)).toBeFocused();
 
   await openDeck();
   await page.getByRole("button", { name: "次の記事" }).focus();

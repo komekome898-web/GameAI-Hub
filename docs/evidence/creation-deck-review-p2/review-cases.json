@@ -1,0 +1,330 @@
+[
+  {
+    "title": "overview focus survives resize, expanded=false, without stealing surviving focus",
+    "tests": [
+      {
+        "timeout": 60000,
+        "annotations": [],
+        "expectedStatus": "passed",
+        "projectId": "",
+        "projectName": "",
+        "results": [
+          {
+            "workerIndex": 0,
+            "parallelIndex": 0,
+            "status": "passed",
+            "duration": 1256,
+            "errors": [],
+            "stdout": [],
+            "stderr": [],
+            "retry": 0,
+            "startTime": "2026-10-03T01:55:58.548Z",
+            "annotations": [],
+            "attachments": [
+              {
+                "name": "focus-after-fallback",
+                "contentType": "application/json",
+                "body": "eyJocmVmIjoiL2FydGljbGVzL2JlZm9yZS1hc2tpbmctYWktYnVpbGQtZ2FtZS8iLCJhY3RpdmUiOnRydWUsInNjcm9sbFkiOjB9"
+              }
+            ]
+          }
+        ],
+        "status": "expected"
+      }
+    ]
+  },
+  {
+    "title": "overview focus survives resize, expanded=true, without stealing surviving focus",
+    "tests": [
+      {
+        "timeout": 60000,
+        "annotations": [],
+        "expectedStatus": "passed",
+        "projectId": "",
+        "projectName": "",
+        "results": [
+          {
+            "workerIndex": 0,
+            "parallelIndex": 0,
+            "status": "passed",
+            "duration": 1458,
+            "errors": [],
+            "stdout": [],
+            "stderr": [],
+            "retry": 0,
+            "startTime": "2026-10-03T01:55:59.812Z",
+            "annotations": [],
+            "attachments": [
+              {
+                "name": "focus-after-fallback",
+                "contentType": "application/json",
+                "body": "eyJocmVmIjoiL2FydGljbGVzL2JlZm9yZS1hc2tpbmctYWktYnVpbGQtZ2FtZS8iLCJhY3RpdmUiOnRydWUsInNjcm9sbFkiOjB9"
+              }
+            ]
+          }
+        ],
+        "status": "expected"
+      }
+    ]
+  },
+  {
+    "title": "overview focus survives reduced-motion, expanded=false, without stealing surviving focus",
+    "tests": [
+      {
+        "timeout": 60000,
+        "annotations": [],
+        "expectedStatus": "passed",
+        "projectId": "",
+        "projectName": "",
+        "results": [
+          {
+            "workerIndex": 0,
+            "parallelIndex": 0,
+            "status": "passed",
+            "duration": 1233,
+            "errors": [],
+            "stdout": [],
+            "stderr": [],
+            "retry": 0,
+            "startTime": "2026-10-03T01:56:01.280Z",
+            "annotations": [],
+            "attachments": [
+              {
+                "name": "focus-after-fallback",
+                "contentType": "application/json",
+                "body": "eyJocmVmIjoiL2FydGljbGVzL2JlZm9yZS1hc2tpbmctYWktYnVpbGQtZ2FtZS8iLCJhY3RpdmUiOnRydWUsInNjcm9sbFkiOjg3M30="
+              }
+            ]
+          }
+        ],
+        "status": "expected"
+      }
+    ]
+  },
+  {
+    "title": "overview focus survives reduced-motion, expanded=true, without stealing surviving focus",
+    "tests": [
+      {
+        "timeout": 60000,
+        "annotations": [],
+        "expectedStatus": "passed",
+        "projectId": "",
+        "projectName": "",
+        "results": [
+          {
+            "workerIndex": 0,
+            "parallelIndex": 0,
+            "status": "passed",
+            "duration": 1453,
+            "errors": [],
+            "stdout": [],
+            "stderr": [],
+            "retry": 0,
+            "startTime": "2026-10-03T01:56:02.524Z",
+            "annotations": [],
+            "attachments": [
+              {
+                "name": "focus-after-fallback",
+                "contentType": "application/json",
+                "body": "eyJocmVmIjoiL2FydGljbGVzL2JlZm9yZS1hc2tpbmctYWktYnVpbGQtZ2FtZS8iLCJhY3RpdmUiOnRydWUsInNjcm9sbFkiOjEwNTd9"
+              }
+            ]
+          }
+        ],
+        "status": "expected"
+      }
+    ]
+  },
+  {
+    "title": "outside mouse release ends pending, interrupted=false, and leaves the next gesture usable",
+    "tests": [
+      {
+        "timeout": 60000,
+        "annotations": [],
+        "expectedStatus": "passed",
+        "projectId": "",
+        "projectName": "",
+        "results": [
+          {
+            "workerIndex": 0,
+            "parallelIndex": 0,
+            "status": "passed",
+            "duration": 2523,
+            "errors": [],
+            "stdout": [],
+            "stderr": [],
+            "retry": 0,
+            "startTime": "2026-10-03T01:56:03.992Z",
+            "annotations": [],
+            "attachments": [
+              {
+                "name": "outside-release",
+                "contentType": "application/json",
+                "body": "eyJwaGFzZSI6InBlbmRpbmciLCJpbnRlcnJ1cHRlZCI6ZmFsc2UsImJlZm9yZSI6IjAiLCJhZnRlciI6IjIiLCJmaW5hbCI6IjEgLyAzIn0="
+              }
+            ]
+          }
+        ],
+        "status": "expected"
+      }
+    ]
+  },
+  {
+    "title": "outside mouse release ends pending, interrupted=true, and leaves the next gesture usable",
+    "tests": [
+      {
+        "timeout": 60000,
+        "annotations": [],
+        "expectedStatus": "passed",
+        "projectId": "",
+        "projectName": "",
+        "results": [
+          {
+            "workerIndex": 0,
+            "parallelIndex": 0,
+            "status": "passed",
+            "duration": 2130,
+            "errors": [],
+            "stdout": [],
+            "stderr": [],
+            "retry": 0,
+            "startTime": "2026-10-03T01:56:06.529Z",
+            "annotations": [],
+            "attachments": [
+              {
+                "name": "outside-release",
+                "contentType": "application/json",
+                "body": "eyJwaGFzZSI6InBlbmRpbmciLCJpbnRlcnJ1cHRlZCI6dHJ1ZSwiYmVmb3JlIjoiMC40Mzg0OTk2MzYzMzkwOTk4IiwiYWZ0ZXIiOiIwIiwiZmluYWwiOiIyIC8gMyJ9"
+              }
+            ]
+          }
+        ],
+        "status": "expected"
+      }
+    ]
+  },
+  {
+    "title": "outside mouse release ends vertical, interrupted=false, and leaves the next gesture usable",
+    "tests": [
+      {
+        "timeout": 60000,
+        "annotations": [],
+        "expectedStatus": "passed",
+        "projectId": "",
+        "projectName": "",
+        "results": [
+          {
+            "workerIndex": 0,
+            "parallelIndex": 0,
+            "status": "passed",
+            "duration": 1861,
+            "errors": [],
+            "stdout": [],
+            "stderr": [],
+            "retry": 0,
+            "startTime": "2026-10-03T01:56:08.669Z",
+            "annotations": [],
+            "attachments": [
+              {
+                "name": "outside-release",
+                "contentType": "application/json",
+                "body": "eyJwaGFzZSI6InZlcnRpY2FsIiwiaW50ZXJydXB0ZWQiOmZhbHNlLCJiZWZvcmUiOiIwIiwiYWZ0ZXIiOiIwIiwiZmluYWwiOiIyIC8gMyJ9"
+              }
+            ]
+          }
+        ],
+        "status": "expected"
+      }
+    ]
+  },
+  {
+    "title": "outside mouse release ends vertical, interrupted=true, and leaves the next gesture usable",
+    "tests": [
+      {
+        "timeout": 60000,
+        "annotations": [],
+        "expectedStatus": "passed",
+        "projectId": "",
+        "projectName": "",
+        "results": [
+          {
+            "workerIndex": 0,
+            "parallelIndex": 0,
+            "status": "passed",
+            "duration": 2151,
+            "errors": [],
+            "stdout": [],
+            "stderr": [],
+            "retry": 0,
+            "startTime": "2026-10-03T01:56:10.540Z",
+            "annotations": [],
+            "attachments": [
+              {
+                "name": "outside-release",
+                "contentType": "application/json",
+                "body": "eyJwaGFzZSI6InZlcnRpY2FsIiwiaW50ZXJydXB0ZWQiOnRydWUsImJlZm9yZSI6IjAuMzAyMzIzNjczOTI4OTY5NCIsImFmdGVyIjoiMCIsImZpbmFsIjoiMiAvIDMifQ=="
+              }
+            ]
+          }
+        ],
+        "status": "expected"
+      }
+    ]
+  },
+  {
+    "title": "contact ignores an unrelated terminal event and cancels on window blur",
+    "tests": [
+      {
+        "timeout": 60000,
+        "annotations": [],
+        "expectedStatus": "passed",
+        "projectId": "",
+        "projectName": "",
+        "results": [
+          {
+            "workerIndex": 0,
+            "parallelIndex": 0,
+            "status": "passed",
+            "duration": 2065,
+            "errors": [],
+            "stdout": [],
+            "stderr": [],
+            "retry": 0,
+            "startTime": "2026-10-03T01:56:12.703Z",
+            "annotations": [],
+            "attachments": []
+          }
+        ],
+        "status": "expected"
+      }
+    ]
+  },
+  {
+    "title": "contact ignores an unrelated terminal event and cancels on window cancel",
+    "tests": [
+      {
+        "timeout": 60000,
+        "annotations": [],
+        "expectedStatus": "passed",
+        "projectId": "",
+        "projectName": "",
+        "results": [
+          {
+            "workerIndex": 0,
+            "parallelIndex": 0,
+            "status": "passed",
+            "duration": 1962,
+            "errors": [],
+            "stdout": [],
+            "stderr": [],
+            "retry": 0,
+            "startTime": "2026-10-03T01:56:14.781Z",
+            "annotations": [],
+            "attachments": []
+          }
+        ],
+        "status": "expected"
+      }
+    ]
+  }
+]

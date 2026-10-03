@@ -6,6 +6,7 @@ import { diagnoseWidths } from "./acceptance/diagnostics";
 import { reflowEvidenceVersion, type ReflowEvidenceManifest, type ReflowEvidenceRecord } from "./acceptance/manifest";
 import { applyTextMethod, probeSurface, type TextMethod, type TextRole } from "./acceptance/reflow";
 import { validateExecutionSubset, validateFinalExecution } from "./acceptance/reflow-matrix";
+import { verifyDeckSummaryRecovery, waitForSettledDeck } from "./acceptance/deck-summary";
 import { cleanSourceIdentity } from "./acceptance/source-identity";
 
 test.describe.configure({ mode: "serial" });
@@ -34,9 +35,14 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
       ? (`spacing-${item.spacing?.override}` as TextMethod)
       : method as TextMethod;
   const roles = item.roles ?? [{ role: "surface", selector: `${item.selector} :is(h1,h2,h3,p,a,button)` }];
+  const isDeckSurface = item.selector === "#start .creation-deck";
+  if (isDeckSurface) await waitForSettledDeck(page);
+  const recoveredSummaries = isDeckSurface ? await verifyDeckSummaryRecovery(page, { roles, method: textMethod, factor: item.factor ?? 1 }) : new Set<string>();
   const scale = await applyTextMethod(page, roles, textMethod, item.factor ?? 1);
   expect(scale.sufficient, `${item.id}: ${JSON.stringify(scale)}`).toBe(true);
+  if (isDeckSurface) await waitForSettledDeck(page);
   const surface = await probeSurface(page, item.selector, item.minimumTarget ?? 44, 3);
+  if (isDeckSurface) await waitForSettledDeck(page);
   const widths = await diagnoseWidths(page);
   const deckMode = item.selector === "#start .creation-deck" && await page.locator(item.selector).getAttribute("data-mode") === "deck";
   const deckActiveContained = !deckMode || await page.locator(item.selector).evaluate((root) => {
@@ -47,8 +53,9 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
     return activeRect.top >= stageRect.top - 1 && activeRect.bottom <= stageRect.bottom + 1 && active.scrollHeight <= stage.clientHeight + 1;
   });
   const unownedOverflow = widths.unownedOverflowingElements.filter(({ exceptionOwner }) => exceptionOwner !== "creation-deck-inactive-card");
-  const clippedText = surface.clippedText.filter(({ selector }) =>
-    !(deckMode && deckActiveContained && selector === "div.creation-deck"));
+  const clippedText = surface.clippedText.filter(({ selector, horizontal, vertical }) =>
+    !(deckMode && deckActiveContained && horizontal && !vertical && selector === "div.creation-deck") &&
+    !(deckMode && vertical && !horizontal && recoveredSummaries.has(selector)));
   const screenshot = `${item.id}.png`;
   await page.screenshot({ path: path.join(output, screenshot), fullPage: true });
   const semantics = await page.locator(item.selector).evaluate((root) => {
@@ -191,36 +198,40 @@ test("V3 route, state, text, navigation, affiliate, and SEO observations", async
 test("V4 dynamic input, cancellation, follow-up, focus, and budget observations", async ({ page, browser, browserName }) => {
   test.setTimeout(180_000); await mkdir(output, { recursive: true }); const identity = cleanSourceIdentity(); const records: ReflowEvidenceRecord[] = [];
   await page.setViewportSize({ width: 390, height: 844 }); await page.goto("/articles/#start");
-  const deck = page.locator("#start .creation-deck"); const links = deck.locator("ol > li > a"); await expect(links).toHaveCount(3);
+  const deck = page.locator("#start .creation-deck"); const links = deck.locator("ol > li a"); await expect(links).toHaveCount(3);
   const toggle = page.getByRole("button", { name: "円環で見る" }); await toggle.click(); await expect(deck).toHaveAttribute("data-mode", "deck");
   const box = await deck.locator("ol").boundingBox(); expect(box).not.toBeNull();
   const gestureTarget = "#start .creation-deck ol";
   await page.dispatchEvent(gestureTarget, "pointerdown", { pointerId: 7, pointerType: "touch", isPrimary: true, clientX: box!.x + box!.width * .75, clientY: box!.y + 100 });
   await page.dispatchEvent(gestureTarget, "pointermove", { pointerId: 7, pointerType: "touch", isPrimary: true, clientX: box!.x + box!.width * .25, clientY: box!.y + 105 });
   await page.dispatchEvent(gestureTarget, "pointercancel", { pointerId: 7, pointerType: "touch", isPrimary: true, clientX: box!.x + box!.width * .25, clientY: box!.y + 105 });
-  await expect(page.locator(".creation-deck-count")).toContainText("1件目");
+  await expect(page.locator(".creation-deck-status")).toContainText("1件目");
   await page.dispatchEvent(gestureTarget, "pointerdown", { pointerId: 8, pointerType: "touch", isPrimary: true, clientX: box!.x + box!.width * .75, clientY: box!.y + 100 });
   await page.dispatchEvent(gestureTarget, "pointermove", { pointerId: 8, pointerType: "touch", isPrimary: true, clientX: box!.x + box!.width * .25, clientY: box!.y + 105 });
+  // Design2.0: this legacy V4 route checks paused placement and cancellation.
+  // Free inertia/passage order are measured in creation-deck-inertia.spec.ts;
+  // a final ID alone cannot prove travel when three cards complete a full turn.
+  await page.waitForTimeout(150);
   await page.dispatchEvent(gestureTarget, "pointerup", { pointerId: 8, pointerType: "touch", isPrimary: true, clientX: box!.x + box!.width * .25, clientY: box!.y + 105 });
-  await expect(page.locator(".creation-deck-count")).toContainText("2件目");
+  await expect(page.locator(".creation-deck-status")).toContainText("2件目");
   await page.mouse.wheel(0, 300); const y = await page.evaluate(() => scrollY); expect(y).toBeGreaterThan(0);
   const cdp = await page.context().newCDPSession(page);
   await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ x: box!.x + 100, y: box!.y + 100, id: 20 }, { x: box!.x + 180, y: box!.y + 100, id: 21 }] });
   await cdp.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [{ x: box!.x + 80, y: box!.y + 100, id: 20 }, { x: box!.x + 200, y: box!.y + 100, id: 21 }] });
   await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
-  await expect(page.locator(".creation-deck-count")).toContainText("2件目");
-  await page.getByRole("button", { name: "次の記事" }).press("ArrowRight"); await expect(page.locator(".creation-deck-count")).toContainText("3件目");
+  await expect(page.locator(".creation-deck-status")).toContainText("2件目");
+  await page.getByRole("button", { name: "次の記事" }).press("ArrowRight"); await expect(page.locator(".creation-deck-status")).toContainText("3件目");
   await page.getByRole("button", { name: "前の記事" }).click();
-  await expect(page.locator(".creation-deck-count")).toContainText("2件目");
+  await expect(page.locator(".creation-deck-status")).toContainText("2件目");
   await expect(links.nth(2)).toHaveAttribute("href", /articles/);
-  const inputCoverage = ["interaction", "gesture-cancellation", "vertical-scroll", "pinch-preservation", "one-gesture-one-article"];
+  const inputCoverage = ["interaction", "gesture-cancellation", "vertical-scroll", "pinch-preservation", "paused-drag-placement"];
   await observe(page, browserName, records, { id: "v4-deck-input", caseId: "VL-V4-DECK-INPUT", variantId: "click-keyboard-pinch-safe-vertical-scroll-touch-cancel-drag", route: "/articles/#start", selector: "#start .creation-deck", method: "cdp-pinch", coverage: inputCoverage });
   for (const [suffix, factor, method, width] of [["100", 1, "synthetic-computed-text", 320], ["150", 1.5, "synthetic-computed-text", 320], ["200", 2, "synthetic-computed-text", 375]] as const) await observe(page, browserName, records, { id: `v4-dynamic-${suffix}`, caseId: "VL-V4-DECK-DYNAMIC", variantId: "late-font-failure-root-text-spacing-container-content-change", route: "/articles/#start", selector: "#start .creation-deck", width, method, factor, coverage: ["remeasurement", "text-scale", `factor-${suffix}`, `viewport-${width}`], roles: [{ role: "card-title", selector: "#start .v2-start-card strong" }, { role: "description", selector: "#start .v2-start-card-description" }] });
   for (const override of ["line-height", "paragraph", "letter", "word"] as const) await observe(page, browserName, records, { id: `v4-dynamic-spacing-${override}`, caseId: "VL-V4-DECK-DYNAMIC", variantId: "late-font-failure-root-text-spacing-container-content-change", route: "/articles/#start", selector: "#start .creation-deck", method: "text-spacing", coverage: ["text-spacing", `spacing-${override}`], spacing: { override, language: "ja", applicable: true } });
   const generic = async (caseId: string, variants: string[], coverage: string[]) => { for (const variantId of variants) await observe(page, browserName, records, { id: `v4-${caseId}-${variantId}`, caseId, variantId, route: "/articles/#start", selector: "#start .creation-deck", coverage }); };
   const jsOffContext = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
   const jsOff = await jsOffContext.newPage(); await jsOff.goto("/articles/#start");
-  await expect(jsOff.locator("#start .creation-deck ol > li > a")).toHaveCount(3); await jsOffContext.close();
+  await expect(jsOff.locator("#start .creation-deck ol > li a")).toHaveCount(3); await jsOffContext.close();
   await page.emulateMedia({ reducedMotion: "reduce", forcedColors: "none" }); await page.goto("/articles/#start");
   await expect(page.locator("#start .creation-deck")).toHaveAttribute("data-mode", "list");
   await page.emulateMedia({ reducedMotion: "no-preference", forcedColors: "active" }); await page.reload();
@@ -231,6 +242,10 @@ test("V4 dynamic input, cancellation, follow-up, focus, and budget observations"
   for (const count of [0, 1, 2, 3, 5]) records.push({ ...records.at(-1)!, id: `v4-count-fixture-${count}`, caseId: "VL-V4-DECK-COUNTS", variantId: count === 5 ? "more-than-three" : ["zero", "one", "two", "three"][count], state: [count === 5 ? "more-than-three" : ["zero", "one", "two", "three"][count]], coverage: ["fixture-counts", "viewport-reflow"], surface: { kind: "static", artifact: "tests/creation-deck.test.tsx" }, screenshot: "not-applicable: component fixture", limitations: ["Executed by the required Vitest step; component-fixture evidence, not a browser observation."], review: { kind: "automated", reviewer: "creation-deck disposable item-count fixtures" } });
   await generic("VL-V4-DECK-FOCUS", ["controls-focused", "article-focused", "other-input-focused", "manual-list-preference"], ["focus-reachability", "forced-fallback", "manual-toggle-persistence"]);
   await page.setViewportSize({ width: 390, height: 844 }); await page.goto("/articles/#start");
+  // The SSR list can be stable before hydration replaces its controls. Wait for
+  // the client's fit/media checks before retaining measurement target objects.
+  await expect(page.locator("#start .creation-deck")).toHaveAttribute("data-available", "true");
+  await waitForSettledDeck(page);
   const performanceValues = await page.evaluate(async () => {
     const resources = performance.getEntriesByType("resource").map((entry) => entry.name);
     const gzipSize = async (text: string) => {

@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useLayoutEffect, useRef, useState, type FocusEvent as ReactFocusEvent, type KeyboardEvent, type MouseEvent, type PointerEvent as ReactPointerEvent } from "react";
+import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type FocusEvent as ReactFocusEvent, type KeyboardEvent } from "react";
+
+import { useCreationDeckMotion } from "./useCreationDeckMotion";
 
 export type CreationDeckItem = {
+  id: string;
   href: string;
   title: string;
   description: string;
@@ -14,7 +17,8 @@ export type CreationDeckItem = {
 
 export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
   const [mode, setMode] = useState<"list" | "deck">("list");
-  const [active, setActive] = useState(0);
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const descriptionPrefix = useId();
   const [available, setAvailable] = useState(false);
   const [candidate, setCandidate] = useState(false);
   const [fitUsable, setFitUsable] = useState(false);
@@ -22,10 +26,9 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
   const stage = useRef<HTMLOListElement>(null);
   const root = useRef<HTMLDivElement>(null);
   const controls = useRef<HTMLDivElement>(null);
-  const dragFrame = useRef<number | undefined>(undefined);
-  const gesture = useRef<{ pointerId: number; x: number; y: number; dragging: boolean } | null>(null);
-  const suppressClick = useRef(false);
-  const suppressTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const ids = useMemo(() => items.map(item => item.id), [items]);
+  const { activeId, move, cancel: cancelGesture } = useCreationDeckMotion(stage, ids, mode === "deck" && available);
+  const active = Math.max(0, ids.indexOf(activeId));
   const preferredMode = useRef<"list" | "deck">("list");
   // CSS can remove the controls before a media-query callback runs. Remember
   // control ownership while focus is still present so fallback can move it to
@@ -56,7 +59,7 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
       const height = Math.ceil(Math.max(...cards.map((child) => child.scrollHeight), 0)) + 16;
       const width = root.getBoundingClientRect().width;
       const cardsFit = cards.length > 2 && width >= 280 && cards.every((card) => {
-        const cardWidth = card.getBoundingClientRect().width;
+        const cardWidth = card.offsetWidth || card.getBoundingClientRect().width;
         const title = card.querySelector<HTMLElement>("strong");
         const description = card.querySelector<HTMLElement>(".v2-start-card-description");
         const titleSizeText = title ? getComputedStyle(title).fontSize : "";
@@ -107,13 +110,6 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
     setAvailable(true);
   }, [candidate]);
 
-  const cancelGesture = useCallback(() => {
-    gesture.current = null;
-    if (dragFrame.current) cancelAnimationFrame(dragFrame.current);
-    dragFrame.current = undefined;
-    stage.current?.style.removeProperty("--deck-drag-x");
-  }, []);
-
   useEffect(() => {
     if (typeof window.matchMedia !== "function") return;
     const narrow = matchMedia("(max-width: 340px)");
@@ -125,9 +121,14 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
       const next = items.length > 2 && fitUsable && !narrow.matches && !reduced.matches && !forced.matches;
       setCandidate(next);
       if (!next) setAvailable(false);
-      cancelGesture();
       if (!next) {
-        if (controlFocusOwned.current) {
+        cancelGesture();
+        // Only a currently focused overview button is about to disappear.
+        // Surviving links and focus outside this deck keep their ownership.
+        const focused = document.activeElement;
+        if (focused instanceof HTMLButtonElement && focused.matches('.v2-start-card-expand') && stage.current?.contains(focused)) {
+          focused.closest('li')?.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true });
+        } else if (controlFocusOwned.current) {
           controlFocusOwned.current = false;
           stage.current?.querySelectorAll<HTMLAnchorElement>("a")[active]?.focus({ preventScroll: true });
         }
@@ -152,21 +153,8 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
     return () => document.removeEventListener("focusin", rememberFocusOwner, true);
   }, []);
 
-  useEffect(() => {
-    const onVisibility = () => {
-      if (document.visibilityState !== "visible") cancelGesture();
-    };
-    window.addEventListener("resize", cancelGesture);
-    document.addEventListener("visibilitychange", onVisibility);
-    return () => {
-      window.removeEventListener("resize", cancelGesture);
-      document.removeEventListener("visibilitychange", onVisibility);
-      if (suppressTimer.current) clearTimeout(suppressTimer.current);
-    };
-  }, [cancelGesture]);
-
-  const move = (delta: number) => setActive((index) => (index + delta + items.length) % items.length);
   const changeMode = (next: "list" | "deck") => {
+    cancelGesture();
     setMode(next);
     preferredMode.current = next;
     try {
@@ -174,13 +162,6 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
     } catch {
       // The in-memory preference remains usable when storage is unavailable.
     }
-  };
-  const revealForFocus = (index: number) => {
-    const root = stage.current;
-    if (mode !== "deck" || !root) return;
-    root.dataset.focusReveal = "true";
-    setActive(index);
-    requestAnimationFrame(() => requestAnimationFrame(() => delete root.dataset.focusReveal));
   };
   const onControlsKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (mode !== "deck" || (event.key !== "ArrowLeft" && event.key !== "ArrowRight")) return;
@@ -196,74 +177,38 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
       stage.current?.querySelectorAll<HTMLAnchorElement>("a")[active]?.focus({ preventScroll: true });
     });
   };
-  const onPointerDown = (event: ReactPointerEvent) => {
-    if (mode !== "deck" || !event.isPrimary || gesture.current) {
-      cancelGesture();
-      return;
-    }
-    gesture.current = { pointerId: event.pointerId, x: event.clientX, y: event.clientY, dragging: false };
-  };
-  const onPointerMove = (event: ReactPointerEvent) => {
-    const start = gesture.current;
-    if (!start || start.pointerId !== event.pointerId || !event.isPrimary) return;
-    const dx = event.clientX - start.x;
-    const dy = event.clientY - start.y;
-    if (!start.dragging && Math.abs(dx) >= 10 && Math.abs(dx) > Math.abs(dy) * 1.3) {
-      start.dragging = true;
-      event.currentTarget.setPointerCapture(event.pointerId);
-    }
-    if (start.dragging && !dragFrame.current) {
-      dragFrame.current = requestAnimationFrame(() => {
-        dragFrame.current = undefined;
-        const current = gesture.current;
-        if (current) stage.current?.style.setProperty("--deck-drag-x", `${event.clientX - current.x}px`);
-      });
-    }
-  };
-  const onPointerEnd = (event: ReactPointerEvent) => {
-    const start = gesture.current;
-    cancelGesture();
-    if (!start?.dragging || start.pointerId !== event.pointerId) return;
-    const cardWidth = stage.current?.children[active]?.getBoundingClientRect().width ?? 320;
-    const threshold = Math.min(64, cardWidth * 0.18);
-    const dx = event.clientX - start.x;
-    suppressClick.current = true;
-    if (suppressTimer.current) clearTimeout(suppressTimer.current);
-    suppressTimer.current = setTimeout(() => { suppressClick.current = false; }, 0);
-    if (Math.abs(dx) >= threshold) move(dx < 0 ? 1 : -1);
-  };
-  const onClickCapture = (event: MouseEvent) => {
-    if (!suppressClick.current) return;
-    event.preventDefault();
-    event.stopPropagation();
-    suppressClick.current = false;
-  };
-
   return <div ref={root} className="creation-deck" data-mode={mode} data-available={available ? "true" : "false"}>
     {candidate && <div ref={controls} className="creation-deck-controls" onBlurCapture={recoverHiddenControlFocus} onFocusCapture={() => { controlFocusOwned.current = true; }} onKeyDown={onControlsKeyDown}>
       {mode === "deck" && <button type="button" onClick={() => move(-1)} aria-label="前の記事">←</button>}
+      {mode === "deck" && <span className="creation-deck-count" aria-hidden="true">{active + 1} / {items.length}</span>}
+      {mode === "deck" && <button type="button" onClick={() => move(1)} aria-label="次の記事">→</button>}
       <button type="button" aria-pressed={mode === "deck"} onClick={() => changeMode(mode === "list" ? "deck" : "list")}>
         {mode === "list" ? "円環で見る" : "一覧で見る"}
       </button>
-      {mode === "deck" && <button type="button" onClick={() => move(1)} aria-label="次の記事">→</button>}
-      {mode === "deck" && <span className="creation-deck-count" aria-live="polite">{items.length}件中{active + 1}件目、{items[active]?.title}</span>}
+      {mode === "deck" && <span className="creation-deck-status sr-only" aria-live="polite">{items.length}件中{active + 1}件目、{items[active]?.title}</span>}
     </div>}
-    <ol ref={stage} className="article-cluster-list" style={mode === "deck" && deckHeight ? { minHeight: deckHeight } : undefined} onClickCapture={onClickCapture} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerEnd} onPointerCancel={cancelGesture} onLostPointerCapture={cancelGesture}>
+    {items.length === 0 && <p>現在、表示できる記事はありません。</p>}
+    <ol ref={stage} className="article-cluster-list" style={mode === "deck" && deckHeight ? { minHeight: deckHeight } : undefined} onDragStart={(event) => { if (mode === "deck") event.preventDefault(); }}>
       {items.map((item, index) => {
-        const distance = ((index - active + items.length + Math.floor(items.length / 2)) % items.length) - Math.floor(items.length / 2);
-        return <li key={item.href} className="v2-start-card-item" data-distance={mode === "deck" ? Math.max(-2, Math.min(2, distance)) : undefined}>
-          <Link className="v2-start-card" href={item.href} onFocus={() => revealForFocus(index)}>
-            <span className="v2-start-card-face">
+        const descriptionId = `${descriptionPrefix}-${index}`;
+        const isExpanded = mode === "list" || expanded.has(item.id);
+        return <li key={item.id} data-deck-id={item.id} className="v2-start-card-item">
+          <div className="v2-start-card">
+            <Link className="v2-start-card-face" href={item.href} aria-label={item.title}>
               <span className="v2-start-card-image" aria-hidden="true">
-                {/* Approved source bytes are intentionally served without re-encoding. */}
+                {/* Approved source bytes are served without re-encoding. */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={item.image.src} srcSet={item.image.srcSet} sizes="(max-width: 680px) calc(100vw - 62px), 352px" width="960" height="640" alt="" />
+                <img src={item.image.src} srcSet={item.image.srcSet} sizes="(max-width: 680px) calc(100vw - 96px), 272px" width="960" height="640" alt="" />
               </span>
               <span className="v2-start-card-meta"><span className="v2-start-card-label">{item.label}</span><small>更新 {item.updatedAt}</small></span>
-              <strong>{item.title}</strong><span className="v2-start-card-description">{item.description}</span>
+              <strong>{item.title}</strong>
               <span className="v2-start-card-read" aria-hidden="true">記事を読む <b>→</b></span>
-            </span>
-          </Link>
+            </Link>
+            <p id={descriptionId} className="v2-start-card-description" data-expanded={isExpanded}>{item.description}</p>
+            {mode === "deck" && <button className="v2-start-card-expand" type="button" aria-expanded={isExpanded} aria-controls={descriptionId} onClick={() => setExpanded(old => {
+              const next = new Set(old); if (next.has(item.id)) next.delete(item.id); else next.add(item.id); return next;
+            })}>{isExpanded ? "概要を閉じる" : "概要をすべて表示"}</button>}
+          </div>
         </li>;
       })}
     </ol>

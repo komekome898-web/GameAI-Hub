@@ -125,7 +125,7 @@ export default function ArticlesPage() {
           {group.id === "start" ? <CreationDeck items={group.slugs.map((slug, index) => {
             const article = getArticle(slug)!;
             const visual = getStartArticleVisual(slug as StartArticleSlug);
-            return { href: `/articles/${slug}/`, title: article.title, description: article.description, updatedAt: article.updatedAt, label: index === 0 ? "この目的の入口" : articleCategoryLabels[article.category], image: visual };
+            return { id: slug, href: `/articles/${slug}/`, title: article.title, description: article.description, updatedAt: article.updatedAt, label: index === 0 ? "この目的の入口" : articleCategoryLabels[article.category], image: visual };
           })} /> : <ol className="article-cluster-list">
             {group.slugs.map((slug, index) => {
               const article = getArticle(slug);
