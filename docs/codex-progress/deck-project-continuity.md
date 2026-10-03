@@ -34,3 +34,15 @@
 - Evidence and validation: `docs/evidence/creation-deck-motion/README.md`.
 - Next: parent independent exact-head review and physical Safari/Brave feel check.
   No merge/deploy/Production/Preview authorization; PR remains draft.
+
+## Independent-review P2 follow-up
+
+- Parent reviewed saved 017085b PNGs and reported two interaction P2s. Both were
+  reproduced with new regressions before runtime edits, then repaired narrowly:
+  actual overview-button focus survives forced list mode; uncaptured contacts
+  complete on matching window-observed terminal events outside the stage and
+  cancel on window blur.
+- Evidence: `docs/evidence/creation-deck-review-p2/README.md`; previous visual
+  evidence remains unchanged. No deletion-focus/crop/category expansion.
+- Previous remote E2E failed on 017085b; detailed logs blocked by HTTP 403,
+  specific failing test unknown. Final-head CI and re-review remain separate.

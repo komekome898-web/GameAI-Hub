@@ -1,0 +1,237 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/GameAI-Hub/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "/tmp/gameai-review.config.cjs",
+      "-g",
+      "overview focus survives resize, expanded=false|outside mouse release ends pending, interrupted=true"
+    ],
+    "configFile": "/tmp/gameai-review.config.cjs",
+    "rootDir": "/workspace/GameAI-Hub/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/gameai-review-before",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/workspace/GameAI-Hub/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "creation-deck-review-regressions.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/tmp/gameai-review-before.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "creation-deck-review-regressions.spec.ts",
+      "file": "creation-deck-review-regressions.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "overview focus survives resize, expanded=false, without stealing surviving focus",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11482,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.creation-deck ol').locator('a').nth(1)\nExpected: focused\nReceived: inactive\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.creation-deck ol').locator('a').nth(1)\u001b[22m\n\u001b[2m    24 × locator resolved to <a class=\"v2-start-card-face\" aria-label=\"AIに「ゲームを作って」と頼む前に決めるべき5つのこと\" href=\"/articles/before-asking-ai-build-game/\">…</a>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.creation-deck ol').locator('a').nth(1)\nExpected: focused\nReceived: inactive\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.creation-deck ol').locator('a').nth(1)\u001b[22m\n\u001b[2m    24 × locator resolved to <a class=\"v2-start-card-face\" aria-label=\"AIに「ゲームを作って」と頼む前に決めるべき5つのこと\" href=\"/articles/before-asking-ai-build-game/\">…</a>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n\n    at /workspace/GameAI-Hub/e2e/creation-deck-review-regressions.spec.ts:38:32",
+                    "location": {
+                      "file": "/workspace/GameAI-Hub/e2e/creation-deck-review-regressions.spec.ts",
+                      "column": 32,
+                      "line": 38
+                    },
+                    "snippet": "  36 |     await switchToList();\n  37 |     await expect(overview).toHaveCount(0);\n> 38 |     await expect(links.nth(1)).toBeFocused();\n     |                                ^\n  39 |     await expect(links.nth(1)).toHaveAttribute('href', /before-asking-ai-build-game/);\n  40 |     await info.attach('focus-after-fallback', { body: JSON.stringify(await links.nth(1).evaluate(e => ({ href: e.getAttribute('href'), active: document.activeElement === e, scrollY }))), contentType: 'application/json' });\n  41 |     const restore = async () => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/GameAI-Hub/e2e/creation-deck-review-regressions.spec.ts",
+                        "column": 32,
+                        "line": 38
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.creation-deck ol').locator('a').nth(1)\nExpected: focused\nReceived: inactive\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.creation-deck ol').locator('a').nth(1)\u001b[22m\n\u001b[2m    24 × locator resolved to <a class=\"v2-start-card-face\" aria-label=\"AIに「ゲームを作って」と頼む前に決めるべき5つのこと\" href=\"/articles/before-asking-ai-build-game/\">…</a>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n\n\n  36 |     await switchToList();\n  37 |     await expect(overview).toHaveCount(0);\n> 38 |     await expect(links.nth(1)).toBeFocused();\n     |                                ^\n  39 |     await expect(links.nth(1)).toHaveAttribute('href', /before-asking-ai-build-game/);\n  40 |     await info.attach('focus-after-fallback', { body: JSON.stringify(await links.nth(1).evaluate(e => ({ href: e.getAttribute('href'), active: document.activeElement === e, scrollY }))), contentType: 'application/json' });\n  41 |     const restore = async () => {\n    at /workspace/GameAI-Hub/e2e/creation-deck-review-regressions.spec.ts:38:32"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:50:44.564Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/gameai-review-before/creation-deck-review-regre-33335-ut-stealing-surviving-focus/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/gameai-review-before/creation-deck-review-regre-33335-ut-stealing-surviving-focus/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/gameai-review-before/creation-deck-review-regre-33335-ut-stealing-surviving-focus/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/GameAI-Hub/e2e/creation-deck-review-regressions.spec.ts",
+                    "column": 32,
+                    "line": 38
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c413d65a856cc0309e57-9e8fb67eeade59b2109e",
+          "file": "creation-deck-review-regressions.spec.ts",
+          "line": 21,
+          "column": 7
+        },
+        {
+          "title": "outside mouse release ends pending, interrupted=true, and leaves the next gesture usable",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11540,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n    at idle (/workspace/GameAI-Hub/e2e/creation-deck-review-regressions.spec.ts:13:7)\n    at /workspace/GameAI-Hub/e2e/creation-deck-review-regressions.spec.ts:74:11",
+                    "location": {
+                      "file": "/workspace/GameAI-Hub/e2e/creation-deck-review-regressions.spec.ts",
+                      "column": 7,
+                      "line": 13
+                    },
+                    "snippet": "  11 |     const d = (e as HTMLElement).dataset;\n  12 |     return d.motion === 'idle' && d.motionRaf === '0' && d.motionPos === d.motionTarget && Number.isInteger(Number(d.motionPos));\n> 13 |   })).toBe(true);\n     |       ^\n  14 | }\n  15 | async function open(page: Page) {\n  16 |   await page.goto('/articles/#start');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/GameAI-Hub/e2e/creation-deck-review-regressions.spec.ts",
+                        "column": 7,
+                        "line": 13
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n\n  11 |     const d = (e as HTMLElement).dataset;\n  12 |     return d.motion === 'idle' && d.motionRaf === '0' && d.motionPos === d.motionTarget && Number.isInteger(Number(d.motionPos));\n> 13 |   })).toBe(true);\n     |       ^\n  14 | }\n  15 | async function open(page: Page) {\n  16 |   await page.goto('/articles/#start');\n    at idle (/workspace/GameAI-Hub/e2e/creation-deck-review-regressions.spec.ts:13:7)\n    at /workspace/GameAI-Hub/e2e/creation-deck-review-regressions.spec.ts:74:11"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:50:56.961Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/gameai-review-before/creation-deck-review-regre-cfbce-ves-the-next-gesture-usable/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/gameai-review-before/creation-deck-review-regre-cfbce-ves-the-next-gesture-usable/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/gameai-review-before/creation-deck-review-regre-cfbce-ves-the-next-gesture-usable/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/GameAI-Hub/e2e/creation-deck-review-regressions.spec.ts",
+                    "column": 7,
+                    "line": 13
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c413d65a856cc0309e57-a677110a1475b850649e",
+          "file": "creation-deck-review-regressions.spec.ts",
+          "line": 55,
+          "column": 7
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-03T01:50:44.024Z",
+    "duration": 24962.94,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

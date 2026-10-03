@@ -90,8 +90,20 @@ export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>,
     const guard = (current: Contact) => {
       clickGuard = { id: current.id, until: performance.now() + 400, cardId: current.cardId, target: current.target };
     };
+    // A pending/vertical mouse contact has no capture. Observe its terminal
+    // events outside the stage, but only for the lifetime of that contact.
+    const watchContact = () => {
+      window.addEventListener('pointerup', onUp, true);
+      window.addEventListener('pointercancel', onCancel, true);
+      window.addEventListener('blur', onWindowBlur);
+    };
+    const unwatchContact = () => {
+      window.removeEventListener('pointerup', onUp, true);
+      window.removeEventListener('pointercancel', onCancel, true);
+      window.removeEventListener('blur', onWindowBlur);
+    };
     const cancel = (immediate = false) => {
-      if (contact) { const current = contact; guard(current); contact = null; releaseCapture(current.id); }
+      if (contact) { const current = contact; guard(current); contact = null; unwatchContact(); releaseCapture(current.id); }
       const index = Math.max(0, keys.indexOf(committed.current));
       settle(Math.round(pos + ringDelta(index, pos, count)), immediate);
     };
@@ -109,6 +121,7 @@ export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>,
       stop();
       contact = { id: event.pointerId, x: event.clientX, y: event.clientY, dx: 0, startPos: pos, moved: 0, interrupted,
         cardId: cardId(event.target), target: event.target, samples: [{ pos, time: event.timeStamp }] };
+      watchContact();
       phase = 'pending'; render();
     };
     const sample = (event: PointerEvent, current: Contact) => {
@@ -140,6 +153,7 @@ export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>,
       sample(event, current);
       const previousPhase = phase;
       contact = null;
+      unwatchContact();
       releaseCapture(current.id);
       if (previousPhase === 'dragging') {
         guard(current); pos = current.startPos - current.dx / stepPx;
@@ -153,6 +167,7 @@ export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>,
         settle(clicked >= 0 ? Math.round(pos + ringDelta(clicked, pos, count)) : Math.round(pos));
       }
     };
+    const onWindowBlur = () => { if (contact) cancel(true); };
     const onCancel = (event: PointerEvent) => { if (contact?.id === event.pointerId) cancel(); };
     const onLost = (event: PointerEvent) => { if (event.target === element && contact?.id === event.pointerId) cancel(); };
     const onClick = (event: MouseEvent) => {
@@ -187,8 +202,6 @@ export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>,
       if (cards[0]) observer?.observe(cards[0]);
       element.addEventListener('pointerdown', onDown);
       element.addEventListener('pointermove', onMove);
-      element.addEventListener('pointerup', onUp);
-      element.addEventListener('pointercancel', onCancel);
       element.addEventListener('lostpointercapture', onLost);
       element.addEventListener('click', onClick, true);
       element.addEventListener('focusin', onFocus);
@@ -197,11 +210,10 @@ export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>,
       document.addEventListener('visibilitychange', onVisibility);
     }
     return () => {
-      disposed = true; stop();
+      disposed = true; stop(); unwatchContact();
       if (contact) { const id = contact.id; contact = null; releaseCapture(id); }
       observer?.disconnect();
       element.removeEventListener('pointerdown', onDown); element.removeEventListener('pointermove', onMove);
-      element.removeEventListener('pointerup', onUp); element.removeEventListener('pointercancel', onCancel);
       element.removeEventListener('lostpointercapture', onLost); element.removeEventListener('click', onClick, true);
       element.removeEventListener('focusin', onFocus); window.removeEventListener('pointerdown', onSecondPointer, true);
       window.removeEventListener('resize', onResize); document.removeEventListener('visibilitychange', onVisibility);

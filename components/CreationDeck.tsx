@@ -123,7 +123,12 @@ export function CreationDeck({ items }: { items: CreationDeckItem[] }) {
       if (!next) setAvailable(false);
       cancelGesture();
       if (!next) {
-        if (controlFocusOwned.current) {
+        // Only a currently focused overview button is about to disappear.
+        // Surviving links and focus outside this deck keep their ownership.
+        const focused = document.activeElement;
+        if (focused instanceof HTMLButtonElement && focused.matches('.v2-start-card-expand') && stage.current?.contains(focused)) {
+          focused.closest('li')?.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true });
+        } else if (controlFocusOwned.current) {
           controlFocusOwned.current = false;
           stage.current?.querySelectorAll<HTMLAnchorElement>("a")[active]?.focus({ preventScroll: true });
         }
