@@ -31,8 +31,7 @@ export default function ElevenLabsV4GameVoice() {
               <strong>確認日：</strong>2026年9月30日（公式資料を再確認）
             </p>
             <p>
-              <strong>注意：</strong>掲載文は再現用テスト台本です。GameAI
-              Hubが生成・試聴した音声の評価ではありません。
+              <strong>注意：</strong>掲載文は再現用テスト台本です。GameBuildiaryが生成・試聴した音声の評価ではありません。
             </p>
           </div>
         </ArticleHeader>

@@ -71,6 +71,19 @@ describe("ElevenLabs v4 game-voice article", () => {
     expect(html).toContain('href="/project?source=elevenlabs-v4-game-voice"');
   });
 
+  it("uses the current product brand in the article note while preserving authorship and verification dates", () => {
+    const article = getArticle("elevenlabs-v4-game-voice")!;
+    const html = renderToStaticMarkup(<ElevenLabsV4GameVoice />);
+    expect(html).toContain("GameBuildiaryによる音声生成・試聴評価ではなく");
+    expect(html).not.toContain("GameAI Hub");
+    expect(article.editorialNote).toContain("GameBuildiaryによる音声生成・試聴評価");
+    expect(article.editorialNote).not.toContain("GameAI Hub");
+    expect(article.author).toBe("AI Iterproof編集部");
+    expect(article.updatedAt).toBe("2026-10-04");
+    expect(article.lastVerifiedAt).toBe("2026-09-30");
+    expect(article.sources.every(source => source.verifiedAt === "2026-09-30")).toBe(true);
+  });
+
   it("preserves the official limits, realtime comparison and PVC discrepancy", () => {
     const html = renderToStaticMarkup(<ElevenLabsV4GameVoice />);
 

@@ -425,12 +425,12 @@ export const articles = [
       "Voice Cloning",
     ],
     publishedAt: "2026-09-30",
-    updatedAt: "2026-09-30",
+    updatedAt: "2026-10-04",
     publicationStatus: "published",
     lastVerifiedAt: "2026-09-30",
     author: "AI Iterproof編集部",
     editorialNote:
-      "ElevenLabs公式のv4公開情報、製品ページ、モデル、TTS、prompting、Text to Dialogue、Voice Cloning、Pricing、Termsを2026-09-30に再確認しました。GameAI Hubによる音声生成・試聴評価ではなく、掲載セリフは再現用テスト手順です。",
+      "ElevenLabs公式のv4公開情報、製品ページ、モデル、TTS、prompting、Text to Dialogue、Voice Cloning、Pricing、Termsを2026-09-30に再確認しました。GameBuildiaryによる音声生成・試聴評価ではなく、掲載セリフは再現用テスト手順です。",
     sources: [
       {
         label: "ElevenLabs: Eleven v4 release",
