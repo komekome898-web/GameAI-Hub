@@ -1,0 +1,89 @@
+{
+  "schema": "gamebuildiary-pr165-review-fix/v1",
+  "review_input_head": "94f1c9ec5d8592343affb96c344815ad0ab64904",
+  "base_main": "93124abba0d91b9e527baae27028967948f23fb4",
+  "pr": 165,
+  "local_quality": "PASS 347 tests and validators",
+  "local_production_build": "PASS via Playwright webServer build command",
+  "local_scope_e2e": "PASS14 no retries",
+  "original_ci_flake_history": "1 retry-pass at94f1c9e retained",
+  "independent_review": "PENDING coordinator changed scope",
+  "physical_safari": "UNTESTED",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 2531,
+      "sha256": "33d1c812f4ae1d06b07b5c2124d895c84b26532507e7ea3b37b270848156ff46"
+    },
+    {
+      "path": "articles-320.json",
+      "bytes": 319,
+      "sha256": "3d454775941d88e345379d6e7fb313598e37d18f2f61a9d68d3a23900aa9c1cb"
+    },
+    {
+      "path": "articles-320.png",
+      "bytes": 67447,
+      "sha256": "2c2e83d0386c9f93e7db6aefcb5db9a3ac667b2274441a1e8b179f2126a34059"
+    },
+    {
+      "path": "articles-390.json",
+      "bytes": 316,
+      "sha256": "28903e9b080818c0e7195e48b4db3df238caef820f5900d59364afbb43ca3bd9"
+    },
+    {
+      "path": "articles-390.png",
+      "bytes": 98365,
+      "sha256": "fcc517546f92f50997b8e9024b84f717333a6e6a4aee2ceecc200a3d5ef2dd47"
+    },
+    {
+      "path": "baseline.log",
+      "bytes": 11956,
+      "sha256": "056446a93e59475afa2e24e2bd8901e6322d71928e068d49e76309eb61c940d9"
+    },
+    {
+      "path": "before.log",
+      "bytes": 11925,
+      "sha256": "47877276e4f0a0347cf138d2108747a21982f3edf03ce23d964f5338c22a5a1f"
+    },
+    {
+      "path": "change.diff",
+      "bytes": 4316,
+      "sha256": "76825d4f889e028b06eb30cd8806aa63ea55b89f234f878def424bf3d161dd8d"
+    },
+    {
+      "path": "e2e.log",
+      "bytes": 3116,
+      "sha256": "e37b4e910c47de3987644d406473babacc2ac5240640c0150366118170043e21"
+    },
+    {
+      "path": "home-320.json",
+      "bytes": 290,
+      "sha256": "9b5596bca84f53501d02bd0fb6dba3abb80d64cd4e96674354845cc819093eb3"
+    },
+    {
+      "path": "home-320.png",
+      "bytes": 67709,
+      "sha256": "83fe125453a5a491e8567906c775a2d98d6efcd3290e776bb490001e7619d315"
+    },
+    {
+      "path": "home-390.json",
+      "bytes": 287,
+      "sha256": "165da51abe3d36cc3f0abe92dc23728088d1d23616dc5983e99f1bc6f58b4d2d"
+    },
+    {
+      "path": "home-390.png",
+      "bytes": 146585,
+      "sha256": "c9f39a0f57046d977a715863731ef5f2e51ca0703b0f03e7f4ea9e0956016db0"
+    },
+    {
+      "path": "quality.log",
+      "bytes": 20275,
+      "sha256": "66634521d01743d48f21a36dbda4791616d30ec2a0684b1aad05311847c0e505"
+    },
+    {
+      "path": "unit.log",
+      "bytes": 322,
+      "sha256": "5ce5bfa4e6ab64d449dbdb4cd4352ad054d9f91c0e3ad65a2ca5a8e2d88e1be5"
+    }
+  ]
+}

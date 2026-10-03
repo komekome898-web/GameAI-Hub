@@ -91,6 +91,9 @@ export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?
 
   const navigate = (event: MouseEvent<HTMLAnchorElement>, view: string) => {
     if (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    // List activation does not commit ring selection. Update the originating
+    // entry before navigating so Back's explicit URL agrees with its memory.
+    if (memory.current.view === 'categories' && groups.some(group => group.id === view && group.items.length)) rememberCategory(view);
     if (home) {
       if (groups.some(group => group.id === view && group.items.length)) memory.current.category = view;
       memory.current.categoryScroll = scrollY;

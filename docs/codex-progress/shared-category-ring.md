@@ -11,3 +11,9 @@
 - Branch-protection API configuration read: integration403; no settings changed. GitHub workflow statuses will be authoritative for CI.
 - Forbidden: merge/manual deploy/Production/Preview direct interaction. None performed.
 - Resume only this branch/PR and remotely verified head; do not restart implementation or duplicate workflow runs.
+
+## Independent-review follow-up 2026-10-03
+- Resume input/remote checkpoint:94f1c9ec5d8592343affb96c344815ad0ab64904, draft PR165, same saved environment delegation. Canonical origin/auth/fetch/no-op push/remote SHA verified; main still93124ab.
+- Scoped finding: list/fallback activation left stale hubCategory in originating history; fixed with existing replaceState category commit before navigation. Test idle waits for one hydrated deck before motion assertion. No other runtime scope changed.
+- Local: prior head reproduces all4 failures; fixed shared-category E2E14 PASS, targeted unit13 PASS, quality347 PASS; production build PASS through E2E webServer. New evidence review-fix/manifest.json; original evidence hashes unchanged. Original CI1 retry-pass history retained.
+- Current: one coherent follow-up delivery commit; next exact-head mandatory CI and same Library identity replacement. Parent re-review changed scope PENDING, physical Safari UNTESTED. No merge/manual deploy/direct deployed-site interaction.
