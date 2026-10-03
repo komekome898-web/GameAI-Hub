@@ -1,0 +1,32 @@
+
+Running 24 tests using 1 worker
+
+(node:21260) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/24] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 320px
+[2/24] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 375px
+[3/24] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 390px
+[4/24] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 1440px
+[5/24] e2e/gamebuildiary-category-entry.spec.ts:47:5 › voice v4 roundtrip, category focus, history and list selection
+[6/24] e2e/gamebuildiary-category-entry.spec.ts:78:5 › all-list roundtrip, explicit URL precedence and removed IDs
+[7/24] e2e/gamebuildiary-category-entry.spec.ts:100:5 › rapid controls and back during motion do not publish a transient article
+[8/24] e2e/gamebuildiary-category-entry.spec.ts:113:5 › fallback focus, missing images, Japanese enlargement and mode recovery
+[9/24] e2e/gamebuildiary-category-entry.spec.ts:135:5 › no JavaScript exposes all sixteen normal article links once
+[10/24] e2e/gamebuildiary-category-entry.spec.ts:146:5 › START preserves native dragging from the supplied image with five unique cards
+[11/24] e2e/issue-157-final-evidence.spec.ts:118:5 › V3 route, state, text, navigation, affiliate, and SEO observations
+[12/24] e2e/issue-157-final-evidence.spec.ts:213:5 › V4 dynamic input, cancellation, follow-up, focus, and budget observations
+[13/24] e2e/issue-157-project-evidence.spec.ts:69:5 › Issue 157 Project states, workspace, and token observations validate
+[14/24] e2e/issue-157-reflow-evidence.spec.ts:27:5 › V2 Home observations emit and validate current typed evidence
+[15/24] e2e/shared-category-ring.spec.ts:12:45 › Home order and complete return context at 320
+[16/24] e2e/shared-category-ring.spec.ts:12:45 › Home order and complete return context at 375
+[17/24] e2e/shared-category-ring.spec.ts:12:45 › Home order and complete return context at 390
+[18/24] e2e/shared-category-ring.spec.ts:12:45 › Home order and complete return context at 1440
+[19/24] e2e/shared-category-ring.spec.ts:45:5 › entry preferences and focus ownership remain separate across mounts
+[20/24] e2e/shared-category-ring.spec.ts:64:5 › category tiny flick, inertia, recontact and navigation history use shared motion
+[21/24] e2e/shared-category-ring.spec.ts:92:36 › category enlarged Japanese remains usable at 320
+[22/24] e2e/shared-category-ring.spec.ts:92:36 › category enlarged Japanese remains usable at 375
+[23/24] e2e/shared-category-ring.spec.ts:100:5 › Home no-JS category links reach actual articles, unsafe context is ignored
+[24/24] e2e/shared-category-ring.spec.ts:110:5 › Home example fragment remains native and Project input survives
+  24 passed (2.9m)

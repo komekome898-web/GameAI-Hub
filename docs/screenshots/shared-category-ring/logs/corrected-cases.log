@@ -1,0 +1,102 @@
+[WebServer] (node:16619) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 48 tests using 2 workers
+
+(node:16638) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:16637) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/48] e2e/content-seo.spec.ts:179:5 › Issue 135 journey keeps analytics local and navigates Home to cluster, article, and Project
+[2/48] e2e/analytics-production-harness.spec.ts:36:7 › permitted Production browser harness › retains bounded early events, loads once, and does not replay excluded events
+[3/48] e2e/deck-acceptance-contract.spec.ts:78:5 › width diagnostic owns only a contained clipped inactive arc
+[4/48] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 320px
+[5/48] e2e/analytics-production-harness.spec.ts:116:7 › permitted Production browser harness › caps a delayed queue and disposes failed loading before late fixture execution
+[6/48] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 375px
+[7/48] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 390px
+[8/48] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 1440px
+[9/48] e2e/gamebuildiary-category-entry.spec.ts:47:5 › voice v4 roundtrip, category focus, history and list selection
+[10/48] e2e/issue-155-v1.spec.ts:392:5 › mobile menu returns focus on Escape and preserves surrounding keyboard order
+[11/48] e2e/issue-157-final-evidence.spec.ts:104:5 › V3 route, state, text, navigation, affiliate, and SEO observations
+[12/48] e2e/gamebuildiary-category-entry.spec.ts:78:5 › all-list roundtrip, explicit URL precedence and removed IDs
+[13/48] e2e/gamebuildiary-category-entry.spec.ts:100:5 › rapid controls and back during motion do not publish a transient article
+[14/48] e2e/gamebuildiary-category-entry.spec.ts:113:5 › fallback focus, missing images, Japanese enlargement and mode recovery
+[15/48] e2e/gamebuildiary-category-entry.spec.ts:135:5 › no JavaScript exposes all sixteen normal article links once
+[16/48] e2e/gamebuildiary-category-entry.spec.ts:146:5 › START preserves native dragging from the supplied image with five unique cards
+[17/48] e2e/issue-157-project-evidence.spec.ts:69:5 › Issue 157 Project states, workspace, and token observations validate
+  1) e2e/issue-157-final-evidence.spec.ts:104:5 › V3 route, state, text, navigation, affiliate, and SEO observations 
+
+    Error: jsHandle.evaluate: Error: surface: text measurement targets changed (identity/order/count): .compare-page :is(h1,h2,h3,p,a,button); expected 3, found 113
+        at Object.assertStable (eval at evaluate (:311:30), <anonymous>:14:120)
+        at eval (eval at evaluate (:311:30), <anonymous>:2:40)
+        at Array.forEach (<anonymous>)
+        at eval (eval at evaluate (:311:30), <anonymous>:2:15)
+        at UtilityScript.evaluate (<anonymous>:313:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at Object.assertStable (eval at evaluate (:311:30), <anonymous>:14:120)
+        at eval (eval at evaluate (:311:30), <anonymous>:2:40)
+        at eval (eval at evaluate (:311:30), <anonymous>:2:15)
+        at UtilityScript.evaluate (<anonymous>:313:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at applyTextMethod (/workspace/GameAI-Hub/e2e/acceptance/reflow.ts:118:60)
+        at observe (/workspace/GameAI-Hub/e2e/issue-157-final-evidence.spec.ts:41:17)
+        at /workspace/GameAI-Hub/e2e/issue-157-final-evidence.spec.ts:176:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:17488) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[18/48] e2e/issue-157-reflow-evidence.spec.ts:27:5 › V2 Home observations emit and validate current typed evidence
+[19/48] e2e/shared-category-ring.spec.ts:12:45 › Home order and complete return context at 320
+[20/48] e2e/shared-category-ring.spec.ts:12:45 › Home order and complete return context at 375
+[21/48] e2e/shared-category-ring.spec.ts:12:45 › Home order and complete return context at 390
+[22/48] e2e/shared-category-ring.spec.ts:12:45 › Home order and complete return context at 1440
+[23/48] e2e/shared-category-ring.spec.ts:45:5 › entry preferences and focus ownership remain separate across mounts
+[24/48] e2e/shared-category-ring.spec.ts:64:5 › category tiny flick, inertia, recontact and navigation history use shared motion
+[25/48] e2e/shared-category-ring.spec.ts:92:36 › category enlarged Japanese remains usable at 320
+[26/48] e2e/shared-category-ring.spec.ts:92:36 › category enlarged Japanese remains usable at 375
+[27/48] e2e/shared-category-ring.spec.ts:100:5 › Home no-JS category links reach actual articles, unsafe context is ignored
+[28/48] e2e/shared-category-ring.spec.ts:110:5 › Home example fragment remains native and Project input survives
+[29/48] e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 320px
+[30/48] e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 375px
+[31/48] e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 390px
+[32/48] e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 1440px
+[33/48] e2e/slice-seven-final-acceptance.spec.ts:29:5 › Slice 7 cross-route matrix has contained, structured, durable rendered evidence
+[34/48] e2e/slice-three-articles.spec.ts:21:5 › Slice 3 representative routes meet the rendered reading contract
+[35/48] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary category entry, retained idea action and bounded title at 320x844
+[36/48] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary category entry, retained idea action and bounded title at 375x844
+[37/48] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary category entry, retained idea action and bounded title at 390x844
+[38/48] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary category entry, retained idea action and bounded title at 1440x900
+[39/48] e2e/slice-two-home-chrome.spec.ts:42:7 › Issue 137 Slice 2 Home composition › mobile menu traps focus, closes with Escape, and navigates
+[40/48] e2e/slice-two-home-chrome.spec.ts:62:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 320px
+[41/48] e2e/slice-two-home-chrome.spec.ts:62:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 375px
+[42/48] e2e/slice-two-home-chrome.spec.ts:62:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 390px
+[43/48] e2e/slice-two-home-chrome.spec.ts:62:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 1440px
+[44/48] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 320x844
+[45/48] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 375x844
+[46/48] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 390x844
+[47/48] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 1440x900
+[48/48] e2e/stage-a-evidence.spec.ts:46:5 › emit and validate the Stage A executed subset
+  1 failed
+    e2e/issue-157-final-evidence.spec.ts:104:5 › V3 route, state, text, navigation, affiliate, and SEO observations 
+  47 passed (2.7m)
