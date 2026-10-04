@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { GamePlayLink } from "./GamePlayLink";
 import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type FocusEvent as ReactFocusEvent, type KeyboardEvent, type MouseEvent } from "react";
 
 import { useCreationDeckMotion } from "./useCreationDeckMotion";
@@ -13,7 +14,10 @@ export type CreationDeckItem = {
   updatedAt?: string;
   count?: number;
   label: string;
-  image?: { src: string; srcSet: string };
+  countUnit?: "記事" | "作品";
+  playUrl?: string;
+  deviceNote?: string;
+  image?: { src: string; srcSet: string; width?: number; height?: number };
 };
 
 export function CreationDeck({ items, initialId, defaultMode = "list", forceList = false, onCommitted, onOpen, onActivate, kind = "article", preferenceKey = "gameai-creation-deck-mode" }: {
@@ -24,7 +28,7 @@ export function CreationDeck({ items, initialId, defaultMode = "list", forceList
   onCommitted?: (id: string) => void;
   onOpen?: (id: string) => void;
   onActivate?: (event: MouseEvent<HTMLAnchorElement>, id: string) => void;
-  kind?: "article" | "category";
+  kind?: "article" | "category" | "game";
   preferenceKey?: string;
 }) {
   const [mode, setMode] = useState<"list" | "deck">("list");
@@ -195,7 +199,7 @@ export function CreationDeck({ items, initialId, defaultMode = "list", forceList
           focused.closest('li')?.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true });
         } else if (controlFocusOwned.current) {
           controlFocusOwned.current = false;
-          stage.current?.querySelectorAll<HTMLAnchorElement>("a")[active]?.focus({ preventScroll: true });
+          stage.current?.querySelectorAll<HTMLAnchorElement>(".v2-start-card-face")[active]?.focus({ preventScroll: true });
         }
         setMode("list");
       } else if (preferredMode.current === "deck") {
@@ -239,37 +243,38 @@ export function CreationDeck({ items, initialId, defaultMode = "list", forceList
       if (!controlFocusOwned.current || document.activeElement !== document.body) return;
       if (getComputedStyle(controls).display !== "none") return;
       controlFocusOwned.current = false;
-      stage.current?.querySelectorAll<HTMLAnchorElement>("a")[active]?.focus({ preventScroll: true });
+      stage.current?.querySelectorAll<HTMLAnchorElement>(".v2-start-card-face")[active]?.focus({ preventScroll: true });
     });
   };
   return <div ref={root} className="creation-deck" data-mode={mode} data-available={available ? "true" : "false"}>
     {candidate && <div ref={controls} className="creation-deck-controls" onBlurCapture={recoverHiddenControlFocus} onFocusCapture={() => { controlFocusOwned.current = true; }} onKeyDown={onControlsKeyDown}>
-      {mode === "deck" && <button type="button" onClick={() => move(-1)} aria-label={kind === "category" ? "前のカテゴリ" : "前の記事"}>←</button>}
+      {mode === "deck" && <button type="button" onClick={() => move(-1)} aria-label={kind === "category" ? "前のカテゴリ" : kind === "game" ? "前の作品" : "前の記事"}>←</button>}
       {mode === "deck" && <span className="creation-deck-count" aria-hidden="true">{active + 1} / {items.length}</span>}
-      {mode === "deck" && <button type="button" onClick={() => move(1)} aria-label={kind === "category" ? "次のカテゴリ" : "次の記事"}>→</button>}
+      {mode === "deck" && <button type="button" onClick={() => move(1)} aria-label={kind === "category" ? "次のカテゴリ" : kind === "game" ? "次の作品" : "次の記事"}>→</button>}
       <button type="button" aria-pressed={mode === "deck"} onClick={() => changeMode(mode === "list" ? "deck" : "list")}>
         {mode === "list" ? "円環で見る" : "一覧で見る"}
       </button>
       {mode === "deck" && <span className="creation-deck-status sr-only" aria-live="polite">{items.length}件中{active + 1}件目、{items[active]?.title}</span>}
     </div>}
-    {items.length === 0 && <p>現在、表示できる{kind === "category" ? "カテゴリ" : "記事"}はありません。</p>}
+    {items.length === 0 && <p>現在、表示できる{kind === "category" ? "カテゴリ" : kind === "game" ? "作品" : "記事"}はありません。</p>}
     <ol ref={stage} className="article-cluster-list" style={mode === "deck" && deckHeight ? { minHeight: deckHeight } : undefined} onDragStart={(event) => { if (mode === "deck") event.preventDefault(); }}>
       {items.map((item, index) => {
         const descriptionId = `${descriptionPrefix}-${index}`;
         const isExpanded = mode === "list" || expanded.has(item.id);
-        return <li key={item.id} data-deck-id={item.id} className="v2-start-card-item">
+        return <li key={item.id} data-deck-id={item.id} className="v2-start-card-item" data-kind={kind}>
           <div className="v2-start-card">
             <Link className="v2-start-card-face" href={item.href} aria-label={item.title} data-category={kind === "category" ? item.id : undefined} onClick={event => { onOpen?.(item.id); onActivate?.(event, item.id); }}>
               {item.image && <span className="v2-start-card-image" aria-hidden="true">
                 {/* Approved source bytes are served without re-encoding. */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={item.image.src} srcSet={item.image.srcSet} sizes="(max-width: 680px) calc(100vw - 96px), 272px" width="960" height="640" alt="" />
+                <img src={item.image.src} srcSet={item.image.srcSet} sizes="(max-width: 680px) calc(100vw - 96px), 272px" width={item.image.width ?? 960} height={item.image.height ?? 640} alt="" />
               </span>}
-              <span className="v2-start-card-meta"><span className="v2-start-card-label">{item.label}</span>{kind === "category" ? <small>{item.count}本の記事</small> : <small>更新 {item.updatedAt}</small>}</span>
+              <span className="v2-start-card-meta"><span className="v2-start-card-label">{item.label}</span>{kind === "category" ? <small>{item.count}{item.countUnit === "作品" ? "作品" : "本の記事"}</small> : item.updatedAt ? <small>更新 {item.updatedAt}</small> : null}</span>
               <strong>{item.title}</strong>
-              <span className="v2-start-card-read" aria-hidden="true">{kind === "category" ? "記事を見る" : "記事を読む"} <b>→</b></span>
+              <span className="v2-start-card-read" aria-hidden="true">{kind === "category" ? (item.countUnit === "作品" ? "作品を見る" : "記事を見る") : kind === "game" ? "紹介を見る" : "記事を読む"} <b>→</b></span>
             </Link>
             <p id={descriptionId} className="v2-start-card-description" data-expanded={isExpanded}>{item.description}</p>
+            {item.playUrl && <div className="game-card-actions">{item.deviceNote && <p>{item.deviceNote}</p>}<GamePlayLink href={item.playUrl} slug={item.id} placement="card" /></div>}
             {mode === "deck" && (clipped.has(item.id) || expanded.has(item.id)) && <button className="v2-start-card-expand" type="button" aria-expanded={isExpanded} aria-controls={descriptionId} onClick={event => {
               if (expanded.has(item.id) && !clipped.has(item.id)) event.currentTarget.closest('li')?.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true });
               setExpanded(old => {

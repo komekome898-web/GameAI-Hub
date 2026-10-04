@@ -1,0 +1,21 @@
+[WebServer] (node:9176) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 7 tests using 1 worker
+
+(node:9192) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/7] e2e/games.spec.ts:6:41 › game category, title image, detail and context return at 320
+[2/7] e2e/games.spec.ts:6:41 › game category, title image, detail and context return at 375
+[3/7] e2e/games.spec.ts:6:41 › game category, title image, detail and context return at 1440
+[4/7] e2e/games.spec.ts:55:5 › 320 synthetic root text 200% and direct entry retain readable details and return
+[5/7] e2e/games.spec.ts:64:5 › no-JS Home category and game detail links remain usable; unknown slug is 404
+[WebServer] Error: Internal: NoFallbackError
+[WebServer]     at ignore-listed frames
+
+[6/7] e2e/games.spec.ts:72:5 › disposable zero, two and future three-work cards reuse fallback, ring, list and keyboard
+[7/7] e2e/games.spec.ts:109:5 › Home and article hub retain one shared deck chunk within the existing JS budget
+  7 passed (1.2m)

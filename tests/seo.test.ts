@@ -1,3 +1,4 @@
+import { getPublishedGames } from "@/data/games";
 import { describe, expect, it, vi } from 'vitest';
 import sitemap, { publicSitemapPaths } from '@/app/sitemap';
 import robots from '@/app/robots';
@@ -90,6 +91,7 @@ describe('SEO', () => {
       ...stackTemplates.map(stack=>`/stacks/${stack.slug}`),
       ...guides.map(guide=>`/guides/${guide.slug}`),
       ...publishedArticles.map(article=>`/articles/${article.slug}`),
+      ...getPublishedGames().map(game=>`/games/${game.slug}`),
     ];
     expect(map).toHaveLength(expectedPaths.length);
     expect(new Set(map.map(({url})=>url)).size).toBe(expectedPaths.length);
