@@ -37,6 +37,7 @@ export type ArticleRecord = {
   updatedAt: string;
   lastVerifiedAt?: string;
   author: string;
+  authorProfileUrl?: string;
   editorialNote: string;
   sources: readonly ArticleSource[];
   related: readonly ArticleLink[];
@@ -1280,6 +1281,55 @@ export const articles = [
       label: "AIで最初のゲームを1つ作ってみる",
       description:
         "作りたいものから、今日AIに書かせるもの・動かす手順・自分の目で確認できる完了条件までを1ステップに絞ります。AIに何を任せられて、どこを自分で確かめるべきかは、一度自分で通すと分かります。",
+      placement: "article_end",
+    },
+    promotions: [],
+  },
+  {
+    slug: "aramon-production-story",
+    purpose: "practice",
+    purposeOrder: 6,
+    title: "Claude とのチャットから Claude Code へ 荒野モン動を作った流れとエフェクト作りの試行錯誤",
+    description: "おりょうによる荒野モン動の制作体験談。ClaudeのチャットからClaude Codeへ進めた制作の流れ、技のエフェクト作りの試行錯誤、記事編集時のプレイ確認を紹介します。",
+    category: "field-note",
+    tags: ["荒野モン動", "Claude Code", "制作体験談", "エフェクト"],
+    publicationStatus: "draft",
+    publishedAt: "2026-10-04",
+    updatedAt: "2026-10-04",
+    author: "おりょう",
+    authorProfileUrl: "https://x.com/oryoooo_game",
+    editorialNote: "作者の制作体験を紹介します。Claude Proの記述は制作時の利用体験です。写真は2026年10月4日の記事編集時のプレイ確認で撮影したもので、開発当時の写真ではありません。",
+    sources: [
+      {
+        label: "荒野モン動 — 作者が公開しているゲーム",
+        url: "https://komekome898-web.github.io/aramon/index.html",
+        kind: "first-hand",
+        verifiedAt: "2026-10-04",
+      },
+      {
+        label: "作者 おりょう / X @oryoooo_game",
+        url: "https://x.com/oryoooo_game",
+        kind: "first-hand",
+        verifiedAt: "2026-10-04",
+      },
+    ],
+    related: [
+      {
+        href: "/articles/ai-usage-guide/",
+        label: "AIの正しい使い方",
+        reason: "AIへの依頼と実際の動作確認を制作に取り入れる",
+        kind: "article",
+      },
+      {
+        href: "/articles/ai-browser-game-how-to/",
+        label: "AIでブラウザゲームを作る方法",
+        reason: "自分のゲームで最初の1プレイを動かす手順へ進む",
+        kind: "article",
+      },
+    ],
+    projectCta: {
+      label: "自分のゲームの最初の制作手順を作る",
+      description: "作りたいゲームを、AIへ頼む作業と自分で確認できる完了条件に分けます。",
       placement: "article_end",
     },
     promotions: [],

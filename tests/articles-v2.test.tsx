@@ -17,7 +17,7 @@ describe('published purpose registry', () => {
     expect(groups[2].articles.map(a => a.slug)).toEqual(['elevenlabs-game-development-guide','elevenlabs-v4-game-voice','elevenlabs-commercial-use-game']);
     expect(new Set(groups.flatMap(g => g.articles.map(a => a.slug))).size).toBe(16);
     const html = await new Response(await renderToReadableStream(<ArticlesPage />)).text();
-    for (const article of articles) expect(html.split(`href="/articles/${article.slug}/"`), article.slug).toHaveLength(2);
+    for (const article of articles) expect(html.split(`href="/articles/${article.slug}/"`), article.slug).toHaveLength(article.publicationStatus === 'published' ? 2 : 1);
     expect(html).toContain('ゲーム制作外の検証事例');
     expect(html).not.toContain('href="#games"');
   });
