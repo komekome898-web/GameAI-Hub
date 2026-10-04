@@ -1,4 +1,6 @@
 import { renderToStaticMarkup } from "react-dom/server";
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
 import AramonProductionStory, { metadata } from "@/app/articles/aramon-production-story/page";
 import { aramonImages, aramonImagesReady } from "@/app/articles/aramon-production-story/images";
@@ -11,6 +13,16 @@ const article = getArticle("aramon-production-story")!;
 const html = () => renderToStaticMarkup(<AramonProductionStory />);
 
 describe("approved Aramon production story", () => {
+  it("ships the exact approved original bytes rather than replacement imagery", () => {
+    const hashes = [
+      "627ea7d068c4974a63047b24f0846fd9c4eb78a47d8d5425572f39884f2eb399",
+      "d70674c12b22cbe75a5112311c299686eb48c34e4c54251dc83c8646483bb63c",
+      "aead7325253f3afa488073ffa398e9e72a86890fdbe21d5ca90c385da06a127a",
+    ];
+    aramonImages.forEach((photo, index) => {
+      expect(createHash("sha256").update(readFileSync(`public${photo.src}`)).digest("hex")).toBe(hashes[index]);
+    });
+  });
   it("preserves historical experience, capture context, and the unexecuted training selection", () => {
     const content = html();
     for (const text of [
@@ -27,8 +39,8 @@ describe("approved Aramon production story", () => {
     expect(content).toContain('"@type":"Person","name":"おりょう","url":"https://x.com/oryoooo_game"');
   });
 
-  it("stages the exact three image slots without broken image requests or substitute images", () => {
-    expect(aramonImagesReady).toBe(false);
+  it("stages the exact three image slots with the approved originals and no substitutes", () => {
+    expect(aramonImagesReady).toBe(true);
     expect(aramonImages.map(photo => photo.src)).toEqual([
       "/images/articles/aramon-production-story/team-flame-barrage.png",
       "/images/articles/aramon-production-story/training-demon-flame.png",
@@ -42,17 +54,17 @@ describe("approved Aramon production story", () => {
     expect(aramonImages[0].alt).toContain("TIER 2「火炎連砲」");
     expect(aramonImages[1].alt).toContain("実3Dの訓練場");
     expect(aramonImages[2].alt).toContain("未実行");
-    expect(html()).not.toContain("<img");
-    expect(html()).toContain("掲載予定の写真3枚は準備中");
+    expect((html().match(/<img/g) ?? [])).toHaveLength(3);
+    expect(html()).not.toContain("掲載予定の写真3枚は準備中");
   });
 
-  it("keeps this unfinished draft out of listings, sitemap and indexing", () => {
-    expect(article.publicationStatus).toBe("draft");
-    expect(metadata.robots).toEqual({ index: false, follow: false });
+  it("publishes through practice listings and sitemap with a canonical", () => {
+    expect(article.publicationStatus).toBe("published");
+    expect(metadata.robots).toBeUndefined();
     expect(metadata.alternates?.canonical).toBe(articlePath(article));
     expect(metadata.authors).toEqual([{ name: "おりょう" }]);
-    expect(getArticleGroups().flatMap(group => group.articles).some(item => item.slug === article.slug)).toBe(false);
-    expect(sitemap().some(item => item.url.endsWith(articlePath(article)))).toBe(false);
+    expect(getArticleGroups().flatMap(group => group.articles).some(item => item.slug === article.slug)).toBe(true);
+    expect(sitemap().some(item => item.url.endsWith(articlePath(article)))).toBe(true);
   });
 
   it("joins the existing practice flow when published without enabling games or editing other records", () => {

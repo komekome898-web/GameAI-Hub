@@ -1293,7 +1293,7 @@ export const articles = [
     description: "おりょうによる荒野モン動の制作体験談。ClaudeのチャットからClaude Codeへ進めた制作の流れ、技のエフェクト作りの試行錯誤、記事編集時のプレイ確認を紹介します。",
     category: "field-note",
     tags: ["荒野モン動", "Claude Code", "制作体験談", "エフェクト"],
-    publicationStatus: "draft",
+    publicationStatus: "published",
     publishedAt: "2026-10-04",
     updatedAt: "2026-10-04",
     author: "おりょう",

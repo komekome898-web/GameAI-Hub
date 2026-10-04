@@ -1,6 +1,5 @@
-// The approved originals have not reached this environment. Enable only after
-// all three exact files are installed and their pixels/667×375 ratio verified.
-export const aramonImagesReady = false;
+// Approved original screenshots, captured during editorial play on 2026-10-04.
+export const aramonImagesReady = true;
 
 export const aramonImages = [
   {
