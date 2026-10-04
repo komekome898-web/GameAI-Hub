@@ -67,7 +67,7 @@ Running 59 tests using 2 workers
 [36/59] e2e/gamebuildiary-category-entry.spec.ts:113:5 › fallback focus, missing images, Japanese enlargement and mode recovery
 [37/59] e2e/games.spec.ts:60:5 › no-JS Home category and game detail links remain usable; unknown slug is 404
 [38/59] e2e/gamebuildiary-category-entry.spec.ts:135:5 › no JavaScript exposes all seventeen normal article links once
-  1) e2e/gamebuildiary-category-entry.spec.ts:135:5 › no JavaScript exposes all seventeen normal article links once 
+  1) e2e/gamebuildiary-category-entry.spec.ts:135:5 › no JavaScript exposes all seventeen normal article links once
 
     Error: expect(locator).toHaveCount(expected) failed
 
@@ -133,7 +133,7 @@ Running 59 tests using 2 workers
 [51/59] e2e/shared-category-ring.spec.ts:102:5 › category tiny flick, inertia, recontact and navigation history use shared motion
 [52/59] e2e/shared-category-ring.spec.ts:130:36 › category enlarged Japanese remains usable at 320
 [53/59] e2e/shared-category-ring.spec.ts:130:36 › category enlarged Japanese remains usable at 375
-  2) e2e/slice-three-articles.spec.ts:21:5 › Slice 3 representative routes meet the rendered reading contract 
+  2) e2e/slice-three-articles.spec.ts:21:5 › Slice 3 representative routes meet the rendered reading contract
 
     Error: expect(locator).toBeVisible() failed
 
@@ -182,6 +182,6 @@ Running 59 tests using 2 workers
 [58/59] e2e/slice-three-articles.spec.ts:240:5 › TOC supports mobile disclosure, sticky-safe anchors, initial fragments, and owned code scroll
 [59/59] e2e/slice-three-articles.spec.ts:283:5 › initial-fragment reconciliation yields to the reader and rearms for later navigation
   2 failed
-    e2e/gamebuildiary-category-entry.spec.ts:135:5 › no JavaScript exposes all seventeen normal article links once 
-    e2e/slice-three-articles.spec.ts:21:5 › Slice 3 representative routes meet the rendered reading contract 
+    e2e/gamebuildiary-category-entry.spec.ts:135:5 › no JavaScript exposes all seventeen normal article links once
+    e2e/slice-three-articles.spec.ts:21:5 › Slice 3 representative routes meet the rendered reading contract
   57 passed (2.2m)
