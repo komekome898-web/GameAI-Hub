@@ -19,7 +19,8 @@ describe('published purpose registry', () => {
     const html = await new Response(await renderToReadableStream(<ArticlesPage />)).text();
     for (const article of articles) expect(html.split(`href="/articles/${article.slug}/"`), article.slug).toHaveLength(article.publicationStatus === 'published' ? 2 : 1);
     expect(html).toContain('ゲーム制作外の検証事例');
-    expect(html).not.toContain('href="#games"');
+    expect(html).toContain('href="#games"');
+    expect(html).toContain('href="/games/aramon/"');
   });
   it('automatically reflects additions, unpublishing and reordering', () => {
     const base = articles.find(a => a.purpose === 'start')!;

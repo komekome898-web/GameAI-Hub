@@ -16,11 +16,11 @@ for (const width of [320, 375, 390, 1440]) test(`category entry and all public a
   await mkdir(evidence, { recursive: true });
   await page.setViewportSize({ width, height: 900 });
   await page.goto('/articles/');
-  await expect(page.locator('#categories [data-deck-id]')).toHaveCount(4);
+  await expect(page.locator('#categories [data-deck-id]')).toHaveCount(5);
   await expect(page.locator('.creation-deck')).toHaveCount(1);
   await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', width <= 340 ? 'list' : 'deck');
-  await expect(page.locator('.hub-preparation[aria-disabled="true"]')).toContainText('準備中 · 0件');
-  await expect(page.locator('[href="#games"]')).toHaveCount(0);
+  await expect(page.locator('.hub-preparation')).toHaveCount(0);
+  await expect(page.locator('[href="#games"]')).toHaveCount(1);
   await page.screenshot({ path: `${evidence}/categories-${width}.png`, fullPage: true });
   const operations = [];
   for (const group of getArticleGroups().filter(g => g.articles.length)) {
@@ -94,7 +94,7 @@ test('all-list roundtrip, explicit URL precedence and removed IDs', async ({ pag
   await page.getByRole('link', { name: '← カテゴリへ戻る' }).click();
   await expect(page.locator('[data-category="3d"]')).toBeFocused();
   await page.goto('/articles/#deleted-category');
-  await expect(page.locator('#categories [data-deck-id]')).toHaveCount(4);
+  await expect(page.locator('#categories [data-deck-id]')).toHaveCount(5);
 });
 
 test('rapid controls and back during motion do not publish a transient article', async ({ page }) => {
@@ -105,7 +105,7 @@ test('rapid controls and back during motion do not publish a transient article',
   await expect(current(page)).toHaveAttribute('data-deck-id', 'elevenlabs-v4-game-voice');
   await page.getByRole('button', { name: '次の記事', exact: true }).click();
   await page.goBack();
-  await expect(page.locator('#categories [data-deck-id]')).toHaveCount(4);
+  await expect(page.locator('#categories [data-deck-id]')).toHaveCount(5);
   await page.goForward(); await idle(page);
   await expect(current(page)).toHaveAttribute('data-deck-id', 'elevenlabs-v4-game-voice');
 });
@@ -136,7 +136,7 @@ test('no JavaScript exposes all seventeen normal article links once', async ({ b
   const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 844 } });
   const page = await context.newPage();
   await page.goto('/articles/');
-  await expect(page.locator('.article-cluster:not(.category-cluster) .creation-deck li a')).toHaveCount(17);
+  await expect(page.locator('.article-cluster:not(.category-cluster) .creation-deck li[data-kind="article"] a')).toHaveCount(17);
   await page.locator('#voice li a').nth(1).locator('strong').click();
   await expect(page).toHaveURL(/elevenlabs-v4-game-voice\/$/);
   await context.close();

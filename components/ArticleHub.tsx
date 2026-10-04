@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState, type MouseEvent } from 'react';
 import { CreationDeck, type CreationDeckItem } from './CreationDeck';
 
-export type HubGroup = { id: string; title: string; description: string; items: CreationDeckItem[] };
+export type HubGroup = { id: string; title: string; description: string; kind?: "game"; items: CreationDeckItem[] };
 type Memory = { view: string; articles: Record<string, string>; category: string; categoryScroll: number };
 type Selection = { view: string; article?: string; category?: string; entryHome?: boolean; revision: number };
 const emptyMemory = (): Memory => ({ view: 'categories', articles: {}, category: '', categoryScroll: 0 });
@@ -13,13 +13,13 @@ export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?
   const [selection, setSelection] = useState<Selection | null>(null);
   const memory = useRef<Memory>(emptyMemory());
   const region = useRef<HTMLDivElement>(null);
-  const all = groups.flatMap(group => group.items);
+  const all = groups.filter(group => group.kind !== "game").flatMap(group => group.items);
   const persist = useCallback(() => {
     try { sessionStorage.setItem(storageKey(), JSON.stringify(memory.current)); } catch { /* in-memory fallback */ }
   }, [storageKey]);
 
   useEffect(() => {
-    const allItems = groups.flatMap(group => group.items);
+    const allItems = groups.filter(group => group.kind !== "game").flatMap(group => group.items);
     try {
       const saved = JSON.parse(sessionStorage.getItem(storageKey()) ?? 'null');
       if (saved && typeof saved.view === 'string' && saved.articles && typeof saved.articles === 'object') {
@@ -143,13 +143,13 @@ export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?
   const view = selection?.view;
   const visibleGroups = home ? [] : !selection ? groups.filter(g => g.items.length) : groups.filter(g => g.id === view);
   return <div ref={region} className="article-hub-browser" id={!selection ? "all" : undefined}>
-    {(!selection || view === 'categories') && <section id="categories" aria-label="制作目的から記事を選ぶ">
+    {(!selection || view === 'categories') && <section id="categories" aria-label="制作目的から記事や作品を選ぶ">
       <div className="article-cluster category-cluster">
         <CreationDeck key={`categories:${selection?.revision ?? 'ssr'}`} kind="category" items={groups.filter(group => group.items.length).map(group => ({
-          id: group.id, title: group.title, description: group.description, count: group.items.length, label: '制作カテゴリ',
+          id: group.id, title: group.title, description: group.description, count: group.items.length, countUnit: group.kind === "game" ? "作品" : "記事", label: '制作カテゴリ',
           href: home ? `/articles/?hubEntry=home&hubCategory=${group.id}#${group.id}` : `#${group.id}`,
         }))} initialId={selection?.category || undefined} defaultMode="deck" preferenceKey={home ? 'gameai-home-category-mode' : 'gameai-category-mode'} onCommitted={rememberCategory} onActivate={(event, id) => navigate(event, id)} />
-        {groups.filter(group => !group.items.length).map(group => <div key={group.id} className="v2-start-card hub-preparation" aria-disabled="true"><span className="v2-start-card-label">制作カテゴリ</span><strong>{group.title}</strong><p>{group.description}</p><span>準備中 · 0件</span></div>)}
+        {groups.filter(group => !group.items.length).map(group => <div key={group.id} className="v2-start-card hub-preparation" aria-disabled="true"><span className="v2-start-card-label">制作カテゴリ</span><strong>{group.title}</strong><p>{group.description}</p><span>準備中 · {group.kind === "game" ? "0作品" : "0本の記事"}</span></div>)}
       </div>
     </section>}
     <nav className="hub-view-navigation" aria-label="記事の表示">
@@ -157,8 +157,8 @@ export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?
       {view !== 'all' && <a href={home ? "/articles/#all" : "#all"} data-category="all" onClick={event => navigate(event, 'all')}>すべての記事を見る（{all.length}本） →</a>}
     </nav>
     {visibleGroups.map(group => <section key={`${group.id}:${selection?.revision ?? 'ssr'}`} id={group.id} className="article-cluster" aria-labelledby={`${group.id}-title`}>
-      <div className="section-head"><div><h2 id={`${group.id}-title`}>{group.title}</h2><span>{group.items.length}本の記事</span></div><p>{group.description}</p></div>
-      <CreationDeck items={group.items} initialId={selection?.article} defaultMode={selection ? "deck" : "list"} onCommitted={selection ? rememberArticle : undefined} onOpen={openArticle} />
+      <div className="section-head"><div><h2 id={`${group.id}-title`}>{group.title}</h2><span>{group.items.length}{group.kind === "game" ? "作品" : "本の記事"}</span></div><p>{group.description}</p></div>
+      <CreationDeck kind={group.kind === "game" ? "game" : "article"} preferenceKey={group.kind === "game" ? "gameai-game-deck-mode" : "gameai-creation-deck-mode"} items={group.items} initialId={selection?.article} defaultMode={selection ? "deck" : "list"} onCommitted={selection ? rememberArticle : undefined} onOpen={openArticle} />
     </section>)}
     {view === 'all' && <section id="all" className="article-cluster" aria-labelledby="all-title"><h2 id="all-title">すべての記事（{all.length}本）</h2>
       <CreationDeck key={`all:${selection?.revision ?? 'ssr'}`} items={all} initialId={selection?.article} forceList onOpen={openArticle} />

@@ -4,6 +4,7 @@ import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 import "./visual-layer-v2.css";
 import { Header } from "@/components/Header";
+import { GamePlayAnalytics } from "@/components/GamePlayAnalytics";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { site, siteDescriptionLines } from "@/lib/site";
 
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </nav>
       <p className="footer-principle">価格・商用条件・対応範囲を推測で埋めず、不明な情報は不明のまま示します。</p>
     </footer>
+    <GamePlayAnalytics />
     <GoogleAnalytics />
   </body></html>;
 }

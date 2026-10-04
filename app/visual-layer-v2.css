@@ -406,3 +406,16 @@ body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
 .home-brand-intro h1 { margin:0 0 8px; font-size:clamp(1.8rem,5vw,2.75rem); line-height:1.3; }
 .home-brand-intro h1 span { display:inline-block; font-size:1rem; margin-inline-start:12px; }
 .home-v2-route .home-execution-hero { margin-top:24px; }
+
+/* Game entries share the existing deck and keep screenshots at source ratio. */
+.article-cluster .creation-deck [data-kind="game"] .v2-start-card-image { aspect-ratio:auto; }
+.article-cluster .creation-deck [data-kind="game"] .v2-start-card-image img { position:static; width:100%; height:auto; object-fit:contain; }
+.article-cluster .creation-deck [data-kind="game"] .v2-start-card-image::after { display:none; }
+.game-card-actions { grid-column:1; grid-row:7; z-index:1; }
+.game-card-actions p { margin:0 0 12px; font-size:.875rem; line-height:1.6; }
+.game-card-actions .button { min-height:48px; }
+.game-detail .game-hero { margin:16px 0; }
+.game-detail .game-hero img { display:block; width:100%; height:auto; }
+.game-detail .game-hero figcaption { font-size:.875rem; margin-top:6px; }
+.game-detail .article-content dl > div { margin-block:16px; }
+.game-detail .article-content dt { font-weight:700; }

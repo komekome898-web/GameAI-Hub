@@ -4,8 +4,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 /** Only a validated article-hub route can replace the ordinary breadcrumb. */
-export function ArticleReturnLink({ slug, purpose }: { slug: string; purpose: string }) {
-  const [href, setHref] = useState('/articles');
+export function ArticleReturnLink({ slug, purpose, label = "記事" }: { slug: string; purpose: string; label?: string }) {
+  const [href, setHref] = useState(purpose === 'games' ? `/articles/?hubArticle=${encodeURIComponent(slug)}#games` : '/articles');
   useEffect(() => {
     let active = true;
     queueMicrotask(() => {
@@ -25,5 +25,5 @@ export function ArticleReturnLink({ slug, purpose }: { slug: string; purpose: st
     });
     return () => { active = false; };
   }, [slug, purpose]);
-  return <Link href={href}>記事</Link>;
+  return <Link href={href}>{label}</Link>;
 }
