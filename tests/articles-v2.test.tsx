@@ -12,12 +12,12 @@ vi.mock('next/link', () => ({ default: ({href, children, ...props}: React.Compon
 describe('published purpose registry', () => {
   it('projects every published article once, in approved category order', async () => {
     const groups = getArticleGroups();
-    expect(groups.map(g => [g.id, g.articles.length])).toEqual([['start',5],['3d',3],['voice',3],['practice',5],['games',0]]);
+    expect(groups.map(g => [g.id, g.articles.length])).toEqual([['start',5],['3d',3],['voice',3],['practice',6],['games',0]]);
     expect(groups[0].articles.map(a => a.slug)).toEqual(['ai-browser-game-how-to','before-asking-ai-build-game','small-first-success','github-beginner-game-development','ai-tool-comparison-later']);
     expect(groups[2].articles.map(a => a.slug)).toEqual(['elevenlabs-game-development-guide','elevenlabs-v4-game-voice','elevenlabs-commercial-use-game']);
-    expect(new Set(groups.flatMap(g => g.articles.map(a => a.slug))).size).toBe(16);
+    expect(new Set(groups.flatMap(g => g.articles.map(a => a.slug))).size).toBe(17);
     const html = await new Response(await renderToReadableStream(<ArticlesPage />)).text();
-    for (const article of articles) expect(html.split(`href="/articles/${article.slug}/"`), article.slug).toHaveLength(2);
+    for (const article of articles) expect(html.split(`href="/articles/${article.slug}/"`), article.slug).toHaveLength(article.publicationStatus === 'published' ? 2 : 1);
     expect(html).toContain('ゲーム制作外の検証事例');
     expect(html).not.toContain('href="#games"');
   });

@@ -1,0 +1,37 @@
+{
+  "viewport": {
+    "name": "mobile-320",
+    "width": 320,
+    "height": 640,
+    "rootScale": 1
+  },
+  "physicalDevice": false,
+  "textMethod": "none",
+  "dimensions": [
+    {
+      "src": "/images/articles/aramon-production-story/team-flame-barrage.png",
+      "alt": "リアルマップ「荒野」のTEAM戦で怨霊ガノン鳥がTIER 2「火炎連砲」を発射しているプレイ画面",
+      "naturalWidth": 667,
+      "naturalHeight": 375,
+      "width": 278.40625,
+      "height": 156.515625
+    },
+    {
+      "src": "/images/articles/aramon-production-story/training-demon-flame.png",
+      "alt": "実3Dの訓練場で怨霊ガノン鳥のTIER 3「魔神炎」を発動し、的に向けて赤黒い炎が広がるプレイ画面",
+      "naturalWidth": 667,
+      "naturalHeight": 375,
+      "width": 278.40625,
+      "height": 156.515625
+    },
+    {
+      "src": "/images/articles/aramon-production-story/mastermon-training.jpg",
+      "alt": "マスモン育成のトレーニング画面で6能力を表示し「猛勉強」を選択した状態。トレーニングは未実行",
+      "naturalWidth": 667,
+      "naturalHeight": 375,
+      "width": 278.40625,
+      "height": 156.515625
+    }
+  ],
+  "errors": []
+}

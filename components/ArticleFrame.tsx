@@ -30,7 +30,9 @@ export function ArticleFrame({
     datePublished: article.publishedAt,
     dateModified: article.updatedAt,
     // Preserve the existing author identity; rebranding applies to the publisher.
-    author: { "@type": "Organization", name: "AI Iterproof" },
+    author: article.authorProfileUrl
+      ? { "@type": "Person", name: article.author, url: article.authorProfileUrl }
+      : { "@type": "Organization", name: "AI Iterproof" },
     publisher: {
       "@type": "Organization",
       name: site.name,
@@ -85,7 +87,7 @@ export function ArticleFrame({
       <aside aria-label="記事の公開・検証情報" className="article-record">
         <span className="tag">{articleCategoryLabels[article.category]}</span>
         <p>
-          公開:{" "}
+          {article.publicationStatus === "draft" ? "公開準備中:" : "公開:"}{" "}
           <time dateTime={article.publishedAt}>{article.publishedAt}</time> ／
           更新: <time dateTime={article.updatedAt}>{article.updatedAt}</time>
         </p>
