@@ -10,7 +10,8 @@
 - E2E: 57/59 initial, then 9/9 targeted fixes; final production-build game/analytics/budget suite 7/7. Home/article hub share the same deck chunk (7804 gzip bytes <=8192). Two initial failures were stale assertions; repaired and rechecked. Final standalone production build passed, including /games/aramon/.
 - Evidence: `docs/screenshots/play-games/`, `docs/evidence/play-games/`.
 - Independent read-only review: `game_review` (actual PNGs and source), high-impact P2 focus fallback fixed; second-pass source/PNG review found no P0/P1/high-impact P2; parent exact-SHA review/owner approval remain separate.
-- Current: candidate ready for coherent commit/push, new draft PR and head CI. Remote PR body carries mutable CI status and exact final SHA.
+- PR: https://github.com/komekome898-web/GameAI-Hub/pull/169 (draft). First delivered head: 816cd280b346450906739257853babb6552d3b42; quality/build CI passed (366 unit/76 orchestration). Full E2E was cancelled at the existing 20-minute job limit after reaching 231/240 without test assertion failures.
+- Current: extend only the unchanged full-suite job time budget to 30 minutes, then final-head CI and exact-SHA reviewer recheck. Remote PR body carries mutable final CI status/SHA.
 - Remaining: final exact-SHA independent report and remote CI handoff; parent/owner review.
 - Blockers: none established; physical devices / Preview / Production UNTESTED. No merge.
 - Next resume action: locate the draft PR for this branch, verify its exact head/checks and independent review, and hand off for parent/owner approval; do not merge.
