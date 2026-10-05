@@ -1245,7 +1245,7 @@ export const articles = [
     purposeOrder: 5,
     contextNote: "ゲーム制作外の検証事例",
     title:
-      "AI自動売買は本当に稼げる？最新AI Claude Fable 5.1にトレード研究を丸投げして分かった現実",
+      "AIにトレード研究を丸投げしたら、間違った方向へ全力疾走した話",
     description:
       "最新AI Claude Fable 5.1を研究リーダーにして、AIトレード研究を実際に進めたら何が起きたのか。AUC 0.82の落とし穴、全件再監査で16件の結論が変わった話、見えていなかったデータまで、AIに自動売買を任せる前の実体験をまとめます。",
     category: "field-note",

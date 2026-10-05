@@ -9,7 +9,7 @@ export const metadata:Metadata=articleMetadata(article);
 export default function AiAutoTradingRealityArticle(){return <ArticleFrame article={article}><div className="article-content">
   <header className="page-head">
     <p className="eyebrow">FIELD NOTE / AI RESEARCH</p>
-    <h1>最新AIにトレード研究を丸投げしたら、間違った方向へ全力疾走した話</h1>
+    <h1>AIにトレード研究を丸投げしたら、間違った方向へ全力疾走した話</h1>
     <p className="lead">「AIに任せて寝てる間に稼ぐ」は本当にできるのか。Claude Code と Fable 5.1 で本気で試して分かったこと。</p>
   </header>
 
