@@ -132,7 +132,7 @@ export default function AiBrowserGameHowTo() {
           <h2>1. まず完成例を動かす</h2>
           <p>
             下には、HTML・CSS・JavaScriptをまとめた完成例が入っています。「ゲームを表示」を押してください。
-            コードはブラウザ内の隔離された表示枠で実行され、外部通信はできません。それでも、知らないコードへ個人情報や秘密情報を足さないでください。
+            コードは、機能を制限したブラウザ内の表示枠で実行されます。外部ファイルの読み込みや通信を制限していますが、あらゆる通信や動作の安全性を保証するものではありません。知らないコードへ個人情報やAPIキーなどの秘密情報を足さないでください。
           </p>
           <BeginnerGameWorkspace
             projectId="article-ai-browser-game-how-to"

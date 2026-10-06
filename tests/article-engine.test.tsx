@@ -11,6 +11,15 @@ import { absoluteSiteUrl } from '@/lib/site';
 vi.mock('next/link',()=>({default:({href,children,...props}:React.AnchorHTMLAttributes<HTMLAnchorElement>&{href:string})=><a href={href} {...props}>{children}</a>}));
 
 describe('article content engine',()=>{
+ it('allows a partial source recheck without advancing whole-article verification',()=>{
+  const base=articles.find(article=>article.slug==='meshy-pricing-credits-game')!;
+  const partial={...base,lastVerifiedAt:'2026-09-22',sources:[{...base.sources[0],verifiedAt:'2026-10-06'}]};
+  const records=articles.map(article=>article.slug===base.slug?partial:article);
+  expect(validateArticles(records)).toEqual([]);
+  expect(partial.lastVerifiedAt).toBe('2026-09-22');
+  expect(validateArticles(records.map(article=>article.slug===base.slug?{...partial,sources:[{...partial.sources[0],verifiedAt:'not-a-date'}]}:article))).toContain(`invalid source date: ${base.slug}`);
+  expect(validateArticles(records.map(article=>article.slug===base.slug?{...partial,lastVerifiedAt:undefined}:article))).toContain(`unverified factual article: ${base.slug}`);
+ });
  it('keeps article identity, metadata and dates unique and canonical',()=>{
  expect(validateArticles(articles)).toEqual([]);
   const base=articles.find(article=>article.slug==='ai-fantasy')!;
