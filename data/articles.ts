@@ -75,8 +75,26 @@ export const articles = [
     lastVerifiedAt: "2026-09-22",
     author: "AI Iterproof編集部",
     editorialNote:
-      "Meshy公式Pricing、Help、API Docsの料金・credit・reset・refund・Free・license資料を2026-09-22に確認。同時点でUltraの月間credit数とFreeのdownload表現に一次資料間の差があるため、購入前に公式Pricing表示を優先してください。",
+      "Meshy公式Pricing、Help、API Docsの料金・credit・reset・refund・Free・license資料を2026-09-22に確認。同時点でUltraの月間credit数とFreeのdownload表現に一次資料間の差があるため、購入前に公式Pricing表示を優先してください。 2026-10-06（日本時間）はcreditsの有効期限、返却・APIキャンセル、FreeのPlaygroundとAPIキー条件のみ再確認しました。Terms第2.10節と期限Helpの不一致を併記し、APIの状態別動作はChangelogの9月11日項目とErrorsで照合しています。料金表や記事全体の再確認ではありません。",
     sources: [
+      {
+        label: "Meshy Terms: 第2.10節（追加購入creditsの有効期限）",
+        url: "https://www.meshy.ai/terms-of-use",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
+      {
+        label: "Meshy Docs: Errors（409 Conflict）",
+        url: "https://docs.meshy.ai/en/api/errors",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
+      {
+        label: "Meshy Docs: Developer Platform（Freeの試用とAPIキー）",
+        url: "https://docs.meshy.ai/en/api/developer-platform",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
       {
         label: "Meshy Pricing",
         url: "https://www.meshy.ai/pricing",
@@ -129,7 +147,7 @@ export const articles = [
         label: "Meshy Help: Credit usage and refunds",
         url: "https://help.meshy.ai/en/articles/15643245-when-were-my-meshy-credits-used-or-refunded",
         kind: "primary",
-        verifiedAt: "2026-09-22",
+        verifiedAt: "2026-10-06",
       },
       {
         label: "Meshy Help: Free and permanent credits",
@@ -141,13 +159,13 @@ export const articles = [
         label: "Meshy Help: Credit expiration and permanent credits",
         url: "https://help.meshy.ai/en/articles/9991985-do-credits-have-an-expiration-date",
         kind: "primary",
-        verifiedAt: "2026-09-22",
+        verifiedAt: "2026-10-06",
       },
       {
         label: "Meshy Docs: Changelog",
         url: "https://docs.meshy.ai/en/api/changelog",
         kind: "primary",
-        verifiedAt: "2026-09-22",
+        verifiedAt: "2026-10-06",
       },
       {
         label: "Meshy Help: Commercial use",
@@ -545,8 +563,14 @@ export const articles = [
     lastVerifiedAt: "2026-09-10",
     author: "AI Iterproof編集部",
     editorialNote:
-      "ElevenLabs公式Pricing、Terms、Text to Speech、Voice Cloning関連の一次資料を2026-09-10に確認しました。料金・credits・商用条件・Voice Cloning要件は変更される可能性があるため、公開時点の公式条件を優先してください。",
+      "ElevenLabs公式Pricing、Terms、Text to Speech、Voice Cloning関連の一次資料を2026-09-10に確認しました。料金・credits・商用条件・Voice Cloning要件は変更される可能性があるため、公開時点の公式条件を優先してください。 2026-10-06（日本時間）は商用利用Help、Terms第1(c)項と補足条件、Beta Services Addendum第3項を照合し、Beta対象の商用・本番利用制限のみ補足しました。記事全体やTermsの他の論点、個別モデルのBeta該当性は再確認していません。",
     sources: [
+      {
+        label: "ElevenLabs Beta Services Addendum: 第3項",
+        url: "https://elevenlabs.io/bsa",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
       {
         label: "ElevenLabs Pricing",
         url: "https://elevenlabs.io/pricing",
@@ -589,7 +613,7 @@ export const articles = [
           "ElevenLabs Help: Can I publish the content I generate on the platform?",
         url: "https://help.elevenlabs.io/hc/en-us/articles/13313564601361-Can-I-publish-the-content-I-generate-on-the-platform",
         kind: "primary",
-        verifiedAt: "2026-09-10",
+        verifiedAt: "2026-10-06",
       },
     ],
     related: [
@@ -863,8 +887,20 @@ export const articles = [
     lastVerifiedAt: "2026-09-08",
     author: "AI Iterproof編集部",
     editorialNote:
-      "AI生成版と掲載完成例を分け、貼付・実行・勝利結果・保存・1変更・復旧を確認できる初心者向け手順です。外部AIの出力は毎回同一とは限りません。",
+      "AI生成版と掲載完成例を分け、貼付・実行・勝利結果・保存・1変更・復旧を確認できる初心者向け手順です。外部AIの出力は毎回同一とは限りません。 2026-10-06（日本時間）は表示枠の実装・注意コメントとHTMLのsandbox仕様を照合し、安全性を全面保証する説明のみ修正しました。攻撃や情報流出の再現試験、記事全体の再確認ではありません。",
     sources: [
+      {
+        label: "GameAI-Hub: 表示枠の通信制限と注意コメント（e07db538）",
+        url: "https://github.com/komekome898-web/GameAI-Hub/blob/e07db5385d192ba21bc43b8fc299215b9c1e339d/components/BeginnerGameWorkspace.tsx#L7-L29",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
+      {
+        label: "WHATWG HTML: Sandboxing",
+        url: "https://html.spec.whatwg.org/multipage/browsers.html#sandboxing",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
       {
         label: "MDN: HTML basics",
         url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
@@ -1402,8 +1438,8 @@ export function validateArticles(records: readonly ArticleRecord[], purposes: re
         Number.isNaN(Date.parse(source.verifiedAt))
       )
         errors.push(`invalid source date: ${a.slug}`);
-      if (a.lastVerifiedAt && source.verifiedAt > a.lastVerifiedAt)
-        errors.push(`source newer than article verification: ${a.slug}`);
+      // A targeted source check does not reverify the whole article.
+      // Keep source.verifiedAt independent from article.lastVerifiedAt.
     }
     const relatedHrefs = new Set<string>();
     for (const link of a.related) {

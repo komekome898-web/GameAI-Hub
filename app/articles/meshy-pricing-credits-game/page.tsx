@@ -42,9 +42,9 @@ export default function MeshyPricingCreditsGame() {
 
     <section><h2>クレジットの動きは「残高へ毎月足す」ではない</h2><ul className="article-checkpoints">
       <li><strong>monthly credits：</strong>subscriptionの月間pool。更新時は未使用分へ満額を加算するのでなく、プラン上限までrefillされ、繰り越して増え続けない。</li>
-      <li><strong>permanent credits：</strong>購入した追加creditsやrewardで得たcredits。公式Helpでは失効しない別枠。</li>
+      <li>追加購入・報酬のcreditsは、月間creditsとは別枠です。ただし、有効期限の公式説明は一致していません。Helpは購入分や報酬分を失効しないと説明する一方、Terms第2.10節は追加購入分について購入日から最長1年で未使用残高が失効すると定めています。追加購入分を無期限と見込まず、購入画面と適用条件を確認してください。報酬分にも同じ期限が適用されるかは、この条文だけでは断定できません。</li>
       <li><strong>消費：</strong>選ぶmodel/version、texture解像度、geometry、remesh、rig、animationなど操作ごとに異なる。</li>
-      <li><strong>refund：</strong>公式Helpではfailed taskは返却。開始前cancelは返却対象だが、processing開始後のcancelは返却されない。</li>
+      <li><strong>返却・キャンセル：</strong>公式Helpは、失敗したtaskと処理開始前のキャンセルを返却対象と案内しています。APIでは待機中（PENDING）のtaskを削除するとcreditsが返却されます。一方、実行中（IN_PROGRESS）の削除要求は409 Conflictで拒否され、処理は続きます。処理開始後は、返却を諦めればキャンセルできるわけではありません。</li>
       <li><strong>reset：</strong>Freeは毎月1日00:00 UTC。有料はsubscription更新日にrefill。</li>
     </ul><aside className="article-callout"><h3>1,000 credits = 完成50点、とは限らない</h3><p>20-creditのAPI生成だけなら算数上50回ですが、texture、代替案、修正、rigを足すと試行回数は減ります。さらに、生成成功はゲーム内のscale、topology、style、performanceに合格したことを保証しません。</p></aside></section>
 
@@ -52,7 +52,7 @@ export default function MeshyPricingCreditsGame() {
       <div><dt>web app：baseだけ1回</dt><dd>Meshy 7 model stage = <strong>25 credits</strong>。textureも採用品質も含まない。</dd></div>
       <div><dt>web app：base + 4K texture</dt><dd>25 + texture 10 = <strong>35 credits</strong>。8K textureなら textureが15。</dd></div>
       <div><dt>web app：代替案2回 + 採用案をtexture</dt><dd>(25 × 3) + 10 = <strong>85 credits</strong>。3案すべてにtextureなら105。</dd></div>
-      <div><dt>API：rig + 3 animations</dt><dd>base 20 + texture 10 + auto-rig 5 + (animation 3 × 3) = <strong>44 credits</strong>。FreeはAPIを利用できず、形状修正・再生成も別。</dd></div>
+      <div><dt>API：rig + 3 animations</dt><dd>base 20 + texture 10 + auto-rig 5 + (animation 3 × 3) = <strong>44 credits</strong>。この一連の処理を自分のAPIキーで実行するには、有料プランが必要です。FreeはPlaygroundでImage to 3Dのみ試せますが、自分のAPIキーの作成・管理はできません。形状修正・再生成も別に見積もります。</dd></div>
     </dl><p>低polyやSmart Topologyなど別モデルはcostが異なります。古い「1生成=10 credits」のような固定換算を全modelへ広げません。</p></section>
 
     <section><h2>ゲーム制作量から月間予算を作る</h2><div className="article-decision-table"><table><thead><tr><th>制作ケース</th><th>明示する仮定</th><th>算数上の最低量</th><th>判断</th></tr></thead><tbody>
@@ -64,7 +64,7 @@ export default function MeshyPricingCreditsGame() {
 
     <section><h2>Freeは何を試せて、どこで止まる？</h2><p>Freeはカード不要、月100 creditsでcore generationを試せます。Free専用HelpはMeshy 6 Liteに限り月10 downloadsと案内する一方、plan comparison HelpはFree download不可と記載しています。モデル名とdownload可否は更新が速いため、生成前にFree画面の対象モデルと残りdownload数を確認してください。</p><p>Free生成物の商用利用はCC BY 4.0の帰属表示が必要という現行専用案内があります。詳しい判断は<Link href="/articles/meshy-commercial-use-game/">料金を決める前後にMeshyの権利条件を確認するガイド</Link>へ分けています。</p></section>
 
-    <section><h2>upgradeで変わる点と、請求で誤解しやすい点</h2><ul className="article-checkpoints"><li>有料では月間credits、queue / concurrency、download・API access、retry、private ownership等の条件が変わる。</li><li>月払いと年払いの表示単位を区別し、checkoutの通貨・税・総額を確認する。</li><li>monthly creditsは永久に累積せず、更新時に上限へrefill。permanent creditsとは別。</li><li>failed / cancelled taskの返却は状態で変わる。processing後のcancelを無料のretryと数えない。</li><li>downgrade後の権利は<Link href="/articles/meshy-commercial-use-game/">商用利用ガイド</Link>で生成時プランと一緒に確認する。</li></ul></section>
+    <section><h2>upgradeで変わる点と、請求で誤解しやすい点</h2><ul className="article-checkpoints"><li>有料では月間credits、queue / concurrency、download・API access、retry、private ownership等の条件が変わる。</li><li>月払いと年払いの表示単位を区別し、checkoutの通貨・税・総額を確認する。</li><li>monthly creditsは永久に累積せず、更新時に上限へrefill。permanent creditsとは別。</li><li>失敗・キャンセル時の返却は状態で変わります。APIでは実行中taskの削除要求が拒否されるため、待機中のキャンセルと分けて確認してください。</li><li>downgrade後の権利は<Link href="/articles/meshy-commercial-use-game/">商用利用ガイド</Link>で生成時プランと一緒に確認する。</li></ul></section>
 
     <section><h2>一次資料が同時に一致しないとき</h2><aside className="article-callout"><h3>2026-09-22に確認した主な衝突</h3><p><strong>Ultra：</strong>Pricingとplan comparisonは月8,000 credits、reset/refill Helpは10,000と記載。現在の購入判断には直接のPricing 8,000を採用し、古い可能性のあるHelpとの差を隠しません。</p><p><strong>Free download：</strong>専用Free HelpはMeshy 6 Liteを月10回、plan comparisonは不可と記載。対象モデルを含め公式画面で再確認してください。</p><p><strong>Studio：</strong>Pricingは5,500 shared creditsと24 retries、reset Helpは4,000 credits per seat、refund Helpは8 retriesと記載。チーム契約ではseat、共有方法、refill、retryを購入画面で照合してください。</p></aside><p>pricingとmodel世代は速く変わり、各Helpの更新時点が揃わない場合があります。この記事は確認日を記録し、決済直前の公式Pricing / Helpを最終根拠にします。</p></section>
 

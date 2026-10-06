@@ -35,7 +35,7 @@ export default function ElevenLabsCommercialUseGame() {
           </dl>
         </section>
 
-        <section><h2>ElevenLabsは商用利用できる？</h2><p>公式Terms上、Paid Userは商用目的でServicesを使用できます。それでもProhibited Use Policy、Service-Specific Terms、適用法令に従う必要があり、Beta Servicesなどには別条件があり得ます。これは法律相談ではなく、個別案件では契約と権利関係を確認してください。</p></section>
+        <section><h2>ElevenLabsは商用利用できる？</h2><p>公式Terms上、Paid Userは商用目的でServicesを使用できます。ただし、Prohibited Use Policy、Service-Specific Terms、適用法令に従う必要があります。特にBeta Services Addendumが適用される機能・モデルは、有料プランでも商用目的や本番環境では使用できません。商用ゲームへ採用する前に、対象機能・モデルの表示と生成時点の契約を確認してください。個別案件では、契約と素材の権利関係も確認が必要です。</p></section>
         <section><h2>Freeプランの音声は商用ゲームに使える？</h2><p>現行の公式Helpは、Freeプランに商用ライセンスは含まれず、商用目的には使えないと案内しています。Freeは$0・月10k creditsとPricingにありますが、「無料で生成できる」と「収益化に使える」は別の判断です。</p></section>
         <section><h2>商用利用したいならStarter以上を見ればいい？</h2><p>PricingではStarterが月額$6・月30k creditsで、Commercial LicenseとInstant Voice Cloningを含みます。CreatorにはProfessional Voice Cloningが含まれます。ただし、プランだけでなく、使う機能、生成時期、入力素材の権利を一緒に確認します。料金やcreditsは変更されるため、契約前に公式Pricingの現行表示を優先してください。</p></section>
 
