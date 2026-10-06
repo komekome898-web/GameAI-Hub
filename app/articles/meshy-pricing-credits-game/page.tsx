@@ -44,7 +44,7 @@ export default function MeshyPricingCreditsGame() {
       <li><strong>monthly credits：</strong>subscriptionの月間pool。更新時は未使用分へ満額を加算するのでなく、プラン上限までrefillされ、繰り越して増え続けない。</li>
       <li>追加購入・報酬のcreditsは、月間creditsとは別枠です。ただし、有効期限の公式説明は一致していません。Helpは購入分や報酬分を失効しないと説明する一方、Terms第2.10節は追加購入分について購入日から最長1年で未使用残高が失効すると定めています。追加購入分を無期限と見込まず、購入画面と適用条件を確認してください。報酬分にも同じ期限が適用されるかは、この条文だけでは断定できません。</li>
       <li><strong>消費：</strong>選ぶmodel/version、texture解像度、geometry、remesh、rig、animationなど操作ごとに異なる。</li>
-      <li><strong>返却・キャンセル：</strong>公式Helpは、失敗したtaskと処理開始前のキャンセルを返却対象と案内しています。APIでは待機中（PENDING）のtaskを削除するとcreditsが返却されます。一方、実行中（IN_PROGRESS）の削除要求は409 Conflictで拒否され、処理は続きます。処理開始後は、返却を諦めればキャンセルできるわけではありません。</li>
+      <li><strong>返却・キャンセル：</strong>公式Helpは、Meshy側の技術的なエラーで失敗したtaskと処理開始前のキャンセルを返却対象と案内しています。APIでは待機中（PENDING）のtaskを削除するとcreditsが返却されます。一方、実行中（IN_PROGRESS）の削除要求は409 Conflictで拒否され、処理は続きます。処理開始後は、返却を諦めればキャンセルできるわけではありません。</li>
       <li><strong>reset：</strong>Freeは毎月1日00:00 UTC。有料はsubscription更新日にrefill。</li>
     </ul><aside className="article-callout"><h3>1,000 credits = 完成50点、とは限らない</h3><p>20-creditのAPI生成だけなら算数上50回ですが、texture、代替案、修正、rigを足すと試行回数は減ります。さらに、生成成功はゲーム内のscale、topology、style、performanceに合格したことを保証しません。</p></aside></section>
 
