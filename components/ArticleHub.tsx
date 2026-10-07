@@ -84,6 +84,17 @@ export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?
       // SSR contains every category for no-JS access. Its original hash scroll
       // is no longer meaningful after selecting just one category.
       link?.scrollIntoView({ block: 'center', behavior: 'instant' });
+      // Centering a tall card can leave its category heading under the sticky
+      // header. Reveal that heading only when it is still in the viewport;
+      // a later item in the flat list should keep its own restored position.
+      const heading = link?.closest('.article-cluster')?.querySelector('h2');
+      const header = document.querySelector('.site-header');
+      if (heading && header) {
+        const title = heading.getBoundingClientRect();
+        const headerBottom = header.getBoundingClientRect().bottom;
+        if (headerBottom > 0 && title.bottom > 0 && title.top < headerBottom + 16)
+          window.scrollBy({ top: title.top - headerBottom - 16, behavior: 'instant' });
+      }
     }
     }); });
     return () => { cancelAnimationFrame(firstFrame); cancelAnimationFrame(secondFrame); window.removeEventListener('pointerdown', stopFocus, true); window.removeEventListener('keydown', stopFocus, true); };

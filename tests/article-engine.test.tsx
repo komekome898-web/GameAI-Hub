@@ -55,8 +55,9 @@ describe('article content engine',()=>{
  it('measures one contextual Project handoff without raw text',()=>{
   const listener=vi.fn(); window.addEventListener('gameai:event',listener);
   render(<ArticleProjectCta slug="ai-fantasy" label="制作手順を作る" description="次の作業" placement="article_end"/>);
-  expect(screen.getByRole('link',{name:'制作手順を作る'}).getAttribute('href')).toBe('/project?source=ai-fantasy');
-  fireEvent.click(screen.getByRole('link',{name:'制作手順を作る'}));
+  expect(screen.getByText('Projectを開いたら、作りたいゲームと必要な条件を入力・確認してください。')).toBeTruthy();
+  expect(screen.getByRole('link',{name:'Projectでゲーム案を入力する'}).getAttribute('href')).toBe('/project?source=ai-fantasy');
+  fireEvent.click(screen.getByRole('link',{name:'Projectでゲーム案を入力する'}));
   expect(listener).toHaveBeenCalledOnce();
   expect((listener.mock.calls[0][0] as CustomEvent).detail).toEqual({name:'article_to_project',properties:{page:'/articles/ai-fantasy',placement:'article_end',article_slug:'ai-fantasy',cta_placement:'article_end',source_context:'article',route_category:'article'}});
  });

@@ -65,7 +65,7 @@ for(const viewport of [{name:'mobile-375',width:375,height:812},{name:'zoom-320'
   await expect(page.getByRole('heading',{name:'次の判断に必要なページ'})).toBeVisible();
   const body=page.locator('body');
   expect(await body.evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
-  await page.getByRole('link',{name:'自分のブラウザゲームを「最初の1プレイ」に分ける'}).last().click();
+  await page.getByRole('link',{name:'Projectでゲーム案を入力する'}).click();
   await expect(page).toHaveURL(/\/project\/?\?source=ai-browser-game-how-to$/);
   await page.goBack();
   await expect(page.getByRole('heading',{name:/AIでブラウザゲームを作る方法/,level:1})).toBeVisible();
