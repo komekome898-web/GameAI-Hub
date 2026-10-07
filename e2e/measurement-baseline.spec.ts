@@ -183,7 +183,7 @@ for (const width of [375, 320]) {
     await expect(page.getByText("現在: 計測から除外中")).toBeVisible();
     await page.getByRole("button", { name: "このブラウザの計測を再開" }).click();
     await expect(page.getByText("現在: 通常の計測設定")).toBeVisible();
-    expect(await page.evaluate(() => localStorage.getItem("gameai:analytics-excluded"))).toBeNull();
+    await expect.poll(() => page.evaluate(() => localStorage.getItem("gameai:analytics-excluded"))).toBeNull();
     expect(await page.locator("body").evaluate((el) => el.scrollWidth <= el.clientWidth)).toBe(true);
     await page.screenshot({ path: `docs/screenshots/issue-132/privacy-exclusion-${width}.png`, fullPage: true });
   });

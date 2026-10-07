@@ -55,7 +55,7 @@ for (const viewport of viewports) {
     expect(errors).toEqual([]);
     await page.screenshot({ path: `${output}/article-${viewport.name}.png`, fullPage: true });
     await writeFile(`${output}/metrics-${viewport.name}.json`, JSON.stringify({ viewport, physicalDevice: false, textMethod: viewport.rootScale === 2 ? "synthetic root font 200%" : "none", dimensions, errors }, null, 2));
-    const cta = page.getByRole("link", { name: "自分のゲームの最初の制作手順を作る", exact: true }).first();
+    const cta = page.getByRole("link", { name: "Projectでゲーム案を入力する", exact: true });
     await cta.click();
     await expect(page).toHaveURL(/\/project\/?\?source=aramon-production-story/);
     await page.goto("/articles/#all");

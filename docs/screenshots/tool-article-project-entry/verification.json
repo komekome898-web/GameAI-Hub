@@ -1,0 +1,113 @@
+{
+  "target": "local production build",
+  "browser": "151.0.7922.173",
+  "physicalDevice": false,
+  "viewports": [
+    1280,
+    375,
+    320
+  ],
+  "externalRequestsBlocked": [],
+  "errors": [],
+  "evidence": [
+    {
+      "route": "/tools/meshy/",
+      "width": 1280,
+      "links": [
+        "/articles/meshy-game-development-guide/",
+        "/articles/meshy-pricing-credits-game/",
+        "/articles/meshy-commercial-use-game/"
+      ],
+      "dimensions": {
+        "client": 1280,
+        "scroll": 1280
+      }
+    },
+    {
+      "route": "/tools/elevenlabs/",
+      "width": 1280,
+      "links": [
+        "/articles/elevenlabs-game-development-guide/",
+        "/articles/elevenlabs-v4-game-voice/",
+        "/articles/elevenlabs-commercial-use-game/"
+      ],
+      "dimensions": {
+        "client": 1280,
+        "scroll": 1280
+      }
+    },
+    {
+      "route": "/articles/ai-browser-game-how-to/",
+      "width": 1280,
+      "projectURL": "/project/?source=ai-browser-game-how-to",
+      "emptyIdea": true,
+      "returnedToArticle": true
+    },
+    {
+      "route": "/tools/meshy/",
+      "width": 375,
+      "links": [
+        "/articles/meshy-game-development-guide/",
+        "/articles/meshy-pricing-credits-game/",
+        "/articles/meshy-commercial-use-game/"
+      ],
+      "dimensions": {
+        "client": 375,
+        "scroll": 375
+      }
+    },
+    {
+      "route": "/tools/elevenlabs/",
+      "width": 375,
+      "links": [
+        "/articles/elevenlabs-game-development-guide/",
+        "/articles/elevenlabs-v4-game-voice/",
+        "/articles/elevenlabs-commercial-use-game/"
+      ],
+      "dimensions": {
+        "client": 375,
+        "scroll": 375
+      }
+    },
+    {
+      "route": "/articles/ai-browser-game-how-to/",
+      "width": 375,
+      "projectURL": "/project/?source=ai-browser-game-how-to",
+      "emptyIdea": true,
+      "returnedToArticle": true
+    },
+    {
+      "route": "/tools/meshy/",
+      "width": 320,
+      "links": [
+        "/articles/meshy-game-development-guide/",
+        "/articles/meshy-pricing-credits-game/",
+        "/articles/meshy-commercial-use-game/"
+      ],
+      "dimensions": {
+        "client": 320,
+        "scroll": 320
+      }
+    },
+    {
+      "route": "/tools/elevenlabs/",
+      "width": 320,
+      "links": [
+        "/articles/elevenlabs-game-development-guide/",
+        "/articles/elevenlabs-v4-game-voice/",
+        "/articles/elevenlabs-commercial-use-game/"
+      ],
+      "dimensions": {
+        "client": 320,
+        "scroll": 320
+      }
+    },
+    {
+      "route": "/articles/ai-browser-game-how-to/",
+      "width": 320,
+      "projectURL": "/project/?source=ai-browser-game-how-to",
+      "emptyIdea": true,
+      "returnedToArticle": true
+    }
+  ]
+}

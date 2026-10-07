@@ -8,6 +8,7 @@ import { serializeJsonLd } from '@/lib/json-ld';
 import { absoluteSiteUrl } from '@/lib/site';
 import { verificationStatusLabel } from '@/lib/verification-status';
 import { serviceCategoryLabel } from '@/lib/service-labels';
+import { publishedArticles, articlePath } from '@/data/articles';
 
 const label=(v:string)=>({yes:'あり',no:'なし',conditional:'条件付き',unknown:'不明',not_applicable:'対象外'}[v]??v);
 
@@ -20,6 +21,10 @@ export async function generateMetadata({params}:{params:Promise<{slug:string}>})
 
 export default async function ToolPage({params}:{params:Promise<{slug:string}>}){
   const {slug}=await params;const s=getService(slug);if(!s)notFound();const alternatives=getAlternatives(s);
+  const relatedArticles = ['meshy', 'elevenlabs'].includes(slug)
+    ? publishedArticles.filter(article => article.related.some(link => link.kind === 'tool' && link.href === `/tools/${slug}/`))
+      .sort((a, b) => a.purposeOrder - b.purposeOrder)
+    : [];
   const crumbs={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":absoluteSiteUrl('/')},{"@type":"ListItem","position":2,"name":"ツール","item":absoluteSiteUrl('/tools/')},{"@type":"ListItem","position":3,"name":s.name,"item":absoluteSiteUrl(`/tools/${encodeURIComponent(s.slug)}/`)}]};
   return <article className="detail">
     <ToolView slug={s.slug}/>
@@ -30,6 +35,11 @@ export default async function ToolPage({params}:{params:Promise<{slug:string}>})
       <dl className="quick-facts"><div><dt>無料枠</dt><dd>{label(s.freePlan)}</dd></div><div><dt>商用利用</dt><dd>{label(s.commercialUse)}</dd></div><div><dt>API</dt><dd>{label(s.api)}</dd></div><div><dt>最終確認</dt><dd>{s.lastVerified}</dd></div></dl>
     </header>
     <section className="verdict"><p className="eyebrow">WORKFLOW FIT</p><h2>{s.conclusion}</h2><p>以下は掲載情報と公式資料の確認状態に基づく判断材料です。プロジェクト全体の制作順はProject Generatorで確認してください。</p></section>
+    {relatedArticles.length > 0 && <section className="article-related" aria-labelledby="tool-articles-title">
+      <h2 id="tool-articles-title">制作手順・料金・商用条件を記事で確認する</h2>
+      <p>必要な判断から記事を選び、具体的な手順と確認事項を読めます。</p>
+      <ul>{relatedArticles.map(article => <li key={article.slug}><Link href={articlePath(article)}><span>記事</span><strong>{article.title}</strong><small>{article.description}</small></Link></li>)}</ul>
+    </section>}
     <div className="two-col"><section className="content-card positive"><p className="section-label">GOOD FIT</p><h2>この条件なら候補</h2><ul>{s.recommendedFor.map(x=><li key={x}>{x}</li>)}</ul></section><section className="content-card"><p className="section-label">POOR FIT</p><h2>別候補も検討する条件</h2><ul>{s.notRecommendedFor.map(x=><li key={x}>{x}</li>)}</ul></section></div>
     <section><p className="section-label">VERIFIED USES</p><h2>制作工程での用途</h2><div className="tags">{s.primaryUses.map(x=><span key={x}>{x}</span>)}</div><p className="tool-builder-link"><Link className="button ghost" href="/project">自分の条件で制作計画を作る</Link></p></section>
     <section><p className="section-label">TERMS & PRICING</p><h2>料金・利用条件</h2><dl className="specs"><div><dt>料金</dt><dd>{s.pricing}</dd></div><div><dt>無料枠</dt><dd>{label(s.freePlan)}</dd></div><div><dt>商用利用</dt><dd>{label(s.commercialUse)} <small>（法的保証ではありません。公式規約を確認してください）</small></dd></div><div><dt>API</dt><dd>{label(s.api)}</dd></div><div><dt>対応環境</dt><dd>{s.platforms.join('、')}</dd></div><div><dt>ゲームエンジン</dt><dd>{s.engines.join('、')||'不明'}</dd></div></dl></section>
