@@ -216,7 +216,9 @@ test("V3 route, state, text, navigation, affiliate, and SEO observations", async
   }
   await page.goto("/compare/?ids=github-copilot,cursor"); await page.goBack(); await page.goForward();
   await observe(page, browserName, records, { id: "v3-compare-navigation", caseId: "VL-V3-COMPARE-NAV", variantId: "url-history-focus-project-return", route: "/compare/", selector: ".compare-page", coverage: ["journey", "focus-reachability"], minimumTarget: 0 });
-  await base("VL-V3-ARTICLE-HUB", "non-start-groups-and-long-metadata", "/articles/", ".article-hub", ["viewport-reflow", "semantic-row", "text-scale"]);
+  // This viewport-only observation does not change typography. Deck buttons
+  // can remount during focus probing; their spacing is measured in V4 below.
+  await base("VL-V3-ARTICLE-HUB", "non-start-groups-and-long-metadata", "/articles/", ".article-hub", ["viewport-reflow", "semantic-row", "text-scale"], [{ role: "hub-copy", selector: ".article-hub :is(h1,h2,h3,p,a,button):not(.creation-deck button)" }]);
   const articleRoute = "/articles/elevenlabs-commercial-use-game/";
   for (const [suffix, factor, method, width] of [["100", 1, "synthetic-computed-text", 320], ["150", 1.5, "synthetic-computed-text", 320], ["200", 2, "synthetic-computed-text", 375]] as const) await observe(page, browserName, records, { id: `v3-reading-${suffix}`, caseId: "VL-V3-ARTICLE-READING", variantId: "how-to-code-and-commercial-pricing-table", route: articleRoute, selector: ".article-shell", width, method, factor, coverage: ["long-content", "owned-scroll", `factor-${suffix}`, `viewport-${width}`], roles: [{ role: "title", selector: ".article-shell h1" }, { role: "body", selector: ".article-shell p" }], minimumTarget: 0 });
   await page.goto(articleRoute);
