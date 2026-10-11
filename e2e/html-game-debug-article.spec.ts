@@ -3,7 +3,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { htmlGameDebugExamples } from "../data/html-game-debug-examples";
 
-const evidence = path.resolve("docs/research/html-game-debug/article-browser");
+const evidence = path.resolve(process.env.BUILDIARY_EVIDENCE_DIR ?? "docs/research/html-game-debug/article-browser");
 mkdirSync(evidence, { recursive: true });
 
 for (const width of [1280, 375, 320]) {
