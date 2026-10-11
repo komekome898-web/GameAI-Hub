@@ -1376,6 +1376,36 @@ export const articles = [
     },
     promotions: [],
   },
+  {
+    slug: "ai-html-game-not-working",
+    purpose: "start",
+    purposeOrder: 6,
+    title: "AIで作ったHTMLゲームが動かないときの直し方",
+    description: "元のファイルを残し、最初のエラーと操作順から原因を調べます。構文エラー、ボタンの取得ミス、リセット後だけ止まる不具合を実演で直し、2回目の勝利まで確認するガイド。",
+    category: "beginner",
+    tags: ["AIゲーム開発", "HTML", "JavaScript", "エラー", "動作確認"],
+    publicationStatus: "draft",
+    publishedAt: "2026-10-11",
+    updatedAt: "2026-10-11",
+    lastVerifiedAt: "2026-10-11",
+    author: "AI Iterproof編集部",
+    editorialNote: "公開準備中。掲載バトルに3種類の不具合を1つずつ入れ、実Chromiumで破損版と修正版を検証しました。環境・再実行手順・スクリーンショットはリポジトリのdocs/research/html-game-debugに記録しています。実機モバイルや他ブラウザーの動作を保証する検証ではありません。",
+    sources: [
+      { label: "MDN: SyntaxError Unexpected token", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Unexpected_token", kind: "primary", verifiedAt: "2026-10-11" },
+      { label: "MDN: Document querySelector", url: "https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector", kind: "primary", verifiedAt: "2026-10-11" },
+      { label: "MDN: DOMContentLoaded", url: "https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event", kind: "primary", verifiedAt: "2026-10-11" },
+      { label: "MDN: HTML disabled", url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/disabled", kind: "primary", verifiedAt: "2026-10-11" },
+      { label: "MDN: JavaScript Modules", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules", kind: "primary", verifiedAt: "2026-10-11" },
+      { label: "Chrome DevTools: Console overview", url: "https://developer.chrome.com/docs/devtools/console", kind: "primary", verifiedAt: "2026-10-11" },
+      { label: "MDN: box-sizing", url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/box-sizing", kind: "primary", verifiedAt: "2026-10-11" },
+    ],
+    related: [
+      { href: "/articles/ai-browser-game-how-to/", label: "完成例を動かして保存する", reason: "動く基準へ戻り、最初の1プレイから確認する", kind: "article" },
+      { href: "/articles/github-beginner-game-development/", label: "動いた版をGitHubへ保存する", reason: "復旧できる版を残す手順を確認する", kind: "article" },
+    ],
+    projectCta: { label: "ゲームの次の作業を決める", description: "動いた版を保存し、次の1変更と確認条件を決めます。", placement: "article_end" },
+    promotions: [],
+  },
 ] as const satisfies readonly ArticleRecord[];
 
 export const publishedArticles = articles.filter(
