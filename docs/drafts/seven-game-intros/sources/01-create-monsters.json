@@ -1,0 +1,28 @@
+{
+  "slug": "create-monsters",
+  "title": "クリエイトモンスターズ",
+  "author": "ドラ",
+  "url": "https://crimon.pages.dev/",
+  "description": "集めて、育てて、どこまでも行ける。",
+  "genre": "ロールプレイング",
+  "about": "モンスターを集めて育てる本格育成RPG\n装備やスキルを組み合わせ、自分だけの最強パーティを編成 ダンジョンやアリーナなど、やり込み要素も満載！",
+  "highlights": [
+    "スキルの豊富さ",
+    "クリエイトによる幅広い育成",
+    "自動周回可能"
+  ],
+  "start": "",
+  "controls": "タッチ",
+  "platform": "縦",
+  "verified": "ios １０月１０日",
+  "pricing": "無し",
+  "registration": "登録するとデータ保存されます",
+  "ai": "クロード、GPT",
+  "human": "スキル構成、クリエイトシステム",
+  "caption": "戦闘画面",
+  "credit": "なし",
+  "conditions": "なし",
+  "textPermission": "はい",
+  "imagePermission": "はい",
+  "social": ""
+}
