@@ -1,3 +1,12 @@
+# 最新main統合checkpoint（2026-10-11）
+
+- main748e7c52（PR178背景幅）を取り込んだsource6b1921fe。ゲーム・背景修正を保持、独立レビューPASS。
+- quality49/377+Python76、背景5＋記事375pxの6E2Eとproduction build PASS。
+- 先行b229の全CI/Previewは成功（既存8カードtestにretry1）。最新main取込後のexact-head CI/Previewを再確認する。
+- 現在: final deliveryを同じPR175へpush、全ゲート成功後に本人承認済みのmergeとProduction READY確認。public表示は親cloud browserへ。
+
+先行記録は以下に保持。
+
 # 最終公開checkpoint（2026-10-11）
 
 - 本人の公開承認に基づき、同じPR175で継続。branch research/buildiary-html-game-debug。
