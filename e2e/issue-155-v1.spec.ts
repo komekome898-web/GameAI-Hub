@@ -267,6 +267,8 @@ test("V1 shared probe records the intermediate 150% metadata state", async ({
   await page.setViewportSize({ width: 320, height: 844 });
   await page.goto("/articles/#start");
   await expect(page.locator(".creation-deck")).toHaveCount(1);
+  await expect(page.locator("#start .v2-start-card-label")).toHaveCount(startArticleCount);
+  await expect(page.locator("#start .v2-start-card-meta small")).toHaveCount(startArticleCount);
   const result = await applyTextMethod(
     page,
     [
@@ -279,7 +281,7 @@ test("V1 shared probe records the intermediate 150% metadata state", async ({
   expect(
     result.measurements.every(
       ({ matched, achievedFactors }) =>
-        matched === 5 && achievedFactors.every((factor) => factor >= 1.49),
+        matched === startArticleCount && achievedFactors.every((factor) => factor >= 1.49),
     ),
   ).toBe(true);
   for (const row of await page.locator("#start .v2-start-card-meta").all()) {
