@@ -2,6 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { expect, test, type Page } from "./fixtures";
 import { applyTextMethod } from "./acceptance/reflow";
+import { publishedArticles } from "../data/articles";
 
 const output = path.resolve("docs/screenshots/issue-157-stage-b/dots-followups");
 
@@ -52,7 +53,7 @@ test("V-03 gives all article copy readable width at root 200%", async ({ page })
   await mkdir(output, { recursive: true });
   await page.setViewportSize({ width: 375, height: 844 });
   await page.goto("/articles/#all");
-  await expect(page.locator("#all li")).toHaveCount(17);
+  await expect(page.locator("#all li")).toHaveCount(publishedArticles.length);
   const scale = await applyTextMethod(page, [
     { role: "article-title", selector: "#all .v2-start-card-face strong" },
     { role: "article-description", selector: "#all .v2-start-card-description" },
@@ -65,7 +66,7 @@ test("V-03 gives all article copy readable width at root 200%", async ({ page })
     const description = card.querySelector<HTMLElement>('.v2-start-card-description')!;
     return { ratio: title.getBoundingClientRect().width / rect.width, fullText: description.scrollHeight <= description.clientHeight + 1, contained: title.scrollWidth <= title.clientWidth + 1 };
   }));
-  expect(allocations).toHaveLength(17);
+  expect(allocations).toHaveLength(publishedArticles.length);
   expect(allocations.every(a => a.ratio > .8 && a.fullText && a.contained)).toBe(true);
   await page.locator("#all").screenshot({ path: path.join(output, "v03-all-root-200-375.png") });
   await scale.restore();

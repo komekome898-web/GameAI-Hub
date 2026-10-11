@@ -1,6 +1,6 @@
 import { test, expect, type Page } from './fixtures';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { getArticleGroups } from '../data/articles';
+import { getArticleGroups, publishedArticles } from '../data/articles';
 
 const evidence = 'docs/screenshots/shared-category-ring';
 const idle = async (page: Page) => { await expect(page.locator('.creation-deck')).toHaveCount(1); await expect(page.locator('.creation-deck ol')).toHaveAttribute('data-motion', 'idle'); };
@@ -37,7 +37,7 @@ for (const width of [320, 375, 390, 1440]) test(`category entry and all public a
     await expect(page.locator(`[data-category="${group.id}"]`)).toBeFocused();
   }
   await page.getByRole('link', { name: /すべての記事を見る/ }).click();
-  await expect(page.locator('#all li a')).toHaveCount(17);
+  await expect(page.locator('#all li a')).toHaveCount(publishedArticles.length);
   await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'list');
   await expect(page.getByText('ゲーム制作外の検証事例', { exact: true })).toBeVisible();
   await writeFile(`${evidence}/operations-${width}.json`, JSON.stringify({ width, method: 'Chromium viewport emulation; not physical device', operations }, null, 2));
@@ -132,11 +132,11 @@ test('fallback focus, missing images, Japanese enlargement and mode recovery', a
   await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'list');
 });
 
-test('no JavaScript exposes all seventeen normal article links once', async ({ browser }) => {
+test('no JavaScript exposes all published normal article links once', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 844 } });
   const page = await context.newPage();
   await page.goto('/articles/');
-  await expect(page.locator('.article-cluster:not(.category-cluster) .creation-deck li[data-kind="article"] a')).toHaveCount(17);
+  await expect(page.locator('.article-cluster:not(.category-cluster) .creation-deck li[data-kind="article"] a')).toHaveCount(publishedArticles.length);
   await page.locator('#voice li a').nth(1).locator('strong').click();
   await expect(page).toHaveURL(/elevenlabs-v4-game-voice\/$/);
   await context.close();

@@ -1,6 +1,7 @@
 import { test, expect } from './fixtures';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { build } from 'esbuild';
+import { publishedArticles } from '../data/articles';
 const evidence = 'docs/screenshots/play-games';
 test.beforeEach(async ({context}) => { await context.route('**/*', r => new URL(r.request().url()).hostname === '127.0.0.1' ? r.continue() : r.abort()); });
 for (const width of [320,375,1440]) test(`game category, title image, detail and context return at ${width}`, async ({page}) => {
@@ -47,7 +48,7 @@ for (const width of [320,375,1440]) test(`game category, title image, detail and
   await expect(page).toHaveURL(/\/\?hubCategory=games#categories$/);
   await expect(page.locator('[data-category="games"]')).toBeFocused();
   await page.goto('/articles/#all');
-  await expect(page.locator('#all [data-deck-id]')).toHaveCount(17);
+  await expect(page.locator('#all [data-deck-id]')).toHaveCount(publishedArticles.length);
   await expect(page.locator('#all [data-deck-id="aramon"]')).toHaveCount(0);
   expect(errors).toEqual([]);
   await writeFile(`${evidence}/operations-${width}.json`,JSON.stringify({method:'Chromium viewport reflow, not physical device',width,imageMetrics,errors,flow:'Home → games → detail → browser Back/Forward → reload → list return → Home category; article counts'},null,2));
