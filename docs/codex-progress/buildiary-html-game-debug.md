@@ -1,3 +1,14 @@
+# 最終公開checkpoint（2026-10-11）
+
+- 本人の公開承認に基づき、同じPR175で継続。branch research/buildiary-html-game-debug。
+- latest main29a3d653（PR177）取込済み。ゲーム訂正を保持、force pushなし。
+- source f84b7df:START件数6、証拠出力分離、動的button4種類のspacing検査復元、viewport-only hub対象の安定化。共有identity/全文復元guardは保持。独立レビューPASS。
+- 全quality49/377+Python76、関連9件PASS+最終V3/V4 2PASS、production build PASS。初回失敗と修復結果をpublication-integrationに保存。
+- 現在:資料を加えた最終HEADをpushしexact-head quality/full E2E/Previewを待つ。全成功後、明示承認に基づく通常squash mergeとProduction deployment確認。
+- 既知のProduction public-route blockは再試行しない。表示は親のcloud browser確認を依頼。
+
+先行記録は以下に保持。
+
 # 公開承認後の最終状態（2026-10-11）
 
 - 親から本人の明示公開承認と、push・PR175 CI・合格後merge・production確認の指示を受領。
