@@ -5,10 +5,7 @@ import { HtmlGameDebugDemo } from "@/components/HtmlGameDebugDemo";
 import { articleMetadata, getArticle } from "@/data/articles";
 
 const article = getArticle("ai-html-game-not-working")!;
-export const metadata = {
-  ...articleMetadata(article),
-  robots: { index: false, follow: false },
-};
+export const metadata = articleMetadata(article);
 
 const troubleshootingPrompt = `操作: 「たたかう」3回で勝った後、「もう一度」を押した。
 期待: HPが24／18に戻り、2回目も攻撃して勝利まで遊べる。
@@ -26,7 +23,7 @@ export default function HtmlGameNotWorkingArticle() {
       <div className="article-content">
         <ArticleHeader article={article} eyebrow="HTML GAME / TROUBLESHOOTING" title={article.title}
           lead={<>ボタンが反応しないときは、元のファイルを残し、押した順番と最初のエラーを確かめます。1画面のバトルで、初めから止まる不具合と、遊び直すと止まる不具合を直してみましょう。</>}>
-          <p><strong>公開準備中の草稿です。</strong> 例を試す前に、自分のゲームを別のファイルへ保存してください。</p>
+          <p>例を試す前に、自分のゲームを別のファイルへ保存してください。</p>
         </ArticleHeader>
 
         <section id="symptoms">

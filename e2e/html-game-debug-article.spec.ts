@@ -7,7 +7,7 @@ const evidence = path.resolve("docs/research/html-game-debug/article-browser");
 mkdirSync(evidence, { recursive: true });
 
 for (const width of [1280, 375, 320]) {
-  test(`HTML game draft diagnosis and replay at ${width}px`, async ({ page, request }) => {
+  test(`HTML game diagnosis and replay at ${width}px`, async ({ page, request }) => {
     test.setTimeout(120_000);
     await page.setViewportSize({ width, height: 900 });
     const pageErrors: string[] = [];
@@ -18,8 +18,9 @@ for (const width of [1280, 375, 320]) {
     page.on("response", (response) => { if (response.status() >= 400) failedResources.push(new URL(response.url()).pathname); });
     await page.goto("/articles/ai-html-game-not-working/");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("AIで作ったHTMLゲームが動かないときの直し方");
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
-    await expect(page.getByText("公開準備中の草稿です。", { exact: false }).first()).toBeVisible();
+    const robots = await page.locator('meta[name="robots"]').evaluateAll((elements) => elements.map((element) => element.getAttribute("content") ?? "").join(","));
+    expect(robots).not.toMatch(/noindex|nofollow/);
+    await expect(page.getByText("公開準備中の草稿です。", { exact: false })).toHaveCount(0);
     await page.screenshot({ path: path.join(evidence, `article-${width}-closed.png`), fullPage: true });
     await page.getByRole("link", { name: "1回目は遊べるが、やり直すと反応しない", exact: true }).click();
     await expect(page.locator("#reset > h2")).toBeInViewport();
@@ -108,13 +109,13 @@ for (const width of [1280, 375, 320]) {
     await page.screenshot({ path: path.join(evidence, `article-${width}-expanded.png`), fullPage: true });
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
     const sitemap = await request.get("/sitemap.xml");
-    expect(await sitemap.text()).not.toContain("ai-html-game-not-working");
+    expect(await sitemap.text()).toContain("/articles/ai-html-game-not-working/");
     await page.goto("/articles/");
-    await expect(page.locator('a[href="/articles/ai-html-game-not-working/"]')).toHaveCount(0);
+    await expect(page.locator('a[href="/articles/ai-html-game-not-working/"]').first()).toBeVisible();
     expect(failedResources.filter((resource) => resource !== "/favicon.ico")).toEqual([]);
     const unexpectedConsole = consoleErrors.filter((message) => message !== "Unrecognized Content-Security-Policy directive 'navigate-to'." && !message.includes("status of 404 (Not Found)"));
     expect(unexpectedConsole).toEqual([]);
-    writeFileSync(path.join(evidence, `results-${width}.json`), JSON.stringify({ width, cases: records, pageErrors, consoleErrors, failedResources, unexpectedConsole, downloadExactCurrentCodeVerified: width === 1280, draftExcludedFromListingAndSitemap: true, pass: true }, null, 2) + "\n");
+    writeFileSync(path.join(evidence, `results-${width}.json`), JSON.stringify({ width, cases: records, pageErrors, consoleErrors, failedResources, unexpectedConsole, downloadExactCurrentCodeVerified: width === 1280, publishedIncludedInListingAndSitemap: true, pass: true }, null, 2) + "\n");
   });
 }
 
