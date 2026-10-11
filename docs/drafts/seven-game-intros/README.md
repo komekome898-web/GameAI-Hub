@@ -27,3 +27,7 @@ Historical Library transfer failure: official helper plus one supported retry fa
 Actual local Next production build routes now return200 for all seven; existing listing includes8 works including Aramon, sitemap includes all8. Tests and real-browser screenshots under `docs/screenshots/seven-game-intros`. Earlier `docs/screenshots/seven-game-intro-drafts` captures document historical text-only/404 state; they are not current image-layout evidence. Browser viewport/CSS zoom checks are not phone-device gameplay checks.
 
 Public game URLs match supplied author URLs and parent startup records. This executor's fresh web lookup returned tool-access errors, so current external-game runtime health is not claimed as a new independent check. No game upload, signup, battle, reward action, ranking submission or other state mutation performed.
+
+## 開発端末・実機確認の追加訂正
+
+2026年10月11日の[本人訂正](owner-device-correction-2026-10-11.md)をカードと七記事へ反映しました。過去の元テンプレートと検証記録は当時の資料として保存し、現行表示では本人の最新情報を優先します。
