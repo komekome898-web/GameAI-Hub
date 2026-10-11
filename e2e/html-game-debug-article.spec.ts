@@ -89,7 +89,19 @@ for (const width of [1280, 375, 320]) {
       }
       records.push({ id: example.id, initial, errors: pageErrors.slice(countBefore), pass: true });
     }
-    // Switching variants must not discard an edited code; restore is explicit.
+    // The warning precedes the selector; unrun edits are not persisted by the shared workspace.
+    const switchHelp = page.getByText("例を切り替えると、まだ実行していない編集は消えます。", { exact: false });
+    await expect(switchHelp).toBeVisible();
+    await expect(page.getByLabel("試す例を選ぶ")).toHaveAccessibleDescription(/切り替える前に「ゲームを表示」/);
+    expect(await page.getByLabel("試す例を選ぶ").evaluate((select) => {
+      const help = document.getElementById(select.getAttribute("aria-describedby")!);
+      return Boolean(help && (help.compareDocumentPosition(select) & Node.DOCUMENT_POSITION_FOLLOWING));
+    })).toBe(true);
+    await page.getByLabel("ゲームのコード").fill(htmlGameDebugExamples[0].code.replace('"スライム"', '"未実行スライム"'));
+    await page.getByLabel("試す例を選ぶ").selectOption("original");
+    await page.getByLabel("試す例を選ぶ").selectOption("reset-repaired");
+    await expect(page.getByLabel("ゲームのコード")).toHaveValue(htmlGameDebugExamples[0].code);
+    // Executed edits return from storage; restore remains explicit.
     await page.getByLabel("ゲームのコード").fill(htmlGameDebugExamples[0].code.replace('"スライム"', '"炎スライム"'));
     await page.getByRole("button", { name: "ゲームを表示", exact: true }).click();
     await page.getByLabel("試す例を選ぶ").selectOption("original");
