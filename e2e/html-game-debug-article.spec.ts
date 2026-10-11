@@ -125,6 +125,7 @@ for (const width of [1280, 375, 320]) {
     const sitemap = await request.get("/sitemap.xml");
     expect(await sitemap.text()).toContain("/articles/ai-html-game-not-working/");
     await page.goto("/articles/");
+    await page.getByRole("link", { name: /すべての記事を見る/ }).click();
     await expect(page.locator('a[href="/articles/ai-html-game-not-working/"]').first()).toBeVisible();
     expect(failedResources.filter((resource) => resource !== "/favicon.ico")).toEqual([]);
     const unexpectedConsole = consoleErrors.filter((message) => message !== "Unrecognized Content-Security-Policy directive 'navigate-to'." && !message.includes("status of 404 (Not Found)"));
