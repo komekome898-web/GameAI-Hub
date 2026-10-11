@@ -25,6 +25,8 @@ for (const width of [1280, 375, 320]) {
     await page.getByRole("link", { name: "1回目は遊べるが、やり直すと反応しない", exact: true }).click();
     await expect(page.locator("#reset > h2")).toBeInViewport();
     await page.getByText("ゲームの実演とコードを開く", { exact: true }).click();
+    await expect(page.getByText("このページに「ここで詰まった」ボタンはありません。", { exact: false })).toBeVisible();
+    await expect(page.getByRole("link", { name: "AIへの相談例", exact: true })).toHaveAttribute("href", "#ask-ai");
     const records: object[] = [];
     for (const example of htmlGameDebugExamples) {
       await page.getByLabel("試す例を選ぶ").selectOption(example.id);

@@ -22,6 +22,7 @@ export function HtmlGameDebugDemo() {
       <p>{example.note}</p>
       <p>「ゲームを表示」で実行します。この端末の保存を利用できる場合、前に実行したコードが戻ります。掲載例を試すには「掲載完成例へ戻す」から再表示してください。</p>
       <p>下のボタンが隠れたら、ゲームの表示枠の中を下へスクロールしてください。</p>
+      <p>このページに「ここで詰まった」ボタンはありません。相談するときは、表示されたエラーを自分でコピーし、<a href="#ask-ai">AIへの相談例</a>に添えてください。</p>
       <BeginnerGameWorkspace
         key={selected}
         projectId={`article-html-game-debug-${selected}`}
