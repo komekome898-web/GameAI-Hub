@@ -33,6 +33,8 @@ for (const width of [1280, 375, 320]) {
       await expect(page.getByLabel("ゲームのコード")).toHaveValue(example.code);
       const countBefore = pageErrors.length;
       await page.getByRole("button", { name: "ゲームを表示", exact: true }).click();
+      await expect(page.locator(".beginner-game-preview > p")).toContainText("記事の「相談例をコピー」");
+      await expect(page.locator(".beginner-game-preview")).not.toContainText("ここで詰まった");
       const frame = page.frameLocator('iframe[title="作ったゲームの動作確認"]');
       await expect(frame.locator("#playerHp")).toHaveText("24");
       await expect(frame.locator("#enemyHp")).toHaveText("18");
@@ -48,6 +50,7 @@ for (const width of [1280, 375, 320]) {
       if (example.id === "syntax-broken" || example.id === "selector-broken") {
         const error = page.locator(".beginner-runtime-error");
         await expect(error).toContainText(example.id === "syntax-broken" ? "Unexpected token" : "Cannot read properties of null");
+        await expect(error).toContainText("「エラー概要をコピー」でこの内容をコピーし");
         await expect(frame.locator("#enemyName")).toHaveText(example.id === "syntax-broken" ? "" : "スライム");
         await frame.locator("#fight").click();
         await frame.locator("#reset").click();

@@ -51,3 +51,12 @@
 - final gates: 最新main a4958ffをrebaseで取り込み、quality PASS（47 files / 370 tests、Python76）、本番build PASS、記事E2E4件PASS（2.2m）、capture PASS。検証の詳細と限界はHANDOFF.md。
 - delivery: coherent source commitと最終資料をdraft PRで届け、親へscope/evidence報告。merge前に親へ報告する指示を保持。
 - no merge / no production deploy performed
+
+## 公開後の相談案内修正（2026-10-11）
+
+- 親のcloud Chrome本番確認で、新記事の共有preview/error案内2箇所に存在しない「ここで詰まった」ボタンが残っていた。親から小修正PR・検証・merge・Production READYまで明示承認。公開承認は前段で完了、PR175は650e27bc90dc0187e50d024ded9bcd64900e083aへmerge済み。
+- base: origin/main650e27bc90dc0187e50d024ded9bcd64900e083a。branch fix/html-game-debug-copy-guidanceを同baseへpushしremote照合、canonical origin/auth/fetchを確認。
+- scope: BeginnerGameWorkspaceのoptional helpModeを既定buttonとし、HtmlGameDebugDemoだけcopyを指定。通常案内は「相談例をコピー」、エラー案内は「エラー概要をコピー」を添える手順へ変更。他ページ文面・ゲーム処理・CSSは保持。
+- unitは既定/コピー両方と既存のerror schema検証を実施、9PASS。記事E2Eに誤案内が残らない検査を追加。独立source reviewにblocking findingなし。
+- production buildと記事E2E4件PASS（1280/375/320の7例、元記事2周目・reload）。全quality PASS。320pxの通常/エラー案内PNGはtest-results/html-game-debug/copy-guidance-*-320.png。独立rendered reviewで読める折返し・CTA整合を確認、blocking findingなし。
+- 最終検証・PR・merge/Production結果は当修正PRと引継ぎ報告を参照。

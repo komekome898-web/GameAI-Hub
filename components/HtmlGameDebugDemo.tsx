@@ -27,6 +27,7 @@ export function HtmlGameDebugDemo() {
         key={selected}
         projectId={`article-html-game-debug-${selected}`}
         initialCode={example.code}
+        helpMode="copy"
       />
     </div>
   );
