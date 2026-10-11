@@ -2,6 +2,12 @@
 
 ## 公開切り替えの追加指示（2026-10-11）
 
+merge準備の追加検査で、既存E2Eの公開記事17件・START5件という固定値を、公開レジストリに合わせて更新した。カテゴリ数5は維持。STARTの明示リンク一覧には新記事を追加。関連20件は18件が最初にPASS、残るリンク一覧とV4計測は修正後にそれぞれPASS。
+
+V4のdefault文字計測は、フォーカス／表示モードで作り直されるdeckのbuttonを対象から除き、安定したカード本文・リンクを測る。共有reflow guardやUIは変更しない。surfaceとsummary recoveryの操作・全文復元検査は維持するが、このdefault synthetic計測はbuttonラベル全体の文字拡大検証ではない。独立レビューでこの範囲と限界を確認した。
+
+PR176のmain d83ead397de80cf917faf835a109bae3cd08331dを、履歴を残すmergeで取り込み、gamesのテスト変更を衝突なく統合した。seven introductionsのpage/data/assetsはmainと同一。統合HEADの全qualityと関連E2E、exact-head CI/Preview成功をmerge条件とする。force pushは行わない。
+
 親レビュー後の追加指示で、記事の草稿表示とexplicit noindex/nofollowを除き、registryをpublishedへ切り替える差分をPR175に準備した。以下の草稿状態・一覧除外・検証結果は先行段階の記録であり、現在の公開設定はpageとregistryを参照する。
 
 独立レビューの指摘に対応し、実演の選択欄の直前に未実行の編集が消えること、切り替える前に実行し、ファイルを残すにはHTMLを保存することを明記した。aria-describedbyで選択欄にも関連付けた。保存できる場合に戻るのは前に実行したコードであり、毎入力の保存とは説明しない。共有workspaceを変更せず、未実行編集の切替と実行済み編集の復元をE2Eで分けて確認する。

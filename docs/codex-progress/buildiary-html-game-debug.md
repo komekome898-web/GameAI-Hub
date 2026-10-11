@@ -1,5 +1,8 @@
 # Buildiary HTMLゲーム診断記事
 
+- merge preparation: 親がpublication diffを受理し、exact-head CI/Preview成功後のmergeを承認。既存E2Eの17/5固定値とSTARTリンク一覧を更新。default deck文字計測のbutton typography限界をHANDOFFへ記録。独立レビューPASS。
+- integration: PR176 main d83ead397de80cf917faf835a109bae3cd08331dを履歴保持mergeで取り込み。mainの七作品とgamesテストを保護。統合状態でquality・関連E2E・CI/Previewを確認する。
+
 - publication transition: 親の追加指示で草稿表示/noindexを除去しregistry published。PR175のdraft状態は維持し、最終レビューまでmergeしない。
 - localized review fix: 未実行編集は切替で消える旨を選択直前に明記、実行済み保存と分けたE2Eを追加。既存#ask-aiへ手動エラーコピーする導線も追加。共有workspaceは変更なし。
 - final publication gates / exact SHA: PR175と最終引き継ぎ報告を参照。先行検証を下記に保持。
