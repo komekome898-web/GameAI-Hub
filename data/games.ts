@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { gameIntroDrafts } from "./game-intro-drafts";
+import { gameIntroductions } from "./game-introductions";
 import { absoluteSiteUrl, site } from "@/lib/site";
 
 export type GameRecord = {
@@ -9,6 +9,7 @@ export type GameRecord = {
   publicationReview: { urlChecked: boolean; imageChecked: boolean; permissionConfirmed: boolean; approved: boolean };
   title: string;
   description: string;
+  sourceNote?: string;
   genre: string;
   playUrl: string;
   image: { src: string; alt: string; width: number; height: number; credit: string };
@@ -54,7 +55,7 @@ export const games: GameRecord[] = [{
   productionArticle: { href: "/articles/aramon-production-story/", title: "荒野モン動の制作体験を読む" },
   updatedAt: "2026-10-04",
   sources: [{ label: "作者の制作体験とプレイ確認", href: "/articles/aramon-production-story/" }, { label: "公開ゲーム内の遊び方・アカウント案内", href: "https://komekome898-web.github.io/aramon/index.html" }],
-}, ...gameIntroDrafts];
+}, ...gameIntroductions];
 
 export const getPublishedGames = (records: readonly GameRecord[] = games) => records.filter(game => game.publicationStatus === "published").sort((a, b) => a.order - b.order || a.slug.localeCompare(b.slug));
 export const getPublishedGame = (slug: string) => getPublishedGames().find(game => game.slug === slug);

@@ -1,27 +1,29 @@
-# 七作品のローカル下書き
+# Seven author game introductions — publication candidate
 
-既存の `data/games.ts` の GameRecord と `/games/[slug]` の荒野モン動紹介構成を使用。7件は draft・approved=false のまま。公開ルート、一覧、サイトマップには出ません。新しい公開システムは追加していません。
+Current edited data: `data/game-introductions.ts`, included by existing `data/games.ts`. All seven are published records in this candidate branch and use the existing `/games/[slug]` introduction template, article hub game listing and sitemap. This does not authorize merge: parent reviews final content/images/diff first. No redesign, preview route or publishing system was added.
 
-元資料：このタスクに直接 supplied された作者テンプレート。`sources/01_create_monsters.txt`〜`07_sumaraku.txt` は全入力項目の保存用転記（空行・改行区切りを統一）。同フォルダーの JSON は処理用の項目抜粋で、画像説明のファイル名などは省略しています。元の投稿・添付は変更していません。本文 Markdown と `data/game-intro-drafts.ts` が編集後です。URLは作者の遊ぶURLであり、公開ゲームを今回すべて再調査した証拠ではありません。
+## Sources and editorial changes
 
-## 編集差分
+`sources/01_create_monsters.txt` through `07_sumaraku.txt` retain all supplied template fields (blank-line/newline separators normalized). Companion JSON files are processing extracts, not verbatim full originals. The source submissions and images were not edited. Markdown here mirrors edited introduction text; original revisions are preserved in Git commit3bf4392.
 
-- 全作品：作者提供の紹介・手順・操作・制作情報を明示。元テンプレート中のPC確認は作者提供の記録として表示し、今回の作業・スマートフォン実機プレイに転用しない。
-- モンスターコンストラクション：継続するのはカード交換後のデッキ構成。大会内の能力値・スキル成長まで継続する表現を修正（依頼元のREADME確認メモ）。
-- ラクガキ大乱闘：見た目からタイプが決まる表現を修正し、ランダム割当を記載（依頼元のREADME確認メモ）。
-- オーラコネクト：無料で開始できる範囲を保持。現金課金は未確認。
-- クリエイトモンスターズ：追加の編集側クラウドブラウザ観察（2026-10-11 08:45–08:46 UTC）を受領。Tap to Start→登録なしでホーム、端末ブラウザ保存、クラウド復旧は任意のID/パスワード登録・メール不要。起動・ホーム・設定だけで、戦闘の実測ではない。
+One sourceNote per page attributes game content, controls and production information to the supplied author introductions and states initial-screen testing scope, untested physical-phone operation and full-gameplay limits. Repeated audit prefixes were removed from individual paragraphs. No fabricated hands-on review added.
 
-## 画像と公開前の確認
+- Monster Construction: retained deck composition after card exchange, not tournament-only stat/skill growth (parent README review).
+- Sumaraku: type assignment is randomized, rather than inferred directly from appearance (parent README review).
+- Aura Connect: free to start; cash payment availability remains explicitly unknown. Optional unknown human-production details omitted from the page. This payment uncertainty does not prevent accurate introduction copy.
+- Create Monsters: parent supplied cloud-browser startup/lobby/settings observation,2026-10-11 08:45–08:46 UTC. Guest start, browser-local save, optional recovery ID/password without email. Parent additionally directed practical Tap to Start→遊び方→冒険 instructions. No battle/physical-device observation inferred.
+- Submitted production AI roles retained; editorial assistance separated from game-production roles.
 
-`image-sources.json` に7件のLibrary ID・予定保存先・寸法・条件を対応付けています。現実行環境で current Library materialization helper を使った取得と1回の再試行がともに `download failed`。7画像すべて bytes/readability/actual pixels 未確認。画像の予定パスにファイルはなく、仮画像を完成扱いにしていません。初回の依頼元での視覚確認は、この実行環境の画像検証ではありません。
+## Original images
 
-この失敗は実行環境への転送の問題です。親側には7画像の元バイトと独立した画像確認があり、ユーザー入力の不足ではありません。再送依頼は不要です。詳細は materialization-report.json を参照してください。
+Approved asset commit `0e138df7dd7f625d45e75f90a2f3b5f4becf214e` integrated into this article branch as cherry-pick6e800aa. All seven local sizes and SHA-256 match parent originals; decode/readability/dimensions and actual pixels inspected. See `asset-verification.json` and `image-sources.json` for mappings. Create Monsters870×1882; other six1280×720. Images unchanged; no AI editing or crop. Hero and card CSS use contain, with display-height limits to keep portrait screenshots from burying navigation. OG metadata references the same original images and dimensions.
 
-取得後は元バイトを保持。縦長のクリエイトモンスターズ、左右に余白があるパンチ、元画像で人物の顔が切れているオーラを含め、追加の切り抜きやAI編集は不要です。現行 game-hero は width:100%;height:auto で全体表示。カードは取得後に contain の必要性を確認してください。今回の画像付き表示とOGは未確認です。
+Historical Library transfer failure: official helper plus one supported retry failed due to returned hosts outside documented executor egress rules. `materialization-report.json` and `transfer-diagnosis.md` preserve exact sanitized results. This was executor transfer, not missing user input. Approved intended repository assets now resolve local byte availability; no Library/network-security bypass or another download was used.
 
-2026年10月11日：オーナーが「画像は全部条件ないよ」と確認。全7添付画像の掲載条件・追加クレジット条件なしとして編集後データを更新しました。以前の3作品への質問は解決済みです。元テンプレートの未確認記述と元の素材回答は保存し、同じ質問は繰り返しません。個別素材作者の未確認状態は、掲載条件の確認とは分けて保持しています。
+2026-10-11 owner clarification: 「画像は全部条件ないよ」. All seven image conditions/additional credit requirements resolved; original previously unconfirmed source answers retained. No repeat permission questions. `image-permission-confirmation.md` records the current confirmation.
 
-その他の作者の「なし・不要」回答は保存済みで、一括で再質問する必要はありません。画像取得と実ピクセル確認、画像を含む最終表示レビュー、公開URL確認、独立レビューとオーナーの公開承認を経てから公開状態を変更してください。ゲームへの登録・投稿・ランキング送信・報酬受領・状態変更は今回行っていません。
+## Verification scope
 
-オーラコネクトの現金課金は未確認のまま「無料で開始できます。課金の有無は未確認」と正確に記載できるため、本文下書きの準備を妨げる条件ではありません。
+Actual local Next production build routes now return200 for all seven; existing listing includes8 works including Aramon, sitemap includes all8. Tests and real-browser screenshots under `docs/screenshots/seven-game-intros`. Earlier `docs/screenshots/seven-game-intro-drafts` captures document historical text-only/404 state; they are not current image-layout evidence. Browser viewport/CSS zoom checks are not phone-device gameplay checks.
+
+Public game URLs match supplied author URLs and parent startup records. This executor's fresh web lookup returned tool-access errors, so current external-game runtime health is not claimed as a new independent check. No game upload, signup, battle, reward action, ranking submission or other state mutation performed.

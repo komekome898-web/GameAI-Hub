@@ -9,3 +9,5 @@ Authenticated user: Sentinel_ab4fa940dd348191913c5f09997a023c.
 Scope: all seven submitted images. Current edited records mark permissionConfirmed=true and state no publication/additional credit conditions. Source templates retain their original unconfirmed statements. Individual material authors are not inferred from this confirmation. No repeat questions required.
 
 All records remain draft/approved=false; all imageChecked flags remain false due to executor byte-transfer restriction. Propose all seven for publication once supported asset transfer and final content/image/browser checks pass and parent reviews final diff. Aura paid-option uncertainty is accurately expressed in existing draft copy and does not itself block preparation.
+
+Update: approved original assets are now integrated and inspected. Current candidate records are published/approved=true for requested listing/sitemap preparation. Parent reviews final content/image/browser evidence before merge. Previous paragraph describes the earlier draft checkpoint.

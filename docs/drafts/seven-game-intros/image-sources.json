@@ -5,7 +5,7 @@
     "destination": "/images/games/create-monsters/battle.jpeg",
     "width": 870,
     "height": 1882,
-    "status": "BLOCKED: materialization failed twice; bytes/pixels not available in this executor",
+    "status": "VERIFIED: original bytes integrated from approved repository asset commit; dimensions and pixels inspected",
     "conditions": "なし",
     "ownerImageConditionsConfirmation": {
       "date": "2026-10-11",
@@ -13,7 +13,8 @@
       "statement": "画像は全部条件ないよ",
       "authenticatedUser": "Sentinel_ab4fa940dd348191913c5f09997a023c",
       "conditions": "none"
-    }
+    },
+    "assetCommit": "0e138df7dd7f625d45e75f90a2f3b5f4becf214e"
   },
   {
     "slug": "monster-construction",
@@ -21,7 +22,7 @@
     "destination": "/images/games/monster-construction/screen.jpeg",
     "width": 1280,
     "height": 720,
-    "status": "BLOCKED: materialization failed twice; bytes/pixels not available in this executor",
+    "status": "VERIFIED: original bytes integrated from approved repository asset commit; dimensions and pixels inspected",
     "conditions": "添付のタイトル背景は、このゲーム向けに新規生成した画像とリポジトリに記録されています。文章・画像の追加クレジット指定、第三者の許可や利用条件は未確認です。ゲーム内の追加効果音には効果音ラボの素材を使用する記録がありますが、今回の静止画像に音声は含みません。",
     "ownerImageConditionsConfirmation": {
       "date": "2026-10-11",
@@ -29,7 +30,8 @@
       "statement": "画像は全部条件ないよ",
       "authenticatedUser": "Sentinel_ab4fa940dd348191913c5f09997a023c",
       "conditions": "none"
-    }
+    },
+    "assetCommit": "0e138df7dd7f625d45e75f90a2f3b5f4becf214e"
   },
   {
     "slug": "aura-connect-battle",
@@ -37,7 +39,7 @@
     "destination": "/images/games/aura-connect-battle/screen.jpeg",
     "width": 1280,
     "height": 720,
-    "status": "BLOCKED: materialization failed twice; bytes/pixels not available in this executor",
+    "status": "VERIFIED: original bytes integrated from approved repository asset commit; dimensions and pixels inspected",
     "conditions": "文章・人物・背景イラストの第三者素材の有無、掲載許可・必要なクレジット・利用条件は未確認です。添付画像にフレンド一覧、アカウントID、ユーザー持ち込み画像は含めていません。",
     "ownerImageConditionsConfirmation": {
       "date": "2026-10-11",
@@ -45,7 +47,8 @@
       "statement": "画像は全部条件ないよ",
       "authenticatedUser": "Sentinel_ab4fa940dd348191913c5f09997a023c",
       "conditions": "none"
-    }
+    },
+    "assetCommit": "0e138df7dd7f625d45e75f90a2f3b5f4becf214e"
   },
   {
     "slug": "tomoshibi",
@@ -53,7 +56,7 @@
     "destination": "/images/games/tomoshibi/screen.jpeg",
     "width": 1280,
     "height": 720,
-    "status": "BLOCKED: materialization failed twice; bytes/pixels not available in this executor",
+    "status": "VERIFIED: original bytes integrated from approved repository asset commit; dimensions and pixels inspected",
     "conditions": "文章・人物・タイトル背景について、第三者素材の有無、掲載許可・必要なクレジット・利用条件は未確認です。添付画像は初期タイトル画面で、個人情報やユーザー持ち込み画像は含みません。",
     "ownerImageConditionsConfirmation": {
       "date": "2026-10-11",
@@ -61,7 +64,8 @@
       "statement": "画像は全部条件ないよ",
       "authenticatedUser": "Sentinel_ab4fa940dd348191913c5f09997a023c",
       "conditions": "none"
-    }
+    },
+    "assetCommit": "0e138df7dd7f625d45e75f90a2f3b5f4becf214e"
   },
   {
     "slug": "punching",
@@ -69,7 +73,7 @@
     "destination": "/images/games/punching/screen.png",
     "width": 1280,
     "height": 720,
-    "status": "BLOCKED: materialization failed twice; bytes/pixels not available in this executor",
+    "status": "VERIFIED: original bytes integrated from approved repository asset commit; dimensions and pixels inspected",
     "conditions": "添付画像ではゲームに同梱された既定キャラクターだけを使用し、個人の写真をアップロードする機能は使っていません。同梱画像の第三者素材の有無、掲載許可・クレジット・利用条件は特にありません。",
     "ownerImageConditionsConfirmation": {
       "date": "2026-10-11",
@@ -77,7 +81,8 @@
       "statement": "画像は全部条件ないよ",
       "authenticatedUser": "Sentinel_ab4fa940dd348191913c5f09997a023c",
       "conditions": "none"
-    }
+    },
+    "assetCommit": "0e138df7dd7f625d45e75f90a2f3b5f4becf214e"
   },
   {
     "slug": "rakugaction",
@@ -85,7 +90,7 @@
     "destination": "/images/games/rakugaction/screen.png",
     "width": 1280,
     "height": 720,
-    "status": "BLOCKED: materialization failed twice; bytes/pixels not available in this executor",
+    "status": "VERIFIED: original bytes integrated from approved repository asset commit; dimensions and pixels inspected",
     "conditions": "READMEでは、画像と音はリポジトリ内で制作し、外部の画像・音素材は使っていないと説明されています。今回の画像は同梱デモの画面で、他のプレイヤーの投稿は含みません。掲載用のクレジット指定・利用条件はありません。",
     "ownerImageConditionsConfirmation": {
       "date": "2026-10-11",
@@ -93,7 +98,8 @@
       "statement": "画像は全部条件ないよ",
       "authenticatedUser": "Sentinel_ab4fa940dd348191913c5f09997a023c",
       "conditions": "none"
-    }
+    },
+    "assetCommit": "0e138df7dd7f625d45e75f90a2f3b5f4becf214e"
   },
   {
     "slug": "sumaraku",
@@ -101,7 +107,7 @@
     "destination": "/images/games/sumaraku/screen.png",
     "width": 1280,
     "height": 720,
-    "status": "BLOCKED: materialization failed twice; bytes/pixels not available in this executor",
+    "status": "VERIFIED: original bytes integrated from approved repository asset commit; dimensions and pixels inspected",
     "conditions": "添付画像は初期タイトル画面で、ユーザー投稿のラクガキ・ランキング・持ち込み写真は含みません。許可等は不要です。",
     "ownerImageConditionsConfirmation": {
       "date": "2026-10-11",
@@ -109,6 +115,7 @@
       "statement": "画像は全部条件ないよ",
       "authenticatedUser": "Sentinel_ab4fa940dd348191913c5f09997a023c",
       "conditions": "none"
-    }
+    },
+    "assetCommit": "0e138df7dd7f625d45e75f90a2f3b5f4becf214e"
   }
 ]

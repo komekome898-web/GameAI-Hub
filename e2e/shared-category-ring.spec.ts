@@ -76,7 +76,7 @@ for (const width of [320,375,390,1440]) test(`Home order and complete return con
   await page.screenshot({path:`${evidence}/home-return-${width}.png`});
   await expect(page.locator('.hub-preparation a, .hub-preparation button')).toHaveCount(0);
   await expect(page.locator('.hub-preparation')).toHaveCount(0);
-  await expect(page.locator('[data-category="games"]')).toContainText('1作品');
+  await expect(page.locator('[data-category="games"]')).toContainText('8作品');
   await writeFile(`${evidence}/home-operations-${width}.json`,JSON.stringify({width,method:'Chromium viewport emulation, not physical Safari',positions,historyBefore,returnUrl:page.url(),flow:'Home voice → v4 body → reload → article breadcrumb → original Home voice',focus:await page.locator(':focus').getAttribute('data-category')},null,2));
 });
 
