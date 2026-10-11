@@ -1,3 +1,14 @@
+# 公開承認後の最終状態（2026-10-11）
+
+- 親から本人の明示公開承認と、push・PR175 CI・合格後merge・production確認の指示を受領。
+- branch: research/buildiary-html-game-debug / PR175。最新main d83ead397de80cf917faf835a109bae3cd08331d取込済み。並行するゲームcard修正はmainに到着した時点で保持する。
+- 検査済みsource HEAD: a7db29dbfcf734e6d4017d56a861620246a46f3d。
+- 独立レビュー: 記事・公開切替・件数assertion更新・deck文字計測範囲・非同期例外待機を確認、blocking findingsなし。
+- 最終quality: 49 files / 374 tests、Python76と全validator PASS。production build、375px記事E2E再検査PASS。final-local-verification/にログ・JSON・PNG。
+- 現在: 最終資料と公開承認を同じPRへpushし、exact-head quality/full E2E/Previewを待つ。全成功と最新mainとの整合を確認後、通常squash merge。auto-mergeは使わない。
+- production routeへの既知のblocked accessは再試行せず、deployment成功を確認して親へcloud browser確認を依頼する。
+- 先行研究・草稿の記録を以下に保持。
+
 # Buildiary HTMLゲーム診断記事
 
 - merge preparation: 親がpublication diffを受理し、exact-head CI/Preview成功後のmergeを承認。既存E2Eの17/5固定値とSTARTリンク一覧を更新。default deck文字計測のbutton typography限界をHANDOFFへ記録。独立レビューPASS。
