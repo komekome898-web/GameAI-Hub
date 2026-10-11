@@ -139,7 +139,7 @@ export const gameIntroductions: GameRecord[] = [
     "playUrl": "https://cadmium2525.github.io/aurapuzzle_-adventure/",
     "image": {
       "src": "/images/games/aura-connect-battle/screen.jpeg",
-      "alt": "仲間の人物イラストと、火・水・木・癒・闇を表す色のオーラ、「TAP TO START」が写った開始画面です。",
+      "alt": "仲間の人物イラストと色とりどりのオーラ、「TAP TO START」が写った開始画面。",
       "width": 1280,
       "height": 720,
       "credit": "作者提供：かど"
