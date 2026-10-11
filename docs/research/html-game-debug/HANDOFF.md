@@ -1,6 +1,18 @@
 # 草稿記事の最終引き継ぎ
 
-2026-10-11。実装ソースの独立レビュー対象は89312f15c207d68a91f956e88f3c9f299c14a6e6、取り込んだmainはa4958ff758db02dfddba90f501a844091d7e75ad（ElevenLabs修正 #174）。後続commitは検証結果と資料の更新です。
+## 公開切り替えの追加指示（2026-10-11）
+
+親レビュー後の追加指示で、記事の草稿表示とexplicit noindex/nofollowを除き、registryをpublishedへ切り替える差分をPR175に準備した。以下の草稿状態・一覧除外・検証結果は先行段階の記録であり、現在の公開設定はpageとregistryを参照する。
+
+独立レビューの指摘に対応し、実演の選択欄の直前に未実行の編集が消えること、切り替える前に実行し、ファイルを残すにはHTMLを保存することを明記した。aria-describedbyで選択欄にも関連付けた。保存できる場合に戻るのは前に実行したコードであり、毎入力の保存とは説明しない。共有workspaceを変更せず、未実行編集の切替と実行済み編集の復元をE2Eで分けて確認する。
+
+共有表示内の「ここで詰まった」はこのページにないため、実演の直前にエラーを手動コピーして既存の#ask-ai相談例に添える案内を追加。新しい相談frameworkは追加していない。
+
+公開一覧・sitemap掲載、indexable metadata、既存カテゴリ順序・公開件数18を検査する。最新main a4958ffと別のseven-introduction作業は変更しない。公開設定への変更はmerge・production deployの実行ではなく、親の最終レビューまでPRをdraftのまま保留する。最終HEADとgate結果はPR175と親への引き継ぎ報告を参照。
+
+公開切替後の保存証拠: article-browser/results-{1280,375,320}.jsonはpublishedIncludedInListingAndSitemap=true、E2E4件PASS（1.8m）、本番build PASS。publication-demo-320.pngは追加注意文と相談案内の目視用。captureの4幅も横はみ出しなし、通常wheelでリセットへ届く。既存公開件数の期待値を18へ更新し、対象unit14件PASS。保存証拠をcommitした後、同じ最終HEADで全qualityとE2Eを再実行して親へ報告する。再検査のE2E出力はBUILDIARY_EVIDENCE_DIRで/tmpに分け、保存済み証拠への無関係な再描画差分を避ける。
+
+草稿段階（2026-10-11）の実装ソースの独立レビュー対象は89312f15c207d68a91f956e88f3c9f299c14a6e6、取り込んだmainはa4958ff758db02dfddba90f501a844091d7e75ad（ElevenLabs修正 #174）。草稿段階の後続commitは検証結果と資料の更新です。
 
 ## 成果物
 

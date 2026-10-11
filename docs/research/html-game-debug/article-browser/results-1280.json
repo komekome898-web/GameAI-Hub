@@ -211,6 +211,6 @@
   "failedResources": [],
   "unexpectedConsole": [],
   "downloadExactCurrentCodeVerified": true,
-  "draftExcludedFromListingAndSitemap": true,
+  "publishedIncludedInListingAndSitemap": true,
   "pass": true
 }

@@ -1,5 +1,9 @@
 # Buildiary HTMLゲーム診断記事
 
+- publication transition: 親の追加指示で草稿表示/noindexを除去しregistry published。PR175のdraft状態は維持し、最終レビューまでmergeしない。
+- localized review fix: 未実行編集は切替で消える旨を選択直前に明記、実行済み保存と分けたE2Eを追加。既存#ask-aiへ手動エラーコピーする導線も追加。共有workspaceは変更なし。
+- final publication gates / exact SHA: PR175と最終引き継ぎ報告を参照。先行検証を下記に保持。
+
 - 親スレッド: 01a10caf-ddc0-72d1-9556-42849e68d031 / codex_delegation、指定Environment
 - scope: 既存部品による1本の実践草稿記事と隔離した実演。元例・復旧UI・サイトCSS・ElevenLabsの別修正は保護。
 - branch: research/buildiary-html-game-debug

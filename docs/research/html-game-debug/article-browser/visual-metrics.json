@@ -1,6 +1,6 @@
 {
   "browser": "151.0.7922.173",
-  "date": "2026-10-11T09:19:59.436Z",
+  "date": "2026-10-11T09:30:41.608Z",
   "method": "local production build; CSS viewport widths; effective160px/DPR2 is reflow stress, not native browser zoom or a physical device",
   "viewports": [
     {
@@ -63,25 +63,25 @@
       },
       "resetBefore": {
         "x": 134.71875,
-        "y": 880.71875,
+        "y": 881.53125,
         "width": 103.53125,
         "height": 52
       },
       "resetAfter": {
         "x": 134.71875,
-        "y": 812.71875,
+        "y": 813.53125,
         "width": 103.53125,
         "height": 52
       },
       "iframeBoxBefore": {
         "x": 43,
-        "y": 599.546875,
+        "y": 600.359375,
         "width": 289,
         "height": 300
       },
       "iframeBoxAfter": {
         "x": 43,
-        "y": 599.546875,
+        "y": 600.359375,
         "width": 289,
         "height": 300
       },
@@ -106,25 +106,25 @@
       },
       "resetBefore": {
         "x": 107.015625,
-        "y": 881.25,
+        "y": 881.0625,
         "width": 103.53125,
         "height": 52
       },
       "resetAfter": {
         "x": 107.015625,
-        "y": 813.25,
+        "y": 813.0625,
         "width": 103.53125,
         "height": 52
       },
       "iframeBoxBefore": {
         "x": 31.796875,
-        "y": 600.078125,
+        "y": 599.890625,
         "width": 256.40625,
         "height": 300
       },
       "iframeBoxAfter": {
         "x": 31.796875,
-        "y": 600.078125,
+        "y": 599.890625,
         "width": 256.40625,
         "height": 300
       },
@@ -149,25 +149,25 @@
       },
       "resetBefore": {
         "x": 41.234375,
-        "y": 943.078125,
+        "y": 942.890625,
         "width": 75.53125,
         "height": 44
       },
       "resetAfter": {
         "x": 41.234375,
-        "y": 835.078125,
+        "y": 834.890625,
         "width": 75.53125,
         "height": 44
       },
       "iframeBoxBefore": {
         "x": 31,
-        "y": 599.796875,
+        "y": 599.609375,
         "width": 98,
         "height": 300
       },
       "iframeBoxAfter": {
         "x": 31,
-        "y": 599.796875,
+        "y": 599.609375,
         "width": 98,
         "height": 300
       },

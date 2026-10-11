@@ -1,5 +1,9 @@
 # 独立レビュー記録
 
+## 公開切り替えと局所修正の再レビュー
+
+対象ef7a02c4696b0912acadfc45a46ed268ec085224、publication-demo-320.png。追加の独立レビュー結果はblocking findingsなし。草稿表示削除・metadata・registry publishedが一致。未実行編集の消失注意が選択前に表示され、320pxで読め、aria-describedbyで関連付く。手動エラーコピーから#ask-aiの導線は正確。E2Eは未実行編集と実行済み復元を区別し、公開一覧とsitemapを検査する。共有workspace/global CSSは未変更。継承した相談ボタン文言は記事内で不存在と代替手順を明示。merge前の最終gatesは引き続き必要。
+
 担当: /root/article_review（実装担当と別のレビューagent）。方法: ソース・実測JSON照合、保存PNGの目視、狭幅の原寸cropを含む確認。レビューはproductionや実機の確認ではありません。
 
 ## 指摘と対応
