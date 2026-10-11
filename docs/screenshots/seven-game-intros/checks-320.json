@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "create-monsters",
+    "width": 870,
+    "height": 1882,
+    "fit": "contain",
+    "scroll": 320,
+    "client": 320
+  },
+  {
+    "slug": "monster-construction",
+    "width": 1280,
+    "height": 720,
+    "fit": "contain",
+    "scroll": 320,
+    "client": 320
+  },
+  {
+    "slug": "aura-connect-battle",
+    "width": 1280,
+    "height": 720,
+    "fit": "contain",
+    "scroll": 320,
+    "client": 320
+  },
+  {
+    "slug": "tomoshibi",
+    "width": 1280,
+    "height": 720,
+    "fit": "contain",
+    "scroll": 320,
+    "client": 320
+  },
+  {
+    "slug": "punching",
+    "width": 1280,
+    "height": 720,
+    "fit": "contain",
+    "scroll": 320,
+    "client": 320
+  },
+  {
+    "slug": "rakugaction",
+    "width": 1280,
+    "height": 720,
+    "fit": "contain",
+    "scroll": 320,
+    "client": 320
+  },
+  {
+    "slug": "sumaraku",
+    "width": 1280,
+    "height": 720,
+    "fit": "contain",
+    "scroll": 320,
+    "client": 320
+  }
+]

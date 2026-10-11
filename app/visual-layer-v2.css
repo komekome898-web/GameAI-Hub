@@ -419,3 +419,7 @@ body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
 .game-detail .game-hero figcaption { font-size:.875rem; margin-top:6px; }
 .game-detail .article-content dl > div { margin-block:16px; }
 .game-detail .article-content dt { font-weight:700; }
+
+/* Preserve entire author screenshots, including portrait and off-center UI. */
+.game-detail .game-hero img { max-height:560px; object-fit:contain; }
+.article-cluster .creation-deck [data-kind="game"] .v2-start-card-image img { max-height:200px; }

@@ -36,14 +36,14 @@ describe('published games engine', () => {
     expect(validateGames([{...game, productionArticle: {href:'https://example.com/story', title:'制作体験'}}])).toEqual([]);
   });
   it('uses published-only static routes, canonical, screenshot OG, VideoGame and sitemap', async () => {
-    expect(generateStaticParams()).toEqual([{slug:'aramon'}]);
+    expect(generateStaticParams()).toEqual(getPublishedGames().map(({slug}) => ({slug})));
     expect(gameMetadata(game).alternates?.canonical).toBe(gamePath(game));
     expect(gameMetadata(game).openGraph).toMatchObject({ images: [{url: expect.stringContaining(game.image.src)}] });
     const html = renderToStaticMarkup(await GamePage({params:Promise.resolve({slug:'aramon'})}));
     expect(html).toContain('"@type":"VideoGame"'); expect(html).not.toContain('"@type":"Article"');
     expect(html).toContain('料金条件と、プレイに登録が必須かどうかは未確認');
     expect(html).toContain('iPhone SE');
-    expect(sitemap().filter(entry => entry.url.includes('/games/')).map(entry => entry.url)).toEqual(['https://game-ai-hub.vercel.app/games/aramon/']);
+    expect(sitemap().filter(entry => entry.url.includes('/games/')).map(entry => entry.url)).toEqual(getPublishedGames().map(g => `https://game-ai-hub.vercel.app/games/${g.slug}/`));
   });
   it.each([0,1,2,3])('keeps %i game cards unique with separate introduction and play links', count => {
     const items = Array.from({length:count}, (_, i) => ({...getHubGroups().find(g => g.id === 'games')!.items[0], id:`test-${i}`}));
