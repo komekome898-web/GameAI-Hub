@@ -51,7 +51,7 @@ describe("ElevenLabs v4 game-voice article", () => {
     const html = renderToStaticMarkup(<ElevenLabsV4GameVoice />);
 
     expect(article.publicationStatus).toBe("published");
-    expect(article.sources).toHaveLength(9);
+    expect(article.sources).toHaveLength(10);
     for (const text of [
       "固定ゲーム音声",
       "複数話者の会話",
@@ -79,9 +79,13 @@ describe("ElevenLabs v4 game-voice article", () => {
     expect(article.editorialNote).toContain("GameBuildiaryによる音声生成・試聴評価");
     expect(article.editorialNote).not.toContain("GameAI Hub");
     expect(article.author).toBe("AI Iterproof編集部");
-    expect(article.updatedAt).toBe("2026-10-04");
+    expect(article.updatedAt).toBe("2026-10-11");
     expect(article.lastVerifiedAt).toBe("2026-09-30");
-    expect(article.sources.every(source => source.verifiedAt === "2026-09-30")).toBe(true);
+    expect(article.sources.filter(source => source.verifiedAt === "2026-10-11").map(source => source.url)).toEqual([
+      "https://elevenlabs.io/docs/overview/capabilities/text-to-dialogue",
+      "https://elevenlabs.io/docs/api-reference/text-to-dialogue/convert",
+    ]);
+    expect(article.sources.filter(source => source.verifiedAt === "2026-09-30")).toHaveLength(8);
   });
 
   it("preserves the official limits, realtime comparison and PVC discrepancy", () => {
@@ -98,7 +102,10 @@ describe("ElevenLabs v4 game-voice article", () => {
       "<th>公式Model資料のAPI文字数上限</th><td>5,000</td><td>10,000</td><td>10,000</td>",
     );
     expect(html).toContain("同じ数値の明記を確認できず");
-    expect(html).toContain("1つのdialogueに話者数の上限はない");
+    expect(html).toContain("公式の概要FAQはdialogueの話者数に上限なしと説明する一方");
+    expect(html).toContain("Create dialogue APIは1リクエストにつき異なるvoice IDを最大10個に制限");
+    expect(html).toContain("この10個の制限をUIやモデル全体の上限とも扱いません");
+    expect(html).not.toContain("1つのdialogueに話者数の上限はないと明記しています");
     expect(html).not.toContain("話者数の上限は公式資料に明記されていません");
     expect(html).toContain("ベストプラクティス");
     expect(html).toContain("約75msの低遅延モデル");
