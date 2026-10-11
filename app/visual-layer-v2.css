@@ -412,7 +412,7 @@ body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
 .article-cluster .creation-deck [data-kind="game"] .v2-start-card-image img { position:static; width:100%; height:auto; object-fit:contain; }
 .article-cluster .creation-deck [data-kind="game"] .v2-start-card-image::after { display:none; }
 .game-card-actions { grid-column:1; grid-row:7; z-index:1; }
-.game-card-actions p { margin:0 0 12px; font-size:.875rem; line-height:1.6; }
+.game-card-actions p { margin:0 0 12px; font-size:.875rem; line-height:1.6; white-space:pre-line; }
 .game-card-actions .button { min-height:48px; }
 .game-detail .game-hero { margin:16px 0; }
 .game-detail .game-hero img { display:block; width:100%; height:auto; }

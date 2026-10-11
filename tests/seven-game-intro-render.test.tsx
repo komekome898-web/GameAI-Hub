@@ -13,6 +13,19 @@ it('renders all seven through the actual published selector and shared game temp
     expect(html).toContain('料金・登録条件');
     expect(html).toContain('ゲーム内容・操作・制作情報は作者提供');
     expect(html).not.toContain('画像取得待ち');
+    expect(html).toContain('プレイ無料、インストールなし');
+    expect(html).toContain('スマホだけで開発');
+    expect(html).toContain('iPhoneだけでゲームを開発');
+    expect(html).toContain('スマートフォン実機で動作確認済み');
+    expect(html).not.toContain('スマートフォン実機の操作と全編プレイは未確認');
     if (game.slug==='aura-connect-battle') expect(html).not.toContain('人が確かめ、工夫したこと');
   }
+});
+
+it('renders the current pricing statement in Aramon without adding seven-game development claims', async () => {
+  const html = renderToStaticMarkup(await GamePage({params:Promise.resolve({slug:'aramon'})}));
+  expect(html).toContain('プレイ無料、インストールなし');
+  expect(html).toContain('無料・課金なし');
+  expect(html).not.toContain('スマホだけで開発');
+  expect(html).toContain('作者のプレイ環境：iPhone SE（第3世代）・Safari');
 });

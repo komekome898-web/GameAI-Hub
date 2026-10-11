@@ -10,6 +10,8 @@ export type GameRecord = {
   title: string;
   description: string;
   sourceNote?: string;
+  developmentNote?: string;
+  playAccessNote?: string;
   genre: string;
   playUrl: string;
   image: { src: string; alt: string; width: number; height: number; credit: string };
@@ -33,6 +35,8 @@ export const games: GameRecord[] = [{
   slug: "aramon", publicationStatus: "published", order: 1,
   publicationReview: { urlChecked: true, imageChecked: true, permissionConfirmed: true, approved: true },
   title: "荒野モン動",
+  playAccessNote: "プレイ無料、インストールなし",
+  sourceNote: "本人からの追加情報として、無料・課金なし、インストールなしという案内を反映しています。",
   description: "モンスターを操作し、3Dの荒野で技を放って戦うTPSバトルロイヤル。",
   genre: "TPS・バトルロイヤル",
   playUrl: "https://komekome898-web.github.io/aramon/index.html",
@@ -44,7 +48,7 @@ export const games: GameRecord[] = [{
   highlights: ["リアルマップのTEAM戦で、地形を見ながら戦う。", "火炎連砲や魔神炎など、モンスターの技とエフェクト。", "マスモンの能力値を見て、育成のトレーニングを選ぶ。"],
   howToPlay: ["ゲームを開き、ゲーム内の「遊び方説明」で操作やルールを確認します。", "技を試す訓練場で操作を確かめてから、バトルへ進めます。"],
   controls: "左下スティックで移動、画面ドラッグで視点回転、FIREで攻撃、DASHで回避。キーボードではWASDで移動、Fで攻撃、Spaceで回避できます。",
-  pricingAndRegistration: "料金条件と、プレイに登録が必須かどうかは未確認です。ゲーム内には記録とマスモンを保存するログイン／アカウント作成機能があります。利用前にゲーム内の案内を確認してください。",
+  pricingAndRegistration: "無料・課金なし。プレイに登録が必須かどうかは未確認です。ゲーム内には記録とマスモンを保存するログイン／アカウント作成機能があります。利用前にゲーム内の案内を確認してください。",
   author: { name: "おりょう", socialUrl: "https://x.com/oryoooo_game", socialLabel: "X @oryoooo_game" },
   aiRoles: [
     { name: "Claude", role: "無料プランのチャットでゲームの土台を制作。その後、制作当時はClaude ProのClaude Codeでマルチプレイやリアルマップなどの機能を追加。" },
@@ -53,7 +57,7 @@ export const games: GameRecord[] = [{
   ],
   humanContribution: "作者がゲームを動かして技の見え方を確かめ、AIへの調整依頼とプレイ確認を何度も繰り返しました。ほかのゲームも参考にしながら、画面やエフェクトを調整しています。",
   productionArticle: { href: "/articles/aramon-production-story/", title: "荒野モン動の制作体験を読む" },
-  updatedAt: "2026-10-04",
+  updatedAt: "2026-10-11",
   sources: [{ label: "作者の制作体験とプレイ確認", href: "/articles/aramon-production-story/" }, { label: "公開ゲーム内の遊び方・アカウント案内", href: "https://komekome898-web.github.io/aramon/index.html" }],
 }, ...gameIntroductions];
 

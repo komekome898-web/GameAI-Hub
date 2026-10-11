@@ -1,7 +1,7 @@
 import { test, expect } from './fixtures';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { gameIntroductions } from '../data/game-introductions';
-const evidence='docs/screenshots/seven-game-intros';
+const evidence='docs/screenshots/game-owner-corrections';
 test.beforeEach(async ({context}) => {
   await mkdir(evidence,{recursive:true});
   await context.route('**/*', r => new URL(r.request().url()).hostname==='127.0.0.1' ? r.continue() : r.abort());
@@ -13,6 +13,11 @@ for (const width of [1280,375,320]) test(`seven introductions and original scree
     const response=await page.goto(`/games/${game.slug}/`);
     expect(response?.status()).toBe(200);
     await expect(page.locator('h1')).toHaveText(game.title);
+    await expect(page.locator('article header')).toContainText('プレイ無料、インストールなし');
+    await expect(page.locator('article')).toContainText('無料・課金なし');
+    await expect(page.getByRole('heading',{name:'スマホだけで開発',exact:true})).toBeVisible();
+    await expect(page.locator('article')).toContainText('スマートフォン実機で動作確認済み');
+    await expect(page.locator('article')).not.toContainText('スマートフォン実機の操作と全編プレイは未確認');
     const img=page.locator('.game-hero img');
     await expect(img).toBeVisible();
     const metrics=await img.evaluate((img: HTMLImageElement)=>({width:img.naturalWidth,height:img.naturalHeight,fit:getComputedStyle(img).objectFit}));
@@ -39,6 +44,7 @@ test('all eight cards preserve original assets, introduction links and sitemap',
     await expect(card.locator('img')).toHaveAttribute('src',game.image.src);
     expect(await card.locator('img').evaluate(el=>getComputedStyle(el).objectFit)).toBe('contain');
     await expect(card.locator('.game-card-actions a')).toHaveAttribute('href',game.playUrl);
+    await expect(card.locator('.game-card-actions p')).toHaveText('開発環境：iPhone\n動作環境：Webブラウザ');
   }
   await page.screenshot({path:`${evidence}/cards-375.png`,fullPage:true});
   for (const game of gameIntroductions) {
@@ -60,4 +66,14 @@ test('all seven at 320px with 200% CSS zoom',async ({page})=>{
     await expect(page.locator('h1')).toBeVisible();
     await page.screenshot({path:`${evidence}/${game.slug}-320-zoom200.png`,fullPage:true});
   }
+});
+
+test('Aramon keeps its environment and receives the free no-install statement', async ({page}) => {
+  await page.setViewportSize({width:375,height:900});
+  await page.goto('/games/aramon/');
+  await expect(page.locator('article header')).toContainText('プレイ無料、インストールなし');
+  await expect(page.locator('article')).toContainText('無料・課金なし');
+  await expect(page.getByRole('heading',{name:'スマホだけで開発',exact:true})).toHaveCount(0);
+  await expect(page.locator('article')).toContainText('作者のプレイ環境：iPhone SE（第3世代）・Safari');
+  await page.screenshot({path:`${evidence}/aramon-375.png`,fullPage:true});
 });
