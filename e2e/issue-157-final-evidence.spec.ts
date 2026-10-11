@@ -38,8 +38,10 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
     : method === "text-spacing"
       ? (`spacing-${item.spacing?.override}` as TextMethod)
       : method as TextMethod;
-  const roles = item.roles ?? [{ role: "surface", selector: `${item.selector} :is(h1,h2,h3,p,a,button)` }];
   const isDeckSurface = item.selector === "#start .creation-deck";
+  // Focus can recreate a card's conditional expansion button. Measure stable
+  // text nodes; probeSurface and summary recovery still verify every control.
+  const roles = item.roles ?? [{ role: "surface", selector: `${item.selector} :is(h1,h2,h3,p,a,${isDeckSurface ? "button:not(.v2-start-card-expand)" : "button"})` }];
   if (isDeckSurface) await waitForSettledDeck(page);
   const recoveredSummaries = isDeckSurface ? await verifyDeckSummaryRecovery(page, { roles, method: textMethod, factor: item.factor ?? 1 }) : new Set<string>();
   const scale = await applyTextMethod(page, roles, textMethod, item.factor ?? 1);
