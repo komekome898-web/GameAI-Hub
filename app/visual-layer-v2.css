@@ -22,10 +22,10 @@
   position: absolute;
   z-index: -1;
   top: 0;
-  left: 50%;
-  width: 100dvw;
+  /* Fit the decoration to layout width; viewport units include classic scrollbars. */
+  left: 0;
+  width: 100%;
   height: 620px;
-  transform: translateX(-50%);
   pointer-events: none;
   background-color: var(--v2-canvas);
   background-image: linear-gradient(to bottom, transparent 58%, var(--v2-canvas) 100%),
