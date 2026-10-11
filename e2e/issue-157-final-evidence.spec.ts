@@ -40,15 +40,36 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
       : method as TextMethod;
   const isDeckSurface = item.selector === "#start .creation-deck";
   // Deck controls can be recreated as focus/reflow changes the available mode.
-  // Measure stable card text; surface and summary checks still exercise controls.
+  // Measure stable card text with the shared identity guard. Dynamic controls
+  // receive persistent spacing CSS and live measurements below.
   const roles = item.roles ?? [{ role: "surface", selector: `${item.selector} :is(h1,h2,h3,p,a${isDeckSurface ? "" : ",button"})` }];
   if (isDeckSurface) await waitForSettledDeck(page);
+  const controlSpacing = isDeckSurface && textMethod.startsWith("spacing-") ? {
+    "spacing-line-height": { property: "line-height", value: "1.5", ratio: 1.5 },
+    "spacing-paragraph": { property: "margin-bottom", value: "2em", ratio: 2 },
+    "spacing-letter": { property: "letter-spacing", value: ".12em", ratio: .12 },
+    "spacing-word": { property: "word-spacing", value: ".16em", ratio: .16 },
+  }[textMethod as "spacing-line-height" | "spacing-paragraph" | "spacing-letter" | "spacing-word"] : undefined;
+  const controlStyle = controlSpacing ? await page.addStyleTag({ content: `${item.selector} button { ${controlSpacing.property}: ${controlSpacing.value} !important; }` }) : undefined;
+  const controlObservations: unknown[] = [];
+  const verifyLiveControls = async (phase: string) => {
+    if (!controlSpacing) return;
+    const controls = await page.locator(`${item.selector} button`).evaluateAll((buttons, property) => buttons.map(button => {
+      const css = getComputedStyle(button);
+      return { label: button.getAttribute("aria-label") ?? button.textContent, fontPx: Number.parseFloat(css.fontSize), valuePx: Number.parseFloat(css.getPropertyValue(property)) };
+    }), controlSpacing.property);
+    expect(controls.length, `${item.id}: ${phase} controls`).toBeGreaterThan(0);
+    for (const control of controls) expect(control.valuePx / control.fontPx, `${item.id}: ${phase}: ${control.label}`).toBeCloseTo(controlSpacing.ratio, 2);
+    controlObservations.push({ phase, property: controlSpacing.property, requested: controlSpacing.value, controls });
+  };
   const recoveredSummaries = isDeckSurface ? await verifyDeckSummaryRecovery(page, { roles, method: textMethod, factor: item.factor ?? 1 }) : new Set<string>();
+  await verifyLiveControls("after-summary-recovery");
   const scale = await applyTextMethod(page, roles, textMethod, item.factor ?? 1);
   expect(scale.sufficient, `${item.id}: ${JSON.stringify(scale)}`).toBe(true);
   if (isDeckSurface) await waitForSettledDeck(page);
   const surface = await probeSurface(page, item.selector, item.minimumTarget ?? 44, 3);
   if (isDeckSurface) await waitForSettledDeck(page);
+  await verifyLiveControls("after-focus-and-surface-probe");
   const widths = await diagnoseWidths(page);
   const deckMode = item.selector === "#start .creation-deck" && await page.locator(item.selector).getAttribute("data-mode") === "deck";
   const deckActiveContained = !deckMode || await page.locator(item.selector).evaluate((root) => {
@@ -77,6 +98,7 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
     !(deckMode && vertical && !horizontal && recoveredSummaries.has(selector)));
   const screenshot = `${item.id}.png`;
   await page.screenshot({ path: path.join(output, screenshot), fullPage: true });
+  if (controlSpacing) await writeFile(path.join(output, `${item.id}-controls.json`), `${JSON.stringify(controlObservations, null, 2)}\n`);
   const semantics = await page.locator(item.selector).evaluate((root) => {
     const controls = [...root.querySelectorAll<HTMLElement>("a[href],button,input,select,textarea,summary")]
       .filter((element) => element.getClientRects().length > 0);
@@ -116,6 +138,7 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
     reviewerDecision: failed ? "FAIL" : "PASS", review: item.review ?? { kind: "automated", reviewer: "Issue #157 final evidence emitter" }, capturedAt: new Date().toISOString(),
   });
   await scale.restore();
+  if (controlStyle) await controlStyle.evaluate(style => style.remove());
   if (isDeckSurface) await waitForSettledDeck(page);
   expect(failed, `${item.id}: ${JSON.stringify({ widths, surface })}`).toBe(false);
 }
