@@ -1,3 +1,4 @@
+import { publishedArticles } from "../data/articles";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { expect, test, type Page } from "./fixtures";
@@ -8,6 +9,8 @@ import { applyTextMethod, probeSurface, type TextMethod, type TextRole } from ".
 import { validateExecutionSubset, validateFinalExecution } from "./acceptance/reflow-matrix";
 import { verifyDeckSummaryRecovery, waitForSettledDeck } from "./acceptance/deck-summary";
 import { cleanSourceIdentity } from "./acceptance/source-identity";
+
+const startArticleCount = publishedArticles.filter(article => article.purpose === "start").length;
 
 test.describe.configure({ mode: "serial" });
 
@@ -35,15 +38,38 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
     : method === "text-spacing"
       ? (`spacing-${item.spacing?.override}` as TextMethod)
       : method as TextMethod;
-  const roles = item.roles ?? [{ role: "surface", selector: `${item.selector} :is(h1,h2,h3,p,a,button)` }];
   const isDeckSurface = item.selector === "#start .creation-deck";
+  // Deck controls can be recreated as focus/reflow changes the available mode.
+  // Measure stable card text with the shared identity guard. Dynamic controls
+  // receive persistent spacing CSS and live measurements below.
+  const roles = item.roles ?? [{ role: "surface", selector: `${item.selector} :is(h1,h2,h3,p,a${isDeckSurface ? "" : ",button"})` }];
   if (isDeckSurface) await waitForSettledDeck(page);
+  const controlSpacing = isDeckSurface && textMethod.startsWith("spacing-") ? {
+    "spacing-line-height": { property: "line-height", value: "1.5", ratio: 1.5 },
+    "spacing-paragraph": { property: "margin-bottom", value: "2em", ratio: 2 },
+    "spacing-letter": { property: "letter-spacing", value: ".12em", ratio: .12 },
+    "spacing-word": { property: "word-spacing", value: ".16em", ratio: .16 },
+  }[textMethod as "spacing-line-height" | "spacing-paragraph" | "spacing-letter" | "spacing-word"] : undefined;
+  const controlStyle = controlSpacing ? await page.addStyleTag({ content: `${item.selector} button { ${controlSpacing.property}: ${controlSpacing.value} !important; }` }) : undefined;
+  const controlObservations: unknown[] = [];
+  const verifyLiveControls = async (phase: string) => {
+    if (!controlSpacing) return;
+    const controls = await page.locator(`${item.selector} button`).evaluateAll((buttons, property) => buttons.map(button => {
+      const css = getComputedStyle(button);
+      return { label: button.getAttribute("aria-label") ?? button.textContent, fontPx: Number.parseFloat(css.fontSize), valuePx: Number.parseFloat(css.getPropertyValue(property)) };
+    }), controlSpacing.property);
+    expect(controls.length, `${item.id}: ${phase} controls`).toBeGreaterThan(0);
+    for (const control of controls) expect(control.valuePx / control.fontPx, `${item.id}: ${phase}: ${control.label}`).toBeCloseTo(controlSpacing.ratio, 2);
+    controlObservations.push({ phase, property: controlSpacing.property, requested: controlSpacing.value, controls });
+  };
   const recoveredSummaries = isDeckSurface ? await verifyDeckSummaryRecovery(page, { roles, method: textMethod, factor: item.factor ?? 1 }) : new Set<string>();
+  await verifyLiveControls("after-summary-recovery");
   const scale = await applyTextMethod(page, roles, textMethod, item.factor ?? 1);
   expect(scale.sufficient, `${item.id}: ${JSON.stringify(scale)}`).toBe(true);
   if (isDeckSurface) await waitForSettledDeck(page);
   const surface = await probeSurface(page, item.selector, item.minimumTarget ?? 44, 3);
   if (isDeckSurface) await waitForSettledDeck(page);
+  await verifyLiveControls("after-focus-and-surface-probe");
   const widths = await diagnoseWidths(page);
   const deckMode = item.selector === "#start .creation-deck" && await page.locator(item.selector).getAttribute("data-mode") === "deck";
   const deckActiveContained = !deckMode || await page.locator(item.selector).evaluate((root) => {
@@ -72,6 +98,7 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
     !(deckMode && vertical && !horizontal && recoveredSummaries.has(selector)));
   const screenshot = `${item.id}.png`;
   await page.screenshot({ path: path.join(output, screenshot), fullPage: true });
+  if (controlSpacing) await writeFile(path.join(output, `${item.id}-controls.json`), `${JSON.stringify(controlObservations, null, 2)}\n`);
   const semantics = await page.locator(item.selector).evaluate((root) => {
     const controls = [...root.querySelectorAll<HTMLElement>("a[href],button,input,select,textarea,summary")]
       .filter((element) => element.getClientRects().length > 0);
@@ -111,6 +138,7 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
     reviewerDecision: failed ? "FAIL" : "PASS", review: item.review ?? { kind: "automated", reviewer: "Issue #157 final evidence emitter" }, capturedAt: new Date().toISOString(),
   });
   await scale.restore();
+  if (controlStyle) await controlStyle.evaluate(style => style.parentNode?.removeChild(style));
   if (isDeckSurface) await waitForSettledDeck(page);
   expect(failed, `${item.id}: ${JSON.stringify({ widths, surface })}`).toBe(false);
 }
@@ -188,7 +216,9 @@ test("V3 route, state, text, navigation, affiliate, and SEO observations", async
   }
   await page.goto("/compare/?ids=github-copilot,cursor"); await page.goBack(); await page.goForward();
   await observe(page, browserName, records, { id: "v3-compare-navigation", caseId: "VL-V3-COMPARE-NAV", variantId: "url-history-focus-project-return", route: "/compare/", selector: ".compare-page", coverage: ["journey", "focus-reachability"], minimumTarget: 0 });
-  await base("VL-V3-ARTICLE-HUB", "non-start-groups-and-long-metadata", "/articles/", ".article-hub", ["viewport-reflow", "semantic-row", "text-scale"]);
+  // This viewport-only observation does not change typography. Deck buttons
+  // can remount during focus probing; their spacing is measured in V4 below.
+  await base("VL-V3-ARTICLE-HUB", "non-start-groups-and-long-metadata", "/articles/", ".article-hub", ["viewport-reflow", "semantic-row", "text-scale"], [{ role: "hub-copy", selector: ".article-hub :is(h1,h2,h3,p,a,button):not(.creation-deck button)" }]);
   const articleRoute = "/articles/elevenlabs-commercial-use-game/";
   for (const [suffix, factor, method, width] of [["100", 1, "synthetic-computed-text", 320], ["150", 1.5, "synthetic-computed-text", 320], ["200", 2, "synthetic-computed-text", 375]] as const) await observe(page, browserName, records, { id: `v3-reading-${suffix}`, caseId: "VL-V3-ARTICLE-READING", variantId: "how-to-code-and-commercial-pricing-table", route: articleRoute, selector: ".article-shell", width, method, factor, coverage: ["long-content", "owned-scroll", `factor-${suffix}`, `viewport-${width}`], roles: [{ role: "title", selector: ".article-shell h1" }, { role: "body", selector: ".article-shell p" }], minimumTarget: 0 });
   await page.goto(articleRoute);
@@ -213,7 +243,7 @@ test("V3 route, state, text, navigation, affiliate, and SEO observations", async
 test("V4 dynamic input, cancellation, follow-up, focus, and budget observations", async ({ page, browser, browserName }) => {
   test.setTimeout(180_000); await mkdir(output, { recursive: true }); const identity = cleanSourceIdentity(); const records: ReflowEvidenceRecord[] = [];
   await page.setViewportSize({ width: 390, height: 844 }); await page.goto("/articles/#start");
-  const deck = page.locator("#start .creation-deck"); const links = deck.locator("ol > li a"); await expect(links).toHaveCount(5);
+  const deck = page.locator("#start .creation-deck"); const links = deck.locator("ol > li a"); await expect(links).toHaveCount(startArticleCount);
   const toggle = page.getByRole("button", { name: "円環で見る" }); if (await toggle.count()) await toggle.click(); await expect(deck).toHaveAttribute("data-mode", "deck");
   const box = await deck.locator("ol").boundingBox(); expect(box).not.toBeNull();
   const gestureTarget = "#start .creation-deck ol";
@@ -246,7 +276,7 @@ test("V4 dynamic input, cancellation, follow-up, focus, and budget observations"
   const generic = async (caseId: string, variants: string[], coverage: string[]) => { for (const variantId of variants) await observe(page, browserName, records, { id: `v4-${caseId}-${variantId}`, caseId, variantId, route: "/articles/#start", selector: "#start .creation-deck", coverage }); };
   const jsOffContext = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
   const jsOff = await jsOffContext.newPage(); await jsOff.goto("/articles/#start");
-  await expect(jsOff.locator("#start .creation-deck ol > li a")).toHaveCount(5); await jsOffContext.close();
+  await expect(jsOff.locator("#start .creation-deck ol > li a")).toHaveCount(startArticleCount); await jsOffContext.close();
   await page.emulateMedia({ reducedMotion: "reduce", forcedColors: "none" }); await page.goto("/articles/#start");
   await expect(page.locator("#start .creation-deck")).toHaveAttribute("data-mode", "list");
   await page.emulateMedia({ reducedMotion: "no-preference", forcedColors: "active" }); await page.reload();

@@ -1,0 +1,9 @@
+{
+  "pass": true,
+  "errors": [],
+  "consoleErrors": [
+    "Unrecognized Content-Security-Policy directive 'navigate-to'.",
+    "Unrecognized Content-Security-Policy directive 'navigate-to'."
+  ],
+  "originalSourceUnchanged": true
+}

@@ -1,0 +1,27 @@
+{
+  "source": "app/articles/ai-browser-game-how-to/page.tsx",
+  "base": "34911361159699c3967eef63530c7fde290876d8",
+  "cases": [
+    {
+      "id": "syntax",
+      "before": "const enemyName = \"スライム\";",
+      "after": "const enemyName = ;",
+      "brokenSha256": "3249748c728a69fa445a2b547a5a9d5a3443f1e96afcb3c1cc5b5458766b6f78",
+      "repairedSha256": "c1a84cf73a313bda6131c9a8335ead8985086fee9d953fb0fd5ccde2d3045bd3"
+    },
+    {
+      "id": "selector",
+      "before": "const fight = document.querySelector(\"#fight\");",
+      "after": "const fight = document.querySelector(\"#attack\");",
+      "brokenSha256": "070cede631046803012bbf2673a853afdae0379a5cc2ed4009b369d2718c8816",
+      "repairedSha256": "c1a84cf73a313bda6131c9a8335ead8985086fee9d953fb0fd5ccde2d3045bd3"
+    },
+    {
+      "id": "reset",
+      "before": "      fight.disabled = false;\n",
+      "after": "",
+      "brokenSha256": "f61752efdba6634d94b52731f938b7787ff8a167599d2a0156c89fc278a822c3",
+      "repairedSha256": "c1a84cf73a313bda6131c9a8335ead8985086fee9d953fb0fd5ccde2d3045bd3"
+    }
+  ]
+}

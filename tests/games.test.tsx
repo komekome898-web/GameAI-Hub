@@ -23,7 +23,7 @@ describe('published games engine', () => {
     expect(getPublishedGames(records.reverse()).map(g => g.slug)).toEqual(['aramon','future-two','future-three']);
     const groups = getHubGroups(records);
     expect(groups.find(g => g.id === 'games')?.items.map(i => i.href)).toEqual(['/games/aramon/','/games/future-two/','/games/future-three/']);
-    expect(groups.filter(g => g.kind !== 'game').flatMap(g => g.items)).toHaveLength(17);
+    expect(groups.filter(g => g.kind !== 'game').flatMap(g => g.items)).toHaveLength(18);
     expect(groups.find(g => g.id === 'practice')?.items.some(i => i.id === 'aramon-production-story')).toBe(true);
   });
   it('rejects unapproved publication and unsafe URLs without guessing conditions', () => {

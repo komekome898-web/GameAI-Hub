@@ -1,6 +1,9 @@
+import { publishedArticles } from "../data/articles";
 import { expect, test } from "./fixtures";
 import { mkdir } from "node:fs/promises";
 import path from "node:path";
+
+const startArticleCount = publishedArticles.filter(article => article.purpose === "start").length;
 
 // This directory is already included in the CI artifact upload contract.
 const evidence = path.join(process.cwd(), "docs/screenshots/issue-157-stage-b");
@@ -30,7 +33,7 @@ test("Creation Deck starts circular, preserves links, and retains a list fallbac
   await page.goto("/articles/#start");
   const deck = page.locator("#start .creation-deck");
   const links = deck.locator("ol > li a");
-  await expect(links).toHaveCount(5);
+  await expect(links).toHaveCount(startArticleCount);
   await expect(deck).toHaveAttribute("data-mode", "deck");
   await expect(deck).toHaveAttribute("data-mode", "deck");
   const stage = deck.locator("ol");
@@ -58,11 +61,11 @@ test("Creation Deck starts circular, preserves links, and retains a list fallbac
   await expect(stage).toBeVisible();
   await expect(followingSection).toBeVisible();
   await page.getByRole("button", { name: "次の記事" }).click();
-  await expect(page.locator(".creation-deck-status")).toContainText("5件中2件目");
+  await expect(page.locator(".creation-deck-status")).toContainText(`${startArticleCount}件中2件目`);
   await page.getByRole("button", { name: "次の記事" }).press("ArrowLeft");
-  await expect(page.locator(".creation-deck-status")).toContainText("5件中1件目");
+  await expect(page.locator(".creation-deck-status")).toContainText(`${startArticleCount}件中1件目`);
   await links.nth(2).focus();
-  await expect(page.locator(".creation-deck-status")).toContainText("5件中3件目");
+  await expect(page.locator(".creation-deck-status")).toContainText(`${startArticleCount}件中3件目`);
   await expect(links.nth(2)).toBeFocused();
   await page.setViewportSize({ width: 600, height: 844 });
   assertSettled(await sampleGeometry());
@@ -92,7 +95,7 @@ test("Creation Deck starts circular, preserves links, and retains a list fallbac
 
   await page.setViewportSize({ width: 320, height: 844 });
   await expect(page.getByRole("button", { name: "円環で見る" })).toHaveCount(0);
-  await expect(links).toHaveCount(5);
+  await expect(links).toHaveCount(startArticleCount);
 });
 
 test("Creation Deck remains usable when session storage is blocked", async ({ page }) => {
@@ -105,7 +108,7 @@ test("Creation Deck remains usable when session storage is blocked", async ({ pa
   await expect(page.locator(".creation-deck")).toHaveCount(1);
   await expect(page.locator("#start .creation-deck")).toHaveAttribute("data-mode", "deck");
   await page.getByRole("button", { name: "次の記事" }).click();
-  await expect(page.locator(".creation-deck-status")).toContainText("5件中2件目");
+  await expect(page.locator(".creation-deck-status")).toContainText(`${startArticleCount}件中2件目`);
 });
 
 test("Creation Deck transfers only control focus when forced flat", async ({ page }) => {
@@ -140,7 +143,7 @@ test("Creation Deck transfers only control focus when forced flat", async ({ pag
 
   await openDeck();
   await page.getByRole("button", { name: "次の記事" }).click();
-  await expect(page.locator(".creation-deck-status")).toContainText("5件中2件目");
+  await expect(page.locator(".creation-deck-status")).toContainText(`${startArticleCount}件中2件目`);
   await page.getByRole("button", { name: "一覧で見る" }).focus();
   await page.setViewportSize({ width: 320, height: 844 });
   await expect(page.locator("#start .creation-deck ol > li a").nth(1)).toBeFocused();

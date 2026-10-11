@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>はじめてのモンスターバトル</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center;
+      font-family: sans-serif; color: #17202a; background: #e8f7ef; }
+    main { box-sizing: border-box; width: min(88%, 360px); padding: 24px; text-align: center;
+      background: white; border: 3px solid #17202a; border-radius: 18px; }
+    h1 { font-size: 1.25rem; line-height: 1.4; }
+    h1 span { display: inline-block; }
+    .hp { font-size: 1.1rem; font-weight: bold; }
+    button { margin: 6px; padding: 12px 18px; font: inherit; font-weight: bold;
+      border: 2px solid #17202a; border-radius: 10px; cursor: pointer; }
+    #fight { color: white; background: #087f5b; }
+    @media (max-width: 220px) {
+      main { width: 100%; padding: 12px 4px; }
+      h1 { font-size: 1rem; }
+      button { margin: 4px 0; padding: 8px 4px; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1><span>モンスター</span><wbr><span>バトル</span></h1>
+    <p class="hp">ゆうしゃ HP: <span id="playerHp">24</span></p>
+    <p class="hp"><span id="enemyName"></span> HP: <span id="enemyHp">18</span></p>
+    <p id="message" aria-live="polite">たたかうを押そう</p>
+    <button id="fight">たたかう</button>
+    <button id="reset">もう一度</button>
+  </main>
+  <script>
+    const enemyName = ; // 最初の改造では、この名前だけを変える
+    let playerHp = 24;
+    let enemyHp = 18;
+    const playerHpText = document.querySelector("#playerHp");
+    const enemyHpText = document.querySelector("#enemyHp");
+    const message = document.querySelector("#message");
+    const fight = document.querySelector("#fight");
+    document.querySelector("#enemyName").textContent = enemyName;
+
+    function draw() {
+      playerHpText.textContent = playerHp;
+      enemyHpText.textContent = enemyHp;
+    }
+    fight.addEventListener("click", () => {
+      enemyHp = Math.max(0, enemyHp - 6);
+      if (enemyHp === 0) {
+        message.textContent = enemyName + "に勝った！";
+        fight.disabled = true;
+      } else {
+        playerHp = Math.max(0, playerHp - 4);
+        message.textContent = enemyName + "が反撃した！";
+      }
+      draw();
+    });
+    document.querySelector("#reset").addEventListener("click", () => {
+      playerHp = 24;
+      enemyHp = 18;
+      fight.disabled = false;
+      message.textContent = "たたかうを押そう";
+      draw();
+    });
+    draw();
+  </script>
+</body>
+</html>

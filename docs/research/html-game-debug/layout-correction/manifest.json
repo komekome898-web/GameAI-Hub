@@ -1,0 +1,40 @@
+{
+  "change": "main: add box-sizing: border-box;",
+  "files": [
+    {
+      "file": "original.html",
+      "originalSha256": "c1a84cf73a313bda6131c9a8335ead8985086fee9d953fb0fd5ccde2d3045bd3",
+      "layoutSha256": "81b766a9b3bc9396fb62e5dc8dd232313391268d45182c7406af2f4130c4db23"
+    },
+    {
+      "file": "reset-broken.html",
+      "originalSha256": "f61752efdba6634d94b52731f938b7787ff8a167599d2a0156c89fc278a822c3",
+      "layoutSha256": "3128265d84deade7f3b6add28a4b0d5552d16d0e2dab9b53109396a2a2ccb3ff"
+    },
+    {
+      "file": "reset-repaired.html",
+      "originalSha256": "c1a84cf73a313bda6131c9a8335ead8985086fee9d953fb0fd5ccde2d3045bd3",
+      "layoutSha256": "81b766a9b3bc9396fb62e5dc8dd232313391268d45182c7406af2f4130c4db23"
+    },
+    {
+      "file": "selector-broken.html",
+      "originalSha256": "070cede631046803012bbf2673a853afdae0379a5cc2ed4009b369d2718c8816",
+      "layoutSha256": "f58d7f9f08f47b2c0c491098307aece5eb5a3d12df995c561209e886e65fd5af"
+    },
+    {
+      "file": "selector-repaired.html",
+      "originalSha256": "c1a84cf73a313bda6131c9a8335ead8985086fee9d953fb0fd5ccde2d3045bd3",
+      "layoutSha256": "81b766a9b3bc9396fb62e5dc8dd232313391268d45182c7406af2f4130c4db23"
+    },
+    {
+      "file": "syntax-broken.html",
+      "originalSha256": "3249748c728a69fa445a2b547a5a9d5a3443f1e96afcb3c1cc5b5458766b6f78",
+      "layoutSha256": "859ec5b5fab6d83f694d2a5d6a714a0554c5216b9c3416abc3fdf82fe5a0bc20"
+    },
+    {
+      "file": "syntax-repaired.html",
+      "originalSha256": "c1a84cf73a313bda6131c9a8335ead8985086fee9d953fb0fd5ccde2d3045bd3",
+      "layoutSha256": "81b766a9b3bc9396fb62e5dc8dd232313391268d45182c7406af2f4130c4db23"
+    }
+  ]
+}

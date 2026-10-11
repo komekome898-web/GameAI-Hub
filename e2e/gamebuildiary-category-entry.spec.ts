@@ -1,6 +1,6 @@
 import { test, expect, type Page } from './fixtures';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { getArticleGroups } from '../data/articles';
+import { getArticleGroups, publishedArticles } from '../data/articles';
 
 const evidence = 'docs/screenshots/shared-category-ring';
 const idle = async (page: Page) => { await expect(page.locator('.creation-deck')).toHaveCount(1); await expect(page.locator('.creation-deck ol')).toHaveAttribute('data-motion', 'idle'); };
@@ -37,7 +37,7 @@ for (const width of [320, 375, 390, 1440]) test(`category entry and all public a
     await expect(page.locator(`[data-category="${group.id}"]`)).toBeFocused();
   }
   await page.getByRole('link', { name: /すべての記事を見る/ }).click();
-  await expect(page.locator('#all li a')).toHaveCount(17);
+  await expect(page.locator('#all li a')).toHaveCount(publishedArticles.length);
   await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'list');
   await expect(page.getByText('ゲーム制作外の検証事例', { exact: true })).toBeVisible();
   await writeFile(`${evidence}/operations-${width}.json`, JSON.stringify({ width, method: 'Chromium viewport emulation; not physical device', operations }, null, 2));
@@ -132,18 +132,18 @@ test('fallback focus, missing images, Japanese enlargement and mode recovery', a
   await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'list');
 });
 
-test('no JavaScript exposes all seventeen normal article links once', async ({ browser }) => {
+test('no JavaScript exposes all published normal article links once', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 844 } });
   const page = await context.newPage();
   await page.goto('/articles/');
-  await expect(page.locator('.article-cluster:not(.category-cluster) .creation-deck li[data-kind="article"] a')).toHaveCount(17);
+  await expect(page.locator('.article-cluster:not(.category-cluster) .creation-deck li[data-kind="article"] a')).toHaveCount(publishedArticles.length);
   await page.locator('#voice li a').nth(1).locator('strong').click();
   await expect(page).toHaveURL(/elevenlabs-v4-game-voice\/$/);
   await context.close();
 });
 
 
-test('START preserves native dragging from the supplied image with five unique cards', async ({ page }) => {
+test('START preserves native dragging from the supplied image with all published cards', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/articles/#start'); await idle(page);
   await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'deck');
@@ -155,5 +155,5 @@ test('START preserves native dragging from the supplied image with five unique c
   await page.mouse.move(x - 170, y, { steps: 12 });
   await page.waitForTimeout(150); await page.mouse.up(); await idle(page);
   await expect(current(page)).toHaveAttribute('data-deck-id', 'before-asking-ai-build-game');
-  await expect(page.locator('.creation-deck li a')).toHaveCount(5);
+  await expect(page.locator('.creation-deck li a')).toHaveCount(publishedArticles.filter(article => article.purpose === 'start').length);
 });

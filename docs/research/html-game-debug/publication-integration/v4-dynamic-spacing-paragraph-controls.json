@@ -1,0 +1,106 @@
+[
+  {
+    "phase": "after-summary-recovery",
+    "property": "margin-bottom",
+    "requested": "2em",
+    "controls": [
+      {
+        "label": "前の記事",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "次の記事",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "一覧で見る",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "概要をすべて表示",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "概要をすべて表示",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "概要をすべて表示",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "概要をすべて表示",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "概要をすべて表示",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "概要をすべて表示",
+        "fontPx": 16,
+        "valuePx": 32
+      }
+    ]
+  },
+  {
+    "phase": "after-focus-and-surface-probe",
+    "property": "margin-bottom",
+    "requested": "2em",
+    "controls": [
+      {
+        "label": "前の記事",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "次の記事",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "一覧で見る",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "概要をすべて表示",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "概要をすべて表示",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "概要をすべて表示",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "概要をすべて表示",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "概要をすべて表示",
+        "fontPx": 16,
+        "valuePx": 32
+      },
+      {
+        "label": "概要をすべて表示",
+        "fontPx": 16,
+        "valuePx": 32
+      }
+    ]
+  }
+]

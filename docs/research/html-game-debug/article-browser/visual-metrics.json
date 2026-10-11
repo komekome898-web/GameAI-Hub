@@ -1,0 +1,179 @@
+{
+  "browser": "151.0.7922.173",
+  "date": "2026-10-11T09:30:41.608Z",
+  "method": "local production build; CSS viewport widths; effective160px/DPR2 is reflow stress, not native browser zoom or a physical device",
+  "viewports": [
+    {
+      "width": 1280,
+      "host": {
+        "viewport": 1280,
+        "scrollWidth": 1280
+      },
+      "frame": {
+        "viewport": 664,
+        "scrollWidth": 664,
+        "heading": "モンスターバトル",
+        "phrases": [
+          "モンスター",
+          "バトル"
+        ]
+      },
+      "resetBefore": {
+        "x": 647.03125,
+        "y": 749.765625,
+        "width": 103.53125,
+        "height": 52
+      },
+      "resetAfter": {
+        "x": 647.03125,
+        "y": 499.765625,
+        "width": 103.53125,
+        "height": 52
+      },
+      "iframeBoxBefore": {
+        "x": 307,
+        "y": 469.6875,
+        "width": 666,
+        "height": 430
+      },
+      "iframeBoxAfter": {
+        "x": 307,
+        "y": 219.6875,
+        "width": 666,
+        "height": 430
+      },
+      "innerScrollBefore": 0,
+      "innerScrollAfter": 0,
+      "resetReachableByOrdinaryWheel": true
+    },
+    {
+      "width": 375,
+      "host": {
+        "viewport": 375,
+        "scrollWidth": 375
+      },
+      "frame": {
+        "viewport": 287,
+        "scrollWidth": 287,
+        "heading": "モンスターバトル",
+        "phrases": [
+          "モンスター",
+          "バトル"
+        ]
+      },
+      "resetBefore": {
+        "x": 134.71875,
+        "y": 881.53125,
+        "width": 103.53125,
+        "height": 52
+      },
+      "resetAfter": {
+        "x": 134.71875,
+        "y": 813.53125,
+        "width": 103.53125,
+        "height": 52
+      },
+      "iframeBoxBefore": {
+        "x": 43,
+        "y": 600.359375,
+        "width": 289,
+        "height": 300
+      },
+      "iframeBoxAfter": {
+        "x": 43,
+        "y": 600.359375,
+        "width": 289,
+        "height": 300
+      },
+      "innerScrollBefore": 0,
+      "innerScrollAfter": 68,
+      "resetReachableByOrdinaryWheel": true
+    },
+    {
+      "width": 320,
+      "host": {
+        "viewport": 320,
+        "scrollWidth": 320
+      },
+      "frame": {
+        "viewport": 254,
+        "scrollWidth": 254,
+        "heading": "モンスターバトル",
+        "phrases": [
+          "モンスター",
+          "バトル"
+        ]
+      },
+      "resetBefore": {
+        "x": 107.015625,
+        "y": 881.0625,
+        "width": 103.53125,
+        "height": 52
+      },
+      "resetAfter": {
+        "x": 107.015625,
+        "y": 813.0625,
+        "width": 103.53125,
+        "height": 52
+      },
+      "iframeBoxBefore": {
+        "x": 31.796875,
+        "y": 599.890625,
+        "width": 256.40625,
+        "height": 300
+      },
+      "iframeBoxAfter": {
+        "x": 31.796875,
+        "y": 599.890625,
+        "width": 256.40625,
+        "height": 300
+      },
+      "innerScrollBefore": 0,
+      "innerScrollAfter": 68,
+      "resetReachableByOrdinaryWheel": true
+    },
+    {
+      "width": 160,
+      "host": {
+        "viewport": 160,
+        "scrollWidth": 160
+      },
+      "frame": {
+        "viewport": 96,
+        "scrollWidth": 96,
+        "heading": "モンスターバトル",
+        "phrases": [
+          "モンスター",
+          "バトル"
+        ]
+      },
+      "resetBefore": {
+        "x": 41.234375,
+        "y": 942.890625,
+        "width": 75.53125,
+        "height": 44
+      },
+      "resetAfter": {
+        "x": 41.234375,
+        "y": 834.890625,
+        "width": 75.53125,
+        "height": 44
+      },
+      "iframeBoxBefore": {
+        "x": 31,
+        "y": 599.609375,
+        "width": 98,
+        "height": 300
+      },
+      "iframeBoxAfter": {
+        "x": 31,
+        "y": 599.609375,
+        "width": 98,
+        "height": 300
+      },
+      "innerScrollBefore": 0,
+      "innerScrollAfter": 108,
+      "resetReachableByOrdinaryWheel": true
+    }
+  ]
+}

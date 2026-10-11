@@ -1,0 +1,52 @@
+[WebServer] (node:36349) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:36362) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:36362) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:36423) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:36419) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:36420) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:36421) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] npm notice
+[WebServer] npm notice New major version of npm available! 11.9.0 -> 12.2.0
+[WebServer] npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+[WebServer] npm notice To update run: npm install -g npm@12.2.0
+[WebServer] npm notice
+
+[WebServer] (node:36483) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:36496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 6 tests using 1 worker
+
+(node:36512) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/6] e2e/articles-background-overflow.spec.ts:8:46 › background fits layout and scrollbar gutter at 1180
+[2/6] e2e/articles-background-overflow.spec.ts:8:46 › background fits layout and scrollbar gutter at 1165
+[3/6] e2e/articles-background-overflow.spec.ts:8:46 › background fits layout and scrollbar gutter at 375
+[4/6] e2e/articles-background-overflow.spec.ts:8:46 › background fits layout and scrollbar gutter at 320
+[5/6] e2e/articles-background-overflow.spec.ts:24:5 › game deck still swipes, focuses and reflows at zoom
+[6/6] e2e/html-game-debug-article.spec.ts:10:7 › HTML game diagnosis and replay at 375px
+  6 passed (58.7s)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
