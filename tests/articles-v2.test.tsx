@@ -12,10 +12,10 @@ vi.mock('next/link', () => ({ default: ({href, children, ...props}: React.Compon
 describe('published purpose registry', () => {
   it('projects every published article once, in approved category order', async () => {
     const groups = getArticleGroups();
-    expect(groups.map(g => [g.id, g.articles.length])).toEqual([['start',5],['3d',3],['voice',3],['practice',6],['games',0]]);
-    expect(groups[0].articles.map(a => a.slug)).toEqual(['ai-browser-game-how-to','before-asking-ai-build-game','small-first-success','github-beginner-game-development','ai-tool-comparison-later']);
+    expect(groups.map(g => [g.id, g.articles.length])).toEqual([['start',6],['3d',3],['voice',3],['practice',6],['games',0]]);
+    expect(groups[0].articles.map(a => a.slug)).toEqual(['ai-browser-game-how-to','before-asking-ai-build-game','small-first-success','github-beginner-game-development','ai-tool-comparison-later','ai-html-game-not-working']);
     expect(groups[2].articles.map(a => a.slug)).toEqual(['elevenlabs-game-development-guide','elevenlabs-v4-game-voice','elevenlabs-commercial-use-game']);
-    expect(new Set(groups.flatMap(g => g.articles.map(a => a.slug))).size).toBe(17);
+    expect(new Set(groups.flatMap(g => g.articles.map(a => a.slug))).size).toBe(18);
     const html = await new Response(await renderToReadableStream(<ArticlesPage />)).text();
     for (const article of articles) expect(html.split(`href="/articles/${article.slug}/"`), article.slug).toHaveLength(article.publicationStatus === 'published' ? 2 : 1);
     expect(html).toContain('ゲーム制作外の検証事例');
@@ -30,7 +30,7 @@ describe('published purpose registry', () => {
     records = records.map(a => a.slug === added.slug ? { ...a, purposeOrder: 1 } : a.purpose === 'start' && a.purposeOrder === 1 ? { ...a, purposeOrder: 8 } : a);
     expect(getArticleGroups(records)[0].articles[0].slug).toBe(added.slug);
     records = records.map(a => a.slug === added.slug ? { ...a, publicationStatus: 'draft' } : a);
-    expect(getArticleGroups(records)[0].articles).toHaveLength(5);
+    expect(getArticleGroups(records)[0].articles).toHaveLength(getArticleGroups()[0].articles.length);
   });
   it('rejects missing/unknown membership, duplicate order and duplicate registration', () => {
     const base: ArticleRecord = { ...articles[0] };
