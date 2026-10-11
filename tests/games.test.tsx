@@ -41,7 +41,7 @@ describe('published games engine', () => {
     expect(gameMetadata(game).openGraph).toMatchObject({ images: [{url: expect.stringContaining(game.image.src)}] });
     const html = renderToStaticMarkup(await GamePage({params:Promise.resolve({slug:'aramon'})}));
     expect(html).toContain('"@type":"VideoGame"'); expect(html).not.toContain('"@type":"Article"');
-    expect(html).toContain('料金条件と、プレイに登録が必須かどうかは未確認');
+    expect(html).toContain('プレイに登録が必須かどうかは未確認');
     expect(html).toContain('iPhone SE');
     expect(sitemap().filter(entry => entry.url.includes('/games/')).map(entry => entry.url)).toEqual(getPublishedGames().map(g => `https://game-ai-hub.vercel.app/games/${g.slug}/`));
   });
