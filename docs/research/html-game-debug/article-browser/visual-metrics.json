@@ -1,6 +1,6 @@
 {
   "browser": "151.0.7922.173",
-  "date": "2026-10-11T09:08:59.477Z",
+  "date": "2026-10-11T09:19:59.436Z",
   "method": "local production build; CSS viewport widths; effective160px/DPR2 is reflow stress, not native browser zoom or a physical device",
   "viewports": [
     {
@@ -30,6 +30,20 @@
         "width": 103.53125,
         "height": 52
       },
+      "iframeBoxBefore": {
+        "x": 307,
+        "y": 469.6875,
+        "width": 666,
+        "height": 430
+      },
+      "iframeBoxAfter": {
+        "x": 307,
+        "y": 219.6875,
+        "width": 666,
+        "height": 430
+      },
+      "innerScrollBefore": 0,
+      "innerScrollAfter": 0,
       "resetReachableByOrdinaryWheel": true
     },
     {
@@ -59,6 +73,20 @@
         "width": 103.53125,
         "height": 52
       },
+      "iframeBoxBefore": {
+        "x": 43,
+        "y": 599.546875,
+        "width": 289,
+        "height": 300
+      },
+      "iframeBoxAfter": {
+        "x": 43,
+        "y": 599.546875,
+        "width": 289,
+        "height": 300
+      },
+      "innerScrollBefore": 0,
+      "innerScrollAfter": 68,
       "resetReachableByOrdinaryWheel": true
     },
     {
@@ -88,6 +116,20 @@
         "width": 103.53125,
         "height": 52
       },
+      "iframeBoxBefore": {
+        "x": 31.796875,
+        "y": 600.078125,
+        "width": 256.40625,
+        "height": 300
+      },
+      "iframeBoxAfter": {
+        "x": 31.796875,
+        "y": 600.078125,
+        "width": 256.40625,
+        "height": 300
+      },
+      "innerScrollBefore": 0,
+      "innerScrollAfter": 68,
       "resetReachableByOrdinaryWheel": true
     },
     {
@@ -117,6 +159,20 @@
         "width": 75.53125,
         "height": 44
       },
+      "iframeBoxBefore": {
+        "x": 31,
+        "y": 599.796875,
+        "width": 98,
+        "height": 300
+      },
+      "iframeBoxAfter": {
+        "x": 31,
+        "y": 599.796875,
+        "width": 98,
+        "height": 300
+      },
+      "innerScrollBefore": 0,
+      "innerScrollAfter": 108,
       "resetReachableByOrdinaryWheel": true
     }
   ]

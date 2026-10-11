@@ -13,6 +13,8 @@ try {
     const page = await browser.newPage({ viewport: { width, height: 900 }, deviceScaleFactor: width === 160 ? 2 : 1 });
     await page.goto(`${process.env.BUILDIARY_LOCAL_URL || "http://127.0.0.1:3105"}/articles/ai-html-game-not-working/`);
     await page.getByRole("heading", { level: 1 }).waitFor();
+    await page.getByRole("complementary", { name: "この記事の読み方" }).waitFor();
+    await page.evaluate(async () => { await document.fonts.ready; });
     await page.screenshot({ path: path.join(output, `viewport-${width}-top.png`) });
     await page.locator("#selector").screenshot({ path: path.join(output, `viewport-${width}-selector-section.png`) });
     await page.getByText("ゲームの実演とコードを開く", { exact: true }).click();
@@ -23,16 +25,19 @@ try {
     await iframe.scrollIntoViewIfNeeded();
     const iframeBox = await iframe.boundingBox();
     const resetBefore = await game.locator("#reset").boundingBox();
+    const innerScrollBefore = await game.locator("html").evaluate((html) => html.ownerDocument.defaultView.scrollY);
     await page.mouse.move(iframeBox.x + iframeBox.width / 2, iframeBox.y + iframeBox.height / 2);
     await page.mouse.wheel(0, 250);
     await page.waitForTimeout(250);
     const resetAfter = await game.locator("#reset").boundingBox();
-    const resetReachableByOrdinaryWheel = resetAfter.y >= iframeBox.y && resetAfter.y + resetAfter.height <= iframeBox.y + iframeBox.height;
+    const iframeBoxAfter = await iframe.boundingBox();
+    const innerScrollAfter = await game.locator("html").evaluate((html) => html.ownerDocument.defaultView.scrollY);
+    const resetReachableByOrdinaryWheel = resetAfter.y >= iframeBoxAfter.y && resetAfter.y + resetAfter.height <= iframeBoxAfter.y + iframeBoxAfter.height;
     if (!resetReachableByOrdinaryWheel) throw new Error(`Reset unreachable by wheel at ${width}`);
     await page.locator(".beginner-game-preview").screenshot({ path: path.join(output, `viewport-${width}-demo.png`) });
     const host = await page.evaluate(() => ({ viewport: innerWidth, scrollWidth: document.documentElement.scrollWidth }));
     const frame = await game.locator("main").evaluate((main) => ({ viewport: main.ownerDocument.defaultView.innerWidth, scrollWidth: main.ownerDocument.documentElement.scrollWidth, heading: main.querySelector("h1").textContent, phrases: [...main.querySelectorAll("h1 span")].map((span) => span.textContent) }));
-    result.viewports.push({ width, host, frame, resetBefore, resetAfter, resetReachableByOrdinaryWheel });
+    result.viewports.push({ width, host, frame, resetBefore, resetAfter, iframeBoxBefore: iframeBox, iframeBoxAfter, innerScrollBefore, innerScrollAfter, resetReachableByOrdinaryWheel });
     await page.close();
   }
 } finally {
