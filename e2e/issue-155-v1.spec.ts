@@ -1,3 +1,4 @@
+import { publishedArticles } from "../data/articles";
 import { expect, test } from "./fixtures";
 import { diagnoseWidths } from "./acceptance/diagnostics";
 import {
@@ -5,6 +6,8 @@ import {
   probeSemanticRow,
   probeSurface,
 } from "./acceptance/reflow";
+
+const startArticleCount = publishedArticles.filter(article => article.purpose === "start").length;
 
 const evidenceDirectory =
   process.env.UPDATE_V1_EVIDENCE === "1"
@@ -47,7 +50,7 @@ test("Explicit START list retains complete responsive article cards", async ({
   await expect(page.locator(".creation-deck")).toHaveCount(1);
 
     await expect(page.locator(".article-cluster-list")).toHaveCount(1);
-    await expect(page.locator("#start li a")).toHaveCount(5);
+    await expect(page.locator("#start li a")).toHaveCount(startArticleCount);
     expect(
       await page
         .locator("#start li a")
@@ -89,10 +92,10 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
   });
   const noScriptPage = await noScript.newPage();
   await noScriptPage.goto("http://127.0.0.1:3100/articles/#start");
-  await expect(noScriptPage.locator("#start li a")).toHaveCount(5);
+  await expect(noScriptPage.locator("#start li a")).toHaveCount(startArticleCount);
   await expect(
     noScriptPage.locator("#start .v2-start-card-description"),
-  ).toHaveCount(5);
+  ).toHaveCount(startArticleCount);
   expect((await diagnoseWidths(noScriptPage)).documentOverflowPx).toBe(0);
   await noScript.close();
 
@@ -106,7 +109,7 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
   });
   await forcedPage.goto("http://127.0.0.1:3100/articles/#start");
   await expect(forcedPage.locator(".creation-deck")).toHaveCount(1);
-  await expect(forcedPage.locator("#start li a")).toHaveCount(5);
+  await expect(forcedPage.locator("#start li a")).toHaveCount(startArticleCount);
   await forcedPage.locator("#start li a").first().focus();
   await expect(forcedPage.locator("#start li a").first()).toBeFocused();
   expect((await diagnoseWidths(forcedPage)).documentOverflowPx).toBe(0);
@@ -133,7 +136,7 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
   expect(
     imageWells.every((well) => Math.abs(well.width / well.height - 2) < 0.02),
   ).toBe(true);
-  await expect(failurePage.locator("#start li a")).toHaveCount(5);
+  await expect(failurePage.locator("#start li a")).toHaveCount(startArticleCount);
   expect((await diagnoseWidths(failurePage)).documentOverflowPx).toBe(0);
   await failure.close();
 
@@ -148,7 +151,7 @@ test("V1 remains readable without JavaScript and in forced colors", async ({
   await expect
     .poll(() => zoomedPage.evaluate(() => window.visualViewport?.scale ?? 1))
     .toBeGreaterThanOrEqual(1.9);
-  await expect(zoomedPage.locator("#start li a")).toHaveCount(5);
+  await expect(zoomedPage.locator("#start li a")).toHaveCount(startArticleCount);
   expect((await diagnoseWidths(zoomedPage)).documentOverflowPx).toBe(0);
   await cdp.detach();
   await zoomed.close();
@@ -185,7 +188,7 @@ for (const width of [320, 375]) {
     const widths = await diagnoseWidths(page);
     expect(widths.documentOverflowPx).toBe(0);
     expect(widths.unownedOverflowingElements).toEqual([]);
-    await expect(page.locator("#start li a")).toHaveCount(5);
+    await expect(page.locator("#start li a")).toHaveCount(startArticleCount);
     const metadataLayouts = await page
       .locator("#start .v2-start-card-meta")
       .evaluateAll((rows) =>
@@ -230,7 +233,7 @@ for (const width of [320, 375]) {
           };
         }),
       );
-    expect(metadataLayouts).toHaveLength(5);
+    expect(metadataLayouts).toHaveLength(startArticleCount);
     expect(
       metadataLayouts.every(
         ({ contained, fullTextVisible, labelLineCount, naturalFits, nonoverlapping, separated }) =>

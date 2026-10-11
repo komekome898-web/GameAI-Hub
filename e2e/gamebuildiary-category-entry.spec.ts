@@ -143,7 +143,7 @@ test('no JavaScript exposes all published normal article links once', async ({ b
 });
 
 
-test('START preserves native dragging from the supplied image with five unique cards', async ({ page }) => {
+test('START preserves native dragging from the supplied image with all published cards', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/articles/#start'); await idle(page);
   await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'deck');
@@ -155,5 +155,5 @@ test('START preserves native dragging from the supplied image with five unique c
   await page.mouse.move(x - 170, y, { steps: 12 });
   await page.waitForTimeout(150); await page.mouse.up(); await idle(page);
   await expect(current(page)).toHaveAttribute('data-deck-id', 'before-asking-ai-build-game');
-  await expect(page.locator('.creation-deck li a')).toHaveCount(5);
+  await expect(page.locator('.creation-deck li a')).toHaveCount(publishedArticles.filter(article => article.purpose === 'start').length);
 });

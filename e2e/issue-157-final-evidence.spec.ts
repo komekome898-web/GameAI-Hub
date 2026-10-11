@@ -1,3 +1,4 @@
+import { publishedArticles } from "../data/articles";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { expect, test, type Page } from "./fixtures";
@@ -8,6 +9,8 @@ import { applyTextMethod, probeSurface, type TextMethod, type TextRole } from ".
 import { validateExecutionSubset, validateFinalExecution } from "./acceptance/reflow-matrix";
 import { verifyDeckSummaryRecovery, waitForSettledDeck } from "./acceptance/deck-summary";
 import { cleanSourceIdentity } from "./acceptance/source-identity";
+
+const startArticleCount = publishedArticles.filter(article => article.purpose === "start").length;
 
 test.describe.configure({ mode: "serial" });
 
@@ -213,7 +216,7 @@ test("V3 route, state, text, navigation, affiliate, and SEO observations", async
 test("V4 dynamic input, cancellation, follow-up, focus, and budget observations", async ({ page, browser, browserName }) => {
   test.setTimeout(180_000); await mkdir(output, { recursive: true }); const identity = cleanSourceIdentity(); const records: ReflowEvidenceRecord[] = [];
   await page.setViewportSize({ width: 390, height: 844 }); await page.goto("/articles/#start");
-  const deck = page.locator("#start .creation-deck"); const links = deck.locator("ol > li a"); await expect(links).toHaveCount(5);
+  const deck = page.locator("#start .creation-deck"); const links = deck.locator("ol > li a"); await expect(links).toHaveCount(startArticleCount);
   const toggle = page.getByRole("button", { name: "円環で見る" }); if (await toggle.count()) await toggle.click(); await expect(deck).toHaveAttribute("data-mode", "deck");
   const box = await deck.locator("ol").boundingBox(); expect(box).not.toBeNull();
   const gestureTarget = "#start .creation-deck ol";
@@ -246,7 +249,7 @@ test("V4 dynamic input, cancellation, follow-up, focus, and budget observations"
   const generic = async (caseId: string, variants: string[], coverage: string[]) => { for (const variantId of variants) await observe(page, browserName, records, { id: `v4-${caseId}-${variantId}`, caseId, variantId, route: "/articles/#start", selector: "#start .creation-deck", coverage }); };
   const jsOffContext = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
   const jsOff = await jsOffContext.newPage(); await jsOff.goto("/articles/#start");
-  await expect(jsOff.locator("#start .creation-deck ol > li a")).toHaveCount(5); await jsOffContext.close();
+  await expect(jsOff.locator("#start .creation-deck ol > li a")).toHaveCount(startArticleCount); await jsOffContext.close();
   await page.emulateMedia({ reducedMotion: "reduce", forcedColors: "none" }); await page.goto("/articles/#start");
   await expect(page.locator("#start .creation-deck")).toHaveAttribute("data-mode", "list");
   await page.emulateMedia({ reducedMotion: "no-preference", forcedColors: "active" }); await page.reload();
