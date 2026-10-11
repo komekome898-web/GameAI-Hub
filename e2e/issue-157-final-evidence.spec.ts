@@ -138,7 +138,7 @@ async function observe(page: Page, browserName: string, records: ReflowEvidenceR
     reviewerDecision: failed ? "FAIL" : "PASS", review: item.review ?? { kind: "automated", reviewer: "Issue #157 final evidence emitter" }, capturedAt: new Date().toISOString(),
   });
   await scale.restore();
-  if (controlStyle) await controlStyle.evaluate(style => style.remove());
+  if (controlStyle) await controlStyle.evaluate(style => style.parentNode?.removeChild(style));
   if (isDeckSurface) await waitForSettledDeck(page);
   expect(failed, `${item.id}: ${JSON.stringify({ widths, surface })}`).toBe(false);
 }
