@@ -444,12 +444,12 @@ export const articles = [
       "Voice Cloning",
     ],
     publishedAt: "2026-09-30",
-    updatedAt: "2026-10-04",
+    updatedAt: "2026-10-11",
     publicationStatus: "published",
     lastVerifiedAt: "2026-09-30",
     author: "AI Iterproof編集部",
     editorialNote:
-      "ElevenLabs公式のv4公開情報、製品ページ、モデル、TTS、prompting、Text to Dialogue、Voice Cloning、Pricing、Termsを2026-09-30に再確認しました。GameBuildiaryによる音声生成・試聴評価ではなく、掲載セリフは再現用テスト手順です。",
+      "ElevenLabs公式のv4公開情報、製品ページ、モデル、TTS、prompting、Text to Dialogue、Voice Cloning、Pricing、Termsを2026-09-30に再確認しました。2026-10-11にText to Dialogue概要の話者数上限なしの説明とCreate dialogue APIの1リクエスト最大10個の異なるvoice ID制限を再確認し、適用範囲を補足しました。他の資料の確認日は据え置きです。GameBuildiaryによる音声生成・試聴評価ではなく、掲載セリフは再現用テスト手順です。",
     sources: [
       {
         label: "ElevenLabs: Eleven v4 release",
@@ -485,7 +485,13 @@ export const articles = [
         label: "ElevenLabs Docs: Text to Dialogue",
         url: "https://elevenlabs.io/docs/overview/capabilities/text-to-dialogue",
         kind: "primary",
-        verifiedAt: "2026-09-30",
+        verifiedAt: "2026-10-11",
+      },
+      {
+        label: "ElevenLabs API: Create dialogue",
+        url: "https://elevenlabs.io/docs/api-reference/text-to-dialogue/convert",
+        kind: "primary",
+        verifiedAt: "2026-10-11",
       },
       {
         label: "ElevenLabs Docs: Voice Cloning",
