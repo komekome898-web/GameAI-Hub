@@ -54,7 +54,7 @@ for (const width of [1280, 375, 320]) {
         expect(await snapshot()).toEqual(initial);
         await page.getByRole("button", { name: "ゲームを表示", exact: true }).click();
         await expect(page.locator(".beginner-runtime-error")).toBeVisible();
-        expect(pageErrors.slice(countBefore)).toHaveLength(2);
+        await expect.poll(() => pageErrors.slice(countBefore)).toHaveLength(2);
       } else {
         for (let round = 1; round <= 2; round++) {
           for (const [player, enemy] of [[20, 12], [16, 6], [16, 0]]) {
