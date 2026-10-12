@@ -79,4 +79,19 @@ describe('published games engine', () => {
     render(<ArticleReturnLink slug="aramon" purpose="games" label="作品一覧へ戻る" />);
     expect(screen.getByRole('link').getAttribute('href')).toBe('/articles/?hubArticle=aramon#games');
   });
+  it('accepts the exact Home game return without propagating extra query content', async () => {
+    sessionStorage.setItem('gameai-article-return', JSON.stringify({id:'aramon',href:'/?homeGame=aramon&extra=discard#games'}));
+    render(<ArticleReturnLink slug="aramon" purpose="games" label="作品一覧へ戻る" />);
+    await waitFor(() => expect(screen.getByRole('link').getAttribute('href')).toBe('/?homeGame=aramon#games'));
+  });
+  it('preserves an explicit Home list return', async () => {
+    sessionStorage.setItem('gameai-article-return',JSON.stringify({id:'aramon',href:'/?homeGame=aramon&homeView=list#games'}));
+    render(<ArticleReturnLink slug="aramon" purpose="games" label="作品一覧へ戻る" />);
+    await waitFor(() => expect(screen.getByRole('link').getAttribute('href')).toBe('/?homeGame=aramon&homeView=list#games'));
+  });
+  it.each(['//evil.example/?homeGame=aramon#games','/?homeGame=other#games','/?homeGame=aramon#all'])('rejects mismatched Home return %s', async href => {
+    sessionStorage.setItem('gameai-article-return',JSON.stringify({id:'aramon',href}));
+    render(<ArticleReturnLink slug="aramon" purpose="games" label="作品一覧へ戻る" />);
+    await waitFor(() => expect(screen.getByRole('link').getAttribute('href')).toBe('/articles/?hubArticle=aramon#games'));
+  });
 });

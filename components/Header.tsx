@@ -23,9 +23,22 @@ const focusableSelector =
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const home = pathname === "/";
   const menuButton = useRef<HTMLButtonElement>(null);
   const menuPanel = useRef<HTMLDivElement>(null);
+  const headerRoot = useRef<HTMLElement>(null);
   const active = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+
+  useEffect(() => {
+    const header = headerRoot.current;
+    if (!home || !header) return;
+    const measure = () => header.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(measure);
+    observer?.observe(header);
+    measure();
+    window.addEventListener('resize', measure);
+    return () => { observer?.disconnect(); window.removeEventListener('resize', measure); header.style.removeProperty('--header-height'); };
+  }, [home]);
 
   useEffect(() => {
     if (!open) return;
@@ -72,14 +85,14 @@ export function Header() {
   };
 
   return (
-    <header className="site-header">
+    <header ref={headerRoot} className={`site-header${home ? " b3-site-header" : ""}`}>
       <div className="header-inner">
         <Link className="brand" href="/" aria-label="GameBuildiary ホーム">
           <span className="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32">
+            {home ? <svg viewBox="0 0 40 40" fill="none"><rect className="b3-mark-case" x="1" y="1" width="38" height="38" rx="10" /><path className="b3-mark-back" d="M9 13 24 10l4 20-15 3z" /><rect className="b3-mark-page" x="15" y="8" width="16" height="23" rx="3" /><path className="b3-mark-line" d="M19 14h8M19 19h8M19 24h4" /><path className="b3-mark-pixel" d="M27 25h4v4h-4zM31 29h3v3h-3z" /></svg> : <svg viewBox="0 0 32 32">
               <path d="M6 7h20v18H6z" />
               <path d="M10 12h12M10 16h8M10 20h10" />
-            </svg>
+            </svg>}
           </span>
           <span className="brand-copy">
             <strong>GameBuildiary</strong>
@@ -87,14 +100,14 @@ export function Header() {
           </span>
         </Link>
         <nav className="main-nav" aria-label="メインナビゲーション">
-          {primaryLinks.map(([href, label]) => (
-            <Link key={href} href={href} aria-current={active(href) ? "page" : undefined}>
+          {(home ? [["/#games", "ゲームで遊ぶ"], ["/articles", "作り方を知る"], ["/tools", "AIを選ぶ"]] : primaryLinks).map(([href, label]) => (
+            <Link key={href} href={href} aria-current={active(href) || (home && href === "/#games") ? "page" : undefined}>
               {label}
             </Link>
           ))}
         </nav>
         <Link className="header-cta" href="/project">
-          最初の作業を作る <span aria-hidden="true">→</span>
+          {home ? <><span className="b3-cta-desktop">制作を始める</span><span className="b3-cta-mobile">作る</span></> : "最初の作業を作る"} <span aria-hidden="true">{home ? "↗" : "→"}</span>
         </Link>
         <button
           ref={menuButton}
@@ -120,6 +133,7 @@ export function Header() {
               <button type="button" className="mobile-menu-close" aria-label="メニューを閉じる" onClick={closeAndReturnFocus}>×</button>
             </div>
             <nav aria-label="モバイルナビゲーション">
+              {home && <Link href="/#games" onClick={() => setOpen(false)}>ゲームで遊ぶ<span aria-hidden="true">→</span></Link>}
               {menuGroups.map((group) => (
                 <div className="mobile-menu-group" key={group.label}>
                   <span className="mobile-menu-label">{group.label}</span>

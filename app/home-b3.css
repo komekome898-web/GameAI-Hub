@@ -1,0 +1,139 @@
+/* Approved B3: Home only. Reading and working routes keep their existing theme. */
+body.visual-layer-v2:has(.home-b3) {
+  --text:#f1f0e7; --muted:#b9beb5; --line:#4a574b; --accent:#e9c383; --accent-strong:#e9c383;
+  background:#171e1e; color:#f1f0e7;
+}
+body:has(.home-b3) main { max-width:1280px; padding-inline:28px; }
+.home-b3 { position:relative; isolation:isolate; color:#f1f0e7; }
+.b3-ambient { position:absolute; z-index:-1; top:-84px; left:calc(-1 * max(28px,(100vw - 1224px)/2)); width:calc(100% + 2 * max(28px,(100vw - 1224px)/2)); height:1350px; overflow:hidden; pointer-events:none; background:linear-gradient(142deg,#303a32,#202b2a 43%,#162020 74%,#171e1e); }
+.b3-ambient span { position:absolute; inset:0; }
+.b3-ambient span:first-child { background:radial-gradient(ellipse 85% 55% at 16% -6%,#d9dcba29,transparent 76%),radial-gradient(ellipse 66% 55% at 91% 34%,#799d9222,transparent 77%); }
+.b3-ambient span:nth-child(2) { clip-path:polygon(64% 0,100% 0,100% 79%,22% 79%); background:linear-gradient(116deg,#d2d8ba18,#728a7d0a 56%,#14202103); }
+.b3-ambient span:last-child { background:repeating-linear-gradient(0deg,#e1e2c603 0 1px,transparent 1px 4px); mask-image:linear-gradient(#000 0 68%,transparent); }
+body.visual-layer-v2 .b3-site-header { --header-height:84px; height:auto; background:#202b27; border:0; backdrop-filter:none; padding:10px 28px; }
+.b3-site-header .header-inner { height:auto; min-height:64px; max-width:1224px; padding:5px 16px; gap:22px; border:1px solid #74816866; border-radius:13px; background:linear-gradient(122deg,#303a2e,#222c28 65%,#28312a); box-shadow:inset 0 1px 0 #e5ead423,0 8px 24px #07120c21; }
+.b3-site-header .brand { min-height:44px; gap:10px; margin-right:auto; }
+.b3-site-header .brand-copy { display:grid!important; }
+.b3-site-header .brand-copy strong { font-size:1.375rem; letter-spacing:-.05em; color:#f1f0e7; }
+.b3-site-header .brand-copy small { display:block; font-size:.625rem; color:#c5ceb9; }
+.b3-site-header .brand-mark { width:38px; height:38px; flex:0 0 38px; border:0; background:none; box-shadow:none; }
+.b3-site-header .brand-mark svg { width:100%; height:100%; stroke-width:1.15; }
+.b3-mark-case { fill:#15211b; stroke:#8e9e7b; }.b3-mark-back { stroke:#839881; }.b3-mark-page { fill:#2e3b2d; stroke:#e1e8d4; }.b3-mark-line { stroke:#d7e0c8; stroke-width:1.4; }.b3-mark-pixel { fill:#e9c383; stroke:none; }
+.b3-site-header .main-nav { padding:3px; gap:3px; border:1px solid #71846333; border-radius:8px; background:#16221b; }
+.b3-site-header .main-nav a { min-height:44px; display:flex; align-items:center; justify-content:center; padding:10px 18px; border-radius:5px; color:#cad3c0; font-size:.75rem; }
+.b3-site-header .main-nav a[aria-current] { background:linear-gradient(120deg,#ded8be,#c9c9ac); color:#293124; }
+.b3-site-header .header-cta { display:flex; align-items:center; gap:13px; min-height:44px; padding:5px 6px 5px 14px; border:1px solid #a3b58a62; border-radius:7px; background:#35432f; color:#ebefd9; font-size:.75rem; white-space:normal; }
+.b3-site-header .header-cta>span:last-child { width:31px; height:31px; display:grid; place-items:center; border-radius:4px; background:#d5d5b8; color:#273025; font-size:1.2rem; }
+.b3-cta-mobile { display:none; }
+.b3-site-header .menu-button { background:#26352b; border-color:#839578; color:#f1f0e7; }
+.b3-site-header .mobile-menu-label { color:#52645e; }
+.b3-site-header .mobile-menu :focus-visible { outline-color:#0b6855; }
+.b3-site-header :focus-visible,.home-b3 :focus-visible { outline:3px solid #f5d79e; outline-offset:4px; }
+.b3-play-hero { padding:12px 0 24px; }
+.b3-intro { position:relative; margin-bottom:12px; }
+.b3-eyebrow { margin:0 0 10px; color:#d4d9c4; font-size:.6875rem; letter-spacing:.16em; }
+.home-b3 .b3-intro h1 { margin:0 0 10px; font-family:var(--font-sans),sans-serif; font-size:clamp(2rem,4.3vw,3.8125rem); font-weight:650; letter-spacing:-.045em; line-height:1.3; }
+.b3-intro h1 em { margin-left:18px; font-weight:500; font-style:normal; color:#e0d4b7; }
+.b3-intro-note { margin:0; color:#c3cbb9; font-size:.875rem; line-height:1.6; }
+.b3-beginner-note { position:absolute; right:0; bottom:0; max-width:220px; margin:0; color:#c3cbb9; font-size:.75rem; line-height:1.8; }
+.b3-beginner-note a { display:block; color:#ebd09e; min-height:44px; padding-top:10px; }
+.b3-gallery-bar { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:44px; color:#c9d1be; font-size:.75rem; }
+.b3-showcase-controls { display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+.b3-showcase-controls button { min-width:44px; min-height:44px; padding:8px 12px; border:1px solid #879b7170; border-radius:6px; background:#2a382b; color:#efeddb; font:inherit; cursor:pointer; touch-action:manipulation; }
+.b3-showcase-controls button:disabled { opacity:.4; cursor:default; }
+.b3-stage-window { padding:10px 6px 28px; }
+.b3-game-stage { list-style:none; margin:0; padding:0; }
+.b3-game-stage>li { width:min(640px,100%); margin:0 auto 36px; min-width:0; }
+.b3-showcase[data-mode=deck] .b3-stage-window { overflow:clip; }
+.b3-showcase[data-mode=deck] .b3-game-stage { position:relative; height:450px; touch-action:pan-y pinch-zoom; }
+.b3-showcase[data-mode=deck] .b3-game-stage>li { position:absolute; top:0; inset-inline:0; margin:0 auto; transform-origin:top center; }
+.b3-showcase[data-mode=deck] .b3-static-copy { display:none; }
+.b3-art-card { position:relative; isolation:isolate; border:1px solid #a1ab886b; border-bottom-color:#d4d3aa9c; border-radius:10px; padding:10px; background:linear-gradient(135deg,#46513b,#303b2e 45%,#293428); box-shadow:inset 0 1px 0 #edf0cf66,0 19px 32px #050d0773; }
+.b3-art-card::before,.b3-art-card::after { content:""; position:absolute; inset:0; z-index:-1; border-radius:inherit; pointer-events:none; }
+.b3-art-card::before { transform:translate(3px,9px); background:linear-gradient(110deg,#111d15,#69725a 36%,#303f2c 72%,#16241b); border:1px solid #81926b70; box-shadow:0 2px 0 #08140fe0,0 7px 10px #030b074d,0 20px 26px #03090747; }
+.b3-art-card::after { transform:translate(1px,4px); background:linear-gradient(135deg,#9ca47c,#4b5d3c 42%,#1b2b20 83%); border:1px solid #a5b0866e; box-shadow:0 1px 0 #d0d0a24a; }
+.b3-frame-face { position:absolute; inset:0; z-index:0; pointer-events:none; border-radius:inherit; background:linear-gradient(135deg,#3b4832,#2c392a 54%,#253225); border:1px solid #a1ab886b; }
+.b3-art-top,.b3-art-link,.b3-art-credit { position:relative; z-index:1; }
+.b3-art-top { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:2px 4px 8px; color:#cdd6c2; font-size:.625rem; line-height:1.5; }
+.b3-art-top>span:last-child { text-align:right; }
+.b3-art-link { display:block; text-decoration:none; }
+.b3-art-link img { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; background:#131b17; border-radius:4px; box-shadow:0 0 0 1px #07120cb3,0 0 0 2px #bdc59d3b; filter:none; opacity:1; user-select:none; }
+.b3-art-credit { display:flex; justify-content:space-between; flex-wrap:wrap; gap:5px 10px; padding:8px 4px 0; color:#cdd6c2; font-size:.6875rem; line-height:1.5; }
+.b3-art-credit>span:last-child { letter-spacing:.1em; font-size:.5625rem; }
+.b3-game-selection { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:22px; max-width:920px; margin:0 auto; }
+.b3-game-meta { display:flex; flex-wrap:wrap; gap:12px; color:#c5cebb; font-size:.75rem; line-height:1.6; margin:0 0 5px; }
+.b3-game-meta span { border-left:1px solid #859071; padding-left:12px; }
+.b3-game-selection h2,.b3-static-copy h3 { font-size:1.5625rem; line-height:1.45; letter-spacing:-.035em; margin:0 0 8px; }
+.b3-game-selection h2 a,.b3-static-copy h3 a { text-decoration:none; }
+.b3-game-description { font-size:.875rem; line-height:1.8; color:#c0c8b7; margin:0; }
+.b3-game-note { font-size:.6875rem; line-height:1.6; color:#c0c8b7; margin:7px 0 0; }
+.b3-game-actions { display:flex; flex-direction:column; gap:6px; min-width:150px; }
+body.visual-layer-v2 .home-b3 .b3-game-actions .button { min-height:48px; padding:10px 20px; border:1px solid #f7e1b384; border-radius:7px; background:linear-gradient(130deg,#f5deb0,#d9b472); color:#2e281d; box-shadow:inset 0 1px 0 #fff7dc9e,0 5px 18px #060f0740; font-size:.875rem; }
+.b3-game-detail { display:flex; align-items:center; justify-content:center; gap:10px; min-height:44px; padding:8px; color:#e0e5d6; font-size:.75rem; text-decoration:none; }
+.b3-production-link { display:inline-flex; align-items:center; min-height:44px; color:#ebd09e; font-size:.75rem; }
+.b3-deck-help { text-align:center; font-size:.6875rem; color:#b6c3a9; margin:16px 0 0; }
+.b3-static-copy { padding-top:22px; }
+.b3-static-copy .b3-game-actions { flex-direction:row; align-items:center; justify-content:space-between; margin-bottom:10px; }
+.home-b3 .section-head { border-top:1px solid #4a574b; padding-top:26px; }
+.home-b3 :is(.section-head p,.home-trust-note,.home-continuation p,.example-projects p) { color:#bec8b6; }
+.home-b3 :is(.home-path-grid>a,.home-resource-list>a,.home-task-preview,.example-list>a) { background:#242e27; border-color:#64735b; color:#f1f0e7; }
+.home-b3 .home-path-grid>a p { color:#c5cebd; }
+.home-b3 .home-path-grid>a.is-primary { background:#d3c4a7; color:#262e23; border-top:1px solid #e5d3a2; }
+.home-b3 .home-path-grid>a.is-primary :is(p,span,b) { color:#424d36; }
+.home-b3 .home-path-grid>a { min-height:0; border-radius:9px; }
+.home-b3 .b3-next-chapter { padding:24px 0 34px; }
+.home-b3 .home-category-entry { --v2-ink:#142d2b; --v2-muted:#52645e; --v2-primary:#0b6855; --v2-ceramic:#faf8f2; --v2-recess:#eef1e9; --v2-edge:#bfc8bc; padding:30px 0; }
+.home-b3 .home-category-entry h2 { color:#f1f0e7; }
+.home-b3 .home-category-entry .creation-deck-count { color:#c5cebd; }
+.home-b3 .home-execution-hero { --color-text:#233529; --color-text-muted:#52604b; --color-action:#315a42; --color-border:#a2ae92; --v2-primary:#315a42; --v2-recess:#cbd0bd; --v2-edge:#a2ae92; --text:#233529; --muted:#52604b; --accent:#315a42; --accent-strong:#315a42; background:#e0d9c6; color:#233529; }
+.home-b3 .home-execution-hero :is(h2,p,label,small) { color:inherit; }
+.home-b3 .home-execution-hero textarea { color:#233529; background:#faf8f2; }
+body:has(.home-b3) .site-footer { background:#171e1e; color:#f1f0e7; border-color:#4a574b; }
+body:has(.home-b3) .site-footer :is(p,small,a) { color:#c5cebd; }
+@media(max-width:1100px) { .b3-beginner-note { position:static; max-width:none; margin-top:7px; } .b3-beginner-note a { display:inline; margin-left:12px; } .b3-site-header .main-nav a { padding-inline:10px; } }
+@media(max-width:900px) { .b3-site-header .main-nav { display:none; } }
+@media(max-width:760px) {
+  body:has(.home-b3) main { padding-inline:18px; }
+  body.visual-layer-v2 .b3-site-header { --header-height:64px; position:sticky; padding:5px 18px; height:auto; }
+  .b3-site-header .header-inner { min-height:54px; padding:4px 8px; gap:8px; border-radius:10px; flex-wrap:wrap; }
+  .b3-site-header .brand { gap:6px; min-width:0; }
+  .b3-site-header .brand-copy strong { font-size:1.125rem; }
+  .b3-site-header .brand-copy small { font-size:.5rem; }
+  .b3-site-header .brand-mark { width:30px; height:30px; flex-basis:30px; }
+  .b3-site-header .header-cta { display:flex; padding-left:8px; gap:6px; min-width:0; flex-shrink:0; font-size:.6875rem; }
+  .b3-site-header .header-cta>span:last-child { width:24px; height:30px; }
+  .b3-cta-desktop { display:none; }.b3-cta-mobile { display:inline; }
+  .b3-site-header .menu-button { margin-left:0; flex:0 0 44px; }
+  .b3-play-hero { padding-top:8px; }
+  .b3-eyebrow { display:none; }
+  .home-b3 .b3-intro h1 { font-size:2rem; line-height:1.2; margin-bottom:6px; }
+  .b3-intro h1 em { display:block; margin-left:0; }
+  .b3-intro-note { font-size:.6875rem; }
+  .b3-beginner-note { display:none; }
+  .b3-gallery-bar { flex-wrap:wrap; margin-top:6px; gap:4px; font-size:.6875rem; }
+  .b3-showcase-controls { gap:6px; margin-left:auto; }
+  .b3-showcase-controls button { padding-inline:9px; }
+  .b3-gallery-bar>span { flex:1 1 auto; }
+  .b3-stage-window { margin-inline:-12px; padding:8px 4px 12px; }
+  .b3-showcase[data-mode=deck] .b3-game-stage { height:calc((100vw - 44px) * .5625 + 57px); }
+  .b3-game-stage>li { width:calc(100% - 8px); max-width:460px; }
+  .b3-art-card { padding:7px; border-radius:7px; }
+  .b3-art-top { font-size:.5rem; padding:2px 2px 7px; }
+  .b3-art-credit { font-size:.5625rem; padding:6px 2px 0; }
+  .b3-art-credit>span:last-child { font-size:.5rem; }
+  .b3-game-selection { grid-template-columns:1fr; gap:4px; }
+  .b3-selection-copy { display:contents; }
+  .b3-game-meta { grid-row:1; font-size:.625rem; margin-bottom:2px; }
+  .b3-game-selection h2 { grid-row:2; font-size:1.125rem; margin-bottom:2px; }
+  .b3-game-selection .b3-game-actions { grid-row:3; flex-direction:row; align-items:center; justify-content:space-between; margin:2px 0 4px; }
+  .b3-game-selection .b3-game-description { grid-row:4; font-size:.75rem; }
+  .b3-game-selection .b3-game-note { grid-row:5; font-size:.625rem; }
+  .b3-game-selection .b3-production-link { grid-row:6; }
+  .b3-deck-help { font-size:.5625rem; margin-top:10px; }
+  .home-b3 .b3-next-chapter { padding-top:18px; }
+  .b3-ambient { left:-18px; width:calc(100% + 36px); }
+}
+@media(max-width:360px) { .b3-site-header .brand-copy strong { font-size:1rem; } .b3-site-header .header-inner { gap:5px; padding-inline:5px; } .home-b3 .b3-intro h1 { font-size:1.875rem; } .b3-gallery-bar { display:block; } .b3-showcase-controls { justify-content:flex-end; } .b3-gallery-bar>span { display:block; margin-bottom:3px; } }
+@media(max-width:280px) { .b3-site-header .header-inner { flex-wrap:wrap; } .b3-site-header .brand { margin-right:0; flex:1 1 100%; } .b3-site-header .header-cta { flex:1; } .b3-game-stage>li { width:100%; } .b3-static-copy .b3-game-actions { flex-wrap:wrap; } .home-b3 .b3-intro h1 { font-size:1.4rem; } .b3-art-credit>span:last-child { display:none; } }
+@media(prefers-reduced-motion:reduce) { .home-b3 *, .home-b3 *::before, .home-b3 *::after { transition:none!important; animation:none!important; } }
+@media(forced-colors:active) { .b3-ambient { display:none; } .b3-art-card,.b3-art-card::before,.b3-art-card::after,.b3-site-header .header-inner { border:1px solid CanvasText; box-shadow:none; } .b3-art-link img { box-shadow:none; } }

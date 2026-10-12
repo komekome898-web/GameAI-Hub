@@ -28,6 +28,9 @@ export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?
     } catch { /* corrupt/unavailable storage starts at categories */ }
     const restore = () => {
       const url = new URL(location.href);
+      // Home's #games now names the playable showcase, not the category deck.
+      // Explicit category returns keep their established #categories identity.
+      if (home && url.hash === '#games') return;
       if (home && url.hash && url.hash !== '#categories' && !groups.some(group => `#${group.id}` === url.hash)) return;
       const explicit = Boolean(url.hash);
       const requested = explicit ? url.hash.slice(1) : memory.current.view;
@@ -58,7 +61,7 @@ export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?
   }, [groups, home, storageKey]);
 
   useEffect(() => {
-    if (!selection || (home && location.hash && location.hash !== '#categories')) return;
+    if (!selection || (home && location.hash !== '#categories')) return;
     // Next route restoration may focus its heading during commit. Restore our
     // specific anchor after that commit, cancelling when navigation changes.
     let secondFrame = 0;
@@ -141,6 +144,7 @@ export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?
   }, [persist]);
   const rememberCategory = useCallback((id: string) => {
     const url = new URL(location.href);
+    if (home && url.hash === '#games') return;
     if (memory.current.view !== "categories" || (home ? url.pathname !== "/" : url.pathname.replace(/\/$/, "") !== "/articles")) return;
     memory.current.category = id;
     url.searchParams.set('hubCategory', id);

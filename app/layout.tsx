@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 import "./visual-layer-v2.css";
+import "./home-b3.css";
 import { Header } from "@/components/Header";
 import { GamePlayAnalytics } from "@/components/GamePlayAnalytics";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";

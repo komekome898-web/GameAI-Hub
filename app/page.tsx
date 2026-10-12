@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { site, siteDescriptionLines } from "@/lib/site";
+import { site } from "@/lib/site";
 import { ProjectIdeaForm } from "@/components/ProjectGeneratorClient";
 
-import { ArticleBrowser } from "@/components/ArticleBrowser";
+import { ArticleBrowser, GameShowcaseBrowser } from "@/components/ArticleBrowser";
 import { getHubGroups } from "@/lib/article-hub-groups";
+import { getPublishedGames } from "@/data/games";
 
 export const metadata: Metadata = {
   title: "作りたいゲームから制作ロードマップを作る",
@@ -16,11 +17,29 @@ export const metadata: Metadata = {
 const examples = ["Unityでモンスター収集RPG", "Godotで2Dアクション", "Steam向け3Dホラー"];
 
 export default function Home() {
-  return <div className="home-v2-route">
-    <header className="home-brand-intro" aria-labelledby="home-title">
-      <h1 id="home-title">{site.name}<span>{site.nickname}</span></h1>
-      <p className="home-outcome home-brand-description">{siteDescriptionLines.map(line => <span key={line}>{line}</span>)}</p>
-    </header>
+  const published = getPublishedGames();
+  const showcaseGames = [...published.filter(game => game.slug === "monster-construction"), ...published.filter(game => game.slug !== "monster-construction")]
+    .map(({ slug, title, description, genre, image, author, playUrl, playAccessNote, developmentNote, productionArticle }) => ({ slug, title, description, genre, image, author, playUrl, playAccessNote, developmentNote, productionArticle }));
+  return <div className="home-v2-route home-b3">
+    <div className="b3-ambient" aria-hidden="true"><span /><span /><span /></div>
+    <section className="b3-play-hero" id="games" aria-labelledby="home-title">
+      <div className="b3-intro">
+        <p className="b3-eyebrow">PLAY FIRST. CREATE NEXT.</p>
+        <h1 id="home-title">遊べる世界から、<em>作るヒントを。</em></h1>
+        <p className="b3-intro-note">AIと人が作ったゲーム。スマホだけで制作した作品も。</p>
+        <p className="b3-beginner-note">コードが初めてでも。遊ぶところから、制作の一歩へ。<Link href="/articles/ai-browser-game-how-to/">初めての方へ ↓</Link></p>
+      </div>
+      <GameShowcaseBrowser games={showcaseGames} />
+    </section>
+
+    <section className="b3-next-chapter" aria-labelledby="b3-next-title">
+      <div className="section-head"><div><span className="system-label">YOUR NEXT CHAPTER</span><h2 id="b3-next-title">「遊んでみた」の、その先へ。</h2></div><p>知識より、最初の一歩から。</p></div>
+      <div className="home-path-grid">
+        <Link href="/articles/ai-browser-game-how-to/"><span>01 / LEARN</span><h3>作り方を知る</h3><p>AIへの頼み方から、ブラウザで動かして確かめるところまで。</p><b>初めてのゲーム制作 →</b></Link>
+        <Link href="/tools/"><span>02 / CHOOSE</span><h3>AI・ツールを選ぶ</h3><p>コード、イラスト、声、3D。作りたいものに合う道具を探す。</p><b>制作課題から探す →</b></Link>
+        <Link className="is-primary" href="#home-idea-title"><span>03 / BUILD</span><h3>自分のゲームを作る</h3><p>作りたいゲームを言葉にして、今やる作業と確認の手順をつくる。</p><b>アイデアから始める ↓</b></Link>
+      </div>
+    </section>
     <section className="home-category-entry" aria-labelledby="home-categories-title">
       <h2 id="home-categories-title">気になる制作から、めくって探す。</h2>
       <ArticleBrowser groups={getHubGroups()} home />
