@@ -39,8 +39,10 @@ export async function diagnoseWidths(page: Page): Promise<WidthDiagnostic> {
         continue;
       }
       if (rect.width > 0 && rect.height > 0) {
-        const card = element.closest<HTMLElement>(".creation-deck[data-mode='deck'] li[data-distance]");
-        const deck = card?.closest<HTMLElement>(".creation-deck");
+        const card = element.closest<HTMLElement>(
+          ".creation-deck[data-mode='deck'] li[data-distance], .b3-showcase[data-mode='deck'] .b3-stage-window li[data-distance]",
+        );
+        const deck = card?.closest<HTMLElement>(".creation-deck, .b3-stage-window");
         const deckRect = deck?.getBoundingClientRect();
         const clips = deck && /^(clip|hidden)$/.test(getComputedStyle(deck).overflowX);
         // Only the inactive arc has intentional travel outside the viewport.

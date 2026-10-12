@@ -76,17 +76,29 @@ for (const phase of ['expanded', 'list'] as const) {
 }
 
 
-test('width diagnostic owns only a contained clipped inactive arc', async ({ page }) => {
+for (const owner of ['creation', 'b3'] as const) test(`width diagnostic owns only a contained clipped inactive ${owner} arc`, async ({ page }) => {
   await page.setViewportSize({ width:390, height:844 });
-  await page.setContent(`<div class="creation-deck" data-mode="deck" style="position:relative;overflow:clip;width:350px;height:100px">
+  const markup = owner === 'creation'
+    ? '<div class="creation-deck" data-mode="deck">'
+    : '<div class="b3-showcase" data-mode="deck"><div class="b3-stage-window">';
+  const boundary = owner === 'creation' ? '.creation-deck' : '.b3-stage-window';
+  const modeOwner = owner === 'creation' ? '.creation-deck' : '.b3-showcase';
+  await page.setContent(`${markup}
     <ol><li id="inactive" data-distance="1" style="position:absolute;left:-160px;width:300px;height:50px">neighbor</li>
-    <li id="active" data-distance="0" style="position:absolute;left:0;width:300px;height:50px">active</li></ol></div>`);
+    <li id="active" data-distance="0" style="position:absolute;left:0;width:300px;height:50px">active</li></ol></div>${owner === 'b3' ? '</div>' : ''}`);
+  await page.locator(boundary).evaluate(element => element.style.cssText='position:relative;overflow:clip;width:350px;height:100px');
   const owned = await diagnoseWidths(page);
   expect(owned.documentOverflowPx).toBe(0);
   expect(owned.unownedOverflowingElements).toEqual([]);
   expect(owned.ownedClippedDeckElements.some(e => e.selector === '#inactive')).toBe(true);
   await page.locator('#active').evaluate(element => element.style.left='-100px');
   expect((await diagnoseWidths(page)).unownedOverflowingElements.some(e => e.selector === '#active')).toBe(true);
-  await page.locator('.creation-deck').evaluate(element => element.style.overflow='visible');
+  await page.locator('#active').evaluate(element => element.style.left='0');
+  await page.locator(boundary).evaluate(element => element.style.overflow='visible');
+  expect((await diagnoseWidths(page)).unownedOverflowingElements.some(e => e.selector === '#inactive')).toBe(true);
+  await page.locator(boundary).evaluate(element => { element.style.overflow='clip'; element.style.marginLeft='100px'; });
+  expect((await diagnoseWidths(page)).unownedOverflowingElements.some(e => e.selector === '#inactive')).toBe(true);
+  await page.locator(boundary).evaluate(element => element.style.marginLeft='0');
+  await page.locator(modeOwner).evaluate(element => element.dataset.mode='list');
   expect((await diagnoseWidths(page)).unownedOverflowingElements.some(e => e.selector === '#inactive')).toBe(true);
 });

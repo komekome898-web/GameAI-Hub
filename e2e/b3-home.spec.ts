@@ -1,6 +1,7 @@
 import { test, expect, type Page } from './fixtures';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { getPublishedGames } from '../data/games';
+import { diagnoseWidths } from './acceptance/diagnostics';
 
 const dir='docs/screenshots/b3-home';
 const idle=async(page:Page)=>{await expect(page.locator('.b3-showcase')).toHaveAttribute('data-mode','deck');await expect(page.locator('.b3-game-stage')).toHaveAttribute('data-motion','idle');};
@@ -17,6 +18,8 @@ for(const width of [1440,375,320]) test(`B3 game-first frame, actions and header
  const metrics=await page.evaluate(()=>({viewport:innerWidth,document:document.documentElement.scrollWidth,play:document.querySelector('.b3-game-selection [data-game-play]')!.getBoundingClientRect().toJSON(),headerTargets:Array.from(document.querySelectorAll('.site-header .brand,.site-header .header-cta,.site-header .menu-button,.site-header .main-nav a')).filter(e=>e.getBoundingClientRect().width>0).map(e=>({label:e.textContent,height:e.getBoundingClientRect().height})),image:Array.from(document.querySelectorAll('.b3-game-stage img')).map(img=>({src:img.getAttribute('src'),fit:getComputedStyle(img).objectFit,filter:getComputedStyle(img).filter,opacity:getComputedStyle(img).opacity}))}));
  expect(metrics.document).toBe(metrics.viewport);expect(metrics.play.bottom).toBeLessThanOrEqual(width===1440?900:667);expect(metrics.headerTargets.every(t=>t.height>=44)).toBe(true);
  expect(metrics.image.every(i=>i.fit==='contain'&&i.filter==='none'&&i.opacity==='1')).toBe(true);
+ const widths=await diagnoseWidths(page);expect(widths.documentOverflowPx).toBe(0);expect(widths.unownedOverflowingElements).toEqual([]);
+ if(width<400)expect(widths.ownedClippedDeckElements.some(e=>e.owner==='div.b3-stage-window')).toBe(true);
  await page.screenshot({path:`${dir}/home-${width}.png`});await page.screenshot({path:`${dir}/home-${width}-full.png`,fullPage:true});
  await page.locator('.b3-game-stage').focus();await page.keyboard.press('ArrowRight');await idle(page);
  const selected=await page.locator('.b3-game-stage [data-distance="0"]').getAttribute('data-deck-id');
