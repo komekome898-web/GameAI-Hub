@@ -137,6 +137,10 @@ export default function AiBrowserGameHowTo() {
           <BeginnerGameWorkspace
             projectId="article-ai-browser-game-how-to"
             initialCode={starterGame}
+            helpGuidance={{
+              preview: "画面が変わらない場合は、この記事の「6. 動かないときは症状から1つ戻る」を確認し、押した操作・期待した表示・実際の表示・エラーを添えてAIに相談してください。",
+              error: "「エラー概要をコピー」で内容をコピーし、押した操作・期待した表示・実際の表示と一緒に、利用するAIの入力欄へ貼り付けて相談してください。",
+            }}
           />
           <h3>ここまでの成功条件</h3>
           <ol>
