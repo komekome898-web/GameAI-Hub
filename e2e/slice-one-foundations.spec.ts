@@ -54,10 +54,12 @@ test.describe("Issue 137 Slice 1 foundations", () => {
 
   test("intrinsic text, focus and owned scrollers satisfy the shared contract", async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 844 });
-    await page.goto("/");
-    // Wait for the application hydration boundary before replacing the body;
-    // otherwise a late concurrent hydration can erase this disposable fixture.
-    await expect(page.locator(".home-execution-hero")).toBeVisible();
+    // This disposable fixture tests default shared tokens, including the 72px
+    // anchor offset. Bootstrap on a neutral route: deleting the Home DOM would
+    // leave its mounted ResizeObserver measuring a detached header. Actual
+    // Home header geometry and SPA cleanup are covered by b3-home.spec.ts.
+    await page.goto("/privacy/");
+    await expect(page.getByRole("heading", { level: 1, name: "プライバシーポリシー" })).toBeVisible();
     await page.evaluate(({ idea, token }) => { document.body.innerHTML = `
       <main class="ui-shell"><div class="ui-stack">
         <p class="ui-contain-text" data-user-content="true">${idea}${token}</p>
