@@ -1,0 +1,2621 @@
+{
+  "method": "Rendered background pixel sampling; disposable text-transparent browser styles; no source edits",
+  "server": "http://127.0.0.1:3181",
+  "nodesMeasured": 269,
+  "failed": [
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "今やること",
+      "selector": ".home-example",
+      "fontSize": 12,
+      "minRatio": 2.201,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "味方と敵を表示し、「たたかう」でHPが減り、勝敗とやり直しまで操作できる状態にします。",
+      "selector": ".home-example",
+      "fontSize": 16,
+      "minRatio": 2.336,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "成果物",
+      "selector": ".home-example",
+      "fontSize": 14,
+      "minRatio": 2.336,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "できた条件",
+      "selector": ".home-example",
+      "fontSize": 14,
+      "minRatio": 2.336,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "1",
+      "selector": ".home-continuation",
+      "fontSize": 16,
+      "minRatio": 2.652,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "2",
+      "selector": ".home-continuation",
+      "fontSize": 16,
+      "minRatio": 2.652,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "3",
+      "selector": ".home-continuation",
+      "fontSize": 16,
+      "minRatio": 2.652,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "最初のプレイ可能版",
+      "selector": ".home-featured",
+      "fontSize": 16,
+      "minRatio": 1.028,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "AIでブラウザゲームを作り、動作を検証する",
+      "selector": ".home-featured",
+      "fontSize": 14,
+      "minRatio": 2.336,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "ゲーム音声",
+      "selector": ".home-featured",
+      "fontSize": 16,
+      "minRatio": 1.028,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "代表セリフを試し、採用条件を確認する",
+      "selector": ".home-featured",
+      "fontSize": 14,
+      "minRatio": 2.336,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "3Dアセット",
+      "selector": ".home-featured",
+      "fontSize": 16,
+      "minRatio": 1.028,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "1点をゲームへ取り込み、品質と条件を判断する",
+      "selector": ".home-featured",
+      "fontSize": 14,
+      "minRatio": 2.336,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "根拠と入力内容を大切にします。",
+      "selector": ".home-trust-note",
+      "fontSize": 16,
+      "minRatio": 1.172,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "根拠と入力内容を大切にします。",
+      "selector": ".home-trust-note",
+      "fontSize": 16,
+      "minRatio": 1.172,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "調査・評価方法を見る →",
+      "selector": ".home-trust-note",
+      "fontSize": 14,
+      "minRatio": 2.652,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "作る",
+      "selector": ".site-footer",
+      "fontSize": 14,
+      "minRatio": 1.172,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "学ぶ・選ぶ",
+      "selector": ".site-footer",
+      "fontSize": 14,
+      "minRatio": 1.172,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "作る",
+      "selector": ".site-footer",
+      "fontSize": 14,
+      "minRatio": 1.172,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "学ぶ・選ぶ",
+      "selector": ".site-footer",
+      "fontSize": 14,
+      "minRatio": 1.172,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "信頼情報",
+      "selector": ".site-footer",
+      "fontSize": 14,
+      "minRatio": 1.172,
+      "threshold": 4.5,
+      "pass": false
+    }
+  ],
+  "lowestSmall": 1.028,
+  "lowestLarge": 5.885,
+  "results": [
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "GameBuildiary",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 22,
+      "minRatio": 10.517,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "ビルダイアリー",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 10,
+      "minRatio": 7.503,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "制作を始める",
+      "selector": ".site-header .header-cta",
+      "fontSize": 12,
+      "minRatio": 8.962,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "↗",
+      "selector": ".site-header .header-cta",
+      "fontSize": 19.2,
+      "minRatio": 9.141,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "ゲームで遊ぶ",
+      "selector": ".site-header .main-nav",
+      "fontSize": 12,
+      "minRatio": 8.248,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "作り方を知る",
+      "selector": ".site-header .main-nav",
+      "fontSize": 12,
+      "minRatio": 10.628,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "AIを選ぶ",
+      "selector": ".site-header .main-nav",
+      "fontSize": 12,
+      "minRatio": 10.628,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "PLAY FIRST. CREATE NEXT.",
+      "selector": ".b3-intro",
+      "fontSize": 11,
+      "minRatio": 6.367,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "遊べる世界から、",
+      "selector": ".b3-intro",
+      "fontSize": 61,
+      "minRatio": 8.177,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "作るヒントを。",
+      "selector": ".b3-intro",
+      "fontSize": 61,
+      "minRatio": 7.222,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "AIと人が作ったゲーム。スマホだけで制作した作品も。",
+      "selector": ".b3-intro",
+      "fontSize": 14,
+      "minRatio": 6.334,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "コードが初めてでも。遊ぶところから、制作の一歩へ。",
+      "selector": ".b3-intro",
+      "fontSize": 12,
+      "minRatio": 7.627,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "初めての方へ ↓",
+      "selector": ".b3-intro",
+      "fontSize": 12,
+      "minRatio": 8.16,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "プレイ無料、インストールなし",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 12,
+      "minRatio": 6.723,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "←",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 12,
+      "minRatio": 10.481,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "1",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 12,
+      "minRatio": 7.789,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "/",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 12,
+      "minRatio": 7.724,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "8",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 12,
+      "minRatio": 7.753,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "→",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 12,
+      "minRatio": 10.481,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "作品一覧",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 12,
+      "minRatio": 10.481,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "PLAYABLE /",
+      "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+      "fontSize": 10,
+      "minRatio": 6.578,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "01",
+      "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+      "fontSize": 10,
+      "minRatio": 6.681,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "カードバトル／戦略／モンスター育成・合体",
+      "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+      "fontSize": 10,
+      "minRatio": 7.759,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "作者提供：かど",
+      "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-credit",
+      "fontSize": 11,
+      "minRatio": 7.533,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "FULL FRAME",
+      "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-credit",
+      "fontSize": 9,
+      "minRatio": 8.716,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "カードバトル／戦略／モンスター育成・合体",
+      "selector": ".b3-game-selection",
+      "fontSize": 12,
+      "minRatio": 8.356,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "スマホのみで制作",
+      "selector": ".b3-game-selection",
+      "fontSize": 12,
+      "minRatio": 8.503,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "モンスターコンストラクション",
+      "selector": ".b3-game-selection",
+      "fontSize": 25,
+      "minRatio": 11.914,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "モンスターを育成・合体させ、勝利後のカード交換で自分だけの40枚をつくるカードバトルです。",
+      "selector": ".b3-game-selection",
+      "fontSize": 14,
+      "minRatio": 7.909,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "プレイ無料、インストールなし",
+      "selector": ".b3-game-selection",
+      "fontSize": 11,
+      "minRatio": 8.573,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "· 作者：",
+      "selector": ".b3-game-selection",
+      "fontSize": 11,
+      "minRatio": 7.909,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "かど",
+      "selector": ".b3-game-selection",
+      "fontSize": 11,
+      "minRatio": 8.039,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "遊ぶ",
+      "selector": ".b3-game-selection",
+      "fontSize": 14,
+      "minRatio": 8.901,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "↗",
+      "selector": ".b3-game-selection",
+      "fontSize": 14,
+      "minRatio": 8.646,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "作品の紹介",
+      "selector": ".b3-game-selection",
+      "fontSize": 12,
+      "minRatio": 11.35,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-1440",
+      "text": "↗",
+      "selector": ".b3-game-selection",
+      "fontSize": 12,
+      "minRatio": 11.501,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "GameBuildiary",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 18,
+      "minRatio": 10.834,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "ビルダイアリー",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 8,
+      "minRatio": 7.714,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "作る",
+      "selector": ".site-header .header-cta",
+      "fontSize": 11,
+      "minRatio": 8.962,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "↗",
+      "selector": ".site-header .header-cta",
+      "fontSize": 19.2,
+      "minRatio": 9.141,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "遊べる世界から、",
+      "selector": ".b3-intro",
+      "fontSize": 32,
+      "minRatio": 8.315,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "作るヒントを。",
+      "selector": ".b3-intro",
+      "fontSize": 32,
+      "minRatio": 6.282,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "AIと人が作ったゲーム。スマホだけで制作した作品も。",
+      "selector": ".b3-intro",
+      "fontSize": 11,
+      "minRatio": 5.808,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "プレイ無料、インストールなし",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 11,
+      "minRatio": 6.664,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "←",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 11,
+      "minRatio": 10.481,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "1",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 11,
+      "minRatio": 6.541,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "/",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 11,
+      "minRatio": 6.617,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "8",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 11,
+      "minRatio": 6.676,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "→",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 11,
+      "minRatio": 10.481,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "作品一覧",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 11,
+      "minRatio": 10.481,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "PLAYABLE /",
+      "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+      "fontSize": 8,
+      "minRatio": 6.578,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "01",
+      "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+      "fontSize": 8,
+      "minRatio": 6.786,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "カードバトル／戦略／モンスター育成・合体",
+      "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+      "fontSize": 8,
+      "minRatio": 7.425,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "作者提供：かど",
+      "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-credit",
+      "fontSize": 9,
+      "minRatio": 7.649,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "FULL FRAME",
+      "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-credit",
+      "fontSize": 8,
+      "minRatio": 8.591,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "カードバトル／戦略／モンスター育成・合体",
+      "selector": ".b3-game-selection",
+      "fontSize": 10,
+      "minRatio": 7.485,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "スマホのみで制作",
+      "selector": ".b3-game-selection",
+      "fontSize": 10,
+      "minRatio": 7.085,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "モンスターコンストラクション",
+      "selector": ".b3-game-selection",
+      "fontSize": 18,
+      "minRatio": 10.505,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "モンスターを育成・合体させ、勝利後のカード交換で自分だけの40枚をつくるカードバトルです。",
+      "selector": ".b3-game-selection",
+      "fontSize": 12,
+      "minRatio": 7.184,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "遊ぶ",
+      "selector": ".b3-game-selection",
+      "fontSize": 14,
+      "minRatio": 8.806,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "↗",
+      "selector": ".b3-game-selection",
+      "fontSize": 14,
+      "minRatio": 8.396,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "作品の紹介",
+      "selector": ".b3-game-selection",
+      "fontSize": 12,
+      "minRatio": 9.519,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-375",
+      "text": "↗",
+      "selector": ".b3-game-selection",
+      "fontSize": 12,
+      "minRatio": 9.637,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "GameBuildiary",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 16,
+      "minRatio": 10.834,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "ビルダイアリー",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 8,
+      "minRatio": 7.714,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "作る",
+      "selector": ".site-header .header-cta",
+      "fontSize": 11,
+      "minRatio": 8.962,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "↗",
+      "selector": ".site-header .header-cta",
+      "fontSize": 19.2,
+      "minRatio": 9.141,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "遊べる世界から、",
+      "selector": ".b3-intro",
+      "fontSize": 30,
+      "minRatio": 8.315,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "作るヒントを。",
+      "selector": ".b3-intro",
+      "fontSize": 30,
+      "minRatio": 6.579,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "AIと人が作ったゲーム。スマホだけで制作した作品も。",
+      "selector": ".b3-intro",
+      "fontSize": 11,
+      "minRatio": 6.07,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "プレイ無料、インストールなし",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 11,
+      "minRatio": 6.342,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "←",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 11,
+      "minRatio": 10.481,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "1",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 11,
+      "minRatio": 7.312,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "/",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 11,
+      "minRatio": 7.128,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "8",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 11,
+      "minRatio": 6.347,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "→",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 11,
+      "minRatio": 10.481,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "作品一覧",
+      "selector": ".b3-gallery-bar",
+      "fontSize": 11,
+      "minRatio": 10.481,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "PLAYABLE /",
+      "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+      "fontSize": 8,
+      "minRatio": 6.578,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "01",
+      "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+      "fontSize": 8,
+      "minRatio": 6.887,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "カードバトル／戦略／モンスター育成・合体",
+      "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+      "fontSize": 8,
+      "minRatio": 7.207,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "作者提供：かど",
+      "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-credit",
+      "fontSize": 9,
+      "minRatio": 7.649,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "FULL FRAME",
+      "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-credit",
+      "fontSize": 8,
+      "minRatio": 8.591,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "カードバトル／戦略／モンスター育成・合体",
+      "selector": ".b3-game-selection",
+      "fontSize": 10,
+      "minRatio": 7.513,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "スマホのみで制作",
+      "selector": ".b3-game-selection",
+      "fontSize": 10,
+      "minRatio": 8.601,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "モンスターコンストラクション",
+      "selector": ".b3-game-selection",
+      "fontSize": 18,
+      "minRatio": 10.675,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "モンスターを育成・合体させ、勝利後のカード交換で自分だけの40枚をつくるカードバトルです。",
+      "selector": ".b3-game-selection",
+      "fontSize": 12,
+      "minRatio": 7.498,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "遊ぶ",
+      "selector": ".b3-game-selection",
+      "fontSize": 14,
+      "minRatio": 8.743,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "↗",
+      "selector": ".b3-game-selection",
+      "fontSize": 14,
+      "minRatio": 8.396,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "作品の紹介",
+      "selector": ".b3-game-selection",
+      "fontSize": 12,
+      "minRatio": 9.249,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-home-320",
+      "text": "↗",
+      "selector": ".b3-game-selection",
+      "fontSize": 12,
+      "minRatio": 9.345,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-next-375",
+      "text": "GameBuildiary",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 18,
+      "minRatio": 10.834,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-next-375",
+      "text": "ビルダイアリー",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 8,
+      "minRatio": 7.714,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-next-375",
+      "text": "作る",
+      "selector": ".site-header .header-cta",
+      "fontSize": 11,
+      "minRatio": 8.962,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-next-375",
+      "text": "↗",
+      "selector": ".site-header .header-cta",
+      "fontSize": 19.2,
+      "minRatio": 9.141,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-next-375",
+      "text": "YOUR NEXT CHAPTER",
+      "selector": ".b3-next-chapter",
+      "fontSize": 11.52,
+      "minRatio": 8.398,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-next-375",
+      "text": "「遊んでみた」の、その先へ。",
+      "selector": ".b3-next-chapter",
+      "fontSize": 28.8,
+      "minRatio": 12.745,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-next-375",
+      "text": "知識より、最初の一歩から。",
+      "selector": ".b3-next-chapter",
+      "fontSize": 16,
+      "minRatio": 8.728,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-next-375",
+      "text": "01 / LEARN",
+      "selector": ".b3-next-chapter",
+      "fontSize": 11.52,
+      "minRatio": 8.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-next-375",
+      "text": "作り方を知る",
+      "selector": ".b3-next-chapter",
+      "fontSize": 23.2,
+      "minRatio": 12.279,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-next-375",
+      "text": "AIへの頼み方から、ブラウザで動かして確かめるところまで。",
+      "selector": ".b3-next-chapter",
+      "fontSize": 16,
+      "minRatio": 8.653,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-next-375",
+      "text": "初めてのゲーム制作 →",
+      "selector": ".b3-next-chapter",
+      "fontSize": 16,
+      "minRatio": 8.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-next-375",
+      "text": "02 / CHOOSE",
+      "selector": ".b3-next-chapter",
+      "fontSize": 11.52,
+      "minRatio": 8.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-next-375",
+      "text": "AI・ツールを選ぶ",
+      "selector": ".b3-next-chapter",
+      "fontSize": 23.2,
+      "minRatio": 12.279,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-next-375",
+      "text": "コード、イラスト、声、3D。作りたいものに合う道具を探す。",
+      "selector": ".b3-next-chapter",
+      "fontSize": 16,
+      "minRatio": 8.653,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-375",
+      "text": "GameBuildiary",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 18,
+      "minRatio": 10.834,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-375",
+      "text": "ビルダイアリー",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 8,
+      "minRatio": 7.714,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-375",
+      "text": "作る",
+      "selector": ".site-header .header-cta",
+      "fontSize": 11,
+      "minRatio": 8.962,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-375",
+      "text": "↗",
+      "selector": ".site-header .header-cta",
+      "fontSize": 19.2,
+      "minRatio": 9.141,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-375",
+      "text": "作りたいものが決まったら",
+      "selector": ".home-execution-hero",
+      "fontSize": 28.8,
+      "minRatio": 9.245,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-375",
+      "text": "どんなゲームを作りたいですか？",
+      "selector": ".home-execution-hero",
+      "fontSize": 15,
+      "minRatio": 9.245,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-375",
+      "text": "0",
+      "selector": ".home-execution-hero",
+      "fontSize": 11.52,
+      "minRatio": 4.758,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-375",
+      "text": "/ 1200",
+      "selector": ".home-execution-hero",
+      "fontSize": 11.52,
+      "minRatio": 4.758,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-375",
+      "text": "アクセス解析へは送信しません。外部AI設定時は条件整理に使用します",
+      "selector": ".home-execution-hero",
+      "fontSize": 11.52,
+      "minRatio": 4.758,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-375",
+      "text": "最初の作業を作る",
+      "selector": ".home-execution-hero",
+      "fontSize": 16,
+      "minRatio": 7.86,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-375",
+      "text": "入力例を見る",
+      "selector": ".home-execution-hero",
+      "fontSize": 14,
+      "minRatio": 5.581,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-375",
+      "text": "入力後の完成イメージを見る",
+      "selector": ".home-execution-hero",
+      "fontSize": 14,
+      "minRatio": 5.581,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-375",
+      "text": "↓",
+      "selector": ".home-execution-hero",
+      "fontSize": 14,
+      "minRatio": 5.581,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-expanded-375",
+      "text": "GameBuildiary",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 18,
+      "minRatio": 10.834,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-expanded-375",
+      "text": "ビルダイアリー",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 8,
+      "minRatio": 7.714,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-expanded-375",
+      "text": "作る",
+      "selector": ".site-header .header-cta",
+      "fontSize": 11,
+      "minRatio": 8.962,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-expanded-375",
+      "text": "↗",
+      "selector": ".site-header .header-cta",
+      "fontSize": 19.2,
+      "minRatio": 9.141,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-expanded-375",
+      "text": "作りたいものが決まったら",
+      "selector": ".home-execution-hero",
+      "fontSize": 28.8,
+      "minRatio": 9.245,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-expanded-375",
+      "text": "どんなゲームを作りたいですか？",
+      "selector": ".home-execution-hero",
+      "fontSize": 15,
+      "minRatio": 9.245,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-expanded-375",
+      "text": "0",
+      "selector": ".home-execution-hero",
+      "fontSize": 11.52,
+      "minRatio": 4.758,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-expanded-375",
+      "text": "/ 1200",
+      "selector": ".home-execution-hero",
+      "fontSize": 11.52,
+      "minRatio": 4.758,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-expanded-375",
+      "text": "アクセス解析へは送信しません。外部AI設定時は条件整理に使用します",
+      "selector": ".home-execution-hero",
+      "fontSize": 11.52,
+      "minRatio": 4.758,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-expanded-375",
+      "text": "最初の作業を作る",
+      "selector": ".home-execution-hero",
+      "fontSize": 16,
+      "minRatio": 7.86,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-expanded-375",
+      "text": "入力例を見る",
+      "selector": ".home-execution-hero",
+      "fontSize": 14,
+      "minRatio": 5.581,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-expanded-375",
+      "text": "入力例を使う",
+      "selector": ".home-execution-hero",
+      "fontSize": 11.52,
+      "minRatio": 4.758,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-expanded-375",
+      "text": "モンスター収集とバトルのブラウザゲームを作りたい。ゲーム制作は初めてです。",
+      "selector": ".home-execution-hero",
+      "fontSize": 13.76,
+      "minRatio": 7.441,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-create-expanded-375",
+      "text": "Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。",
+      "selector": ".home-execution-hero",
+      "fontSize": 13.76,
+      "minRatio": 7.441,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "GameBuildiary",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 18,
+      "minRatio": 10.834,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "ビルダイアリー",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 8,
+      "minRatio": 7.714,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "作る",
+      "selector": ".site-header .header-cta",
+      "fontSize": 11,
+      "minRatio": 8.962,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "↗",
+      "selector": ".site-header .header-cta",
+      "fontSize": 19.2,
+      "minRatio": 9.141,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "気になる制作から、めくって探す。",
+      "selector": ".home-category-entry",
+      "fontSize": 28.8,
+      "minRatio": 14.794,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "←",
+      "selector": ".home-category-entry",
+      "fontSize": 16,
+      "minRatio": 6.327,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "1",
+      "selector": ".home-category-entry",
+      "fontSize": 14,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "/",
+      "selector": ".home-category-entry",
+      "fontSize": 14,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "5",
+      "selector": ".home-category-entry",
+      "fontSize": 14,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "→",
+      "selector": ".home-category-entry",
+      "fontSize": 16,
+      "minRatio": 6.327,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "一覧で見る",
+      "selector": ".home-category-entry",
+      "fontSize": 16,
+      "minRatio": 6.327,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "制作カテゴリ",
+      "selector": ".home-category-entry",
+      "fontSize": 14,
+      "minRatio": 6.719,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "6",
+      "selector": ".home-category-entry",
+      "fontSize": 14,
+      "minRatio": 5.915,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "本の記事",
+      "selector": ".home-category-entry",
+      "fontSize": 14,
+      "minRatio": 5.915,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "ゲーム制作をはじめる",
+      "selector": ".home-category-entry",
+      "fontSize": 18,
+      "minRatio": 6.327,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "記事を見る",
+      "selector": ".home-category-entry",
+      "fontSize": 16,
+      "minRatio": 5.885,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "→",
+      "selector": ".home-category-entry",
+      "fontSize": 20,
+      "minRatio": 5.885,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-categories-375",
+      "text": "まず動く小さなゲームを作り、AIへ渡す条件と完了基準を決めます。",
+      "selector": ".home-category-entry",
+      "fontSize": 16,
+      "minRatio": 5.915,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "GameBuildiary",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 18,
+      "minRatio": 10.834,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "ビルダイアリー",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 8,
+      "minRatio": 7.714,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "作る",
+      "selector": ".site-header .header-cta",
+      "fontSize": 11,
+      "minRatio": 8.962,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "↗",
+      "selector": ".site-header .header-cta",
+      "fontSize": 19.2,
+      "minRatio": 9.051,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "次にしたいことを選ぶ",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 16,
+      "minRatio": 14.443,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "×",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 25.6,
+      "minRatio": 14.443,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "ゲームで遊ぶ",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 16,
+      "minRatio": 14.443,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "→",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 16,
+      "minRatio": 14.443,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "作る",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 11.2,
+      "minRatio": 6.281,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "Projectを始める",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 16,
+      "minRatio": 14.443,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "→",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 16,
+      "minRatio": 14.443,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "学ぶ",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 11.2,
+      "minRatio": 6.281,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "記事",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 16,
+      "minRatio": 14.443,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "→",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 16,
+      "minRatio": 14.443,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "制作ガイド",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 16,
+      "minRatio": 14.443,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "→",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 16,
+      "minRatio": 14.443,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "選ぶ",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 11.2,
+      "minRatio": 6.281,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "AI・ツール",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 16,
+      "minRatio": 14.443,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "→",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 16,
+      "minRatio": 14.443,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "候補を比較",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 16,
+      "minRatio": 14.443,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "→",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 16,
+      "minRatio": 14.443,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-menu-375",
+      "text": "信頼情報",
+      "selector": ".site-header .mobile-menu",
+      "fontSize": 11.2,
+      "minRatio": 6.281,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "GameBuildiary",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 18,
+      "minRatio": 10.834,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "ビルダイアリー",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 8,
+      "minRatio": 7.714,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "作る",
+      "selector": ".site-header .header-cta",
+      "fontSize": 11,
+      "minRatio": 8.962,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "↗",
+      "selector": ".site-header .header-cta",
+      "fontSize": 19.2,
+      "minRatio": 9.141,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "PROJECT PREVIEW",
+      "selector": ".home-example",
+      "fontSize": 11.52,
+      "minRatio": 10.153,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "入力後は、次の作業だけに集中。",
+      "selector": ".home-example",
+      "fontSize": 28.8,
+      "minRatio": 14.794,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "例：モンスター収集ゲームの最初のプレイ可能版",
+      "selector": ".home-example",
+      "fontSize": 16,
+      "minRatio": 9.773,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "今やること",
+      "selector": ".home-example",
+      "fontSize": 12,
+      "minRatio": 2.201,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "1体対1体のバトルを動かす",
+      "selector": ".home-example",
+      "fontSize": 24,
+      "minRatio": 12.279,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "味方と敵を表示し、「たたかう」でHPが減り、勝敗とやり直しまで操作できる状態にします。",
+      "selector": ".home-example",
+      "fontSize": 16,
+      "minRatio": 2.336,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "成果物",
+      "selector": ".home-example",
+      "fontSize": 14,
+      "minRatio": 2.336,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "ブラウザで動く1つのHTML",
+      "selector": ".home-example",
+      "fontSize": 16,
+      "minRatio": 12.279,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "できた条件",
+      "selector": ".home-example",
+      "fontSize": 14,
+      "minRatio": 2.336,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-preview-375",
+      "text": "行動 → 勝敗 → やり直しを自分で確認できる",
+      "selector": ".home-example",
+      "fontSize": 16,
+      "minRatio": 12.279,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "GameBuildiary",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 18,
+      "minRatio": 10.834,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "ビルダイアリー",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 8,
+      "minRatio": 7.714,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "作る",
+      "selector": ".site-header .header-cta",
+      "fontSize": 11,
+      "minRatio": 8.962,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "↗",
+      "selector": ".site-header .header-cta",
+      "fontSize": 19.2,
+      "minRatio": 9.141,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "続け方",
+      "selector": ".home-continuation",
+      "fontSize": 11.52,
+      "minRatio": 10.153,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "成果物を確かめて、次へ。",
+      "selector": ".home-continuation",
+      "fontSize": 28.8,
+      "minRatio": 14.794,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "入力したゲーム条件を保ったまま、作業 → 確認 → 完了 → 次の作業へ進みます。",
+      "selector": ".home-continuation",
+      "fontSize": 16,
+      "minRatio": 9.773,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "1",
+      "selector": ".home-continuation",
+      "fontSize": 16,
+      "minRatio": 2.652,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "作業を1つに絞る",
+      "selector": ".home-continuation",
+      "fontSize": 16,
+      "minRatio": 14.794,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "2",
+      "selector": ".home-continuation",
+      "fontSize": 16,
+      "minRatio": 2.652,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "完了条件を操作して確認",
+      "selector": ".home-continuation",
+      "fontSize": 16,
+      "minRatio": 14.794,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "3",
+      "selector": ".home-continuation",
+      "fontSize": 16,
+      "minRatio": 2.652,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "結果を次の作業へつなぐ",
+      "selector": ".home-continuation",
+      "fontSize": 16,
+      "minRatio": 14.794,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "実践記事",
+      "selector": ".home-featured",
+      "fontSize": 11.52,
+      "minRatio": 10.153,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "制作段階ごとの手順。",
+      "selector": ".home-featured",
+      "fontSize": 28.8,
+      "minRatio": 14.794,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-continuation-375",
+      "text": "すべての記事を見る →",
+      "selector": ".home-featured",
+      "fontSize": 16,
+      "minRatio": 14.794,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "GameBuildiary",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 18,
+      "minRatio": 10.834,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "ビルダイアリー",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 8,
+      "minRatio": 7.714,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "作る",
+      "selector": ".site-header .header-cta",
+      "fontSize": 11,
+      "minRatio": 8.962,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "↗",
+      "selector": ".site-header .header-cta",
+      "fontSize": 19.2,
+      "minRatio": 9.141,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "実践記事",
+      "selector": ".home-featured",
+      "fontSize": 11.52,
+      "minRatio": 10.153,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "制作段階ごとの手順。",
+      "selector": ".home-featured",
+      "fontSize": 28.8,
+      "minRatio": 14.794,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "すべての記事を見る →",
+      "selector": ".home-featured",
+      "fontSize": 16,
+      "minRatio": 14.794,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "最初のプレイ可能版",
+      "selector": ".home-featured",
+      "fontSize": 16,
+      "minRatio": 1.028,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "AIでブラウザゲームを作り、動作を検証する",
+      "selector": ".home-featured",
+      "fontSize": 14,
+      "minRatio": 2.336,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "ゲーム音声",
+      "selector": ".home-featured",
+      "fontSize": 16,
+      "minRatio": 1.028,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "代表セリフを試し、採用条件を確認する",
+      "selector": ".home-featured",
+      "fontSize": 14,
+      "minRatio": 2.336,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "3Dアセット",
+      "selector": ".home-featured",
+      "fontSize": 16,
+      "minRatio": 1.028,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-featured-375",
+      "text": "1点をゲームへ取り込み、品質と条件を判断する",
+      "selector": ".home-featured",
+      "fontSize": 14,
+      "minRatio": 2.336,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "GameBuildiary",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 18,
+      "minRatio": 10.834,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "ビルダイアリー",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 8,
+      "minRatio": 7.714,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "作る",
+      "selector": ".site-header .header-cta",
+      "fontSize": 11,
+      "minRatio": 8.962,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "↗",
+      "selector": ".site-header .header-cta",
+      "fontSize": 19.2,
+      "minRatio": 9.141,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "入力例",
+      "selector": ".example-projects",
+      "fontSize": 11.52,
+      "minRatio": 10.153,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "案を選んで試す",
+      "selector": ".example-projects",
+      "fontSize": 28.8,
+      "minRatio": 14.794,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "例を選んでも、ゲームの種類や条件を勝手に置き換えません。",
+      "selector": ".example-projects",
+      "fontSize": 16,
+      "minRatio": 9.773,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "01",
+      "selector": ".example-projects",
+      "fontSize": 11.52,
+      "minRatio": 8.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "Unityでモンスター収集RPG",
+      "selector": ".example-projects",
+      "fontSize": 16,
+      "minRatio": 12.279,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "制作手順を作る →",
+      "selector": ".example-projects",
+      "fontSize": 13.3333,
+      "minRatio": 8.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "02",
+      "selector": ".example-projects",
+      "fontSize": 11.52,
+      "minRatio": 8.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "Godotで2Dアクション",
+      "selector": ".example-projects",
+      "fontSize": 16,
+      "minRatio": 12.279,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "制作手順を作る →",
+      "selector": ".example-projects",
+      "fontSize": 13.3333,
+      "minRatio": 8.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "03",
+      "selector": ".example-projects",
+      "fontSize": 11.52,
+      "minRatio": 8.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "Steam向け3Dホラー",
+      "selector": ".example-projects",
+      "fontSize": 16,
+      "minRatio": 12.279,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "制作手順を作る →",
+      "selector": ".example-projects",
+      "fontSize": 13.3333,
+      "minRatio": 8.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "根拠と入力内容を大切にします。",
+      "selector": ".home-trust-note",
+      "fontSize": 16,
+      "minRatio": 1.172,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-examples-375",
+      "text": "ゲーム案はアクセス解析へ送りません。料金や商用条件は一次情報で確認し、不明な点を推測で埋めません。",
+      "selector": ".home-trust-note",
+      "fontSize": 14,
+      "minRatio": 9.773,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "GameBuildiary",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 18,
+      "minRatio": 10.834,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "ビルダイアリー",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 8,
+      "minRatio": 7.714,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "作る",
+      "selector": ".site-header .header-cta",
+      "fontSize": 11,
+      "minRatio": 8.962,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "↗",
+      "selector": ".site-header .header-cta",
+      "fontSize": 19.2,
+      "minRatio": 9.141,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "根拠と入力内容を大切にします。",
+      "selector": ".home-trust-note",
+      "fontSize": 16,
+      "minRatio": 1.172,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "ゲーム案はアクセス解析へ送りません。料金や商用条件は一次情報で確認し、不明な点を推測で埋めません。",
+      "selector": ".home-trust-note",
+      "fontSize": 14,
+      "minRatio": 9.773,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "調査・評価方法を見る →",
+      "selector": ".home-trust-note",
+      "fontSize": 14,
+      "minRatio": 2.652,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "GameBuildiary",
+      "selector": ".site-footer",
+      "fontSize": 17.28,
+      "minRatio": 14.794,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "ビルダイアリー",
+      "selector": ".site-footer",
+      "fontSize": 10.6667,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "AIでゲームを作ってみたいあなたへ",
+      "selector": ".site-footer",
+      "fontSize": 12.48,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "ツール選びから作り方や作品の実例までサポート",
+      "selector": ".site-footer",
+      "fontSize": 12.48,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "次はあなたのアイデアを遊べるゲームに",
+      "selector": ".site-footer",
+      "fontSize": 12.48,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "作る",
+      "selector": ".site-footer",
+      "fontSize": 14,
+      "minRatio": 1.172,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "Projectを始める",
+      "selector": ".site-footer",
+      "fontSize": 12.8,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "学ぶ・選ぶ",
+      "selector": ".site-footer",
+      "fontSize": 14,
+      "minRatio": 1.172,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "記事",
+      "selector": ".site-footer",
+      "fontSize": 12.8,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "AI・ツール",
+      "selector": ".site-footer",
+      "fontSize": 12.8,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-trust-375",
+      "text": "比較",
+      "selector": ".site-footer",
+      "fontSize": 12.8,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "GameBuildiary",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 18,
+      "minRatio": 10.834,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "ビルダイアリー",
+      "selector": ".site-header .brand-copy",
+      "fontSize": 8,
+      "minRatio": 7.714,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "作る",
+      "selector": ".site-header .header-cta",
+      "fontSize": 11,
+      "minRatio": 8.962,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "↗",
+      "selector": ".site-header .header-cta",
+      "fontSize": 19.2,
+      "minRatio": 9.141,
+      "threshold": 3,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "GameBuildiary",
+      "selector": ".site-footer",
+      "fontSize": 17.28,
+      "minRatio": 14.794,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "ビルダイアリー",
+      "selector": ".site-footer",
+      "fontSize": 10.6667,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "AIでゲームを作ってみたいあなたへ",
+      "selector": ".site-footer",
+      "fontSize": 12.48,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "ツール選びから作り方や作品の実例までサポート",
+      "selector": ".site-footer",
+      "fontSize": 12.48,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "次はあなたのアイデアを遊べるゲームに",
+      "selector": ".site-footer",
+      "fontSize": 12.48,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "作る",
+      "selector": ".site-footer",
+      "fontSize": 14,
+      "minRatio": 1.172,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "Projectを始める",
+      "selector": ".site-footer",
+      "fontSize": 12.8,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "学ぶ・選ぶ",
+      "selector": ".site-footer",
+      "fontSize": 14,
+      "minRatio": 1.172,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "記事",
+      "selector": ".site-footer",
+      "fontSize": 12.8,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "AI・ツール",
+      "selector": ".site-footer",
+      "fontSize": 12.8,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "比較",
+      "selector": ".site-footer",
+      "fontSize": 12.8,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "信頼情報",
+      "selector": ".site-footer",
+      "fontSize": 14,
+      "minRatio": 1.172,
+      "threshold": 4.5,
+      "pass": false
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "調査方法",
+      "selector": ".site-footer",
+      "fontSize": 12.8,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "広告・アフィリエイト開示",
+      "selector": ".site-footer",
+      "fontSize": 12.8,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    },
+    {
+      "sample": "contrast-bg-footer-375",
+      "text": "プライバシー",
+      "selector": ".site-footer",
+      "fontSize": 12.8,
+      "minRatio": 10.426,
+      "threshold": 4.5,
+      "pass": true
+    }
+  ]
+}

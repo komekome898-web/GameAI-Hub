@@ -74,6 +74,14 @@ test('320 text 150/200, spacing and long text retain natural list/focus',async({
   await page.screenshot({path:`${dir}/root${scale*100}-320.png`,fullPage:true});
  }
  await expect(page.locator('.b3-showcase')).toHaveAttribute('data-mode','list');
+ const play=page.locator('.b3-static-copy [data-game-play]').first();
+ const playLines=await play.evaluate(el=>{
+  const text=Array.from(el.childNodes).find(node=>node.nodeType===Node.TEXT_NODE&&node.textContent?.includes('遊ぶ'))!;
+  const range=document.createRange();range.selectNodeContents(text);return range.getClientRects().length;
+ });
+ expect(playLines).toBe(1);
+ const actions=await page.locator('.b3-static-copy .b3-game-actions').first().evaluate(el=>Array.from(el.children).map(link=>({width:link.getBoundingClientRect().width,height:link.getBoundingClientRect().height,text:link.textContent})));
+ expect(actions.every(action=>action.width>=100&&action.height>=44)).toBe(true);
  await page.locator('.b3-static-copy .b3-game-detail').first().focus();await expect(page.locator('.b3-static-copy .b3-game-detail').first()).toBeFocused();
  await page.locator('.b3-showcase').screenshot({path:`${dir}/root200-focus-320.png`});
  await page.evaluate(()=>{document.documentElement.style.fontSize='100%';const title=document.querySelector('.b3-game-selection h2');if(title)title.textContent='初心者がスマホから最初のプレイ可能なゲームを作るために、AIと確認を繰り返した作品';});
@@ -84,4 +92,36 @@ test('no-JS complete game links and current category entry remain usable',async(
  const context=await browser.newContext({baseURL,javaScriptEnabled:false,viewport:{width:375,height:667}});const page=await context.newPage();await page.goto('/');
  await expect(page.locator('.b3-static-copy')).toHaveCount(8);await expect(page.locator('[data-category="games"]')).toBeVisible();
  await page.locator('.b3-static-copy .b3-game-detail').first().click();await expect(page).toHaveURL(/\/games\/monster-construction\/$/);await context.close();
+});
+test('fresh category deep-link restores a visible focused target',async({page})=>{
+ await page.setViewportSize({width:375,height:667});await page.goto('/?hubCategory=voice#categories');
+ const category=page.locator('[data-category="voice"]');await expect(category).toBeFocused();
+ const box=(await category.boundingBox())!;
+ const header=(await page.locator('.site-header').boundingBox())!;
+ expect(box.y).toBeGreaterThanOrEqual(header.y+header.height);expect(box.y+box.height).toBeLessThanOrEqual(667);
+ await page.screenshot({path:`${dir}/fresh-category-return-375.png`});
+});
+test('explicit category activation after playable anchor retains Back context',async({page})=>{
+ await page.setViewportSize({width:1440,height:900});await page.goto('/');await idle(page);
+ await page.getByRole('navigation',{name:'メインナビゲーション'}).getByRole('link',{name:'ゲームで遊ぶ'}).click();
+ const voice=page.locator('[data-category="voice"]');await voice.focus();await voice.locator('strong').click();
+ await expect(page).toHaveURL(/\/articles\/.*#voice$/);
+ await page.goBack();await expect(page).toHaveURL(/hubCategory=voice.*#categories$/);await expect(voice).toBeFocused();
+ const box=(await voice.boundingBox())!;const header=(await page.locator('.site-header').boundingBox())!;
+ expect(box.y).toBeGreaterThanOrEqual(header.y+header.height);expect(box.y+box.height).toBeLessThanOrEqual(900);
+ await page.screenshot({path:`${dir}/game-anchor-category-back-1440.png`});
+});
+test('enlarged Home anchors clear the measured header and clean up on route change',async({page})=>{
+ await page.setViewportSize({width:320,height:667});await page.goto('/');await idle(page);
+ await page.evaluate(()=>document.documentElement.style.fontSize='200%');await expect(page.locator('.b3-showcase')).toHaveAttribute('data-mode','list');
+ await page.getByRole('link',{name:'アイデアから始める ↓'}).click();
+ const headerBottom=await page.locator('.site-header').evaluate(el=>el.getBoundingClientRect().bottom);
+ await expect.poll(()=>page.locator('#home-idea-title').evaluate(el=>el.getBoundingClientRect().top),{timeout:5000}).toBeGreaterThanOrEqual(headerBottom);
+ await page.getByRole('button',{name:'メニューを開く'}).click();await page.getByRole('navigation',{name:'モバイルナビゲーション'}).getByRole('link',{name:'ゲームで遊ぶ'}).click();
+ await expect(page).toHaveURL(/#games$/);
+ await expect.poll(()=>page.locator('#home-title').evaluate(el=>el.getBoundingClientRect().top),{timeout:5000}).toBeGreaterThanOrEqual(headerBottom);
+ expect(await page.locator('#home-title').evaluate(el=>el.getBoundingClientRect().top)).toBeLessThan(667);
+ await page.screenshot({path:`${dir}/anchor-root200-320.png`});
+ await page.getByRole('link',{name:'制作課題から探す →'}).click();await expect(page).toHaveURL(/\/tools\/$/);
+ expect(await page.evaluate(()=>document.documentElement.style.getPropertyValue('--header-height'))).toBe('');
 });

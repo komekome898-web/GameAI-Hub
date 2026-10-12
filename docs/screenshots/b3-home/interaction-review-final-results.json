@@ -1,0 +1,490 @@
+{
+  "method": "Local production build, Chromium 375/320/1440 reflow, CDP touch emulation, no physical device. Analytics locally excluded. No production or external URLs opened.",
+  "origin": "http://127.0.0.1:3180",
+  "errors": [],
+  "results": [
+    {
+      "test": "first frame 1440",
+      "state": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start",
+        "title": "モンスターコンストラクション",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 1440,
+        "documentWidth": 1440,
+        "motion": "idle",
+        "raf": "0"
+      }
+    },
+    {
+      "test": "first frame 375",
+      "state": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start",
+        "title": "モンスターコンストラクション",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      }
+    },
+    {
+      "test": "first frame 320",
+      "state": {
+        "url": "http://127.0.0.1:3180/",
+        "title": "モンスターコンストラクション",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 320,
+        "documentWidth": 320,
+        "motion": "idle",
+        "raf": "0"
+      }
+    },
+    {
+      "test": "initial Home Tab follows page entry order",
+      "before": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start",
+        "title": "モンスターコンストラクション",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "after": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start",
+        "title": "モンスターコンストラクション",
+        "focused": "#main-content",
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      }
+    },
+    {
+      "test": "focused image ArrowRight Enter then Tab Enter",
+      "before": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start",
+        "title": "モンスターコンストラクション",
+        "focused": "/games/monster-construction/",
+        "focusedLabel": "モンスターコンストラクションの紹介",
+        "selected": "monster-construction",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "afterArrow": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start&homeGame=aramon",
+        "title": "荒野モン動",
+        "focused": null,
+        "focusedLabel": "掲載ゲームのカード",
+        "selected": "aramon",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "afterEnter": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start&homeGame=aramon",
+        "title": "荒野モン動",
+        "focused": null,
+        "focusedLabel": "掲載ゲームのカード",
+        "selected": "aramon",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "nextFocus": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start&homeGame=aramon",
+        "title": "荒野モン動",
+        "focused": "/games/aramon/",
+        "focusedLabel": "荒野モン動の紹介",
+        "selected": "aramon",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "destination": "http://127.0.0.1:3180/games/aramon/"
+    },
+    {
+      "test": "focused image Home Enter then Tab Enter",
+      "afterKey": {
+        "url": "http://127.0.0.1:3180/?homeGame=monster-construction#games",
+        "title": "モンスターコンストラクション",
+        "focused": null,
+        "focusedLabel": "掲載ゲームのカード",
+        "selected": "monster-construction",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "enterState": {
+        "url": "http://127.0.0.1:3180/?homeGame=monster-construction#games",
+        "title": "モンスターコンストラクション",
+        "focused": null,
+        "focusedLabel": "掲載ゲームのカード",
+        "selected": "monster-construction",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "destination": "http://127.0.0.1:3180/games/monster-construction/"
+    },
+    {
+      "test": "focused image End Enter then Tab Enter",
+      "afterKey": {
+        "url": "http://127.0.0.1:3180/?homeGame=sumaraku#games",
+        "title": "ラクガキ大乱闘",
+        "focused": null,
+        "focusedLabel": "掲載ゲームのカード",
+        "selected": "sumaraku",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "enterState": {
+        "url": "http://127.0.0.1:3180/?homeGame=sumaraku#games",
+        "title": "ラクガキ大乱闘",
+        "focused": null,
+        "focusedLabel": "掲載ゲームのカード",
+        "selected": "sumaraku",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "destination": "http://127.0.0.1:3180/games/sumaraku/"
+    },
+    {
+      "test": "list tomoshibi introduction breadcrumb return",
+      "before": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start&homeView=list",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 2183,
+        "mode": "list",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "breadcrumbHref": "/articles/?hubArticle=tomoshibi#games",
+      "after": {
+        "url": "http://127.0.0.1:3180/?homeGame=tomoshibi&homeView=list#games",
+        "focused": "/games/tomoshibi/",
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 2183,
+        "mode": "list",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      }
+    },
+    {
+      "test": "list tomoshibi introduction browser Back",
+      "before": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start&homeView=list",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 2183,
+        "mode": "list",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "after": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start&homeView=list&homeGame=tomoshibi#games",
+        "focused": "/games/tomoshibi/",
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 2183,
+        "mode": "list",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      }
+    },
+    {
+      "test": "deep link and title focus arrow key",
+      "deep": {
+        "url": "http://127.0.0.1:3180/?homeGame=aramon#games",
+        "title": "荒野モン動",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "aramon",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "after": {
+        "url": "http://127.0.0.1:3180/?homeGame=aramon#games",
+        "title": "荒野モン動",
+        "focused": "/games/aramon/",
+        "focusedLabel": null,
+        "selected": "aramon",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      }
+    },
+    {
+      "test": "19 rapid arrows",
+      "state": {
+        "url": "http://127.0.0.1:3180/?homeGame=aura-connect-battle#games",
+        "title": "オーラコネクト・バトル",
+        "focused": null,
+        "focusedLabel": "掲載ゲームのカード",
+        "selected": "aura-connect-battle",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      }
+    },
+    {
+      "test": "reduced motion Home End",
+      "state": {
+        "url": "http://127.0.0.1:3180/?homeGame=sumaraku#games",
+        "title": "ラクガキ大乱闘",
+        "focused": null,
+        "focusedLabel": "掲載ゲームのカード",
+        "selected": "sumaraku",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      }
+    },
+    {
+      "test": "touch horizontal",
+      "before": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start",
+        "title": "モンスターコンストラクション",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "after": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start&homeGame=tomoshibi",
+        "title": "灯のルミナ",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "tomoshibi",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      }
+    },
+    {
+      "test": "touch vertical",
+      "before": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start",
+        "title": "モンスターコンストラクション",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "after": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start",
+        "title": "モンスターコンストラクション",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 185,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      }
+    },
+    {
+      "test": "touch diagonal vertical intent",
+      "before": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start",
+        "title": "モンスターコンストラクション",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "after": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start",
+        "title": "モンスターコンストラクション",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 186,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      }
+    },
+    {
+      "test": "touch diagonal horizontal intent",
+      "before": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start",
+        "title": "モンスターコンストラクション",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      },
+      "after": {
+        "url": "http://127.0.0.1:3180/?hubCategory=start&homeGame=tomoshibi",
+        "title": "灯のルミナ",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "tomoshibi",
+        "scrollY": 0,
+        "mode": "deck",
+        "width": 375,
+        "documentWidth": 375,
+        "motion": "idle",
+        "raf": "0"
+      }
+    },
+    {
+      "test": "320 200% root text equivalent",
+      "state": {
+        "url": "http://127.0.0.1:3180/",
+        "focused": null,
+        "focusedLabel": null,
+        "selected": "monster-construction",
+        "scrollY": 0,
+        "mode": "list",
+        "width": 320,
+        "documentWidth": 320,
+        "motion": "idle",
+        "raf": "0"
+      }
+    },
+    {
+      "test": "existing category games exists",
+      "count": 1,
+      "visible": true
+    },
+    {
+      "test": "category/search remaining surfaces",
+      "state": {
+        "links": [
+          {
+            "text": "制作カテゴリ6本の記事ゲーム制作をはじめる記事を見る →",
+            "href": "/articles/?hubEntry=home&hubCategory=start#start"
+          },
+          {
+            "text": "制作カテゴリ3本の記事画像と3D素材を作る記事を見る →",
+            "href": "/articles/?hubEntry=home&hubCategory=3d#3d"
+          },
+          {
+            "text": "制作カテゴリ3本の記事音と声を作る記事を見る →",
+            "href": "/articles/?hubEntry=home&hubCategory=voice#voice"
+          },
+          {
+            "text": "制作カテゴリ6本の記事制作の体験談と学び記事を見る →",
+            "href": "/articles/?hubEntry=home&hubCategory=practice#practice"
+          },
+          {
+            "text": "制作カテゴリ8作品AIで作ったゲームを遊ぶ作品を見る →",
+            "href": "/articles/?hubEntry=home&hubCategory=games#games"
+          },
+          {
+            "text": "すべての記事を見る（18本） →",
+            "href": "/articles/#all"
+          }
+        ],
+        "searches": []
+      }
+    },
+    {
+      "test": "settled list breadcrumb href after client restore",
+      "passed": true,
+      "href": "/?homeGame=tomoshibi&homeView=list#games",
+      "note": "Earlier breadcrumbHref field was read immediately after route URL changed, before the client return-link effect settled; the actual click in that run returned correctly."
+    }
+  ]
+}

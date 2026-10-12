@@ -4,7 +4,7 @@ body.visual-layer-v2:has(.home-b3) {
   background:#171e1e; color:#f1f0e7;
 }
 body:has(.home-b3) main { max-width:1280px; padding-inline:28px; }
-.home-b3 { position:relative; isolation:isolate; color:#f1f0e7; }
+.home-b3 { --color-text:#f1f0e7; --color-text-muted:#bec8b6; --color-action:#e9c383; --color-border:#64735b; position:relative; isolation:isolate; color:#f1f0e7; }
 .b3-ambient { position:absolute; z-index:-1; top:-84px; left:calc(-1 * max(28px,(100vw - 1224px)/2)); width:calc(100% + 2 * max(28px,(100vw - 1224px)/2)); height:1350px; overflow:hidden; pointer-events:none; background:linear-gradient(142deg,#303a32,#202b2a 43%,#162020 74%,#171e1e); }
 .b3-ambient span { position:absolute; inset:0; }
 .b3-ambient span:first-child { background:radial-gradient(ellipse 85% 55% at 16% -6%,#d9dcba29,transparent 76%),radial-gradient(ellipse 66% 55% at 91% 34%,#799d9222,transparent 77%); }
@@ -68,12 +68,13 @@ body.visual-layer-v2 .b3-site-header { --header-height:84px; height:auto; backgr
 .b3-game-description { font-size:.875rem; line-height:1.8; color:#c0c8b7; margin:0; }
 .b3-game-note { font-size:.6875rem; line-height:1.6; color:#c0c8b7; margin:7px 0 0; }
 .b3-game-actions { display:flex; flex-direction:column; gap:6px; min-width:150px; }
-body.visual-layer-v2 .home-b3 .b3-game-actions .button { min-height:48px; padding:10px 20px; border:1px solid #f7e1b384; border-radius:7px; background:linear-gradient(130deg,#f5deb0,#d9b472); color:#2e281d; box-shadow:inset 0 1px 0 #fff7dc9e,0 5px 18px #060f0740; font-size:.875rem; }
+.b3-game-actions>a { flex-shrink:0; max-width:100%; }
+body.visual-layer-v2 .home-b3 .b3-game-actions .button { min-height:48px; padding:10px 20px; border:1px solid #f7e1b384; border-radius:7px; background:linear-gradient(130deg,#f5deb0,#d9b472); color:#2e281d; box-shadow:inset 0 1px 0 #fff7dc9e,0 5px 18px #060f0740; font-size:.875rem; white-space:nowrap; }
 .b3-game-detail { display:flex; align-items:center; justify-content:center; gap:10px; min-height:44px; padding:8px; color:#e0e5d6; font-size:.75rem; text-decoration:none; }
 .b3-production-link { display:inline-flex; align-items:center; min-height:44px; color:#ebd09e; font-size:.75rem; }
 .b3-deck-help { text-align:center; font-size:.6875rem; color:#b6c3a9; margin:16px 0 0; }
 .b3-static-copy { padding-top:22px; }
-.b3-static-copy .b3-game-actions { flex-direction:row; align-items:center; justify-content:space-between; margin-bottom:10px; }
+.b3-static-copy .b3-game-actions { flex-direction:row; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
 .home-b3 .section-head { border-top:1px solid #4a574b; padding-top:26px; }
 .home-b3 :is(.section-head p,.home-trust-note,.home-continuation p,.example-projects p) { color:#bec8b6; }
 .home-b3 :is(.home-path-grid>a,.home-resource-list>a,.home-task-preview,.example-list>a) { background:#242e27; border-color:#64735b; color:#f1f0e7; }
@@ -88,7 +89,7 @@ body.visual-layer-v2 .home-b3 .b3-game-actions .button { min-height:48px; paddin
 .home-b3 .home-execution-hero { --color-text:#233529; --color-text-muted:#52604b; --color-action:#315a42; --color-border:#a2ae92; --v2-primary:#315a42; --v2-recess:#cbd0bd; --v2-edge:#a2ae92; --text:#233529; --muted:#52604b; --accent:#315a42; --accent-strong:#315a42; background:#e0d9c6; color:#233529; }
 .home-b3 .home-execution-hero :is(h2,p,label,small) { color:inherit; }
 .home-b3 .home-execution-hero textarea { color:#233529; background:#faf8f2; }
-body:has(.home-b3) .site-footer { background:#171e1e; color:#f1f0e7; border-color:#4a574b; }
+body:has(.home-b3) .site-footer { --color-text:#f1f0e7; --color-text-muted:#c5cebd; --color-action:#e9c383; background:#171e1e; color:#f1f0e7; border-color:#4a574b; }
 body:has(.home-b3) .site-footer :is(p,small,a) { color:#c5cebd; }
 @media(max-width:1100px) { .b3-beginner-note { position:static; max-width:none; margin-top:7px; } .b3-beginner-note a { display:inline; margin-left:12px; } .b3-site-header .main-nav a { padding-inline:10px; } }
 @media(max-width:900px) { .b3-site-header .main-nav { display:none; } }
@@ -125,7 +126,7 @@ body:has(.home-b3) .site-footer :is(p,small,a) { color:#c5cebd; }
   .b3-selection-copy { display:contents; }
   .b3-game-meta { grid-row:1; font-size:.625rem; margin-bottom:2px; }
   .b3-game-selection h2 { grid-row:2; font-size:1.125rem; margin-bottom:2px; }
-  .b3-game-selection .b3-game-actions { grid-row:3; flex-direction:row; align-items:center; justify-content:space-between; margin:2px 0 4px; }
+  .b3-game-selection .b3-game-actions { grid-row:3; flex-direction:row; flex-wrap:wrap; align-items:center; justify-content:space-between; margin:2px 0 4px; }
   .b3-game-selection .b3-game-description { grid-row:4; font-size:.75rem; }
   .b3-game-selection .b3-game-note { grid-row:5; font-size:.625rem; }
   .b3-game-selection .b3-production-link { grid-row:6; }

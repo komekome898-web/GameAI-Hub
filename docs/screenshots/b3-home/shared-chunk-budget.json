@@ -1,0 +1,14 @@
+[
+  {
+    "route": "/",
+    "path": "/_next/static/chunks/25druuxcec1b3.js",
+    "isDeck": true,
+    "gzipBytes": 7995
+  },
+  {
+    "route": "/articles/",
+    "path": "/_next/static/chunks/25druuxcec1b3.js",
+    "isDeck": true,
+    "gzipBytes": 7995
+  }
+]

@@ -1,0 +1,83 @@
+{
+  "method": "Chromium viewport reflow; not physical device",
+  "metrics": {
+    "viewport": 320,
+    "document": 320,
+    "play": {
+      "x": 18,
+      "y": 561.625,
+      "width": 84,
+      "height": 48,
+      "top": 561.625,
+      "right": 102,
+      "bottom": 609.625,
+      "left": 18
+    },
+    "headerTargets": [
+      {
+        "label": "GameBuildiaryビルダイアリー",
+        "height": 44
+      },
+      {
+        "label": "制作を始める作る ↗",
+        "height": 44
+      },
+      {
+        "label": "",
+        "height": 44
+      }
+    ],
+    "image": [
+      {
+        "src": "/images/games/monster-construction/screen.jpeg",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      },
+      {
+        "src": "/images/games/aramon/title-screen.png",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      },
+      {
+        "src": "/images/games/create-monsters/battle.jpeg",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      },
+      {
+        "src": "/images/games/aura-connect-battle/screen.jpeg",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      },
+      {
+        "src": "/images/games/tomoshibi/screen.jpeg",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      },
+      {
+        "src": "/images/games/punching/screen.png",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      },
+      {
+        "src": "/images/games/rakugaction/screen.png",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      },
+      {
+        "src": "/images/games/sumaraku/screen.png",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      }
+    ]
+  },
+  "selected": "aramon",
+  "errors": []
+}

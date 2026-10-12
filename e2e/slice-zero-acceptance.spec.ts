@@ -24,7 +24,7 @@ test.describe("Issue 137 Slice 0 rendered baselines", () => {
     test(`Home is capturable with provenance at ${viewport.width}x${viewport.height}`, async ({ page }, testInfo) => {
       await page.setViewportSize(viewport);
       await page.goto("/");
-      await expect(page.getByRole("heading", { level: 1, name: /遊べる世界から、作るヒントを。/ })).toBeVisible();
+      await expect(page.getByRole("heading", { level: 1, name: /遊べる世界から、\s*作るヒントを。/ })).toBeVisible();
       const diagnostics = await diagnoseWidths(page);
       const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
       if (viewport.width < 400) {

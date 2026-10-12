@@ -1,0 +1,45 @@
+{
+  "method": "Chromium; CDP touch is emulation",
+  "records": [
+    {
+      "slug": "aramon",
+      "width": 667,
+      "height": 375
+    },
+    {
+      "slug": "create-monsters",
+      "width": 870,
+      "height": 1882
+    },
+    {
+      "slug": "monster-construction",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "slug": "aura-connect-battle",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "slug": "tomoshibi",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "slug": "punching",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "slug": "rakugaction",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "slug": "sumaraku",
+      "width": 1280,
+      "height": 720
+    }
+  ]
+}

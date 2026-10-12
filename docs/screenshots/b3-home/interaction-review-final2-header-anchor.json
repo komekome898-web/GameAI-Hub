@@ -1,0 +1,65 @@
+{
+  "method": "Local Chromium viewport reflow/synthetic-root-text; not physical devices",
+  "origin": "http://127.0.0.1:3181",
+  "results": [
+    {
+      "test": "320 root200 anchor uses actual header height",
+      "passed": true,
+      "height": {
+        "measured": 126.78125,
+        "inline": "126.78125px",
+        "rootFont": "32px"
+      },
+      "anchor": {
+        "url": "http://127.0.0.1:3181/?homeGame=aramon#home-idea-title",
+        "headerBottom": 126.78125,
+        "ideaTop": 421.5,
+        "computedHeader": "126.78125px",
+        "rootFont": "32px"
+      }
+    },
+    {
+      "test": "Header games anchor keeps selected game query",
+      "passed": true,
+      "games": {
+        "url": "http://127.0.0.1:3181/?homeGame=aramon#games",
+        "headerBottom": 126.78125,
+        "heroTop": 117.78125
+      }
+    },
+    {
+      "test": "Home header height override is removed on SPA route exit",
+      "passed": true,
+      "cleanup": {
+        "inline": "",
+        "home": false,
+        "headerClass": "site-header",
+        "desktop": {
+          "inline": "",
+          "computed": "64px",
+          "height": 64
+        }
+      }
+    },
+    {
+      "test": "Explicit category activation from games context owns visible Back return",
+      "passed": true,
+      "passive": "http://127.0.0.1:3181/?homeGame=aramon#games",
+      "back": {
+        "url": "http://127.0.0.1:3181/?homeGame=aramon&hubCategory=voice#categories",
+        "focused": "voice",
+        "rect": {
+          "x": 52.5,
+          "y": 280.375,
+          "width": 270,
+          "height": 198.578125,
+          "top": 280.375,
+          "right": 322.5,
+          "bottom": 478.953125,
+          "left": 52.5
+        },
+        "headerBottom": 64
+      }
+    }
+  ]
+}

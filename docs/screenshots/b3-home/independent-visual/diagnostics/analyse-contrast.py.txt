@@ -1,0 +1,28 @@
+import json, math, re
+from pathlib import Path
+from PIL import Image
+root=Path('/workspace/GameAI-Hub-b3-prod/docs/screenshots/b3-home/independent-visual')
+samples=json.loads((root/'contrast-samples.json').read_text())
+def lum(rgb):
+    values=[x/255 for x in rgb]
+    values=[x/12.92 if x<=0.04045 else ((x+0.055)/1.055)**2.4 for x in values]
+    return sum(a*b for a,b in zip(values,[.2126,.7152,.0722]))
+def ratio(a,b):
+    la,lb=lum(a),lum(b)
+    return (max(la,lb)+.05)/(min(la,lb)+.05)
+output=[]
+for sample in samples['samples']:
+    img=Image.open(root/f"{sample['name']}.png").convert('RGB')
+    for node in sample['nodes']:
+        color=tuple(float(x) for x in re.findall(r'[\d.]+',node['color'])[:3])
+        values=[]
+        for rect in node['rects']:
+            for x in range(math.ceil(rect['left']),math.floor(rect['right']),2):
+                for y in range(math.ceil(rect['top']),math.floor(rect['bottom']),2):
+                    values.append(ratio(color,img.getpixel((x,y))))
+        if not values: continue
+        threshold=3 if node['fontSize']>=24 or (node['fontSize']>=18.667 and int(node['fontWeight'])>=700) else 4.5
+        output.append({'sample':sample['name'],'text':node['text'],'selector':node['selector'],'fontSize':node['fontSize'],'minRatio':round(min(values),3),'threshold':threshold,'pass':min(values)>=threshold})
+result={'method':samples['method'],'server':samples['server'],'nodesMeasured':len(output),'failed':[row for row in output if not row['pass']],'lowestSmall':min((r['minRatio'] for r in output if r['threshold']==4.5),default=None),'lowestLarge':min((r['minRatio'] for r in output if r['threshold']==3),default=None),'results':output}
+(root/'contrast-results.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({k:v for k,v in result.items() if k!='results'},ensure_ascii=False,indent=2))

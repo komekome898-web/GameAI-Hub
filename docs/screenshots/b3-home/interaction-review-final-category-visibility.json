@@ -1,0 +1,72 @@
+{
+  "method": "Fresh/legacy/missing-position browser contexts, viewport reflow, Chromium 375×667; physical devices UNTESTED",
+  "origin": "http://127.0.0.1:3181",
+  "results": [
+    {
+      "id": "fresh",
+      "passed": true,
+      "state": {
+        "url": "http://127.0.0.1:3181/?hubCategory=voice#categories",
+        "focused": "voice",
+        "rect": {
+          "x": 52.5,
+          "y": 274.375,
+          "width": 270,
+          "height": 198.578125,
+          "top": 274.375,
+          "right": 322.5,
+          "bottom": 472.953125,
+          "left": 52.5
+        },
+        "scrollY": 1624,
+        "headerBottom": 64,
+        "width": 375,
+        "documentWidth": 375
+      }
+    },
+    {
+      "id": "legacy-zero",
+      "passed": true,
+      "state": {
+        "url": "http://127.0.0.1:3181/?hubCategory=voice#categories",
+        "focused": "voice",
+        "rect": {
+          "x": 52.5,
+          "y": 274.375,
+          "width": 270,
+          "height": 198.578125,
+          "top": 274.375,
+          "right": 322.5,
+          "bottom": 472.953125,
+          "left": 52.5
+        },
+        "scrollY": 1624,
+        "headerBottom": 64,
+        "width": 375,
+        "documentWidth": 375
+      }
+    },
+    {
+      "id": "missing-position",
+      "passed": true,
+      "state": {
+        "url": "http://127.0.0.1:3181/?hubCategory=voice#categories",
+        "focused": "voice",
+        "rect": {
+          "x": 52.5,
+          "y": 274.375,
+          "width": 270,
+          "height": 198.578125,
+          "top": 274.375,
+          "right": 322.5,
+          "bottom": 472.953125,
+          "left": 52.5
+        },
+        "scrollY": 1624,
+        "headerBottom": 64,
+        "width": 375,
+        "documentWidth": 375
+      }
+    }
+  ]
+}

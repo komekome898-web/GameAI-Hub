@@ -1,0 +1,63 @@
+{
+  "method": "synthetic-root-text at 320×667, after ResizeObserver/static-list settled, not browser zoom/physical-device",
+  "origin": "http://127.0.0.1:3181",
+  "state": {
+    "mode": "list",
+    "rootFont": "32px",
+    "focused": "/games/monster-construction/",
+    "focus": {
+      "x": 14,
+      "y": 376.671875,
+      "width": 170,
+      "height": 56.796875,
+      "top": 376.671875,
+      "right": 184,
+      "bottom": 433.46875,
+      "left": 14
+    },
+    "headerBottom": 126.78125,
+    "documentWidth": 320,
+    "play": [
+      {
+        "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+        "whiteSpace": "nowrap",
+        "width": 126.03125
+      },
+      {
+        "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+        "whiteSpace": "nowrap",
+        "width": 126.03125
+      },
+      {
+        "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+        "whiteSpace": "nowrap",
+        "width": 126.03125
+      },
+      {
+        "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+        "whiteSpace": "nowrap",
+        "width": 126.03125
+      },
+      {
+        "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+        "whiteSpace": "nowrap",
+        "width": 126.03125
+      },
+      {
+        "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+        "whiteSpace": "nowrap",
+        "width": 126.03125
+      },
+      {
+        "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+        "whiteSpace": "nowrap",
+        "width": 126.03125
+      },
+      {
+        "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+        "whiteSpace": "nowrap",
+        "width": 126.03125
+      }
+    ]
+  }
+}

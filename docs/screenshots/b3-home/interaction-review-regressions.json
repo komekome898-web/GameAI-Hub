@@ -1,0 +1,320 @@
+{
+  "method": "Local production build, Chromium; external requests blocked; actual physical devices UNTESTED",
+  "origin": "http://127.0.0.1:3181",
+  "checks": [
+    {
+      "test": "Home canonical, Google verification, locally excluded GA",
+      "passed": true,
+      "evidence": {
+        "canonical": "https://game-ai-hub.vercel.app/",
+        "verification": "Y1_xmHBdIKo83dDqi8vEHDQcBn20dWrcHMZNmW-C724",
+        "title": "作りたいゲームから制作ロードマップを作る",
+        "gaEligible": false,
+        "gaExcluded": true,
+        "gtag": "undefined",
+        "gaScripts": 0,
+        "url": "http://127.0.0.1:3181/?hubCategory=start"
+      }
+    },
+    {
+      "test": "approved data, full artwork and play link: aramon",
+      "passed": true,
+      "evidence": {
+        "slug": "aramon",
+        "title": "荒野モン動",
+        "description": "モンスターを操作し、3Dの荒野で技を放って戦うTPSバトルロイヤル。",
+        "note": "プレイ無料、インストールなし · 作者：おりょう",
+        "src": "/images/games/aramon/title-screen.png",
+        "width": 667,
+        "height": 375,
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1",
+        "credit": "荒野モン動／おりょうFULL FRAME",
+        "play": "https://komekome898-web.github.io/aramon/index.html",
+        "target": "_blank",
+        "rel": "noopener noreferrer",
+        "production": "/articles/aramon-production-story/"
+      }
+    },
+    {
+      "test": "approved data, full artwork and play link: create-monsters",
+      "passed": true,
+      "evidence": {
+        "slug": "create-monsters",
+        "title": "クリエイトモンスターズ",
+        "description": "集めて、育てて、どこまでも行ける。",
+        "note": "プレイ無料、インストールなし · 作者：ドラ",
+        "src": "/images/games/create-monsters/battle.jpeg",
+        "width": 870,
+        "height": 1882,
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1",
+        "credit": "作者提供：ドラFULL FRAME",
+        "play": "https://crimon.pages.dev/",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    },
+    {
+      "test": "approved data, full artwork and play link: monster-construction",
+      "passed": true,
+      "evidence": {
+        "slug": "monster-construction",
+        "title": "モンスターコンストラクション",
+        "description": "モンスターを育成・合体させ、勝利後のカード交換で自分だけの40枚をつくるカードバトルです。",
+        "note": "プレイ無料、インストールなし · 作者：かど",
+        "src": "/images/games/monster-construction/screen.jpeg",
+        "width": 1280,
+        "height": 720,
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1",
+        "credit": "作者提供：かどFULL FRAME",
+        "play": "https://cadmium2525.github.io/monster_collection/",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    },
+    {
+      "test": "approved data, full artwork and play link: aura-connect-battle",
+      "passed": true,
+      "evidence": {
+        "slug": "aura-connect-battle",
+        "title": "オーラコネクト・バトル",
+        "description": "同じ色のオーラをつないで消し、仲間とダンジョンを攻略するパズルRPGです。",
+        "note": "プレイ無料、インストールなし · 作者：かど",
+        "src": "/images/games/aura-connect-battle/screen.jpeg",
+        "width": 1280,
+        "height": 720,
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1",
+        "credit": "作者提供：かどFULL FRAME",
+        "play": "https://cadmium2525.github.io/aurapuzzle_-adventure/",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    },
+    {
+      "test": "approved data, full artwork and play link: tomoshibi",
+      "passed": true,
+      "evidence": {
+        "slug": "tomoshibi",
+        "title": "灯のルミナ",
+        "description": "少女ルミナを守り、灯りを頼りに暗い地下聖堂を進む謎解きアクションです。",
+        "note": "プレイ無料、インストールなし · 作者：かど",
+        "src": "/images/games/tomoshibi/screen.jpeg",
+        "width": 1280,
+        "height": 720,
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1",
+        "credit": "作者提供：かどFULL FRAME",
+        "play": "https://cadmium2525.github.io/tomoshibi/",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    },
+    {
+      "test": "approved data, full artwork and play link: punching",
+      "passed": true,
+      "evidence": {
+        "slug": "punching",
+        "title": "ぶっ飛ばせ！ムカつくアイツ！",
+        "description": "5回のミニゲームでパンチ力をためて、キャラクターを宇宙の向こうまでぶっ飛ばす爽快ゲームです。",
+        "note": "プレイ無料、インストールなし · 作者：かど",
+        "src": "/images/games/punching/screen.png",
+        "width": 1280,
+        "height": 720,
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1",
+        "credit": "作者提供：かどFULL FRAME",
+        "play": "https://cadmium2525.github.io/punching/",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    },
+    {
+      "test": "approved data, full artwork and play link: rakugaction",
+      "passed": true,
+      "evidence": {
+        "slug": "rakugaction",
+        "title": "ラクガキアクション",
+        "description": "描いたラクガキが立体になって、5つのステージを冒険する3Dアクションです。",
+        "note": "プレイ無料、インストールなし · 作者：かど",
+        "src": "/images/games/rakugaction/screen.png",
+        "width": 1280,
+        "height": 720,
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1",
+        "credit": "作者提供：かどFULL FRAME",
+        "play": "https://cadmium2525.github.io/rakugaction/",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    },
+    {
+      "test": "approved data, full artwork and play link: sumaraku",
+      "passed": true,
+      "evidence": {
+        "slug": "sumaraku",
+        "title": "ラクガキ大乱闘",
+        "description": "自分で描いたラクガキを3Dファイターにして戦わせる、お絵かき対戦アクションです。",
+        "note": "プレイ無料、インストールなし · 作者：かど",
+        "src": "/images/games/sumaraku/screen.png",
+        "width": 1280,
+        "height": 720,
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1",
+        "credit": "作者提供：かどFULL FRAME",
+        "play": "https://cadmium2525.github.io/sumaraku/",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    },
+    {
+      "test": "Home play emits safe outbound_click diagnostic without GA transport",
+      "passed": true,
+      "evidence": [
+        {
+          "name": "outbound_click",
+          "properties": {
+            "page": "/games/monster-construction/",
+            "placement": "card"
+          }
+        }
+      ]
+    },
+    {
+      "test": "Home voice category opens original article hub with unchanged context",
+      "passed": true,
+      "evidence": {
+        "before": {
+          "url": "http://127.0.0.1:3181/?hubCategory=voice#categories",
+          "focused": "voice"
+        },
+        "after": {
+          "url": "http://127.0.0.1:3181/articles/?hubEntry=home&hubCategory=voice&hubArticle=elevenlabs-game-development-guide#voice",
+          "heading": "音と声を作る",
+          "back": "/?hubCategory=voice#categories"
+        }
+      }
+    },
+    {
+      "test": "Home category breadcrumb return retains visible category identity, no game URL pollution",
+      "passed": true,
+      "evidence": {
+        "url": "http://127.0.0.1:3181/?hubCategory=voice#categories",
+        "focused": "voice",
+        "scroll": 1624,
+        "rect": {
+          "x": 52.5,
+          "y": 274.375,
+          "width": 270,
+          "height": 198.578125,
+          "top": 274.375,
+          "right": 322.5,
+          "bottom": 472.953125,
+          "left": 52.5
+        },
+        "headerBottom": 64
+      }
+    },
+    {
+      "test": "Mobile menu includes games and existing routes; Escape restores focus",
+      "passed": true,
+      "evidence": {
+        "expanded": "true",
+        "links": [
+          "#games",
+          "/project/",
+          "/articles/",
+          "/guides/",
+          "/tools/",
+          "/compare/",
+          "/methodology/",
+          "/privacy/"
+        ],
+        "restoredFocus": true
+      }
+    },
+    {
+      "test": "Existing tools search remains interactive",
+      "passed": true,
+      "evidence": {
+        "url": "http://127.0.0.1:3181/tools/?q=Unity",
+        "value": "Unity",
+        "resultCount": 0,
+        "body": true,
+        "originalCount": 29
+      }
+    },
+    {
+      "test": "Breadcrumb only accepts same-origin same-slug supported Home route: /?homeGame=tomoshibi&homeView=list&evil=1#games",
+      "passed": true,
+      "evidence": {
+        "saved": {
+          "id": "tomoshibi",
+          "href": "/?homeGame=tomoshibi&homeView=list&evil=1#games"
+        },
+        "href": "/?homeGame=tomoshibi&homeView=list#games",
+        "expected": "/?homeGame=tomoshibi&homeView=list#games"
+      }
+    },
+    {
+      "test": "Breadcrumb only accepts same-origin same-slug supported Home route: /?homeGame=other#games",
+      "passed": true,
+      "evidence": {
+        "saved": {
+          "id": "tomoshibi",
+          "href": "/?homeGame=other#games"
+        },
+        "href": "/articles/?hubArticle=tomoshibi#games",
+        "expected": "/articles/?hubArticle=tomoshibi#games"
+      }
+    },
+    {
+      "test": "Breadcrumb only accepts same-origin same-slug supported Home route: https://evil.example/?homeGame=tomoshibi#games",
+      "passed": true,
+      "evidence": {
+        "saved": {
+          "id": "tomoshibi",
+          "href": "https://evil.example/?homeGame=tomoshibi#games"
+        },
+        "href": "/articles/?hubArticle=tomoshibi#games",
+        "expected": "/articles/?hubArticle=tomoshibi#games"
+      }
+    },
+    {
+      "test": "Breadcrumb only accepts same-origin same-slug supported Home route: /?homeGame=tomoshibi#all",
+      "passed": true,
+      "evidence": {
+        "saved": {
+          "id": "tomoshibi",
+          "href": "/?homeGame=tomoshibi#all"
+        },
+        "href": "/articles/?hubArticle=tomoshibi#games",
+        "expected": "/articles/?hubArticle=tomoshibi#games"
+      }
+    },
+    {
+      "test": "No-JS full list and fifth game introduction work",
+      "passed": true,
+      "evidence": {
+        "staticCopy": 8,
+        "staticGames": 8,
+        "destination": "http://127.0.0.1:3181/games/tomoshibi/"
+      }
+    },
+    {
+      "test": "No page errors during independent regression checks",
+      "passed": true,
+      "evidence": []
+    }
+  ]
+}

@@ -32,12 +32,23 @@ export function Header() {
   useEffect(() => {
     const header = headerRoot.current;
     if (!home || !header) return;
-    const measure = () => header.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+    const documentRoot = document.documentElement;
+    const previousHeight = documentRoot.style.getPropertyValue('--header-height');
+    const previousPriority = documentRoot.style.getPropertyPriority('--header-height');
+    const measure = () => {
+      const height = `${header.getBoundingClientRect().height}px`;
+      header.style.setProperty('--header-height', height);
+      documentRoot.style.setProperty('--header-height', height);
+    };
     const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(measure);
     observer?.observe(header);
     measure();
     window.addEventListener('resize', measure);
-    return () => { observer?.disconnect(); window.removeEventListener('resize', measure); header.style.removeProperty('--header-height'); };
+    return () => {
+      observer?.disconnect(); window.removeEventListener('resize', measure); header.style.removeProperty('--header-height');
+      if (previousHeight) documentRoot.style.setProperty('--header-height', previousHeight, previousPriority);
+      else documentRoot.style.removeProperty('--header-height');
+    };
   }, [home]);
 
   useEffect(() => {
@@ -100,8 +111,8 @@ export function Header() {
           </span>
         </Link>
         <nav className="main-nav" aria-label="メインナビゲーション">
-          {(home ? [["/#games", "ゲームで遊ぶ"], ["/articles", "作り方を知る"], ["/tools", "AIを選ぶ"]] : primaryLinks).map(([href, label]) => (
-            <Link key={href} href={href} aria-current={active(href) || (home && href === "/#games") ? "page" : undefined}>
+          {(home ? [["#games", "ゲームで遊ぶ"], ["/articles", "作り方を知る"], ["/tools", "AIを選ぶ"]] : primaryLinks).map(([href, label]) => (
+            <Link key={href} href={href} aria-current={active(href) || (home && href === "#games") ? "page" : undefined}>
               {label}
             </Link>
           ))}
@@ -133,7 +144,7 @@ export function Header() {
               <button type="button" className="mobile-menu-close" aria-label="メニューを閉じる" onClick={closeAndReturnFocus}>×</button>
             </div>
             <nav aria-label="モバイルナビゲーション">
-              {home && <Link href="/#games" onClick={() => setOpen(false)}>ゲームで遊ぶ<span aria-hidden="true">→</span></Link>}
+              {home && <Link href="#games" onClick={() => setOpen(false)}>ゲームで遊ぶ<span aria-hidden="true">→</span></Link>}
               {menuGroups.map((group) => (
                 <div className="mobile-menu-group" key={group.label}>
                   <span className="mobile-menu-label">{group.label}</span>

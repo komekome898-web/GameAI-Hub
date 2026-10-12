@@ -1,0 +1,315 @@
+{
+  "reviewer": "/root/b3_prod_visual_review",
+  "server": "http://127.0.0.1:3182",
+  "method": "viewport-reflow / synthetic-root-text, actual keyboard transitions; no physical device",
+  "checks": [
+    {
+      "name": "fresh-category-voice-375",
+      "url": "http://127.0.0.1:3182/?hubCategory=voice#categories",
+      "scrollY": 1624,
+      "viewport": {
+        "width": 375,
+        "height": 667
+      },
+      "documentWidth": 375,
+      "headerHeight": 64,
+      "focusedTag": "A",
+      "focusedText": "制作カテゴリ3本の記事音と声を作る記事を見る →",
+      "focusedRect": {
+        "x": 52.5,
+        "y": 274.375,
+        "width": 270,
+        "height": 198.578125,
+        "top": 274.375,
+        "right": 322.5,
+        "bottom": 472.953125,
+        "left": 52.5
+      },
+      "outline": "rgb(52, 100, 77) solid 3px",
+      "ideaTitleRect": {
+        "x": 32,
+        "y": 747.375,
+        "width": 311,
+        "height": 63.34375,
+        "top": 747.375,
+        "right": 343,
+        "bottom": 810.71875,
+        "left": 32
+      },
+      "selectedVoice": {
+        "x": 52.5,
+        "y": 274.375,
+        "width": 270,
+        "height": 198.578125,
+        "top": 274.375,
+        "right": 322.5,
+        "bottom": 472.953125,
+        "left": 52.5
+      }
+    },
+    {
+      "name": "fresh-category-voice-tab-375",
+      "url": "http://127.0.0.1:3182/?hubCategory=practice#categories",
+      "scrollY": 1624,
+      "viewport": {
+        "width": 375,
+        "height": 667
+      },
+      "documentWidth": 375,
+      "headerHeight": 64,
+      "focusedTag": "A",
+      "focusedText": "制作カテゴリ6本の記事制作の体験談と学び記事を見る →",
+      "focusedRect": {
+        "x": 52.5,
+        "y": 274.375,
+        "width": 270,
+        "height": 198.578125,
+        "top": 274.375,
+        "right": 322.5,
+        "bottom": 472.953125,
+        "left": 52.5
+      },
+      "outline": "rgb(52, 100, 77) solid 3px",
+      "ideaTitleRect": {
+        "x": 32,
+        "y": 747.375,
+        "width": 311,
+        "height": 63.34375,
+        "top": 747.375,
+        "right": 343,
+        "bottom": 810.71875,
+        "left": 32
+      },
+      "selectedVoice": {
+        "x": -110.33856201171875,
+        "y": 273.15167236328125,
+        "width": 251.95005798339844,
+        "height": 189.512451171875,
+        "top": 273.15167236328125,
+        "right": 141.6114959716797,
+        "bottom": 462.66412353515625,
+        "left": -110.33856201171875
+      }
+    },
+    {
+      "name": "fresh-category-voice-320",
+      "url": "http://127.0.0.1:3182/?hubCategory=voice#categories",
+      "scrollY": 2113,
+      "viewport": {
+        "width": 320,
+        "height": 667
+      },
+      "documentWidth": 320,
+      "headerHeight": 64,
+      "focusedTag": "A",
+      "focusedText": "制作カテゴリ3本の記事音と声を作る記事を見る →",
+      "focusedRect": {
+        "x": 35,
+        "y": 261.40625,
+        "width": 250,
+        "height": 224.96875,
+        "top": 261.40625,
+        "right": 285,
+        "bottom": 486.375,
+        "left": 35
+      },
+      "outline": "rgb(52, 100, 77) solid 3px",
+      "ideaTitleRect": {
+        "x": 32,
+        "y": 1265.3125,
+        "width": 256,
+        "height": 63.34375,
+        "top": 1265.3125,
+        "right": 288,
+        "bottom": 1328.65625,
+        "left": 32
+      },
+      "selectedVoice": {
+        "x": 35,
+        "y": 261.40625,
+        "width": 250,
+        "height": 224.96875,
+        "top": 261.40625,
+        "right": 285,
+        "bottom": 486.375,
+        "left": 35
+      }
+    },
+    {
+      "name": "fresh-category-voice-tab-320",
+      "url": "http://127.0.0.1:3182/?hubCategory=voice#categories",
+      "scrollY": 2207,
+      "viewport": {
+        "width": 320,
+        "height": 667
+      },
+      "documentWidth": 320,
+      "headerHeight": 64,
+      "focusedTag": "A",
+      "focusedText": "制作カテゴリ6本の記事制作の体験談と学び記事を見る →",
+      "focusedRect": {
+        "x": 35,
+        "y": 442.375,
+        "width": 250,
+        "height": 224.96875,
+        "top": 442.375,
+        "right": 285,
+        "bottom": 667.34375,
+        "left": 35
+      },
+      "outline": "rgb(52, 100, 77) solid 3px",
+      "ideaTitleRect": {
+        "x": 32,
+        "y": 1171.3125,
+        "width": 256,
+        "height": 63.34375,
+        "top": 1171.3125,
+        "right": 288,
+        "bottom": 1234.65625,
+        "left": 32
+      },
+      "selectedVoice": {
+        "x": 35,
+        "y": 167.40625,
+        "width": 250,
+        "height": 224.96875,
+        "top": 167.40625,
+        "right": 285,
+        "bottom": 392.375,
+        "left": 35
+      }
+    },
+    {
+      "name": "root200-create-anchor-320",
+      "url": "http://127.0.0.1:3182/#home-idea-title",
+      "scrollY": 13258,
+      "viewport": {
+        "width": 320,
+        "height": 667
+      },
+      "documentWidth": 320,
+      "headerHeight": 126.78125,
+      "focusedTag": "A",
+      "focusedText": "03 / BUILD自分のゲームを作る作りたいゲームを言葉にして、今やる作業と確認の手順をつくる。アイデアから始める ↓",
+      "focusedRect": {
+        "x": 18,
+        "y": -3842.46875,
+        "width": 284,
+        "height": 320.734375,
+        "top": -3842.46875,
+        "right": 302,
+        "bottom": -3521.734375,
+        "left": 18
+      },
+      "outline": "rgb(38, 46, 35) none 3px",
+      "ideaTitleRect": {
+        "x": 32,
+        "y": 285.5,
+        "width": 256,
+        "height": 190.03125,
+        "top": 285.5,
+        "right": 288,
+        "bottom": 475.53125,
+        "left": 32
+      },
+      "selectedVoice": {
+        "x": 35,
+        "y": -1826.015625,
+        "width": 250,
+        "height": 542.171875,
+        "top": -1826.015625,
+        "right": 285,
+        "bottom": -1283.84375,
+        "left": 35
+      }
+    },
+    {
+      "name": "root200-create-input-focus-320",
+      "url": "http://127.0.0.1:3182/#home-idea-title",
+      "scrollY": 13258,
+      "viewport": {
+        "width": 320,
+        "height": 667
+      },
+      "documentWidth": 320,
+      "headerHeight": 126.78125,
+      "focusedTag": "TEXTAREA",
+      "focusedText": "",
+      "focusedRect": {
+        "x": 32,
+        "y": 599.53125,
+        "width": 256,
+        "height": 233.1875,
+        "top": 599.53125,
+        "right": 288,
+        "bottom": 832.71875,
+        "left": 32
+      },
+      "outline": "rgb(245, 215, 158) solid 3px",
+      "ideaTitleRect": {
+        "x": 32,
+        "y": 285.5,
+        "width": 256,
+        "height": 190.03125,
+        "top": 285.5,
+        "right": 288,
+        "bottom": 475.53125,
+        "left": 32
+      },
+      "selectedVoice": {
+        "x": 35,
+        "y": -1826.015625,
+        "width": 250,
+        "height": 542.171875,
+        "top": -1826.015625,
+        "right": 285,
+        "bottom": -1283.84375,
+        "left": 35
+      }
+    },
+    {
+      "name": "root200-create-cta-focus-320",
+      "url": "http://127.0.0.1:3182/#home-idea-title",
+      "scrollY": 13880,
+      "viewport": {
+        "width": 320,
+        "height": 667
+      },
+      "documentWidth": 320,
+      "headerHeight": 126.78125,
+      "focusedTag": "BUTTON",
+      "focusedText": "最初の作業を作る",
+      "focusedRect": {
+        "x": 32,
+        "y": 380.15625,
+        "width": 256,
+        "height": 49.1875,
+        "top": 380.15625,
+        "right": 288,
+        "bottom": 429.34375,
+        "left": 32
+      },
+      "outline": "rgb(245, 215, 158) solid 3px",
+      "ideaTitleRect": {
+        "x": 32,
+        "y": -336.5,
+        "width": 256,
+        "height": 190.03125,
+        "top": -336.5,
+        "right": 288,
+        "bottom": -146.46875,
+        "left": 32
+      },
+      "selectedVoice": {
+        "x": 35,
+        "y": -2448.015625,
+        "width": 250,
+        "height": 542.171875,
+        "top": -2448.015625,
+        "right": 285,
+        "bottom": -1905.84375,
+        "left": 35
+      }
+    }
+  ]
+}
