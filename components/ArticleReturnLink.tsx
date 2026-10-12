@@ -11,6 +11,13 @@ export function ArticleReturnLink({ slug, purpose, label = "記事" }: { slug: s
     queueMicrotask(() => {
     try {
       const saved = JSON.parse(sessionStorage.getItem('gameai-article-return') ?? 'null');
+      if (purpose === 'games' && saved?.id === slug && typeof saved.href === 'string' && saved.href.startsWith('/?')) {
+        const url = new URL(saved.href, location.origin);
+        if (url.origin === location.origin && url.pathname === '/' && url.hash === '#games' && url.searchParams.get('homeGame') === slug) {
+          if (active) setHref(`/?homeGame=${encodeURIComponent(slug)}${url.searchParams.get('homeView') === 'list' ? '&homeView=list' : ''}#games`);
+          return;
+        }
+      }
       if (saved?.id !== slug || typeof saved.href !== 'string' || !saved.href.startsWith('/articles/')) return;
       const url = new URL(saved.href, location.origin);
       if (url.origin !== location.origin || url.pathname !== '/articles/' || url.searchParams.get('hubArticle') !== slug) return;

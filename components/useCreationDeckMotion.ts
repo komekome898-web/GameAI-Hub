@@ -9,7 +9,7 @@ type Controller = { move: (delta: number) => void; reveal: (id: string) => void;
 const noop = () => {};
 
 /** Owns a single animation clock. Article text, routes and categories stay outside. */
-export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>, ids: string[], enabled: boolean, initialId?: string) {
+export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>, ids: string[], enabled: boolean, initialId?: string, instant = false) {
   const seed = initialId && ids.includes(initialId) ? initialId : ids[0] ?? '';
   const [activeId, setActiveId] = useState(seed);
   const committed = useRef(seed);
@@ -99,10 +99,11 @@ export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>,
     };
     const settle = (next: number, immediate = false) => {
       stop(); speed = 0; target = next;
-      if (immediate || Math.abs(pos - target) < deckMotion.epsilon) { finish(); return; }
+      if (immediate || instant || Math.abs(pos - target) < deckMotion.epsilon) { finish(); return; }
       phase = 'settling'; lastTime = performance.now(); queue(); render();
     };
     const release = (nextSpeed: number) => {
+      if (instant) { settle(Math.round(pos), true); return; }
       stop(); speed = releaseSpeed(nextSpeed);
       if (Math.abs(speed) <= deckMotion.alignSpeed) { settle(Math.round(pos)); return; }
       phase = 'coasting'; lastTime = performance.now(); queue(); render();
@@ -257,8 +258,9 @@ export function useCreationDeckMotion(stage: RefObject<HTMLOListElement | null>,
       element.dataset.motion = 'idle'; element.dataset.motionRaf = '0';
       api.current = { move: noop, reveal: noop, cancel: noop };
     };
-  }, [stage, idsKey, enabled]);
+  }, [stage, idsKey, enabled, instant]);
   const move = useCallback((delta: number) => api.current.move(delta), []);
+  const reveal = useCallback((id: string) => api.current.reveal(id), []);
   const cancel = useCallback(() => api.current.cancel(), []);
-  return { activeId, move, cancel };
+  return { activeId, move, reveal, cancel };
 }

@@ -1,0 +1,1693 @@
+{
+  "method": "synthetic-root-text, not browser zoom/physical-device",
+  "origin": "http://127.0.0.1:3180",
+  "viewport": {
+    "width": 320,
+    "height": 667
+  },
+  "before": [
+    {
+      "tag": "STRONG",
+      "text": "GameBuildiary",
+      "font": 16,
+      "lineHeight": "16.8px",
+      "visible": true,
+      "rect": {
+        "x": 60,
+        "y": 18.40625,
+        "width": 109.921875,
+        "height": 16.796875,
+        "top": 18.40625,
+        "right": 169.921875,
+        "bottom": 35.203125,
+        "left": 60
+      }
+    },
+    {
+      "tag": "H1",
+      "text": "遊べる世界から、作るヒントを。",
+      "font": 30,
+      "lineHeight": "36px",
+      "visible": true,
+      "rect": {
+        "x": 18,
+        "y": 72,
+        "width": 284,
+        "height": 72,
+        "top": 72,
+        "right": 302,
+        "bottom": 144,
+        "left": 18
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "作者提供：かどFULL FRAME",
+      "font": 9,
+      "lineHeight": "13.5px",
+      "visible": true,
+      "rect": {
+        "x": 22,
+        "y": 437.53125,
+        "width": 276,
+        "height": 19.5,
+        "top": 437.53125,
+        "right": 298,
+        "bottom": 457.03125,
+        "left": 22
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "モンスターコンストラクション",
+      "font": 25,
+      "lineHeight": "36.25px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 14,
+      "lineHeight": "23.8px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "モンスターを育成・合体させ、勝利後のカード交換で自分だけの40枚をつくるカードバトルです。",
+      "font": 14,
+      "lineHeight": "25.2px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：かど · プレイ無料、インストールなし",
+      "font": 11,
+      "lineHeight": "17.6px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "スマホのみで制作（作者提供情報）",
+      "font": 11,
+      "lineHeight": "17.6px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "荒野モン動／おりょうFULL FRAME",
+      "font": 9,
+      "lineHeight": "13.5px",
+      "visible": true,
+      "rect": {
+        "x": 196.4410858154297,
+        "y": 424.2242431640625,
+        "width": 257.55084228515625,
+        "height": 23.13885498046875,
+        "top": 424.2242431640625,
+        "right": 453.99192810058594,
+        "bottom": 447.36309814453125,
+        "left": 196.4410858154297
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "荒野モン動",
+      "font": 25,
+      "lineHeight": "36.25px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 14,
+      "lineHeight": "23.8px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "モンスターを操作し、3Dの荒野で技を放って戦うTPSバトルロイヤル。",
+      "font": 14,
+      "lineHeight": "25.2px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：おりょう · プレイ無料、インストールなし",
+      "font": 11,
+      "lineHeight": "17.6px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "作者提供：ドラFULL FRAME",
+      "font": 9,
+      "lineHeight": "13.5px",
+      "visible": true,
+      "rect": {
+        "x": 359.9610595703125,
+        "y": 424.2242431640625,
+        "width": 257.5509033203125,
+        "height": 23.13885498046875,
+        "top": 424.2242431640625,
+        "right": 617.511962890625,
+        "bottom": 447.36309814453125,
+        "left": 359.9610595703125
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "クリエイトモンスターズ",
+      "font": 25,
+      "lineHeight": "36.25px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 14,
+      "lineHeight": "23.8px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "集めて、育てて、どこまでも行ける。",
+      "font": 14,
+      "lineHeight": "25.2px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：ドラ · プレイ無料、インストールなし",
+      "font": 11,
+      "lineHeight": "17.6px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "スマホのみで制作（作者提供情報）",
+      "font": 11,
+      "lineHeight": "17.6px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "作者提供：かどFULL FRAME",
+      "font": 9,
+      "lineHeight": "13.5px",
+      "visible": true,
+      "rect": {
+        "x": 523.4810791015625,
+        "y": 424.2242431640625,
+        "width": 257.55084228515625,
+        "height": 23.13885498046875,
+        "top": 424.2242431640625,
+        "right": 781.0319213867188,
+        "bottom": 447.36309814453125,
+        "left": 523.4810791015625
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "オーラコネクト・バトル",
+      "font": 25,
+      "lineHeight": "36.25px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 14,
+      "lineHeight": "23.8px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "同じ色のオーラをつないで消し、仲間とダンジョンを攻略するパズルRPGです。",
+      "font": 14,
+      "lineHeight": "25.2px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：かど · プレイ無料、インストールなし",
+      "font": 11,
+      "lineHeight": "17.6px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "スマホのみで制作（作者提供情報）",
+      "font": 11,
+      "lineHeight": "17.6px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "作者提供：かどFULL FRAME",
+      "font": 9,
+      "lineHeight": "13.5px",
+      "visible": true,
+      "rect": {
+        "x": -624.5519409179688,
+        "y": 424.2242431640625,
+        "width": 257.5508728027344,
+        "height": 23.13885498046875,
+        "top": 424.2242431640625,
+        "right": -367.0010681152344,
+        "bottom": 447.36309814453125,
+        "left": -624.5519409179688
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "灯のルミナ",
+      "font": 25,
+      "lineHeight": "36.25px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 14,
+      "lineHeight": "23.8px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "少女ルミナを守り、灯りを頼りに暗い地下聖堂を進む謎解きアクションです。",
+      "font": 14,
+      "lineHeight": "25.2px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：かど · プレイ無料、インストールなし",
+      "font": 11,
+      "lineHeight": "17.6px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "スマホのみで制作（作者提供情報）",
+      "font": 11,
+      "lineHeight": "17.6px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "作者提供：かどFULL FRAME",
+      "font": 9,
+      "lineHeight": "13.5px",
+      "visible": true,
+      "rect": {
+        "x": -461.03192138671875,
+        "y": 424.2242431640625,
+        "width": 257.55084228515625,
+        "height": 23.13885498046875,
+        "top": 424.2242431640625,
+        "right": -203.4810791015625,
+        "bottom": 447.36309814453125,
+        "left": -461.03192138671875
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "ぶっ飛ばせ！ムカつくアイツ！",
+      "font": 25,
+      "lineHeight": "36.25px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 14,
+      "lineHeight": "23.8px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "5回のミニゲームでパンチ力をためて、キャラクターを宇宙の向こうまでぶっ飛ばす爽快ゲームです。",
+      "font": 14,
+      "lineHeight": "25.2px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：かど · プレイ無料、インストールなし",
+      "font": 11,
+      "lineHeight": "17.6px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "スマホのみで制作（作者提供情報）",
+      "font": 11,
+      "lineHeight": "17.6px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "作者提供：かどFULL FRAME",
+      "font": 9,
+      "lineHeight": "13.5px",
+      "visible": true,
+      "rect": {
+        "x": -297.5119323730469,
+        "y": 424.2242431640625,
+        "width": 257.5508728027344,
+        "height": 23.13885498046875,
+        "top": 424.2242431640625,
+        "right": -39.9610595703125,
+        "bottom": 447.36309814453125,
+        "left": -297.5119323730469
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "ラクガキアクション",
+      "font": 25,
+      "lineHeight": "36.25px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 14,
+      "lineHeight": "23.8px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "描いたラクガキが立体になって、5つのステージを冒険する3Dアクションです。",
+      "font": 14,
+      "lineHeight": "25.2px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：かど · プレイ無料、インストールなし",
+      "font": 11,
+      "lineHeight": "17.6px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "スマホのみで制作（作者提供情報）",
+      "font": 11,
+      "lineHeight": "17.6px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "作者提供：かどFULL FRAME",
+      "font": 9,
+      "lineHeight": "13.5px",
+      "visible": true,
+      "rect": {
+        "x": -133.991943359375,
+        "y": 424.2242431640625,
+        "width": 257.5508728027344,
+        "height": 23.13885498046875,
+        "top": 424.2242431640625,
+        "right": 123.55892944335938,
+        "bottom": 447.36309814453125,
+        "left": -133.991943359375
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "ラクガキ大乱闘",
+      "font": 25,
+      "lineHeight": "36.25px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 14,
+      "lineHeight": "23.8px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "自分で描いたラクガキを3Dファイターにして戦わせる、お絵かき対戦アクションです。",
+      "font": 14,
+      "lineHeight": "25.2px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：かど · プレイ無料、インストールなし",
+      "font": 11,
+      "lineHeight": "17.6px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "P",
+      "text": "スマホのみで制作（作者提供情報）",
+      "font": 11,
+      "lineHeight": "17.6px",
+      "visible": false,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  ],
+  "after": [
+    {
+      "tag": "STRONG",
+      "text": "GameBuildiary",
+      "font": 32,
+      "lineHeight": "33.6px",
+      "visible": true,
+      "rect": {
+        "x": 60,
+        "y": 10,
+        "width": 219.828125,
+        "height": 33.59375,
+        "top": 10,
+        "right": 279.828125,
+        "bottom": 43.59375,
+        "left": 60
+      }
+    },
+    {
+      "tag": "H1",
+      "text": "遊べる世界から、作るヒントを。",
+      "font": 60,
+      "lineHeight": "72px",
+      "visible": true,
+      "rect": {
+        "x": 18,
+        "y": -715.21875,
+        "width": 284,
+        "height": 288,
+        "top": -715.21875,
+        "right": 302,
+        "bottom": -427.21875,
+        "left": 18
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "作者提供：かどFULL FRAME",
+      "font": 18,
+      "lineHeight": "27px",
+      "visible": true,
+      "rect": {
+        "x": 22,
+        "y": 22.578125,
+        "width": 276,
+        "height": 33,
+        "top": 22.578125,
+        "right": 298,
+        "bottom": 55.578125,
+        "left": 22
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "モンスターコンストラクション",
+      "font": 50,
+      "lineHeight": "72.5px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 85.578125,
+        "width": 292,
+        "height": 217.5,
+        "top": 85.578125,
+        "right": 306,
+        "bottom": 303.078125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 28,
+      "lineHeight": "47.6px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 311.078125,
+        "width": 122.484375,
+        "height": 117.1875,
+        "top": 311.078125,
+        "right": 136.484375,
+        "bottom": 428.265625,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "モンスターを育成・合体させ、勝利後のカード交換で自分だけの40枚をつくるカードバトルです。",
+      "font": 28,
+      "lineHeight": "50.4px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 438.265625,
+        "width": 292,
+        "height": 251.953125,
+        "top": 438.265625,
+        "right": 306,
+        "bottom": 690.21875,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：かど · プレイ無料、インストールなし",
+      "font": 22,
+      "lineHeight": "35.2px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 697.21875,
+        "width": 292,
+        "height": 70.375,
+        "top": 697.21875,
+        "right": 306,
+        "bottom": 767.59375,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "スマホのみで制作（作者提供情報）",
+      "font": 22,
+      "lineHeight": "35.2px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 774.59375,
+        "width": 292,
+        "height": 70.375,
+        "top": 774.59375,
+        "right": 306,
+        "bottom": 844.96875,
+        "left": 14
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "荒野モン動／おりょうFULL FRAME",
+      "font": 18,
+      "lineHeight": "27px",
+      "visible": true,
+      "rect": {
+        "x": 22,
+        "y": 1101.21875,
+        "width": 276,
+        "height": 62,
+        "top": 1101.21875,
+        "right": 298,
+        "bottom": 1163.21875,
+        "left": 22
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "荒野モン動",
+      "font": 50,
+      "lineHeight": "72.5px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 1193.21875,
+        "width": 292,
+        "height": 72.5,
+        "top": 1193.21875,
+        "right": 306,
+        "bottom": 1265.71875,
+        "left": 14
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 28,
+      "lineHeight": "47.6px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 1273.71875,
+        "width": 122.484375,
+        "height": 117.1875,
+        "top": 1273.71875,
+        "right": 136.484375,
+        "bottom": 1390.90625,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "モンスターを操作し、3Dの荒野で技を放って戦うTPSバトルロイヤル。",
+      "font": 28,
+      "lineHeight": "50.4px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 1400.90625,
+        "width": 292,
+        "height": 201.5625,
+        "top": 1400.90625,
+        "right": 306,
+        "bottom": 1602.46875,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：おりょう · プレイ無料、インストールなし",
+      "font": 22,
+      "lineHeight": "35.2px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 1609.46875,
+        "width": 292,
+        "height": 70.375,
+        "top": 1609.46875,
+        "right": 306,
+        "bottom": 1679.84375,
+        "left": 14
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "作者提供：ドラFULL FRAME",
+      "font": 18,
+      "lineHeight": "27px",
+      "visible": true,
+      "rect": {
+        "x": 22,
+        "y": 1912.09375,
+        "width": 276,
+        "height": 33,
+        "top": 1912.09375,
+        "right": 298,
+        "bottom": 1945.09375,
+        "left": 22
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "クリエイトモンスターズ",
+      "font": 50,
+      "lineHeight": "72.5px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 1975.09375,
+        "width": 292,
+        "height": 145,
+        "top": 1975.09375,
+        "right": 306,
+        "bottom": 2120.09375,
+        "left": 14
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 28,
+      "lineHeight": "47.6px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 2128.09375,
+        "width": 122.484375,
+        "height": 117.1875,
+        "top": 2128.09375,
+        "right": 136.484375,
+        "bottom": 2245.28125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "集めて、育てて、どこまでも行ける。",
+      "font": 28,
+      "lineHeight": "50.4px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 2255.28125,
+        "width": 292,
+        "height": 100.78125,
+        "top": 2255.28125,
+        "right": 306,
+        "bottom": 2356.0625,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：ドラ · プレイ無料、インストールなし",
+      "font": 22,
+      "lineHeight": "35.2px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 2363.0625,
+        "width": 292,
+        "height": 70.375,
+        "top": 2363.0625,
+        "right": 306,
+        "bottom": 2433.4375,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "スマホのみで制作（作者提供情報）",
+      "font": 22,
+      "lineHeight": "35.2px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 2440.4375,
+        "width": 292,
+        "height": 70.375,
+        "top": 2440.4375,
+        "right": 306,
+        "bottom": 2510.8125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "作者提供：かどFULL FRAME",
+      "font": 18,
+      "lineHeight": "27px",
+      "visible": true,
+      "rect": {
+        "x": 22,
+        "y": 2767.0625,
+        "width": 276,
+        "height": 33,
+        "top": 2767.0625,
+        "right": 298,
+        "bottom": 2800.0625,
+        "left": 22
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "オーラコネクト・バトル",
+      "font": 50,
+      "lineHeight": "72.5px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 2830.0625,
+        "width": 292,
+        "height": 145,
+        "top": 2830.0625,
+        "right": 306,
+        "bottom": 2975.0625,
+        "left": 14
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 28,
+      "lineHeight": "47.6px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 2983.0625,
+        "width": 122.484375,
+        "height": 117.1875,
+        "top": 2983.0625,
+        "right": 136.484375,
+        "bottom": 3100.25,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "同じ色のオーラをつないで消し、仲間とダンジョンを攻略するパズルRPGです。",
+      "font": 28,
+      "lineHeight": "50.4px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 3110.25,
+        "width": 292,
+        "height": 201.5625,
+        "top": 3110.25,
+        "right": 306,
+        "bottom": 3311.8125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：かど · プレイ無料、インストールなし",
+      "font": 22,
+      "lineHeight": "35.2px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 3318.8125,
+        "width": 292,
+        "height": 70.375,
+        "top": 3318.8125,
+        "right": 306,
+        "bottom": 3389.1875,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "スマホのみで制作（作者提供情報）",
+      "font": 22,
+      "lineHeight": "35.2px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 3396.1875,
+        "width": 292,
+        "height": 70.375,
+        "top": 3396.1875,
+        "right": 306,
+        "bottom": 3466.5625,
+        "left": 14
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "作者提供：かどFULL FRAME",
+      "font": 18,
+      "lineHeight": "27px",
+      "visible": true,
+      "rect": {
+        "x": 22,
+        "y": 3722.8125,
+        "width": 276,
+        "height": 33,
+        "top": 3722.8125,
+        "right": 298,
+        "bottom": 3755.8125,
+        "left": 22
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "灯のルミナ",
+      "font": 50,
+      "lineHeight": "72.5px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 3785.8125,
+        "width": 292,
+        "height": 72.5,
+        "top": 3785.8125,
+        "right": 306,
+        "bottom": 3858.3125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 28,
+      "lineHeight": "47.6px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 3866.3125,
+        "width": 122.484375,
+        "height": 117.1875,
+        "top": 3866.3125,
+        "right": 136.484375,
+        "bottom": 3983.5,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "少女ルミナを守り、灯りを頼りに暗い地下聖堂を進む謎解きアクションです。",
+      "font": 28,
+      "lineHeight": "50.4px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 3993.5,
+        "width": 292,
+        "height": 201.5625,
+        "top": 3993.5,
+        "right": 306,
+        "bottom": 4195.0625,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：かど · プレイ無料、インストールなし",
+      "font": 22,
+      "lineHeight": "35.2px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 4202.0625,
+        "width": 292,
+        "height": 70.375,
+        "top": 4202.0625,
+        "right": 306,
+        "bottom": 4272.4375,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "スマホのみで制作（作者提供情報）",
+      "font": 22,
+      "lineHeight": "35.2px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 4279.4375,
+        "width": 292,
+        "height": 70.375,
+        "top": 4279.4375,
+        "right": 306,
+        "bottom": 4349.8125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "作者提供：かどFULL FRAME",
+      "font": 18,
+      "lineHeight": "27px",
+      "visible": true,
+      "rect": {
+        "x": 22,
+        "y": 4606.0625,
+        "width": 276,
+        "height": 33,
+        "top": 4606.0625,
+        "right": 298,
+        "bottom": 4639.0625,
+        "left": 22
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "ぶっ飛ばせ！ムカつくアイツ！",
+      "font": 50,
+      "lineHeight": "72.5px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 4669.0625,
+        "width": 292,
+        "height": 217.5,
+        "top": 4669.0625,
+        "right": 306,
+        "bottom": 4886.5625,
+        "left": 14
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 28,
+      "lineHeight": "47.6px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 4894.5625,
+        "width": 122.484375,
+        "height": 117.1875,
+        "top": 4894.5625,
+        "right": 136.484375,
+        "bottom": 5011.75,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "5回のミニゲームでパンチ力をためて、キャラクターを宇宙の向こうまでぶっ飛ばす爽快ゲームです。",
+      "font": 28,
+      "lineHeight": "50.4px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 5021.75,
+        "width": 292,
+        "height": 251.953125,
+        "top": 5021.75,
+        "right": 306,
+        "bottom": 5273.703125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：かど · プレイ無料、インストールなし",
+      "font": 22,
+      "lineHeight": "35.2px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 5280.703125,
+        "width": 292,
+        "height": 70.375,
+        "top": 5280.703125,
+        "right": 306,
+        "bottom": 5351.078125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "スマホのみで制作（作者提供情報）",
+      "font": 22,
+      "lineHeight": "35.2px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 5358.078125,
+        "width": 292,
+        "height": 70.375,
+        "top": 5358.078125,
+        "right": 306,
+        "bottom": 5428.453125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "作者提供：かどFULL FRAME",
+      "font": 18,
+      "lineHeight": "27px",
+      "visible": true,
+      "rect": {
+        "x": 22,
+        "y": 5684.703125,
+        "width": 276,
+        "height": 33,
+        "top": 5684.703125,
+        "right": 298,
+        "bottom": 5717.703125,
+        "left": 22
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "ラクガキアクション",
+      "font": 50,
+      "lineHeight": "72.5px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 5747.703125,
+        "width": 292,
+        "height": 145,
+        "top": 5747.703125,
+        "right": 306,
+        "bottom": 5892.703125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 28,
+      "lineHeight": "47.6px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 5900.703125,
+        "width": 122.484375,
+        "height": 117.1875,
+        "top": 5900.703125,
+        "right": 136.484375,
+        "bottom": 6017.890625,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "描いたラクガキが立体になって、5つのステージを冒険する3Dアクションです。",
+      "font": 28,
+      "lineHeight": "50.4px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 6027.890625,
+        "width": 292,
+        "height": 201.5625,
+        "top": 6027.890625,
+        "right": 306,
+        "bottom": 6229.453125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：かど · プレイ無料、インストールなし",
+      "font": 22,
+      "lineHeight": "35.2px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 6236.453125,
+        "width": 292,
+        "height": 70.375,
+        "top": 6236.453125,
+        "right": 306,
+        "bottom": 6306.828125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "スマホのみで制作（作者提供情報）",
+      "font": 22,
+      "lineHeight": "35.2px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 6313.828125,
+        "width": 292,
+        "height": 70.375,
+        "top": 6313.828125,
+        "right": 306,
+        "bottom": 6384.203125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "DIV",
+      "text": "作者提供：かどFULL FRAME",
+      "font": 18,
+      "lineHeight": "27px",
+      "visible": true,
+      "rect": {
+        "x": 22,
+        "y": 6640.453125,
+        "width": 276,
+        "height": 33,
+        "top": 6640.453125,
+        "right": 298,
+        "bottom": 6673.453125,
+        "left": 22
+      }
+    },
+    {
+      "tag": "H3",
+      "text": "ラクガキ大乱闘",
+      "font": 50,
+      "lineHeight": "72.5px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 6703.453125,
+        "width": 292,
+        "height": 145,
+        "top": 6703.453125,
+        "right": 306,
+        "bottom": 6848.453125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "A",
+      "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+      "font": 28,
+      "lineHeight": "47.6px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 6856.453125,
+        "width": 122.484375,
+        "height": 117.1875,
+        "top": 6856.453125,
+        "right": 136.484375,
+        "bottom": 6973.640625,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "自分で描いたラクガキを3Dファイターにして戦わせる、お絵かき対戦アクションです。",
+      "font": 28,
+      "lineHeight": "50.4px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 6983.640625,
+        "width": 292,
+        "height": 201.5625,
+        "top": 6983.640625,
+        "right": 306,
+        "bottom": 7185.203125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "作者：かど · プレイ無料、インストールなし",
+      "font": 22,
+      "lineHeight": "35.2px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 7192.203125,
+        "width": 292,
+        "height": 70.375,
+        "top": 7192.203125,
+        "right": 306,
+        "bottom": 7262.578125,
+        "left": 14
+      }
+    },
+    {
+      "tag": "P",
+      "text": "スマホのみで制作（作者提供情報）",
+      "font": 22,
+      "lineHeight": "35.2px",
+      "visible": true,
+      "rect": {
+        "x": 14,
+        "y": 7269.578125,
+        "width": 292,
+        "height": 70.375,
+        "top": 7269.578125,
+        "right": 306,
+        "bottom": 7339.953125,
+        "left": 14
+      }
+    }
+  ],
+  "focused": {
+    "href": "/games/monster-construction/",
+    "rect": {
+      "x": 142.484375,
+      "y": 320.875,
+      "width": 163.515625,
+      "height": 97.59375,
+      "top": 320.875,
+      "right": 306,
+      "bottom": 418.46875,
+      "left": 142.484375
+    },
+    "scrollY": 850,
+    "documentWidth": 320
+  }
+}

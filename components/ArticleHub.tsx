@@ -6,7 +6,7 @@ import { CreationDeck, type CreationDeckItem } from './CreationDeck';
 export type HubGroup = { id: string; title: string; description: string; kind?: "game"; items: CreationDeckItem[] };
 type Memory = { view: string; articles: Record<string, string>; category: string; categoryScroll: number };
 type Selection = { view: string; article?: string; category?: string; entryHome?: boolean; revision: number };
-const emptyMemory = (): Memory => ({ view: 'categories', articles: {}, category: '', categoryScroll: 0 });
+const emptyMemory = (): Memory => ({ view: 'categories', articles: {}, category: '', categoryScroll: -1 });
 
 export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?: boolean }) {
   const storageKey = useCallback(() => home ? "gameai-home-categories" : new URL(location.href).searchParams.get("hubEntry") === "home" ? "gameai-home-article-hub" : "gameai-article-hub", [home]);
@@ -23,11 +23,14 @@ export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?
     try {
       const saved = JSON.parse(sessionStorage.getItem(storageKey()) ?? 'null');
       if (saved && typeof saved.view === 'string' && saved.articles && typeof saved.articles === 'object') {
-        memory.current = { view: saved.view, articles: saved.articles, category: typeof saved.category === 'string' ? saved.category : '', categoryScroll: Number.isFinite(saved.categoryScroll) ? saved.categoryScroll : 0 };
+        memory.current = { view: saved.view, articles: saved.articles, category: typeof saved.category === 'string' ? saved.category : '', categoryScroll: Number.isFinite(saved.categoryScroll) ? saved.categoryScroll : -1 };
       }
     } catch { /* corrupt/unavailable storage starts at categories */ }
     const restore = () => {
       const url = new URL(location.href);
+      // Home's #games now names the playable showcase, not the category deck.
+      // Explicit category returns keep their established #categories identity.
+      if (home && url.hash === '#games') return;
       if (home && url.hash && url.hash !== '#categories' && !groups.some(group => `#${group.id}` === url.hash)) return;
       const explicit = Boolean(url.hash);
       const requested = explicit ? url.hash.slice(1) : memory.current.view;
@@ -58,7 +61,7 @@ export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?
   }, [groups, home, storageKey]);
 
   useEffect(() => {
-    if (!selection || (home && location.hash && location.hash !== '#categories')) return;
+    if (!selection || (home && location.hash !== '#categories')) return;
     // Next route restoration may focus its heading during commit. Restore our
     // specific anchor after that commit, cancelling when navigation changes.
     let secondFrame = 0;
@@ -77,6 +80,15 @@ export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?
         link.focus({ preventScroll: true });
         if (memory.current.categoryScroll >= 0) window.scrollTo({ top: memory.current.categoryScroll, behavior: 'instant' });
         else link.scrollIntoView({ block: 'center', behavior: 'instant' });
+        // A saved position from an older Home composition may no longer reveal
+        // this category. Keep the focused target within the current viewport.
+        const headerBottom = document.querySelector('.site-header')?.getBoundingClientRect().bottom ?? 0;
+        const bounds = link.getBoundingClientRect();
+        if (bounds.top < headerBottom + 12 || bounds.bottom > innerHeight) {
+          link.scrollIntoView({ block: 'center', behavior: 'instant' });
+          const top = link.getBoundingClientRect().top;
+          if (top < headerBottom + 12) window.scrollBy({ top: top - headerBottom - 12, behavior: 'instant' });
+        }
       }
     } else if (selection.article) {
       const link = Array.from(root?.querySelectorAll<HTMLAnchorElement>('[data-deck-id] a') ?? []).find(link => link.closest<HTMLElement>('[data-deck-id]')?.dataset.deckId === selection.article);
@@ -106,7 +118,15 @@ export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?
     // entry before navigating so Back's explicit URL agrees with its memory.
     if (memory.current.view === 'categories' && groups.some(group => group.id === view && group.items.length)) rememberCategory(view);
     if (home) {
-      if (groups.some(group => group.id === view && group.items.length)) memory.current.category = view;
+      if (groups.some(group => group.id === view && group.items.length)) {
+        memory.current.category = view;
+        // An explicit category activation owns its return context, even when
+        // the visitor previously used Home's playable #games anchor.
+        const url = new URL(location.href);
+        url.hash = 'categories';
+        url.searchParams.set('hubCategory', view);
+        history.replaceState(history.state, '', url);
+      }
       memory.current.categoryScroll = scrollY;
       persist();
       return;
@@ -141,6 +161,7 @@ export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?
   }, [persist]);
   const rememberCategory = useCallback((id: string) => {
     const url = new URL(location.href);
+    if (home && url.hash === '#games') return;
     if (memory.current.view !== "categories" || (home ? url.pathname !== "/" : url.pathname.replace(/\/$/, "") !== "/articles")) return;
     memory.current.category = id;
     url.searchParams.set('hubCategory', id);

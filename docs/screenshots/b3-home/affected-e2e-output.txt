@@ -1,0 +1,110 @@
+
+Running 60 tests using 1 worker
+
+(node:46177) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/60] e2e/b3-home.spec.ts:8:40 › B3 game-first frame, actions and header at 1440
+[2/60] e2e/b3-home.spec.ts:8:40 › B3 game-first frame, actions and header at 375
+[3/60] e2e/b3-home.spec.ts:8:40 › B3 game-first frame, actions and header at 320
+[4/60] e2e/b3-home.spec.ts:37:5 › all artwork, rapid input, touch, reduced motion and article/learning links
+[5/60] e2e/b3-home.spec.ts:69:5 › 320 text 150/200, spacing and long text retain natural list/focus
+[6/60] e2e/b3-home.spec.ts:87:5 › no-JS complete game links and current category entry remain usable
+[7/60] e2e/b3-home.spec.ts:92:5 › fresh category deep-link restores a visible focused target
+[8/60] e2e/b3-home.spec.ts:100:5 › explicit category activation after playable anchor retains Back context
+[9/60] e2e/b3-home.spec.ts:110:5 › enlarged Home anchors clear the measured header and clean up on route change
+  1) e2e/b3-home.spec.ts:110:5 › enlarged Home anchors clear the measured header and clean up on route change
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 126.78125
+    Received:    -4495.21875
+
+      115 |  expect(await page.locator('#home-idea-title').evaluate(el=>el.getBoundingClientRect().top)).toBeGreaterThanOrEqual(headerBottom);
+      116 |  await page.getByRole('button',{name:'メニューを開く'}).click();await page.getByRole('navigation',{name:'モバイルナビゲーション'}).getByRole('link',{name:'ゲームで遊ぶ'}).click();await page.waitForTimeout(450);
+    > 117 |  expect(await page.locator('#home-title').evaluate(el=>el.getBoundingClientRect().top)).toBeGreaterThanOrEqual(headerBottom);
+          |                                                                                         ^
+      118 |  await page.screenshot({path:`${dir}/anchor-root200-320.png`});
+      119 |  await page.getByRole('link',{name:'制作課題から探す →'}).click();await expect(page).toHaveURL(/\/tools\/$/);
+      120 |  expect(await page.evaluate(()=>document.documentElement.style.getPropertyValue('--header-height'))).toBe('');
+        at /workspace/GameAI-Hub-b3-prod/e2e/b3-home.spec.ts:117:89
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/b3-final/b3-home-enlarged-Home-anch-e1c31-nd-clean-up-on-route-change/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/b3-final/b3-home-enlarged-Home-anch-e1c31-nd-clean-up-on-route-change/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/b3-final/b3-home-enlarged-Home-anch-e1c31-nd-clean-up-on-route-change/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/b3-final/b3-home-enlarged-Home-anch-e1c31-nd-clean-up-on-route-change/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:46612) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[10/60] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 320px
+[11/60] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 375px
+[12/60] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 390px
+[13/60] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 1440px
+[14/60] e2e/gamebuildiary-category-entry.spec.ts:47:5 › voice v4 roundtrip, category focus, history and list selection
+[15/60] e2e/gamebuildiary-category-entry.spec.ts:78:5 › all-list roundtrip, explicit URL precedence and removed IDs
+[16/60] e2e/gamebuildiary-category-entry.spec.ts:100:5 › rapid controls and back during motion do not publish a transient article
+[17/60] e2e/gamebuildiary-category-entry.spec.ts:113:5 › fallback focus, missing images, Japanese enlargement and mode recovery
+[18/60] e2e/gamebuildiary-category-entry.spec.ts:135:5 › no JavaScript exposes all published normal article links once
+[19/60] e2e/gamebuildiary-category-entry.spec.ts:146:5 › START preserves native dragging from the supplied image with all published cards
+[20/60] e2e/games.spec.ts:8:41 › game category, title image, detail and context return at 320
+[21/60] e2e/games.spec.ts:8:41 › game category, title image, detail and context return at 375
+[22/60] e2e/games.spec.ts:8:41 › game category, title image, detail and context return at 1440
+[23/60] e2e/games.spec.ts:58:5 › 320 synthetic root text 200% and direct entry retain readable details and return
+[24/60] e2e/games.spec.ts:67:5 › no-JS Home category and game detail links remain usable; unknown slug is 404
+[25/60] e2e/games.spec.ts:75:5 › disposable zero, two and future three-work cards reuse fallback, ring, list and keyboard
+[26/60] e2e/games.spec.ts:112:5 › Home and article hub retain one shared deck chunk within the existing JS budget
+[27/60] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 320
+[28/60] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 390
+[29/60] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 320
+[30/60] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 390
+[31/60] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 320
+[32/60] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 375
+[33/60] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 390
+[34/60] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 1440
+[35/60] e2e/shared-category-ring.spec.ts:84:5 › entry preferences and focus ownership remain separate across mounts
+[36/60] e2e/shared-category-ring.spec.ts:103:5 › category tiny flick, inertia, recontact and navigation history use shared motion
+[37/60] e2e/shared-category-ring.spec.ts:131:36 › category enlarged Japanese remains usable at 320
+[38/60] e2e/shared-category-ring.spec.ts:131:36 › category enlarged Japanese remains usable at 375
+[39/60] e2e/shared-category-ring.spec.ts:139:5 › Home no-JS category links reach actual articles, unsafe context is ignored
+[40/60] e2e/shared-category-ring.spec.ts:149:5 › Home example fragment remains native and Project input survives
+[41/60] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › game-first entry, retained category/idea actions and bounded title at 320x844
+[42/60] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › game-first entry, retained category/idea actions and bounded title at 375x844
+[43/60] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › game-first entry, retained category/idea actions and bounded title at 390x844
+[44/60] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › game-first entry, retained category/idea actions and bounded title at 1440x900
+[45/60] e2e/slice-two-home-chrome.spec.ts:30:7 › Issue 137 Slice 2 Home composition › preserves the exact idea and Home attribution while navigating to Project
+[46/60] e2e/slice-two-home-chrome.spec.ts:43:7 › Issue 137 Slice 2 Home composition › mobile menu traps focus, closes with Escape, and navigates
+[47/60] e2e/slice-two-home-chrome.spec.ts:63:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 320px
+[48/60] e2e/slice-two-home-chrome.spec.ts:63:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 375px
+[49/60] e2e/slice-two-home-chrome.spec.ts:63:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 390px
+[50/60] e2e/slice-two-home-chrome.spec.ts:63:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 1440px
+[51/60] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 320x844
+[52/60] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 375x844
+[53/60] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 390x844
+[54/60] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 1440x900
+[55/60] e2e/slice-zero-acceptance.spec.ts:65:9 › Issue 137 Slice 0 rendered baselines › Compare has no document-level overflow at 320px
+[56/60] e2e/slice-zero-acceptance.spec.ts:65:9 › Issue 137 Slice 0 rendered baselines › Compare has no document-level overflow at 375px
+[57/60] e2e/slice-zero-acceptance.spec.ts:65:9 › Issue 137 Slice 0 rendered baselines › Compare has no document-level overflow at 390px
+[58/60] e2e/slice-zero-acceptance.spec.ts:79:7 › Issue 137 Slice 0 rendered baselines › Compare supports the four-candidate stress contract
+[59/60] e2e/slice-zero-acceptance.spec.ts:95:5 › stress fixture covers every required state and distinguishes owned scrollers
+[60/60] e2e/slice-zero-acceptance.spec.ts:148:5 › manifest contract rejects physical-device claims made from emulation
+  1 failed
+    e2e/b3-home.spec.ts:110:5 › enlarged Home anchors clear the measured header and clean up on route change
+  59 passed (3.7m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

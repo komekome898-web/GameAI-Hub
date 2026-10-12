@@ -35,6 +35,8 @@ for (const width of [1280,375,320]) test(`seven introductions and original scree
 });
 test('all eight cards preserve original assets, introduction links and sitemap',async ({page})=>{
   await page.setViewportSize({width:375,height:900});await page.goto('/articles/#games');
+  await expect(page.locator('#games .creation-deck')).toHaveAttribute('data-mode','deck');
+  await expect(page.locator('#games ol')).toHaveAttribute('data-motion','idle');
   await page.locator('#games').scrollIntoViewIfNeeded();
   const list=page.locator('#games');
   await expect(list.locator('[data-deck-id]')).toHaveCount(8);

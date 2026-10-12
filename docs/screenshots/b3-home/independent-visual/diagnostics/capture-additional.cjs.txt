@@ -1,0 +1,14 @@
+const {chromium}=require('/workspace/GameAI-Hub-b3-prod/node_modules/playwright');
+const fs=require('node:fs');
+const dir='/workspace/GameAI-Hub-b3-prod/docs/screenshots/b3-home/independent-visual';
+const base=process.env.B3_REVIEW_URL||'http://127.0.0.1:3182';
+(async()=>{
+ const b=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});const checks=[];
+ const inspect=async(p,name)=>{await p.screenshot({path:`${dir}/${name}.png`});checks.push({name,...await p.evaluate(()=>{const focus=document.activeElement;const header=document.querySelector('.site-header');const anchor=document.querySelector('#home-idea-title');return {url:location.href,scrollY,viewport:{width:innerWidth,height:innerHeight},documentWidth:document.documentElement.scrollWidth,headerHeight:header.getBoundingClientRect().height,focusedTag:focus.tagName,focusedText:focus.textContent.trim().slice(0,100),focusedRect:focus.getBoundingClientRect().toJSON(),outline:getComputedStyle(focus).outline,ideaTitleRect:anchor?.getBoundingClientRect().toJSON(),selectedVoice:document.querySelector('[data-category="voice"]')?.getBoundingClientRect().toJSON()}})});console.log(name)};
+ for(const width of [375,320]){
+  const c=await b.newContext({viewport:{width,height:667}});await c.addInitScript(()=>localStorage.setItem('gameai:analytics-excluded','1'));await c.route('**/*',r=>new URL(r.request().url()).hostname==='127.0.0.1'?r.continue():r.abort());const p=await c.newPage();
+  await p.goto(`${base}/?hubCategory=voice#categories`);await p.waitForTimeout(1200);await inspect(p,`fresh-category-voice-${width}`);await p.keyboard.press('Tab');await p.waitForTimeout(600);await inspect(p,`fresh-category-voice-tab-${width}`);await c.close();
+ }
+ const c=await b.newContext({viewport:{width:320,height:667}});await c.addInitScript(()=>localStorage.setItem('gameai:analytics-excluded','1'));await c.route('**/*',r=>new URL(r.request().url()).hostname==='127.0.0.1'?r.continue():r.abort());const p=await c.newPage();await p.goto(`${base}/`);await p.waitForFunction(()=>document.querySelector('.b3-showcase')?.dataset.mode==='deck');await p.evaluate(()=>document.documentElement.style.fontSize='200%');await p.waitForTimeout(200);await p.locator('.b3-next-chapter a[href="#home-idea-title"]').click();await p.waitForTimeout(1500);await inspect(p,'root200-create-anchor-320');await p.locator('#project-idea-home').focus();await p.waitForTimeout(600);await inspect(p,'root200-create-input-focus-320');await p.keyboard.press('Tab');await p.waitForTimeout(600);await inspect(p,'root200-create-cta-focus-320');await c.close();
+ fs.writeFileSync(`${dir}/final-additional-checks.json`,JSON.stringify({reviewer:'/root/b3_prod_visual_review',server:base,method:'viewport-reflow / synthetic-root-text, actual keyboard transitions; no physical device',checks},null,2));await b.close();
+})().catch(e=>{console.error(e);process.exit(1)});

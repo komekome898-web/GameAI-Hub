@@ -51,10 +51,11 @@ for (const width of [320,375,390,1440]) test(`Home order and complete return con
   await page.setViewportSize({ width, height:width === 1440 ? 900 : 844 });
   await page.goto('/');
   await expect(deck(page)).toHaveAttribute('data-mode', width <= 340 ? 'list' : 'deck'); await idle(page);
-  const positions = await page.evaluate(() => ['.home-brand-intro','.home-category-entry','.home-execution-hero'].map(selector => document.querySelector(selector)!.getBoundingClientRect().top + scrollY));
+  const positions = await page.evaluate(() => ['.b3-play-hero','.home-category-entry','.home-execution-hero'].map(selector => document.querySelector(selector)!.getBoundingClientRect().top + scrollY));
   expect(positions[0]).toBeLessThan(positions[1]); expect(positions[1]).toBeLessThan(positions[2]);
-  expect((await deck(page).boundingBox())!.y).toBeLessThan(page.viewportSize()!.height);
-  if (width > 340) expect((await current(page).locator('.v2-start-card-read').boundingBox())!.y).toBeLessThan(page.viewportSize()!.height);
+  const playBox = (await page.locator('.b3-game-selection [data-game-play]').boundingBox())!;
+  expect(playBox.y + playBox.height).toBeLessThan(page.viewportSize()!.height);
+  await expect(page.locator('.home-category-entry .v2-start-card-read').first()).toBeVisible();
   await page.screenshot({path:`${evidence}/home-first-${width}.png`});
   const historyBefore = await page.evaluate(() => history.length);
   await page.locator('[data-category="voice"]').focus(); await idle(page);

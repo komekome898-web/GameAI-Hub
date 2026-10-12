@@ -1,0 +1,1147 @@
+2026-10-12T16:33:55.3564683Z ##[group]Run npm run test:e2e
+2026-10-12T16:33:55.3565021Z [36;1mnpm run test:e2e[0m
+2026-10-12T16:33:55.3628729Z shell: /usr/bin/bash -e {0}
+2026-10-12T16:33:55.3629068Z ##[endgroup]
+2026-10-12T16:33:55.4849566Z
+2026-10-12T16:33:55.4850161Z > gameai-hub@0.1.0 test:e2e
+2026-10-12T16:33:55.4852100Z > playwright test --grep-invert 'final cross-route evidence reconciles every required local case$' && playwright test e2e/issue-157-final-evidence.spec.ts --grep 'final cross-route evidence reconciles every required local case$' --output=test-results/final-reconciliation
+2026-10-12T16:33:55.4853596Z
+2026-10-12T16:34:20.3204585Z
+2026-10-12T16:34:20.3205290Z Running 268 tests using 1 worker
+2026-10-12T16:34:20.3207382Z
+2026-10-12T16:34:20.8508156Z [1/268] e2e/analytics-production-harness.spec.ts:36:7 › permitted Production browser harness › retains bounded early events, loads once, and does not replay excluded events
+2026-10-12T16:34:25.9974386Z [2/268] e2e/analytics-production-harness.spec.ts:116:7 › permitted Production browser harness › caps a delayed queue and disposes failed loading before late fixture execution
+2026-10-12T16:34:38.0220303Z [3/268] e2e/aramon-article.spec.ts:14:7 › Aramon approved article, images and handoffs — mobile-375
+2026-10-12T16:34:40.4371386Z [4/268] e2e/aramon-article.spec.ts:14:7 › Aramon approved article, images and handoffs — desktop
+2026-10-12T16:34:43.5205496Z [5/268] e2e/aramon-article.spec.ts:14:7 › Aramon approved article, images and handoffs — mobile-320
+2026-10-12T16:34:45.8292172Z [6/268] e2e/aramon-article.spec.ts:14:7 › Aramon approved article, images and handoffs — mobile-320-root-text-200
+2026-10-12T16:34:48.5969098Z [7/268] e2e/article-breadcrumb-return.spec.ts:5:7 › article breadcrumb preserves selection and visible return at 1165px
+2026-10-12T16:34:50.6188627Z [8/268] e2e/article-breadcrumb-return.spec.ts:5:7 › article breadcrumb preserves selection and visible return at 375px
+2026-10-12T16:34:52.2354228Z [9/268] e2e/article-breadcrumb-return.spec.ts:5:7 › article breadcrumb preserves selection and visible return at 320px
+2026-10-12T16:34:53.7549846Z [10/268] e2e/articles-background-overflow.spec.ts:8:46 › background fits layout and scrollbar gutter at 1180
+2026-10-12T16:34:54.9897339Z [11/268] e2e/articles-background-overflow.spec.ts:8:46 › background fits layout and scrollbar gutter at 1165
+2026-10-12T16:34:56.2036974Z [12/268] e2e/articles-background-overflow.spec.ts:8:46 › background fits layout and scrollbar gutter at 375
+2026-10-12T16:34:57.1743493Z [13/268] e2e/articles-background-overflow.spec.ts:8:46 › background fits layout and scrollbar gutter at 320
+2026-10-12T16:34:58.0682205Z [14/268] e2e/articles-background-overflow.spec.ts:24:5 › game deck still swipes, focuses and reflows at zoom
+2026-10-12T16:35:02.1526879Z [15/268] e2e/b3-home.spec.ts:8:40 › B3 game-first frame, actions and header at 1440
+2026-10-12T16:35:08.2405769Z [16/268] e2e/b3-home.spec.ts:8:40 › B3 game-first frame, actions and header at 375
+2026-10-12T16:35:12.2033060Z [17/268] e2e/b3-home.spec.ts:8:40 › B3 game-first frame, actions and header at 320
+2026-10-12T16:35:16.0649923Z [18/268] e2e/b3-home.spec.ts:37:5 › all artwork, rapid input, touch, reduced motion and article/learning links
+2026-10-12T16:35:26.7185068Z [19/268] e2e/b3-home.spec.ts:69:5 › 320 text 150/200, spacing and long text retain natural list/focus
+2026-10-12T16:35:31.6234428Z [20/268] e2e/b3-home.spec.ts:83:5 › no-JS complete game links and current category entry remain usable
+2026-10-12T16:35:32.6143930Z [21/268] e2e/beginner-acceptance.spec.ts:220:7 › Beginner acceptance: current production journey contracts › ProjectからGitHub guideを読み、元タブの同じidea・task・進捗へ戻る
+2026-10-12T16:35:40.6670697Z [22/268] e2e/beginner-acceptance.spec.ts:265:9 › Beginner acceptance: current production journey contracts › optional voice: 素材の入力・保存・相談をコード制作から区別する
+2026-10-12T16:36:02.7074894Z [23/268] e2e/beginner-acceptance.spec.ts:265:9 › Beginner acceptance: current production journey contracts › optional image: 素材の入力・保存・相談をコード制作から区別する
+2026-10-12T16:36:22.0923377Z [24/268] e2e/beginner-acceptance.spec.ts:373:9 › Beginner acceptance: current production journey contracts › A: 移動してゴールする2Dゲームを新規状態から開始し3作業の進捗を保持する
+2026-10-12T16:36:44.1153757Z [25/268] e2e/beginner-acceptance.spec.ts:373:9 › Beginner acceptance: current production journey contracts › B: モンスター1対1バトルを新規状態から開始し3作業の進捗を保持する
+2026-10-12T16:37:03.6972336Z [26/268] e2e/beginner-acceptance.spec.ts:373:9 › Beginner acceptance: current production journey contracts › C: 恋愛ノベルゲームを新規状態から開始し3作業の進捗を保持する
+2026-10-12T16:37:23.0131434Z [27/268] e2e/beginner-acceptance.spec.ts:505:7 › Beginner acceptance: current production journey contracts › 320px: HTML貼付・実行・保存・読込と隔離された操作を検証する
+2026-10-12T16:37:34.4742326Z [28/268] e2e/beginner-acceptance.spec.ts:610:7 › Beginner acceptance: current production journey contracts › QA_RUNTIME_0904: runtime error and rejection appear in Hub and flow into trouble help
+2026-10-12T16:37:39.9923042Z [29/268] e2e/beginner-acceptance.spec.ts:691:9 › Issue 49: long runtime errors stay inside the Project document › 1348px ascii-600-desktop
+2026-10-12T16:37:46.8101748Z [30/268] e2e/beginner-acceptance.spec.ts:691:9 › Issue 49: long runtime errors stay inside the Project document › 375px ascii-600-375
+2026-10-12T16:37:52.8754934Z [31/268] e2e/beginner-acceptance.spec.ts:691:9 › Issue 49: long runtime errors stay inside the Project document › 360px url-360
+2026-10-12T16:37:58.9914814Z [32/268] e2e/beginner-acceptance.spec.ts:691:9 › Issue 49: long runtime errors stay inside the Project document › 320px alphanumeric-320
+2026-10-12T16:38:05.0760101Z [33/268] e2e/beginner-acceptance.spec.ts:691:9 › Issue 49: long runtime errors stay inside the Project document › 320px mixed-320-pinch-200-percent
+2026-10-12T16:38:11.5512897Z [34/268] e2e/beginner-article-update.spec.ts:10:7 › ai-browser-game-how-to: metadata, reading surfaces and responsive text
+2026-10-12T16:38:16.4719635Z [35/268] e2e/beginner-article-update.spec.ts:10:7 › github-beginner-game-development: metadata, reading surfaces and responsive text
+2026-10-12T16:38:23.2682957Z [36/268] e2e/beginner-article-update.spec.ts:54:5 › article workspace: download last displayed A then redisplayed B and explicitly run loaded file
+2026-10-12T16:38:28.2308348Z [37/268] e2e/browser-game-article-help.spec.ts:17:7 › browser game article: manual help, real errors, copy and recovery at desktop
+2026-10-12T16:38:32.0627284Z [38/268] e2e/browser-game-article-help.spec.ts:17:7 › browser game article: manual help, real errors, copy and recovery at 375
+2026-10-12T16:38:35.4896128Z [39/268] e2e/browser-game-article-help.spec.ts:17:7 › browser game article: manual help, real errors, copy and recovery at 320
+2026-10-12T16:38:39.0674605Z [40/268] e2e/browser-game-article-help.spec.ts:17:7 › browser game article: manual help, real errors, copy and recovery at 320-root-font-200
+2026-10-12T16:38:43.5307710Z [41/268] e2e/content-seo.spec.ts:6:6 › Meshy game-development guide completes an imported asset — mobile-375
+2026-10-12T16:38:44.7619816Z [42/268] e2e/content-seo.spec.ts:6:6 › Meshy game-development guide completes an imported asset — mobile-320
+2026-10-12T16:38:45.9679448Z [43/268] e2e/content-seo.spec.ts:6:6 › Meshy game-development guide completes an imported asset — desktop
+2026-10-12T16:38:47.7220821Z [44/268] e2e/content-seo.spec.ts:22:6 › ElevenLabs commercial-use guide renders its decision path — mobile-375
+2026-10-12T16:38:49.5726142Z [45/268] e2e/content-seo.spec.ts:22:6 › ElevenLabs commercial-use guide renders its decision path — mobile-320
+2026-10-12T16:38:51.3187138Z [46/268] e2e/content-seo.spec.ts:22:6 › ElevenLabs commercial-use guide renders its decision path — desktop
+2026-10-12T16:38:53.7114547Z [47/268] e2e/content-seo.spec.ts:47:6 › article discovery and Project handoff — mobile-375
+2026-10-12T16:38:55.6335836Z [48/268] e2e/content-seo.spec.ts:47:6 › article discovery and Project handoff — zoom-320
+2026-10-12T16:38:57.0339199Z [49/268] e2e/content-seo.spec.ts:47:6 › article discovery and Project handoff — desktop
+2026-10-12T16:38:59.6063812Z [50/268] e2e/content-seo.spec.ts:76:5 › browser-game article supports play, one change, and recovery
+2026-10-12T16:39:02.5510340Z [51/268] e2e/content-seo.spec.ts:120:6 › GitHub beginner guide explains return and repository choices — mobile-375
+2026-10-12T16:39:03.8779327Z [52/268] e2e/content-seo.spec.ts:120:6 › GitHub beginner guide explains return and repository choices — mobile-360
+2026-10-12T16:39:05.2461888Z [53/268] e2e/content-seo.spec.ts:120:6 › GitHub beginner guide explains return and repository choices — mobile-320
+2026-10-12T16:39:06.5725869Z [54/268] e2e/content-seo.spec.ts:120:6 › GitHub beginner guide explains return and repository choices — zoom-320
+2026-10-12T16:39:07.6162553Z [55/268] e2e/content-seo.spec.ts:120:6 › GitHub beginner guide explains return and repository choices — desktop
+2026-10-12T16:39:09.4358216Z [56/268] e2e/content-seo.spec.ts:145:6 › Meshy commercial-use guide renders its decision path — mobile-375
+2026-10-12T16:39:10.6443197Z [57/268] e2e/content-seo.spec.ts:145:6 › Meshy commercial-use guide renders its decision path — mobile-320
+2026-10-12T16:39:11.7825081Z [58/268] e2e/content-seo.spec.ts:145:6 › Meshy commercial-use guide renders its decision path — desktop
+2026-10-12T16:39:13.3575553Z [59/268] e2e/content-seo.spec.ts:163:139 › Meshy pricing credit guide responsive acceptance › desktoppx has one safe affiliate CTA and no overflow
+2026-10-12T16:39:15.1609817Z [60/268] e2e/content-seo.spec.ts:163:139 › Meshy pricing credit guide responsive acceptance › 375px has one safe affiliate CTA and no overflow
+2026-10-12T16:39:16.5459009Z [61/268] e2e/content-seo.spec.ts:163:139 › Meshy pricing credit guide responsive acceptance › 320px has one safe affiliate CTA and no overflow
+2026-10-12T16:39:17.7911987Z [62/268] e2e/content-seo.spec.ts:179:5 › Issue 135 journey keeps analytics local and navigates Home to cluster, article, and Project
+2026-10-12T16:39:20.9342604Z [63/268] e2e/content-seo.spec.ts:198:5 › Issue 135 mobile table and navigation remain usable at 320px
+2026-10-12T16:39:21.8012751Z [64/268] e2e/creation-deck-inertia.spec.ts:91:38 › 3 stable cards: speed-dependent coast, passage order and invisible seam
+2026-10-12T16:39:25.0870385Z [65/268] e2e/creation-deck-inertia.spec.ts:91:38 › 12 stable cards: speed-dependent coast, passage order and invisible seam
+2026-10-12T16:39:29.6207159Z [66/268] e2e/creation-deck-inertia.spec.ts:91:38 › 30 stable cards: speed-dependent coast, passage order and invisible seam
+2026-10-12T16:39:37.0857666Z [67/268] e2e/creation-deck-inertia.spec.ts:117:5 › paused placements, fast long release, sparse input and genuine final reversal
+2026-10-12T16:39:46.4521288Z [68/268] e2e/creation-deck-inertia.spec.ts:138:5 › release-owned focus/click does not rewind; next tap and keyboard work
+2026-10-12T16:39:48.0573130Z [69/268] e2e/creation-deck-inertia.spec.ts:149:5 › true cancel cannot create coast or a second release
+2026-10-12T16:39:48.9520407Z [70/268] e2e/creation-deck-inertia.spec.ts:155:5 › three cards travel multiple turns both ways; background stops inertia
+2026-10-12T16:39:58.4687820Z [71/268] e2e/creation-deck-inertia.spec.ts:171:5 › grab fractional coast without jump, hold and reverse with new velocity
+2026-10-12T16:40:01.1067006Z [72/268] e2e/creation-deck-inertia.spec.ts:196:5 › native long touch placement from image and heading remains after paused release
+2026-10-12T16:40:04.4120598Z [73/268] e2e/creation-deck-inertia.spec.ts:220:5 › a delayed animation frame hides cards crossing the circular seam
+2026-10-12T16:40:06.4112308Z [74/268] e2e/creation-deck-inertia.spec.ts:245:36 › 0 items remain an ordinary static list even with automatic deck preference
+2026-10-12T16:40:06.8471327Z [75/268] e2e/creation-deck-inertia.spec.ts:245:36 › 1 items remain an ordinary static list even with automatic deck preference
+2026-10-12T16:40:07.3324528Z [76/268] e2e/creation-deck-inertia.spec.ts:245:36 › 2 items remain an ordinary static list even with automatic deck preference
+2026-10-12T16:40:07.8168631Z [77/268] e2e/creation-deck-motion.spec.ts:30:5 › all cards follow fractional position and interrupted snap resumes without a jump
+2026-10-12T16:40:12.1299293Z [78/268] e2e/creation-deck-motion.spec.ts:65:5 › trusted short flick, paused release, twenty wraps, repeated controls and keyboard
+2026-10-12T16:41:15.1206817Z [79/268] e2e/creation-deck-motion.spec.ts:112:5 › neighbor tap centers, overview expands the same node, list and large text remain readable
+2026-10-12T16:41:17.4480090Z [80/268] e2e/creation-deck-motion.spec.ts:140:5 › long drag chooses two cards; capture loss and resize return to the committed card
+2026-10-12T16:41:20.9616699Z [81/268] e2e/creation-deck-motion.spec.ts:171:5 › failed images keep article links, summaries and natural card height
+2026-10-12T16:41:21.8910427Z [82/268] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives resize, expanded=false, without stealing surviving focus
+2026-10-12T16:41:23.0639286Z [83/268] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives resize, expanded=true, without stealing surviving focus
+2026-10-12T16:41:24.3296000Z [84/268] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives reduced-motion, expanded=false, without stealing surviving focus
+2026-10-12T16:41:25.4876553Z [85/268] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives reduced-motion, expanded=true, without stealing surviving focus
+2026-10-12T16:41:26.6883857Z [86/268] e2e/creation-deck-review-regressions.spec.ts:65:7 › outside mouse release ends pending, interrupted=false, and leaves the next gesture usable
+2026-10-12T16:41:29.7681677Z [87/268] e2e/creation-deck-review-regressions.spec.ts:65:7 › outside mouse release ends pending, interrupted=true, and leaves the next gesture usable
+2026-10-12T16:41:32.3842205Z [88/268] e2e/creation-deck-review-regressions.spec.ts:65:7 › outside mouse release ends vertical, interrupted=false, and leaves the next gesture usable
+2026-10-12T16:41:34.6343913Z [89/268] e2e/creation-deck-review-regressions.spec.ts:65:7 › outside mouse release ends vertical, interrupted=true, and leaves the next gesture usable
+2026-10-12T16:41:37.3521378Z [90/268] e2e/creation-deck-review-regressions.spec.ts:100:57 › contact ignores an unrelated terminal event and cancels on window blur
+2026-10-12T16:41:39.2533174Z [91/268] e2e/creation-deck-review-regressions.spec.ts:100:57 › contact ignores an unrelated terminal event and cancels on window cancel
+2026-10-12T16:41:41.2064692Z [92/268] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: 12ms final movement arrives only on up
+2026-10-12T16:41:44.7611651Z [93/268] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: one sparse move after90ms
+2026-10-12T16:41:47.9092791Z [94/268] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: diagonal wobble remains pending until horizontal up
+2026-10-12T16:41:51.0078294Z [95/268] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: committed vertical never revives on horizontal up
+2026-10-12T16:41:52.8339489Z [96/268] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: long hold followed by release is not a flick
+2026-10-12T16:41:54.9260223Z [97/268] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: paused movement plus tiny release jitter stays put
+2026-10-12T16:41:57.0254659Z [98/268] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: tiny fast movement stays put
+2026-10-12T16:41:59.0052811Z [99/268] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: cancel never becomes a flick on later up
+2026-10-12T16:42:00.8011239Z [100/268] e2e/creation-deck-sparse-input.spec.ts:63:5 › native mouse survives height-only resize, but cancels changed width, step and availability
+2026-10-12T16:42:04.2135401Z [101/268] e2e/creation-deck-sparse-input.spec.ts:102:5 › native Chromium short touch retains vertical scrolling coexistence
+2026-10-12T16:42:06.8732253Z [102/268] e2e/creation-deck-sparse-input.spec.ts:123:5 › active identity publication does not cancel a newly started contact
+2026-10-12T16:42:09.6242096Z [103/268] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 375
+2026-10-12T16:42:11.0023172Z [104/268] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 390
+2026-10-12T16:42:12.3399558Z [105/268] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 1440
+2026-10-12T16:42:14.2075760Z [106/268] e2e/creation-deck-summary.spec.ts:45:5 › long category visible height grows, close remains, resize/font/content remeasure without lost focus
+2026-10-12T16:42:15.3377806Z [107/268] e2e/creation-deck-summary.spec.ts:98:5 › existing long article expands to full height and keeps its closing control
+2026-10-12T16:42:16.5287037Z [108/268] e2e/decision-journeys.spec.ts:74:7 › Project Interpreter provider states › provider successは全AI候補の確認後にのみ計画を生成する
+2026-10-12T16:42:18.1331479Z [109/268] e2e/decision-journeys.spec.ts:89:7 › Project Interpreter provider states › provider未設定は実Route Handlerから決定ルールへフォールバックする
+2026-10-12T16:42:18.7646294Z [110/268] e2e/decision-journeys.spec.ts:102:9 › Project Interpreter provider states › provider error fallbackを375pxで正直に表示する
+2026-10-12T16:42:19.3985497Z [111/268] e2e/decision-journeys.spec.ts:102:9 › Project Interpreter provider states › provider timeout fallbackを375pxで正直に表示する
+2026-10-12T16:42:20.0212328Z [112/268] e2e/decision-journeys.spec.ts:102:9 › Project Interpreter provider states › rate limited fallbackを375pxで正直に表示する
+2026-10-12T16:42:20.6669453Z [113/268] e2e/decision-journeys.spec.ts:111:7 › Issue 55 production intent regressions › cat tap-to-score stays consistent through first task, prompt, recovery, and next task
+2026-10-12T16:42:26.6359172Z [114/268] e2e/decision-journeys.spec.ts:131:7 › Issue 55 production intent regressions › bilingual novel preserves language switching without adding romance
+2026-10-12T16:42:28.4043277Z [115/268] e2e/decision-journeys.spec.ts:144:5 › 375px: 明示したGodotを保持しno voice/no 3Dの最初の工程を完了できる
+2026-10-12T16:42:39.4232526Z [116/268] e2e/decision-journeys.spec.ts:175:5 › 自由文のゲーム固有情報が主要な制作成果物すべてに反映される
+2026-10-12T16:42:43.1864526Z [117/268] e2e/decision-journeys.spec.ts:201:5 › 375px: 2候補比較と差分のみ表示を操作できる
+2026-10-12T16:42:43.9638485Z [118/268] e2e/decision-journeys.spec.ts:215:5 › Toolsの検索直後クリックと履歴移動が競合しない
+2026-10-12T16:42:46.7229357Z [119/268] e2e/decision-journeys.spec.ts:236:5 › Compare候補は2件選択後も開いたままでback/forwardに同期する
+2026-10-12T16:42:47.6782875Z [120/268] e2e/decision-journeys.spec.ts:251:5 › affiliate CTAは広告表示と安全な外部リンク属性を保つ
+2026-10-12T16:42:48.4354181Z [121/268] e2e/decision-journeys.spec.ts:260:5 › 375px: Stacksを補助ルートとして閲覧できる
+2026-10-12T16:42:49.1149303Z [122/268] e2e/decision-journeys.spec.ts:267:5 › Project Generatorのエンジン条件が計画と共有stateへ反映される
+2026-10-12T16:42:51.0298839Z [123/268] e2e/decision-journeys.spec.ts:273:5 › 3Dブラウザ初心者はHTML試作へ置き換えずエンジン決定を待つ
+2026-10-12T16:42:52.9636741Z [124/268] e2e/decision-journeys.spec.ts:282:5 › 320pxかつ200% zoomでも主要画面に横方向の文書overflowがない
+2026-10-12T16:42:56.6419742Z [125/268] e2e/decision-journeys.spec.ts:308:5 › 4ツール比較、差分絞り込み、キーボードfocusを維持する
+2026-10-12T16:42:57.6633574Z [126/268] e2e/deck-acceptance-contract.spec.ts:15:5 › summary exception is earned through real expansion and list recovery, not shared with other clipping
+2026-10-12T16:43:00.4194974Z [127/268] e2e/deck-acceptance-contract.spec.ts:28:7 › recovery verification rejects missing-summary
+2026-10-12T16:43:11.3379974Z [128/268] e2e/deck-acceptance-contract.spec.ts:28:7 › recovery verification rejects missing-button
+2026-10-12T16:43:22.3148985Z [129/268] e2e/deck-acceptance-contract.spec.ts:28:7 › recovery verification rejects wrong-controls
+2026-10-12T16:43:33.3258326Z [130/268] e2e/deck-acceptance-contract.spec.ts:28:7 › recovery verification rejects disabled-button
+2026-10-12T16:43:44.3726411Z [131/268] e2e/deck-acceptance-contract.spec.ts:28:7 › recovery verification rejects collapsed-clipping
+2026-10-12T16:43:45.4988328Z [132/268] e2e/deck-acceptance-contract.spec.ts:28:7 › recovery verification rejects expanded-clipping
+2026-10-12T16:43:46.7388480Z [133/268] e2e/deck-acceptance-contract.spec.ts:28:7 › recovery verification rejects list-clipping
+2026-10-12T16:43:48.8835179Z [134/268] e2e/deck-acceptance-contract.spec.ts:49:5 › overflow outside an actual inactive card never receives the deck owner
+2026-10-12T16:43:49.7744671Z [135/268] e2e/deck-acceptance-contract.spec.ts:60:7 › recovery rejects an identical replacement summary after expanded
+2026-10-12T16:43:50.8948067Z [136/268] e2e/deck-acceptance-contract.spec.ts:60:7 › recovery rejects an identical replacement summary after list
+2026-10-12T16:43:53.0770977Z [137/268] e2e/deck-acceptance-contract.spec.ts:79:5 › width diagnostic owns only a contained clipped inactive arc
+2026-10-12T16:43:54.0244851Z [138/268] e2e/deck-project-continuity.spec.ts:66:7 › native Chromium touch swipes survive capture transfer and interruptions at 375
+2026-10-12T16:44:06.2333754Z [139/268] e2e/deck-project-continuity.spec.ts:66:7 › native Chromium touch swipes survive capture transfer and interruptions at 390
+2026-10-12T16:44:18.4359031Z [140/268] e2e/deck-project-continuity.spec.ts:127:5 › native mouse dragging, controls, resize and reduced-motion fallback
+2026-10-12T16:44:23.7505166Z [141/268] e2e/deck-project-continuity.spec.ts:158:5 › actual Stack CTA carries supported conditions into editable Project confirmation
+2026-10-12T16:44:25.4086737Z [142/268] e2e/deck-project-continuity.spec.ts:182:7 › article-origin Project survives repeated Tools and Compare returns
+2026-10-12T16:44:30.7452127Z [143/268] e2e/deck-project-continuity.spec.ts:182:7 › direct Project survives repeated Tools and Compare returns
+2026-10-12T16:44:35.8888501Z [144/268] e2e/elevenlabs-v4-article.spec.ts:10:7 › ElevenLabs v4 article supports the game-voice decision — desktop-1440
+2026-10-12T16:44:38.0126137Z [145/268] e2e/elevenlabs-v4-article.spec.ts:10:7 › ElevenLabs v4 article supports the game-voice decision — mobile-390
+2026-10-12T16:44:39.3556340Z [146/268] e2e/elevenlabs-v4-article.spec.ts:10:7 › ElevenLabs v4 article supports the game-voice decision — mobile-375
+2026-10-12T16:44:40.9137120Z [147/268] e2e/elevenlabs-v4-article.spec.ts:10:7 › ElevenLabs v4 article supports the game-voice decision — mobile-320
+2026-10-12T16:44:42.2650346Z [148/268] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 320px
+2026-10-12T16:44:45.2795424Z [149/268] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 375px
+2026-10-12T16:44:47.5325522Z [150/268] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 390px
+2026-10-12T16:44:49.7174563Z [151/268] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 1440px
+2026-10-12T16:44:52.7610314Z [152/268] e2e/gamebuildiary-category-entry.spec.ts:47:5 › voice v4 roundtrip, category focus, history and list selection
+2026-10-12T16:44:55.8921824Z [153/268] e2e/gamebuildiary-category-entry.spec.ts:78:5 › all-list roundtrip, explicit URL precedence and removed IDs
+2026-10-12T16:45:01.0656731Z [154/268] e2e/gamebuildiary-category-entry.spec.ts:100:5 › rapid controls and back during motion do not publish a transient article
+2026-10-12T16:45:03.0638616Z [155/268] e2e/gamebuildiary-category-entry.spec.ts:113:5 › fallback focus, missing images, Japanese enlargement and mode recovery
+2026-10-12T16:45:05.2108222Z [156/268] e2e/gamebuildiary-category-entry.spec.ts:135:5 › no JavaScript exposes all published normal article links once
+2026-10-12T16:45:06.3277615Z [157/268] e2e/gamebuildiary-category-entry.spec.ts:146:5 › START preserves native dragging from the supplied image with all published cards
+2026-10-12T16:45:07.6632454Z [158/268] e2e/games.spec.ts:8:41 › game category, title image, detail and context return at 320
+2026-10-12T16:45:11.7244791Z [159/268] e2e/games.spec.ts:8:41 › game category, title image, detail and context return at 375
+2026-10-12T16:45:15.9781951Z [160/268] e2e/games.spec.ts:8:41 › game category, title image, detail and context return at 1440
+2026-10-12T16:45:21.3769551Z [161/268] e2e/games.spec.ts:58:5 › 320 synthetic root text 200% and direct entry retain readable details and return
+2026-10-12T16:45:22.5833230Z [162/268] e2e/games.spec.ts:67:5 › no-JS Home category and game detail links remain usable; unknown slug is 404
+2026-10-12T16:45:53.3629409Z [WebServer] Error: Internal: NoFallbackError
+2026-10-12T16:45:53.3630182Z [WebServer]     at ignore-listed frames
+2026-10-12T16:45:53.3630555Z
+2026-10-12T16:45:53.8019704Z [163/268] e2e/games.spec.ts:75:5 › disposable zero, two and future three-work cards reuse fallback, ring, list and keyboard
+2026-10-12T16:45:56.1765321Z [164/268] e2e/games.spec.ts:112:5 › Home and article hub retain one shared deck chunk within the existing JS budget
+2026-10-12T16:45:58.2357666Z [165/268] e2e/html-game-debug-article.spec.ts:10:7 › HTML game diagnosis and replay at 1280px
+2026-10-12T16:46:09.5365421Z [166/268] e2e/html-game-debug-article.spec.ts:10:7 › HTML game diagnosis and replay at 375px
+2026-10-12T16:46:20.9354560Z [167/268] e2e/html-game-debug-article.spec.ts:10:7 › HTML game diagnosis and replay at 320px
+2026-10-12T16:46:32.2736226Z [168/268] e2e/html-game-debug-article.spec.ts:140:5 › original article keeps victory disabling and second-round replay
+2026-10-12T16:46:35.1252873Z [169/268] e2e/issue-155-v1.spec.ts:32:5 › Explicit START list retains complete responsive article cards
+2026-10-12T16:46:40.6607216Z [170/268] e2e/issue-155-v1.spec.ts:87:5 › V1 remains readable without JavaScript and in forced colors
+2026-10-12T16:46:44.4580804Z [171/268] e2e/issue-155-v1.spec.ts:162:7 › V1 START cards reflow with synthetic 200% root text at 320px
+2026-10-12T16:46:45.7101670Z [172/268] e2e/issue-155-v1.spec.ts:162:7 › V1 START cards reflow with synthetic 200% root text at 375px
+2026-10-12T16:46:47.0849736Z [173/268] e2e/issue-155-v1.spec.ts:264:5 › V1 shared probe records the intermediate 150% metadata state
+2026-10-12T16:46:47.9877037Z [174/268] e2e/issue-155-v1.spec.ts:295:5 › V1 START cards contain long Japanese and unbroken ASCII stress content
+2026-10-12T16:46:49.0768472Z [175/268] e2e/issue-155-v1.spec.ts:398:5 › mobile menu returns focus on Escape and preserves surrounding keyboard order
+2026-10-12T16:46:50.0390966Z [176/268] e2e/issue-157-dots-followups.spec.ts:31:5 › V-01 keeps every mobile model/value association and desktop headers
+2026-10-12T16:46:51.3508611Z [177/268] e2e/issue-157-dots-followups.spec.ts:52:5 › V-03 gives all article copy readable width at root 200%
+2026-10-12T16:46:53.1207749Z [178/268] e2e/issue-157-dots-followups.spec.ts:78:5 › E-01 measures actual Deck title line-height and description paragraph spacing
+2026-10-12T16:46:54.3035915Z [179/268] e2e/issue-157-dots-followups.spec.ts:102:5 › E-02 cancels owned gestures and preserves click and list preference recovery
+2026-10-12T16:47:02.1051974Z [180/268] e2e/issue-157-final-evidence.spec.ts:146:5 › V3 route, state, text, navigation, affiliate, and SEO observations
+2026-10-12T16:47:43.2511070Z [181/268] e2e/issue-157-final-evidence.spec.ts:243:5 › V4 dynamic input, cancellation, follow-up, focus, and budget observations
+2026-10-12T16:47:44.6153890Z [182/268] (retries) e2e/issue-157-final-evidence.spec.ts:146:5 › V3 route, state, text, navigation, affiliate, and SEO observations (retry #1)
+2026-10-12T16:48:26.7801186Z   1) e2e/issue-157-final-evidence.spec.ts:146:5 › V3 route, state, text, navigation, affiliate, and SEO observations
+2026-10-12T16:48:26.7801978Z
+2026-10-12T16:48:26.7816847Z     Error: v3-header-100: {"widths":{"viewportWidth":320,"documentScrollWidth":320,"documentOverflowPx":0,"ownedClippedDeckElements":[],"ownedLocalScrollers":[],"unownedOverflowingElements":[{"selector":"li","left":189.17544555664062,"right":461.6624450683594,"width":272.48699951171875},{"selector":"div.b3-art-card","left":189.17544555664062,"right":461.6624450683594,"width":272.48699951171875},{"selector":"span.b3-frame-face","left":190.0830535888672,"right":460.70298767089844,"width":270.61993408203125},{"selector":"div.b3-art-top","left":196.4410858154297,"right":453.99192810058594,"width":257.55084228515625},{"selector":"span","left":376.9916076660156,"right":452.076171875,"width":75.08456420898438},{"selector":"a.b3-art-link","left":196.4410858154297,"right":453.99192810058594,"width":257.55084228515625},{"selector":"img","left":196.4410858154297,"right":453.99192810058594,"width":257.55084228515625},{"selector":"div.b3-art-credit","left":196.4410858154297,"right":453.99192810058594,"width":257.55084228515625},{"selector":"span","left":396.8394470214844,"right":452.076171875,"width":55.236724853515625},{"selector":"li","left":352.6954345703125,"right":625.1824340820312,"width":272.48699951171875},{"selector":"div.b3-art-card","left":352.6954345703125,"right":625.1824340820312,"width":272.48699951171875},{"selector":"span.b3-frame-face","left":353.6030578613281,"right":624.2229614257812,"width":270.6199035644531},{"selector":"div.b3-art-top","left":359.9610595703125,"right":617.511962890625,"width":257.5509033203125},{"selector":"span","left":361.7791748046875,"right":412.04742431640625,"width":50.26824951171875},{"selector":"span","left":554.6804809570312,"right":615.59619140625,"width":60.91571044921875},{"selector":"a.b3-art-link","left":359.9610595703125,"right":617.511962890625,"width":257.5509033203125},{"selector":"img","left":359.9610595703125,"right":617.511962890625,"width":257.5509033203125},{"selector":"div.b3-art-credit","left":359.9610595703125,"right":617.511962890625,"width":257.5509033203125},{"selector":"span","left":361.7791748046875,"right":419.4028625488281,"width":57.623687744140625},{"selector":"span","left":560.3594360351562,"right":615.59619140625,"width":55.23675537109375},{"selector":"li","left":516.2154541015625,"right":788.7024536132812,"width":272.48699951171875},{"selector":"div.b3-art-card","left":516.2154541015625,"right":788.7024536132812,"width":272.48699951171875},{"selector":"span.b3-frame-face","left":517.123046875,"right":787.7429809570312,"width":270.61993408203125},{"selector":"div.b3-art-top","left":523.4810791015625,"right":781.0319213867188,"width":257.55084228515625},{"selector":"span","left":525.2991943359375,"right":575.5674438476562,"width":50.26824951171875},{"selector":"span","left":629.148193359375,"right":779.1161499023438,"width":149.96795654296875},{"selector":"a.b3-art-link","left":523.4810791015625,"right":781.0319213867188,"width":257.55084228515625},{"selector":"img","left":523.4810791015625,"right":781.0319213867188,"width":257.55084228515625},{"selector":"div.b3-art-credit","left":523.4810791015625,"right":781.0319213867188,"width":257.55084228515625},{"selector":"span","left":525.2991943359375,"right":582.9228515625,"width":57.6236572265625}]},"surface":{"selector":".site-header","matched":1,"clippedText":[],"undersizedTargets":[],"focusable":13,"focusApplicable":true,"focusReachable":true,"focusVisible":true,"focusFailures":[],"focusVerification":"unverified"}}
+2026-10-12T16:48:26.7832597Z
+2026-10-12T16:48:26.7833118Z     expect(received).toBe(expected) // Object.is equality
+2026-10-12T16:48:26.7833430Z
+2026-10-12T16:48:26.7833545Z     Expected: false
+2026-10-12T16:48:26.7833806Z     Received: true
+2026-10-12T16:48:26.7833981Z
+2026-10-12T16:48:26.7834391Z       141 |   if (controlStyle) await controlStyle.evaluate(style => style.parentNode?.removeChild(style));
+2026-10-12T16:48:26.7835063Z       142 |   if (isDeckSurface) await waitForSettledDeck(page);
+2026-10-12T16:48:26.7835786Z     > 143 |   expect(failed, `${item.id}: ${JSON.stringify({ widths, surface })}`).toBe(false);
+2026-10-12T16:48:26.7836318Z           |                                                                        ^
+2026-10-12T16:48:26.7836641Z       144 | }
+2026-10-12T16:48:26.7836840Z       145 |
+2026-10-12T16:48:26.7837644Z       146 | test("V3 route, state, text, navigation, affiliate, and SEO observations", async ({ page, browserName }) => {
+2026-10-12T16:48:26.7839182Z         at observe (/home/runner/work/GameAI-Hub/GameAI-Hub/e2e/issue-157-final-evidence.spec.ts:143:72)
+2026-10-12T16:48:26.7840455Z         at /home/runner/work/GameAI-Hub/GameAI-Hub/e2e/issue-157-final-evidence.spec.ts:234:5
+2026-10-12T16:48:26.7841043Z
+2026-10-12T16:48:26.7841953Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-10-12T16:48:26.7843012Z     test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/test-failed-1.png
+2026-10-12T16:48:26.7844235Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:48:26.7844543Z
+2026-10-12T16:48:26.7844967Z     Error Context: test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/error-context.md
+2026-10-12T16:48:26.7845422Z
+2026-10-12T16:48:26.7845832Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-12T16:48:26.7846520Z     test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/trace.zip
+2026-10-12T16:48:26.7846995Z     Usage:
+2026-10-12T16:48:26.7847117Z
+2026-10-12T16:48:26.7847808Z         npx playwright show-trace test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/trace.zip
+2026-10-12T16:48:26.7848290Z
+2026-10-12T16:48:26.7848661Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:48:26.7848987Z
+2026-10-12T16:48:26.7849353Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:48:26.7849642Z
+2026-10-12T16:48:26.7862024Z     Error: v3-header-100: {"widths":{"viewportWidth":320,"documentScrollWidth":320,"documentOverflowPx":0,"ownedClippedDeckElements":[],"ownedLocalScrollers":[],"unownedOverflowingElements":[{"selector":"li","left":189.17544555664062,"right":461.6624450683594,"width":272.48699951171875},{"selector":"div.b3-art-card","left":189.17544555664062,"right":461.6624450683594,"width":272.48699951171875},{"selector":"span.b3-frame-face","left":190.0830535888672,"right":460.70298767089844,"width":270.61993408203125},{"selector":"div.b3-art-top","left":196.4410858154297,"right":453.99192810058594,"width":257.55084228515625},{"selector":"span","left":376.9916076660156,"right":452.076171875,"width":75.08456420898438},{"selector":"a.b3-art-link","left":196.4410858154297,"right":453.99192810058594,"width":257.55084228515625},{"selector":"img","left":196.4410858154297,"right":453.99192810058594,"width":257.55084228515625},{"selector":"div.b3-art-credit","left":196.4410858154297,"right":453.99192810058594,"width":257.55084228515625},{"selector":"span","left":396.8394470214844,"right":452.076171875,"width":55.236724853515625},{"selector":"li","left":352.6954345703125,"right":625.1824340820312,"width":272.48699951171875},{"selector":"div.b3-art-card","left":352.6954345703125,"right":625.1824340820312,"width":272.48699951171875},{"selector":"span.b3-frame-face","left":353.6030578613281,"right":624.2229614257812,"width":270.6199035644531},{"selector":"div.b3-art-top","left":359.9610595703125,"right":617.511962890625,"width":257.5509033203125},{"selector":"span","left":361.7791748046875,"right":412.04742431640625,"width":50.26824951171875},{"selector":"span","left":554.6804809570312,"right":615.59619140625,"width":60.91571044921875},{"selector":"a.b3-art-link","left":359.9610595703125,"right":617.511962890625,"width":257.5509033203125},{"selector":"img","left":359.9610595703125,"right":617.511962890625,"width":257.5509033203125},{"selector":"div.b3-art-credit","left":359.9610595703125,"right":617.511962890625,"width":257.5509033203125},{"selector":"span","left":361.7791748046875,"right":419.4028625488281,"width":57.623687744140625},{"selector":"span","left":560.3594360351562,"right":615.59619140625,"width":55.23675537109375},{"selector":"li","left":516.2154541015625,"right":788.7024536132812,"width":272.48699951171875},{"selector":"div.b3-art-card","left":516.2154541015625,"right":788.7024536132812,"width":272.48699951171875},{"selector":"span.b3-frame-face","left":517.123046875,"right":787.7429809570312,"width":270.61993408203125},{"selector":"div.b3-art-top","left":523.4810791015625,"right":781.0319213867188,"width":257.55084228515625},{"selector":"span","left":525.2991943359375,"right":575.5674438476562,"width":50.26824951171875},{"selector":"span","left":629.148193359375,"right":779.1161499023438,"width":149.96795654296875},{"selector":"a.b3-art-link","left":523.4810791015625,"right":781.0319213867188,"width":257.55084228515625},{"selector":"img","left":523.4810791015625,"right":781.0319213867188,"width":257.55084228515625},{"selector":"div.b3-art-credit","left":523.4810791015625,"right":781.0319213867188,"width":257.55084228515625},{"selector":"span","left":525.2991943359375,"right":582.9228515625,"width":57.6236572265625}]},"surface":{"selector":".site-header","matched":1,"clippedText":[],"undersizedTargets":[],"focusable":13,"focusApplicable":true,"focusReachable":true,"focusVisible":true,"focusFailures":[],"focusVerification":"unverified"}}
+2026-10-12T16:48:26.7872931Z
+2026-10-12T16:48:26.7873179Z     expect(received).toBe(expected) // Object.is equality
+2026-10-12T16:48:26.7873439Z
+2026-10-12T16:48:26.7873539Z     Expected: false
+2026-10-12T16:48:26.7873777Z     Received: true
+2026-10-12T16:48:26.7873903Z
+2026-10-12T16:48:26.7874277Z       141 |   if (controlStyle) await controlStyle.evaluate(style => style.parentNode?.removeChild(style));
+2026-10-12T16:48:26.7874878Z       142 |   if (isDeckSurface) await waitForSettledDeck(page);
+2026-10-12T16:48:26.7875414Z     > 143 |   expect(failed, `${item.id}: ${JSON.stringify({ widths, surface })}`).toBe(false);
+2026-10-12T16:48:26.7875923Z           |                                                                        ^
+2026-10-12T16:48:26.7876238Z       144 | }
+2026-10-12T16:48:26.7876437Z       145 |
+2026-10-12T16:48:26.7876935Z       146 | test("V3 route, state, text, navigation, affiliate, and SEO observations", async ({ page, browserName }) => {
+2026-10-12T16:48:26.7878559Z         at observe (/home/runner/work/GameAI-Hub/GameAI-Hub/e2e/issue-157-final-evidence.spec.ts:143:72)
+2026-10-12T16:48:26.7879279Z         at /home/runner/work/GameAI-Hub/GameAI-Hub/e2e/issue-157-final-evidence.spec.ts:234:5
+2026-10-12T16:48:26.7879630Z
+2026-10-12T16:48:26.7880163Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-10-12T16:48:26.7880924Z     test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations-retry1/test-failed-1.png
+2026-10-12T16:48:26.7881726Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:48:26.7882023Z
+2026-10-12T16:48:26.7882478Z     Error Context: test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations-retry1/error-context.md
+2026-10-12T16:48:26.7882964Z
+2026-10-12T16:48:26.7883362Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-12T16:48:26.7884083Z     test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations-retry1/trace.zip
+2026-10-12T16:48:26.7884573Z     Usage:
+2026-10-12T16:48:26.7884691Z
+2026-10-12T16:48:26.7885163Z         npx playwright show-trace test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations-retry1/trace.zip
+2026-10-12T16:48:26.7885666Z
+2026-10-12T16:48:26.7886013Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:48:26.7886296Z
+2026-10-12T16:48:26.7886302Z
+2026-10-12T16:48:26.7887035Z [183/268] (retries) e2e/issue-157-final-evidence.spec.ts:243:5 › V4 dynamic input, cancellation, follow-up, focus, and budget observations (retry #1)
+2026-10-12T16:48:27.3873179Z [184/268] e2e/issue-157-project-evidence.spec.ts:69:5 › Issue 157 Project states, workspace, and token observations validate
+2026-10-12T16:49:18.6995944Z [185/268] e2e/issue-157-reflow-evidence.spec.ts:27:5 › V2 Home observations emit and validate current typed evidence
+2026-10-12T16:49:30.4209531Z [186/268] (retries) e2e/issue-157-reflow-evidence.spec.ts:27:5 › V2 Home observations emit and validate current typed evidence (retry #1)
+2026-10-12T16:49:41.8814410Z   2) e2e/issue-157-reflow-evidence.spec.ts:27:5 › V2 Home observations emit and validate current typed evidence
+2026-10-12T16:49:41.8815227Z
+2026-10-12T16:49:41.8815675Z     Error: v2-home-initial-320: PASS contradicts diagnostics or geometry
+2026-10-12T16:49:41.8816185Z
+2026-10-12T16:49:41.8816335Z        at acceptance/manifest.ts:357
+2026-10-12T16:49:41.8816536Z
+2026-10-12T16:49:41.8816764Z       355 |         record.geometry.ordinaryLabelSqueezed === true)
+2026-10-12T16:49:41.8817127Z       356 |     )
+2026-10-12T16:49:41.8818028Z     > 357 |       throw new Error(`${record.id}: PASS contradicts diagnostics or geometry`);
+2026-10-12T16:49:41.8818786Z           |             ^
+2026-10-12T16:49:41.8819170Z       358 |     if (
+2026-10-12T16:49:41.8819964Z       359 |       record.reviewerDecision === "PASS" &&
+2026-10-12T16:49:41.8820287Z       360 |       [
+2026-10-12T16:49:41.8820863Z         at assertReflowEvidenceManifest (/home/runner/work/GameAI-Hub/GameAI-Hub/e2e/acceptance/manifest.ts:357:13)
+2026-10-12T16:49:41.8821772Z         at validateExecutionSubset (/home/runner/work/GameAI-Hub/GameAI-Hub/e2e/acceptance/reflow-matrix.ts:263:31)
+2026-10-12T16:49:41.8822543Z         at /home/runner/work/GameAI-Hub/GameAI-Hub/e2e/issue-157-reflow-evidence.spec.ts:202:28
+2026-10-12T16:49:41.8822916Z
+2026-10-12T16:49:41.8823404Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-10-12T16:49:41.8824145Z     test-results/issue-157-reflow-evidence--5bdf0-date-current-typed-evidence/test-failed-1.png
+2026-10-12T16:49:41.8824915Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:49:41.8825212Z
+2026-10-12T16:49:41.8825666Z     Error Context: test-results/issue-157-reflow-evidence--5bdf0-date-current-typed-evidence/error-context.md
+2026-10-12T16:49:41.8826133Z
+2026-10-12T16:49:41.8826723Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-12T16:49:41.8827751Z     test-results/issue-157-reflow-evidence--5bdf0-date-current-typed-evidence/trace.zip
+2026-10-12T16:49:41.8828238Z     Usage:
+2026-10-12T16:49:41.8828359Z
+2026-10-12T16:49:41.8828807Z         npx playwright show-trace test-results/issue-157-reflow-evidence--5bdf0-date-current-typed-evidence/trace.zip
+2026-10-12T16:49:41.8829294Z
+2026-10-12T16:49:41.8829670Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:49:41.8829957Z
+2026-10-12T16:49:41.8830430Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:49:41.8830744Z
+2026-10-12T16:49:41.8830997Z     Error: v2-home-initial-320: PASS contradicts diagnostics or geometry
+2026-10-12T16:49:41.8831332Z
+2026-10-12T16:49:41.8831469Z        at acceptance/manifest.ts:357
+2026-10-12T16:49:41.8831694Z
+2026-10-12T16:49:41.8831935Z       355 |         record.geometry.ordinaryLabelSqueezed === true)
+2026-10-12T16:49:41.8832311Z       356 |     )
+2026-10-12T16:49:41.8832734Z     > 357 |       throw new Error(`${record.id}: PASS contradicts diagnostics or geometry`);
+2026-10-12T16:49:41.8833184Z           |             ^
+2026-10-12T16:49:41.8833419Z       358 |     if (
+2026-10-12T16:49:41.8833729Z       359 |       record.reviewerDecision === "PASS" &&
+2026-10-12T16:49:41.8834055Z       360 |       [
+2026-10-12T16:49:41.8834637Z         at assertReflowEvidenceManifest (/home/runner/work/GameAI-Hub/GameAI-Hub/e2e/acceptance/manifest.ts:357:13)
+2026-10-12T16:49:41.8835526Z         at validateExecutionSubset (/home/runner/work/GameAI-Hub/GameAI-Hub/e2e/acceptance/reflow-matrix.ts:263:31)
+2026-10-12T16:49:41.8836344Z         at /home/runner/work/GameAI-Hub/GameAI-Hub/e2e/issue-157-reflow-evidence.spec.ts:202:28
+2026-10-12T16:49:41.8836940Z
+2026-10-12T16:49:41.8837652Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-10-12T16:49:41.8838529Z     test-results/issue-157-reflow-evidence--5bdf0-date-current-typed-evidence-retry1/test-failed-1.png
+2026-10-12T16:49:41.8839422Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:49:41.8839718Z
+2026-10-12T16:49:41.8840250Z     Error Context: test-results/issue-157-reflow-evidence--5bdf0-date-current-typed-evidence-retry1/error-context.md
+2026-10-12T16:49:41.8840879Z
+2026-10-12T16:49:41.8841281Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-12T16:49:41.8842034Z     test-results/issue-157-reflow-evidence--5bdf0-date-current-typed-evidence-retry1/trace.zip
+2026-10-12T16:49:41.8842532Z     Usage:
+2026-10-12T16:49:41.8842765Z
+2026-10-12T16:49:41.8843603Z         npx playwright show-trace test-results/issue-157-reflow-evidence--5bdf0-date-current-typed-evidence-retry1/trace.zip
+2026-10-12T16:49:41.8844536Z
+2026-10-12T16:49:41.8845033Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:49:41.8845659Z
+2026-10-12T16:49:41.8845668Z
+2026-10-12T16:49:42.4619244Z [187/268] e2e/issue-157-stage-b.spec.ts:11:5 › shared visual layer reflows across representative routes
+2026-10-12T16:49:55.7273187Z [188/268] e2e/issue-157-stage-b.spec.ts:31:5 › Creation Deck starts circular, preserves links, and retains a list fallback
+2026-10-12T16:50:03.8366671Z [189/268] e2e/issue-157-stage-b.spec.ts:101:5 › Creation Deck remains usable when session storage is blocked
+2026-10-12T16:50:05.4919353Z [190/268] e2e/issue-157-stage-b.spec.ts:114:5 › Creation Deck transfers only control focus when forced flat
+2026-10-12T16:50:11.7774783Z [191/268] e2e/issue-157-stage-b.spec.ts:180:5 › reading and trust planes remain readable and preserve ElevenLabs v4
+2026-10-12T16:50:14.3609079Z [192/268] e2e/measurement-baseline.spec.ts:30:5 › article → Project → first completion → next task is observable without raw input
+2026-10-12T16:50:16.7836514Z [193/268] e2e/measurement-baseline.spec.ts:111:5 › affiliate CTA records one viewable impression before comparable click events
+2026-10-12T16:50:17.5619961Z [194/268] e2e/measurement-baseline.spec.ts:161:5 › local production build cannot initialize or contact Google Analytics
+2026-10-12T16:50:18.7109727Z [195/268] e2e/measurement-baseline.spec.ts:174:7 › owner exclusion is usable and persistent at 375px
+2026-10-12T16:50:20.2982616Z [196/268] e2e/measurement-baseline.spec.ts:174:7 › owner exclusion is usable and persistent at 320px
+2026-10-12T16:50:21.8559648Z [197/268] e2e/measurement-baseline.spec.ts:192:5 › shared E2E fixture aborts direct GA collection independently of app gating
+2026-10-12T16:50:22.9940245Z [198/268] e2e/reflow-contract.spec.ts:9:5 › semantic-row probe catches squeeze without document overflow and accepts wrap/stack
+2026-10-12T16:50:23.1704457Z [199/268] e2e/reflow-contract.spec.ts:39:5 › surface probe catches clipping/token overflow but permits an owned code scroller
+2026-10-12T16:50:23.2821366Z [200/268] e2e/reflow-contract.spec.ts:61:5 › text methods record achieved sizes, detect fixed-px root failure, and restore
+2026-10-12T16:50:23.5023796Z [201/268] e2e/reflow-contract.spec.ts:134:5 › semantic rows preserve scoped typography and group inline fragments by line
+2026-10-12T16:50:23.7001438Z [202/268] e2e/reflow-contract.spec.ts:169:5 › focus visibility requires a keyboard-focus-specific visual change
+2026-10-12T16:50:23.9494363Z [203/268] e2e/reflow-contract.spec.ts:185:5 › surface positive case records reachable focus and minimum target
+2026-10-12T16:50:24.1145826Z [204/268] e2e/reflow-contract.spec.ts:198:5 › text measurements reject changed target count, identity and order at either boundary
+2026-10-12T16:50:24.3952817Z [205/268] e2e/reflow-contract.spec.ts:236:5 › text restore rejects changed targets and restores only original elements
+2026-10-12T16:50:24.5702508Z [206/268] e2e/seven-game-intros.spec.ts:9:41 › seven introductions and original screenshots at 1280
+2026-10-12T16:50:31.3832728Z [207/268] e2e/seven-game-intros.spec.ts:9:41 › seven introductions and original screenshots at 375
+2026-10-12T16:50:36.3043960Z [208/268] e2e/seven-game-intros.spec.ts:9:41 › seven introductions and original screenshots at 320
+2026-10-12T16:50:41.0452069Z [209/268] e2e/seven-game-intros.spec.ts:36:5 › all eight cards preserve original assets, introduction links and sitemap
+2026-10-12T16:50:49.2934424Z [210/268] e2e/seven-game-intros.spec.ts:63:5 › all seven at 320px with 200% CSS zoom
+2026-10-12T16:50:55.6425284Z [211/268] e2e/seven-game-intros.spec.ts:73:5 › Aramon keeps its environment and receives the free no-install statement
+2026-10-12T16:50:56.4451497Z [212/268] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 320
+2026-10-12T16:50:59.8616663Z [213/268] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 390
+2026-10-12T16:51:03.2106556Z [214/268] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 320
+2026-10-12T16:51:04.7443709Z [215/268] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 390
+2026-10-12T16:51:06.4663901Z [216/268] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 320
+2026-10-12T16:51:10.5104705Z [217/268] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 375
+2026-10-12T16:51:15.3623107Z [218/268] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 390
+2026-10-12T16:51:20.2800489Z [219/268] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 1440
+2026-10-12T16:51:25.8725907Z [220/268] e2e/shared-category-ring.spec.ts:84:5 › entry preferences and focus ownership remain separate across mounts
+2026-10-12T16:51:28.8435696Z [221/268] e2e/shared-category-ring.spec.ts:103:5 › category tiny flick, inertia, recontact and navigation history use shared motion
+2026-10-12T16:51:31.1306226Z [222/268] e2e/shared-category-ring.spec.ts:131:36 › category enlarged Japanese remains usable at 320
+2026-10-12T16:51:33.0935397Z [223/268] e2e/shared-category-ring.spec.ts:131:36 › category enlarged Japanese remains usable at 375
+2026-10-12T16:51:35.0855794Z [224/268] e2e/shared-category-ring.spec.ts:139:5 › Home no-JS category links reach actual articles, unsafe context is ignored
+2026-10-12T16:51:37.0190199Z [225/268] e2e/shared-category-ring.spec.ts:149:5 › Home example fragment remains native and Project input survives
+2026-10-12T16:51:38.4749783Z [226/268] e2e/slice-five-tools-guides.spec.ts:15:5 › Slice 5 directories and representative details reflow at every acceptance viewport
+2026-10-12T16:51:49.8702242Z [227/268] e2e/slice-five-tools-guides.spec.ts:61:5 › Tools keeps criteria, URL history, evidence and empty recovery understandable
+2026-10-12T16:51:51.7105776Z [228/268] e2e/slice-five-tools-guides.spec.ts:79:5 › Guides stage state survives history and keeps prerequisite/output visible
+2026-10-12T16:51:52.8558838Z [229/268] e2e/slice-five-tools-guides.spec.ts:102:5 › Tool affiliate and non-affiliate destinations retain disclosure and rel behavior
+2026-10-12T16:51:54.0095819Z [230/268] e2e/slice-four-project.spec.ts:44:5 › Slice 4 empty and clarification states reflow at every acceptance viewport
+2026-10-12T16:51:58.3587273Z [231/268] e2e/slice-four-project.spec.ts:123:5 › validation preserves input and gives a focused recovery target
+2026-10-12T16:51:59.2569530Z [232/268] e2e/slice-four-project.spec.ts:139:5 › generated current task, recovery, completion, and local restore stay task-first
+2026-10-12T16:52:04.1508429Z [233/268] e2e/slice-one-foundations.spec.ts:19:7 › Issue 137 Slice 1 foundations › semantic tokens and reduced-motion contract are active
+2026-10-12T16:52:05.2236560Z [234/268] e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 320px
+2026-10-12T16:52:09.2209877Z [235/268] e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 375px
+2026-10-12T16:52:13.2640988Z [236/268] e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 390px
+2026-10-12T16:52:17.2799726Z [237/268] e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 1440px
+2026-10-12T16:52:22.0115273Z [238/268] e2e/slice-one-foundations.spec.ts:55:7 › Issue 137 Slice 1 foundations › intrinsic text, focus and owned scrollers satisfy the shared contract
+2026-10-12T16:52:22.9011008Z [239/268] e2e/slice-seven-final-acceptance.spec.ts:29:5 › Slice 7 cross-route matrix has contained, structured, durable rendered evidence
+2026-10-12T16:52:24.9864592Z [240/268] (retries) e2e/slice-seven-final-acceptance.spec.ts:29:5 › Slice 7 cross-route matrix has contained, structured, durable rendered evidence (retry #1)
+2026-10-12T16:52:26.7906666Z   3) e2e/slice-seven-final-acceptance.spec.ts:29:5 › Slice 7 cross-route matrix has contained, structured, durable rendered evidence
+2026-10-12T16:52:26.7918192Z
+2026-10-12T16:52:26.7918482Z     Error: / unowned overflow at 320px
+2026-10-12T16:52:26.7918863Z
+2026-10-12T16:52:26.7919203Z     expect(received).toEqual(expected) // deep equality
+2026-10-12T16:52:26.7919654Z
+2026-10-12T16:52:26.7919861Z     - Expected  -   1
+2026-10-12T16:52:26.7920311Z     + Received  + 212
+2026-10-12T16:52:26.7920541Z
+2026-10-12T16:52:26.7920637Z     - Array []
+2026-10-12T16:52:26.7920863Z     + Array [
+2026-10-12T16:52:26.7921065Z     +   Object {
+2026-10-12T16:52:26.7921324Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7921646Z     +     "left": 189.17544555664062,
+2026-10-12T16:52:26.7921963Z     +     "right": 461.6624450683594,
+2026-10-12T16:52:26.7922233Z     +     "selector": "li",
+2026-10-12T16:52:26.7922515Z     +     "width": 272.48699951171875,
+2026-10-12T16:52:26.7922775Z     +   },
+2026-10-12T16:52:26.7923011Z     +   Object {
+2026-10-12T16:52:26.7923275Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7923595Z     +     "left": 189.17544555664062,
+2026-10-12T16:52:26.7923892Z     +     "right": 461.6624450683594,
+2026-10-12T16:52:26.7924205Z     +     "selector": "div.b3-art-card",
+2026-10-12T16:52:26.7924523Z     +     "width": 272.48699951171875,
+2026-10-12T16:52:26.7924802Z     +   },
+2026-10-12T16:52:26.7924989Z     +   Object {
+2026-10-12T16:52:26.7925250Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7925552Z     +     "left": 190.0830535888672,
+2026-10-12T16:52:26.7925844Z     +     "right": 460.70298767089844,
+2026-10-12T16:52:26.7926161Z     +     "selector": "span.b3-frame-face",
+2026-10-12T16:52:26.7926507Z     +     "width": 270.61993408203125,
+2026-10-12T16:52:26.7926756Z     +   },
+2026-10-12T16:52:26.7926960Z     +   Object {
+2026-10-12T16:52:26.7927224Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7927898Z     +     "left": 196.4410858154297,
+2026-10-12T16:52:26.7928254Z     +     "right": 453.99192810058594,
+2026-10-12T16:52:26.7928598Z     +     "selector": "div.b3-art-top",
+2026-10-12T16:52:26.7928919Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.7929186Z     +   },
+2026-10-12T16:52:26.7929398Z     +   Object {
+2026-10-12T16:52:26.7929658Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7929965Z     +     "left": 376.9916076660156,
+2026-10-12T16:52:26.7930267Z     +     "right": 452.076171875,
+2026-10-12T16:52:26.7930552Z     +     "selector": "span",
+2026-10-12T16:52:26.7930858Z     +     "width": 75.08456420898438,
+2026-10-12T16:52:26.7931123Z     +   },
+2026-10-12T16:52:26.7931335Z     +   Object {
+2026-10-12T16:52:26.7931585Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7932231Z     +     "left": 196.4410858154297,
+2026-10-12T16:52:26.7932549Z     +     "right": 453.99192810058594,
+2026-10-12T16:52:26.7933053Z     +     "selector": "a.b3-art-link",
+2026-10-12T16:52:26.7933471Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.7933770Z     +   },
+2026-10-12T16:52:26.7933989Z     +   Object {
+2026-10-12T16:52:26.7934294Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7934613Z     +     "left": 196.4410858154297,
+2026-10-12T16:52:26.7934945Z     +     "right": 453.99192810058594,
+2026-10-12T16:52:26.7935246Z     +     "selector": "img",
+2026-10-12T16:52:26.7935569Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.7935889Z     +   },
+2026-10-12T16:52:26.7936155Z     +   Object {
+2026-10-12T16:52:26.7936486Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7936846Z     +     "left": 196.4410858154297,
+2026-10-12T16:52:26.7937122Z     +     "right": 453.99192810058594,
+2026-10-12T16:52:26.7937616Z     +     "selector": "div.b3-art-credit",
+2026-10-12T16:52:26.7937930Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.7938170Z     +   },
+2026-10-12T16:52:26.7938478Z     +   Object {
+2026-10-12T16:52:26.7938934Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7939463Z     +     "left": 396.8394470214844,
+2026-10-12T16:52:26.7939974Z     +     "right": 452.076171875,
+2026-10-12T16:52:26.7940472Z     +     "selector": "span",
+2026-10-12T16:52:26.7940970Z     +     "width": 55.236724853515625,
+2026-10-12T16:52:26.7941475Z     +   },
+2026-10-12T16:52:26.7941766Z     +   Object {
+2026-10-12T16:52:26.7942073Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7942379Z     +     "left": 352.6954345703125,
+2026-10-12T16:52:26.7942655Z     +     "right": 625.1824340820312,
+2026-10-12T16:52:26.7942911Z     +     "selector": "li",
+2026-10-12T16:52:26.7943164Z     +     "width": 272.48699951171875,
+2026-10-12T16:52:26.7943410Z     +   },
+2026-10-12T16:52:26.7943594Z     +   Object {
+2026-10-12T16:52:26.7943829Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7944122Z     +     "left": 352.6954345703125,
+2026-10-12T16:52:26.7944407Z     +     "right": 625.1824340820312,
+2026-10-12T16:52:26.7944694Z     +     "selector": "div.b3-art-card",
+2026-10-12T16:52:26.7944984Z     +     "width": 272.48699951171875,
+2026-10-12T16:52:26.7945231Z     +   },
+2026-10-12T16:52:26.7945413Z     +   Object {
+2026-10-12T16:52:26.7945643Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7945924Z     +     "left": 353.6030578613281,
+2026-10-12T16:52:26.7946189Z     +     "right": 624.2229614257812,
+2026-10-12T16:52:26.7946480Z     +     "selector": "span.b3-frame-face",
+2026-10-12T16:52:26.7946783Z     +     "width": 270.6199035644531,
+2026-10-12T16:52:26.7947024Z     +   },
+2026-10-12T16:52:26.7947208Z     +   Object {
+2026-10-12T16:52:26.7947823Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7948296Z     +     "left": 359.9610595703125,
+2026-10-12T16:52:26.7948743Z     +     "right": 617.511962890625,
+2026-10-12T16:52:26.7949237Z     +     "selector": "div.b3-art-top",
+2026-10-12T16:52:26.7949732Z     +     "width": 257.5509033203125,
+2026-10-12T16:52:26.7950149Z     +   },
+2026-10-12T16:52:26.7950461Z     +   Object {
+2026-10-12T16:52:26.7950853Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7951296Z     +     "left": 361.7791748046875,
+2026-10-12T16:52:26.7951715Z     +     "right": 412.04742431640625,
+2026-10-12T16:52:26.7952113Z     +     "selector": "span",
+2026-10-12T16:52:26.7952520Z     +     "width": 50.26824951171875,
+2026-10-12T16:52:26.7952887Z     +   },
+2026-10-12T16:52:26.7953170Z     +   Object {
+2026-10-12T16:52:26.7953539Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7953976Z     +     "left": 554.6804809570312,
+2026-10-12T16:52:26.7954393Z     +     "right": 615.59619140625,
+2026-10-12T16:52:26.7954788Z     +     "selector": "span",
+2026-10-12T16:52:26.7955190Z     +     "width": 60.91571044921875,
+2026-10-12T16:52:26.7955559Z     +   },
+2026-10-12T16:52:26.7955845Z     +   Object {
+2026-10-12T16:52:26.7956427Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7956869Z     +     "left": 359.9610595703125,
+2026-10-12T16:52:26.7957646Z     +     "right": 617.511962890625,
+2026-10-12T16:52:26.7958132Z     +     "selector": "a.b3-art-link",
+2026-10-12T16:52:26.7958581Z     +     "width": 257.5509033203125,
+2026-10-12T16:52:26.7958955Z     +   },
+2026-10-12T16:52:26.7959246Z     +   Object {
+2026-10-12T16:52:26.7959614Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7960060Z     +     "left": 359.9610595703125,
+2026-10-12T16:52:26.7960481Z     +     "right": 617.511962890625,
+2026-10-12T16:52:26.7960868Z     +     "selector": "img",
+2026-10-12T16:52:26.7961269Z     +     "width": 257.5509033203125,
+2026-10-12T16:52:26.7961648Z     +   },
+2026-10-12T16:52:26.7961929Z     +   Object {
+2026-10-12T16:52:26.7962293Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7962736Z     +     "left": 359.9610595703125,
+2026-10-12T16:52:26.7963147Z     +     "right": 617.511962890625,
+2026-10-12T16:52:26.7963598Z     +     "selector": "div.b3-art-credit",
+2026-10-12T16:52:26.7964060Z     +     "width": 257.5509033203125,
+2026-10-12T16:52:26.7964438Z     +   },
+2026-10-12T16:52:26.7964721Z     +   Object {
+2026-10-12T16:52:26.7965088Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7965537Z     +     "left": 361.7791748046875,
+2026-10-12T16:52:26.7965957Z     +     "right": 419.4028625488281,
+2026-10-12T16:52:26.7966350Z     +     "selector": "span",
+2026-10-12T16:52:26.7966769Z     +     "width": 57.623687744140625,
+2026-10-12T16:52:26.7967152Z     +   },
+2026-10-12T16:52:26.7967611Z     +   Object {
+2026-10-12T16:52:26.7967992Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7968433Z     +     "left": 560.3594360351562,
+2026-10-12T16:52:26.7968862Z     +     "right": 615.59619140625,
+2026-10-12T16:52:26.7969321Z     +     "selector": "span",
+2026-10-12T16:52:26.7969774Z     +     "width": 55.23675537109375,
+2026-10-12T16:52:26.7970177Z     +   },
+2026-10-12T16:52:26.7970494Z     +   Object {
+2026-10-12T16:52:26.7970898Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7971384Z     +     "left": 516.2154541015625,
+2026-10-12T16:52:26.7971850Z     +     "right": 788.7024536132812,
+2026-10-12T16:52:26.7972286Z     +     "selector": "li",
+2026-10-12T16:52:26.7972725Z     +     "width": 272.48699951171875,
+2026-10-12T16:52:26.7973132Z     +   },
+2026-10-12T16:52:26.7973448Z     +   Object {
+2026-10-12T16:52:26.7973822Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7974255Z     +     "left": 516.2154541015625,
+2026-10-12T16:52:26.7974667Z     +     "right": 788.7024536132812,
+2026-10-12T16:52:26.7975111Z     +     "selector": "div.b3-art-card",
+2026-10-12T16:52:26.7975563Z     +     "width": 272.48699951171875,
+2026-10-12T16:52:26.7975939Z     +   },
+2026-10-12T16:52:26.7976227Z     +   Object {
+2026-10-12T16:52:26.7976608Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7977086Z     +     "left": 517.123046875,
+2026-10-12T16:52:26.7977711Z     +     "right": 787.7429809570312,
+2026-10-12T16:52:26.7978218Z     +     "selector": "span.b3-frame-face",
+2026-10-12T16:52:26.7978737Z     +     "width": 270.61993408203125,
+2026-10-12T16:52:26.7979157Z     +   },
+2026-10-12T16:52:26.7979467Z     +   Object {
+2026-10-12T16:52:26.7979866Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7980348Z     +     "left": 523.4810791015625,
+2026-10-12T16:52:26.7980810Z     +     "right": 781.0319213867188,
+2026-10-12T16:52:26.7981256Z     +     "selector": "div.b3-art-top",
+2026-10-12T16:52:26.7981707Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.7982098Z     +   },
+2026-10-12T16:52:26.7982387Z     +   Object {
+2026-10-12T16:52:26.7982752Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7983190Z     +     "left": 525.2991943359375,
+2026-10-12T16:52:26.7983617Z     +     "right": 575.5674438476562,
+2026-10-12T16:52:26.7984055Z     +     "selector": "span",
+2026-10-12T16:52:26.7984506Z     +     "width": 50.26824951171875,
+2026-10-12T16:52:26.7985101Z     +   },
+2026-10-12T16:52:26.7985417Z     +   Object {
+2026-10-12T16:52:26.7985957Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.7998708Z     +     "left": 629.148193359375,
+2026-10-12T16:52:26.7999224Z     +     "right": 779.1161499023438,
+2026-10-12T16:52:26.7999667Z     +     "selector": "span",
+2026-10-12T16:52:26.8000102Z     +     "width": 149.96795654296875,
+2026-10-12T16:52:26.8000491Z     +   },
+2026-10-12T16:52:26.8000793Z     +   Object {
+2026-10-12T16:52:26.8001182Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8001640Z     +     "left": 523.4810791015625,
+2026-10-12T16:52:26.8002082Z     +     "right": 781.0319213867188,
+2026-10-12T16:52:26.8002564Z     +     "selector": "a.b3-art-link",
+2026-10-12T16:52:26.8003020Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.8003401Z     +   },
+2026-10-12T16:52:26.8003695Z     +   Object {
+2026-10-12T16:52:26.8004076Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8004529Z     +     "left": 523.4810791015625,
+2026-10-12T16:52:26.8004970Z     +     "right": 781.0319213867188,
+2026-10-12T16:52:26.8005396Z     +     "selector": "img",
+2026-10-12T16:52:26.8005817Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.8006198Z     +   },
+2026-10-12T16:52:26.8006492Z     +   Object {
+2026-10-12T16:52:26.8006877Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8007328Z     +     "left": 523.4810791015625,
+2026-10-12T16:52:26.8007961Z     +     "right": 781.0319213867188,
+2026-10-12T16:52:26.8008424Z     +     "selector": "div.b3-art-credit",
+2026-10-12T16:52:26.8008887Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.8009267Z     +   },
+2026-10-12T16:52:26.8009566Z     +   Object {
+2026-10-12T16:52:26.8009935Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8010381Z     +     "left": 525.2991943359375,
+2026-10-12T16:52:26.8010809Z     +     "right": 582.9228515625,
+2026-10-12T16:52:26.8011208Z     +     "selector": "span",
+2026-10-12T16:52:26.8011630Z     +     "width": 57.6236572265625,
+2026-10-12T16:52:26.8012005Z     +   },
+2026-10-12T16:52:26.8012304Z     + ]
+2026-10-12T16:52:26.8012472Z
+2026-10-12T16:52:26.8012762Z       43 |       const widths = await diagnoseWidths(page);
+2026-10-12T16:52:26.8013929Z       44 |       expect(widths.documentScrollWidth, `${route.path} document width at ${viewport.width}px`).toBeLessThanOrEqual(widths.viewportWidth);
+2026-10-12T16:52:26.8015441Z     > 45 |       expect(widths.unownedOverflowingElements, `${route.path} unowned overflow at ${viewport.width}px`).toEqual([]);
+2026-10-12T16:52:26.8016532Z          |                                                                                                          ^
+2026-10-12T16:52:26.8017087Z       46 |
+2026-10-12T16:52:26.8017807Z       47 |       const screenshot = `${route.id}-${viewport.id}.png`;
+2026-10-12T16:52:26.8018773Z       48 |       await page.screenshot({ path: path.join(evidenceDir, screenshot), fullPage: true });
+2026-10-12T16:52:26.8019970Z         at /home/runner/work/GameAI-Hub/GameAI-Hub/e2e/slice-seven-final-acceptance.spec.ts:45:106
+2026-10-12T16:52:26.8020615Z
+2026-10-12T16:52:26.8021456Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-10-12T16:52:26.8022564Z     test-results/slice-seven-final-acceptan-ca835-d-durable-rendered-evidence/test-failed-1.png
+2026-10-12T16:52:26.8023799Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:52:26.8024313Z
+2026-10-12T16:52:26.8025064Z     Error Context: test-results/slice-seven-final-acceptan-ca835-d-durable-rendered-evidence/error-context.md
+2026-10-12T16:52:26.8025878Z
+2026-10-12T16:52:26.8026584Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-12T16:52:26.8027910Z     test-results/slice-seven-final-acceptan-ca835-d-durable-rendered-evidence/trace.zip
+2026-10-12T16:52:26.8028664Z     Usage:
+2026-10-12T16:52:26.8029070Z
+2026-10-12T16:52:26.8029942Z         npx playwright show-trace test-results/slice-seven-final-acceptan-ca835-d-durable-rendered-evidence/trace.zip
+2026-10-12T16:52:26.8030739Z
+2026-10-12T16:52:26.8031381Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:52:26.8031879Z
+2026-10-12T16:52:26.8032513Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:52:26.8033013Z
+2026-10-12T16:52:26.8033239Z     Error: / unowned overflow at 320px
+2026-10-12T16:52:26.8033558Z
+2026-10-12T16:52:26.8033846Z     expect(received).toEqual(expected) // deep equality
+2026-10-12T16:52:26.8034234Z
+2026-10-12T16:52:26.8034397Z     - Expected  -   1
+2026-10-12T16:52:26.8034750Z     + Received  + 212
+2026-10-12T16:52:26.8034958Z
+2026-10-12T16:52:26.8035088Z     - Array []
+2026-10-12T16:52:26.8035404Z     + Array [
+2026-10-12T16:52:26.8035711Z     +   Object {
+2026-10-12T16:52:26.8036090Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8036579Z     +     "left": 189.17544555664062,
+2026-10-12T16:52:26.8037044Z     +     "right": 461.6624450683594,
+2026-10-12T16:52:26.8037657Z     +     "selector": "li",
+2026-10-12T16:52:26.8038111Z     +     "width": 272.48699951171875,
+2026-10-12T16:52:26.8038531Z     +   },
+2026-10-12T16:52:26.8038849Z     +   Object {
+2026-10-12T16:52:26.8039260Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8039762Z     +     "left": 189.17544555664062,
+2026-10-12T16:52:26.8040232Z     +     "right": 461.6624450683594,
+2026-10-12T16:52:26.8040723Z     +     "selector": "div.b3-art-card",
+2026-10-12T16:52:26.8041217Z     +     "width": 272.48699951171875,
+2026-10-12T16:52:26.8041594Z     +   },
+2026-10-12T16:52:26.8041880Z     +   Object {
+2026-10-12T16:52:26.8042263Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8042719Z     +     "left": 190.0830535888672,
+2026-10-12T16:52:26.8043153Z     +     "right": 460.70298767089844,
+2026-10-12T16:52:26.8043659Z     +     "selector": "span.b3-frame-face",
+2026-10-12T16:52:26.8044159Z     +     "width": 270.61993408203125,
+2026-10-12T16:52:26.8044575Z     +   },
+2026-10-12T16:52:26.8044896Z     +   Object {
+2026-10-12T16:52:26.8045300Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8045789Z     +     "left": 196.4410858154297,
+2026-10-12T16:52:26.8046255Z     +     "right": 453.99192810058594,
+2026-10-12T16:52:26.8046751Z     +     "selector": "div.b3-art-top",
+2026-10-12T16:52:26.8047245Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.8047786Z     +   },
+2026-10-12T16:52:26.8048079Z     +   Object {
+2026-10-12T16:52:26.8048452Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8048888Z     +     "left": 376.9916076660156,
+2026-10-12T16:52:26.8049316Z     +     "right": 452.076171875,
+2026-10-12T16:52:26.8049703Z     +     "selector": "span",
+2026-10-12T16:52:26.8050125Z     +     "width": 75.08456420898438,
+2026-10-12T16:52:26.8050546Z     +   },
+2026-10-12T16:52:26.8050839Z     +   Object {
+2026-10-12T16:52:26.8051396Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8051854Z     +     "left": 196.4410858154297,
+2026-10-12T16:52:26.8052495Z     +     "right": 453.99192810058594,
+2026-10-12T16:52:26.8052960Z     +     "selector": "a.b3-art-link",
+2026-10-12T16:52:26.8053405Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.8053790Z     +   },
+2026-10-12T16:52:26.8054080Z     +   Object {
+2026-10-12T16:52:26.8054457Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8054913Z     +     "left": 196.4410858154297,
+2026-10-12T16:52:26.8055339Z     +     "right": 453.99192810058594,
+2026-10-12T16:52:26.8055740Z     +     "selector": "img",
+2026-10-12T16:52:26.8056161Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.8056539Z     +   },
+2026-10-12T16:52:26.8056827Z     +   Object {
+2026-10-12T16:52:26.8057206Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8057821Z     +     "left": 196.4410858154297,
+2026-10-12T16:52:26.8058252Z     +     "right": 453.99192810058594,
+2026-10-12T16:52:26.8058719Z     +     "selector": "div.b3-art-credit",
+2026-10-12T16:52:26.8059204Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.8059589Z     +   },
+2026-10-12T16:52:26.8059878Z     +   Object {
+2026-10-12T16:52:26.8060258Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8060712Z     +     "left": 396.8394470214844,
+2026-10-12T16:52:26.8061138Z     +     "right": 452.076171875,
+2026-10-12T16:52:26.8061538Z     +     "selector": "span",
+2026-10-12T16:52:26.8061954Z     +     "width": 55.236724853515625,
+2026-10-12T16:52:26.8062338Z     +   },
+2026-10-12T16:52:26.8062633Z     +   Object {
+2026-10-12T16:52:26.8063004Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8063459Z     +     "left": 352.6954345703125,
+2026-10-12T16:52:26.8063890Z     +     "right": 625.1824340820312,
+2026-10-12T16:52:26.8064297Z     +     "selector": "li",
+2026-10-12T16:52:26.8064705Z     +     "width": 272.48699951171875,
+2026-10-12T16:52:26.8065094Z     +   },
+2026-10-12T16:52:26.8065398Z     +   Object {
+2026-10-12T16:52:26.8065768Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8066218Z     +     "left": 352.6954345703125,
+2026-10-12T16:52:26.8066657Z     +     "right": 625.1824340820312,
+2026-10-12T16:52:26.8067113Z     +     "selector": "div.b3-art-card",
+2026-10-12T16:52:26.8067731Z     +     "width": 272.48699951171875,
+2026-10-12T16:52:26.8068117Z     +   },
+2026-10-12T16:52:26.8068414Z     +   Object {
+2026-10-12T16:52:26.8068798Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8069243Z     +     "left": 353.6030578613281,
+2026-10-12T16:52:26.8069679Z     +     "right": 624.2229614257812,
+2026-10-12T16:52:26.8070212Z     +     "selector": "span.b3-frame-face",
+2026-10-12T16:52:26.8070730Z     +     "width": 270.6199035644531,
+2026-10-12T16:52:26.8071144Z     +   },
+2026-10-12T16:52:26.8071454Z     +   Object {
+2026-10-12T16:52:26.8071854Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8072341Z     +     "left": 359.9610595703125,
+2026-10-12T16:52:26.8072810Z     +     "right": 617.511962890625,
+2026-10-12T16:52:26.8073298Z     +     "selector": "div.b3-art-top",
+2026-10-12T16:52:26.8073758Z     +     "width": 257.5509033203125,
+2026-10-12T16:52:26.8074134Z     +   },
+2026-10-12T16:52:26.8074424Z     +   Object {
+2026-10-12T16:52:26.8074793Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8075242Z     +     "left": 361.7791748046875,
+2026-10-12T16:52:26.8075667Z     +     "right": 412.04742431640625,
+2026-10-12T16:52:26.8076078Z     +     "selector": "span",
+2026-10-12T16:52:26.8076531Z     +     "width": 50.26824951171875,
+2026-10-12T16:52:26.8076940Z     +   },
+2026-10-12T16:52:26.8077248Z     +   Object {
+2026-10-12T16:52:26.8077817Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8078302Z     +     "left": 554.6804809570312,
+2026-10-12T16:52:26.8078766Z     +     "right": 615.59619140625,
+2026-10-12T16:52:26.8079206Z     +     "selector": "span",
+2026-10-12T16:52:26.8079653Z     +     "width": 60.91571044921875,
+2026-10-12T16:52:26.8080232Z     +   },
+2026-10-12T16:52:26.8080525Z     +   Object {
+2026-10-12T16:52:26.8081066Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8081525Z     +     "left": 359.9610595703125,
+2026-10-12T16:52:26.8081947Z     +     "right": 617.511962890625,
+2026-10-12T16:52:26.8082396Z     +     "selector": "a.b3-art-link",
+2026-10-12T16:52:26.8082862Z     +     "width": 257.5509033203125,
+2026-10-12T16:52:26.8083270Z     +   },
+2026-10-12T16:52:26.8083583Z     +   Object {
+2026-10-12T16:52:26.8083988Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8084468Z     +     "left": 359.9610595703125,
+2026-10-12T16:52:26.8084932Z     +     "right": 617.511962890625,
+2026-10-12T16:52:26.8085360Z     +     "selector": "img",
+2026-10-12T16:52:26.8085809Z     +     "width": 257.5509033203125,
+2026-10-12T16:52:26.8086219Z     +   },
+2026-10-12T16:52:26.8086523Z     +   Object {
+2026-10-12T16:52:26.8086896Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8087498Z     +     "left": 359.9610595703125,
+2026-10-12T16:52:26.8087940Z     +     "right": 617.511962890625,
+2026-10-12T16:52:26.8088404Z     +     "selector": "div.b3-art-credit",
+2026-10-12T16:52:26.8088872Z     +     "width": 257.5509033203125,
+2026-10-12T16:52:26.8089280Z     +   },
+2026-10-12T16:52:26.8089592Z     +   Object {
+2026-10-12T16:52:26.8089994Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8090483Z     +     "left": 361.7791748046875,
+2026-10-12T16:52:26.8090951Z     +     "right": 419.4028625488281,
+2026-10-12T16:52:26.8091383Z     +     "selector": "span",
+2026-10-12T16:52:26.8091893Z     +     "width": 57.623687744140625,
+2026-10-12T16:52:26.8092311Z     +   },
+2026-10-12T16:52:26.8092620Z     +   Object {
+2026-10-12T16:52:26.8093019Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8093503Z     +     "left": 560.3594360351562,
+2026-10-12T16:52:26.8093966Z     +     "right": 615.59619140625,
+2026-10-12T16:52:26.8094394Z     +     "selector": "span",
+2026-10-12T16:52:26.8094828Z     +     "width": 55.23675537109375,
+2026-10-12T16:52:26.8095204Z     +   },
+2026-10-12T16:52:26.8095491Z     +   Object {
+2026-10-12T16:52:26.8095875Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8096328Z     +     "left": 516.2154541015625,
+2026-10-12T16:52:26.8096760Z     +     "right": 788.7024536132812,
+2026-10-12T16:52:26.8097166Z     +     "selector": "li",
+2026-10-12T16:52:26.8097774Z     +     "width": 272.48699951171875,
+2026-10-12T16:52:26.8098186Z     +   },
+2026-10-12T16:52:26.8098495Z     +   Object {
+2026-10-12T16:52:26.8098902Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8099391Z     +     "left": 516.2154541015625,
+2026-10-12T16:52:26.8099838Z     +     "right": 788.7024536132812,
+2026-10-12T16:52:26.8100300Z     +     "selector": "div.b3-art-card",
+2026-10-12T16:52:26.8100766Z     +     "width": 272.48699951171875,
+2026-10-12T16:52:26.8101157Z     +   },
+2026-10-12T16:52:26.8101456Z     +   Object {
+2026-10-12T16:52:26.8101834Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8102290Z     +     "left": 517.123046875,
+2026-10-12T16:52:26.8102716Z     +     "right": 787.7429809570312,
+2026-10-12T16:52:26.8103198Z     +     "selector": "span.b3-frame-face",
+2026-10-12T16:52:26.8103672Z     +     "width": 270.61993408203125,
+2026-10-12T16:52:26.8104060Z     +   },
+2026-10-12T16:52:26.8104353Z     +   Object {
+2026-10-12T16:52:26.8104735Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8105202Z     +     "left": 523.4810791015625,
+2026-10-12T16:52:26.8105661Z     +     "right": 781.0319213867188,
+2026-10-12T16:52:26.8106134Z     +     "selector": "div.b3-art-top",
+2026-10-12T16:52:26.8106607Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.8107011Z     +   },
+2026-10-12T16:52:26.8107303Z     +   Object {
+2026-10-12T16:52:26.8107828Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8108276Z     +     "left": 525.2991943359375,
+2026-10-12T16:52:26.8108715Z     +     "right": 575.5674438476562,
+2026-10-12T16:52:26.8109338Z     +     "selector": "span",
+2026-10-12T16:52:26.8109786Z     +     "width": 50.26824951171875,
+2026-10-12T16:52:26.8110188Z     +   },
+2026-10-12T16:52:26.8110641Z     +   Object {
+2026-10-12T16:52:26.8111081Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8111564Z     +     "left": 629.148193359375,
+2026-10-12T16:52:26.8112031Z     +     "right": 779.1161499023438,
+2026-10-12T16:52:26.8112447Z     +     "selector": "span",
+2026-10-12T16:52:26.8112864Z     +     "width": 149.96795654296875,
+2026-10-12T16:52:26.8113255Z     +   },
+2026-10-12T16:52:26.8113549Z     +   Object {
+2026-10-12T16:52:26.8113923Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8114410Z     +     "left": 523.4810791015625,
+2026-10-12T16:52:26.8114866Z     +     "right": 781.0319213867188,
+2026-10-12T16:52:26.8115349Z     +     "selector": "a.b3-art-link",
+2026-10-12T16:52:26.8115829Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.8116235Z     +   },
+2026-10-12T16:52:26.8116533Z     +   Object {
+2026-10-12T16:52:26.8116913Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8117532Z     +     "left": 523.4810791015625,
+2026-10-12T16:52:26.8117980Z     +     "right": 781.0319213867188,
+2026-10-12T16:52:26.8118389Z     +     "selector": "img",
+2026-10-12T16:52:26.8118816Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.8119221Z     +   },
+2026-10-12T16:52:26.8119532Z     +   Object {
+2026-10-12T16:52:26.8119939Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8120419Z     +     "left": 523.4810791015625,
+2026-10-12T16:52:26.8120879Z     +     "right": 781.0319213867188,
+2026-10-12T16:52:26.8121375Z     +     "selector": "div.b3-art-credit",
+2026-10-12T16:52:26.8121877Z     +     "width": 257.55084228515625,
+2026-10-12T16:52:26.8122269Z     +   },
+2026-10-12T16:52:26.8122589Z     +   Object {
+2026-10-12T16:52:26.8122992Z     +     "exceptionOwner": undefined,
+2026-10-12T16:52:26.8123459Z     +     "left": 525.2991943359375,
+2026-10-12T16:52:26.8123894Z     +     "right": 582.9228515625,
+2026-10-12T16:52:26.8124398Z     +     "selector": "span",
+2026-10-12T16:52:26.8124673Z     +     "width": 57.6236572265625,
+2026-10-12T16:52:26.8124925Z     +   },
+2026-10-12T16:52:26.8125115Z     + ]
+2026-10-12T16:52:26.8125221Z
+2026-10-12T16:52:26.8125404Z       43 |       const widths = await diagnoseWidths(page);
+2026-10-12T16:52:26.8126163Z       44 |       expect(widths.documentScrollWidth, `${route.path} document width at ${viewport.width}px`).toBeLessThanOrEqual(widths.viewportWidth);
+2026-10-12T16:52:26.8127125Z     > 45 |       expect(widths.unownedOverflowingElements, `${route.path} unowned overflow at ${viewport.width}px`).toEqual([]);
+2026-10-12T16:52:26.8128122Z          |                                                                                                          ^
+2026-10-12T16:52:26.8128484Z       46 |
+2026-10-12T16:52:26.8128798Z       47 |       const screenshot = `${route.id}-${viewport.id}.png`;
+2026-10-12T16:52:26.8129667Z       48 |       await page.screenshot({ path: path.join(evidenceDir, screenshot), fullPage: true });
+2026-10-12T16:52:26.8130572Z         at /home/runner/work/GameAI-Hub/GameAI-Hub/e2e/slice-seven-final-acceptance.spec.ts:45:106
+2026-10-12T16:52:26.8130967Z
+2026-10-12T16:52:26.8131461Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-10-12T16:52:26.8132556Z     test-results/slice-seven-final-acceptan-ca835-d-durable-rendered-evidence-retry1/test-failed-1.png
+2026-10-12T16:52:26.8133987Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:52:26.8134494Z
+2026-10-12T16:52:26.8135314Z     Error Context: test-results/slice-seven-final-acceptan-ca835-d-durable-rendered-evidence-retry1/error-context.md
+2026-10-12T16:52:26.8136160Z
+2026-10-12T16:52:26.8136901Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-12T16:52:26.8138401Z     test-results/slice-seven-final-acceptan-ca835-d-durable-rendered-evidence-retry1/trace.zip
+2026-10-12T16:52:26.8139525Z     Usage:
+2026-10-12T16:52:26.8139723Z
+2026-10-12T16:52:26.8140740Z         npx playwright show-trace test-results/slice-seven-final-acceptan-ca835-d-durable-rendered-evidence-retry1/trace.zip
+2026-10-12T16:52:26.8141678Z
+2026-10-12T16:52:26.8142360Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:52:26.8142879Z
+2026-10-12T16:52:26.8142889Z
+2026-10-12T16:52:27.3439969Z [241/268] e2e/slice-seven-final-acceptance.spec.ts:166:5 › shared chrome keyboard, focus return, targets and reduced motion remain consistent
+2026-10-12T16:52:30.2082404Z [242/268] e2e/slice-seven-final-acceptance.spec.ts:216:5 › Compare destructive changes restore focus and preserve mobile meaning
+2026-10-12T16:52:30.9709790Z [243/268] e2e/slice-seven-final-acceptance.spec.ts:227:5 › forms, breadcrumbs, owned scrollers and anchor offsets keep their semantics
+2026-10-12T16:52:33.4660205Z [244/268] e2e/slice-six-compare-trust.spec.ts:22:5 › Slice 6 Compare states and trust routes have zero mobile document overflow
+2026-10-12T16:52:59.9925712Z [245/268] e2e/slice-six-compare-trust.spec.ts:54:5 › picker search, limit, focus, history, evidence and mobile criteria remain usable
+2026-10-12T16:53:00.9845394Z [246/268] e2e/slice-six-compare-trust.spec.ts:79:5 › four-candidate limit and trust controls remain explicit
+2026-10-12T16:53:02.7124023Z [247/268] e2e/slice-three-articles.spec.ts:21:5 › Slice 3 representative routes meet the rendered reading contract
+2026-10-12T16:53:19.2809893Z [248/268] e2e/slice-three-articles.spec.ts:110:5 › affiliate disclosure, destination, events, and local scrollers retain parity
+2026-10-12T16:53:22.7951544Z [249/268] e2e/slice-three-articles.spec.ts:198:5 › shared-template commercial and pricing articles regress safely at every acceptance width
+2026-10-12T16:53:29.3259948Z [250/268] e2e/slice-three-articles.spec.ts:240:5 › TOC supports mobile disclosure, sticky-safe anchors, initial fragments, and owned code scroll
+2026-10-12T16:53:30.5880950Z [251/268] e2e/slice-three-articles.spec.ts:283:5 › initial-fragment reconciliation yields to the reader and rearms for later navigation
+2026-10-12T16:53:35.1801665Z [252/268] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › game-first entry, retained category/idea actions and bounded title at 320x844
+2026-10-12T16:53:36.1621996Z [253/268] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › game-first entry, retained category/idea actions and bounded title at 375x844
+2026-10-12T16:53:37.1223579Z [254/268] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › game-first entry, retained category/idea actions and bounded title at 390x844
+2026-10-12T16:53:38.0888681Z [255/268] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › game-first entry, retained category/idea actions and bounded title at 1440x900
+2026-10-12T16:53:39.3886267Z [256/268] e2e/slice-two-home-chrome.spec.ts:30:7 › Issue 137 Slice 2 Home composition › preserves the exact idea and Home attribution while navigating to Project
+2026-10-12T16:53:41.8432704Z [257/268] e2e/slice-two-home-chrome.spec.ts:43:7 › Issue 137 Slice 2 Home composition › mobile menu traps focus, closes with Escape, and navigates
+2026-10-12T16:53:43.0745680Z [258/268] e2e/slice-two-home-chrome.spec.ts:63:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 320px
+2026-10-12T16:53:45.7875964Z [259/268] e2e/slice-two-home-chrome.spec.ts:63:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 375px
+2026-10-12T16:53:48.5283626Z [260/268] e2e/slice-two-home-chrome.spec.ts:63:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 390px
+2026-10-12T16:53:51.3015002Z [261/268] e2e/slice-two-home-chrome.spec.ts:63:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 1440px
+2026-10-12T16:53:54.6978385Z [262/268] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 320x844
+2026-10-12T16:54:06.4760094Z [263/268] (retries) e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 320x844 (retry #1)
+2026-10-12T16:54:17.9873808Z   4) e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 320x844
+2026-10-12T16:54:17.9874815Z
+2026-10-12T16:54:17.9875145Z     Error: expect(locator).toBeVisible() failed
+2026-10-12T16:54:17.9875543Z
+2026-10-12T16:54:17.9876166Z     Locator: getByRole('heading', { name: /遊べる世界から、作るヒントを。/, level: 1 })
+2026-10-12T16:54:17.9876812Z     Expected: visible
+2026-10-12T16:54:17.9877196Z     Timeout: 10000ms
+2026-10-12T16:54:17.9877878Z     Error: element(s) not found
+2026-10-12T16:54:17.9878164Z
+2026-10-12T16:54:17.9878312Z     Call log:
+2026-10-12T16:54:17.9878815Z       - Expect "toBeVisible" with timeout 10000ms
+2026-10-12T16:54:17.9879781Z       - waiting for getByRole('heading', { name: /遊べる世界から、作るヒントを。/, level: 1 })
+2026-10-12T16:54:17.9880160Z
+2026-10-12T16:54:17.9880167Z
+2026-10-12T16:54:17.9880349Z       25 |       await page.setViewportSize(viewport);
+2026-10-12T16:54:17.9880711Z       26 |       await page.goto("/");
+2026-10-12T16:54:17.9881337Z     > 27 |       await expect(page.getByRole("heading", { level: 1, name: /遊べる世界から、作るヒントを。/ })).toBeVisible();
+2026-10-12T16:54:17.9881918Z          |                                                                                      ^
+2026-10-12T16:54:17.9882358Z       28 |       const diagnostics = await diagnoseWidths(page);
+2026-10-12T16:54:17.9882873Z       29 |       const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
+2026-10-12T16:54:17.9883326Z       30 |       if (viewport.width < 400) {
+2026-10-12T16:54:17.9883819Z         at /home/runner/work/GameAI-Hub/GameAI-Hub/e2e/slice-zero-acceptance.spec.ts:27:86
+2026-10-12T16:54:17.9884179Z
+2026-10-12T16:54:17.9884610Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-10-12T16:54:17.9885318Z     test-results/slice-zero-acceptance-Issu-abf51--with-provenance-at-320x844/test-failed-1.png
+2026-10-12T16:54:17.9886077Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:54:17.9886367Z
+2026-10-12T16:54:17.9886795Z     Error Context: test-results/slice-zero-acceptance-Issu-abf51--with-provenance-at-320x844/error-context.md
+2026-10-12T16:54:17.9887711Z
+2026-10-12T16:54:17.9888385Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-12T16:54:17.9889597Z     test-results/slice-zero-acceptance-Issu-abf51--with-provenance-at-320x844/trace.zip
+2026-10-12T16:54:17.9890411Z     Usage:
+2026-10-12T16:54:17.9890595Z
+2026-10-12T16:54:17.9891406Z         npx playwright show-trace test-results/slice-zero-acceptance-Issu-abf51--with-provenance-at-320x844/trace.zip
+2026-10-12T16:54:17.9892611Z
+2026-10-12T16:54:17.9893592Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:54:17.9894114Z
+2026-10-12T16:54:17.9894808Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:54:17.9895327Z
+2026-10-12T16:54:17.9895617Z     Error: expect(locator).toBeVisible() failed
+2026-10-12T16:54:17.9895950Z
+2026-10-12T16:54:17.9896477Z     Locator: getByRole('heading', { name: /遊べる世界から、作るヒントを。/, level: 1 })
+2026-10-12T16:54:17.9897149Z     Expected: visible
+2026-10-12T16:54:17.9897990Z     Timeout: 10000ms
+2026-10-12T16:54:17.9898415Z     Error: element(s) not found
+2026-10-12T16:54:17.9898721Z
+2026-10-12T16:54:17.9898857Z     Call log:
+2026-10-12T16:54:17.9899337Z       - Expect "toBeVisible" with timeout 10000ms
+2026-10-12T16:54:17.9900293Z       - waiting for getByRole('heading', { name: /遊べる世界から、作るヒントを。/, level: 1 })
+2026-10-12T16:54:17.9900899Z
+2026-10-12T16:54:17.9900908Z
+2026-10-12T16:54:17.9901193Z       25 |       await page.setViewportSize(viewport);
+2026-10-12T16:54:17.9901790Z       26 |       await page.goto("/");
+2026-10-12T16:54:17.9903166Z     > 27 |       await expect(page.getByRole("heading", { level: 1, name: /遊べる世界から、作るヒントを。/ })).toBeVisible();
+2026-10-12T16:54:17.9904182Z          |                                                                                      ^
+2026-10-12T16:54:17.9904965Z       28 |       const diagnostics = await diagnoseWidths(page);
+2026-10-12T16:54:17.9905803Z       29 |       const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
+2026-10-12T16:54:17.9906460Z       30 |       if (viewport.width < 400) {
+2026-10-12T16:54:17.9907038Z         at /home/runner/work/GameAI-Hub/GameAI-Hub/e2e/slice-zero-acceptance.spec.ts:27:86
+2026-10-12T16:54:17.9907677Z
+2026-10-12T16:54:17.9908146Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-10-12T16:54:17.9908931Z     test-results/slice-zero-acceptance-Issu-abf51--with-provenance-at-320x844-retry1/test-failed-1.png
+2026-10-12T16:54:17.9909718Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:54:17.9910005Z
+2026-10-12T16:54:17.9910457Z     Error Context: test-results/slice-zero-acceptance-Issu-abf51--with-provenance-at-320x844-retry1/error-context.md
+2026-10-12T16:54:17.9910949Z
+2026-10-12T16:54:17.9911342Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-12T16:54:17.9912045Z     test-results/slice-zero-acceptance-Issu-abf51--with-provenance-at-320x844-retry1/trace.zip
+2026-10-12T16:54:17.9912542Z     Usage:
+2026-10-12T16:54:17.9912653Z
+2026-10-12T16:54:17.9913126Z         npx playwright show-trace test-results/slice-zero-acceptance-Issu-abf51--with-provenance-at-320x844-retry1/trace.zip
+2026-10-12T16:54:17.9913882Z
+2026-10-12T16:54:17.9914237Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:54:17.9914945Z
+2026-10-12T16:54:17.9914961Z
+2026-10-12T16:54:18.5284678Z [264/268] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 375x844
+2026-10-12T16:54:30.5670463Z [265/268] (retries) e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 375x844 (retry #1)
+2026-10-12T16:54:42.1453042Z   5) e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 375x844
+2026-10-12T16:54:42.1453619Z
+2026-10-12T16:54:42.1453874Z     Error: expect(locator).toBeVisible() failed
+2026-10-12T16:54:42.1454279Z
+2026-10-12T16:54:42.1454845Z     Locator: getByRole('heading', { name: /遊べる世界から、作るヒントを。/, level: 1 })
+2026-10-12T16:54:42.1455455Z     Expected: visible
+2026-10-12T16:54:42.1455903Z     Timeout: 10000ms
+2026-10-12T16:54:42.1456366Z     Error: element(s) not found
+2026-10-12T16:54:42.1456658Z
+2026-10-12T16:54:42.1456834Z     Call log:
+2026-10-12T16:54:42.1457608Z       - Expect "toBeVisible" with timeout 10000ms
+2026-10-12T16:54:42.1458688Z       - waiting for getByRole('heading', { name: /遊べる世界から、作るヒントを。/, level: 1 })
+2026-10-12T16:54:42.1459219Z
+2026-10-12T16:54:42.1459228Z
+2026-10-12T16:54:42.1459534Z       25 |       await page.setViewportSize(viewport);
+2026-10-12T16:54:42.1460142Z       26 |       await page.goto("/");
+2026-10-12T16:54:42.1461250Z     > 27 |       await expect(page.getByRole("heading", { level: 1, name: /遊べる世界から、作るヒントを。/ })).toBeVisible();
+2026-10-12T16:54:42.1462313Z          |                                                                                      ^
+2026-10-12T16:54:42.1463117Z       28 |       const diagnostics = await diagnoseWidths(page);
+2026-10-12T16:54:42.1464108Z       29 |       const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
+2026-10-12T16:54:42.1464911Z       30 |       if (viewport.width < 400) {
+2026-10-12T16:54:42.1465794Z         at /home/runner/work/GameAI-Hub/GameAI-Hub/e2e/slice-zero-acceptance.spec.ts:27:86
+2026-10-12T16:54:42.1466427Z
+2026-10-12T16:54:42.1467253Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-10-12T16:54:42.1468862Z     test-results/slice-zero-acceptance-Issu-b7564--with-provenance-at-375x844/test-failed-1.png
+2026-10-12T16:54:42.1470392Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:54:42.1470852Z
+2026-10-12T16:54:42.1471308Z     Error Context: test-results/slice-zero-acceptance-Issu-b7564--with-provenance-at-375x844/error-context.md
+2026-10-12T16:54:42.1471808Z
+2026-10-12T16:54:42.1472349Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-12T16:54:42.1473062Z     test-results/slice-zero-acceptance-Issu-b7564--with-provenance-at-375x844/trace.zip
+2026-10-12T16:54:42.1473871Z     Usage:
+2026-10-12T16:54:42.1473992Z
+2026-10-12T16:54:42.1474538Z         npx playwright show-trace test-results/slice-zero-acceptance-Issu-b7564--with-provenance-at-375x844/trace.zip
+2026-10-12T16:54:42.1475045Z
+2026-10-12T16:54:42.1475468Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:54:42.1475791Z
+2026-10-12T16:54:42.1476189Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:54:42.1476510Z
+2026-10-12T16:54:42.1476688Z     Error: expect(locator).toBeVisible() failed
+2026-10-12T16:54:42.1476912Z
+2026-10-12T16:54:42.1477228Z     Locator: getByRole('heading', { name: /遊べる世界から、作るヒントを。/, level: 1 })
+2026-10-12T16:54:42.1477954Z     Expected: visible
+2026-10-12T16:54:42.1478213Z     Timeout: 10000ms
+2026-10-12T16:54:42.1478487Z     Error: element(s) not found
+2026-10-12T16:54:42.1478686Z
+2026-10-12T16:54:42.1478773Z     Call log:
+2026-10-12T16:54:42.1479074Z       - Expect "toBeVisible" with timeout 10000ms
+2026-10-12T16:54:42.1479871Z       - waiting for getByRole('heading', { name: /遊べる世界から、作るヒントを。/, level: 1 })
+2026-10-12T16:54:42.1480237Z
+2026-10-12T16:54:42.1480243Z
+2026-10-12T16:54:42.1480437Z       25 |       await page.setViewportSize(viewport);
+2026-10-12T16:54:42.1480809Z       26 |       await page.goto("/");
+2026-10-12T16:54:42.1481618Z     > 27 |       await expect(page.getByRole("heading", { level: 1, name: /遊べる世界から、作るヒントを。/ })).toBeVisible();
+2026-10-12T16:54:42.1482216Z          |                                                                                      ^
+2026-10-12T16:54:42.1482663Z       28 |       const diagnostics = await diagnoseWidths(page);
+2026-10-12T16:54:42.1483503Z       29 |       const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
+2026-10-12T16:54:42.1484322Z       30 |       if (viewport.width < 400) {
+2026-10-12T16:54:42.1484851Z         at /home/runner/work/GameAI-Hub/GameAI-Hub/e2e/slice-zero-acceptance.spec.ts:27:86
+2026-10-12T16:54:42.1485204Z
+2026-10-12T16:54:42.1485652Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-10-12T16:54:42.1486411Z     test-results/slice-zero-acceptance-Issu-b7564--with-provenance-at-375x844-retry1/test-failed-1.png
+2026-10-12T16:54:42.1487196Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:54:42.1488193Z
+2026-10-12T16:54:42.1489159Z     Error Context: test-results/slice-zero-acceptance-Issu-b7564--with-provenance-at-375x844-retry1/error-context.md
+2026-10-12T16:54:42.1489888Z
+2026-10-12T16:54:42.1490361Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-12T16:54:42.1491085Z     test-results/slice-zero-acceptance-Issu-b7564--with-provenance-at-375x844-retry1/trace.zip
+2026-10-12T16:54:42.1491580Z     Usage:
+2026-10-12T16:54:42.1491917Z
+2026-10-12T16:54:42.1492421Z         npx playwright show-trace test-results/slice-zero-acceptance-Issu-b7564--with-provenance-at-375x844-retry1/trace.zip
+2026-10-12T16:54:42.1492927Z
+2026-10-12T16:54:42.1493305Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:54:42.1493593Z
+2026-10-12T16:54:42.1493598Z
+2026-10-12T16:54:42.6879773Z [266/268] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 390x844
+2026-10-12T16:54:54.7776736Z [267/268] (retries) e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 390x844 (retry #1)
+2026-10-12T16:55:06.2654826Z   6) e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 390x844
+2026-10-12T16:55:06.2656058Z
+2026-10-12T16:55:06.2656560Z     Error: expect(locator).toBeVisible() failed
+2026-10-12T16:55:06.2657173Z
+2026-10-12T16:55:06.2658162Z     Locator: getByRole('heading', { name: /遊べる世界から、作るヒントを。/, level: 1 })
+2026-10-12T16:55:06.2659340Z     Expected: visible
+2026-10-12T16:55:06.2660498Z     Timeout: 10000ms
+2026-10-12T16:55:06.2661120Z     Error: element(s) not found
+2026-10-12T16:55:06.2661586Z
+2026-10-12T16:55:06.2661905Z     Call log:
+2026-10-12T16:55:06.2662543Z       - Expect "toBeVisible" with timeout 10000ms
+2026-10-12T16:55:06.2663651Z       - waiting for getByRole('heading', { name: /遊べる世界から、作るヒントを。/, level: 1 })
+2026-10-12T16:55:06.2664324Z
+2026-10-12T16:55:06.2664502Z
+2026-10-12T16:55:06.2664951Z       25 |       await page.setViewportSize(viewport);
+2026-10-12T16:55:06.2665707Z       26 |       await page.goto("/");
+2026-10-12T16:55:06.2666895Z     > 27 |       await expect(page.getByRole("heading", { level: 1, name: /遊べる世界から、作るヒントを。/ })).toBeVisible();
+2026-10-12T16:55:06.2668399Z          |                                                                                      ^
+2026-10-12T16:55:06.2669403Z       28 |       const diagnostics = await diagnoseWidths(page);
+2026-10-12T16:55:06.2687162Z       29 |       const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
+2026-10-12T16:55:06.2688457Z       30 |       if (viewport.width < 400) {
+2026-10-12T16:55:06.2689493Z         at /home/runner/work/GameAI-Hub/GameAI-Hub/e2e/slice-zero-acceptance.spec.ts:27:86
+2026-10-12T16:55:06.2690250Z
+2026-10-12T16:55:06.2691167Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-10-12T16:55:06.2692535Z     test-results/slice-zero-acceptance-Issu-590d9--with-provenance-at-390x844/test-failed-1.png
+2026-10-12T16:55:06.2693989Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:55:06.2694656Z
+2026-10-12T16:55:06.2695527Z     Error Context: test-results/slice-zero-acceptance-Issu-590d9--with-provenance-at-390x844/error-context.md
+2026-10-12T16:55:06.2696450Z
+2026-10-12T16:55:06.2697301Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-12T16:55:06.2698838Z     test-results/slice-zero-acceptance-Issu-590d9--with-provenance-at-390x844/trace.zip
+2026-10-12T16:55:06.2699758Z     Usage:
+2026-10-12T16:55:06.2700113Z
+2026-10-12T16:55:06.2700998Z         npx playwright show-trace test-results/slice-zero-acceptance-Issu-590d9--with-provenance-at-390x844/trace.zip
+2026-10-12T16:55:06.2701930Z
+2026-10-12T16:55:06.2702706Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:55:06.2703355Z
+2026-10-12T16:55:06.2704126Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:55:06.2704787Z
+2026-10-12T16:55:06.2705199Z     Error: expect(locator).toBeVisible() failed
+2026-10-12T16:55:06.2705718Z
+2026-10-12T16:55:06.2706375Z     Locator: getByRole('heading', { name: /遊べる世界から、作るヒントを。/, level: 1 })
+2026-10-12T16:55:06.2707696Z     Expected: visible
+2026-10-12T16:55:06.2708329Z     Timeout: 10000ms
+2026-10-12T16:55:06.2709132Z     Error: element(s) not found
+2026-10-12T16:55:06.2709593Z
+2026-10-12T16:55:06.2709909Z     Call log:
+2026-10-12T16:55:06.2710520Z       - Expect "toBeVisible" with timeout 10000ms
+2026-10-12T16:55:06.2711582Z       - waiting for getByRole('heading', { name: /遊べる世界から、作るヒントを。/, level: 1 })
+2026-10-12T16:55:06.2712236Z
+2026-10-12T16:55:06.2712414Z
+2026-10-12T16:55:06.2712858Z       25 |       await page.setViewportSize(viewport);
+2026-10-12T16:55:06.2713606Z       26 |       await page.goto("/");
+2026-10-12T16:55:06.2714778Z     > 27 |       await expect(page.getByRole("heading", { level: 1, name: /遊べる世界から、作るヒントを。/ })).toBeVisible();
+2026-10-12T16:55:06.2715900Z          |                                                                                      ^
+2026-10-12T16:55:06.2716796Z       28 |       const diagnostics = await diagnoseWidths(page);
+2026-10-12T16:55:06.2718319Z       29 |       const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
+2026-10-12T16:55:06.2719272Z       30 |       if (viewport.width < 400) {
+2026-10-12T16:55:06.2720271Z         at /home/runner/work/GameAI-Hub/GameAI-Hub/e2e/slice-zero-acceptance.spec.ts:27:86
+2026-10-12T16:55:06.2720995Z
+2026-10-12T16:55:06.2721921Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+2026-10-12T16:55:06.2723307Z     test-results/slice-zero-acceptance-Issu-590d9--with-provenance-at-390x844-retry1/test-failed-1.png
+2026-10-12T16:55:06.2724815Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:55:06.2725483Z
+2026-10-12T16:55:06.2726394Z     Error Context: test-results/slice-zero-acceptance-Issu-590d9--with-provenance-at-390x844-retry1/error-context.md
+2026-10-12T16:55:06.2727570Z
+2026-10-12T16:55:06.2728611Z     attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-12T16:55:06.2730066Z     test-results/slice-zero-acceptance-Issu-590d9--with-provenance-at-390x844-retry1/trace.zip
+2026-10-12T16:55:06.2731061Z     Usage:
+2026-10-12T16:55:06.2731423Z
+2026-10-12T16:55:06.2732373Z         npx playwright show-trace test-results/slice-zero-acceptance-Issu-590d9--with-provenance-at-390x844-retry1/trace.zip
+2026-10-12T16:55:06.2733372Z
+2026-10-12T16:55:06.2734145Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-12T16:55:06.2734798Z
+2026-10-12T16:55:06.2734975Z
+2026-10-12T16:55:06.8269865Z [268/268] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 1440x900
+2026-10-12T16:55:09.2165288Z [269/268] e2e/slice-zero-acceptance.spec.ts:65:9 › Issue 137 Slice 0 rendered baselines › Compare has no document-level overflow at 320px
+2026-10-12T16:55:09.7540974Z [270/268] e2e/slice-zero-acceptance.spec.ts:65:9 › Issue 137 Slice 0 rendered baselines › Compare has no document-level overflow at 375px
+2026-10-12T16:55:10.2905459Z [271/268] e2e/slice-zero-acceptance.spec.ts:65:9 › Issue 137 Slice 0 rendered baselines › Compare has no document-level overflow at 390px
+2026-10-12T16:55:10.8414884Z [272/268] e2e/slice-zero-acceptance.spec.ts:79:7 › Issue 137 Slice 0 rendered baselines › Compare supports the four-candidate stress contract
+2026-10-12T16:55:11.5870234Z [273/268] e2e/slice-zero-acceptance.spec.ts:95:5 › stress fixture covers every required state and distinguishes owned scrollers
+2026-10-12T16:55:11.9441351Z [274/268] e2e/slice-zero-acceptance.spec.ts:148:5 › manifest contract rejects physical-device claims made from emulation
+2026-10-12T16:55:11.9602236Z [275/268] e2e/stage-a-evidence.spec.ts:46:5 › emit and validate the Stage A executed subset
+2026-10-12T16:55:15.4855452Z   6 failed
+2026-10-12T16:55:15.4857231Z     e2e/issue-157-final-evidence.spec.ts:146:5 › V3 route, state, text, navigation, affiliate, and SEO observations
+2026-10-12T16:55:15.4860125Z     e2e/issue-157-reflow-evidence.spec.ts:27:5 › V2 Home observations emit and validate current typed evidence
+2026-10-12T16:55:15.4862333Z     e2e/slice-seven-final-acceptance.spec.ts:29:5 › Slice 7 cross-route matrix has contained, structured, durable rendered evidence
+2026-10-12T16:55:15.4864598Z     e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 320x844
+2026-10-12T16:55:15.4866824Z     e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 375x844
+2026-10-12T16:55:15.4868974Z     e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 390x844
+2026-10-12T16:55:15.4869648Z   1 did not run
+2026-10-12T16:55:15.4869899Z   261 passed (21.3m)
+2026-10-12T16:55:15.5085887Z ##[error]Process completed with exit code 1.

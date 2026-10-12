@@ -24,14 +24,14 @@ test.describe("Issue 137 Slice 0 rendered baselines", () => {
     test(`Home is capturable with provenance at ${viewport.width}x${viewport.height}`, async ({ page }, testInfo) => {
       await page.setViewportSize(viewport);
       await page.goto("/");
-      await expect(page.getByRole("heading", { level: 1, name: /GameBuildiary/ })).toBeVisible();
+      await expect(page.getByRole("heading", { level: 1, name: /遊べる世界から、\s*作るヒントを。/ })).toBeVisible();
       const diagnostics = await diagnoseWidths(page);
       const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
       if (viewport.width < 400) {
-        // Approved category-first Home retains a bounded brand and visible category CTA.
+        // Owner-adopted B3 puts playable artwork and its Play action first.
         expect(heading?.height, "Home H1 must use the bounded scale").toBeLessThan(150);
-        const primaryAction = await page.locator(".home-category-entry .v2-start-card-read").first().boundingBox();
-        expect(primaryAction?.y, "the category entry must remain in the first-view composition").toBeLessThan(viewport.height);
+        const primaryAction = await page.locator(".b3-game-selection [data-game-play]").boundingBox();
+        expect(primaryAction?.y, "the playable game action must remain in the first-view composition").toBeLessThan(viewport.height);
       }
       const record = await captureEvidence(page, testInfo, {
         id: `home-${viewport.id}`,
@@ -39,7 +39,7 @@ test.describe("Issue 137 Slice 0 rendered baselines", () => {
         viewport: { width: viewport.width, height: viewport.height },
         zoom: { mode: "none", factor: 1 },
         emulation: { viewport: true, physicalDevice: false, userAgentProfile: "Desktop Chrome" },
-        state: [viewport.width < 400 ? "shared-category-ring-home-composition" : "desktop-reference"],
+        state: [viewport.width < 400 ? "b3-game-first-home-composition" : "desktop-reference"],
         diagnostics: {
           documentOverflowPx: diagnostics.documentOverflowPx,
           ownedLocalScrollers: diagnostics.ownedLocalScrollers.length,

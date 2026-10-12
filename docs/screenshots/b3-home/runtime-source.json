@@ -1,0 +1,17 @@
+{
+  "base": "96da279c5db51b4c217e509d900b8efa87a05070",
+  "build_id": "TTBFL-GwUnoaLJvveDKyD",
+  "files": {
+    "app/page.tsx": "018136f73b553aab2585d311fe9f887a82b4f10c8610a72a5629d9e0ecb5e623",
+    "app/layout.tsx": "b31a44b8ef81451205d44146c7ad3f814016148a20fc2552985a2a2d36b35a06",
+    "app/home-b3.css": "64b3a35849a3c6426f9669551b1fc1410db599ddf2f2d5ff06851a89e58505e5",
+    "components/ArticleBrowser.tsx": "b50a106bf6e195581ad60bec225a5db1b3cdf9fe028222c1d2e4fbd8f86188f0",
+    "components/ArticleHub.tsx": "09b09ca97f3c92e003520cb255981f88af4a2b2686f4fca3a0dad6c5d6814007",
+    "components/ArticleReturnLink.tsx": "5f50642170f954c6822226155c847470b4fa8c2e78f5ef126c80b9ceb00b3f55",
+    "components/GameShowcase.tsx": "e8ede8232f4be41952c35d3dd89cf61b8e051f45b3da6aa78e0e971f0c89337a",
+    "components/Header.tsx": "26cea70de006aa7cf646aa3dafe523e21cc632b7270c194e234efd893ae4ff8a",
+    "components/useCreationDeckMotion.ts": "dea52cc92299e38b997e43183373afaaad4516361ce3a9d6cc7da58aad704514",
+    "data/games.ts": "92dce9c8849452a87b9069d1a5b645ff8bcd078ed1d4852a04d7b773c3aee8ec",
+    "data/game-introductions.ts": "af12ad5ef4054869a38cf0294c1e6a3edab6ed98dba31860d379701d07fac401"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "method": "Fresh Chromium browser context, keyboard Tab, 375×667",
+  "before": {
+    "url": "http://127.0.0.1:3179/?hubCategory=start",
+    "active": "<a class=\"v2-start-card-face\" aria-label=\"ゲーム制作をはじめる\" data-category=\"start\" href=\"/articles/?hubEntry=home&amp;hubCategory=start#start\"><span class=\"v2-start-card-meta\"><span class=\"v2-start-card-label\">制作カテゴリ</span><small>6本の記事</small></span><strong>ゲーム制作をはじめる</strong><span class=\"v2-start-card-rea",
+    "rect": {
+      "x": 52.5,
+      "y": 1898.375,
+      "width": 270,
+      "height": 198.578125,
+      "top": 1898.375,
+      "right": 322.5,
+      "bottom": 2096.953125,
+      "left": 52.5
+    },
+    "scrollY": 0
+  },
+  "after": {
+    "url": "http://127.0.0.1:3179/?hubCategory=3d",
+    "active": "<a class=\"v2-start-card-face\" aria-label=\"画像と3D素材を作る\" data-category=\"3d\" href=\"/articles/?hubEntry=home&amp;hubCategory=3d#3d\"><span class=\"v2-start-card-meta\"><span class=\"v2-start-card-label\">制作カテゴリ</span><small>3本の記事</small></span><strong>画像と3D素材を作る</strong><span class=\"v2-start-card-read\" aria-h",
+    "rect": {
+      "x": 52.5,
+      "y": 1898.375,
+      "width": 270,
+      "height": 224.96875,
+      "top": 1898.375,
+      "right": 322.5,
+      "bottom": 2123.34375,
+      "left": 52.5
+    },
+    "scrollY": 0
+  }
+}
