@@ -102,3 +102,12 @@ for (const owner of ['creation', 'b3'] as const) test(`width diagnostic owns onl
   await page.locator(modeOwner).evaluate(element => element.dataset.mode='list');
   expect((await diagnoseWidths(page)).unownedOverflowingElements.some(e => e.selector === '#inactive')).toBe(true);
 });
+
+for (const family of ['creation', 'b3'] as const) test(`width diagnostic rejects a borrowed ${family} boundary`, async ({ page }) => {
+  await page.setViewportSize({ width:390, height:844 });
+  const markup = family === 'creation'
+    ? '<div class="creation-deck" data-mode="deck" style="overflow:visible"><div class="b3-stage-window" style="position:relative;overflow:clip;width:350px;height:100px">'
+    : '<div class="b3-showcase" data-mode="deck"><div class="b3-stage-window" style="overflow:visible"><div class="creation-deck" style="position:relative;overflow:clip;width:350px;height:100px">';
+  await page.setContent(`${markup}<ol><li id="mixed" data-distance="1" style="position:absolute;left:-160px;width:300px;height:50px">unowned card</li></ol></div></div>${family === 'b3' ? '</div>' : ''}`);
+  expect((await diagnoseWidths(page)).unownedOverflowingElements.some(e => e.selector === '#mixed')).toBe(true);
+});

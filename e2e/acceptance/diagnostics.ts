@@ -39,10 +39,14 @@ export async function diagnoseWidths(page: Page): Promise<WidthDiagnostic> {
         continue;
       }
       if (rect.width > 0 && rect.height > 0) {
-        const card = element.closest<HTMLElement>(
-          ".creation-deck[data-mode='deck'] li[data-distance], .b3-showcase[data-mode='deck'] .b3-stage-window li[data-distance]",
-        );
-        const deck = card?.closest<HTMLElement>(".creation-deck, .b3-stage-window");
+        const creationCard = element.closest<HTMLElement>(".creation-deck[data-mode='deck'] li[data-distance]");
+        const showcaseCard = element.closest<HTMLElement>(".b3-showcase[data-mode='deck'] .b3-stage-window li[data-distance]");
+        const card = creationCard ?? showcaseCard;
+        // Match the boundary to its card family; a nested unrelated boundary
+        // must never lend ownership to an otherwise overflowing card.
+        const deck = creationCard
+          ? creationCard.closest<HTMLElement>(".creation-deck")
+          : showcaseCard?.closest<HTMLElement>(".b3-stage-window");
         const deckRect = deck?.getBoundingClientRect();
         const clips = deck && /^(clip|hidden)$/.test(getComputedStyle(deck).overflowX);
         // Only the inactive arc has intentional travel outside the viewport.
