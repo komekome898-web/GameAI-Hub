@@ -330,7 +330,9 @@ export async function probeSurface(
           );
       const candidate = candidates[item];
       if (!candidate) return null;
-      candidate.scrollIntoView({ block: "nearest", inline: "nearest" });
+      // Geometry must be measured after positioning, not two frames into the
+      // site's smooth-scroll animation. Keyboard traversal/hit checks stay strict.
+      candidate.scrollIntoView({ behavior: "instant", block: "nearest", inline: "nearest" });
       candidate.blur();
       const style = getComputedStyle(candidate);
       const before = {
@@ -354,7 +356,7 @@ export async function probeSurface(
     await page.evaluate(() => {
       const candidate = document.querySelector<HTMLElement>('[data-acceptance-focus-target="true"]')!;
       if (document.activeElement === candidate)
-        candidate.scrollIntoView({ block: "center", inline: "nearest" });
+        candidate.scrollIntoView({ behavior: "instant", block: "center", inline: "nearest" });
     });
     await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
     focusResults.push(

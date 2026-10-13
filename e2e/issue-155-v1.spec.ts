@@ -74,8 +74,10 @@ test("Explicit START list retains complete responsive article cards", async ({
     const widths = await diagnoseWidths(page);
     expect(widths.documentOverflowPx).toBe(0);
     expect(widths.unownedOverflowingElements).toEqual([]);
-    if (viewport.width <= 340) expect(backgroundRequests).toEqual([]);
-    else expect(backgroundRequests).toHaveLength(1);
+    // B3 uses the shared paper material; the former atrium illustration is
+    // intentionally absent at every width. Article assets remain checked above.
+    expect(backgroundRequests).toEqual([]);
+    expect(await page.locator('main').evaluate(node => getComputedStyle(node).backgroundColor)).toBe('rgb(250, 248, 242)');
     await page.screenshot({
       path: `${evidenceDirectory}/articles-${viewport.width}x${viewport.height}-normal.png`,
       fullPage: true,
@@ -411,6 +413,8 @@ test("mobile menu returns focus on Escape and preserves surrounding keyboard ord
   ).toBeFocused();
   await page.keyboard.press("Escape");
   await expect(menuButton).toBeFocused();
+  await page.keyboard.press("Shift+Tab");
+  await expect(page.locator('.header-cta')).toBeFocused();
   await page.keyboard.press("Shift+Tab");
   await expect(
     page.getByRole("link", { name: "GameBuildiary ホーム" }),

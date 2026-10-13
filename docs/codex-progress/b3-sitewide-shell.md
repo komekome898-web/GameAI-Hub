@@ -1,7 +1,7 @@
 # B3 sitewide shell — owner-directed progress
 
 - Source task: `01a10caf-ddc0-72d1-9556-42849e68d031`; owner request received 2026-10-13.
-- Scope: shared B3 appearance across the existing site, implementation/testing/save/new Draft PR. No merge, publication/manual deployment, new authentication/payment/sharing, content/data/price/rights/URL/SEO/analytics changes.
+- Scope: shared B3 appearance across the existing site, implementation/testing/save/new Draft PR. Initially no merge/publication. On 2026-10-13 the owner explicitly authorized merge after acceptance, automatic Production publication and excluded post-release browser verification. No new authentication/payment/sharing or content/data/price/rights/URL/SEO/analytics changes.
 - Base: fetched `origin/main` `f9333c076c70afbb71399215336a671bb06d5289` (includes PR182). Canonical origin verified. Provided credential authenticated repository read (`push:true`); initial unmodified base pushed and remotely read back on `feat/b3-sitewide-shell`.
 - Worktree: `/workspace/GameAI-Hub-b3-sitewide`. Original worktree, prior B3 branch, mocks and unrelated PR113 preserved. Environment startup initially failed; the same workspace recovered. Existing matching dependencies copied locally; no dependency changes.
 - Inventory: 76 ordinary UI URLs: 11 fixed, 18 articles, 8 games, 29 tools, 2 guides, 8 stacks; 404 additional. Tools/Guides loading/error; Compare loading/empty/picker/table; Project input/clarify/loading/error/result/recovery are shared exceptional states. API interpret, robots and sitemap are nonvisual and unchanged.
@@ -24,3 +24,7 @@
 - Final whole-suite execution is next: preserve one clean source head throughout282 tests and separate final reconciliation, then report actual results. No merge/manual deployment performed.
 - Remaining: focused checks, quality/build/full relevant E2E, exact-source screenshots (1440/375/320, synthetic text enlargement), contrast/focus/noJS/gesture/state/exception review; fix blockers; coherent checkpoint and new Draft PR.
 - Physical iPhone/Safari/OS text sizing/production: untested. No production navigation for this task.
+
+- Fixed `c0a45c928195c8a4ce14f8b500749c1ed3cec992` full282 result: 273 passed, 7 failed, 1 flaky (retry passed), 1 did not run, 32.9m. Quality/build passed; GitHub quality succeeded, E2E failed. No acceptance or merge claim. Logs and failed contexts retained at `/tmp/b3-sitewide-c0a-full-results`.
+- Failure diagnoses: global alerts included Next route announcer; global play-link counts included adopted navigation; old atrium request and mobile Tab-order expectations were obsolete. Original focus probe measured smooth scrolling after2 frames (same screen passes after instant positioning). Iframe recovery trace moved70px between pre-click/input snapshots; require complete document and settled outer iframe position without changing HP/error/recovery assertions.
+- Owner-approved mobile Article hub correction: inherited101px introduction-to-control gap plus new54.75px displacement put first Read at677–721px in375x667. Reduce only hub page-head bottom and category top padding by60px; retain text size, card geometry/physics, desktop and natural320/enlarged vertical reading. Next checkpoint/review/quality/build/full E2E/CI pending.

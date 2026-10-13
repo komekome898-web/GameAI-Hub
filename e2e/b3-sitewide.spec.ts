@@ -39,6 +39,17 @@ test('B3 representative material, typography and synthetic root200 evidence',asy
   await page.setViewportSize({width,height:width===1440?900:667});
   for(const [name,route] of samples) {
    await page.goto(route);await page.evaluate(()=>document.fonts.ready);await expect(page.locator('main h1').first()).toBeVisible();
+   if(name==='articles' && width===375) {
+    const deck=page.locator('#categories .creation-deck');
+    await expect(deck).toHaveAttribute('data-mode','deck');
+    await expect(deck.locator('ol')).toHaveAttribute('data-motion','idle');
+    await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));
+    await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
+    const read=deck.locator('li[data-distance="0"] .v2-start-card-read');
+    await expect(read).toContainText('記事を見る');
+    const rect=await read.boundingBox();expect(rect).not.toBeNull();
+    expect(rect!.y).toBeGreaterThan(0);expect(rect!.y+rect!.height).toBeLessThanOrEqual(667);
+   }
    const widths=await diagnoseWidths(page);expect(widths.documentOverflowPx,route).toBe(0);expect(widths.unownedOverflowingElements,route).toEqual([]);
    const roles=await page.evaluate(()=>['main h1','main p','.site-header .brand-copy strong','main .button','main label','main input','main textarea'].map(selector=>{const el=document.querySelector(selector);if(!el)return null;const s=getComputedStyle(el);return {selector,size:s.fontSize,line:s.lineHeight,color:s.color,background:s.backgroundColor};}).filter(Boolean));
    const screenshot=`${name}-${width}.png`;await page.screenshot({path:`${output}/${screenshot}`});records.push({route,width,method:'viewport-reflow',roles,screenshot,widths});
@@ -85,7 +96,7 @@ test('rendered shared loading/error component and 404 families retain recovery s
    process.stdout.write(renderToStaticMarkup(createElement(DirectoryState,{kind,title:kind==='loading'?'ツールを読み込んでいます':'ツール情報を読み込めませんでした',message:'入力した条件はURLに残っています。'+'長い日本語の回復説明。'.repeat(12),retry:kind==='error'?()=>{}:undefined})));
   `,kind],{encoding:'utf8'});
   await page.locator('main').evaluate((el,markup)=>el.innerHTML=markup,html);
-  await expect(page.getByRole(kind==='error'?'alert':'status')).toBeVisible();expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
+  await expect(page.locator('main').getByRole(kind==='error'?'alert':'status')).toBeVisible();expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
   if(kind==='error') {const retry=page.getByRole('button',{name:'もう一度読み込む'});await retry.focus();await expect(retry).toBeFocused();expect((await retry.boundingBox())!.height).toBeGreaterThanOrEqual(48);}
   await page.screenshot({path:`${output}/directory-${kind}-fixture-320.png`});
  }

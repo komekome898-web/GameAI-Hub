@@ -49,10 +49,9 @@ body.b3-system {
 .b3-system main:not(:has(.home-b3)) :is(.page-head,.page-hero,.builder-head,.trust-header,.stack-hero,.tool-hero) { padding-top:32px; }
 .b3-system main:not(:has(.home-b3)) :is(.button,.ui-action--primary) {
   background:var(--color-action); border-color:var(--color-action); color:#fff;
-  box-shadow:none;
 }
 .b3-system main:not(:has(.home-b3)) :is(.button,.ui-action--primary):hover { background:var(--color-action-hover); }
-.b3-system main:not(:has(.home-b3)) .button.ghost { background:var(--color-surface); color:var(--color-action); border-color:var(--color-border); box-shadow:none; }
+.b3-system main:not(:has(.home-b3)) .button.ghost { background:var(--color-surface); color:var(--color-action); border-color:var(--color-border); }
 .b3-system main:not(:has(.home-b3)) :is(.card,.quick-facts,.goal-picker,.secondary-filters,.compare-picker-panel,.compare-view-options,.compare-decision,.compare-scroll,.builder-form,.clarify-form,.project-idea-card,.project-detail-card,.directory-state,.stack-grid>article,.stack-tools>article,.stack-fit>div,.stack-checks>div) {
   background:var(--color-surface); border-color:var(--color-border);
 }
@@ -75,11 +74,12 @@ body.b3-system {
 .b3-system .b3-site-header .main-nav a[aria-current]:hover { color:var(--b3-ink); background:#ded8be; }
 .b3-system .b3-site-header .header-cta:hover { background:#435139; }
 .b3-system .b3-site-header .header-cta[aria-current] { border-color:var(--b3-amber); }
-.b3-system .b3-paper :focus-visible { outline:var(--focus-ring); outline-offset:4px; }
 @media(max-width:760px) {
   .b3-system main { padding-inline:18px; }
   .b3-system main:not(:has(.home-b3)) { width:calc(100% - 36px); margin-block:16px 28px; padding-inline:12px; border-radius:10px; }
   .b3-system main:not(:has(.home-b3)) :is(.page-head,.page-hero,.builder-head,.trust-header,.stack-hero,.tool-hero) { padding-top:24px; }
+  .b3-system .article-hub>.page-head { padding-bottom:12px; }
+  .b3-system .article-hub #categories { padding-top:8px; }
 }
 @media(max-width:360px) {
   .b3-system main:not(:has(.home-b3)) { width:calc(100% - 24px); padding-inline:12px; }

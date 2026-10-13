@@ -35,7 +35,7 @@ for (const width of [320,375,1440]) test(`game category, title image, detail and
   await expect(page.locator('h1')).toHaveText('荒野モン動');
   await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href','https://game-ai-hub.vercel.app/games/aramon/');
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content',/\/images\/games\/aramon\/title-screen.png$/);
-  await expect(page.getByRole('link',{name:/遊ぶ/})).toHaveCount(2);
+  await expect(page.locator('main').getByRole('link',{name:/遊ぶ/})).toHaveCount(2);
   await expect(page.getByRole('link',{name:'荒野モン動の制作体験を読む →'})).toHaveAttribute('href','/articles/aramon-production-story/');
   await expect(page.locator('article')).toContainText('未確認');
   await page.screenshot({path:`${evidence}/detail-${width}.png`,fullPage:true});

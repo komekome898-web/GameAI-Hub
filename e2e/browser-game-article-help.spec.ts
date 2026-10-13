@@ -53,7 +53,19 @@ for (const view of [
       await page.screenshot({ path: path.join(evidence, `${view.name}-${state}.png`) });
     };
     const fight = async () => {
+      await expect.poll(() => frame.locator('body').evaluate(node => node.ownerDocument.readyState)).toBe('complete');
+      // showGame schedules a parent-page scroll on the next animation frame.
+      // Let that request run before positioning the iframe for a real pointer click.
+      await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
       await page.locator("iframe").evaluate((element) => element.scrollIntoView({ behavior: "instant", block: "center" }));
+      let previousTop: number | undefined;
+      let stableSamples = 0;
+      await expect.poll(async () => {
+        const top = await page.locator('iframe').evaluate(element => element.getBoundingClientRect().top);
+        stableSamples = previousTop !== undefined && Math.abs(top - previousTop) < .5 ? stableSamples + 1 : 0;
+        previousTop = top;
+        return stableSamples;
+      }).toBeGreaterThanOrEqual(2);
       await frame.locator("#fight").click();
     };
 
