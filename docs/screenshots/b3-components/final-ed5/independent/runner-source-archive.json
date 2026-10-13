@@ -1,0 +1,23 @@
+{
+  "purpose": "Original diagnostic runner sources are readable text artifacts, not application source. Original independent deliverables manifest and its source bytes remain unchanged. No lint configuration exception is introduced.",
+  "files": [
+    {
+      "originalName": "review.cjs",
+      "retainedName": "review.cjs.txt",
+      "sha256": "e1e7c6cc001632dd644bc0e8d83d3527fa868e674dd54ea0a3d0087c256317de",
+      "bytes": 8762
+    },
+    {
+      "originalName": "reflow.cjs",
+      "retainedName": "reflow.cjs.txt",
+      "sha256": "b1d6868495b7511c4ac06f38ab86b19aeaa7a8ba8984988a7993a87795885497",
+      "bytes": 19749
+    },
+    {
+      "originalName": "diagnostics.cjs",
+      "retainedName": "diagnostics.cjs.txt",
+      "sha256": "7905c176b86785e8b5350e5541f1143edc345ca1b1e01d4da8b558d3a18b56e1",
+      "bytes": 3692
+    }
+  ]
+}

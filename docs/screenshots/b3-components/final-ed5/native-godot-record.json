@@ -1,0 +1,336 @@
+{
+  "rawEmitterTarget": {
+    "sha": "ed5fd95902de06fe9cc1e54a50882c69842d7bb5",
+    "environment": "local",
+    "baseUrl": "http://127.0.0.1:3100",
+    "sourceIdentity": {
+      "kind": "clean-git-checkpoint",
+      "sha": "ed5fd95902de06fe9cc1e54a50882c69842d7bb5",
+      "status": "clean"
+    }
+  },
+  "actualRun": {
+    "source": "ed5fd95902de06fe9cc1e54a50882c69842d7bb5",
+    "origin": "http://127.0.0.1:3102",
+    "build": "0am_yq1bZC1fJIszJq00d",
+    "configuration": "local-playwright.config.ts.txt"
+  },
+  "metadataLimitation": "Existing emitter hardcodes target.baseUrl to local3100; actual local override is3102, preserved in configuration. Original record was not rewritten; only this screenshot is retained here. Automated PASS is emitter-generated, not human visual approval.",
+  "record": {
+    "id": "project-no-workspace-fit-open",
+    "caseId": "VL-V2-PROJECT-WORKSPACE",
+    "variantId": "no-workspace",
+    "route": "/project/",
+    "state": [
+      "no-workspace"
+    ],
+    "coverage": [
+      "long-content",
+      "focus-reachability"
+    ],
+    "surface": {
+      "kind": "dom",
+      "selector": ".project-v2-route",
+      "matched": 1
+    },
+    "method": "viewport-reflow",
+    "evidenceClass": "responsive",
+    "requestedFactor": 1,
+    "achieved": [
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      },
+      {
+        "role": "visible-fit-warning",
+        "baselineFontPx": 16,
+        "changedFontPx": 16,
+        "factor": 1,
+        "baselineLineHeightPx": 27.2,
+        "changedLineHeightPx": 27.2
+      }
+    ],
+    "browser": {
+      "name": "chromium",
+      "version": "151.0.7922.173",
+      "viewport": {
+        "width": 375,
+        "height": 700
+      },
+      "dpr": 1
+    },
+    "diagnostics": {
+      "documentOverflowPx": 0,
+      "unownedOverflowingElements": 0,
+      "clippedText": 0,
+      "undersizedTargets": 0,
+      "focusApplicable": true,
+      "focusReachable": true,
+      "focusVisible": true,
+      "orderPreserved": true,
+      "associationsPreserved": true
+    },
+    "geometry": {
+      "layout": "not-applicable",
+      "nonoverlapping": true,
+      "contentVisible": true,
+      "ownedScrollers": 0
+    },
+    "screenshot": "v2-project/project-no-workspace-fit-open.png",
+    "limitations": [
+      "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+    ],
+    "reviewerDecision": "PASS",
+    "review": {
+      "kind": "automated",
+      "reviewer": "Playwright Project evidence emitter"
+    },
+    "capturedAt": "2026-10-13T07:30:51.549Z"
+  },
+  "retainedScreenshot": "project-no-workspace-fit-open.png",
+  "screenshotSha256": "0a060176dca9df3cdc4648d2b4699f8d8795cc3023032159abc797fbdc682d71"
+}

@@ -1,0 +1,1427 @@
+{
+  "pin": "e555d81678440a2faa76538b83e22f875ee96e93",
+  "build": "zRTspQ8ojf93LGGMfzTnt",
+  "records": [
+    {
+      "name": "home-list-game-detail",
+      "url": "http://127.0.0.1:3102/games/create-monsters/",
+      "selector": ".game-hero",
+      "states": [
+        {
+          "text": "作者提供：ドラ",
+          "tag": "FIGURE",
+          "class": "game-hero",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "color": "rgb(35, 53, 41)",
+          "border": "0px none rgb(35, 53, 41)",
+          "shadow": "none",
+          "font": "16px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 31,
+            "y": 79.171875,
+            "width": 313,
+            "height": 589.796875,
+            "top": 79.171875,
+            "right": 344,
+            "bottom": 668.96875,
+            "left": 31
+          },
+          "focused": false,
+          "pressed": null,
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-home-list-game-detail.png",
+      "returnHref": "/?homeGame=create-monsters&homeView=list#games"
+    },
+    {
+      "name": "home-list-back-focus",
+      "url": "http://127.0.0.1:3102/?hubCategory=start&homeView=list&homeGame=create-monsters#games",
+      "selector": ".b3-static-copy .b3-game-detail[href=\"/games/create-monsters/\"]",
+      "states": [
+        {
+          "text": "作品の紹介 ↗",
+          "tag": "A",
+          "class": "b3-game-detail",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "color": "rgb(224, 229, 214)",
+          "border": "0px none rgb(224, 229, 214)",
+          "shadow": "none",
+          "font": "12px",
+          "outline": "rgb(224, 229, 214) none 3px",
+          "rect": {
+            "x": 262.96875,
+            "y": 352.046875,
+            "width": 98.03125,
+            "height": 44,
+            "top": 352.046875,
+            "right": 361,
+            "bottom": 396.046875,
+            "left": 262.96875
+          },
+          "focused": true,
+          "pressed": null,
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_1_-1",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_1_-2",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_1_-3",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_1_-4",
+            "owner": "div.creation-deck"
+          }
+        ],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-home-list-back-focus.png",
+      "homeView": "list",
+      "homeGame": "create-monsters"
+    },
+    {
+      "name": "voice-article",
+      "url": "http://127.0.0.1:3102/articles/elevenlabs-v4-game-voice/",
+      "selector": ".article-shell>.breadcrumbs",
+      "states": [
+        {
+          "text": "ホーム/記事/ElevenLabs v4とは？ゲーム音声の変化・v3との違い・日本語・Turboを解説",
+          "tag": "NAV",
+          "class": "breadcrumbs",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "color": "rgb(82, 96, 75)",
+          "border": "0px none rgb(82, 96, 75)",
+          "shadow": "none",
+          "font": "12.48px",
+          "outline": "rgb(82, 96, 75) none 3px",
+          "rect": {
+            "x": 31,
+            "y": 101.640625,
+            "width": 313,
+            "height": 94.65625,
+            "top": 101.640625,
+            "right": 344,
+            "bottom": 196.296875,
+            "left": 31
+          },
+          "focused": false,
+          "pressed": null,
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-voice-article.png",
+      "returnHref": "/articles/?hubArticle=elevenlabs-v4-game-voice&hubCategory=voice#voice"
+    },
+    {
+      "name": "voice-back-focus",
+      "url": "http://127.0.0.1:3102/articles/?hubCategory=voice&hubArticle=elevenlabs-v4-game-voice#voice",
+      "selector": "#voice .creation-deck a[href=\"/articles/elevenlabs-v4-game-voice/\"]",
+      "states": [
+        {
+          "text": "ツール実践更新 2026-10-11ElevenLabs v4とは？ゲーム音声の変化・v3との違い・日本語・Turboを解説記事を読む →",
+          "tag": "A",
+          "class": "v2-start-card-face",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "color": "rgb(35, 53, 41)",
+          "border": "0px none rgb(35, 53, 41)",
+          "shadow": "none",
+          "font": "16px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 48,
+            "y": 207.109375,
+            "width": 279,
+            "height": 333.75,
+            "top": 207.109375,
+            "right": 327,
+            "bottom": 540.859375,
+            "left": 48
+          },
+          "focused": true,
+          "pressed": null,
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-voice-back-focus.png"
+    },
+    {
+      "name": "start-expanded",
+      "url": "http://127.0.0.1:3102/articles/?hubArticle=ai-browser-game-how-to#start",
+      "selector": ".creation-deck li[data-distance=\"0\"]",
+      "states": [
+        {
+          "text": "初心者向け更新 2026-10-04AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方記事を読む →AIに1つのHTMLでモンスターバトルを作っても",
+          "tag": "LI",
+          "class": "v2-start-card-item",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "color": "rgb(35, 53, 41)",
+          "border": "0px none rgb(35, 53, 41)",
+          "shadow": "none",
+          "font": "16px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 35.5,
+            "y": 112.359375,
+            "width": 304,
+            "height": 522.75,
+            "top": 112.359375,
+            "right": 339.5,
+            "bottom": 635.109375,
+            "left": 35.5
+          },
+          "focused": false,
+          "pressed": null,
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-1",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-2",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-3",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-4",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-5",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          }
+        ],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-start-expanded.png",
+      "activeRect": {
+        "x": 35.5,
+        "y": 138.359375,
+        "width": 304,
+        "height": 522.75
+      },
+      "deckRect": {
+        "x": 31,
+        "y": 73.171875,
+        "width": 313,
+        "height": 608.1875
+      },
+      "fullyWithin": true,
+      "sameNode": true
+    },
+    {
+      "name": "start-root200-list-focus",
+      "url": "http://127.0.0.1:3102/articles/?hubArticle=ai-browser-game-how-to#start",
+      "selector": "#start li[data-deck-id=\"ai-browser-game-how-to\"]",
+      "states": [
+        {
+          "text": "初心者向け更新 2026-10-04AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方記事を読む →AIに1つのHTMLでモンスターバトルを作っても",
+          "tag": "LI",
+          "class": "v2-start-card-item",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "color": "rgb(35, 53, 41)",
+          "border": "0px none rgb(35, 53, 41)",
+          "shadow": "none",
+          "font": "32px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 31,
+            "y": -176.234375,
+            "width": 313,
+            "height": 1196.65625,
+            "top": -176.234375,
+            "right": 344,
+            "bottom": 1020.421875,
+            "left": 31
+          },
+          "focused": false,
+          "pressed": null,
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-start-root200-list-focus.png",
+      "method": "synthetic-root-text",
+      "sameDescriptionNode": true,
+      "descriptionUnclipped": true
+    },
+    {
+      "name": "tools-selected",
+      "url": "http://127.0.0.1:3102/tools/?goal=3d",
+      "selector": ".goal-picker button[aria-pressed=true]",
+      "states": [
+        {
+          "text": "3Dモデル",
+          "tag": "BUTTON",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgb(70, 81, 59), rgb(48, 59, 46) 45%, rgb(41, 52, 40))",
+          "color": "rgb(241, 240, 231)",
+          "border": "1px solid rgb(161, 171, 136)",
+          "shadow": "rgba(237, 240, 207, 0.4) 0px 1px 0px 0px inset, rgb(23, 37, 27) 0px 2px 0px 0px",
+          "font": "16px",
+          "outline": "rgb(241, 240, 231) none 3px",
+          "rect": {
+            "x": 51,
+            "y": 351.09375,
+            "width": 273,
+            "height": 46,
+            "top": 351.09375,
+            "right": 324,
+            "bottom": 397.09375,
+            "left": 51
+          },
+          "focused": true,
+          "pressed": "true",
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-tools-selected.png"
+    },
+    {
+      "name": "compare-one",
+      "url": "http://127.0.0.1:3102/compare/?ids=meshy&goal=3d&stage=3d",
+      "selector": ".compare-context",
+      "states": [
+        {
+          "text": "制作中の「3D素材」工程で使う候補を比較しています。Projectへ戻る →",
+          "tag": "DIV",
+          "class": "compare-context",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgb(231, 226, 210), rgb(218, 212, 189))",
+          "color": "rgb(35, 53, 41)",
+          "border": "2px solid rgb(113, 128, 100)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px",
+          "font": "12.8px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 31,
+            "y": 321.5,
+            "width": 313,
+            "height": 105.5625,
+            "top": 321.5,
+            "right": 344,
+            "bottom": 427.0625,
+            "left": 31
+          },
+          "focused": false,
+          "pressed": null,
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-compare-one.png",
+      "originHref": "/compare/?ids=meshy&goal=3d&stage=3d"
+    },
+    {
+      "name": "compare-two",
+      "url": "http://127.0.0.1:3102/compare/?ids=meshy%2Ctripo-ai&goal=3d&stage=3d",
+      "selector": ".compare-selection-tray",
+      "states": [
+        {
+          "text": "選択中の候補2件を比較候補は4件まで。解除しても、検索条件と制作工程の文脈は維持されます。Meshy解除Tripo AI解除",
+          "tag": "SECTION",
+          "class": "compare-selection-tray",
+          "bg": "rgb(250, 248, 242)",
+          "image": "none",
+          "color": "rgb(35, 53, 41)",
+          "border": "2px solid rgb(113, 128, 100)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px",
+          "font": "16px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 31,
+            "y": 228.0625,
+            "width": 313,
+            "height": 290.609375,
+            "top": 228.0625,
+            "right": 344,
+            "bottom": 518.671875,
+            "left": 31
+          },
+          "focused": false,
+          "pressed": null,
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-compare-two.png"
+    },
+    {
+      "name": "compare-diff",
+      "url": "http://127.0.0.1:3102/compare/?ids=meshy%2Ctripo-ai&goal=3d&stage=3d&diff=1",
+      "selector": ".compare-view-options",
+      "states": [
+        {
+          "text": "差分のみ表示差分のみ表示中。11項目に差分",
+          "tag": "DIV",
+          "class": "compare-view-options",
+          "bg": "rgb(250, 248, 242)",
+          "image": "none",
+          "color": "rgb(35, 53, 41)",
+          "border": "2px solid rgb(113, 128, 100)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px",
+          "font": "12.8px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 31,
+            "y": 319.234375,
+            "width": 313,
+            "height": 109.1875,
+            "top": 319.234375,
+            "right": 344,
+            "bottom": 428.421875,
+            "left": 31
+          },
+          "focused": false,
+          "pressed": null,
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-compare-diff.png"
+    },
+    {
+      "name": "compare-four-disabled",
+      "url": "http://127.0.0.1:3102/compare/?ids=meshy%2Ctripo-ai%2Csuno%2Ccursor&goal=3d&stage=3d&diff=1",
+      "selector": ".picker label",
+      "states": [
+        {
+          "text": "ElevenLabs（上限のため選択できません）",
+          "tag": "LABEL",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "font": "16px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 74,
+            "y": 351.984375,
+            "width": 227,
+            "height": 44,
+            "top": 351.984375,
+            "right": 301,
+            "bottom": 395.984375,
+            "left": 74
+          },
+          "focused": false,
+          "pressed": null,
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-compare-four-disabled.png",
+      "query": "ids=meshy%2Ctripo-ai%2Csuno%2Ccursor&goal=3d&stage=3d&diff=1"
+    },
+    {
+      "name": "compare-remove-focus",
+      "url": "http://127.0.0.1:3102/compare/?ids=tripo-ai%2Csuno%2Ccursor&goal=3d&stage=3d&diff=1",
+      "selector": ".compare-picker-panel>summary",
+      "states": [
+        {
+          "text": "比較候補を変更する（3 / 4件）",
+          "tag": "SUMMARY",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "color": "rgb(35, 53, 41)",
+          "border": "0px none rgb(35, 53, 41)",
+          "shadow": "none",
+          "font": "16px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 43,
+            "y": 192.515625,
+            "width": 289,
+            "height": 54,
+            "top": 192.515625,
+            "right": 332,
+            "bottom": 246.515625,
+            "left": 43
+          },
+          "focused": true,
+          "pressed": null,
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-compare-remove-focus.png"
+    },
+    {
+      "name": "compare-clear",
+      "url": "http://127.0.0.1:3102/compare/?goal=3d&stage=3d&diff=1",
+      "selector": ".compare-selection-tray",
+      "states": [
+        {
+          "text": "選択中の候補比較する候補を選ぶ勝者を自動で決めず、制作条件に必要な差分と公式根拠を並べます。",
+          "tag": "SECTION",
+          "class": "compare-selection-tray",
+          "bg": "rgb(250, 248, 242)",
+          "image": "none",
+          "color": "rgb(35, 53, 41)",
+          "border": "2px solid rgb(113, 128, 100)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px",
+          "font": "16px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 31,
+            "y": 294.0625,
+            "width": 313,
+            "height": 160.234375,
+            "top": 294.0625,
+            "right": 344,
+            "bottom": 454.296875,
+            "left": 31
+          },
+          "focused": false,
+          "pressed": null,
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-compare-clear.png",
+      "goal": "3d",
+      "stage": "3d",
+      "diff": "1"
+    },
+    {
+      "name": "menu-root200-last-focus",
+      "url": "http://127.0.0.1:3102/privacy/",
+      "selector": ".mobile-menu a[aria-current]",
+      "states": [
+        {
+          "text": "プライバシー→",
+          "tag": "A",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(120deg, rgb(222, 216, 190), rgb(201, 201, 172))",
+          "color": "rgb(35, 53, 41)",
+          "border": "0px none rgb(35, 53, 41)",
+          "shadow": "rgb(255, 255, 255) 0px 0px 0px 1px",
+          "font": "32px",
+          "outline": "rgb(245, 215, 158) solid 3px",
+          "rect": {
+            "x": 17,
+            "y": 564.28125,
+            "width": 286,
+            "height": 72.390625,
+            "top": 564.28125,
+            "right": 303,
+            "bottom": 636.671875,
+            "left": 17
+          },
+          "focused": true,
+          "pressed": null,
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-menu-root200-last-focus.png",
+      "method": "synthetic-root-text",
+      "header": 154.671875
+    },
+    {
+      "name": "header-root200-cta-focus",
+      "url": "http://127.0.0.1:3102/privacy/",
+      "selector": ".header-cta",
+      "states": [
+        {
+          "text": "制作を始める作る ↗",
+          "tag": "A",
+          "class": "header-cta",
+          "bg": "rgb(53, 67, 47)",
+          "image": "none",
+          "color": "rgb(235, 239, 217)",
+          "border": "1px solid rgba(163, 181, 138, 0.384)",
+          "shadow": "rgb(255, 255, 255) 0px 0px 0px 1px",
+          "font": "22px",
+          "outline": "rgb(245, 215, 158) solid 3px",
+          "rect": {
+            "x": 24,
+            "y": 67.390625,
+            "width": 114.015625,
+            "height": 77.28125,
+            "top": 67.390625,
+            "right": 138.015625,
+            "bottom": 144.671875,
+            "left": 24
+          },
+          "focused": true,
+          "pressed": null,
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-header-root200-cta-focus.png",
+      "method": "synthetic-root-text",
+      "arrowFits": true
+    },
+    {
+      "name": "tools-computed200-code",
+      "url": "http://127.0.0.1:3102/tools/",
+      "selector": ".goal-picker button",
+      "states": [
+        {
+          "text": "コード",
+          "tag": "BUTTON",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "font": "32px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 45,
+            "y": 337.65625,
+            "width": 230,
+            "height": 72.390625,
+            "top": 337.65625,
+            "right": 275,
+            "bottom": 410.046875,
+            "left": 45
+          },
+          "focused": false,
+          "pressed": "false",
+          "disabled": false,
+          "accent": "auto"
+        },
+        {
+          "text": "UI",
+          "tag": "BUTTON",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "font": "32px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 45,
+            "y": 418.046875,
+            "width": 230,
+            "height": 72.390625,
+            "top": 418.046875,
+            "right": 275,
+            "bottom": 490.4375,
+            "left": 45
+          },
+          "focused": false,
+          "pressed": "false",
+          "disabled": false,
+          "accent": "auto"
+        },
+        {
+          "text": "キャラクター",
+          "tag": "BUTTON",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "font": "32px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 45,
+            "y": 498.4375,
+            "width": 230,
+            "height": 72.390625,
+            "top": 498.4375,
+            "right": 275,
+            "bottom": 570.828125,
+            "left": 45
+          },
+          "focused": false,
+          "pressed": "false",
+          "disabled": false,
+          "accent": "auto"
+        },
+        {
+          "text": "2D画像",
+          "tag": "BUTTON",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "font": "32px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 45,
+            "y": 578.828125,
+            "width": 230,
+            "height": 72.390625,
+            "top": 578.828125,
+            "right": 275,
+            "bottom": 651.21875,
+            "left": 45
+          },
+          "focused": false,
+          "pressed": "false",
+          "disabled": false,
+          "accent": "auto"
+        },
+        {
+          "text": "3Dモデル",
+          "tag": "BUTTON",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "font": "32px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 45,
+            "y": 659.21875,
+            "width": 230,
+            "height": 72.390625,
+            "top": 659.21875,
+            "right": 275,
+            "bottom": 731.609375,
+            "left": 45
+          },
+          "focused": false,
+          "pressed": "false",
+          "disabled": false,
+          "accent": "auto"
+        },
+        {
+          "text": "アニメーション",
+          "tag": "BUTTON",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "font": "32px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 45,
+            "y": 739.609375,
+            "width": 230,
+            "height": 126.78125,
+            "top": 739.609375,
+            "right": 275,
+            "bottom": 866.390625,
+            "left": 45
+          },
+          "focused": false,
+          "pressed": "false",
+          "disabled": false,
+          "accent": "auto"
+        },
+        {
+          "text": "声",
+          "tag": "BUTTON",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "font": "32px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 45,
+            "y": 919.578125,
+            "width": 230,
+            "height": 72.390625,
+            "top": 919.578125,
+            "right": 275,
+            "bottom": 991.96875,
+            "left": 45
+          },
+          "focused": false,
+          "pressed": "false",
+          "disabled": false,
+          "accent": "auto"
+        },
+        {
+          "text": "BGM",
+          "tag": "BUTTON",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "font": "32px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 45,
+            "y": 999.96875,
+            "width": 230,
+            "height": 72.390625,
+            "top": 999.96875,
+            "right": 275,
+            "bottom": 1072.359375,
+            "left": 45
+          },
+          "focused": false,
+          "pressed": "false",
+          "disabled": false,
+          "accent": "auto"
+        },
+        {
+          "text": "効果音",
+          "tag": "BUTTON",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "font": "32px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 45,
+            "y": 1080.359375,
+            "width": 230,
+            "height": 72.390625,
+            "top": 1080.359375,
+            "right": 275,
+            "bottom": 1152.75,
+            "left": 45
+          },
+          "focused": false,
+          "pressed": "false",
+          "disabled": false,
+          "accent": "auto"
+        },
+        {
+          "text": "NPC会話",
+          "tag": "BUTTON",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "font": "32px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 45,
+            "y": 1160.75,
+            "width": 230,
+            "height": 72.390625,
+            "top": 1160.75,
+            "right": 275,
+            "bottom": 1233.140625,
+            "left": 45
+          },
+          "focused": false,
+          "pressed": "false",
+          "disabled": false,
+          "accent": "auto"
+        },
+        {
+          "text": "翻訳",
+          "tag": "BUTTON",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "font": "32px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 45,
+            "y": 1241.140625,
+            "width": 230,
+            "height": 72.390625,
+            "top": 1241.140625,
+            "right": 275,
+            "bottom": 1313.53125,
+            "left": 45
+          },
+          "focused": false,
+          "pressed": "false",
+          "disabled": false,
+          "accent": "auto"
+        },
+        {
+          "text": "テスト",
+          "tag": "BUTTON",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "font": "32px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 45,
+            "y": 1366.71875,
+            "width": 230,
+            "height": 72.390625,
+            "top": 1366.71875,
+            "right": 275,
+            "bottom": 1439.109375,
+            "left": 45
+          },
+          "focused": false,
+          "pressed": "false",
+          "disabled": false,
+          "accent": "auto"
+        },
+        {
+          "text": "トレーラー",
+          "tag": "BUTTON",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "font": "32px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 45,
+            "y": 1447.109375,
+            "width": 230,
+            "height": 72.390625,
+            "top": 1447.109375,
+            "right": 275,
+            "bottom": 1519.5,
+            "left": 45
+          },
+          "focused": false,
+          "pressed": "false",
+          "disabled": false,
+          "accent": "auto"
+        },
+        {
+          "text": "ストア素材",
+          "tag": "BUTTON",
+          "class": "",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "font": "32px",
+          "outline": "rgb(35, 53, 41) none 3px",
+          "rect": {
+            "x": 45,
+            "y": 1527.5,
+            "width": 230,
+            "height": 72.390625,
+            "top": 1527.5,
+            "right": 275,
+            "bottom": 1599.890625,
+            "left": 45
+          },
+          "focused": false,
+          "pressed": "false",
+          "disabled": false,
+          "accent": "auto"
+        }
+      ],
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-flow-tools-computed200-code.png",
+      "method": "synthetic-computed-text",
+      "baseline": 16,
+      "computed": 32,
+      "factor": 2,
+      "shortLines": 1
+    }
+  ],
+  "errors": [],
+  "external": []
+}

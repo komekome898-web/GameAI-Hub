@@ -1,0 +1,409 @@
+{
+  "source": "e555d81678440a2faa76538b83e22f875ee96e93",
+  "build": "zRTspQ8ojf93LGGMfzTnt",
+  "fixture": {
+    "interpretation": {
+      "idea": "2Dブラウザゲームを作りたい。無料で、一人開発。ゲーム制作は初めてです。",
+      "fields": [
+        {
+          "field": "genre",
+          "value": "puzzle",
+          "provenance": "confirmed"
+        },
+        {
+          "field": "dimension",
+          "value": "2d",
+          "provenance": "confirmed"
+        },
+        {
+          "field": "platform",
+          "value": "web",
+          "provenance": "confirmed"
+        },
+        {
+          "field": "budget",
+          "value": "free",
+          "provenance": "confirmed"
+        },
+        {
+          "field": "experience",
+          "value": "beginner",
+          "provenance": "confirmed"
+        },
+        {
+          "field": "team",
+          "value": "solo",
+          "provenance": "confirmed"
+        },
+        {
+          "field": "capabilities",
+          "value": [
+            "coding"
+          ],
+          "provenance": "confirmed"
+        }
+      ],
+      "detailCandidates": [],
+      "unresolved": [
+        "engine",
+        "commercialIntent",
+        "locale"
+      ],
+      "conflicts": []
+    },
+    "status": {
+      "mode": "provider",
+      "providerName": "監査用provider fixture"
+    },
+    "confirmationRequired": [
+      "genre",
+      "capabilities"
+    ]
+  },
+  "rows": [
+    {
+      "id": "provider-candidate",
+      "width": 1440,
+      "method": "local mocked API fixture, never actual remote-provider success",
+      "control": {
+        "text": "この候補を確認",
+        "aria": "ジャンルのAI候補を確認",
+        "class": "",
+        "border": "1px solid rgb(124, 137, 109)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226)) repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(35, 53, 41)",
+        "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+        "height": 46
+      },
+      "cap": {
+        "text": "選択された制作工程を確認",
+        "aria": null,
+        "class": "",
+        "border": "1px solid rgb(124, 137, 109)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226)) repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(35, 53, 41)",
+        "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+        "height": 74
+      },
+      "genreControlRemoved": true,
+      "capabilityControlRemoved": true,
+      "provenance": [
+        {
+          "text": "明記",
+          "class": "provenance explicit",
+          "color": "rgb(49, 90, 66)",
+          "border": "1px solid rgb(55, 104, 87)"
+        },
+        {
+          "text": "確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "未確認",
+          "class": "provenance unknown",
+          "color": "rgb(194, 65, 12)",
+          "border": "1px solid rgb(102, 87, 45)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "未確認",
+          "class": "provenance unknown",
+          "color": "rgb(194, 65, 12)",
+          "border": "1px solid rgb(102, 87, 45)"
+        },
+        {
+          "text": "未確認",
+          "class": "provenance unknown",
+          "color": "rgb(194, 65, 12)",
+          "border": "1px solid rgb(102, 87, 45)"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "id": "privacy-control",
+      "width": 1440,
+      "style": {
+        "text": "このブラウザの計測を再開",
+        "aria": null,
+        "class": "",
+        "border": "1px solid rgb(124, 137, 109)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226)) repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(35, 53, 41)",
+        "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+        "height": 46
+      }
+    },
+    {
+      "id": "provider-candidate",
+      "width": 375,
+      "method": "local mocked API fixture, never actual remote-provider success",
+      "control": {
+        "text": "この候補を確認",
+        "aria": "ジャンルのAI候補を確認",
+        "class": "",
+        "border": "1px solid rgb(124, 137, 109)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226)) repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(35, 53, 41)",
+        "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+        "height": 45.1875
+      },
+      "cap": {
+        "text": "選択された制作工程を確認",
+        "aria": null,
+        "class": "",
+        "border": "1px solid rgb(124, 137, 109)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226)) repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(35, 53, 41)",
+        "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+        "height": 45.1875
+      },
+      "genreControlRemoved": true,
+      "capabilityControlRemoved": true,
+      "provenance": [
+        {
+          "text": "明記",
+          "class": "provenance explicit",
+          "color": "rgb(49, 90, 66)",
+          "border": "1px solid rgb(55, 104, 87)"
+        },
+        {
+          "text": "確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "未確認",
+          "class": "provenance unknown",
+          "color": "rgb(194, 65, 12)",
+          "border": "1px solid rgb(102, 87, 45)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "未確認",
+          "class": "provenance unknown",
+          "color": "rgb(194, 65, 12)",
+          "border": "1px solid rgb(102, 87, 45)"
+        },
+        {
+          "text": "未確認",
+          "class": "provenance unknown",
+          "color": "rgb(194, 65, 12)",
+          "border": "1px solid rgb(102, 87, 45)"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "id": "privacy-control",
+      "width": 375,
+      "style": {
+        "text": "このブラウザの計測を再開",
+        "aria": null,
+        "class": "",
+        "border": "1px solid rgb(124, 137, 109)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226)) repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(35, 53, 41)",
+        "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+        "height": 45.1875
+      }
+    },
+    {
+      "id": "provider-candidate",
+      "width": 320,
+      "method": "local mocked API fixture, never actual remote-provider success",
+      "control": {
+        "text": "この候補を確認",
+        "aria": "ジャンルのAI候補を確認",
+        "class": "",
+        "border": "1px solid rgb(124, 137, 109)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226)) repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(35, 53, 41)",
+        "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+        "height": 45.1875
+      },
+      "cap": {
+        "text": "選択された制作工程を確認",
+        "aria": null,
+        "class": "",
+        "border": "1px solid rgb(124, 137, 109)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226)) repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(35, 53, 41)",
+        "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+        "height": 45.1875
+      },
+      "genreControlRemoved": true,
+      "capabilityControlRemoved": true,
+      "provenance": [
+        {
+          "text": "明記",
+          "class": "provenance explicit",
+          "color": "rgb(49, 90, 66)",
+          "border": "1px solid rgb(55, 104, 87)"
+        },
+        {
+          "text": "確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "未確認",
+          "class": "provenance unknown",
+          "color": "rgb(194, 65, 12)",
+          "border": "1px solid rgb(102, 87, 45)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "ここで確認",
+          "class": "provenance confirmed",
+          "color": "rgb(39, 100, 198)",
+          "border": "1px solid rgb(54, 86, 113)"
+        },
+        {
+          "text": "未確認",
+          "class": "provenance unknown",
+          "color": "rgb(194, 65, 12)",
+          "border": "1px solid rgb(102, 87, 45)"
+        },
+        {
+          "text": "未確認",
+          "class": "provenance unknown",
+          "color": "rgb(194, 65, 12)",
+          "border": "1px solid rgb(102, 87, 45)"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "id": "privacy-control",
+      "width": 320,
+      "style": {
+        "text": "このブラウザの計測を再開",
+        "aria": null,
+        "class": "",
+        "border": "1px solid rgb(124, 137, 109)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226)) repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(35, 53, 41)",
+        "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+        "height": 45.1875
+      }
+    },
+    {
+      "id": "tools-loading",
+      "method": "actual server-rendered suspense fallback with JS disabled; no DOM insertion",
+      "style": {
+        "text": "LOADINGツールを読み込んでいます成果物と条件に合う候補を準備中です。",
+        "aria": null,
+        "class": "directory-state loading",
+        "border": "2px solid rgb(113, 128, 100)",
+        "background": "rgb(250, 248, 242) none repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(35, 53, 41)",
+        "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px",
+        "height": 183.28125
+      }
+    }
+  ]
+}

@@ -1,0 +1,1709 @@
+{
+  "pin": "e555d81678440a2faa76538b83e22f875ee96e93",
+  "build": "zRTspQ8ojf93LGGMfzTnt",
+  "method": "viewport-properties; all rendered main button controls; no external clicks",
+  "records": [
+    {
+      "route": "/",
+      "family": "home",
+      "controls": [
+        {
+          "text": "←",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 165.53125,
+            "y": 207.703125,
+            "width": 44,
+            "height": 44,
+            "top": 207.703125,
+            "right": 209.53125,
+            "bottom": 251.703125,
+            "left": 165.53125
+          },
+          "image": "none",
+          "bg": "rgb(42, 56, 43)",
+          "color": "rgb(239, 237, 219)",
+          "border": "1px solid rgba(135, 155, 113, 0.44)",
+          "radius": "6px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(239, 237, 219) none 3px"
+        },
+        {
+          "text": "→",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 243,
+            "y": 207.703125,
+            "width": 44,
+            "height": 44,
+            "top": 207.703125,
+            "right": 287,
+            "bottom": 251.703125,
+            "left": 243
+          },
+          "image": "none",
+          "bg": "rgb(42, 56, 43)",
+          "color": "rgb(239, 237, 219)",
+          "border": "1px solid rgba(135, 155, 113, 0.44)",
+          "radius": "6px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(239, 237, 219) none 3px"
+        },
+        {
+          "text": "作品一覧",
+          "class": "b3-list-toggle",
+          "visible": true,
+          "rect": {
+            "x": 293,
+            "y": 207.703125,
+            "width": 64,
+            "height": 44,
+            "top": 207.703125,
+            "right": 357,
+            "bottom": 251.703125,
+            "left": 293
+          },
+          "image": "none",
+          "bg": "rgb(42, 56, 43)",
+          "color": "rgb(239, 237, 219)",
+          "border": "1px solid rgba(135, 155, 113, 0.44)",
+          "radius": "6px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(239, 237, 219) none 3px"
+        },
+        {
+          "text": "←",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 64.828125,
+            "y": 1819.828125,
+            "width": 44,
+            "height": 45.1875,
+            "top": 1819.828125,
+            "right": 108.828125,
+            "bottom": 1865.015625,
+            "left": 64.828125
+          },
+          "image": "linear-gradient(135deg, rgb(70, 81, 59), rgb(48, 59, 46) 45%, rgb(41, 52, 40))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(239, 237, 219)",
+          "border": "1px solid rgb(135, 155, 113)",
+          "radius": "6px",
+          "shadow": "rgba(237, 240, 207, 0.2) 0px 1px 0px 0px inset, rgb(23, 37, 27) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(239, 237, 219) none 3px"
+        },
+        {
+          "text": "→",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 152.15625,
+            "y": 1819.828125,
+            "width": 44,
+            "height": 45.1875,
+            "top": 1819.828125,
+            "right": 196.15625,
+            "bottom": 1865.015625,
+            "left": 152.15625
+          },
+          "image": "linear-gradient(135deg, rgb(70, 81, 59), rgb(48, 59, 46) 45%, rgb(41, 52, 40))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(239, 237, 219)",
+          "border": "1px solid rgb(135, 155, 113)",
+          "radius": "6px",
+          "shadow": "rgba(237, 240, 207, 0.2) 0px 1px 0px 0px inset, rgb(23, 37, 27) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(239, 237, 219) none 3px"
+        },
+        {
+          "text": "一覧で見る",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 204.15625,
+            "y": 1819.828125,
+            "width": 106.015625,
+            "height": 45.1875,
+            "top": 1819.828125,
+            "right": 310.171875,
+            "bottom": 1865.015625,
+            "left": 204.15625
+          },
+          "image": "linear-gradient(135deg, rgb(70, 81, 59), rgb(48, 59, 46) 45%, rgb(41, 52, 40))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(239, 237, 219)",
+          "border": "1px solid rgb(135, 155, 113)",
+          "radius": "6px",
+          "shadow": "rgba(237, 240, 207, 0.2) 0px 1px 0px 0px inset, rgb(23, 37, 27) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(239, 237, 219) none 3px"
+        },
+        {
+          "text": "最初の作業を作る",
+          "class": "button",
+          "visible": true,
+          "rect": {
+            "x": 35,
+            "y": 2684.40625,
+            "width": 305,
+            "height": 49.1875,
+            "top": 2684.40625,
+            "right": 340,
+            "bottom": 2733.59375,
+            "left": 35
+          },
+          "image": "linear-gradient(130deg, rgb(245, 222, 176), rgb(217, 180, 114))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(46, 40, 29)",
+          "border": "1px solid rgb(154, 129, 84)",
+          "radius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(46, 40, 29) none 3px"
+        },
+        {
+          "text": "モンスター収集とバトルのブラウザゲームを作りたい。ゲーム制作は初めてです。",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 35,
+            "y": 2820.15625,
+            "width": 305,
+            "height": 64.78125,
+            "top": 2820.15625,
+            "right": 340,
+            "bottom": 2884.9375,
+            "left": 35
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 35,
+            "y": 2891.9375,
+            "width": 305,
+            "height": 64.78125,
+            "top": 2891.9375,
+            "right": 340,
+            "bottom": 2956.71875,
+            "left": 35
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "ビジュアルノベル。日本語と英語。音声あり。できるだけ低予算。",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 35,
+            "y": 2963.71875,
+            "width": 305,
+            "height": 64.78125,
+            "top": 2963.71875,
+            "right": 340,
+            "bottom": 3028.5,
+            "left": 35
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        }
+      ],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/",
+      "family": "article-hub",
+      "controls": [
+        {
+          "text": "←",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 64.828125,
+            "y": 194.9375,
+            "width": 44,
+            "height": 45.1875,
+            "top": 194.9375,
+            "right": 108.828125,
+            "bottom": 240.125,
+            "left": 64.828125
+          },
+          "image": "linear-gradient(135deg, rgb(70, 81, 59), rgb(48, 59, 46) 45%, rgb(41, 52, 40))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(239, 237, 219)",
+          "border": "1px solid rgb(135, 155, 113)",
+          "radius": "6px",
+          "shadow": "rgba(237, 240, 207, 0.2) 0px 1px 0px 0px inset, rgb(23, 37, 27) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(239, 237, 219) none 3px"
+        },
+        {
+          "text": "→",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 152.15625,
+            "y": 194.9375,
+            "width": 44,
+            "height": 45.1875,
+            "top": 194.9375,
+            "right": 196.15625,
+            "bottom": 240.125,
+            "left": 152.15625
+          },
+          "image": "linear-gradient(135deg, rgb(70, 81, 59), rgb(48, 59, 46) 45%, rgb(41, 52, 40))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(239, 237, 219)",
+          "border": "1px solid rgb(135, 155, 113)",
+          "radius": "6px",
+          "shadow": "rgba(237, 240, 207, 0.2) 0px 1px 0px 0px inset, rgb(23, 37, 27) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(239, 237, 219) none 3px"
+        },
+        {
+          "text": "一覧で見る",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 204.15625,
+            "y": 194.9375,
+            "width": 106.015625,
+            "height": 45.1875,
+            "top": 194.9375,
+            "right": 310.171875,
+            "bottom": 240.125,
+            "left": 204.15625
+          },
+          "image": "linear-gradient(135deg, rgb(70, 81, 59), rgb(48, 59, 46) 45%, rgb(41, 52, 40))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(239, 237, 219)",
+          "border": "1px solid rgb(135, 155, 113)",
+          "radius": "6px",
+          "shadow": "rgba(237, 240, 207, 0.2) 0px 1px 0px 0px inset, rgb(23, 37, 27) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(239, 237, 219) none 3px"
+        }
+      ],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/",
+      "family": "tools-directory",
+      "controls": [
+        {
+          "text": "すべて表示",
+          "class": "button ghost",
+          "visible": true,
+          "rect": {
+            "x": 41,
+            "y": 445.71875,
+            "width": 130,
+            "height": 49.1875,
+            "top": 445.71875,
+            "right": 171,
+            "bottom": 494.90625,
+            "left": 41
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "コード",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 51,
+            "y": 538.09375,
+            "width": 273,
+            "height": 46,
+            "top": 538.09375,
+            "right": 324,
+            "bottom": 584.09375,
+            "left": 51
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "UI",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 51,
+            "y": 592.09375,
+            "width": 273,
+            "height": 46,
+            "top": 592.09375,
+            "right": 324,
+            "bottom": 638.09375,
+            "left": 51
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "キャラクター",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 51,
+            "y": 646.09375,
+            "width": 273,
+            "height": 46,
+            "top": 646.09375,
+            "right": 324,
+            "bottom": 692.09375,
+            "left": 51
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "2D画像",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 51,
+            "y": 700.09375,
+            "width": 273,
+            "height": 46,
+            "top": 700.09375,
+            "right": 324,
+            "bottom": 746.09375,
+            "left": 51
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "3Dモデル",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 51,
+            "y": 754.09375,
+            "width": 273,
+            "height": 46,
+            "top": 754.09375,
+            "right": 324,
+            "bottom": 800.09375,
+            "left": 51
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "アニメーション",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 51,
+            "y": 808.09375,
+            "width": 273,
+            "height": 46,
+            "top": 808.09375,
+            "right": 324,
+            "bottom": 854.09375,
+            "left": 51
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "声",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 51,
+            "y": 907.28125,
+            "width": 273,
+            "height": 46,
+            "top": 907.28125,
+            "right": 324,
+            "bottom": 953.28125,
+            "left": 51
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "BGM",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 51,
+            "y": 961.28125,
+            "width": 273,
+            "height": 46,
+            "top": 961.28125,
+            "right": 324,
+            "bottom": 1007.28125,
+            "left": 51
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "効果音",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 51,
+            "y": 1015.28125,
+            "width": 273,
+            "height": 46,
+            "top": 1015.28125,
+            "right": 324,
+            "bottom": 1061.28125,
+            "left": 51
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "NPC会話",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 51,
+            "y": 1069.28125,
+            "width": 273,
+            "height": 46,
+            "top": 1069.28125,
+            "right": 324,
+            "bottom": 1115.28125,
+            "left": 51
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "翻訳",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 51,
+            "y": 1123.28125,
+            "width": 273,
+            "height": 46,
+            "top": 1123.28125,
+            "right": 324,
+            "bottom": 1169.28125,
+            "left": 51
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "テスト",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 51,
+            "y": 1222.46875,
+            "width": 273,
+            "height": 46,
+            "top": 1222.46875,
+            "right": 324,
+            "bottom": 1268.46875,
+            "left": 51
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "トレーラー",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 51,
+            "y": 1276.46875,
+            "width": 273,
+            "height": 46,
+            "top": 1276.46875,
+            "right": 324,
+            "bottom": 1322.46875,
+            "left": 51
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "ストア素材",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 51,
+            "y": 1330.46875,
+            "width": 273,
+            "height": 46,
+            "top": 1330.46875,
+            "right": 324,
+            "bottom": 1376.46875,
+            "left": 51
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        }
+      ],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/guides/",
+      "family": "guides-directory",
+      "controls": [
+        {
+          "text": "始める作る範囲とAIへの渡し方を決める",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 31,
+            "y": 479.84375,
+            "width": 313,
+            "height": 77.53125,
+            "top": 479.84375,
+            "right": 344,
+            "bottom": 557.375,
+            "left": 31
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "作る小さく遊べる成果物まで進める",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 31,
+            "y": 565.375,
+            "width": 313,
+            "height": 77.53125,
+            "top": 565.375,
+            "right": 344,
+            "bottom": 642.90625,
+            "left": 31
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "見直すAIに任せる範囲と検証方法を整える",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 31,
+            "y": 650.90625,
+            "width": 313,
+            "height": 77.53125,
+            "top": 650.90625,
+            "right": 344,
+            "bottom": 728.4375,
+            "left": 31
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        }
+      ],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/stacks/",
+      "family": "stacks-directory",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/project/",
+      "family": "project",
+      "controls": [
+        {
+          "text": "制作ロードマップを作る",
+          "class": "button",
+          "visible": true,
+          "rect": {
+            "x": 49,
+            "y": 716.03125,
+            "width": 277,
+            "height": 49.1875,
+            "top": 716.03125,
+            "right": 326,
+            "bottom": 765.21875,
+            "left": 49
+          },
+          "image": "linear-gradient(130deg, rgb(245, 222, 176), rgb(217, 180, 114))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(46, 40, 29)",
+          "border": "1px solid rgb(154, 129, 84)",
+          "radius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(46, 40, 29) none 3px"
+        },
+        {
+          "text": "モンスター収集とバトルのブラウザゲームを作りたい。ゲーム制作は初めてです。",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 49,
+            "y": 819.78125,
+            "width": 277,
+            "height": 88.171875,
+            "top": 819.78125,
+            "right": 326,
+            "bottom": 907.953125,
+            "left": 49
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 49,
+            "y": 914.953125,
+            "width": 277,
+            "height": 64.78125,
+            "top": 914.953125,
+            "right": 326,
+            "bottom": 979.734375,
+            "left": 49
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "ビジュアルノベル。日本語と英語。音声あり。できるだけ低予算。",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 49,
+            "y": 986.734375,
+            "width": 277,
+            "height": 64.78125,
+            "top": 986.734375,
+            "right": 326,
+            "bottom": 1051.515625,
+            "left": 49
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        }
+      ],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/builder/",
+      "family": "project",
+      "controls": [
+        {
+          "text": "制作ロードマップを作る",
+          "class": "button",
+          "visible": true,
+          "rect": {
+            "x": 49,
+            "y": 716.03125,
+            "width": 277,
+            "height": 49.1875,
+            "top": 716.03125,
+            "right": 326,
+            "bottom": 765.21875,
+            "left": 49
+          },
+          "image": "linear-gradient(130deg, rgb(245, 222, 176), rgb(217, 180, 114))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(46, 40, 29)",
+          "border": "1px solid rgb(154, 129, 84)",
+          "radius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(46, 40, 29) none 3px"
+        },
+        {
+          "text": "モンスター収集とバトルのブラウザゲームを作りたい。ゲーム制作は初めてです。",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 49,
+            "y": 819.78125,
+            "width": 277,
+            "height": 88.171875,
+            "top": 819.78125,
+            "right": 326,
+            "bottom": 907.953125,
+            "left": 49
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 49,
+            "y": 914.953125,
+            "width": 277,
+            "height": 64.78125,
+            "top": 914.953125,
+            "right": 326,
+            "bottom": 979.734375,
+            "left": 49
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "ビジュアルノベル。日本語と英語。音声あり。できるだけ低予算。",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 49,
+            "y": 986.734375,
+            "width": 277,
+            "height": 64.78125,
+            "top": 986.734375,
+            "right": 326,
+            "bottom": 1051.515625,
+            "left": 49
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        }
+      ],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/compare/",
+      "family": "compare",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/methodology/",
+      "family": "trust",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/privacy/",
+      "family": "trust",
+      "controls": [
+        {
+          "text": "このブラウザの計測を再開",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 31,
+            "y": 4653.0625,
+            "width": 218.015625,
+            "height": 45.1875,
+            "top": 4653.0625,
+            "right": 249.015625,
+            "bottom": 4698.25,
+            "left": 31
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        }
+      ],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/affiliate-disclosure/",
+      "family": "trust",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/meshy-pricing-credits-game/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/meshy-commercial-use-game/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/meshy-game-development-guide/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/elevenlabs-v4-game-voice/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/elevenlabs-commercial-use-game/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/elevenlabs-game-development-guide/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/github-beginner-game-development/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/ai-browser-game-how-to/",
+      "family": "article-detail",
+      "controls": [
+        {
+          "text": "ゲームを表示",
+          "class": "button",
+          "visible": true,
+          "rect": {
+            "x": 43,
+            "y": 2454.390625,
+            "width": 289,
+            "height": 45.1875,
+            "top": 2454.390625,
+            "right": 332,
+            "bottom": 2499.578125,
+            "left": 43
+          },
+          "image": "linear-gradient(130deg, rgb(245, 222, 176), rgb(217, 180, 114))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(46, 40, 29)",
+          "border": "1px solid rgb(154, 129, 84)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(46, 40, 29) none 3px"
+        },
+        {
+          "text": "index.htmlを保存",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 43,
+            "y": 2509.578125,
+            "width": 289,
+            "height": 45.1875,
+            "top": 2509.578125,
+            "right": 332,
+            "bottom": 2554.765625,
+            "left": 43
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "none",
+          "disabled": true,
+          "opacity": "0.55",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "最初のゲーム生成promptをコピー",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 31,
+            "y": 5404.59375,
+            "width": 276.5,
+            "height": 45.1875,
+            "top": 5404.59375,
+            "right": 307.5,
+            "bottom": 5449.78125,
+            "left": 31
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "1変更のAI指示をコピー",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 31,
+            "y": 7885.859375,
+            "width": 194.984375,
+            "height": 45.1875,
+            "top": 7885.859375,
+            "right": 225.984375,
+            "bottom": 7931.046875,
+            "left": 31
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "Project用のゲーム案をコピー",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 49,
+            "y": 9420.390625,
+            "width": 242.015625,
+            "height": 45.1875,
+            "top": 9420.390625,
+            "right": 291.015625,
+            "bottom": 9465.578125,
+            "left": 49
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        }
+      ],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/ai-fantasy/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/ai-usage-guide/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/ai-delegation-trap/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/before-asking-ai-build-game/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/ai-completion-claim/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/ai-tool-comparison-later/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/small-first-success/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/ai-auto-trading-reality/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/aramon-production-story/",
+      "family": "article-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/articles/ai-html-game-not-working/",
+      "family": "article-detail",
+      "controls": [
+        {
+          "text": "ゲームを表示",
+          "class": "button",
+          "visible": true,
+          "rect": {
+            "x": 43,
+            "y": 5779.625,
+            "width": 289,
+            "height": 45.1875,
+            "top": 5779.625,
+            "right": 332,
+            "bottom": 5824.8125,
+            "left": 43
+          },
+          "image": "linear-gradient(130deg, rgb(245, 222, 176), rgb(217, 180, 114))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(46, 40, 29)",
+          "border": "1px solid rgb(154, 129, 84)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(46, 40, 29) none 3px"
+        },
+        {
+          "text": "index.htmlを保存",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 43,
+            "y": 5834.8125,
+            "width": 289,
+            "height": 45.1875,
+            "top": 5834.8125,
+            "right": 332,
+            "bottom": 5880,
+            "left": 43
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "none",
+          "disabled": true,
+          "opacity": "0.55",
+          "outline": "rgb(35, 53, 41) none 3px"
+        },
+        {
+          "text": "相談例をコピー",
+          "class": "",
+          "visible": true,
+          "rect": {
+            "x": 31,
+            "y": 5083.046875,
+            "width": 138.015625,
+            "height": 45.1875,
+            "top": 5083.046875,
+            "right": 169.015625,
+            "bottom": 5128.234375,
+            "left": 31
+          },
+          "image": "linear-gradient(rgb(250, 248, 242), rgb(238, 236, 226))",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(124, 137, 109)",
+          "radius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px",
+          "disabled": false,
+          "opacity": "1",
+          "outline": "rgb(35, 53, 41) none 3px"
+        }
+      ],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/games/aramon/",
+      "family": "game-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/games/create-monsters/",
+      "family": "game-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/games/monster-construction/",
+      "family": "game-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/games/aura-connect-battle/",
+      "family": "game-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/games/tomoshibi/",
+      "family": "game-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/games/punching/",
+      "family": "game-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/games/rakugaction/",
+      "family": "game-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/games/sumaraku/",
+      "family": "game-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/guides/ai-2d-rpg-workflow/",
+      "family": "guide-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/guides/codex-game-development-brief/",
+      "family": "guide-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/stacks/2d-rpg/",
+      "family": "stack-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/stacks/monster-collection-mobile/",
+      "family": "stack-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/stacks/visual-novel/",
+      "family": "stack-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/stacks/3d-indie/",
+      "family": "stack-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/stacks/browser-game/",
+      "family": "stack-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/stacks/horror-game/",
+      "family": "stack-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/stacks/lowest-cost/",
+      "family": "stack-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/stacks/solo-developer/",
+      "family": "stack-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/github-copilot/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/cursor/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/scenario/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/elevenlabs/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/suno/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/meshy/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/inworld/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/rosebud-ai/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/deepl-api/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/modl-ai/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/openai-gpt/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/anthropic-claude/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/google-gemini/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/xai-grok/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/deepseek/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/qwen/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/openai-codex/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/claude-code/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/midjourney/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/adobe-firefly/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/leonardo-ai/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/tripo-ai/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/adobe-mixamo/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/runway/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/stable-audio/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/convai/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/ludo-ai/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/canva-magic-studio/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/tools/anything-world/",
+      "family": "tool-detail",
+      "controls": [],
+      "short": [],
+      "ua": []
+    },
+    {
+      "route": "/missing-b3-components-page/",
+      "family": "404",
+      "controls": [],
+      "short": [],
+      "ua": []
+    }
+  ],
+  "errors": [],
+  "external": []
+}

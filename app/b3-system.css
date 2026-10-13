@@ -3,9 +3,19 @@
 :root {
   --b3-graphite:#171e1e;
   --b3-light:#f1f0e7; --b3-light-muted:#c5cebd; --b3-amber:#e9c383;
-  --b3-paper:#faf8f2; --b3-work:#e0d9c6; --b3-recess:#eeece2;
+  --b3-paper:#faf8f2; --b3-recess:#eeece2;
   --b3-ink:#233529; --b3-muted:#52604b; --b3-edge:#b8bba6;
   --b3-action:#315a42; --b3-action-hover:#254733; --b3-control-edge:#7c896d;
+  --b3-frame:linear-gradient(135deg,#46513b,#303b2e 45%,#293428);
+  --b3-raised:linear-gradient(130deg,#f5deb0,#d9b472);
+  --b3-shine:inset 0 1px 0 #fffdf4;
+  --b3-depth:var(--b3-shine),0 3px 0 #78816b40,0 10px 20px #2335290d;
+  --action-text:#2e281d;
+  /* Resolve existing Project semantic roles; error/current are visible states. */
+  --color-accent:var(--b3-action); --color-accent-strong:var(--b3-action);
+  --color-accent-soft:#dce3d4; --color-border-strong:var(--b3-control-edge);
+  --color-error:var(--color-danger); --color-error-soft:#fff4f3;
+  --color-info-soft:#eef3f5; --color-warning-soft:#fff8eb;
 }
 body.b3-system {
   --text:var(--b3-light); --muted:var(--b3-light-muted); --line:#4a574b;
@@ -29,10 +39,6 @@ body.b3-system {
   --surface:var(--color-surface); --surface-subtle:var(--color-surface-subtle);
   --surface-accent:#dce3d4; --color-muted:var(--color-text-muted);
   --status-error:var(--color-danger);
-  --v2-canvas:var(--b3-paper); --v2-ceramic:var(--b3-paper);
-  --v2-recess:var(--b3-recess); --v2-ink:var(--b3-ink); --v2-muted:var(--b3-muted);
-  --v2-primary:var(--b3-action); --v2-primary-hover:var(--b3-action-hover);
-  --v2-edge:var(--b3-edge); --v2-metal:#a5a68e;
   --focus-ring:3px solid #315a42;
   color:var(--text); background:var(--b3-paper);
 }
@@ -47,28 +53,75 @@ body.b3-system {
 .b3-system main:not(:has(.home-b3))>.directory-page { padding-top:0; }
 .b3-system main:not(:has(.home-b3)) .article-shell { background:transparent; padding-inline:0; }
 .b3-system main:not(:has(.home-b3)) :is(.page-head,.page-hero,.builder-head,.trust-header,.stack-hero,.tool-hero) { padding-top:32px; }
-.b3-system main:not(:has(.home-b3)) :is(.button,.ui-action--primary) {
-  background:var(--color-action); border-color:var(--color-action); color:#fff;
+/* A raised control shares the Home play button's amber face and physical edge. */
+body.b3-system main .button {
+  background:var(--b3-raised); border:1px solid #9a8154; border-radius:7px;
+  color:#2e281d; box-shadow:inset 0 1px 0 #fff7dc9e,0 3px 0 #8a754c33;
 }
-.b3-system main:not(:has(.home-b3)) :is(.button,.ui-action--primary):hover { background:var(--color-action-hover); }
-.b3-system main:not(:has(.home-b3)) .button.ghost { background:var(--color-surface); color:var(--color-action); border-color:var(--color-border); }
-.b3-system main:not(:has(.home-b3)) :is(.card,.quick-facts,.goal-picker,.secondary-filters,.compare-picker-panel,.compare-view-options,.compare-decision,.compare-scroll,.builder-form,.clarify-form,.project-idea-card,.project-detail-card,.directory-state,.stack-grid>article,.stack-tools>article,.stack-fit>div,.stack-checks>div) {
-  background:var(--color-surface); border-color:var(--color-border);
+body.b3-system main .button:hover { background:linear-gradient(130deg,#ffe8bc,#e6c184); }
+body.b3-system main :is(.button.ghost,.button.light) {
+  background:linear-gradient(#faf8f2,#eeece2); color:var(--b3-ink); border-color:var(--b3-control-edge);
 }
-.b3-system main:not(:has(.home-b3)) :is(.project-start-page .project-idea-card,.idea-review,.compare-decision,.quick-facts) { background:var(--b3-work); }
-.b3-system main:not(:has(.home-b3)) :is(.directory-meta span,.active-filter-summary,.builder-choice,.idea-examples button,.goal-picker button,.picker label,.compare-scroll thead th,.compare-scroll tbody th) { background:var(--color-surface-subtle); border-color:var(--color-border); color:var(--color-text); }
-.b3-system main:not(:has(.home-b3)) :is(.goal-picker button[aria-pressed=true],.builder-choice:has(input:checked)) { background:var(--surface-accent); border-color:var(--color-action); }
-.b3-system main:not(:has(.home-b3)) :where(input:not([type=checkbox]):not([type=radio]),select,textarea) { background:#fffdf8; border-color:var(--b3-control-edge); color:var(--color-text); }
-.b3-system main:not(:has(.home-b3)) :is(input,select,textarea)[aria-invalid=true] { border-color:var(--color-danger); }
+/* Paper stays readable, within the same firm olive frame as the artwork deck. */
+.b3-system main :is(.card,.quick-facts,.goal-picker,.secondary-filters,.compare-picker-panel,.compare-selection-tray,.compare-view-options,.compare-decision,.compare-scroll,.compare-criteria-groups>section,.compare-mobile article,.builder-form,.clarify-form,.project-idea-card,.project-detail-card,.directory-state,.no-results,.loading-panel,.empty,.stack-grid>article,.stack-tools>article,.stack-fit>div,.stack-checks>div,.two-col>section,.stage-decision,.requirement-summary>div,.production-map li,.workflow-map li,.slice-grid article,.risk-list article,.cost-card,.plan-phase,.artifact-card,.plan-tool-card,.secondary-plan,.project-supporting-details,.result-utilities,.beginner-action,.beginner-starter,.beginner-workspace,.guide-task) {
+  border:2px solid #718064; border-radius:9px; background:var(--b3-paper); color:var(--b3-ink); box-shadow:var(--b3-depth);
+}
+.b3-system main :is(.project-start-page .project-idea-card,.idea-review,.compare-decision,.compare-context,.quick-facts,.beginner-workspace,.verdict,.stack-next,.result-next,.hub-project-cta,.article-inline-handoff,.article-project-cta,.guide-start-path,.contextual-task-tool,.home-output-cue) {
+  border:2px solid #718064; border-radius:9px; background:linear-gradient(135deg,#e7e2d2,#dad4bd); color:var(--b3-ink); box-shadow:var(--b3-depth);
+}
+.b3-system main :is(.tool-rows article,.guide-resource-list>article) {
+  margin-block:12px; padding-inline:16px; border:1px solid #718064; border-top:4px solid #46513b;
+  border-radius:8px; background:var(--b3-paper); box-shadow:var(--b3-depth);
+}
+.b3-system main :is(.article-answer,.article-toc,.article-contract,.article-definition,.article-lesson-grid div,.article-related a,.article-success,.article-checkpoints li,.conv-evidence,.hub-preparation,.today-grid article,.beginner-action-grid>section,.beginner-steps,.beginner-version-guide,.tool-return,.active-done,.critical-checks,.trust-nav) {
+  border:1px solid var(--b3-control-edge); border-radius:7px; background:var(--b3-recess); box-shadow:var(--b3-shine);
+}
+.b3-system main :is(.artifact-progress,.build-progress,.action-step,.trust-summary-grid span,.trust-status) { border-radius:7px; background:var(--b3-recess); box-shadow:var(--b3-shine); }
+.b3-system main :is(.artifact-progress li.current,.action-step.is-current>summary) { background:#dce3d4; }
+.b3-system main :is(.article-answer,.article-contract,.article-success,.article-checkpoints li) { border-left-width:4px; }
+.b3-system main :is(.directory-meta span,.tag,.tags span,.stage-strip span,.active-filter-summary) { background:var(--b3-recess); border-color:var(--b3-edge); border-radius:4px; color:var(--b3-ink); }
+.b3-system main .provenance { background:var(--b3-recess); border-radius:4px; }
+.b3-system main :is(.builder-choice,.capability-picker label,.picker label,.guide-stage-options button,.goal-picker button,.idea-examples button,.compare-selection-tray li) {
+  background:linear-gradient(#faf8f2,#eeece2); border:1px solid var(--b3-control-edge); border-radius:7px;
+  color:var(--b3-ink); box-shadow:var(--b3-shine),0 2px 0 #7c896d33;
+}
+.b3-system main :is(.goal-picker button[aria-pressed=true],.guide-stage-options button[aria-pressed=true],.detail-actions button[aria-pressed=true],.builder-choice:has(input:checked),.capability-picker label:has(input:checked),.picker label:has(input:checked)) {
+  background:var(--b3-frame); border-color:#a1ab88; color:var(--b3-light); box-shadow:inset 0 1px 0 #edf0cf66,0 2px 0 #17251b;
+}
+.b3-system main :is(.guide-stage-options button[aria-pressed=true] span,.goal-picker button[aria-pressed=true] span) { color:var(--b3-light-muted); }
+/* Low-specificity fallback replaces UA controls in provider/recovery/privacy
+   branches without overriding authored deck and primary controls. */
+:where(.b3-system main) button,
+.b3-system main :is(.copy-text-control button,.beginner-workspace button,.beginner-file-label,.detail-actions button,.detail-bulk-actions button,.project-result-actions button,.artifact-card button,.action-prompt button,.generation-prompt button,.compare-selection-head button,.compare-selection-tray button,.compare-mobile button,.share-button,.beginner-confirm-details>summary) {
+  min-height:44px; padding:8px 12px; border:1px solid var(--b3-control-edge); border-radius:7px;
+  background:linear-gradient(#faf8f2,#eeece2); color:var(--b3-ink); box-shadow:var(--b3-shine),0 2px 0 #7c896d33; font:inherit; font-weight:700; cursor:pointer;
+}
+.b3-system main .beginner-workspace .button { background:var(--b3-raised); border-color:#9a8154; color:#2e281d; }
+.b3-system main :is(button,.button):disabled { opacity:.55; cursor:default; box-shadow:none; }
+.b3-system main :is(button,.button):active:not(:disabled) { box-shadow:inset 0 2px 3px #23352926; }
+body.b3-system main :is(input,select,textarea):not([type=checkbox],[type=radio]) {
+  background:#fffdf8; border:1px solid var(--b3-control-edge); border-radius:7px; color:var(--b3-ink); box-shadow:inset 0 2px 3px #2335290d;
+}
+.b3-system main input:is([type=checkbox],[type=radio]) { accent-color:var(--b3-action); }
+.b3-system main input::file-selector-button { min-height:44px; margin-right:8px; padding:8px 12px; border:1px solid var(--b3-control-edge); border-radius:5px; background:var(--b3-recess); color:var(--b3-ink); font:inherit; cursor:pointer; }
+body.b3-system main :is(input,select,textarea)[aria-invalid=true] { border:2px solid var(--color-danger); }
+.b3-system main :is(.compare-scroll thead th,.compare-scroll tbody th,.article-decision-table th) { background:var(--b3-recess); color:var(--b3-ink); border-color:var(--b3-edge); }
+.b3-system main :is(.article-code,.action-prompt pre,.artifact-card pre,.generation-prompt pre,.stuck-panel pre) {
+  border:1px solid #7c896d; border-radius:7px; background:#26352b; color:#f1f0e7; box-shadow:inset 0 2px 4px #07120c33;
+}
+.b3-system main article.page-shell code { background:var(--b3-recess); color:var(--b3-ink); }
+.b3-system main :is(pre,.conv-evidence .conv-evidence-meta) code { background:none; color:inherit; }
+.b3-system main .beginner-game-preview iframe { border:2px solid #718064; border-radius:7px; }
+.b3-system main :is(.form-error,.beginner-runtime-error) { color:var(--color-danger); }
+.b3-system main :is(.compare-context,.tool-return) a { color:var(--b3-action); }
+.b3-system .breadcrumbs a { display:inline-flex; align-items:center; min-height:44px; }
 .b3-system .breadcrumbs { flex-wrap:wrap; align-items:center; white-space:normal; overflow:visible; color:var(--color-text-muted); }
 .b3-system .breadcrumbs>span:last-child { flex:1 1 12rem; min-width:0; overflow-wrap:anywhere; }
 .b3-system main:not(:has(.home-b3)) :is(.lead,.results-head p,.compare-decision p,.compare-decision li,.today-why,.plan-tool-card header p) { color:var(--color-text-muted); }
-.b3-system main:not(:has(.home-b3)) .tool-rows article { background:var(--color-surface); }
-.b3-system main:not(:has(.home-b3)) .tool-rows article:hover { background:var(--color-surface-subtle); }
-.b3-system .v2-atrium-art { background-image:none; background-color:transparent; }
-.b3-system .articles-v2-route .article-hub>.page-head { background:transparent; }
+.b3-system main .tool-rows article:hover { background:var(--b3-recess); }
 .b3-system .site-footer { --color-text:var(--b3-light); --color-text-muted:var(--b3-light-muted); --color-action:var(--b3-amber); background:transparent; color:var(--b3-light); border-color:#4a574b; }
 .b3-system .site-footer :is(p,small,a) { color:var(--b3-light-muted); }
+.b3-system .footer-groups>div { padding:16px; border:1px solid #64735b; border-radius:8px; background:#242e27; box-shadow:inset 0 1px 0 #e5ead423; }
 .b3-system .skip-link { background:var(--b3-graphite); color:var(--b3-light); border-color:var(--b3-amber); }
 .b3-system .b3-site-header .main-nav a:hover { border-color:transparent; color:var(--b3-light); background:#35432f; }
 .b3-system .b3-site-header .main-nav a[aria-current]:hover { color:var(--b3-ink); background:#ded8be; }
@@ -80,6 +133,7 @@ body.b3-system {
   .b3-system main:not(:has(.home-b3)) :is(.page-head,.page-hero,.builder-head,.trust-header,.stack-hero,.tool-hero) { padding-top:24px; }
   .b3-system .article-hub>.page-head { padding-bottom:12px; }
   .b3-system .article-hub #categories { padding-top:8px; }
+  .b3-system main .goal-picker button { flex-basis:100%; }
 }
 @media(max-width:360px) {
   .b3-system main:not(:has(.home-b3)) { width:calc(100% - 24px); padding-inline:12px; }
@@ -93,7 +147,6 @@ body.b3-system {
 body.visual-layer-v2 .b3-site-header { --header-height:84px; height:auto; background:#202b27; border:0; backdrop-filter:none; padding:10px 28px; }
 .b3-site-header .header-inner { height:auto; min-height:64px; max-width:1224px; padding:5px 16px; gap:22px; border:1px solid #74816866; border-radius:13px; background:linear-gradient(122deg,#303a2e,#222c28 65%,#28312a); box-shadow:inset 0 1px 0 #e5ead423,0 8px 24px #07120c21; }
 .b3-site-header .brand { min-height:44px; gap:10px; margin-right:auto; }
-.b3-site-header .brand-copy { display:grid!important; }
 .b3-site-header .brand-copy strong { font-size:1.375rem; letter-spacing:-.05em; color:#f1f0e7; }
 .b3-site-header .brand-copy small { display:block; font-size:.625rem; color:#c5ceb9; }
 .b3-site-header .brand-mark { width:38px; height:38px; flex:0 0 38px; border:0; background:none; box-shadow:none; }
@@ -107,11 +160,20 @@ body.visual-layer-v2 .b3-site-header { --header-height:84px; height:auto; backgr
 .b3-site-header .main-nav a { min-height:44px; display:flex; align-items:center; justify-content:center; padding:10px 18px; border-radius:5px; color:#cad3c0; font-size:.75rem; }
 .b3-site-header .main-nav a[aria-current] { background:linear-gradient(120deg,#ded8be,#c9c9ac); color:#293124; }
 .b3-site-header .header-cta { display:flex; align-items:center; gap:13px; min-height:44px; padding:5px 6px 5px 14px; border:1px solid #a3b58a62; border-radius:7px; background:#35432f; color:#ebefd9; font-size:.75rem; white-space:normal; }
-.b3-site-header .header-cta>span:last-child { width:31px; height:31px; display:grid; place-items:center; border-radius:4px; background:#d5d5b8; color:#273025; font-size:1.2rem; }
+.b3-site-header .header-cta>span:last-child { width:1.55em; min-height:1.55em; display:grid; place-items:center; border-radius:4px; background:#d5d5b8; color:#273025; font-size:1.2rem; }
 .b3-cta-mobile { display:none; }
 .b3-site-header .menu-button { background:#26352b; border-color:#839578; color:#f1f0e7; }
-.b3-site-header .mobile-menu-label { color:#52645e; }
-.b3-site-header .mobile-menu :focus-visible { outline-color:#0b6855; }
+.b3-site-header .mobile-menu {
+  --color-text:var(--b3-light); --color-text-muted:var(--b3-light-muted);
+  --color-border:#64735b; --color-surface:#293428; --color-surface-subtle:#35432f;
+  --color-action:var(--b3-amber); color:var(--b3-light);
+  background:var(--b3-frame); border:1px solid #8e9e7b; border-radius:9px 0 0 9px;
+  box-shadow:inset 0 1px 0 #edf0cf66,-8px 12px 30px #07120c66;
+}
+.b3-site-header .mobile-menu-close { background:#26352b; box-shadow:inset 0 1px 0 #e5ead423; }
+.b3-site-header .mobile-menu-label { color:var(--b3-light-muted); }
+.b3-site-header .mobile-menu a[aria-current] { background:linear-gradient(120deg,#ded8be,#c9c9ac); color:var(--b3-ink); }
+.b3-site-header .mobile-menu :focus-visible { outline-color:#f5d79e; }
 .b3-site-header :focus-visible { outline:3px solid #f5d79e; outline-offset:4px; }
 @media(max-width:1100px) {
 .b3-site-header .main-nav a { padding-inline:10px; }
@@ -127,7 +189,7 @@ body.visual-layer-v2 .b3-site-header { --header-height:64px; position:sticky; pa
 .b3-site-header .brand-copy small { font-size:.5rem; }
 .b3-site-header .brand-mark { width:30px; height:30px; flex-basis:30px; }
 .b3-site-header .header-cta { display:flex; padding-left:8px; gap:6px; min-width:0; flex-shrink:0; font-size:.6875rem; }
-.b3-site-header .header-cta>span:last-child { width:24px; height:30px; }
+.b3-site-header .header-cta>span:last-child { width:1.25em; min-height:1.55em; }
 .b3-cta-desktop { display:none; }
 .b3-cta-mobile { display:inline; }
 .b3-site-header .menu-button { margin-left:0; flex:0 0 44px; }

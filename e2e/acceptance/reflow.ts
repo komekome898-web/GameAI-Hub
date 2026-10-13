@@ -251,7 +251,9 @@ export async function probeSurface(
             const vertical =
               element.scrollHeight > element.clientHeight + 4 &&
               /(hidden|clip)/.test(style.overflowY || style.overflow);
-            if (!visuallyHidden && (horizontal || vertical) && (element.textContent?.trim() ?? ""))
+            // Closed details and hidden future tasks can retain stale layout
+            // dimensions. Count painted text; visible summaries still count.
+            if (!visuallyHidden && element.checkVisibility() && (horizontal || vertical) && (element.textContent?.trim() ?? ""))
               clippedText.push({
                 selector: identify(element),
                 horizontal,

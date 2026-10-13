@@ -1,0 +1,44 @@
+{
+  "pin": "e555d81678440a2faa76538b83e22f875ee96e93",
+  "build": "zRTspQ8ojf93LGGMfzTnt",
+  "threshold": 8192,
+  "deckB3Gzip": 8153,
+  "measured": [
+    {
+      "url": "http://127.0.0.1:3102/_next/static/chunks/1c373pgfpslhz.css",
+      "bytes": 94948,
+      "gzip": 33137,
+      "deck": false,
+      "B3": false,
+      "gameActions": false,
+      "font": true
+    },
+    {
+      "url": "http://127.0.0.1:3102/_next/static/chunks/2hfjc121rscq4.css",
+      "bytes": 95057,
+      "gzip": 33136,
+      "deck": false,
+      "B3": false,
+      "gameActions": false,
+      "font": true
+    },
+    {
+      "url": "http://127.0.0.1:3102/_next/static/chunks/2r0xrpk_ijr3m.css",
+      "bytes": 133790,
+      "gzip": 24241,
+      "deck": false,
+      "B3": false,
+      "gameActions": false,
+      "font": false
+    },
+    {
+      "url": "http://127.0.0.1:3102/_next/static/chunks/06842dxd0fube.css",
+      "bytes": 35484,
+      "gzip": 8153,
+      "deck": true,
+      "B3": true,
+      "gameActions": true,
+      "font": false
+    }
+  ]
+}

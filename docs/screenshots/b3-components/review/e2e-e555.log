@@ -1,0 +1,47 @@
+
+Running 22 tests using 2 workers
+
+(node:60848) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:60849) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/22] e2e/b3-components.spec.ts:37:5 › inner component evidence reaches live families at desktop and narrow widths
+[2/22] e2e/b3-home.spec.ts:9:40 › B3 game-first frame, actions and header at 1440
+[3/22] e2e/b3-home.spec.ts:9:40 › B3 game-first frame, actions and header at 375
+[4/22] e2e/b3-home.spec.ts:9:40 › B3 game-first frame, actions and header at 320
+[5/22] e2e/b3-home.spec.ts:40:5 › all artwork, rapid input, touch, reduced motion and article/learning links
+[6/22] e2e/b3-home.spec.ts:72:5 › 320 text 150/200, spacing and long text retain natural list/focus
+[7/22] e2e/b3-components.spec.ts:71:5 › nested hub and selected-list cards use the adopted artwork frame, with usable game actions
+[8/22] e2e/b3-home.spec.ts:94:5 › no-JS complete game links and current category entry remain usable
+[9/22] e2e/b3-components.spec.ts:98:5 › actual 200% computed text keeps short Japanese goal choices on one line
+[10/22] e2e/b3-home.spec.ts:99:5 › fresh category deep-link restores a visible focused target
+[11/22] e2e/b3-components.spec.ts:120:5 › Project invalid state has a visible semantic edge and drawer focus remains trapped
+[12/22] e2e/b3-home.spec.ts:107:5 › explicit category activation after playable anchor retains Back context
+[13/22] e2e/b3-sitewide.spec.ts:18:6 › B3 shell covers all 76 public UI URLs at 1440
+[14/22] e2e/b3-home.spec.ts:117:5 › enlarged anchors keep the shared measured header across route changes
+[15/22] e2e/decision-journeys.spec.ts:74:7 › Project Interpreter provider states › provider successは全AI候補の確認後にのみ計画を生成する
+[16/22] e2e/b3-sitewide.spec.ts:18:6 › B3 shell covers all 76 public UI URLs at 375
+[17/22] e2e/b3-sitewide.spec.ts:18:6 › B3 shell covers all 76 public UI URLs at 320
+[18/22] e2e/b3-sitewide.spec.ts:36:5 › B3 representative material, typography and synthetic root200 evidence
+[19/22] e2e/b3-sitewide.spec.ts:69:5 › shared navigation keeps current area, destinations, focus and measured anchors
+[20/22] e2e/b3-sitewide.spec.ts:87:5 › rendered shared loading/error component and 404 families retain recovery surfaces
+e2e/b3-sitewide.spec.ts:87:5 › rendered shared loading/error component and 404 families retain recovery surfaces
+(node:65430) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65430) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+(node:65442) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65442) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[21/22] e2e/b3-sitewide.spec.ts:108:5 › paper fields retain visible keyboard focus and a distinct actual invalid boundary
+[22/22] e2e/b3-sitewide.spec.ts:136:5 › JS-off shared shell keeps actual reading and game destinations
+  Slow test file: e2e/b3-sitewide.spec.ts (7.4m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  22 passed (9.0m)

@@ -1,0 +1,81 @@
+[
+  {
+    "id": "home-category",
+    "width": 375,
+    "root": "16px",
+    "initial": "deck",
+    "nextClicked": true,
+    "listClicked": true,
+    "mode": "list",
+    "available": "true",
+    "items": 5,
+    "overflow": false
+  },
+  {
+    "id": "article-start",
+    "width": 375,
+    "root": "16px",
+    "initial": "deck",
+    "nextClicked": true,
+    "listClicked": true,
+    "mode": "list",
+    "available": "true",
+    "items": 6,
+    "overflow": false
+  },
+  {
+    "id": "article-game",
+    "width": 375,
+    "root": "16px",
+    "initial": "deck",
+    "nextClicked": true,
+    "listClicked": true,
+    "mode": "list",
+    "available": "true",
+    "items": 8,
+    "overflow": false
+  },
+  {
+    "id": "home-category",
+    "width": 320,
+    "root": "16px",
+    "initial": "list",
+    "nextClicked": false,
+    "listClicked": false,
+    "mode": "list",
+    "available": "false",
+    "items": 5,
+    "overflow": false
+  },
+  {
+    "id": "article-start",
+    "width": 320,
+    "root": "16px",
+    "initial": "list",
+    "nextClicked": false,
+    "listClicked": false,
+    "mode": "list",
+    "available": "false",
+    "items": 6,
+    "overflow": false
+  },
+  {
+    "id": "article-game",
+    "width": 320,
+    "root": "16px",
+    "initial": "list",
+    "nextClicked": false,
+    "listClicked": false,
+    "mode": "list",
+    "available": "false",
+    "items": 8,
+    "overflow": false
+  },
+  {
+    "id": "reduced-category",
+    "width": 375,
+    "root": "16px",
+    "mode": "list",
+    "available": "false"
+  }
+]

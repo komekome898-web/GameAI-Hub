@@ -193,6 +193,22 @@ test("Issue 157 Project states, workspace, and token observations validate", asy
   await reachResult(page, "2Dパズル。Godot。ブラウザ。一人開発。初心者。無料。音声なし。3Dなし。");
   await expect(page.locator(".beginner-workspace")).toHaveCount(0);
   await observe({ id: "project-no-workspace", caseId: "VL-V2-PROJECT-WORKSPACE", variantId: "no-workspace", coverage: ["long-content"], roles: [{ role: "task-heading", selector: ".beginner-action h2" }] });
+  // Also measure the painted warning, rather than only its cached hidden box.
+  const fitWarning = page.locator('.secondary-plan .phase-warning li').filter({ hasText: '無料限定条件を満たすと確認できません' }).first();
+  await expect(fitWarning).toBeAttached();
+  for (let attempt = 0; attempt < 8; attempt += 1) {
+    const ancestor = await fitWarning.evaluate(element => {
+      const closed: Element[] = [];
+      for (let parent = element.parentElement; parent; parent = parent.parentElement)
+        if (parent instanceof HTMLDetailsElement && !parent.open) closed.push(parent);
+      const outer = closed.at(-1);
+      return outer ? [...document.querySelectorAll('details')].indexOf(outer as HTMLDetailsElement) : null;
+    });
+    if (ancestor === null) break;
+    await page.locator('details').nth(ancestor).locator(':scope > summary').click();
+  }
+  await expect(fitWarning).toBeVisible();
+  await observe({ id: "project-no-workspace-fit-open", caseId: "VL-V2-PROJECT-WORKSPACE", variantId: "no-workspace", coverage: ["long-content", "focus-reachability"], roles: [{ role: "visible-fit-warning", selector: ".secondary-plan .phase-warning li" }] });
 
   await clearAndOpen(page);
   await reachResult(page);
