@@ -1,0 +1,60 @@
+{
+  "physicalDevice": false,
+  "environment": "local production Chromium",
+  "records": [
+    {
+      "file": "B3-sitewide-review-articles-1440.png",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start#categories",
+      "width": 1440,
+      "scroll": 0,
+      "state": "settled, manually returned to page top",
+      "source": "2071bc57a6ff8cacbdaa80dbe3a5a81f88b0e613",
+      "acceptance": "full-suite pending"
+    },
+    {
+      "file": "B3-sitewide-review-long-article-1440.png",
+      "url": "http://127.0.0.1:3100/articles/meshy-pricing-credits-game/",
+      "width": 1440,
+      "scroll": 0,
+      "state": "settled, manually returned to page top",
+      "source": "2071bc57a6ff8cacbdaa80dbe3a5a81f88b0e613",
+      "acceptance": "full-suite pending"
+    },
+    {
+      "file": "B3-sitewide-review-project-1440.png",
+      "url": "http://127.0.0.1:3100/project/",
+      "width": 1440,
+      "scroll": 0,
+      "state": "settled, manually returned to page top",
+      "source": "2071bc57a6ff8cacbdaa80dbe3a5a81f88b0e613",
+      "acceptance": "full-suite pending"
+    },
+    {
+      "file": "B3-sitewide-review-articles-375.png",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start#categories",
+      "width": 375,
+      "scroll": 0,
+      "state": "settled, manually returned to page top",
+      "source": "2071bc57a6ff8cacbdaa80dbe3a5a81f88b0e613",
+      "acceptance": "full-suite pending"
+    },
+    {
+      "file": "B3-sitewide-review-long-article-375.png",
+      "url": "http://127.0.0.1:3100/articles/meshy-pricing-credits-game/",
+      "width": 375,
+      "scroll": 0,
+      "state": "settled, manually returned to page top",
+      "source": "2071bc57a6ff8cacbdaa80dbe3a5a81f88b0e613",
+      "acceptance": "full-suite pending"
+    },
+    {
+      "file": "B3-sitewide-review-project-375.png",
+      "url": "http://127.0.0.1:3100/project/",
+      "width": 375,
+      "scroll": 0,
+      "state": "settled, manually returned to page top",
+      "source": "2071bc57a6ff8cacbdaa80dbe3a5a81f88b0e613",
+      "acceptance": "full-suite pending"
+    }
+  ]
+}

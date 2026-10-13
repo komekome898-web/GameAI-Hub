@@ -1,0 +1,1081 @@
+{
+  "sha": "c6dfceb46c4e6d7a4b0d067c3963386f2a58b972",
+  "buildId": "YqqTRIIwuCbsna7AIu7XU",
+  "method": "Independent Chromium interaction review, local production server; viewport and synthetic root text emulation; no physical device",
+  "records": [
+    {
+      "id": "second-header-home",
+      "url": "http://127.0.0.1:3100/?hubCategory=start",
+      "geometry": {
+        "client": 1440,
+        "scroll": 1440,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 84,
+          "top": 0,
+          "right": 1440,
+          "bottom": 84,
+          "left": 0
+        },
+        "headerToken": "84px",
+        "active": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"><!--$--><!--/$--></div><a class=\"skip-link\" href=\"#main-content\">\u672c\u6587\u3078\u30b9\u30ad\u30c3\u30d7</a><header class=\"site-header b3-site-header\" style=\"--header-height: 84px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary \u30db\u30fc\u30e0\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b3-mark-line\" d=\"M19 14h8M19 19h8M19 24h4\"></path><path class=\"b3-mark-pixel\" d=\"M27 25h4v4h-4zM31 29h3v3h-3"
+      }
+    },
+    {
+      "id": "second-menu-escape-home-320",
+      "url": "http://127.0.0.1:3100/?hubCategory=start",
+      "geometry": {
+        "client": 320,
+        "scroll": 320,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "top": 0,
+          "right": 320,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<button class=\"menu-button\" type=\"button\" aria-expanded=\"false\" aria-controls=\"mobile-menu\" aria-haspopup=\"dialog\" aria-label=\"\u30e1\u30cb\u30e5\u30fc\u3092\u958b\u304f\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M4 7h16M4 12h16M4 17h16\"></path></svg></button>"
+      }
+    },
+    {
+      "id": "second-header-article",
+      "url": "http://127.0.0.1:3100/articles/meshy-pricing-credits-game/",
+      "geometry": {
+        "client": 1440,
+        "scroll": 1440,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 84,
+          "top": 0,
+          "right": 1440,
+          "bottom": 84,
+          "left": 0
+        },
+        "headerToken": "84px",
+        "active": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"><!--$--><!--/$--></div><a class=\"skip-link\" href=\"#main-content\">\u672c\u6587\u3078\u30b9\u30ad\u30c3\u30d7</a><header class=\"site-header b3-site-header\" style=\"--header-height: 84px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary \u30db\u30fc\u30e0\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b3-mark-line\" d=\"M19 14h8M19 19h8M19 24h4\"></path><path class=\"b3-mark-pixel\" d=\"M27 25h4v4h-4zM31 29h3v3h-3"
+      }
+    },
+    {
+      "id": "second-menu-escape-article-320",
+      "url": "http://127.0.0.1:3100/articles/meshy-pricing-credits-game/",
+      "geometry": {
+        "client": 320,
+        "scroll": 320,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "top": 0,
+          "right": 320,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<button class=\"menu-button\" type=\"button\" aria-expanded=\"false\" aria-controls=\"mobile-menu\" aria-haspopup=\"dialog\" aria-label=\"\u30e1\u30cb\u30e5\u30fc\u3092\u958b\u304f\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M4 7h16M4 12h16M4 17h16\"></path></svg></button>"
+      }
+    },
+    {
+      "id": "second-header-stack",
+      "url": "http://127.0.0.1:3100/stacks/monster-collection-mobile/",
+      "geometry": {
+        "client": 1440,
+        "scroll": 1440,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 84,
+          "top": 0,
+          "right": 1440,
+          "bottom": 84,
+          "left": 0
+        },
+        "headerToken": "84px",
+        "active": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"><!--$--><!--/$--></div><a class=\"skip-link\" href=\"#main-content\">\u672c\u6587\u3078\u30b9\u30ad\u30c3\u30d7</a><header class=\"site-header b3-site-header\" style=\"--header-height: 84px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary \u30db\u30fc\u30e0\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b3-mark-line\" d=\"M19 14h8M19 19h8M19 24h4\"></path><path class=\"b3-mark-pixel\" d=\"M27 25h4v4h-4zM31 29h3v3h-3"
+      }
+    },
+    {
+      "id": "second-menu-escape-stack-320",
+      "url": "http://127.0.0.1:3100/stacks/monster-collection-mobile/",
+      "geometry": {
+        "client": 320,
+        "scroll": 320,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "top": 0,
+          "right": 320,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<button class=\"menu-button\" type=\"button\" aria-expanded=\"false\" aria-controls=\"mobile-menu\" aria-haspopup=\"dialog\" aria-label=\"\u30e1\u30cb\u30e5\u30fc\u3092\u958b\u304f\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M4 7h16M4 12h16M4 17h16\"></path></svg></button>"
+      }
+    },
+    {
+      "id": "second-header-project",
+      "url": "http://127.0.0.1:3100/project/",
+      "geometry": {
+        "client": 1440,
+        "scroll": 1440,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 84,
+          "top": 0,
+          "right": 1440,
+          "bottom": 84,
+          "left": 0
+        },
+        "headerToken": "84px",
+        "active": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"><!--$--><!--/$--></div><a class=\"skip-link\" href=\"#main-content\">\u672c\u6587\u3078\u30b9\u30ad\u30c3\u30d7</a><header class=\"site-header b3-site-header\" style=\"--header-height: 84px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary \u30db\u30fc\u30e0\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b3-mark-line\" d=\"M19 14h8M19 19h8M19 24h4\"></path><path class=\"b3-mark-pixel\" d=\"M27 25h4v4h-4zM31 29h3v3h-3"
+      }
+    },
+    {
+      "id": "second-menu-escape-project-320",
+      "url": "http://127.0.0.1:3100/project/",
+      "geometry": {
+        "client": 320,
+        "scroll": 320,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "top": 0,
+          "right": 320,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<button class=\"menu-button\" type=\"button\" aria-expanded=\"false\" aria-controls=\"mobile-menu\" aria-haspopup=\"dialog\" aria-label=\"\u30e1\u30cb\u30e5\u30fc\u3092\u958b\u304f\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M4 7h16M4 12h16M4 17h16\"></path></svg></button>"
+      }
+    },
+    {
+      "id": "second-header-builder",
+      "url": "http://127.0.0.1:3100/builder/",
+      "geometry": {
+        "client": 1440,
+        "scroll": 1440,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 84,
+          "top": 0,
+          "right": 1440,
+          "bottom": 84,
+          "left": 0
+        },
+        "headerToken": "84px",
+        "active": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"><!--$--><!--/$--></div><a class=\"skip-link\" href=\"#main-content\">\u672c\u6587\u3078\u30b9\u30ad\u30c3\u30d7</a><header class=\"site-header b3-site-header\" style=\"--header-height: 84px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary \u30db\u30fc\u30e0\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b3-mark-line\" d=\"M19 14h8M19 19h8M19 24h4\"></path><path class=\"b3-mark-pixel\" d=\"M27 25h4v4h-4zM31 29h3v3h-3"
+      }
+    },
+    {
+      "id": "second-menu-escape-builder-320",
+      "url": "http://127.0.0.1:3100/builder/",
+      "geometry": {
+        "client": 320,
+        "scroll": 320,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "top": 0,
+          "right": 320,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<button class=\"menu-button\" type=\"button\" aria-expanded=\"false\" aria-controls=\"mobile-menu\" aria-haspopup=\"dialog\" aria-label=\"\u30e1\u30cb\u30e5\u30fc\u3092\u958b\u304f\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M4 7h16M4 12h16M4 17h16\"></path></svg></button>"
+      }
+    },
+    {
+      "id": "second-breadcrumb-stacks-monster-collection-mobile-320",
+      "url": "http://127.0.0.1:3100/stacks/monster-collection-mobile/",
+      "breadcrumbs": {
+        "overflow": "visible",
+        "whiteSpace": "normal",
+        "rect": {
+          "x": 25,
+          "y": 81,
+          "width": 270,
+          "height": 82.4375,
+          "top": 81,
+          "right": 295,
+          "bottom": 163.4375,
+          "left": 25
+        },
+        "children": [
+          {
+            "text": "\u30db\u30fc\u30e0",
+            "rect": {
+              "x": 25,
+              "y": 107,
+              "width": 37.046875,
+              "height": 21.21875,
+              "top": 107,
+              "right": 62.046875,
+              "bottom": 128.21875,
+              "left": 25
+            },
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "/",
+            "rect": {
+              "x": 71.046875,
+              "y": 107,
+              "width": 4.890625,
+              "height": 21.21875,
+              "top": 107,
+              "right": 75.9375,
+              "bottom": 128.21875,
+              "left": 71.046875
+            },
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Stack",
+            "rect": {
+              "x": 84.9375,
+              "y": 107,
+              "width": 31.703125,
+              "height": 21.21875,
+              "top": 107,
+              "right": 116.640625,
+              "bottom": 128.21875,
+              "left": 84.9375
+            },
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "/",
+            "rect": {
+              "x": 125.640625,
+              "y": 107,
+              "width": 4.890625,
+              "height": 21.21875,
+              "top": 107,
+              "right": 130.53125,
+              "bottom": 128.21875,
+              "left": 125.640625
+            },
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "\u30e2\u30f3\u30b9\u30bf\u30fc\u53ce\u96c6\u30e2\u30d0\u30a4\u30eb\u30b2\u30fc\u30e0\u5236\u4f5c\u69cb\u6210",
+            "rect": {
+              "x": 25,
+              "y": 137.21875,
+              "width": 270,
+              "height": 21.21875,
+              "top": 137.21875,
+              "right": 295,
+              "bottom": 158.4375,
+              "left": 25
+            },
+            "whiteSpace": "normal"
+          }
+        ]
+      },
+      "geometry": {
+        "client": 320,
+        "scroll": 320,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "top": 0,
+          "right": 320,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"><!--$--><!--/$--></div><a class=\"skip-link\" href=\"#main-content\">\u672c\u6587\u3078\u30b9\u30ad\u30c3\u30d7</a><header class=\"site-header b3-site-header\" style=\"--header-height: 64px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary \u30db\u30fc\u30e0\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b3-mark-line\" d=\"M19 14h8M19 19h8M19 24h4\"></path><path class=\"b3-mark-pixel\" d=\"M27 25h4v4h-4zM31 29h3v3h-3"
+      }
+    },
+    {
+      "id": "second-breadcrumb-stacks-solo-developer-320",
+      "url": "http://127.0.0.1:3100/stacks/solo-developer/",
+      "breadcrumbs": {
+        "overflow": "visible",
+        "whiteSpace": "normal",
+        "rect": {
+          "x": 25,
+          "y": 81,
+          "width": 270,
+          "height": 82.4375,
+          "top": 81,
+          "right": 295,
+          "bottom": 163.4375,
+          "left": 25
+        },
+        "children": [
+          {
+            "text": "\u30db\u30fc\u30e0",
+            "rect": {
+              "x": 25,
+              "y": 107,
+              "width": 37.046875,
+              "height": 21.21875,
+              "top": 107,
+              "right": 62.046875,
+              "bottom": 128.21875,
+              "left": 25
+            },
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "/",
+            "rect": {
+              "x": 71.046875,
+              "y": 107,
+              "width": 4.890625,
+              "height": 21.21875,
+              "top": 107,
+              "right": 75.9375,
+              "bottom": 128.21875,
+              "left": 71.046875
+            },
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Stack",
+            "rect": {
+              "x": 84.9375,
+              "y": 107,
+              "width": 31.703125,
+              "height": 21.21875,
+              "top": 107,
+              "right": 116.640625,
+              "bottom": 128.21875,
+              "left": 84.9375
+            },
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "/",
+            "rect": {
+              "x": 125.640625,
+              "y": 107,
+              "width": 4.890625,
+              "height": 21.21875,
+              "top": 107,
+              "right": 130.53125,
+              "bottom": 128.21875,
+              "left": 125.640625
+            },
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "\u500b\u4eba\u958b\u767a\u8005\u5411\u3051\u5236\u4f5c\u69cb\u6210",
+            "rect": {
+              "x": 25,
+              "y": 137.21875,
+              "width": 270,
+              "height": 21.21875,
+              "top": 137.21875,
+              "right": 295,
+              "bottom": 158.4375,
+              "left": 25
+            },
+            "whiteSpace": "normal"
+          }
+        ]
+      },
+      "geometry": {
+        "client": 320,
+        "scroll": 320,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "top": 0,
+          "right": 320,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"><!--$--><!--/$--></div><a class=\"skip-link\" href=\"#main-content\">\u672c\u6587\u3078\u30b9\u30ad\u30c3\u30d7</a><header class=\"site-header b3-site-header\" style=\"--header-height: 64px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary \u30db\u30fc\u30e0\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b3-mark-line\" d=\"M19 14h8M19 19h8M19 24h4\"></path><path class=\"b3-mark-pixel\" d=\"M27 25h4v4h-4zM31 29h3v3h-3"
+      }
+    },
+    {
+      "id": "second-breadcrumb-articles-elevenlabs-v4-game-voice-320",
+      "url": "http://127.0.0.1:3100/articles/elevenlabs-v4-game-voice/",
+      "breadcrumbs": {
+        "overflow": "visible",
+        "whiteSpace": "normal",
+        "rect": {
+          "x": 25,
+          "y": 85,
+          "width": 270,
+          "height": 30.46875,
+          "top": 85,
+          "right": 295,
+          "bottom": 115.46875,
+          "left": 25
+        },
+        "children": [
+          {
+            "text": "\u30db\u30fc\u30e0",
+            "rect": {
+              "x": 25,
+              "y": 93,
+              "width": 37.046875,
+              "height": 17.46875,
+              "top": 93,
+              "right": 62.046875,
+              "bottom": 110.46875,
+              "left": 25
+            },
+            "whiteSpace": "nowrap"
+          },
+          {
+            "text": "/",
+            "rect": {
+              "x": 71.046875,
+              "y": 93,
+              "width": 4.890625,
+              "height": 17.46875,
+              "top": 93,
+              "right": 75.9375,
+              "bottom": 110.46875,
+              "left": 71.046875
+            },
+            "whiteSpace": "nowrap"
+          },
+          {
+            "text": "\u8a18\u4e8b",
+            "rect": {
+              "x": 84.9375,
+              "y": 93,
+              "width": 24.953125,
+              "height": 17.46875,
+              "top": 93,
+              "right": 109.890625,
+              "bottom": 110.46875,
+              "left": 84.9375
+            },
+            "whiteSpace": "nowrap"
+          },
+          {
+            "text": "/",
+            "rect": {
+              "x": 118.890625,
+              "y": 93,
+              "width": 4.890625,
+              "height": 17.46875,
+              "top": 93,
+              "right": 123.78125,
+              "bottom": 110.46875,
+              "left": 118.890625
+            },
+            "whiteSpace": "nowrap"
+          },
+          {
+            "text": "ElevenLabs v4\u3068\u306f\uff1f\u30b2\u30fc\u30e0\u97f3\u58f0\u306e\u5909\u5316\u30fbv3\u3068\u306e\u9055\u3044\u30fb\u65e5\u672c\u8a9e\u30fbTurbo\u3092\u89e3\u8aac",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            },
+            "whiteSpace": "normal"
+          }
+        ]
+      },
+      "geometry": {
+        "client": 320,
+        "scroll": 320,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "top": 0,
+          "right": 320,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"><!--$--><!--/$--></div><a class=\"skip-link\" href=\"#main-content\">\u672c\u6587\u3078\u30b9\u30ad\u30c3\u30d7</a><header class=\"site-header b3-site-header\" style=\"--header-height: 64px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary \u30db\u30fc\u30e0\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b3-mark-line\" d=\"M19 14h8M19 19h8M19 24h4\"></path><path class=\"b3-mark-pixel\" d=\"M27 25h4v4h-4zM31 29h3v3h-3"
+      }
+    },
+    {
+      "id": "second-breadcrumb-games-monster-construction-320",
+      "url": "http://127.0.0.1:3100/games/monster-construction/",
+      "breadcrumbs": {
+        "overflow": "visible",
+        "whiteSpace": "normal",
+        "rect": {
+          "x": 25,
+          "y": 85,
+          "width": 270,
+          "height": 30.46875,
+          "top": 85,
+          "right": 295,
+          "bottom": 115.46875,
+          "left": 25
+        },
+        "children": [
+          {
+            "text": "\u30db\u30fc\u30e0",
+            "rect": {
+              "x": 25,
+              "y": 93,
+              "width": 37.046875,
+              "height": 17.46875,
+              "top": 93,
+              "right": 62.046875,
+              "bottom": 110.46875,
+              "left": 25
+            },
+            "whiteSpace": "nowrap"
+          },
+          {
+            "text": " / ",
+            "rect": {
+              "x": 71.046875,
+              "y": 93,
+              "width": 4.890625,
+              "height": 17.46875,
+              "top": 93,
+              "right": 75.9375,
+              "bottom": 110.46875,
+              "left": 71.046875
+            },
+            "whiteSpace": "nowrap"
+          },
+          {
+            "text": "\u4f5c\u54c1\u4e00\u89a7\u3078\u623b\u308b",
+            "rect": {
+              "x": 84.9375,
+              "y": 93,
+              "width": 87.296875,
+              "height": 17.46875,
+              "top": 93,
+              "right": 172.234375,
+              "bottom": 110.46875,
+              "left": 84.9375
+            },
+            "whiteSpace": "nowrap"
+          },
+          {
+            "text": " / ",
+            "rect": {
+              "x": 181.234375,
+              "y": 93,
+              "width": 4.890625,
+              "height": 17.46875,
+              "top": 93,
+              "right": 186.125,
+              "bottom": 110.46875,
+              "left": 181.234375
+            },
+            "whiteSpace": "nowrap"
+          },
+          {
+            "text": "\u30e2\u30f3\u30b9\u30bf\u30fc\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30b7\u30e7\u30f3",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            },
+            "whiteSpace": "normal"
+          }
+        ]
+      },
+      "geometry": {
+        "client": 320,
+        "scroll": 320,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "top": 0,
+          "right": 320,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"><!--$--><!--/$--></div><a class=\"skip-link\" href=\"#main-content\">\u672c\u6587\u3078\u30b9\u30ad\u30c3\u30d7</a><header class=\"site-header b3-site-header\" style=\"--header-height: 64px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary \u30db\u30fc\u30e0\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b3-mark-line\" d=\"M19 14h8M19 19h8M19 24h4\"></path><path class=\"b3-mark-pixel\" d=\"M27 25h4v4h-4zM31 29h3v3h-3"
+      }
+    },
+    {
+      "id": "second-breadcrumb-tools-anything-world-320",
+      "url": "http://127.0.0.1:3100/tools/anything-world/",
+      "breadcrumbs": {
+        "overflow": "visible",
+        "whiteSpace": "normal",
+        "rect": {
+          "x": 25,
+          "y": 81,
+          "width": 270,
+          "height": 82.4375,
+          "top": 81,
+          "right": 295,
+          "bottom": 163.4375,
+          "left": 25
+        },
+        "children": [
+          {
+            "text": "\u30db\u30fc\u30e0",
+            "rect": {
+              "x": 25,
+              "y": 107,
+              "width": 37.046875,
+              "height": 21.21875,
+              "top": 107,
+              "right": 62.046875,
+              "bottom": 128.21875,
+              "left": 25
+            },
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "/",
+            "rect": {
+              "x": 71.046875,
+              "y": 107,
+              "width": 4.890625,
+              "height": 21.21875,
+              "top": 107,
+              "right": 75.9375,
+              "bottom": 128.21875,
+              "left": 71.046875
+            },
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "\u30c4\u30fc\u30eb",
+            "rect": {
+              "x": 84.9375,
+              "y": 107,
+              "width": 37.421875,
+              "height": 21.21875,
+              "top": 107,
+              "right": 122.359375,
+              "bottom": 128.21875,
+              "left": 84.9375
+            },
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "/",
+            "rect": {
+              "x": 131.359375,
+              "y": 107,
+              "width": 4.890625,
+              "height": 21.21875,
+              "top": 107,
+              "right": 136.25,
+              "bottom": 128.21875,
+              "left": 131.359375
+            },
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "Anything World",
+            "rect": {
+              "x": 25,
+              "y": 137.21875,
+              "width": 270,
+              "height": 21.21875,
+              "top": 137.21875,
+              "right": 295,
+              "bottom": 158.4375,
+              "left": 25
+            },
+            "whiteSpace": "normal"
+          }
+        ]
+      },
+      "geometry": {
+        "client": 320,
+        "scroll": 320,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "top": 0,
+          "right": 320,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"><!--$--><!--/$--></div><a class=\"skip-link\" href=\"#main-content\">\u672c\u6587\u3078\u30b9\u30ad\u30c3\u30d7</a><header class=\"site-header b3-site-header\" style=\"--header-height: 64px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary \u30db\u30fc\u30e0\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b3-mark-line\" d=\"M19 14h8M19 19h8M19 24h4\"></path><path class=\"b3-mark-pixel\" d=\"M27 25h4v4h-4zM31 29h3v3h-3"
+      }
+    },
+    {
+      "id": "second-breadcrumb-guides-ai-2d-rpg-workflow-320",
+      "url": "http://127.0.0.1:3100/guides/ai-2d-rpg-workflow/",
+      "breadcrumbs": {
+        "overflow": "visible",
+        "whiteSpace": "normal",
+        "rect": {
+          "x": 37.796875,
+          "y": 81,
+          "width": 244.40625,
+          "height": 82.4375,
+          "top": 81,
+          "right": 282.203125,
+          "bottom": 163.4375,
+          "left": 37.796875
+        },
+        "children": [
+          {
+            "text": "\u5236\u4f5c\u30ac\u30a4\u30c9",
+            "rect": {
+              "x": 37.796875,
+              "y": 107,
+              "width": 62.359375,
+              "height": 21.21875,
+              "top": 107,
+              "right": 100.15625,
+              "bottom": 128.21875,
+              "left": 37.796875
+            },
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "/",
+            "rect": {
+              "x": 109.15625,
+              "y": 107,
+              "width": 4.890625,
+              "height": 21.21875,
+              "top": 107,
+              "right": 114.046875,
+              "bottom": 128.21875,
+              "left": 109.15625
+            },
+            "whiteSpace": "normal"
+          },
+          {
+            "text": "AI\u30672D RPG\u3092\u4f5c\u308b",
+            "rect": {
+              "x": 37.796875,
+              "y": 137.21875,
+              "width": 244.40625,
+              "height": 21.21875,
+              "top": 137.21875,
+              "right": 282.203125,
+              "bottom": 158.4375,
+              "left": 37.796875
+            },
+            "whiteSpace": "normal"
+          }
+        ]
+      },
+      "geometry": {
+        "client": 320,
+        "scroll": 320,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "top": 0,
+          "right": 320,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"><!--$--><!--/$--></div><a class=\"skip-link\" href=\"#main-content\">\u672c\u6587\u3078\u30b9\u30ad\u30c3\u30d7</a><header class=\"site-header b3-site-header\" style=\"--header-height: 64px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary \u30db\u30fc\u30e0\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b3-mark-line\" d=\"M19 14h8M19 19h8M19 24h4\"></path><path class=\"b3-mark-pixel\" d=\"M27 25h4v4h-4zM31 29h3v3h-3"
+      }
+    },
+    {
+      "id": "home-list-game-back-375",
+      "url": "http://127.0.0.1:3100/?homeGame=tomoshibi&homeView=list#games",
+      "geometry": {
+        "client": 375,
+        "scroll": 375,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 64,
+          "top": 0,
+          "right": 375,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<a class=\"b3-game-detail\" href=\"/games/tomoshibi/\">\u4f5c\u54c1\u306e\u7d39\u4ecb <span aria-hidden=\"true\">\u2197</span></a>"
+      }
+    },
+    {
+      "id": "home-list-game-breadcrumb-375",
+      "url": "http://127.0.0.1:3100/?homeGame=tomoshibi&homeView=list#games",
+      "geometry": {
+        "client": 375,
+        "scroll": 375,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 64,
+          "top": 0,
+          "right": 375,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<a class=\"b3-game-detail\" href=\"/games/tomoshibi/\">\u4f5c\u54c1\u306e\u7d39\u4ecb <span aria-hidden=\"true\">\u2197</span></a>"
+      }
+    },
+    {
+      "id": "article-return-375",
+      "url": "http://127.0.0.1:3100/articles/?hubArticle=elevenlabs-v4-game-voice&hubCategory=voice#voice",
+      "geometry": {
+        "client": 375,
+        "scroll": 375,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 64,
+          "top": 0,
+          "right": 375,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<a class=\"v2-start-card-face\" aria-label=\"ElevenLabs v4\u3068\u306f\uff1f\u30b2\u30fc\u30e0\u97f3\u58f0\u306e\u5909\u5316\u30fbv3\u3068\u306e\u9055\u3044\u30fb\u65e5\u672c\u8a9e\u30fbTurbo\u3092\u89e3\u8aac\" href=\"/articles/elevenlabs-v4-game-voice/\"><span class=\"v2-start-card-meta\"><span class=\"v2-start-card-label\">\u30c4\u30fc\u30eb\u5b9f\u8df5</span><small>\u66f4\u65b0 2026-10-11</small></span><strong>ElevenLabs v4\u3068\u306f\uff1f\u30b2\u30fc\u30e0\u97f3\u58f0\u306e\u5909\u5316\u30fbv3\u3068\u306e\u9055\u3044\u30fb\u65e5\u672c\u8a9e\u30fbTurbo\u3092\u89e3\u8aac</strong><span class=\"v2-start-card-read\" aria-hidden=\"true\">\u8a18\u4e8b\u3092\u8aad\u3080 <b>\u2192</b></span></a>"
+      }
+    },
+    {
+      "id": "home-category-back-375",
+      "url": "http://127.0.0.1:3100/?hubCategory=voice#categories",
+      "geometry": {
+        "client": 375,
+        "scroll": 375,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 64,
+          "top": 0,
+          "right": 375,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<a class=\"v2-start-card-face\" aria-label=\"\u97f3\u3068\u58f0\u3092\u4f5c\u308b\" data-category=\"voice\" href=\"/articles/?hubEntry=home&amp;hubCategory=voice#voice\"><span class=\"v2-start-card-meta\"><span class=\"v2-start-card-label\">\u5236\u4f5c\u30ab\u30c6\u30b4\u30ea</span><small>3\u672c\u306e\u8a18\u4e8b</small></span><strong>\u97f3\u3068\u58f0\u3092\u4f5c\u308b</strong><span class=\"v2-start-card-read\" aria-hidden=\"true\">\u8a18\u4e8b\u3092\u898b\u308b <b>\u2192</b></span></a>"
+      }
+    },
+    {
+      "id": "tools-goal-compare-375",
+      "url": "http://127.0.0.1:3100/compare/?ids=meshy%2Ctripo-ai&goal=3d&stage=3d&diff=1",
+      "geometry": {
+        "client": 375,
+        "scroll": 375,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 64,
+          "top": 0,
+          "right": 375,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<input type=\"checkbox\">"
+      }
+    },
+    {
+      "id": "compare-tools-back-375",
+      "url": "http://127.0.0.1:3100/tools/?goal=3d",
+      "geometry": {
+        "client": 375,
+        "scroll": 375,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 64,
+          "top": 0,
+          "right": 375,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"></div><a class=\"skip-link\" href=\"#main-content\">\u672c\u6587\u3078\u30b9\u30ad\u30c3\u30d7</a><header class=\"site-header b3-site-header\" style=\"--header-height: 64px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary \u30db\u30fc\u30e0\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b3-mark-line\" d=\"M19 14h8M19 19h8M19 24h4\"></path><path class=\"b3-mark-pixel\" d=\"M27 25h4v4h-4zM31 29h3v3h-3z\"></path></svg><"
+      }
+    },
+    {
+      "id": "project-empty-error-375",
+      "url": "http://127.0.0.1:3100/project/",
+      "geometry": {
+        "client": 375,
+        "scroll": 375,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 64,
+          "top": 0,
+          "right": 375,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<button class=\"button\" type=\"submit\">\u5236\u4f5c\u30ed\u30fc\u30c9\u30de\u30c3\u30d7\u3092\u4f5c\u308b</button>"
+      }
+    },
+    {
+      "id": "project-clarify-error-375",
+      "url": "http://127.0.0.1:3100/project/",
+      "geometry": {
+        "client": 375,
+        "scroll": 375,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 64,
+          "top": 0,
+          "right": 375,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<select id=\"project-field-dimension\"><option value=\"2d\">2D</option><option value=\"3d\">3D</option><option value=\"unknown\">\u672a\u78ba\u8a8d</option></select>"
+      }
+    },
+    {
+      "id": "builder-empty-error-375",
+      "url": "http://127.0.0.1:3100/builder/",
+      "geometry": {
+        "client": 375,
+        "scroll": 375,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 64,
+          "top": 0,
+          "right": 375,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<button class=\"button\" type=\"submit\">\u5236\u4f5c\u30ed\u30fc\u30c9\u30de\u30c3\u30d7\u3092\u4f5c\u308b</button>"
+      }
+    },
+    {
+      "id": "builder-clarify-error-375",
+      "url": "http://127.0.0.1:3100/builder/",
+      "geometry": {
+        "client": 375,
+        "scroll": 375,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 64,
+          "top": 0,
+          "right": 375,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<select id=\"project-field-dimension\"><option value=\"2d\">2D</option><option value=\"3d\">3D</option><option value=\"unknown\">\u672a\u78ba\u8a8d</option></select>"
+      }
+    },
+    {
+      "id": "project-current-task-375",
+      "url": "http://127.0.0.1:3100/project?v=1&p=%7B%22genre%22%3A%22other%22%2C%22dimension%22%3A%222d%22%2C%22platform%22%3A%22web%22%2C%22engine%22%3A%22undecided%22%2C%22budget%22%3A%22free%22%2C%22experience%22%3A%22beginner%22%2C%22team%22%3A%22solo%22%2C%22commercialIntent%22%3A%22undecided%22%2C%22capabilities%22%3A%5B%5D%2C%22locale%22%3A%22ja%22%7D&draft=f8470e82deea3a60d2cabf31f3451cac",
+      "draft": "f8470e82deea3a60d2cabf31f3451cac",
+      "geometry": {
+        "client": 375,
+        "scroll": 375,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 64,
+          "top": 0,
+          "right": 375,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<h1 tabindex=\"-1\">2D \u30b2\u30fc\u30e0\u5236\u4f5c\u30d7\u30ed\u30b8\u30a7\u30af\u30c8</h1>"
+      }
+    },
+    {
+      "id": "project-recovery-long-error-375",
+      "url": "http://127.0.0.1:3100/project?v=1&p=%7B%22genre%22%3A%22other%22%2C%22dimension%22%3A%222d%22%2C%22platform%22%3A%22web%22%2C%22engine%22%3A%22undecided%22%2C%22budget%22%3A%22free%22%2C%22experience%22%3A%22beginner%22%2C%22team%22%3A%22solo%22%2C%22commercialIntent%22%3A%22undecided%22%2C%22capabilities%22%3A%5B%5D%2C%22locale%22%3A%22ja%22%7D&draft=f8470e82deea3a60d2cabf31f3451cac",
+      "draft": "f8470e82deea3a60d2cabf31f3451cac",
+      "geometry": {
+        "client": 375,
+        "scroll": 375,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 64,
+          "top": 0,
+          "right": 375,
+          "bottom": 64,
+          "left": 0
+        },
+        "headerToken": "64px",
+        "active": "<textarea maxlength=\"1200\" rows=\"3\" placeholder=\"\u4f8b\uff1a\u30b3\u30fc\u30c9\u3092\u8cbc\u3063\u3066\u300c\u30b2\u30fc\u30e0\u3092\u8868\u793a\u300d\u3092\u62bc\u3057\u305f\u3089\u3001\u753b\u9762\u304c\u771f\u3063\u767d\u3067\u3057\u305f\">LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_</textarea>"
+      }
+    },
+    {
+      "id": "project-recovery-root200-320",
+      "url": "http://127.0.0.1:3100/project?v=1&p=%7B%22genre%22%3A%22other%22%2C%22dimension%22%3A%222d%22%2C%22platform%22%3A%22web%22%2C%22engine%22%3A%22undecided%22%2C%22budget%22%3A%22free%22%2C%22experience%22%3A%22beginner%22%2C%22team%22%3A%22solo%22%2C%22commercialIntent%22%3A%22undecided%22%2C%22capabilities%22%3A%5B%5D%2C%22locale%22%3A%22ja%22%7D&draft=f8470e82deea3a60d2cabf31f3451cac",
+      "draft": "f8470e82deea3a60d2cabf31f3451cac",
+      "geometry": {
+        "client": 320,
+        "scroll": 320,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 126.78125,
+          "top": 0,
+          "right": 320,
+          "bottom": 126.78125,
+          "left": 0
+        },
+        "headerToken": "126.78125px",
+        "active": "<textarea maxlength=\"1200\" rows=\"3\" placeholder=\"\u4f8b\uff1a\u30b3\u30fc\u30c9\u3092\u8cbc\u3063\u3066\u300c\u30b2\u30fc\u30e0\u3092\u8868\u793a\u300d\u3092\u62bc\u3057\u305f\u3089\u3001\u753b\u9762\u304c\u771f\u3063\u767d\u3067\u3057\u305f\" style=\"\">LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_</textar"
+      },
+      "visualStatus": "Excluded transient root-resize capture; use project-recovery-settled-root200-320.png at the same runtime pin"
+    }
+  ],
+  "errors": [],
+  "blocked": []
+}

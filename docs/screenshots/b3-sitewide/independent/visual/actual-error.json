@@ -1,0 +1,215 @@
+{
+  "sha": "c6dfceb46c4e6d7a4b0d067c3963386f2a58b972",
+  "records": [
+    {
+      "id": "project",
+      "width": 1440,
+      "method": "actual-detail-empty-error-deterministic-fallback",
+      "normal": {
+        "border": "rgb(124, 137, 109)",
+        "bg": "rgb(255, 253, 248)"
+      },
+      "observation": {
+        "invalid": "true",
+        "border": "rgb(163, 59, 53)",
+        "bg": "rgb(255, 253, 248)",
+        "focused": true,
+        "outline": "rgb(49, 90, 66)",
+        "bounds": {
+          "x": 281,
+          "y": 558.453125,
+          "width": 638,
+          "height": 78,
+          "top": 558.453125,
+          "right": 919,
+          "bottom": 636.453125,
+          "left": 281
+        },
+        "error": "計画を作る前に確認してください\n\n計画に含めるゲーム固有情報を1文字以上入力してください\n\n入力済みの内容は消えていません。",
+        "doc": 1440,
+        "viewport": 1440,
+        "headerBottom": 84
+      }
+    },
+    {
+      "id": "project",
+      "width": 375,
+      "method": "actual-detail-empty-error-deterministic-fallback",
+      "normal": {
+        "border": "rgb(124, 137, 109)",
+        "bg": "rgb(255, 253, 248)"
+      },
+      "observation": {
+        "invalid": "true",
+        "border": "rgb(163, 59, 53)",
+        "bg": "rgb(255, 253, 248)",
+        "focused": true,
+        "outline": "rgb(49, 90, 66)",
+        "bounds": {
+          "x": 68,
+          "y": 387.265625,
+          "width": 239,
+          "height": 76.375,
+          "top": 387.265625,
+          "right": 307,
+          "bottom": 463.640625,
+          "left": 68
+        },
+        "error": "計画を作る前に確認してください\n\n計画に含めるゲーム固有情報を1文字以上入力してください\n\n入力済みの内容は消えていません。",
+        "doc": 375,
+        "viewport": 375,
+        "headerBottom": 64
+      }
+    },
+    {
+      "id": "project",
+      "width": 320,
+      "method": "actual-detail-empty-error-deterministic-fallback",
+      "normal": {
+        "border": "rgb(124, 137, 109)",
+        "bg": "rgb(255, 253, 248)"
+      },
+      "observation": {
+        "invalid": "true",
+        "border": "rgb(163, 59, 53)",
+        "bg": "rgb(255, 253, 248)",
+        "focused": true,
+        "outline": "rgb(49, 90, 66)",
+        "bounds": {
+          "x": 58,
+          "y": 387.03125,
+          "width": 204,
+          "height": 76.375,
+          "top": 387.03125,
+          "right": 262,
+          "bottom": 463.40625,
+          "left": 58
+        },
+        "error": "計画を作る前に確認してください\n\n計画に含めるゲーム固有情報を1文字以上入力してください\n\n入力済みの内容は消えていません。",
+        "doc": 320,
+        "viewport": 320,
+        "headerBottom": 64
+      }
+    },
+    {
+      "id": "project",
+      "width": 320,
+      "method": "synthetic-root-text-actual-error",
+      "base": 16,
+      "after": {
+        "size": 16,
+        "border": "rgb(163, 59, 53)",
+        "focused": true,
+        "bounds": {
+          "x": 58,
+          "y": 469.109375,
+          "width": 204,
+          "height": 76.375,
+          "top": 469.109375,
+          "right": 262,
+          "bottom": 545.484375,
+          "left": 58
+        },
+        "doc": 320
+      }
+    },
+    {
+      "id": "project",
+      "width": 320,
+      "method": "synthetic-computed-text-actual-error",
+      "base": 16,
+      "after": {
+        "size": 32,
+        "border": "rgb(163, 59, 53)",
+        "focused": true,
+        "bounds": {
+          "x": 58,
+          "y": 151.125,
+          "width": 204,
+          "height": 130.78125,
+          "top": 151.125,
+          "right": 262,
+          "bottom": 281.90625,
+          "left": 58
+        },
+        "doc": 320,
+        "headerBottom": 126.78125
+      }
+    },
+    {
+      "id": "builder",
+      "width": 320,
+      "method": "actual-detail-empty-error-deterministic-fallback",
+      "normal": {
+        "border": "rgb(124, 137, 109)",
+        "bg": "rgb(255, 253, 248)"
+      },
+      "observation": {
+        "invalid": "true",
+        "border": "rgb(163, 59, 53)",
+        "bg": "rgb(255, 253, 248)",
+        "focused": true,
+        "outline": "rgb(49, 90, 66)",
+        "bounds": {
+          "x": 58,
+          "y": 397.03125,
+          "width": 204,
+          "height": 76.375,
+          "top": 397.03125,
+          "right": 262,
+          "bottom": 473.40625,
+          "left": 58
+        },
+        "error": "計画を作る前に確認してください\n\n計画に含めるゲーム固有情報を1文字以上入力してください\n\n入力済みの内容は消えていません。",
+        "doc": 320,
+        "viewport": 320,
+        "headerBottom": 64
+      }
+    },
+    {
+      "id": "builder",
+      "width": 320,
+      "method": "synthetic-root-text-actual-error",
+      "base": 16,
+      "after": {
+        "size": 16,
+        "border": "rgb(163, 59, 53)",
+        "focused": true,
+        "bounds": {
+          "x": 58,
+          "y": 469.109375,
+          "width": 204,
+          "height": 76.375,
+          "top": 469.109375,
+          "right": 262,
+          "bottom": 545.484375,
+          "left": 58
+        },
+        "doc": 320
+      }
+    },
+    {
+      "id": "builder",
+      "width": 320,
+      "method": "synthetic-computed-text-actual-error",
+      "base": 16,
+      "after": {
+        "size": 32,
+        "border": "rgb(163, 59, 53)",
+        "focused": true,
+        "bounds": {
+          "x": 58,
+          "y": 151.125,
+          "width": 204,
+          "height": 130.78125,
+          "top": 151.125,
+          "right": 262,
+          "bottom": 281.90625,
+          "left": 58
+        },
+        "doc": 320,
+        "headerBottom": 126.78125
+      }
+    }
+  ]
+}

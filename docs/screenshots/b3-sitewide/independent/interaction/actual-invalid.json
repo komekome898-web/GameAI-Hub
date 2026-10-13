@@ -1,0 +1,51 @@
+{
+  "sha": "c6dfceb46c4e6d7a4b0d067c3963386f2a58b972",
+  "records": [
+    {
+      "route": "/project/",
+      "snapshot": {
+        "id": "project-detail-detail-setting-0-h3u1",
+        "value": " ",
+        "invalid": "true",
+        "border": "rgb(163, 59, 53)",
+        "expected": "#a33b35",
+        "rect": {
+          "x": 58,
+          "y": 438.109375,
+          "width": 204,
+          "height": 76.375,
+          "top": 438.109375,
+          "right": 262,
+          "bottom": 514.484375,
+          "left": 58
+        },
+        "documentWidth": 320,
+        "viewport": 320
+      },
+      "invalidBorder": "PASS"
+    },
+    {
+      "route": "/builder/",
+      "snapshot": {
+        "id": "project-detail-detail-setting-0-h3u1",
+        "value": " ",
+        "invalid": "true",
+        "border": "rgb(163, 59, 53)",
+        "expected": "#a33b35",
+        "rect": {
+          "x": 58,
+          "y": 438.109375,
+          "width": 204,
+          "height": 76.375,
+          "top": 438.109375,
+          "right": 262,
+          "bottom": 514.484375,
+          "left": 58
+        },
+        "documentWidth": 320,
+        "viewport": 320
+      },
+      "invalidBorder": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,284 @@
+{
+  "sha": "c6dfceb46c4e6d7a4b0d067c3963386f2a58b972",
+  "records": [
+    {
+      "id": "privacy-anchor-settled-root200-320",
+      "url": "http://127.0.0.1:3100/privacy/#analytics",
+      "geometry": {
+        "scrollY": 1941,
+        "scroll": 320,
+        "client": 320,
+        "target": {
+          "x": 25,
+          "y": 285.265625,
+          "width": 270,
+          "height": 1082.265625,
+          "top": 285.265625,
+          "right": 295,
+          "bottom": 1367.53125,
+          "left": 25
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 126.78125,
+          "top": 0,
+          "right": 320,
+          "bottom": 126.78125,
+          "left": 0
+        },
+        "focused": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"><!--$--><!--/$--></div><a class=\"skip-link\" href=\"#main-content\">本文へスキップ</a><header class=\"site-header b3-site-header\" style=\"--header-height: 126.78125px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary ホーム\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b",
+        "invalidControls": []
+      }
+    },
+    {
+      "id": "home-anchor-settled-root200-320",
+      "url": "http://127.0.0.1:3100/#home-idea-title",
+      "geometry": {
+        "scrollY": 13258,
+        "scroll": 320,
+        "client": 320,
+        "target": {
+          "x": 32,
+          "y": 285.5,
+          "width": 256,
+          "height": 190.03125,
+          "top": 285.5,
+          "right": 288,
+          "bottom": 475.53125,
+          "left": 32
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 126.78125,
+          "top": 0,
+          "right": 320,
+          "bottom": 126.78125,
+          "left": 0
+        },
+        "focused": "<a class=\"is-primary\" href=\"#home-idea-title\"><span>03 / BUILD</span><h3>自分のゲームを作る</h3><p>作りたいゲームを言葉にして、今やる作業と確認の手順をつくる。</p><b>アイデアから始める ↓</b></a>",
+        "invalidControls": []
+      }
+    },
+    {
+      "id": "menu-last-focus-root200-320",
+      "url": "http://127.0.0.1:3100/#home-idea-title",
+      "geometry": {
+        "scrollY": 12945,
+        "scroll": 320,
+        "client": 320,
+        "target": {
+          "x": 17,
+          "y": 592.1875,
+          "width": 287,
+          "height": 45.1875,
+          "top": 592.1875,
+          "right": 304,
+          "bottom": 637.375,
+          "left": 17
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 126.78125,
+          "top": 0,
+          "right": 320,
+          "bottom": 126.78125,
+          "left": 0
+        },
+        "focused": "<a href=\"/privacy/\">プライバシー<span aria-hidden=\"true\">→</span></a>",
+        "invalidControls": []
+      }
+    },
+    {
+      "id": "project-invalid-settled-root200-320",
+      "url": "http://127.0.0.1:3100/project/",
+      "geometry": {
+        "scrollY": 1519,
+        "scroll": 320,
+        "client": 320,
+        "target": {
+          "x": 42,
+          "y": 370.03125,
+          "width": 236,
+          "height": 54.375,
+          "top": 370.03125,
+          "right": 278,
+          "bottom": 424.40625,
+          "left": 42
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 126.78125,
+          "top": 0,
+          "right": 320,
+          "bottom": 126.78125,
+          "left": 0
+        },
+        "focused": "<button class=\"button\" type=\"submit\">制作ロードマップを作る</button>",
+        "invalidControls": []
+      }
+    },
+    {
+      "id": "project-clarify-focused-settled-root200-320",
+      "url": "http://127.0.0.1:3100/project/",
+      "geometry": {
+        "scrollY": 3307,
+        "scroll": 320,
+        "client": 320,
+        "target": {
+          "x": 42,
+          "y": 453.890625,
+          "width": 236,
+          "height": 44,
+          "top": 453.890625,
+          "right": 278,
+          "bottom": 497.890625,
+          "left": 42
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 126.78125,
+          "top": 0,
+          "right": 320,
+          "bottom": 126.78125,
+          "left": 0
+        },
+        "focused": "<select id=\"project-field-genre\"><option value=\"rpg\">RPG</option><option value=\"monster-collection\">モンスター収集</option><option value=\"visual-novel\">ビジュアルノベル</option><option value=\"horror\">ホラー</option><option value=\"action\">アクション</option><option value=\"puzzle\">パズル</option><option value=\"other\">その他</option><option value=\"unknown\">未確認</option></select>",
+        "invalidControls": []
+      }
+    },
+    {
+      "id": "builder-invalid-settled-root200-320",
+      "url": "http://127.0.0.1:3100/builder/",
+      "geometry": {
+        "scrollY": 1519,
+        "scroll": 320,
+        "client": 320,
+        "target": {
+          "x": 42,
+          "y": 370.03125,
+          "width": 236,
+          "height": 54.375,
+          "top": 370.03125,
+          "right": 278,
+          "bottom": 424.40625,
+          "left": 42
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 126.78125,
+          "top": 0,
+          "right": 320,
+          "bottom": 126.78125,
+          "left": 0
+        },
+        "focused": "<button class=\"button\" type=\"submit\">制作ロードマップを作る</button>",
+        "invalidControls": []
+      }
+    },
+    {
+      "id": "builder-clarify-focused-settled-root200-320",
+      "url": "http://127.0.0.1:3100/builder/",
+      "geometry": {
+        "scrollY": 3307,
+        "scroll": 320,
+        "client": 320,
+        "target": {
+          "x": 42,
+          "y": 453.890625,
+          "width": 236,
+          "height": 44,
+          "top": 453.890625,
+          "right": 278,
+          "bottom": 497.890625,
+          "left": 42
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 126.78125,
+          "top": 0,
+          "right": 320,
+          "bottom": 126.78125,
+          "left": 0
+        },
+        "focused": "<select id=\"project-field-genre\"><option value=\"rpg\">RPG</option><option value=\"monster-collection\">モンスター収集</option><option value=\"visual-novel\">ビジュアルノベル</option><option value=\"horror\">ホラー</option><option value=\"action\">アクション</option><option value=\"puzzle\">パズル</option><option value=\"other\">その他</option><option value=\"unknown\">未確認</option></select>",
+        "invalidControls": []
+      }
+    },
+    {
+      "id": "project-recovery-settled-root200-320",
+      "url": "http://127.0.0.1:3100/project?v=1&p=%7B%22genre%22%3A%22other%22%2C%22dimension%22%3A%222d%22%2C%22platform%22%3A%22web%22%2C%22engine%22%3A%22undecided%22%2C%22budget%22%3A%22free%22%2C%22experience%22%3A%22beginner%22%2C%22team%22%3A%22solo%22%2C%22commercialIntent%22%3A%22undecided%22%2C%22capabilities%22%3A%5B%5D%2C%22locale%22%3A%22ja%22%7D&draft=4b8f3c392b922980f491d0012d95f969",
+      "geometry": {
+        "scrollY": 5164,
+        "scroll": 320,
+        "client": 320,
+        "target": {
+          "x": 60,
+          "y": 353.6875,
+          "width": 200,
+          "height": 102.78125,
+          "top": 353.6875,
+          "right": 260,
+          "bottom": 456.46875,
+          "left": 60
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 126.78125,
+          "top": 0,
+          "right": 320,
+          "bottom": 126.78125,
+          "left": 0
+        },
+        "focused": "<textarea maxlength=\"1200\" rows=\"3\" placeholder=\"例：コードを貼って「ゲームを表示」を押したら、画面が真っ白でした\">LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenWithoutBreaks_LongRuntimeErrorTokenW",
+        "invalidControls": []
+      }
+    },
+    {
+      "id": "home-cdp-swipe-settled-375",
+      "url": "http://127.0.0.1:3100/?homeGame=aramon#games",
+      "geometry": {
+        "scrollY": 0,
+        "scroll": 375,
+        "client": 375,
+        "target": {
+          "x": 18,
+          "y": 514.25,
+          "width": 339,
+          "height": 230.28125,
+          "top": 514.25,
+          "right": 357,
+          "bottom": 744.53125,
+          "left": 18
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 64,
+          "top": 0,
+          "right": 375,
+          "bottom": 64,
+          "left": 0
+        },
+        "focused": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"><!--$--><!--/$--></div><a class=\"skip-link\" href=\"#main-content\">本文へスキップ</a><header class=\"site-header b3-site-header\" style=\"--header-height: 64px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary ホーム\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b3-mark-",
+        "invalidControls": []
+      }
+    }
+  ]
+}

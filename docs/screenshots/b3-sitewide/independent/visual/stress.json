@@ -1,0 +1,1703 @@
+{
+  "sha": "c6dfceb46c4e6d7a4b0d067c3963386f2a58b972",
+  "records": [
+    {
+      "id": "mesh",
+      "width": 1440,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 36.88,
+          "lh": "44.9936px"
+        },
+        {
+          "s": ".lead",
+          "size": 17.28,
+          "lh": "30.24px"
+        },
+        {
+          "s": "label"
+        },
+        {
+          "s": "textarea"
+        },
+        {
+          "s": ".header-cta",
+          "size": 12,
+          "lh": "21px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 22,
+          "lh": "23.1px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "21px"
+        }
+      ],
+      "after": {
+        "doc": 1440,
+        "viewport": 1440,
+        "headerHeight": 104,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 64.4,
+            "lh": "78.568px"
+          },
+          {
+            "s": ".lead",
+            "size": 34.56,
+            "lh": "60.48px"
+          },
+          {
+            "s": "label"
+          },
+          {
+            "s": "textarea"
+          },
+          {
+            "s": ".header-cta",
+            "size": 24,
+            "lh": "42px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 44,
+            "lh": "46.2px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "42px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "project",
+      "width": 1440,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 36.88,
+          "lh": "44.9936px"
+        },
+        {
+          "s": ".lead",
+          "size": 17.28,
+          "lh": "30.24px"
+        },
+        {
+          "s": "label",
+          "size": 16,
+          "lh": "28px"
+        },
+        {
+          "s": "textarea",
+          "size": 16,
+          "lh": "26.4px"
+        },
+        {
+          "s": ".header-cta",
+          "size": 12,
+          "lh": "21px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 22,
+          "lh": "23.1px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "21px"
+        }
+      ],
+      "after": {
+        "doc": 1440,
+        "viewport": 1440,
+        "headerHeight": 104,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 64.4,
+            "lh": "78.568px"
+          },
+          {
+            "s": ".lead",
+            "size": 34.56,
+            "lh": "60.48px"
+          },
+          {
+            "s": "label",
+            "size": 16,
+            "lh": "28px"
+          },
+          {
+            "s": "textarea",
+            "size": 32,
+            "lh": "52.8px"
+          },
+          {
+            "s": ".header-cta",
+            "size": 24,
+            "lh": "42px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 44,
+            "lh": "46.2px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "42px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "project",
+      "width": 1440,
+      "invalid": {
+        "invalid": null,
+        "border": "rgb(124, 137, 109)",
+        "borderWidth": "1px",
+        "bg": "rgb(255, 253, 248)",
+        "error": "作りたいゲームを1文以上で入力してください。"
+      }
+    },
+    {
+      "id": "compare",
+      "width": 1440,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 36.88,
+          "lh": "44.9936px"
+        },
+        {
+          "s": ".lead",
+          "size": 17.28,
+          "lh": "30.24px"
+        },
+        {
+          "s": "label",
+          "size": 12.48,
+          "lh": "21.84px"
+        },
+        {
+          "s": "textarea"
+        },
+        {
+          "s": ".header-cta",
+          "size": 12,
+          "lh": "21px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 22,
+          "lh": "23.1px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "21px"
+        }
+      ],
+      "after": {
+        "doc": 1440,
+        "viewport": 1440,
+        "headerHeight": 104,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 64.4,
+            "lh": "78.568px"
+          },
+          {
+            "s": ".lead",
+            "size": 34.56,
+            "lh": "60.48px"
+          },
+          {
+            "s": "label",
+            "size": 24.96,
+            "lh": "43.68px"
+          },
+          {
+            "s": "textarea"
+          },
+          {
+            "s": ".header-cta",
+            "size": 24,
+            "lh": "42px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 44,
+            "lh": "46.2px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "42px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tools",
+      "width": 1440,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 36.88,
+          "lh": "44.9936px"
+        },
+        {
+          "s": ".lead",
+          "size": 18,
+          "lh": "31.5px"
+        },
+        {
+          "s": "label",
+          "size": 16,
+          "lh": "28px"
+        },
+        {
+          "s": "textarea"
+        },
+        {
+          "s": ".header-cta",
+          "size": 12,
+          "lh": "21px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 22,
+          "lh": "23.1px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "21px"
+        }
+      ],
+      "after": {
+        "doc": 1440,
+        "viewport": 1440,
+        "headerHeight": 104,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 64.4,
+            "lh": "78.568px"
+          },
+          {
+            "s": ".lead",
+            "size": 34.688,
+            "lh": "60.704px"
+          },
+          {
+            "s": "label",
+            "size": 16,
+            "lh": "28px"
+          },
+          {
+            "s": "textarea"
+          },
+          {
+            "s": ".header-cta",
+            "size": 24,
+            "lh": "42px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 44,
+            "lh": "46.2px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "42px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "privacy",
+      "width": 1440,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 36.88,
+          "lh": "44.9936px"
+        },
+        {
+          "s": ".lead"
+        },
+        {
+          "s": "label"
+        },
+        {
+          "s": "textarea"
+        },
+        {
+          "s": ".header-cta",
+          "size": 12,
+          "lh": "21px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 22,
+          "lh": "23.1px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "21px"
+        }
+      ],
+      "after": {
+        "doc": 1440,
+        "viewport": 1440,
+        "headerHeight": 104,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 64.4,
+            "lh": "78.568px"
+          },
+          {
+            "s": ".lead"
+          },
+          {
+            "s": "label"
+          },
+          {
+            "s": "textarea"
+          },
+          {
+            "s": ".header-cta",
+            "size": 24,
+            "lh": "42px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 44,
+            "lh": "46.2px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "42px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "home",
+      "width": 1440,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 61,
+          "lh": "79.3px"
+        },
+        {
+          "s": ".lead"
+        },
+        {
+          "s": "label",
+          "size": 16,
+          "lh": "28px"
+        },
+        {
+          "s": "textarea",
+          "size": 16,
+          "lh": "26.4px"
+        },
+        {
+          "s": ".header-cta",
+          "size": 12,
+          "lh": "21px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 22,
+          "lh": "23.1px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "21px"
+        }
+      ],
+      "after": {
+        "doc": 1440,
+        "viewport": 1440,
+        "headerHeight": 104,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 64,
+            "lh": "83.2px"
+          },
+          {
+            "s": ".lead"
+          },
+          {
+            "s": "label",
+            "size": 16,
+            "lh": "28px"
+          },
+          {
+            "s": "textarea",
+            "size": 32,
+            "lh": "52.8px"
+          },
+          {
+            "s": ".header-cta",
+            "size": 24,
+            "lh": "42px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 44,
+            "lh": "46.2px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "42px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "stack",
+      "width": 1440,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 36.88,
+          "lh": "44.9936px"
+        },
+        {
+          "s": ".lead",
+          "size": 17.28,
+          "lh": "30.24px"
+        },
+        {
+          "s": "label"
+        },
+        {
+          "s": "textarea"
+        },
+        {
+          "s": ".header-cta",
+          "size": 12,
+          "lh": "21px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 22,
+          "lh": "23.1px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "21px"
+        }
+      ],
+      "after": {
+        "doc": 1440,
+        "viewport": 1440,
+        "headerHeight": 104,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 64.4,
+            "lh": "78.568px"
+          },
+          {
+            "s": ".lead",
+            "size": 34.56,
+            "lh": "60.48px"
+          },
+          {
+            "s": "label"
+          },
+          {
+            "s": "textarea"
+          },
+          {
+            "s": ".header-cta",
+            "size": 24,
+            "lh": "42px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 44,
+            "lh": "46.2px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "42px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mesh",
+      "width": 375,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30,
+          "lh": "36.6px"
+        },
+        {
+          "s": ".lead",
+          "size": 17.28,
+          "lh": "29.376px"
+        },
+        {
+          "s": "label"
+        },
+        {
+          "s": "textarea"
+        },
+        {
+          "s": ".header-cta",
+          "size": 11,
+          "lh": "18.7px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 18,
+          "lh": "18.9px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "20.4px"
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "viewport": 375,
+        "headerHeight": 133.984375,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 60,
+            "lh": "73.2px"
+          },
+          {
+            "s": ".lead",
+            "size": 34.56,
+            "lh": "58.752px"
+          },
+          {
+            "s": "label"
+          },
+          {
+            "s": "textarea"
+          },
+          {
+            "s": ".header-cta",
+            "size": 22,
+            "lh": "37.4px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 36,
+            "lh": "37.8px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "40.8px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "project",
+      "width": 375,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30,
+          "lh": "36.6px"
+        },
+        {
+          "s": ".lead",
+          "size": 17.28,
+          "lh": "29.376px"
+        },
+        {
+          "s": "label",
+          "size": 16,
+          "lh": "27.2px"
+        },
+        {
+          "s": "textarea",
+          "size": 16,
+          "lh": "26.4px"
+        },
+        {
+          "s": ".header-cta",
+          "size": 11,
+          "lh": "18.7px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 18,
+          "lh": "18.9px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "20.4px"
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "viewport": 375,
+        "headerHeight": 133.984375,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 60,
+            "lh": "73.2px"
+          },
+          {
+            "s": ".lead",
+            "size": 34.56,
+            "lh": "58.752px"
+          },
+          {
+            "s": "label",
+            "size": 16,
+            "lh": "27.2px"
+          },
+          {
+            "s": "textarea",
+            "size": 32,
+            "lh": "52.8px"
+          },
+          {
+            "s": ".header-cta",
+            "size": 22,
+            "lh": "37.4px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 36,
+            "lh": "37.8px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "40.8px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "project",
+      "width": 375,
+      "invalid": {
+        "invalid": null,
+        "border": "rgb(124, 137, 109)",
+        "borderWidth": "1px",
+        "bg": "rgb(255, 253, 248)",
+        "error": "作りたいゲームを1文以上で入力してください。"
+      }
+    },
+    {
+      "id": "compare",
+      "width": 375,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30,
+          "lh": "36.6px"
+        },
+        {
+          "s": ".lead",
+          "size": 17.28,
+          "lh": "29.376px"
+        },
+        {
+          "s": "label",
+          "size": 12.48,
+          "lh": "21.216px"
+        },
+        {
+          "s": "textarea"
+        },
+        {
+          "s": ".header-cta",
+          "size": 11,
+          "lh": "18.7px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 18,
+          "lh": "18.9px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "20.4px"
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "viewport": 375,
+        "headerHeight": 133.984375,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 60,
+            "lh": "73.2px"
+          },
+          {
+            "s": ".lead",
+            "size": 34.56,
+            "lh": "58.752px"
+          },
+          {
+            "s": "label",
+            "size": 24.96,
+            "lh": "42.432px"
+          },
+          {
+            "s": "textarea"
+          },
+          {
+            "s": ".header-cta",
+            "size": 22,
+            "lh": "37.4px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 36,
+            "lh": "37.8px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "40.8px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tools",
+      "width": 375,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30,
+          "lh": "36.6px"
+        },
+        {
+          "s": ".lead",
+          "size": 17,
+          "lh": "29.75px"
+        },
+        {
+          "s": "label",
+          "size": 16,
+          "lh": "27.2px"
+        },
+        {
+          "s": "textarea"
+        },
+        {
+          "s": ".header-cta",
+          "size": 11,
+          "lh": "18.7px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 18,
+          "lh": "18.9px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "20.4px"
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "viewport": 375,
+        "headerHeight": 133.984375,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 60,
+            "lh": "73.2px"
+          },
+          {
+            "s": ".lead",
+            "size": 34,
+            "lh": "59.5px"
+          },
+          {
+            "s": "label",
+            "size": 16,
+            "lh": "27.2px"
+          },
+          {
+            "s": "textarea"
+          },
+          {
+            "s": ".header-cta",
+            "size": 22,
+            "lh": "37.4px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 36,
+            "lh": "37.8px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "40.8px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "privacy",
+      "width": 375,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30,
+          "lh": "36.6px"
+        },
+        {
+          "s": ".lead"
+        },
+        {
+          "s": "label"
+        },
+        {
+          "s": "textarea"
+        },
+        {
+          "s": ".header-cta",
+          "size": 11,
+          "lh": "18.7px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 18,
+          "lh": "18.9px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "20.4px"
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "viewport": 375,
+        "headerHeight": 133.984375,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 60,
+            "lh": "73.2px"
+          },
+          {
+            "s": ".lead"
+          },
+          {
+            "s": "label"
+          },
+          {
+            "s": "textarea"
+          },
+          {
+            "s": ".header-cta",
+            "size": 22,
+            "lh": "37.4px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 36,
+            "lh": "37.8px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "40.8px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "home",
+      "width": 375,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 32,
+          "lh": "38.4px"
+        },
+        {
+          "s": ".lead"
+        },
+        {
+          "s": "label",
+          "size": 16,
+          "lh": "27.2px"
+        },
+        {
+          "s": "textarea",
+          "size": 16,
+          "lh": "26.4px"
+        },
+        {
+          "s": ".header-cta",
+          "size": 11,
+          "lh": "18.7px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 18,
+          "lh": "18.9px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "20.4px"
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "viewport": 375,
+        "headerHeight": 133.984375,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 64,
+            "lh": "76.8px"
+          },
+          {
+            "s": ".lead"
+          },
+          {
+            "s": "label",
+            "size": 16,
+            "lh": "27.2px"
+          },
+          {
+            "s": "textarea",
+            "size": 32,
+            "lh": "52.8px"
+          },
+          {
+            "s": ".header-cta",
+            "size": 22,
+            "lh": "37.4px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 36,
+            "lh": "37.8px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "40.8px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "stack",
+      "width": 375,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30,
+          "lh": "36.6px"
+        },
+        {
+          "s": ".lead",
+          "size": 17.28,
+          "lh": "29.376px"
+        },
+        {
+          "s": "label"
+        },
+        {
+          "s": "textarea"
+        },
+        {
+          "s": ".header-cta",
+          "size": 11,
+          "lh": "18.7px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 18,
+          "lh": "18.9px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "20.4px"
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "viewport": 375,
+        "headerHeight": 133.984375,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 60,
+            "lh": "73.2px"
+          },
+          {
+            "s": ".lead",
+            "size": 34.56,
+            "lh": "58.752px"
+          },
+          {
+            "s": "label"
+          },
+          {
+            "s": "textarea"
+          },
+          {
+            "s": ".header-cta",
+            "size": 22,
+            "lh": "37.4px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 36,
+            "lh": "37.8px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "40.8px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mesh",
+      "width": 320,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30,
+          "lh": "36.6px"
+        },
+        {
+          "s": ".lead",
+          "size": 15.2,
+          "lh": "25.84px"
+        },
+        {
+          "s": "label"
+        },
+        {
+          "s": "textarea"
+        },
+        {
+          "s": ".header-cta",
+          "size": 11,
+          "lh": "18.7px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 16,
+          "lh": "16.8px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "20.4px"
+        }
+      ],
+      "after": {
+        "doc": 320,
+        "viewport": 320,
+        "headerHeight": 126.78125,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 60,
+            "lh": "73.2px"
+          },
+          {
+            "s": ".lead",
+            "size": 30.4,
+            "lh": "51.68px"
+          },
+          {
+            "s": "label"
+          },
+          {
+            "s": "textarea"
+          },
+          {
+            "s": ".header-cta",
+            "size": 22,
+            "lh": "37.4px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 32,
+            "lh": "33.6px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "40.8px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "project",
+      "width": 320,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30,
+          "lh": "36.6px"
+        },
+        {
+          "s": ".lead",
+          "size": 17.28,
+          "lh": "29.376px"
+        },
+        {
+          "s": "label",
+          "size": 16,
+          "lh": "27.2px"
+        },
+        {
+          "s": "textarea",
+          "size": 16,
+          "lh": "26.4px"
+        },
+        {
+          "s": ".header-cta",
+          "size": 11,
+          "lh": "18.7px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 16,
+          "lh": "16.8px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "20.4px"
+        }
+      ],
+      "after": {
+        "doc": 320,
+        "viewport": 320,
+        "headerHeight": 126.78125,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 60,
+            "lh": "73.2px"
+          },
+          {
+            "s": ".lead",
+            "size": 34.56,
+            "lh": "58.752px"
+          },
+          {
+            "s": "label",
+            "size": 16,
+            "lh": "27.2px"
+          },
+          {
+            "s": "textarea",
+            "size": 32,
+            "lh": "52.8px"
+          },
+          {
+            "s": ".header-cta",
+            "size": 22,
+            "lh": "37.4px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 32,
+            "lh": "33.6px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "40.8px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "project",
+      "width": 320,
+      "invalid": {
+        "invalid": null,
+        "border": "rgb(124, 137, 109)",
+        "borderWidth": "1px",
+        "bg": "rgb(255, 253, 248)",
+        "error": "作りたいゲームを1文以上で入力してください。"
+      }
+    },
+    {
+      "id": "compare",
+      "width": 320,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30,
+          "lh": "36.6px"
+        },
+        {
+          "s": ".lead",
+          "size": 17.28,
+          "lh": "29.376px"
+        },
+        {
+          "s": "label",
+          "size": 12.48,
+          "lh": "21.216px"
+        },
+        {
+          "s": "textarea"
+        },
+        {
+          "s": ".header-cta",
+          "size": 11,
+          "lh": "18.7px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 16,
+          "lh": "16.8px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "20.4px"
+        }
+      ],
+      "after": {
+        "doc": 320,
+        "viewport": 320,
+        "headerHeight": 126.78125,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 60,
+            "lh": "73.2px"
+          },
+          {
+            "s": ".lead",
+            "size": 34.56,
+            "lh": "58.752px"
+          },
+          {
+            "s": "label",
+            "size": 24.96,
+            "lh": "42.432px"
+          },
+          {
+            "s": "textarea"
+          },
+          {
+            "s": ".header-cta",
+            "size": 22,
+            "lh": "37.4px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 32,
+            "lh": "33.6px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "40.8px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tools",
+      "width": 320,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30,
+          "lh": "36.6px"
+        },
+        {
+          "s": ".lead",
+          "size": 17,
+          "lh": "29.75px"
+        },
+        {
+          "s": "label",
+          "size": 16,
+          "lh": "27.2px"
+        },
+        {
+          "s": "textarea"
+        },
+        {
+          "s": ".header-cta",
+          "size": 11,
+          "lh": "18.7px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 16,
+          "lh": "16.8px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "20.4px"
+        }
+      ],
+      "after": {
+        "doc": 320,
+        "viewport": 320,
+        "headerHeight": 126.78125,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 60,
+            "lh": "73.2px"
+          },
+          {
+            "s": ".lead",
+            "size": 34,
+            "lh": "59.5px"
+          },
+          {
+            "s": "label",
+            "size": 16,
+            "lh": "27.2px"
+          },
+          {
+            "s": "textarea"
+          },
+          {
+            "s": ".header-cta",
+            "size": 22,
+            "lh": "37.4px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 32,
+            "lh": "33.6px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "40.8px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "privacy",
+      "width": 320,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30,
+          "lh": "36.6px"
+        },
+        {
+          "s": ".lead"
+        },
+        {
+          "s": "label"
+        },
+        {
+          "s": "textarea"
+        },
+        {
+          "s": ".header-cta",
+          "size": 11,
+          "lh": "18.7px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 16,
+          "lh": "16.8px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "20.4px"
+        }
+      ],
+      "after": {
+        "doc": 320,
+        "viewport": 320,
+        "headerHeight": 126.78125,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 60,
+            "lh": "73.2px"
+          },
+          {
+            "s": ".lead"
+          },
+          {
+            "s": "label"
+          },
+          {
+            "s": "textarea"
+          },
+          {
+            "s": ".header-cta",
+            "size": 22,
+            "lh": "37.4px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 32,
+            "lh": "33.6px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "40.8px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "home",
+      "width": 320,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30,
+          "lh": "36px"
+        },
+        {
+          "s": ".lead"
+        },
+        {
+          "s": "label",
+          "size": 16,
+          "lh": "27.2px"
+        },
+        {
+          "s": "textarea",
+          "size": 16,
+          "lh": "26.4px"
+        },
+        {
+          "s": ".header-cta",
+          "size": 11,
+          "lh": "18.7px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 16,
+          "lh": "16.8px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "20.4px"
+        }
+      ],
+      "after": {
+        "doc": 320,
+        "viewport": 320,
+        "headerHeight": 126.78125,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 60,
+            "lh": "72px"
+          },
+          {
+            "s": ".lead"
+          },
+          {
+            "s": "label",
+            "size": 16,
+            "lh": "27.2px"
+          },
+          {
+            "s": "textarea",
+            "size": 32,
+            "lh": "52.8px"
+          },
+          {
+            "s": ".header-cta",
+            "size": 22,
+            "lh": "37.4px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 32,
+            "lh": "33.6px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "40.8px"
+          }
+        ]
+      }
+    },
+    {
+      "id": "stack",
+      "width": 320,
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30,
+          "lh": "36.6px"
+        },
+        {
+          "s": ".lead",
+          "size": 17.28,
+          "lh": "29.376px"
+        },
+        {
+          "s": "label"
+        },
+        {
+          "s": "textarea"
+        },
+        {
+          "s": ".header-cta",
+          "size": 11,
+          "lh": "18.7px"
+        },
+        {
+          "s": ".brand-copy strong",
+          "size": 16,
+          "lh": "16.8px"
+        },
+        {
+          "s": ".main-nav a",
+          "size": 12,
+          "lh": "20.4px"
+        }
+      ],
+      "after": {
+        "doc": 320,
+        "viewport": 320,
+        "headerHeight": 126.78125,
+        "root": "32px",
+        "roles": [
+          {
+            "s": "h1",
+            "size": 60,
+            "lh": "73.2px"
+          },
+          {
+            "s": ".lead",
+            "size": 34.56,
+            "lh": "58.752px"
+          },
+          {
+            "s": "label"
+          },
+          {
+            "s": "textarea"
+          },
+          {
+            "s": ".header-cta",
+            "size": 22,
+            "lh": "37.4px"
+          },
+          {
+            "s": ".brand-copy strong",
+            "size": 32,
+            "lh": "33.6px"
+          },
+          {
+            "s": ".main-nav a",
+            "size": 24,
+            "lh": "40.8px"
+          }
+        ]
+      }
+    }
+  ]
+}
