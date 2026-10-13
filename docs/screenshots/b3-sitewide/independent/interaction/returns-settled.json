@@ -1,0 +1,121 @@
+{
+  "sha": "c6dfceb46c4e6d7a4b0d067c3963386f2a58b972",
+  "records": [
+    {
+      "id": "article-return-settled-375",
+      "url": "http://127.0.0.1:3100/articles/?hubArticle=elevenlabs-v4-game-voice&hubCategory=voice#voice",
+      "geometry": {
+        "focused": "<a class=\"v2-start-card-face\" aria-label=\"ElevenLabs v4とは？ゲーム音声の変化・v3との違い・日本語・Turboを解説\" href=\"/articles/elevenlabs-v4-game-voice/\"><span class=\"v2-start-card-meta\"><span class=\"v2-start-card-label\">ツール実践</span><small>更新 2026-10-11</small></span><strong>ElevenLabs v4とは？ゲーム音声の変化・v3との違い・日本語・Turboを解説</strong><span class=\"v2-start-card-read\" aria-hidden=\"true\">記事を読む <b>→</b></span></a>",
+        "target": {
+          "x": 56,
+          "y": 256.515625,
+          "width": 270,
+          "height": 81,
+          "top": 256.515625,
+          "right": 326,
+          "bottom": 337.515625,
+          "left": 56
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 64,
+          "top": 0,
+          "right": 375,
+          "bottom": 64,
+          "left": 0
+        },
+        "scroll": 375,
+        "client": 375
+      }
+    },
+    {
+      "id": "home-category-back-settled-375",
+      "url": "http://127.0.0.1:3100/?hubCategory=voice#categories",
+      "geometry": {
+        "focused": "<a class=\"v2-start-card-face\" aria-label=\"音と声を作る\" data-category=\"voice\" href=\"/articles/?hubEntry=home&amp;hubCategory=voice#voice\"><span class=\"v2-start-card-meta\"><span class=\"v2-start-card-label\">制作カテゴリ</span><small>3本の記事</small></span><strong>音と声を作る</strong><span class=\"v2-start-card-read\" aria-hidden=\"true\">記事を見る <b>→</b></span></a>",
+        "target": {
+          "x": 52.5,
+          "y": 321.171875,
+          "width": 270,
+          "height": 27,
+          "top": 321.171875,
+          "right": 322.5,
+          "bottom": 348.171875,
+          "left": 52.5
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 64,
+          "top": 0,
+          "right": 375,
+          "bottom": 64,
+          "left": 0
+        },
+        "scroll": 375,
+        "client": 375
+      }
+    },
+    {
+      "id": "article-toc-anchor-root200-320",
+      "url": "http://127.0.0.1:3100/articles/meshy-pricing-credits-game/#section-%E3%81%A9%E3%81%AE%E3%83%97%E3%83%A9%E3%83%B3%E3%82%92%E6%9C%80%E5%88%9D%E3%81%AB%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B",
+      "geometry": {
+        "focused": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"><!--$--><!--/$--></div><a class=\"skip-link\" href=\"#main-content\">本文へスキップ</a><header class=\"site-header b3-site-header\" style=\"--header-height: 126.78125px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary ホーム\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b3-mark-line\" d=\"M19 14h8M19 19h8M19 24h4\"></path><path class=\"b3-mark-pixel\" d=\"M27 25h4v4h-4zM31 29h3v3h-3z\"></path></svg></span><span class=\"brand-copy\"><strong>GameBuildiary</strong><small>ビルダイアリー<",
+        "target": {
+          "x": 25,
+          "y": 285.890625,
+          "width": 270,
+          "height": 190.078125,
+          "top": 285.890625,
+          "right": 295,
+          "bottom": 475.96875,
+          "left": 25
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 126.78125,
+          "top": 0,
+          "right": 320,
+          "bottom": 126.78125,
+          "left": 0
+        },
+        "scroll": 320,
+        "client": 320
+      }
+    },
+    {
+      "id": "stack-builder-back-settled-320",
+      "url": "http://127.0.0.1:3100/stacks/monster-collection-mobile/",
+      "geometry": {
+        "focused": "<body class=\"noto_sans_jp_da6585a1-module__RkhzCa__variable noto_serif_jp_9e85e46f-module__s629CW__variable visual-layer-v2 b3-system\"><div hidden=\"\"></div><a class=\"skip-link\" href=\"#main-content\">本文へスキップ</a><header class=\"site-header b3-site-header\" style=\"--header-height: 64px;\"><div class=\"header-inner\"><a class=\"brand\" aria-label=\"GameBuildiary ホーム\" href=\"/\"><span class=\"brand-mark\" aria-hidden=\"true\"><svg viewBox=\"0 0 40 40\" fill=\"none\"><rect class=\"b3-mark-case\" x=\"1\" y=\"1\" width=\"38\" height=\"38\" rx=\"10\"></rect><path class=\"b3-mark-back\" d=\"M9 13 24 10l4 20-15 3z\"></path><rect class=\"b3-mark-page\" x=\"15\" y=\"8\" width=\"16\" height=\"23\" rx=\"3\"></rect><path class=\"b3-mark-line\" d=\"M19 14h8M19 19h8M19 24h4\"></path><path class=\"b3-mark-pixel\" d=\"M27 25h4v4h-4zM31 29h3v3h-3z\"></path></svg></span><span class=\"brand-copy\"><strong>GameBuildiary</strong><small>ビルダイアリー</small></span></a><nav c",
+        "target": {
+          "x": 25,
+          "y": 166.546875,
+          "width": 270,
+          "height": 73.1875,
+          "top": 166.546875,
+          "right": 295,
+          "bottom": 239.734375,
+          "left": 25
+        },
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "top": 0,
+          "right": 320,
+          "bottom": 64,
+          "left": 0
+        },
+        "scroll": 320,
+        "client": 320
+      }
+    }
+  ]
+}

@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function BuilderPage() {
-  return <ProjectGeneratorClient />;
+  return <div className="project-v2-route"><ProjectGeneratorClient /></div>;
 }

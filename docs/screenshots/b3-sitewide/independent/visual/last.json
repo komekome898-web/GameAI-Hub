@@ -1,0 +1,91 @@
+[
+  {
+    "method": "synthetic-computed-text",
+    "base": [
+      {
+        "s": ".project-idea-card label strong",
+        "size": 17.28
+      },
+      {
+        "s": ".project-idea-card label span",
+        "size": 12.16
+      },
+      {
+        "s": ".idea-meta",
+        "size": 12.8
+      },
+      {
+        "s": ".form-error",
+        "size": 16
+      },
+      {
+        "s": ".project-idea-card button[type=submit]",
+        "size": 16
+      },
+      {
+        "s": "textarea",
+        "size": 16
+      }
+    ],
+    "after": [
+      {
+        "s": ".project-idea-card label strong",
+        "size": 34.56
+      },
+      {
+        "s": ".project-idea-card label span",
+        "size": 24.32
+      },
+      {
+        "s": ".idea-meta",
+        "size": 12.8
+      },
+      {
+        "s": ".form-error",
+        "size": 32
+      },
+      {
+        "s": ".project-idea-card button[type=submit]",
+        "size": 32
+      },
+      {
+        "s": "textarea",
+        "size": 32
+      }
+    ],
+    "overflow": {
+      "doc": 320,
+      "viewport": 320
+    },
+    "focus": {
+      "bounds": {
+        "x": 42,
+        "y": 427.59375,
+        "width": 236,
+        "height": 130.78125,
+        "top": 427.59375,
+        "right": 278,
+        "bottom": 558.375,
+        "left": 42
+      },
+      "outline": "rgb(49, 90, 66)",
+      "headerBottom": 126.78125
+    }
+  },
+  {
+    "menuFocus": {
+      "text": "プライバシー→",
+      "bounds": {
+        "x": 17,
+        "y": 742.390625,
+        "width": 287,
+        "height": 72.390625,
+        "top": 742.390625,
+        "right": 304,
+        "bottom": 814.78125,
+        "left": 17
+      },
+      "headerBottom": 126.78125
+    }
+  }
+]

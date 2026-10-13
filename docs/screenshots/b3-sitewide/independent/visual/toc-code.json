@@ -1,0 +1,39 @@
+{
+  "sha": "c6dfceb46c4e6d7a4b0d067c3963386f2a58b972",
+  "records": [
+    {
+      "links": 10,
+      "href": "#section-どのプランを最初に確認する"
+    },
+    {
+      "hash": {
+        "hash": "#section-%E3%81%A9%E3%81%AE%E3%83%97%E3%83%A9%E3%83%B3%E3%82%92%E6%9C%80%E5%88%9D%E3%81%AB%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B",
+        "heading": "どのプランを最初に確認する？",
+        "headingTop": 159.546875,
+        "headerBottom": 64
+      }
+    },
+    {
+      "code": {
+        "owner": null,
+        "tabindex": 0,
+        "focused": true,
+        "overflow": "auto",
+        "outline": "rgb(49, 90, 66)",
+        "outlineWidth": "3px",
+        "bounds": {
+          "x": 25,
+          "y": 501.875,
+          "width": 270,
+          "height": 194.1875,
+          "top": 501.875,
+          "right": 295,
+          "bottom": 696.0625,
+          "left": 25
+        },
+        "doc": 320,
+        "viewport": 320
+      }
+    }
+  ]
+}

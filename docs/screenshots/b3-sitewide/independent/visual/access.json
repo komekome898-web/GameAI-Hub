@@ -1,0 +1,326 @@
+[
+  {
+    "mode": "keyboard",
+    "skip": {
+      "focus": "本文へスキップ",
+      "bounds": {
+        "x": 8,
+        "y": 8,
+        "width": 144.015625,
+        "height": 51.1875,
+        "top": 8,
+        "right": 152.015625,
+        "bottom": 59.1875,
+        "left": 8
+      }
+    }
+  },
+  {
+    "mode": "keyboard",
+    "main": {
+      "focus": "main-content",
+      "y": 0
+    }
+  },
+  {
+    "mode": "keyboard",
+    "menu": [
+      {
+        "name": "×",
+        "bounds": {
+          "x": 252.390625,
+          "y": 80,
+          "width": 51.609375,
+          "height": 44,
+          "top": 80,
+          "right": 304,
+          "bottom": 124,
+          "left": 252.390625
+        }
+      },
+      {
+        "name": "ゲームで遊ぶ→",
+        "bounds": {
+          "x": 17,
+          "y": 137,
+          "width": 287,
+          "height": 45.1875,
+          "top": 137,
+          "right": 304,
+          "bottom": 182.1875,
+          "left": 17
+        }
+      },
+      {
+        "name": "Projectを始める→",
+        "bounds": {
+          "x": 17,
+          "y": 231.21875,
+          "width": 287,
+          "height": 45.1875,
+          "top": 231.21875,
+          "right": 304,
+          "bottom": 276.40625,
+          "left": 17
+        }
+      },
+      {
+        "name": "記事→",
+        "bounds": {
+          "x": 17,
+          "y": 338.4375,
+          "width": 287,
+          "height": 45.1875,
+          "top": 338.4375,
+          "right": 304,
+          "bottom": 383.625,
+          "left": 17
+        }
+      },
+      {
+        "name": "制作ガイド→",
+        "bounds": {
+          "x": 17,
+          "y": 383.625,
+          "width": 287,
+          "height": 45.1875,
+          "top": 383.625,
+          "right": 304,
+          "bottom": 428.8125,
+          "left": 17
+        }
+      },
+      {
+        "name": "AI・ツール→",
+        "bounds": {
+          "x": 17,
+          "y": 490.84375,
+          "width": 287,
+          "height": 45.1875,
+          "top": 490.84375,
+          "right": 304,
+          "bottom": 536.03125,
+          "left": 17
+        }
+      },
+      {
+        "name": "候補を比較→",
+        "bounds": {
+          "x": 17,
+          "y": 536.03125,
+          "width": 287,
+          "height": 45.1875,
+          "top": 536.03125,
+          "right": 304,
+          "bottom": 581.21875,
+          "left": 17
+        }
+      },
+      {
+        "name": "調査・評価方法→",
+        "bounds": {
+          "x": 17,
+          "y": 643.25,
+          "width": 287,
+          "height": 45.1875,
+          "top": 643.25,
+          "right": 304,
+          "bottom": 688.4375,
+          "left": 17
+        }
+      },
+      {
+        "name": "プライバシー→",
+        "bounds": {
+          "x": 17,
+          "y": 688.4375,
+          "width": 287,
+          "height": 45.1875,
+          "top": 688.4375,
+          "right": 304,
+          "bottom": 733.625,
+          "left": 17
+        }
+      },
+      {
+        "name": "×",
+        "bounds": {
+          "x": 252.390625,
+          "y": 80,
+          "width": 51.609375,
+          "height": 44,
+          "top": 80,
+          "right": 304,
+          "bottom": 124,
+          "left": 252.390625
+        }
+      },
+      {
+        "name": "ゲームで遊ぶ→",
+        "bounds": {
+          "x": 17,
+          "y": 137,
+          "width": 287,
+          "height": 45.1875,
+          "top": 137,
+          "right": 304,
+          "bottom": 182.1875,
+          "left": 17
+        }
+      },
+      {
+        "name": "Projectを始める→",
+        "bounds": {
+          "x": 17,
+          "y": 231.21875,
+          "width": 287,
+          "height": 45.1875,
+          "top": 231.21875,
+          "right": 304,
+          "bottom": 276.40625,
+          "left": 17
+        }
+      },
+      {
+        "name": "記事→",
+        "bounds": {
+          "x": 17,
+          "y": 338.4375,
+          "width": 287,
+          "height": 45.1875,
+          "top": 338.4375,
+          "right": 304,
+          "bottom": 383.625,
+          "left": 17
+        }
+      }
+    ]
+  },
+  {
+    "mode": "keyboard",
+    "returned": "メニューを開く"
+  },
+  {
+    "mode": "keyboard",
+    "focusStyle": {
+      "name": "制作ロードマップを作る",
+      "color": "rgb(49, 90, 66)",
+      "width": "3px"
+    }
+  },
+  {
+    "mode": "computed",
+    "method": "synthetic-computed-text",
+    "roles": [
+      {
+        "role": "STRONG:",
+        "size": "34.56px",
+        "bounds": {
+          "x": 42,
+          "y": 22.015625,
+          "width": 236,
+          "height": 176.25,
+          "top": 22.015625,
+          "right": 278,
+          "bottom": 198.265625,
+          "left": 42
+        }
+      },
+      {
+        "role": "SPAN:",
+        "size": "24.32px",
+        "bounds": {
+          "x": 42,
+          "y": 203.265625,
+          "width": 236,
+          "height": 206.640625,
+          "top": 203.265625,
+          "right": 278,
+          "bottom": 409.90625,
+          "left": 42
+        }
+      },
+      {
+        "role": "TEXTAREA:",
+        "size": "32px",
+        "bounds": {
+          "x": 42,
+          "y": 419.90625,
+          "width": 236,
+          "height": 289.984375,
+          "top": 419.90625,
+          "right": 278,
+          "bottom": 709.890625,
+          "left": 42
+        }
+      },
+      {
+        "role": "DIV:idea-meta",
+        "size": "12.8px",
+        "bounds": {
+          "x": 42,
+          "y": 722.078125,
+          "width": 236,
+          "height": 203.953125,
+          "top": 722.078125,
+          "right": 278,
+          "bottom": 926.03125,
+          "left": 42
+        }
+      },
+      {
+        "role": "P:form-error",
+        "size": "32px",
+        "bounds": {
+          "x": 42,
+          "y": 926.03125,
+          "width": 236,
+          "height": 217.5625,
+          "top": 926.03125,
+          "right": 278,
+          "bottom": 1143.59375,
+          "left": 42
+        }
+      },
+      {
+        "role": "BUTTON:button",
+        "size": "32px",
+        "bounds": {
+          "x": 42,
+          "y": 1185.59375,
+          "width": 236,
+          "height": 130.78125,
+          "top": 1185.59375,
+          "right": 278,
+          "bottom": 1316.375,
+          "left": 42
+        }
+      }
+    ],
+    "doc": {
+      "scroll": 320,
+      "width": 320
+    }
+  },
+  {
+    "mode": "nojs",
+    "links": 31,
+    "deckMode": [
+      "list",
+      "list",
+      "list",
+      "list",
+      "list",
+      "list"
+    ],
+    "scroll": 320
+  },
+  {
+    "mode": "reduced",
+    "links": 5,
+    "deckMode": [
+      "list"
+    ],
+    "scroll": 320
+  }
+]

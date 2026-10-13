@@ -55,9 +55,8 @@ test.describe("Issue 137 Slice 1 foundations", () => {
   test("intrinsic text, focus and owned scrollers satisfy the shared contract", async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 844 });
     // This disposable fixture tests default shared tokens, including the 72px
-    // anchor offset. Bootstrap on a neutral route: deleting the Home DOM would
-    // leave its mounted ResizeObserver measuring a detached header. Actual
-    // Home header geometry and SPA cleanup are covered by b3-home.spec.ts.
+    // anchor offset. The global header observer restores the CSS fallback when
+    // this fixture detaches the header; real geometry is checked separately.
     await page.goto("/privacy/");
     await expect(page.getByRole("heading", { level: 1, name: "プライバシーポリシー" })).toBeVisible();
     await page.evaluate(({ idea, token }) => { document.body.innerHTML = `
@@ -67,6 +66,7 @@ test.describe("Issue 137 Slice 1 foundations", () => {
         <label class="ui-field">Game idea<textarea id="fixture-anchor">${idea}</textarea></label>
         <div class="ui-scroll-region" data-acceptance-scroll-owner="true" role="region" aria-label="code" tabindex="0"><div style="min-width:700px"><pre><code>${token}</code></pre></div></div>
       </div></main>`; }, { idea: stressValues.longGameIdea, token: stressValues.unbrokenToken });
+    await expect.poll(() => page.evaluate(() => document.documentElement.style.getPropertyValue('--header-height'))).toBe("");
     const longText = page.locator(".ui-contain-text");
     await expect(longText).toBeVisible();
     const diagnostics = await diagnoseWidths(page);
@@ -80,7 +80,7 @@ test.describe("Issue 137 Slice 1 foundations", () => {
       const style = getComputedStyle(element);
       return { color: style.outlineColor, width: style.outlineWidth, offset: style.outlineOffset };
     });
-    expect(focusStyle).toEqual({ color: "rgb(11, 111, 211)", width: "3px", offset: "3px" });
+    expect(focusStyle).toEqual({ color: "rgb(49, 90, 66)", width: "3px", offset: "3px" });
     const anchorOffset = await page.locator("textarea").evaluate((element) => getComputedStyle(element).scrollMarginBlockStart);
     expect(anchorOffset).toBe("72px");
     await page.getByRole("region", { name: "code" }).focus();

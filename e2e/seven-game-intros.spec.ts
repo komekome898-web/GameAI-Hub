@@ -25,7 +25,7 @@ for (const width of [1280,375,320]) test(`seven introductions and original scree
     await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href',`https://game-ai-hub.vercel.app/games/${game.slug}/`);
     await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content',String(game.image.width));
     await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content',String(game.image.height));
-    await expect(page.getByRole('link',{name:/遊ぶ/})).toHaveCount(2);
+    await expect(page.locator('main').getByRole('link',{name:/遊ぶ/})).toHaveCount(2);
     const viewport=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,client:document.documentElement.clientWidth}));
     expect(viewport.scroll).toBeLessThanOrEqual(viewport.client);
     results.push({slug:game.slug,...metrics,...viewport});
