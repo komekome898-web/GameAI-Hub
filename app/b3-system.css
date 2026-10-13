@@ -3,7 +3,7 @@
 :root {
   --b3-graphite:#171e1e;
   --b3-light:#f1f0e7; --b3-light-muted:#c5cebd; --b3-amber:#e9c383;
-  --b3-paper:#faf8f2; --b3-work:#e0d9c6; --b3-recess:#eeece2;
+  --b3-paper:#faf8f2; --b3-recess:#eeece2;
   --b3-ink:#233529; --b3-muted:#52604b; --b3-edge:#b8bba6;
   --b3-action:#315a42; --b3-action-hover:#254733; --b3-control-edge:#7c896d;
   --b3-frame:linear-gradient(135deg,#46513b,#303b2e 45%,#293428);

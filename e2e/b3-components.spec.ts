@@ -110,7 +110,7 @@ test('actual 200% computed text keeps short Japanese goal choices on one line', 
   expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
   await short.scrollIntoViewIfNeeded();
   await page.screenshot({ path: `${output}/tools-computed200-320.png` });
-  await applied.cleanup();
+  await applied.restore();
   await page.evaluate(() => document.documentElement.style.fontSize = '200%');
   const arrow = page.locator('.header-cta>span:last-child');
   const fit = await arrow.evaluate(element => ({ height: element.clientHeight, text: element.scrollHeight }));
