@@ -4,6 +4,7 @@ import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 import "./visual-layer-v2.css";
 import "./home-b3.css";
+import "./b3-system.css";
 import { Header } from "@/components/Header";
 import { GamePlayAnalytics } from "@/components/GamePlayAnalytics";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
@@ -28,7 +29,7 @@ const footerGroups = [
 ] as const;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="ja" data-scroll-behavior="smooth"><body className={`${sans.variable} ${serif.variable} visual-layer-v2`}>
+  return <html lang="ja" data-scroll-behavior="smooth"><body className={`${sans.variable} ${serif.variable} visual-layer-v2 b3-system`}>
     <a className="skip-link" href="#main-content">本文へスキップ</a>
     <Header />
     <main id="main-content" tabIndex={-1}>{children}</main>

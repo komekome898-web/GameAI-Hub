@@ -114,7 +114,7 @@ test('explicit category activation after playable anchor retains Back context',a
  expect(box.y).toBeGreaterThanOrEqual(header.y+header.height);expect(box.y+box.height).toBeLessThanOrEqual(900);
  await page.screenshot({path:`${dir}/game-anchor-category-back-1440.png`});
 });
-test('enlarged Home anchors clear the measured header and clean up on route change',async({page})=>{
+test('enlarged anchors keep the shared measured header across route changes',async({page})=>{
  await page.setViewportSize({width:320,height:667});await page.goto('/');await idle(page);
  await page.evaluate(()=>document.documentElement.style.fontSize='200%');await expect(page.locator('.b3-showcase')).toHaveAttribute('data-mode','list');
  await page.getByRole('link',{name:'アイデアから始める ↓'}).click();
@@ -126,5 +126,7 @@ test('enlarged Home anchors clear the measured header and clean up on route chan
  expect(await page.locator('#home-title').evaluate(el=>el.getBoundingClientRect().top)).toBeLessThan(667);
  await page.screenshot({path:`${dir}/anchor-root200-320.png`});
  await page.getByRole('link',{name:'制作課題から探す →'}).click();await expect(page).toHaveURL(/\/tools\/$/);
- expect(await page.evaluate(()=>document.documentElement.style.getPropertyValue('--header-height'))).toBe('');
+ const toolsHeight=await page.locator('.site-header').evaluate(el=>el.getBoundingClientRect().height);
+ await expect.poll(()=>page.evaluate(()=>parseFloat(document.documentElement.style.getPropertyValue('--header-height')))).toBe(toolsHeight);
+ expect(toolsHeight).toBeGreaterThan(0);
 });
