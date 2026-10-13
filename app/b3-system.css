@@ -106,7 +106,7 @@ body.b3-system main :is(input:not([type=checkbox]):not([type=radio]),select,text
   border:1px solid #7c896d; border-radius:7px; background:#26352b; color:#f1f0e7; box-shadow:inset 0 2px 4px #07120c33;
 }
 .b3-system main :is(article.page-shell,.prose) code { background:var(--b3-recess); color:var(--b3-ink); }
-.b3-system main :is(pre,.conv-evidence .conv-evidence-meta,.conv-evidence .conv-turn-body pre) code { background:none; color:inherit; }
+.b3-system main :is(pre,.conv-evidence .conv-evidence-meta) code { background:none; color:inherit; }
 .b3-system main .beginner-game-preview iframe { border:2px solid #718064; border-radius:7px; }
 .b3-system main :is(.form-error,.beginner-runtime-error) { color:var(--color-danger); }
 .b3-system main :is(.compare-context,.tool-return) a { color:var(--b3-action); }

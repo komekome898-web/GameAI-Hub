@@ -1,6 +1,5 @@
 /* Shared deck geometry and B3 material. State/physics remain in CreationDeck. */
 .articles-v2-route { position:relative; isolation:isolate; min-width:0; color:var(--b3-ink); }
-.articles-v2-route .v2-atrium-art { display:none; }
 .articles-v2-route .v2-atrium-content { position:relative; z-index:1; min-width:0; }
 .articles-v2-route .article-hub>.page-head { margin-inline:calc(var(--space-5) * -1); padding-inline:var(--space-5); }
 .articles-v2-route .article-cluster .article-cluster-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--space-4); border-top:0; }
@@ -37,7 +36,6 @@ body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
 .visual-layer-v2 article.page-shell,.visual-layer-v2 .article-shell { padding-inline:clamp(12px,4vw,48px); }
 .visual-layer-v2 .article-content>section { background:transparent; }
 .visual-layer-v2 :is(.article-code,.article-decision-table,.compare-scroll) { max-width:100%; overflow-x:auto; }
-.visual-layer-v2 .footer-groups { flex-wrap:wrap; }
 
 .creation-deck-controls { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px; margin:0 0 var(--space-4); }
 .creation-deck-controls button { min-width:44px; min-height:44px; padding:8px 12px; border:1px solid #879b71; border-radius:6px; background:var(--b3-frame); color:#efeddb; box-shadow:inset 0 1px 0 #edf0cf33,0 2px 0 #17251b; font-weight:750; }
@@ -64,10 +62,7 @@ body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
 /* The back-card shade is owned by physics; do not reuse this pseudo-element. */
 .article-cluster .creation-deck[data-mode="deck"] .v2-start-card::after { content:""; position:absolute; inset:0; z-index:2; background:#243b30; opacity:var(--deck-shade,0); pointer-events:none; border-radius:inherit; }
 .article-shell>.breadcrumbs>:is(a,span:not(:last-child)) { flex:0 0 auto; white-space:nowrap; }
-.article-shell>.breadcrumbs>span:last-child { min-width:0; overflow-wrap:anywhere; }
-.category-cluster .article-cluster-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,272px),1fr)); gap:16px; list-style:none; padding:0; }
-.category-cluster .v2-start-card-item { min-width:0; }
-.category-cluster .v2-start-card-meta { display:flex; flex-wrap:wrap; gap:8px; }
+.category-cluster .article-cluster-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,272px),1fr)); gap:16px; }
 .category-cluster .v2-start-card-meta>* { flex:0 0 auto; max-width:100%; }
 .category-cluster .hub-preparation { position:relative; display:grid; gap:10px; padding:16px; margin:24px auto 0; max-width:32rem; }
 .hub-preparation p { margin:0; line-height:1.65; }
