@@ -1,0 +1,3708 @@
+{
+  "exclusion": {
+    "eligible": false,
+    "excluded": true,
+    "stored": "1"
+  },
+  "rows": [
+    {
+      "id": "home-main",
+      "requestedUrl": "/",
+      "url": "/?hubCategory=start",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focus": ".b3-play-hero",
+      "focusCount": 1,
+      "screenshot": "home-main-1440.png",
+      "overflow": false,
+      "title": "作りたいゲームから制作ロードマップを作る",
+      "h1": [
+        "遊べる世界から、作るヒントを。"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事ゲーム制作をはじめる記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事画像と3D素材を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事音と声を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事制作の体験談と学び記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ8作品AIで作ったゲームを遊ぶ作品を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "project-idea-card",
+          "text": "どんなゲームを作りたいですか？形式、公開先、経験、予算、必要な素材など、決まっていることだけを書いてください。0 / 1200アクセス解析へは送信しません。外部",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "最初の作業を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "home-category",
+      "requestedUrl": "/",
+      "url": "/?hubCategory=start",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focus": ".home-category-entry",
+      "focusCount": 1,
+      "screenshot": "home-category-1440.png",
+      "overflow": false,
+      "title": "作りたいゲームから制作ロードマップを作る",
+      "h1": [
+        "遊べる世界から、作るヒントを。"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事ゲーム制作をはじめる記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事画像と3D素材を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事音と声を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事制作の体験談と学び記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ8作品AIで作ったゲームを遊ぶ作品を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "project-idea-card",
+          "text": "どんなゲームを作りたいですか？形式、公開先、経験、予算、必要な素材など、決まっていることだけを書いてください。0 / 1200アクセス解析へは送信しません。外部",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "最初の作業を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "home-form",
+      "requestedUrl": "/",
+      "url": "/?hubCategory=start",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focus": ".home-execution-hero",
+      "focusCount": 1,
+      "screenshot": "home-form-1440.png",
+      "overflow": false,
+      "title": "作りたいゲームから制作ロードマップを作る",
+      "h1": [
+        "遊べる世界から、作るヒントを。"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事ゲーム制作をはじめる記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事画像と3D素材を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事音と声を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事制作の体験談と学び記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ8作品AIで作ったゲームを遊ぶ作品を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "project-idea-card",
+          "text": "どんなゲームを作りたいですか？形式、公開先、経験、予算、必要な素材など、決まっていることだけを書いてください。0 / 1200アクセス解析へは送信しません。外部",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "最初の作業を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "articles-category",
+      "requestedUrl": "/articles/",
+      "url": "/articles/?hubCategory=start#categories",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focus": "#categories",
+      "focusCount": 1,
+      "screenshot": "articles-category-1440.png",
+      "overflow": false,
+      "title": "AIゲーム開発の記事・実践ガイド | GameBuildiary",
+      "h1": [
+        "今の制作課題から、次に読む手順を選ぶ"
+      ],
+      "surfaces": [
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事ゲーム制作をはじめる記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "rgb(255, 255, 255) 0px 0px 0px 2px"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事画像と3D素材を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事音と声を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事制作の体験談と学び記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ8作品AIで作ったゲームを遊ぶ作品を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "button",
+          "text": "制作手順を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "articles-all",
+      "requestedUrl": "/articles/#all",
+      "url": "/articles/?hubArticle=ai-browser-game-how-to#all",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focus": "#all",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "AIゲーム開発の記事・実践ガイド | GameBuildiary",
+      "h1": [
+        "今の制作課題から、次に読む手順を選ぶ"
+      ],
+      "surfaces": [
+        {
+          "className": "v2-start-card-face",
+          "text": "初心者向け更新 2026-10-04AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "rgb(255, 255, 255) 0px 0px 0px 2px"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-09-02AIに「ゲームを作って」と頼む前に決めるべき5つのこと記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-09-02AIでゲームを作るなら、最初の成功体験は小さい方がいい記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "初心者向け更新 2026-10-04GitHubの使い方と画面の見方｜初心者がゲームのHTMLを保存するまで記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-09-02ゲーム開発初心者ほど、AIツール比較を後回しにした方がいい記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "初心者向け更新 2026-10-11AIで作ったHTMLゲームが動かないときの直し方記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-09-21Meshy AIの使い方｜ゲーム用3Dモデルの生成からUnity・Blenderへの読み込みまで記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-09-22Meshy AIの料金は？無料版・Pro・Premium・Ultraの違いとゲーム開発のクレジット目安記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-09-22Meshy AIは商用利用できる？無料版・有料版のライセンスとゲーム利用条件記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-09-30ゲーム開発向けElevenLabs使い方ガイド｜日本語音声・効果音・APIの選び方記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-10-11ElevenLabs v4とは？ゲーム音声の変化・v3との違い・日本語・Turboを解説記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-09-10ElevenLabsの商用利用ガイド｜ゲーム音声で確認すべき権利とプラン記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "実践ガイド更新 2026-08-29AIの正しい使い方記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-09-02AIが「完成しました」と言っても信用してはいけない理由記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-09-02AIにゲーム開発を丸投げすると、なぜ途中で詰むのか記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-08-29AIに幻想を抱くあなたへ記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ゲーム制作外の検証事例更新 2026-09-07AIにトレード研究を丸投げしたら、間違った方向へ全力疾走した話記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-10-04Claude とのチャットから Claude Code へ 荒野モン動を作った流れとエフェクト作りの試行錯誤記事を",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "button",
+          "text": "制作手順を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "tools-filter",
+      "requestedUrl": "/tools/",
+      "url": "/tools/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focus": ".goal-picker",
+      "focusCount": 3,
+      "screenshot": "tools-filter-1440.png",
+      "overflow": false,
+      "title": "作りたいものからAIツールを探す | GameBuildiary",
+      "h1": [
+        "何を作りたいですか？"
+      ],
+      "surfaces": [
+        {
+          "className": "button ghost",
+          "text": "すべて表示",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "制作するコードUIキャラクター2D画像3Dモデルアニメーション",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "音・物語を作る声BGM効果音NPC会話翻訳",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "品質を上げて公開するテストトレーラーストア素材",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "tools-empty",
+      "requestedUrl": "/tools/?q=not-a-published-tool-qxy999",
+      "url": "/tools/?q=not-a-published-tool-qxy999",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focus": ".no-results",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "作りたいものからAIツールを探す | GameBuildiary",
+      "h1": [
+        "何を作りたいですか？"
+      ],
+      "surfaces": [
+        {
+          "className": "button ghost",
+          "text": "すべて表示",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "制作するコードUIキャラクター2D画像3Dモデルアニメーション",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "音・物語を作る声BGM効果音NPC会話翻訳",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "品質を上げて公開するテストトレーラーストア素材",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "検索: not-a-published-tool-qxy999を解除",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "すべて解除",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "条件を解除",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "tool-detail",
+      "requestedUrl": "/tools/meshy/",
+      "url": "/tools/meshy/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focus": ".quick-facts",
+      "focusCount": 1,
+      "screenshot": "tool-detail-1440.png",
+      "overflow": false,
+      "title": "Meshy：ゲーム開発での使い方・料金・商用利用 | GameBuildiary",
+      "h1": [
+        "Meshy"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "quick-facts",
+          "text": "無料枠あり商用利用条件付きAPIあり最終確認2026-08-25",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "自分の条件で制作計画を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "guides",
+      "requestedUrl": "/guides/",
+      "url": "/guides/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focus": ".guide-stage-nav",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "AIゲーム開発ガイド | GameBuildiary",
+      "h1": [
+        "今の作業から、次の成果物へ"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "実装ブリーフから始める",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button secondary",
+          "text": "自分のProjectで次の作業を決める",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "stack-detail",
+      "requestedUrl": "/stacks/2d-rpg/",
+      "url": "/stacks/2d-rpg/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focus": ".stack-tools",
+      "focusCount": 1,
+      "screenshot": "stack-detail-1440.png",
+      "overflow": false,
+      "title": "2D RPG 制作構成 | GameBuildiary",
+      "h1": [
+        "2D RPG 制作構成"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "この構成を条件に合わせる",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "候補を比較する",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "",
+          "text": "必要工程 · コードGitHub Copilot詳細 →候補の位置付けテンプレート候補（個別条件への推薦ではありません）公式資料の確認状態公式資料確認済み選ぶ理",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "",
+          "text": "必要工程 · ビジュアルScenario詳細 →候補の位置付けテンプレート候補（個別条件への推薦ではありません）公式資料の確認状態公式資料確認済み選ぶ理由2Dア",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "",
+          "text": "任意工程 · 音楽・効果音Suno詳細 →候補の位置付けテンプレート候補（個別条件への推薦ではありません）公式資料の確認状態公式資料確認済み選ぶ理由BGMと楽曲",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "Builderで調整する",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "掲載候補を比較する",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "compare-selected",
+      "requestedUrl": "/compare/?ids=meshy,elevenlabs",
+      "url": "/compare/?ids=meshy,elevenlabs",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focus": ".compare-decision",
+      "focusCount": 1,
+      "screenshot": "compare-selected-1440.png",
+      "overflow": false,
+      "title": "AIゲーム開発ツール比較 | GameBuildiary",
+      "h1": [
+        "候補を、根拠から比べる。"
+      ],
+      "surfaces": [
+        {
+          "className": "compare-decision",
+          "text": "最初に判断選択中の候補で、先に判断材料を確認選択候補：Meshy / ElevenLabs先に見る主要差分ゲームエンジンMeshy：Unity、Unreal E",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "compare-table",
+      "requestedUrl": "/compare/?ids=meshy,elevenlabs",
+      "url": "/compare/?ids=meshy,elevenlabs",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focus": ".compare-scroll",
+      "focusCount": 1,
+      "screenshot": "compare-table-1440.png",
+      "overflow": false,
+      "title": "AIゲーム開発ツール比較 | GameBuildiary",
+      "h1": [
+        "候補を、根拠から比べる。"
+      ],
+      "surfaces": [
+        {
+          "className": "compare-decision",
+          "text": "最初に判断選択中の候補で、先に判断材料を確認選択候補：Meshy / ElevenLabs先に見る主要差分ゲームエンジンMeshy：Unity、Unreal E",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "article-reading",
+      "requestedUrl": "/articles/ai-browser-game-how-to/",
+      "url": "/articles/ai-browser-game-how-to/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focus": ".article-shell",
+      "focusCount": 1,
+      "screenshot": "article-reading-1440.png",
+      "overflow": false,
+      "title": "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方 | GameBuildiary",
+      "h1": [
+        "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "ゲームを表示",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "同じゲームの制作ロードマップを作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "Projectでゲーム案を入力する",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "article-handoff",
+      "requestedUrl": "/articles/ai-browser-game-how-to/?from=tools&tool=claude",
+      "url": "/articles/ai-browser-game-how-to/?from=tools&tool=claude",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focus": ".article-project-cta",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方 | GameBuildiary",
+      "h1": [
+        "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "ゲームを表示",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "同じゲームの制作ロードマップを作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "Projectでゲーム案を入力する",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "game-portrait",
+      "requestedUrl": "/games/create-monsters/",
+      "url": "/games/create-monsters/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focusCount": 0,
+      "screenshot": null,
+      "overflow": false,
+      "title": "クリエイトモンスターズの紹介・遊び方 | GameBuildiary",
+      "h1": [
+        "クリエイトモンスターズ"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "not-found",
+      "requestedUrl": "/not-a-real-route-b3-audit/",
+      "url": "/not-a-real-route-b3-audit/",
+      "width": 1440,
+      "status": 404,
+      "errors": [],
+      "focusCount": 0,
+      "screenshot": null,
+      "overflow": false,
+      "title": "GameBuildiary | ビルダイアリー",
+      "h1": [
+        "ページが見つかりません"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "ツールを探す",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "requestedUrl": "/privacy/",
+      "url": "/privacy/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "focusCount": 0,
+      "screenshot": null,
+      "overflow": false,
+      "title": "プライバシーポリシー | GameBuildiary",
+      "h1": [
+        "プライバシーポリシー"
+      ],
+      "surfaces": []
+    },
+    {
+      "id": "home-main",
+      "requestedUrl": "/",
+      "url": "/?hubCategory=start",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focus": ".b3-play-hero",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "作りたいゲームから制作ロードマップを作る",
+      "h1": [
+        "遊べる世界から、作るヒントを。"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事ゲーム制作をはじめる記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事画像と3D素材を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事音と声を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事制作の体験談と学び記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ8作品AIで作ったゲームを遊ぶ作品を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "project-idea-card",
+          "text": "どんなゲームを作りたいですか？形式、公開先、経験、予算、必要な素材など、決まっていることだけを書いてください。0 / 1200アクセス解析へは送信しません。外部",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "最初の作業を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "home-category",
+      "requestedUrl": "/",
+      "url": "/?hubCategory=start",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focus": ".home-category-entry",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "作りたいゲームから制作ロードマップを作る",
+      "h1": [
+        "遊べる世界から、作るヒントを。"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事ゲーム制作をはじめる記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事画像と3D素材を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事音と声を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事制作の体験談と学び記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ8作品AIで作ったゲームを遊ぶ作品を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "project-idea-card",
+          "text": "どんなゲームを作りたいですか？形式、公開先、経験、予算、必要な素材など、決まっていることだけを書いてください。0 / 1200アクセス解析へは送信しません。外部",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "最初の作業を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "home-form",
+      "requestedUrl": "/",
+      "url": "/?hubCategory=start",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focus": ".home-execution-hero",
+      "focusCount": 1,
+      "screenshot": "home-form-375.png",
+      "overflow": false,
+      "title": "作りたいゲームから制作ロードマップを作る",
+      "h1": [
+        "遊べる世界から、作るヒントを。"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事ゲーム制作をはじめる記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事画像と3D素材を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事音と声を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事制作の体験談と学び記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ8作品AIで作ったゲームを遊ぶ作品を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "project-idea-card",
+          "text": "どんなゲームを作りたいですか？形式、公開先、経験、予算、必要な素材など、決まっていることだけを書いてください。0 / 1200アクセス解析へは送信しません。外部",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "最初の作業を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "articles-category",
+      "requestedUrl": "/articles/",
+      "url": "/articles/?hubCategory=start#categories",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focus": "#categories",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "AIゲーム開発の記事・実践ガイド | GameBuildiary",
+      "h1": [
+        "今の制作課題から、次に読む手順を選ぶ"
+      ],
+      "surfaces": [
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事ゲーム制作をはじめる記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "rgb(255, 255, 255) 0px 0px 0px 2px"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事画像と3D素材を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事音と声を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事制作の体験談と学び記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ8作品AIで作ったゲームを遊ぶ作品を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "button",
+          "text": "制作手順を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "articles-all",
+      "requestedUrl": "/articles/#all",
+      "url": "/articles/?hubArticle=ai-browser-game-how-to#all",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focus": "#all",
+      "focusCount": 1,
+      "screenshot": "articles-all-375.png",
+      "overflow": false,
+      "title": "AIゲーム開発の記事・実践ガイド | GameBuildiary",
+      "h1": [
+        "今の制作課題から、次に読む手順を選ぶ"
+      ],
+      "surfaces": [
+        {
+          "className": "v2-start-card-face",
+          "text": "初心者向け更新 2026-10-04AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "rgb(255, 255, 255) 0px 0px 0px 2px"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-09-02AIに「ゲームを作って」と頼む前に決めるべき5つのこと記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-09-02AIでゲームを作るなら、最初の成功体験は小さい方がいい記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "初心者向け更新 2026-10-04GitHubの使い方と画面の見方｜初心者がゲームのHTMLを保存するまで記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-09-02ゲーム開発初心者ほど、AIツール比較を後回しにした方がいい記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "初心者向け更新 2026-10-11AIで作ったHTMLゲームが動かないときの直し方記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-09-21Meshy AIの使い方｜ゲーム用3Dモデルの生成からUnity・Blenderへの読み込みまで記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-09-22Meshy AIの料金は？無料版・Pro・Premium・Ultraの違いとゲーム開発のクレジット目安記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-09-22Meshy AIは商用利用できる？無料版・有料版のライセンスとゲーム利用条件記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-09-30ゲーム開発向けElevenLabs使い方ガイド｜日本語音声・効果音・APIの選び方記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-10-11ElevenLabs v4とは？ゲーム音声の変化・v3との違い・日本語・Turboを解説記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-09-10ElevenLabsの商用利用ガイド｜ゲーム音声で確認すべき権利とプラン記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "実践ガイド更新 2026-08-29AIの正しい使い方記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-09-02AIが「完成しました」と言っても信用してはいけない理由記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-09-02AIにゲーム開発を丸投げすると、なぜ途中で詰むのか記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-08-29AIに幻想を抱くあなたへ記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ゲーム制作外の検証事例更新 2026-09-07AIにトレード研究を丸投げしたら、間違った方向へ全力疾走した話記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-10-04Claude とのチャットから Claude Code へ 荒野モン動を作った流れとエフェクト作りの試行錯誤記事を",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "button",
+          "text": "制作手順を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "tools-filter",
+      "requestedUrl": "/tools/",
+      "url": "/tools/",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focus": ".goal-picker",
+      "focusCount": 3,
+      "screenshot": null,
+      "overflow": false,
+      "title": "作りたいものからAIツールを探す | GameBuildiary",
+      "h1": [
+        "何を作りたいですか？"
+      ],
+      "surfaces": [
+        {
+          "className": "button ghost",
+          "text": "すべて表示",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "制作するコードUIキャラクター2D画像3Dモデルアニメーション",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "音・物語を作る声BGM効果音NPC会話翻訳",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "品質を上げて公開するテストトレーラーストア素材",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "tools-empty",
+      "requestedUrl": "/tools/?q=not-a-published-tool-qxy999",
+      "url": "/tools/?q=not-a-published-tool-qxy999",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focus": ".no-results",
+      "focusCount": 1,
+      "screenshot": "tools-empty-375.png",
+      "overflow": false,
+      "title": "作りたいものからAIツールを探す | GameBuildiary",
+      "h1": [
+        "何を作りたいですか？"
+      ],
+      "surfaces": [
+        {
+          "className": "button ghost",
+          "text": "すべて表示",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "制作するコードUIキャラクター2D画像3Dモデルアニメーション",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "音・物語を作る声BGM効果音NPC会話翻訳",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "品質を上げて公開するテストトレーラーストア素材",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "検索: not-a-published-tool-qxy999を解除",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "すべて解除",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "条件を解除",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "tool-detail",
+      "requestedUrl": "/tools/meshy/",
+      "url": "/tools/meshy/",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focus": ".quick-facts",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "Meshy：ゲーム開発での使い方・料金・商用利用 | GameBuildiary",
+      "h1": [
+        "Meshy"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "quick-facts",
+          "text": "無料枠あり商用利用条件付きAPIあり最終確認2026-08-25",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "自分の条件で制作計画を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "guides",
+      "requestedUrl": "/guides/",
+      "url": "/guides/",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focus": ".guide-stage-nav",
+      "focusCount": 1,
+      "screenshot": "guides-375.png",
+      "overflow": false,
+      "title": "AIゲーム開発ガイド | GameBuildiary",
+      "h1": [
+        "今の作業から、次の成果物へ"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "実装ブリーフから始める",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button secondary",
+          "text": "自分のProjectで次の作業を決める",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "stack-detail",
+      "requestedUrl": "/stacks/2d-rpg/",
+      "url": "/stacks/2d-rpg/",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focus": ".stack-tools",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "2D RPG 制作構成 | GameBuildiary",
+      "h1": [
+        "2D RPG 制作構成"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "この構成を条件に合わせる",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "候補を比較する",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "",
+          "text": "必要工程 · コードGitHub Copilot詳細 →候補の位置付けテンプレート候補（個別条件への推薦ではありません）公式資料の確認状態公式資料確認済み選ぶ理",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "",
+          "text": "必要工程 · ビジュアルScenario詳細 →候補の位置付けテンプレート候補（個別条件への推薦ではありません）公式資料の確認状態公式資料確認済み選ぶ理由2Dア",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "",
+          "text": "任意工程 · 音楽・効果音Suno詳細 →候補の位置付けテンプレート候補（個別条件への推薦ではありません）公式資料の確認状態公式資料確認済み選ぶ理由BGMと楽曲",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "Builderで調整する",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "掲載候補を比較する",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "compare-selected",
+      "requestedUrl": "/compare/?ids=meshy,elevenlabs",
+      "url": "/compare/?ids=meshy,elevenlabs",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focus": ".compare-decision",
+      "focusCount": 1,
+      "screenshot": "compare-selected-375.png",
+      "overflow": false,
+      "title": "AIゲーム開発ツール比較 | GameBuildiary",
+      "h1": [
+        "候補を、根拠から比べる。"
+      ],
+      "surfaces": [
+        {
+          "className": "compare-decision",
+          "text": "最初に判断選択中の候補で、先に判断材料を確認選択候補：Meshy / ElevenLabs先に見る主要差分ゲームエンジンMeshy：Unity、Unreal E",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "compare-table",
+      "requestedUrl": "/compare/?ids=meshy,elevenlabs",
+      "url": "/compare/?ids=meshy,elevenlabs",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focus": ".compare-mobile",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "AIゲーム開発ツール比較 | GameBuildiary",
+      "h1": [
+        "候補を、根拠から比べる。"
+      ],
+      "surfaces": [
+        {
+          "className": "compare-decision",
+          "text": "最初に判断選択中の候補で、先に判断材料を確認選択候補：Meshy / ElevenLabs先に見る主要差分ゲームエンジンMeshy：Unity、Unreal E",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "article-reading",
+      "requestedUrl": "/articles/ai-browser-game-how-to/",
+      "url": "/articles/ai-browser-game-how-to/",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focus": ".article-shell",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方 | GameBuildiary",
+      "h1": [
+        "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "ゲームを表示",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "同じゲームの制作ロードマップを作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "Projectでゲーム案を入力する",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "article-handoff",
+      "requestedUrl": "/articles/ai-browser-game-how-to/?from=tools&tool=claude",
+      "url": "/articles/ai-browser-game-how-to/?from=tools&tool=claude",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focus": ".article-project-cta",
+      "focusCount": 1,
+      "screenshot": "article-handoff-375.png",
+      "overflow": false,
+      "title": "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方 | GameBuildiary",
+      "h1": [
+        "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "ゲームを表示",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "同じゲームの制作ロードマップを作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "Projectでゲーム案を入力する",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "game-portrait",
+      "requestedUrl": "/games/create-monsters/",
+      "url": "/games/create-monsters/",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focusCount": 0,
+      "screenshot": "game-portrait-375.png",
+      "overflow": false,
+      "title": "クリエイトモンスターズの紹介・遊び方 | GameBuildiary",
+      "h1": [
+        "クリエイトモンスターズ"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "not-found",
+      "requestedUrl": "/not-a-real-route-b3-audit/",
+      "url": "/not-a-real-route-b3-audit/",
+      "width": 375,
+      "status": 404,
+      "errors": [],
+      "focusCount": 0,
+      "screenshot": "not-found-375.png",
+      "overflow": false,
+      "title": "GameBuildiary | ビルダイアリー",
+      "h1": [
+        "ページが見つかりません"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "ツールを探す",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "requestedUrl": "/privacy/",
+      "url": "/privacy/",
+      "width": 375,
+      "status": 200,
+      "errors": [],
+      "focusCount": 0,
+      "screenshot": null,
+      "overflow": false,
+      "title": "プライバシーポリシー | GameBuildiary",
+      "h1": [
+        "プライバシーポリシー"
+      ],
+      "surfaces": []
+    },
+    {
+      "id": "home-main",
+      "requestedUrl": "/",
+      "url": "/",
+      "width": 320,
+      "status": 200,
+      "errors": [],
+      "focus": ".b3-play-hero",
+      "focusCount": 1,
+      "screenshot": "home-main-320.png",
+      "overflow": false,
+      "title": "作りたいゲームから制作ロードマップを作る",
+      "h1": [
+        "遊べる世界から、作るヒントを。"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事ゲーム制作をはじめる記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事画像と3D素材を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事音と声を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事制作の体験談と学び記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ8作品AIで作ったゲームを遊ぶ作品を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "project-idea-card",
+          "text": "どんなゲームを作りたいですか？形式、公開先、経験、予算、必要な素材など、決まっていることだけを書いてください。0 / 1200アクセス解析へは送信しません。外部",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "最初の作業を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "home-category",
+      "requestedUrl": "/",
+      "url": "/",
+      "width": 320,
+      "status": 200,
+      "errors": [],
+      "focus": ".home-category-entry",
+      "focusCount": 1,
+      "screenshot": "home-category-320.png",
+      "overflow": false,
+      "title": "作りたいゲームから制作ロードマップを作る",
+      "h1": [
+        "遊べる世界から、作るヒントを。"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事ゲーム制作をはじめる記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事画像と3D素材を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事音と声を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事制作の体験談と学び記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ8作品AIで作ったゲームを遊ぶ作品を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "project-idea-card",
+          "text": "どんなゲームを作りたいですか？形式、公開先、経験、予算、必要な素材など、決まっていることだけを書いてください。0 / 1200アクセス解析へは送信しません。外部",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "最初の作業を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "home-form",
+      "requestedUrl": "/",
+      "url": "/",
+      "width": 320,
+      "status": 200,
+      "errors": [],
+      "focus": ".home-execution-hero",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "作りたいゲームから制作ロードマップを作る",
+      "h1": [
+        "遊べる世界から、作るヒントを。"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(6, 15, 7, 0.25) 0px 5px 18px 0px"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事ゲーム制作をはじめる記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事画像と3D素材を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事音と声を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事制作の体験談と学び記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ8作品AIで作ったゲームを遊ぶ作品を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "project-idea-card",
+          "text": "どんなゲームを作りたいですか？形式、公開先、経験、予算、必要な素材など、決まっていることだけを書いてください。0 / 1200アクセス解析へは送信しません。外部",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "最初の作業を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "articles-category",
+      "requestedUrl": "/articles/",
+      "url": "/articles/#categories",
+      "width": 320,
+      "status": 200,
+      "errors": [],
+      "focus": "#categories",
+      "focusCount": 1,
+      "screenshot": "articles-category-320.png",
+      "overflow": false,
+      "title": "AIゲーム開発の記事・実践ガイド | GameBuildiary",
+      "h1": [
+        "今の制作課題から、次に読む手順を選ぶ"
+      ],
+      "surfaces": [
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事ゲーム制作をはじめる記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事画像と3D素材を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ3本の記事音と声を作る記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ6本の記事制作の体験談と学び記事を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "制作カテゴリ8作品AIで作ったゲームを遊ぶ作品を見る →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "button",
+          "text": "制作手順を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "articles-all",
+      "requestedUrl": "/articles/#all",
+      "url": "/articles/?hubArticle=ai-browser-game-how-to#all",
+      "width": 320,
+      "status": "same-document",
+      "errors": [],
+      "focus": "#all",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "AIゲーム開発の記事・実践ガイド | GameBuildiary",
+      "h1": [
+        "今の制作課題から、次に読む手順を選ぶ"
+      ],
+      "surfaces": [
+        {
+          "className": "v2-start-card-face",
+          "text": "初心者向け更新 2026-10-04AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "rgb(255, 255, 255) 0px 0px 0px 2px"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-09-02AIに「ゲームを作って」と頼む前に決めるべき5つのこと記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-09-02AIでゲームを作るなら、最初の成功体験は小さい方がいい記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "初心者向け更新 2026-10-04GitHubの使い方と画面の見方｜初心者がゲームのHTMLを保存するまで記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-09-02ゲーム開発初心者ほど、AIツール比較を後回しにした方がいい記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "初心者向け更新 2026-10-11AIで作ったHTMLゲームが動かないときの直し方記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-09-21Meshy AIの使い方｜ゲーム用3Dモデルの生成からUnity・Blenderへの読み込みまで記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-09-22Meshy AIの料金は？無料版・Pro・Premium・Ultraの違いとゲーム開発のクレジット目安記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-09-22Meshy AIは商用利用できる？無料版・有料版のライセンスとゲーム利用条件記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-09-30ゲーム開発向けElevenLabs使い方ガイド｜日本語音声・効果音・APIの選び方記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-10-11ElevenLabs v4とは？ゲーム音声の変化・v3との違い・日本語・Turboを解説記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ツール実践更新 2026-09-10ElevenLabsの商用利用ガイド｜ゲーム音声で確認すべき権利とプラン記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "実践ガイド更新 2026-08-29AIの正しい使い方記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-09-02AIが「完成しました」と言っても信用してはいけない理由記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-09-02AIにゲーム開発を丸投げすると、なぜ途中で詰むのか記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-08-29AIに幻想を抱くあなたへ記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "ゲーム制作外の検証事例更新 2026-09-07AIにトレード研究を丸投げしたら、間違った方向へ全力疾走した話記事を読む →",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "v2-start-card-face",
+          "text": "開発フィールドノート更新 2026-10-04Claude とのチャットから Claude Code へ 荒野モン動を作った流れとエフェクト作りの試行錯誤記事を",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "shadow": "none"
+        },
+        {
+          "className": "button",
+          "text": "制作手順を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "tools-filter",
+      "requestedUrl": "/tools/",
+      "url": "/tools/",
+      "width": 320,
+      "status": 200,
+      "errors": [],
+      "focus": ".goal-picker",
+      "focusCount": 3,
+      "screenshot": "tools-filter-320.png",
+      "overflow": false,
+      "title": "作りたいものからAIツールを探す | GameBuildiary",
+      "h1": [
+        "何を作りたいですか？"
+      ],
+      "surfaces": [
+        {
+          "className": "button ghost",
+          "text": "すべて表示",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "制作するコードUIキャラクター2D画像3Dモデルアニメーション",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "音・物語を作る声BGM効果音NPC会話翻訳",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "品質を上げて公開するテストトレーラーストア素材",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "根拠と制約を見る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "tools-empty",
+      "requestedUrl": "/tools/?q=not-a-published-tool-qxy999",
+      "url": "/tools/?q=not-a-published-tool-qxy999",
+      "width": 320,
+      "status": 200,
+      "errors": [],
+      "focus": ".no-results",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "作りたいものからAIツールを探す | GameBuildiary",
+      "h1": [
+        "何を作りたいですか？"
+      ],
+      "surfaces": [
+        {
+          "className": "button ghost",
+          "text": "すべて表示",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "制作するコードUIキャラクター2D画像3Dモデルアニメーション",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "音・物語を作る声BGM効果音NPC会話翻訳",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "goal-picker",
+          "text": "品質を上げて公開するテストトレーラーストア素材",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "検索: not-a-published-tool-qxy999を解除",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "すべて解除",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "条件を解除",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "tool-detail",
+      "requestedUrl": "/tools/meshy/",
+      "url": "/tools/meshy/",
+      "width": 320,
+      "status": 200,
+      "errors": [],
+      "focus": ".quick-facts",
+      "focusCount": 1,
+      "screenshot": "tool-detail-320.png",
+      "overflow": false,
+      "title": "Meshy：ゲーム開発での使い方・料金・商用利用 | GameBuildiary",
+      "h1": [
+        "Meshy"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "quick-facts",
+          "text": "無料枠あり商用利用条件付きAPIあり最終確認2026-08-25",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "自分の条件で制作計画を作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "guides",
+      "requestedUrl": "/guides/",
+      "url": "/guides/",
+      "width": 320,
+      "status": 200,
+      "errors": [],
+      "focus": ".guide-stage-nav",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "AIゲーム開発ガイド | GameBuildiary",
+      "h1": [
+        "今の作業から、次の成果物へ"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "実装ブリーフから始める",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button secondary",
+          "text": "自分のProjectで次の作業を決める",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "stack-detail",
+      "requestedUrl": "/stacks/2d-rpg/",
+      "url": "/stacks/2d-rpg/",
+      "width": 320,
+      "status": 200,
+      "errors": [],
+      "focus": ".stack-tools",
+      "focusCount": 1,
+      "screenshot": "stack-detail-320.png",
+      "overflow": false,
+      "title": "2D RPG 制作構成 | GameBuildiary",
+      "h1": [
+        "2D RPG 制作構成"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "この構成を条件に合わせる",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "候補を比較する",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "",
+          "text": "必要工程 · コードGitHub Copilot詳細 →候補の位置付けテンプレート候補（個別条件への推薦ではありません）公式資料の確認状態公式資料確認済み選ぶ理",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "",
+          "text": "必要工程 · ビジュアルScenario詳細 →候補の位置付けテンプレート候補（個別条件への推薦ではありません）公式資料の確認状態公式資料確認済み選ぶ理由2Dア",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "",
+          "text": "任意工程 · 音楽・効果音Suno詳細 →候補の位置付けテンプレート候補（個別条件への推薦ではありません）公式資料の確認状態公式資料確認済み選ぶ理由BGMと楽曲",
+          "background": "rgb(250, 248, 242)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "Builderで調整する",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button ghost",
+          "text": "掲載候補を比較する",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "compare-selected",
+      "requestedUrl": "/compare/?ids=meshy,elevenlabs",
+      "url": "/compare/?ids=meshy,elevenlabs",
+      "width": 320,
+      "status": 200,
+      "errors": [],
+      "focus": ".compare-decision",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "AIゲーム開発ツール比較 | GameBuildiary",
+      "h1": [
+        "候補を、根拠から比べる。"
+      ],
+      "surfaces": [
+        {
+          "className": "compare-decision",
+          "text": "最初に判断選択中の候補で、先に判断材料を確認選択候補：Meshy / ElevenLabs先に見る主要差分ゲームエンジンMeshy：Unity、Unreal E",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "compare-table",
+      "requestedUrl": "/compare/?ids=meshy,elevenlabs",
+      "url": "/compare/?ids=meshy,elevenlabs",
+      "width": 320,
+      "status": 200,
+      "errors": [],
+      "focus": ".compare-mobile",
+      "focusCount": 1,
+      "screenshot": "compare-table-320.png",
+      "overflow": false,
+      "title": "AIゲーム開発ツール比較 | GameBuildiary",
+      "h1": [
+        "候補を、根拠から比べる。"
+      ],
+      "surfaces": [
+        {
+          "className": "compare-decision",
+          "text": "最初に判断選択中の候補で、先に判断材料を確認選択候補：Meshy / ElevenLabs先に見る主要差分ゲームエンジンMeshy：Unity、Unreal E",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "無料枠を公式サイトで確認広告リンク ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "article-reading",
+      "requestedUrl": "/articles/ai-browser-game-how-to/",
+      "url": "/articles/ai-browser-game-how-to/",
+      "width": 320,
+      "status": 200,
+      "errors": [],
+      "focus": ".article-shell",
+      "focusCount": 1,
+      "screenshot": "article-reading-320.png",
+      "overflow": false,
+      "title": "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方 | GameBuildiary",
+      "h1": [
+        "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "ゲームを表示",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "同じゲームの制作ロードマップを作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "Projectでゲーム案を入力する",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "article-handoff",
+      "requestedUrl": "/articles/ai-browser-game-how-to/?from=tools&tool=claude",
+      "url": "/articles/ai-browser-game-how-to/?from=tools&tool=claude",
+      "width": 320,
+      "status": 200,
+      "errors": [],
+      "focus": ".article-project-cta",
+      "focusCount": 1,
+      "screenshot": null,
+      "overflow": false,
+      "title": "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方 | GameBuildiary",
+      "h1": [
+        "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "ゲームを表示",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "同じゲームの制作ロードマップを作る",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "Projectでゲーム案を入力する",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "game-portrait",
+      "requestedUrl": "/games/create-monsters/",
+      "url": "/games/create-monsters/",
+      "width": 320,
+      "status": 200,
+      "errors": [],
+      "focusCount": 0,
+      "screenshot": null,
+      "overflow": false,
+      "title": "クリエイトモンスターズの紹介・遊び方 | GameBuildiary",
+      "h1": [
+        "クリエイトモンスターズ"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        },
+        {
+          "className": "button",
+          "text": "遊ぶ（外部サイト・新しいタブ） ↗",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "not-found",
+      "requestedUrl": "/not-a-real-route-b3-audit/",
+      "url": "/not-a-real-route-b3-audit/",
+      "width": 320,
+      "status": 404,
+      "errors": [],
+      "focusCount": 0,
+      "screenshot": null,
+      "overflow": false,
+      "title": "GameBuildiary | ビルダイアリー",
+      "h1": [
+        "ページが見つかりません"
+      ],
+      "surfaces": [
+        {
+          "className": "button",
+          "text": "ツールを探す",
+          "background": "rgba(0, 0, 0, 0)",
+          "borderRadius": "7px",
+          "shadow": "rgba(255, 247, 220, 0.62) 0px 1px 0px 0px inset, rgba(138, 117, 76, 0.2) 0px 3px 0px 0px"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "requestedUrl": "/privacy/",
+      "url": "/privacy/",
+      "width": 320,
+      "status": 200,
+      "errors": [],
+      "focusCount": 0,
+      "screenshot": null,
+      "overflow": false,
+      "title": "プライバシーポリシー | GameBuildiary",
+      "h1": [
+        "プライバシーポリシー"
+      ],
+      "surfaces": []
+    }
+  ]
+}

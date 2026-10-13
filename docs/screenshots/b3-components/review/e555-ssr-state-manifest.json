@@ -1,0 +1,110 @@
+{
+  "pin": "e555d81678440a2faa76538b83e22f875ee96e93",
+  "build": "zRTspQ8ojf93LGGMfzTnt",
+  "records": [
+    {
+      "name": "tools-js-off-loading",
+      "url": "http://127.0.0.1:3102/tools/",
+      "selector": ".directory-state",
+      "states": [
+        {
+          "text": "LOADINGツールを読み込んでいます成果物と条件に合う候補を準備中です。",
+          "class": "directory-state loading",
+          "tag": "SECTION",
+          "bg": "rgb(250, 248, 242)",
+          "image": "none",
+          "border": "2px solid rgb(113, 128, 100)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px",
+          "color": "rgb(35, 53, 41)",
+          "radius": "9px",
+          "font": "16px",
+          "rect": {
+            "x": 31,
+            "y": 277.8125,
+            "width": 313,
+            "height": 183.28125,
+            "top": 277.8125,
+            "right": 344,
+            "bottom": 461.09375,
+            "left": 31
+          }
+        }
+      ],
+      "meta": {
+        "javascriptEnabled": false,
+        "note": "Actual route SSR/Suspense fallback with JS disabled, not fired runtime error boundary."
+      },
+      "file": "e555-state-tools-js-off-loading-375.png"
+    },
+    {
+      "name": "guides-js-off-loading",
+      "url": "http://127.0.0.1:3102/guides/",
+      "selector": ".directory-state",
+      "states": [
+        {
+          "text": "LOADINGガイドを読み込んでいます制作段階ごとの手順を準備中です。",
+          "class": "directory-state loading",
+          "tag": "SECTION",
+          "bg": "rgb(250, 248, 242)",
+          "image": "none",
+          "border": "2px solid rgb(113, 128, 100)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px",
+          "color": "rgb(35, 53, 41)",
+          "radius": "9px",
+          "font": "16px",
+          "rect": {
+            "x": 31,
+            "y": 277.9375,
+            "width": 313,
+            "height": 184.09375,
+            "top": 277.9375,
+            "right": 344,
+            "bottom": 462.03125,
+            "left": 31
+          }
+        }
+      ],
+      "meta": {
+        "javascriptEnabled": false,
+        "note": "Actual route SSR/Suspense fallback with JS disabled, not fired runtime error boundary."
+      },
+      "file": "e555-state-guides-js-off-loading-375.png"
+    },
+    {
+      "name": "compare-js-off-loading",
+      "url": "http://127.0.0.1:3102/compare/",
+      "selector": ".loading-panel",
+      "states": [
+        {
+          "text": "比較表を読み込んでいます…",
+          "class": "loading-panel",
+          "tag": "DIV",
+          "bg": "rgb(250, 248, 242)",
+          "image": "none",
+          "border": "2px solid rgb(113, 128, 100)",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px",
+          "color": "rgb(35, 53, 41)",
+          "radius": "9px",
+          "font": "16px",
+          "rect": {
+            "x": 31,
+            "y": 283.5,
+            "width": 313,
+            "height": 171.1875,
+            "top": 283.5,
+            "right": 344,
+            "bottom": 454.6875,
+            "left": 31
+          }
+        }
+      ],
+      "meta": {
+        "javascriptEnabled": false,
+        "note": "Actual route SSR/Suspense fallback with JS disabled, not fired runtime error boundary."
+      },
+      "file": "e555-state-compare-js-off-loading-375.png"
+    }
+  ],
+  "errors": [],
+  "external": []
+}
