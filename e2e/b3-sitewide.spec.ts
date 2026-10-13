@@ -107,6 +107,9 @@ test('paper fields retain visible keyboard focus and a distinct actual invalid b
  expect(await field.evaluate(el=>parseFloat(getComputedStyle(el).outlineWidth))).toBeGreaterThanOrEqual(3);
  await page.route('**/api/project/interpret',route=>route.abort('blockedbyclient'));
  for(const route of ['/project/','/builder/']) {
+  // Both entry points intentionally resume the same draft; isolate this
+  // validation scenario rather than treating that persistence as a failure.
+  await page.evaluate(()=>{sessionStorage.clear();localStorage.clear();});
   await page.goto(route);await page.getByLabel('どんなゲームを作りたいですか？').fill('Steam向け3Dホラー。Unity。中級。一人開発。低予算。商用。廃駅を舞台に、音を立てると盲目の怪物が追跡する。');
   await page.getByRole('button',{name:'制作ロードマップを作る',exact:true}).click();
   await page.getByRole('button',{name:'すべて計画に含める',exact:true}).click();
