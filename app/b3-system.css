@@ -70,7 +70,6 @@ body.b3-system {
 .b3-system .articles-v2-route .article-hub>.page-head { background:transparent; }
 .b3-system .site-footer { --color-text:var(--b3-light); --color-text-muted:var(--b3-light-muted); --color-action:var(--b3-amber); background:transparent; color:var(--b3-light); border-color:#4a574b; }
 .b3-system .site-footer :is(p,small,a) { color:var(--b3-light-muted); }
-.b3-system .site-footer a:hover { color:var(--b3-amber); }
 .b3-system .skip-link { background:var(--b3-graphite); color:var(--b3-light); border-color:var(--b3-amber); }
 .b3-system .b3-site-header .main-nav a:hover { border-color:transparent; color:var(--b3-light); background:#35432f; }
 .b3-system .b3-site-header .main-nav a[aria-current]:hover { color:var(--b3-ink); background:#ded8be; }
