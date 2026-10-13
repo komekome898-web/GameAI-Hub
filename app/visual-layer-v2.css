@@ -17,12 +17,10 @@
 .articles-v2-route :is(a,button,input,textarea,select):focus-visible { outline:3px solid var(--b3-action); outline-offset:3px; box-shadow:0 0 0 2px #fff; }
 
 /* Shared reflow safeguards, independent of the old Atrium decoration. */
-body.visual-layer-v2 .site-header .brand { min-height:44px; }
 body.visual-layer-v2 .site-footer a { display:flex; align-items:center; min-height:44px; }
 body.visual-layer-v2 .button { min-height:48px; height:auto; padding-block:10px; white-space:normal; }
 body.visual-layer-v2 :is(p,li,dd,a,button,label,small,strong,h1,h2,h3) { overflow-wrap:anywhere; }
 body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
-.home-v2-route .home-example-link { position:relative; z-index:1; }
 .home-v2-route .home-execution-hero { margin-top:24px; padding-inline:clamp(16px,3vw,36px); }
 .home-v2-route .idea-meta,
 .project-v2-route :is(.project-result-actions,.detail-actions,.beginner-action-buttons),
