@@ -7,7 +7,7 @@ import { applyTextMethod } from './acceptance/reflow';
 const output = 'docs/screenshots/b3-components';
 const samples = [
   ['home-categories', '/', '.category-cluster .v2-start-card'],
-  ['hub-categories', '/articles/', '.category-cluster .v2-start-card'],
+  ['hub-categories', '/articles/#categories', '.category-cluster .v2-start-card'],
   ['hub-start', '/articles/#start', '.creation-deck .v2-start-card'],
   ['hub-all', '/articles/#all', '.creation-deck .v2-start-card'],
   ['hub-games', '/articles/#games', '.game-card-actions'],
@@ -125,11 +125,16 @@ test('Project invalid state has a visible semantic edge and drawer focus remains
   await page.getByLabel('どんなゲームを作りたいですか？').fill('Steam向け3Dホラー。Unity。中級。一人開発。低予算。商用。廃駅を舞台に、音を立てると盲目の怪物が追跡する。');
   await page.getByRole('button', { name: '制作ロードマップを作る', exact: true }).click();
   await page.getByRole('button', { name: 'すべて計画に含める', exact: true }).click();
+  const choices = page.locator('.detail-actions').first();
+  expect(await choices.locator('[aria-pressed=true]').evaluate(element => getComputedStyle(element).backgroundImage))
+    .not.toBe(await choices.locator('[aria-pressed=false]').evaluate(element => getComputedStyle(element).backgroundImage));
   const invalid = page.getByLabel('抽出した固有情報').first();
+  const normalBoundary = await invalid.evaluate(element => getComputedStyle(element).borderTopColor);
   await invalid.fill(' ');
   await page.getByRole('button', { name: 'Project Planを作る', exact: true }).click();
   await expect(invalid).toBeFocused();
   await expect(invalid).toHaveAttribute('aria-invalid', 'true');
+  expect(await invalid.evaluate(element => getComputedStyle(element).borderTopColor)).not.toBe(normalBoundary);
   expect(await page.locator('.project-error-summary').evaluate(element => parseFloat(getComputedStyle(element).borderTopWidth))).toBeGreaterThanOrEqual(2);
   await page.screenshot({ path: `${output}/project-invalid-320.png` });
   await page.getByRole('button', { name: 'メニューを開く' }).click();

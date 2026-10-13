@@ -77,6 +77,14 @@ test.describe('Project Interpreter provider states',()=>{
     await page.goto('/project');await page.getByLabel('どんなゲームを作りたいですか？').fill('2D RPG');
     await page.getByRole('button',{name:'制作ロードマップを作る'}).click();
     await expect(page.getByText('E2E Provider が条件候補を抽出しました',{exact:false})).toBeVisible();
+    // These controls only appear after provider interpretation; the old B3
+    // shell checks never reached their browser-default appearance.
+    for (const selector of ['.clarify-form label>button', '.capability-picker>button']) {
+      const confirm = page.locator(selector).first();
+      await expect(confirm).toBeVisible();
+      await expect(confirm).toHaveCSS('border-top-style', 'solid');
+      expect(await confirm.evaluate(element => element.getBoundingClientRect().height)).toBeGreaterThanOrEqual(44);
+    }
     await page.getByRole('button',{name:'Project Planを作る'}).click();
     await expect(page.locator('#clarify-error')).toContainText('AIが抽出した候補を確認してください');
     for(const label of Object.keys(defaults))await page.getByRole('button',{name:`${label}のAI候補を確認`}).click();

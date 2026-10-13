@@ -450,6 +450,8 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
       await expect(help.locator("pre")).toContainText("現在の作業:");
       await expect(help.locator("pre")).toContainText("相談先のAI:");
       await expect(help.locator("pre")).toContainText("完了条件:");
+      await expect(help.getByRole("button", { name: "相談文をコピー", exact: true }))
+        .toHaveCSS("border-top-style", "solid");
       await help
         .getByRole("button", { name: "相談文をコピー", exact: true })
         .click();

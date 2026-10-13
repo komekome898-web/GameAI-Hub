@@ -64,6 +64,7 @@ body.visual-layer-v2 .home-b3 .b3-game-actions .button { min-height:48px; paddin
 .home-b3 .home-category-entry .creation-deck-count { color:#c5cebd; }
 .home-b3 .home-execution-hero { --color-text:#233529; --color-text-muted:#52604b; --color-action:#315a42; --color-border:#a2ae92; --text:#233529; --muted:#52604b; --accent:#315a42; --accent-strong:#315a42; border:2px solid #718064; border-radius:9px; background:linear-gradient(135deg,#e7e2d2,#dad4bd); box-shadow:var(--b3-depth); color:#233529; }
 .home-b3 .home-execution-hero :is(h2,p,label,small) { color:inherit; }
+.home-b3 .home-execution-hero h2 { text-wrap:balance; }
 @media(max-width:1100px) {
 .b3-beginner-note { position:static; max-width:none; margin-top:7px; }
 .b3-beginner-note a { display:inline; margin-left:12px; }

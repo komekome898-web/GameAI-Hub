@@ -3,7 +3,7 @@
 .articles-v2-route .v2-atrium-content { position:relative; z-index:1; min-width:0; }
 .articles-v2-route .article-hub>.page-head { margin-inline:calc(var(--space-5) * -1); padding-inline:var(--space-5); }
 .articles-v2-route .article-cluster .article-cluster-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--space-4); border-top:0; }
-.article-cluster .v2-start-card-item { min-width:0; border:0; }
+.article-cluster .v2-start-card-item { border:0; }
 .v2-start-card-image { position:relative; overflow:hidden; border:1px solid #7c896d; border-radius:5px; background:var(--b3-recess); box-shadow:inset 0 1px 2px #23352926; }
 .v2-start-card-image img { display:block; width:100%; height:100%; object-fit:cover; }
 .v2-start-card-meta { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--space-2); }
@@ -16,7 +16,7 @@
 
 /* Shared reflow safeguards, independent of the old Atrium decoration. */
 body.visual-layer-v2 .site-footer a { display:flex; align-items:center; min-height:44px; }
-body.visual-layer-v2 .button { height:auto; padding-block:10px; white-space:normal; }
+body.visual-layer-v2 .button { padding-block:10px; white-space:normal; }
 body.visual-layer-v2 :is(p,li,dd,a,button,label,small,strong,h1,h2,h3) { overflow-wrap:anywhere; }
 body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
 .home-v2-route .home-execution-hero { margin-top:24px; padding-inline:clamp(16px,3vw,36px); }
@@ -53,10 +53,10 @@ body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
 .article-cluster .creation-deck .v2-start-card-image { grid-column:1; grid-row:1; aspect-ratio:2 / 1; }
 .article-cluster .creation-deck .v2-start-card-meta { grid-column:1; grid-row:2; }
 .article-cluster .creation-deck :is(.v2-start-card-meta small,.v2-start-card-label) { font-size:.875rem; }
-.article-cluster .creation-deck .v2-start-card-face>strong { grid-column:1; grid-row:3; font-family:var(--font-sans),sans-serif; font-size:1.125rem; line-height:1.5; font-weight:750; overflow-wrap:anywhere; }
+.article-cluster .creation-deck .v2-start-card-face>strong { grid-column:1; grid-row:3; font-size:1.125rem; line-height:1.5; font-weight:750; overflow-wrap:anywhere; }
 .article-cluster .creation-deck .v2-start-card-description { grid-column:1; grid-row:4; position:relative; z-index:1; margin:0; font-size:1rem; line-height:1.65; }
 .article-cluster .creation-deck[data-mode="deck"] .v2-start-card-description[data-expanded="false"] { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden; }
-.article-cluster .creation-deck .v2-start-card-expand { grid-column:1; grid-row:5; position:relative; z-index:1; min-height:48px; justify-self:start; background:transparent; border:0; color:var(--b3-action); text-decoration:underline; font:inherit; }
+.article-cluster .creation-deck .v2-start-card-expand { grid-column:1; grid-row:5; position:relative; z-index:1; min-height:48px; justify-self:start; background:transparent; border:0; box-shadow:none; color:var(--b3-action); text-decoration:underline; font:inherit; }
 .article-cluster .creation-deck .v2-start-card-read { grid-column:1; grid-row:6; }
 .article-cluster .creation-deck .v2-start-card:has(.v2-start-card-face:focus-visible) { outline:3px solid var(--b3-action); outline-offset:-3px; }
 /* The back-card shade is owned by physics; do not reuse this pseudo-element. */
@@ -66,7 +66,6 @@ body.visual-layer-v2 :is(pre,code,.compare-scroll) { overflow-wrap:normal; }
 .category-cluster .v2-start-card-meta>* { flex:0 0 auto; max-width:100%; }
 .category-cluster .hub-preparation { position:relative; display:grid; gap:10px; padding:16px; margin:24px auto 0; max-width:32rem; }
 .hub-preparation p { margin:0; line-height:1.65; }
-.home-category-entry { padding-block:20px; min-width:0; }
 .hub-view-navigation { display:flex; flex-wrap:wrap; gap:1rem 2rem; margin:1.5rem 0; }
 .hub-view-navigation a { display:inline-flex; align-items:center; min-height:44px; padding-block:8px; }
 .article-hub-browser a:focus-visible { outline:3px solid var(--b3-action); outline-offset:5px; }

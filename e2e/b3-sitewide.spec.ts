@@ -11,7 +11,7 @@ import { getServices } from '../lib/services';
 
 const fixed=['/','/articles/','/tools/','/guides/','/stacks/','/project/','/builder/','/compare/','/methodology/','/privacy/','/affiliate-disclosure/'];
 const routes=[...fixed,...publishedArticles.map(x=>`/articles/${x.slug}/`),...getPublishedGames().map(x=>`/games/${x.slug}/`),...getServices().map(x=>`/tools/${x.slug}/`),...guides.map(x=>`/guides/${x.slug}/`),...stackTemplates.map(x=>`/stacks/${x.slug}/`)];
-const samples=[['home','/'],['articles','/articles/'],['article','/articles/meshy-pricing-credits-game/'],['game','/games/aramon/'],['tools','/tools/'],['tool','/tools/meshy/'],['compare','/compare/?ids=meshy,tripo&goal=models3d&stage=assets3d'],['guides','/guides/'],['guide','/guides/ai-2d-rpg-workflow/'],['stacks','/stacks/'],['stack','/stacks/2d-rpg/'],['project','/project/'],['builder','/builder/'],['privacy','/privacy/'],['404','/games/missing-b3-sample/']] as const;
+const samples=[['home','/'],['articles','/articles/'],['article','/articles/meshy-pricing-credits-game/'],['game','/games/aramon/'],['tools','/tools/'],['tool','/tools/meshy/'],['compare','/compare/?ids=meshy,tripo-ai&goal=3d&stage=3d'],['guides','/guides/'],['guide','/guides/ai-2d-rpg-workflow/'],['stacks','/stacks/'],['stack','/stacks/2d-rpg/'],['project','/project/'],['builder','/builder/'],['privacy','/privacy/'],['404','/games/missing-b3-sample/']] as const;
 const output='docs/screenshots/b3-sitewide';
 
 for (const width of [1440,375,320]) {

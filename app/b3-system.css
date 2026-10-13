@@ -63,7 +63,7 @@ body.b3-system main :is(.button.ghost,.button.light) {
   background:linear-gradient(#faf8f2,#eeece2); color:var(--b3-ink); border-color:var(--b3-control-edge);
 }
 /* Paper stays readable, within the same firm olive frame as the artwork deck. */
-.b3-system main :is(.card,.quick-facts,.goal-picker,.secondary-filters,.compare-picker-panel,.compare-selection-tray,.compare-view-options,.compare-decision,.compare-scroll,.compare-criteria-groups>section,.compare-mobile article,.builder-form,.clarify-form,.project-idea-card,.project-detail-card,.directory-state,.empty,.stack-grid>article,.stack-tools>article,.stack-fit>div,.stack-checks>div,.stack-mini-grid>a,.two-col>section,.stage-decision,.requirement-summary>div,.production-map li,.workflow-map li,.slice-grid article,.risk-list article,.cost-card,.plan-phase,.artifact-card,.plan-tool-card,.secondary-plan,.project-supporting-details,.result-utilities,.beginner-action,.beginner-starter,.beginner-workspace,.guide-task) {
+.b3-system main :is(.card,.quick-facts,.goal-picker,.secondary-filters,.compare-picker-panel,.compare-selection-tray,.compare-view-options,.compare-decision,.compare-scroll,.compare-criteria-groups>section,.compare-mobile article,.builder-form,.clarify-form,.project-idea-card,.project-detail-card,.directory-state,.no-results,.loading-panel,.empty,.stack-grid>article,.stack-tools>article,.stack-fit>div,.stack-checks>div,.two-col>section,.stage-decision,.requirement-summary>div,.production-map li,.workflow-map li,.slice-grid article,.risk-list article,.cost-card,.plan-phase,.artifact-card,.plan-tool-card,.secondary-plan,.project-supporting-details,.result-utilities,.beginner-action,.beginner-starter,.beginner-workspace,.guide-task) {
   border:2px solid #718064; border-radius:9px; background:var(--b3-paper); color:var(--b3-ink); box-shadow:var(--b3-depth);
 }
 .b3-system main :is(.project-start-page .project-idea-card,.idea-review,.compare-decision,.compare-context,.quick-facts,.beginner-workspace,.verdict,.stack-next,.result-next,.hub-project-cta,.article-inline-handoff,.article-project-cta,.guide-start-path,.contextual-task-tool,.home-output-cue) {
@@ -73,21 +73,25 @@ body.b3-system main :is(.button.ghost,.button.light) {
   margin-block:12px; padding-inline:16px; border:1px solid #718064; border-top:4px solid #46513b;
   border-radius:8px; background:var(--b3-paper); box-shadow:var(--b3-depth);
 }
-.b3-system main :is(.article-answer,.article-toc,.article-contract,.article-definition,.article-lesson-grid div,.article-related a,.article-success,.article-checkpoints li,.conv-evidence,.hub-preparation,.hub-intents a,.today-grid article,.beginner-action-grid>section,.beginner-steps,.beginner-version-guide,.tool-return,.active-done,.critical-checks,.trust-nav) {
+.b3-system main :is(.article-answer,.article-toc,.article-contract,.article-definition,.article-lesson-grid div,.article-related a,.article-success,.article-checkpoints li,.conv-evidence,.hub-preparation,.today-grid article,.beginner-action-grid>section,.beginner-steps,.beginner-version-guide,.tool-return,.active-done,.critical-checks,.trust-nav) {
   border:1px solid var(--b3-control-edge); border-radius:7px; background:var(--b3-recess); box-shadow:var(--b3-shine);
 }
 .b3-system main :is(.artifact-progress,.build-progress,.action-step,.trust-summary-grid span,.trust-status) { border-radius:7px; background:var(--b3-recess); box-shadow:var(--b3-shine); }
 .b3-system main :is(.artifact-progress li.current,.action-step.is-current>summary) { background:#dce3d4; }
 .b3-system main :is(.article-answer,.article-contract,.article-success,.article-checkpoints li) { border-left-width:4px; }
-.b3-system main :is(.directory-meta span,.tag,.tags span,.provenance,.stage-strip span,.active-filter-summary) { background:var(--b3-recess); border-color:var(--b3-edge); border-radius:4px; color:var(--b3-ink); }
+.b3-system main :is(.directory-meta span,.tag,.tags span,.stage-strip span,.active-filter-summary) { background:var(--b3-recess); border-color:var(--b3-edge); border-radius:4px; color:var(--b3-ink); }
+.b3-system main .provenance { background:var(--b3-recess); border-radius:4px; }
 .b3-system main :is(.builder-choice,.capability-picker label,.picker label,.guide-stage-options button,.goal-picker button,.idea-examples button,.compare-selection-tray li) {
   background:linear-gradient(#faf8f2,#eeece2); border:1px solid var(--b3-control-edge); border-radius:7px;
   color:var(--b3-ink); box-shadow:var(--b3-shine),0 2px 0 #7c896d33;
 }
-.b3-system main :is(.goal-picker button[aria-pressed=true],.guide-stage-options button[aria-pressed=true],.builder-choice:has(input:checked),.capability-picker label:has(input:checked),.picker label:has(input:checked)) {
+.b3-system main :is(.goal-picker button[aria-pressed=true],.guide-stage-options button[aria-pressed=true],.detail-actions button[aria-pressed=true],.builder-choice:has(input:checked),.capability-picker label:has(input:checked),.picker label:has(input:checked)) {
   background:var(--b3-frame); border-color:#a1ab88; color:var(--b3-light); box-shadow:inset 0 1px 0 #edf0cf66,0 2px 0 #17251b;
 }
 .b3-system main :is(.guide-stage-options button[aria-pressed=true] span,.goal-picker button[aria-pressed=true] span) { color:var(--b3-light-muted); }
+/* Low-specificity fallback replaces UA controls in provider/recovery/privacy
+   branches without overriding authored deck and primary controls. */
+:where(.b3-system main) button,
 .b3-system main :is(.copy-text-control button,.beginner-workspace button,.beginner-file-label,.detail-actions button,.detail-bulk-actions button,.project-result-actions button,.artifact-card button,.action-prompt button,.generation-prompt button,.compare-selection-head button,.compare-selection-tray button,.compare-mobile button,.share-button,.beginner-confirm-details>summary) {
   min-height:44px; padding:8px 12px; border:1px solid var(--b3-control-edge); border-radius:7px;
   background:linear-gradient(#faf8f2,#eeece2); color:var(--b3-ink); box-shadow:var(--b3-shine),0 2px 0 #7c896d33; font:inherit; font-weight:700; cursor:pointer;
@@ -95,17 +99,17 @@ body.b3-system main :is(.button.ghost,.button.light) {
 .b3-system main .beginner-workspace .button { background:var(--b3-raised); border-color:#9a8154; color:#2e281d; }
 .b3-system main :is(button,.button):disabled { opacity:.55; cursor:default; box-shadow:none; }
 .b3-system main :is(button,.button):active:not(:disabled) { box-shadow:inset 0 2px 3px #23352926; }
-body.b3-system main :is(input:not([type=checkbox]):not([type=radio]),select,textarea) {
+body.b3-system main :is(input,select,textarea):not([type=checkbox],[type=radio]) {
   background:#fffdf8; border:1px solid var(--b3-control-edge); border-radius:7px; color:var(--b3-ink); box-shadow:inset 0 2px 3px #2335290d;
 }
 .b3-system main input:is([type=checkbox],[type=radio]) { accent-color:var(--b3-action); }
 .b3-system main input::file-selector-button { min-height:44px; margin-right:8px; padding:8px 12px; border:1px solid var(--b3-control-edge); border-radius:5px; background:var(--b3-recess); color:var(--b3-ink); font:inherit; cursor:pointer; }
-.b3-system main :is(input,select,textarea)[aria-invalid=true] { border:2px solid var(--color-danger); }
+body.b3-system main :is(input,select,textarea)[aria-invalid=true] { border:2px solid var(--color-danger); }
 .b3-system main :is(.compare-scroll thead th,.compare-scroll tbody th,.article-decision-table th) { background:var(--b3-recess); color:var(--b3-ink); border-color:var(--b3-edge); }
 .b3-system main :is(.article-code,.action-prompt pre,.artifact-card pre,.generation-prompt pre,.stuck-panel pre) {
   border:1px solid #7c896d; border-radius:7px; background:#26352b; color:#f1f0e7; box-shadow:inset 0 2px 4px #07120c33;
 }
-.b3-system main :is(article.page-shell,.prose) code { background:var(--b3-recess); color:var(--b3-ink); }
+.b3-system main article.page-shell code { background:var(--b3-recess); color:var(--b3-ink); }
 .b3-system main :is(pre,.conv-evidence .conv-evidence-meta) code { background:none; color:inherit; }
 .b3-system main .beginner-game-preview iframe { border:2px solid #718064; border-radius:7px; }
 .b3-system main :is(.form-error,.beginner-runtime-error) { color:var(--color-danger); }
