@@ -94,7 +94,8 @@ test('rendered shared loading/error component and 404 families retain recovery s
  }
 });
 
-test('paper fields retain visible keyboard focus and a distinct invalid boundary',async({page})=>{
+test('paper fields retain visible keyboard focus and a distinct actual invalid boundary',async({page})=>{
+ test.setTimeout(90_000);
  await mkdir(output,{recursive:true});
  await page.setViewportSize({width:320,height:667});await page.goto('/project/');
  const field=page.locator('.project-idea-card textarea');
@@ -104,9 +105,18 @@ test('paper fields retain visible keyboard focus and a distinct invalid boundary
  });expect(contrast.ratio).toBeGreaterThanOrEqual(3);
  await page.getByRole('button',{name:'メニューを開く'}).focus();await page.keyboard.press('Tab');await expect(field).toBeFocused();
  expect(await field.evaluate(el=>parseFloat(getComputedStyle(el).outlineWidth))).toBeGreaterThanOrEqual(3);
- await field.evaluate(el=>el.setAttribute('aria-invalid','true'));
- expect(await field.evaluate(el=>getComputedStyle(el).borderTopColor)).not.toBe(contrast.border);
- await page.screenshot({path:`${output}/project-invalid-focus-fixture-320.png`});
+ await page.route('**/api/project/interpret',route=>route.abort('blockedbyclient'));
+ for(const route of ['/project/','/builder/']) {
+  await page.goto(route);await page.getByLabel('どんなゲームを作りたいですか？').fill('Steam向け3Dホラー。Unity。中級。一人開発。低予算。商用。廃駅を舞台に、音を立てると盲目の怪物が追跡する。');
+  await page.getByRole('button',{name:'制作ロードマップを作る',exact:true}).click();
+  await page.getByRole('button',{name:'すべて計画に含める',exact:true}).click();
+  const invalid=page.getByLabel('抽出した固有情報').first();await invalid.fill(' ');
+  await page.getByRole('button',{name:'Project Planを作る',exact:true}).click();
+  await expect(invalid).toHaveAttribute('aria-invalid','true');await expect(invalid).toBeFocused();await expect(page.locator('#clarify-error')).toContainText('1文字以上');
+  expect(await invalid.evaluate(el=>getComputedStyle(el).borderTopColor)).not.toBe(contrast.border);
+  expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
+  await page.screenshot({path:`${output}/${route==='/project/'?'project':'builder'}-actual-invalid-focus-320.png`});
+ }
 });
 
 test('JS-off shared shell keeps actual reading and game destinations',async({browser,baseURL})=>{
