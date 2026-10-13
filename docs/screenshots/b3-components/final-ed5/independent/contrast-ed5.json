@@ -1,0 +1,31 @@
+{
+  "warningForeground": [
+    35,
+    53,
+    41
+  ],
+  "warningOverlayRGBA": [
+    255,
+    209,
+    102,
+    0.05
+  ],
+  "paperCardRGB": [
+    250,
+    248,
+    242
+  ],
+  "effectiveWarningBackground": [
+    250.25,
+    246.04999999999998,
+    234.99999999999997
+  ],
+  "warningTextContrast": 12.067811899722937,
+  "focusRingRGB": [
+    49,
+    90,
+    66
+  ],
+  "focusRingOnPaperContrast": 7.401170396881645,
+  "method": "Calculated from actual recorded solid parent paper and translucent warning fill; not an OS screenshot color sample"
+}

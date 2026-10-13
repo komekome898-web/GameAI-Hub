@@ -1,0 +1,1433 @@
+{
+  "source": "ed5fd95902de06fe9cc1e54a50882c69842d7bb5",
+  "scope": [
+    "app",
+    "components",
+    "data",
+    "lib",
+    "public",
+    "e2e",
+    "scripts",
+    "package.json",
+    "package-lock.json",
+    "next.config.ts",
+    "tsconfig.json",
+    "playwright.config.ts",
+    ".github"
+  ],
+  "fileCount": 282,
+  "manifestSha256": "4345a149cb81d6a158baf64f864ce7b2d0069cbc3bfae4d910839dd8d2117e40",
+  "files": [
+    {
+      "path": ".github/ISSUE_TEMPLATE/acceptance.yml",
+      "gitBlob": "5ea0c334ad2b85890e8da32363b22313831dd404",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/config.yml",
+      "gitBlob": "e7dfdefa55497b693c4bf10dd24c3a8a2ec16cdc",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/implementation.yml",
+      "gitBlob": "b9fb21c2d96b3bd49ff2a09ecd97355c5aab0eda",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/research.yml",
+      "gitBlob": "cd9e5c2600e1cd4fa7f902ba3e1b0bff75dcc441",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/orchestration/labels.json",
+      "gitBlob": "ab59bcf7609e99f5cb8323f08ee966ce51df3005",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/orchestration/operation-mode.json",
+      "gitBlob": "1b4778d3f2ddbfcb5a2205538dea27b4462c119e",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/orchestration/profiles.json",
+      "gitBlob": "393ab752e4e1bebf3f97cc1b30b2ae89704a4669",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/orchestration/schemas/acceptance.schema.json",
+      "gitBlob": "3070d42a4e627ae509b5c33c7d68402fde5699e4",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/orchestration/schemas/browser-retry.schema.json",
+      "gitBlob": "9e7fc41755a15941bcf00490259a6d14b47cd9d1",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/orchestration/schemas/canonical-task.schema.json",
+      "gitBlob": "b3f24d907ba5329168841ea363c96a4e4111acd4",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/orchestration/schemas/run-manifest.schema.json",
+      "gitBlob": "8fbd59a968cdf71f74a40fc7d696fb9740aced1d",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/orchestration/schemas/transition.schema.json",
+      "gitBlob": "1345eeeb292a20fd6132d0078c9fe6584a6b22e5",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/orchestration/trusted-actors.json",
+      "gitBlob": "39643e361f136f68a45b2f622f54bfe2c60c9700",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/beginner-acceptance.yml",
+      "gitBlob": "982576f2803ced50806f3116c16486727ba12763",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/orchestration-bind-pr.yml",
+      "gitBlob": "ae4199d6068953640c895b2f77cf906f9bd918fc",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/orchestration-browser-recovery.yml",
+      "gitBlob": "5b0d9315e35cd71b2b174e08dd26649dc633d84f",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/orchestration-event.yml",
+      "gitBlob": "5fbbfd95b22fe92262742875d0514a728e14df76",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/orchestration-human-acceptance.yml",
+      "gitBlob": "32b0b9373076d56ea8a2664ae2ef16a5b7d9739a",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/orchestration-human-gate.yml",
+      "gitBlob": "cf2ae8c51c669bf89d5bc2f87450dd8ceef0c24a",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/orchestration-init.yml",
+      "gitBlob": "e44c77797899ffcd6c1dad927cdb3088656437d7",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/orchestration-labels.yml",
+      "gitBlob": "5d8711f6cb7aabb713aff61f1ba905edd18f7e95",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/orchestration-post-merge-reconcile.yml",
+      "gitBlob": "b07a59d5695b0bfbcfd6a353f9d139d64e16ffdf",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/orchestration-reconcile.yml",
+      "gitBlob": "820180b45bb742a30790e4b115bb05e84fa46ae3",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/orchestration-transition-relay.yml",
+      "gitBlob": "716c05c7c4622cfeb383b48a09eb5cbdf5b592c2",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/orchestration-vercel-readiness.yml",
+      "gitBlob": "4ba27abd0597ad5836f22ac4d7a826269996f4f4",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/orchestration-work-ingress.yml",
+      "gitBlob": "2a01bfdf65b4d1113277139eea654c3aab9a17ef",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/pr-orchestration.yml",
+      "gitBlob": "004caef1854d1fc5b9f282bdf3cd66dd654970f1",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/quality.yml",
+      "gitBlob": "03513a331497ac47edbc1e14e9795a642829d3ab",
+      "mode": "100644"
+    },
+    {
+      "path": ".github/workflows/register-affiliate.yml",
+      "gitBlob": "a0c8c9bc42b6faf99ae36e132172d7a7cf76ebb6",
+      "mode": "100644"
+    },
+    {
+      "path": "app/affiliate-disclosure/page.tsx",
+      "gitBlob": "bf669d3816a046f2b845019507275f180e7416ed",
+      "mode": "100644"
+    },
+    {
+      "path": "app/api/project/interpret/route.ts",
+      "gitBlob": "280fa4c43c042980e8af2aa9a95e456c8cd8fbbb",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/AGENTS.md",
+      "gitBlob": "5d18da23a9e8c9ad0912228fb50bca3aa0858c75",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/ai-auto-trading-reality/page.tsx",
+      "gitBlob": "58fcc982052da3b3b26569b118a19f3d73da48bd",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/ai-browser-game-how-to/page.tsx",
+      "gitBlob": "35fe4a499539ae5418065381ac955a6ef1d62a00",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/ai-completion-claim/page.tsx",
+      "gitBlob": "acc9e6b39c274b2cf41d8038e31465efcdad8833",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/ai-delegation-trap/page.tsx",
+      "gitBlob": "704dace655e7625ccfcbf7e7befe876c1bce3220",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/ai-fantasy/page.tsx",
+      "gitBlob": "f6453cb7be7909df025912296b293543170d87e0",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/ai-html-game-not-working/page.tsx",
+      "gitBlob": "3b8bb79ca2c7b0e9c82b5e3d66eea84fd0d1e018",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/ai-tool-comparison-later/page.tsx",
+      "gitBlob": "4ee321713f763e620538dbd6d5c9058a1d5507da",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/ai-usage-guide/page.tsx",
+      "gitBlob": "d33d200b4302ae6c677ec253587fccb1612050e8",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/aramon-production-story/images.ts",
+      "gitBlob": "ebd903ba7c83c50c45bec642f38eb864be0a1960",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/aramon-production-story/page.tsx",
+      "gitBlob": "5e61b8dc5f657940d29c9fd21ae771701ad27158",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/before-asking-ai-build-game/page.tsx",
+      "gitBlob": "440f4d93604a37b0ef9098ef221faae6a97f6b4a",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/elevenlabs-commercial-use-game/page.tsx",
+      "gitBlob": "0c0de18a89ae548570874bbe2d21eadfc28b3c0e",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/elevenlabs-game-development-guide/page.tsx",
+      "gitBlob": "151eec46d15dfae87d89b708e7f147a68b60054c",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/elevenlabs-v4-game-voice/page.tsx",
+      "gitBlob": "626046d7ba820da459459d94079bf2da69b63e9d",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/github-beginner-game-development/page.tsx",
+      "gitBlob": "a915547ce5a46f33ede185e3a3ac1fab197fbeaf",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/layout.tsx",
+      "gitBlob": "178a7ef68a6d76a947809c87a358875a42b9f9d9",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/meshy-commercial-use-game/page.tsx",
+      "gitBlob": "d0fac1c780f3ed44374c14d1082c2635c7feffa3",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/meshy-game-development-guide/page.tsx",
+      "gitBlob": "7d9e5ffb139e44950c70704979cc1c0c25e65be9",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/meshy-pricing-credits-game/page.tsx",
+      "gitBlob": "e0c394e63f1186454d9eddbf2753bced108c51e6",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/page.tsx",
+      "gitBlob": "ac8bf30ba56f8155dd0c1100b73842c8c0c036b5",
+      "mode": "100644"
+    },
+    {
+      "path": "app/articles/small-first-success/page.tsx",
+      "gitBlob": "11af78349d5527b8c2b6a7e2d9225536b509bae2",
+      "mode": "100644"
+    },
+    {
+      "path": "app/b3-system.css",
+      "gitBlob": "27d45762194f429cc107b1468303b5641758e32d",
+      "mode": "100644"
+    },
+    {
+      "path": "app/builder/page.tsx",
+      "gitBlob": "0df112906dfa0cac03dafb56509a9713bddac839",
+      "mode": "100644"
+    },
+    {
+      "path": "app/compare/page.tsx",
+      "gitBlob": "a1a3eaf51955f89112763b8002948c0ed399a327",
+      "mode": "100644"
+    },
+    {
+      "path": "app/games/[slug]/page.tsx",
+      "gitBlob": "498e6f94dc469390872a773f67cf522cb94350fb",
+      "mode": "100644"
+    },
+    {
+      "path": "app/globals.css",
+      "gitBlob": "b4afc8ddd80ac740d84e57d12223c4165c30174d",
+      "mode": "100644"
+    },
+    {
+      "path": "app/guides/[slug]/page.tsx",
+      "gitBlob": "c9410d336e8133d2f8a746b51c719a747d36b471",
+      "mode": "100644"
+    },
+    {
+      "path": "app/guides/error.tsx",
+      "gitBlob": "c866a7141d00b68fa6e27dd6bc3b23599338ff58",
+      "mode": "100644"
+    },
+    {
+      "path": "app/guides/page.tsx",
+      "gitBlob": "8529cd3a0790f9da97e450c572d8712800f8fdef",
+      "mode": "100644"
+    },
+    {
+      "path": "app/home-b3.css",
+      "gitBlob": "8c2fc771967fa83587e73da5b454a657c7146027",
+      "mode": "100644"
+    },
+    {
+      "path": "app/layout.tsx",
+      "gitBlob": "53c09b6eb39d2475cda0093653084fd16623b5fd",
+      "mode": "100644"
+    },
+    {
+      "path": "app/methodology/page.tsx",
+      "gitBlob": "ebd1ba5cb07ad46ebbd5d236867f78f5bce09d0c",
+      "mode": "100644"
+    },
+    {
+      "path": "app/not-found.tsx",
+      "gitBlob": "e4190b0a6556fecd1c981652dfabf9ba6ca17839",
+      "mode": "100644"
+    },
+    {
+      "path": "app/page.tsx",
+      "gitBlob": "3cdf8a5669c56f292168a9ec92939a475af6456d",
+      "mode": "100644"
+    },
+    {
+      "path": "app/privacy/page.tsx",
+      "gitBlob": "a3554f8361be6d3a489b10dff96f1604ac860b9f",
+      "mode": "100644"
+    },
+    {
+      "path": "app/project/page.tsx",
+      "gitBlob": "6049513afb1cdcb60dca64cbaadf35954ea283ec",
+      "mode": "100644"
+    },
+    {
+      "path": "app/robots.ts",
+      "gitBlob": "a60d58209fe4000e129fb9a89b2a95b4412f82a9",
+      "mode": "100644"
+    },
+    {
+      "path": "app/sitemap.ts",
+      "gitBlob": "a07347b3e2d9637ec725c39a96d7ff27cf7429f2",
+      "mode": "100644"
+    },
+    {
+      "path": "app/stacks/[slug]/page.tsx",
+      "gitBlob": "af341b92dd9c4e7655a4e7a3e31a7b43b43e48cf",
+      "mode": "100644"
+    },
+    {
+      "path": "app/stacks/page.tsx",
+      "gitBlob": "b97bb9eed166dc7f8c09735c3911549c52b4bd3a",
+      "mode": "100644"
+    },
+    {
+      "path": "app/tools/[slug]/page.tsx",
+      "gitBlob": "70c924595a92f863b54dd692f917026ee55b5817",
+      "mode": "100644"
+    },
+    {
+      "path": "app/tools/error.tsx",
+      "gitBlob": "4bb263e65318cf9413baad7fdbff946d463c9224",
+      "mode": "100644"
+    },
+    {
+      "path": "app/tools/page.tsx",
+      "gitBlob": "611e7928ed52f510f10b71045f6dc642b1eb3e0a",
+      "mode": "100644"
+    },
+    {
+      "path": "app/visual-layer-v2.css",
+      "gitBlob": "18c9028f3b412eded994340c6b9ab7b35d84e110",
+      "mode": "100644"
+    },
+    {
+      "path": "components/AnalyticsExclusionControl.tsx",
+      "gitBlob": "708d0e990aecb3f266747b9833d2014ac81c1888",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ArticleAffiliateCtas.tsx",
+      "gitBlob": "940b4d7b039982eac28bdbd0a09b152b9bc276fa",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ArticleAnalytics.tsx",
+      "gitBlob": "2b410173748f61bbf13475a88b558416e4821d20",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ArticleBrowser.tsx",
+      "gitBlob": "5e9eb8e122aca0541fb892a60f7e2e9dcef834d4",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ArticleFrame.tsx",
+      "gitBlob": "42696b408173137c2e1de7282fb4a7902d8eaf6f",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ArticleHeader.tsx",
+      "gitBlob": "592358a463b1a304b09af471c97cb576e08e9258",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ArticleHub.tsx",
+      "gitBlob": "78c290f179627bf4170a58747711393d9d037559",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ArticleProjectCta.tsx",
+      "gitBlob": "d9b5717e29caecdd731a970bb11832f92248d343",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ArticleProjectLink.tsx",
+      "gitBlob": "936f8a89c7fdb1afbea37f75988774fb8cc68693",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ArticlePromotions.tsx",
+      "gitBlob": "af4f82a45dc0d96e92b4534c983224be16466a1e",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ArticleReadingGuide.tsx",
+      "gitBlob": "9ffd1649f8f84fbe609a091ab87922a92883e28a",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ArticleReturnLink.tsx",
+      "gitBlob": "cb34ecb5ac649ed37dbcb12e5e4fb4c20a61a2db",
+      "mode": "100644"
+    },
+    {
+      "path": "components/BeginnerGameWorkspace.tsx",
+      "gitBlob": "f0f9734d8c98953605b26ca28b2efbd1ecf1ee12",
+      "mode": "100644"
+    },
+    {
+      "path": "components/BuilderClient.tsx",
+      "gitBlob": "04c44f41de73ab661f45581a900ef111df15fca1",
+      "mode": "100644"
+    },
+    {
+      "path": "components/CompareClient.tsx",
+      "gitBlob": "8c8a3be555f9a2b8f9a206855b78450c41afdb7c",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ConversationEvidence.tsx",
+      "gitBlob": "39a112bdad9881a14d5cfb61841d4d26212e2a2f",
+      "mode": "100644"
+    },
+    {
+      "path": "components/CopyTextButton.tsx",
+      "gitBlob": "25234e4c02b6b3666f1e32e3a209b095139b0ef2",
+      "mode": "100644"
+    },
+    {
+      "path": "components/CreationDeck.tsx",
+      "gitBlob": "d62c369e378058ed6d3c681264abc924b0e4c32b",
+      "mode": "100644"
+    },
+    {
+      "path": "components/DirectoryState.tsx",
+      "gitBlob": "337e6e19e66106ec5d5598dd5b5e31dd294e4496",
+      "mode": "100644"
+    },
+    {
+      "path": "components/GamePlayAnalytics.tsx",
+      "gitBlob": "9576b29144ee87b67cadd46a014d8e15884192b9",
+      "mode": "100644"
+    },
+    {
+      "path": "components/GamePlayLink.tsx",
+      "gitBlob": "1fec74d24054d2e9971d6e3b13a4fc801f6c5672",
+      "mode": "100644"
+    },
+    {
+      "path": "components/GameShowcase.tsx",
+      "gitBlob": "834c83fea48ca1531681ea1399e968ffcf206391",
+      "mode": "100644"
+    },
+    {
+      "path": "components/GoogleAnalytics.tsx",
+      "gitBlob": "1529aa13e8be68555dba5b66a962fcd8bbd4dbb4",
+      "mode": "100644"
+    },
+    {
+      "path": "components/GuidesExplorer.tsx",
+      "gitBlob": "a10bbea3e106504e3b25864d15b4117c97ee3dfd",
+      "mode": "100644"
+    },
+    {
+      "path": "components/Header.tsx",
+      "gitBlob": "5ac0df03abc2d0a1154b708d8a06bfc7d05b3b20",
+      "mode": "100644"
+    },
+    {
+      "path": "components/HtmlGameDebugDemo.tsx",
+      "gitBlob": "dd3a849b6f8acbf8287cfbbe85f0e152e4a3cd8d",
+      "mode": "100644"
+    },
+    {
+      "path": "components/OutboundLink.tsx",
+      "gitBlob": "771dece2f03430d0b07bc37c1f673486217f4a89",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ProjectGeneratorClient.tsx",
+      "gitBlob": "b9920eb22a95ed4b7f91bec2efa9a0f2ff9eada1",
+      "mode": "100644"
+    },
+    {
+      "path": "components/StackAnalytics.tsx",
+      "gitBlob": "e1521ee091360ef3baa02e65d8021d7e1af620b0",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ToolView.tsx",
+      "gitBlob": "01fe917bcc9d1834cf30b51cd08d3b07cf4910cf",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ToolsExplorer.tsx",
+      "gitBlob": "be38318759235ccf18252d06df74de8e213eed84",
+      "mode": "100644"
+    },
+    {
+      "path": "components/TrustPage.tsx",
+      "gitBlob": "a7b6bb66038abb8f88595d6a8615d1580647531c",
+      "mode": "100644"
+    },
+    {
+      "path": "components/ui/Foundation.tsx",
+      "gitBlob": "3f95140378a6769540ee2282713dad5edda5ec42",
+      "mode": "100644"
+    },
+    {
+      "path": "components/useAffiliateImpression.ts",
+      "gitBlob": "b5d00aef902b4a585404fdd8f88659f56f4ed361",
+      "mode": "100644"
+    },
+    {
+      "path": "components/useCreationDeckMotion.ts",
+      "gitBlob": "8de929d1ecd670c5361e30b379d8cbc90145196b",
+      "mode": "100644"
+    },
+    {
+      "path": "data/affiliate-programs.json",
+      "gitBlob": "a3a0a224233cdc9f790d292bed4ac39fe9ffc227",
+      "mode": "100644"
+    },
+    {
+      "path": "data/article-purposes.ts",
+      "gitBlob": "cf30d65b6b3e9fd2495bdda0f7a8c679cdb836b5",
+      "mode": "100644"
+    },
+    {
+      "path": "data/articles.ts",
+      "gitBlob": "60aeba7a713461e26372bb33529013ac60745240",
+      "mode": "100644"
+    },
+    {
+      "path": "data/game-introductions.ts",
+      "gitBlob": "40132fcb2431ea090934742142adb1d6a0511630",
+      "mode": "100644"
+    },
+    {
+      "path": "data/games.ts",
+      "gitBlob": "116a9e4144e45f64b335677a3d8ee0f948f2e251",
+      "mode": "100644"
+    },
+    {
+      "path": "data/guides.ts",
+      "gitBlob": "2c6646da2b46dc5bfd5490e2445d5e371cba186a",
+      "mode": "100644"
+    },
+    {
+      "path": "data/html-game-debug-examples.ts",
+      "gitBlob": "63ff5296f3b86a2e6c17fbcd98633a0d24afbcd4",
+      "mode": "100644"
+    },
+    {
+      "path": "data/recommendation-rules.ts",
+      "gitBlob": "5419c6eb416b4073086f1887d8e7375c0e5e1117",
+      "mode": "100644"
+    },
+    {
+      "path": "data/services.json",
+      "gitBlob": "1e61e601bd6efa6ccdd6d5e3f1dc2ccab2ba4683",
+      "mode": "100644"
+    },
+    {
+      "path": "data/stack-templates.ts",
+      "gitBlob": "bc88f1a7813d46485837e963ba8dffb55ccb5a00",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/acceptance/deck-summary.ts",
+      "gitBlob": "b042366247522e9204f1d42b80a4a242b823725b",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/acceptance/diagnostics.ts",
+      "gitBlob": "a004316c0c5247d629ef1787b6a7ec93c9b1b4de",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/acceptance/fixtures.ts",
+      "gitBlob": "131525951b89c2b6337dffdc43ea2c2dfb38d37e",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/acceptance/manifest.ts",
+      "gitBlob": "a7b87ee6fb0fed854cf13af8ca5aedb9359fdfc9",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/acceptance/reflow-matrix.ts",
+      "gitBlob": "411e90cc9fd9b47d9de3c00591235184a883bd7f",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/acceptance/reflow.ts",
+      "gitBlob": "d5cf20e63f960b14875bed47870be03a46f019a0",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/acceptance/source-identity.ts",
+      "gitBlob": "5afb1fb52880faef790761ae821279180038710d",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/analytics-production-harness.spec.ts",
+      "gitBlob": "74d8d7235d6cda5c78bc4e913c4ed6e1cec67dc4",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/aramon-article.spec.ts",
+      "gitBlob": "bb812efb4a1806f0d79f6765e4e3e947f8a4d3a9",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/article-breadcrumb-return.spec.ts",
+      "gitBlob": "9447a9f05cdc74892b76a76ec0151a5a75748946",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/articles-background-overflow.spec.ts",
+      "gitBlob": "597ffbb21fdc37203872b951f62aa8d379b29492",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/b3-components.spec.ts",
+      "gitBlob": "8887a3b44d56a916c4677d91e837095366198dff",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/b3-home.spec.ts",
+      "gitBlob": "c23959431f2d99f33632e9b85785b2971aa3d9af",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/b3-sitewide.spec.ts",
+      "gitBlob": "ec2af1b20a5d869dfd65c58b3df25e2dea426374",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/beginner-acceptance.spec.ts",
+      "gitBlob": "0225b564eb28d7d8240bf791fdbbe2465f86ead8",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/beginner-article-update.spec.ts",
+      "gitBlob": "47403d8938c93463f29cf41f4bd1d16f0ff042a7",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/browser-game-article-help.spec.ts",
+      "gitBlob": "e91bad92ccf5006d482512589deabb0988b58c80",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/content-seo.spec.ts",
+      "gitBlob": "6a7a4a1b4a26b5c5c8fd41dc5dfc7505e6622222",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/creation-deck-inertia.spec.ts",
+      "gitBlob": "ed9f8593a3bb44000856a77c15d6ba75061a08a0",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/creation-deck-motion.spec.ts",
+      "gitBlob": "68900e2db0ac214b78c95d746f1eb36d1c4343d6",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/creation-deck-review-regressions.spec.ts",
+      "gitBlob": "007b43fc89bac0dc53b9766f95bac3d8a19a5c5c",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/creation-deck-sparse-input.spec.ts",
+      "gitBlob": "2d58fa5d1291b8e8dab007cdc05c8ec4c8f1399a",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/creation-deck-summary.spec.ts",
+      "gitBlob": "33d799bbd2f366fa5887e47cc0b225b1677502af",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/decision-journeys.spec.ts",
+      "gitBlob": "92007ff79f9f2bc470b3809f7e495081e066bc4b",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/deck-acceptance-contract.spec.ts",
+      "gitBlob": "5ab7069be5380332a2cd3818312f40c2b4d94c0d",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/deck-project-continuity.spec.ts",
+      "gitBlob": "acb4907414e9ee2663f0c09f1e0521e9973a3fc0",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/elevenlabs-v4-article.spec.ts",
+      "gitBlob": "d98994c9b9d5036f2ac812a25720ca41b5c8e881",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/fixtures.ts",
+      "gitBlob": "0de9c0d0f0710effd5eefc7ee8dab66f00be25e2",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/fixtures/game-deck.tsx",
+      "gitBlob": "7a050f2b3a0fcb33c54fc64c718619206606a6c5",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/fixtures/inertia-deck.tsx",
+      "gitBlob": "3c4d2f0708448e36a082876de8e494d7abf9ca89",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/fixtures/summary-deck.tsx",
+      "gitBlob": "3addb57d0648e9af7f81cf0bb772c28a364f7244",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/gamebuildiary-category-entry.spec.ts",
+      "gitBlob": "831fb0b83a642b1b3e268884dbc08bcd35ebfdf5",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/games.spec.ts",
+      "gitBlob": "8443a7ac0bf2e05390f689463a4869a6231e156c",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/html-game-debug-article.spec.ts",
+      "gitBlob": "15f83d20aca4f5b582574a4ab30481ee35c315ca",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/issue-155-v1.spec.ts",
+      "gitBlob": "8b7b8d1d32963e4e49e8205ec4b419067267de0e",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/issue-157-dots-followups.spec.ts",
+      "gitBlob": "99f8d25ebe581d41beb71d552080fa54ebefbf74",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/issue-157-final-evidence.spec.ts",
+      "gitBlob": "088ee489903ddabbc6d554fc620bb65c301b57d5",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/issue-157-project-evidence.spec.ts",
+      "gitBlob": "39840681b9be4cc26012ae93cd0c6efa97a648b0",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/issue-157-reflow-evidence.spec.ts",
+      "gitBlob": "c9466b8a338e0549ddb0dc5c28d974f07d893067",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/issue-157-stage-b.spec.ts",
+      "gitBlob": "88b7100308c611d620775fe214118fb61b980f6c",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/measurement-baseline.spec.ts",
+      "gitBlob": "601c84a1a3f25a71118e130a418bdc4e50b33447",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/reflow-contract.spec.ts",
+      "gitBlob": "9932e46e64dc9b86adc4d6c333b9d20ce579b781",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/seven-game-intros.spec.ts",
+      "gitBlob": "674695dda6a19e8d40210d6b78669345901e8c90",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/shared-category-ring.spec.ts",
+      "gitBlob": "6597f6378c833faaf5b204810226363170a6ed5c",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/slice-five-tools-guides.spec.ts",
+      "gitBlob": "c6a2a7a5f43ea2f90c4ee601f17ae93d865cc303",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/slice-four-project.spec.ts",
+      "gitBlob": "12f00bba22356514e27605180f830eb7edb03ced",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/slice-one-foundations.spec.ts",
+      "gitBlob": "5c9002fc76e7dca1d52df98f6ab795c204ffcd6d",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/slice-seven-final-acceptance.spec.ts",
+      "gitBlob": "7e059068f79e54ce41c9826da061217846406cde",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/slice-six-compare-trust.spec.ts",
+      "gitBlob": "e1f255ffcd8f23f2b906812009ad0ad8ef4d26b7",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/slice-three-articles.spec.ts",
+      "gitBlob": "0b51613bbff35707e45b7d6e49ef1f09bff81fc9",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/slice-two-home-chrome.spec.ts",
+      "gitBlob": "ade688cfc6252b4243e58dc858602330bbc870d0",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/slice-zero-acceptance.spec.ts",
+      "gitBlob": "559044d36a4515e81c73eda71d8d289f82442ee1",
+      "mode": "100644"
+    },
+    {
+      "path": "e2e/stage-a-evidence.spec.ts",
+      "gitBlob": "ea2a06d01559d6668741e3676dc886ab2318bf4c",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/affiliate-analytics.ts",
+      "gitBlob": "5a3ebab4d2df8f1b2cf12f3fa0d797a6c9cd51b4",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/analytics.ts",
+      "gitBlob": "1abc469fc5a23364c4d9c3287fe090458ea60fcd",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/article-hub-groups.ts",
+      "gitBlob": "7c852213fcd81a739eeecdd5223d57977623d697",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/article-visuals.ts",
+      "gitBlob": "64a306a3465a42c35307ec6f991a60f3ca24ac8d",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/creation-deck-motion.ts",
+      "gitBlob": "2bf105e2acc1622759b4ba476428ea088cadfd93",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/domain.ts",
+      "gitBlob": "3502748862a543acf32a6b03d74bed6e4050da18",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/game-validation.ts",
+      "gitBlob": "6ad153ca2f1c407e8d72b5e163e32fcfea5237e1",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/json-ld.ts",
+      "gitBlob": "a59b303417b90e0ba02bb8657be5f6adf71cd1be",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/beginner-workflow.ts",
+      "gitBlob": "e5108d7fe7c61dd9877cf4447343cc234f1b2bf3",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/checklist.ts",
+      "gitBlob": "a92e58f5966f43b1b1da5c7d10cb33e29e5c228a",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/contextual-tool.ts",
+      "gitBlob": "181ff0f086fa8f1ba25938fc2ce7316dd6dddfbd",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/generator.ts",
+      "gitBlob": "36dffc47c2ff1d043154f9dd6285e3630e4f45ae",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/index.ts",
+      "gitBlob": "247b9d804dedb460b34df7cfd94349bdc0a56d41",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/intent-profile.ts",
+      "gitBlob": "1a613245ab412405b7c3a5a4eb302d5c06fa372c",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/interpreter.ts",
+      "gitBlob": "865403381490055ac2d760341a66ebfbb47bef4b",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/navigation-context.ts",
+      "gitBlob": "e1d3e00ff0c696ef791f66cd57999d7c36f871e3",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/progress.ts",
+      "gitBlob": "24eed98e5bffa26106f9587fc4755480178d7c1f",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/providers/cloudflare.ts",
+      "gitBlob": "88c0ca60b909e70a434e374bafae547cb5a74ad8",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/providers/index.ts",
+      "gitBlob": "e556d8a1208eef723f2267c72df52f6a69ce4fde",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/providers/rate-limit.ts",
+      "gitBlob": "bb7e8dfa18c7fdd0bdc0e375839e177145c6b5e0",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/providers/types.ts",
+      "gitBlob": "3dd6f6a1bc0b30fb7fddcb27154e68323cdd2b39",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/share.ts",
+      "gitBlob": "06e04f258f45bc992c7b48af3ec1ef3fe4f1ad11",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/stack-handoff.ts",
+      "gitBlob": "a67b7bd15825b78fc0d05eb09e76615746ef2474",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/project/types.ts",
+      "gitBlob": "d68b1d1bf669d820cdaf339edd2eefd2bbd89655",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/recommendation/engine.ts",
+      "gitBlob": "6dc079832d325ef763ee806693fba154c80fc9c7",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/recommendation/index.ts",
+      "gitBlob": "afc2999dc973805c3a5c23f69f6fa18df4023cd1",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/recommendation/query.ts",
+      "gitBlob": "c6aeb118f3f0459b702cdf656fa69ed24050e9e1",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/recommendation/types.ts",
+      "gitBlob": "6161cf9f423b29acac25bee75c027b34fbaecb47",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/safe-project-return.ts",
+      "gitBlob": "d597d5318050959393e5fa6e16fc68a3e27c7652",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/schema.ts",
+      "gitBlob": "a6f3cde63e8a5155830659cc4458a0a4e5e3d8da",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/service-labels.ts",
+      "gitBlob": "d16f6190f61e68402d90fd4fa5a2ab0986765fe3",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/service-provenance.ts",
+      "gitBlob": "2dbdace4e83fb5183fbac04d6b4e96413dc42a79",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/services.ts",
+      "gitBlob": "51a3345dab6125d2caa3145720def4f729cdd52d",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/site.ts",
+      "gitBlob": "88ee0fd5b61058b0a723cf445be7d08c0dd5de8a",
+      "mode": "100644"
+    },
+    {
+      "path": "lib/verification-status.ts",
+      "gitBlob": "27d31b3e4e33585eece79288914c4e364e476142",
+      "mode": "100644"
+    },
+    {
+      "path": "next.config.ts",
+      "gitBlob": "dfdf445e27b54fc88b2453feccf5e4a28c954c99",
+      "mode": "100644"
+    },
+    {
+      "path": "package-lock.json",
+      "gitBlob": "39531a43a5227aab21968c40f1f06b71e05b2eba",
+      "mode": "100644"
+    },
+    {
+      "path": "package.json",
+      "gitBlob": "abf90c1eb6b0830662c8fd1834ea1971ac87cc0f",
+      "mode": "100644"
+    },
+    {
+      "path": "playwright.config.ts",
+      "gitBlob": "355922e35daeead97db354bcc46870dacb8c6b2d",
+      "mode": "100644"
+    },
+    {
+      "path": "public/images/articles/aramon-production-story/mastermon-training.jpg",
+      "gitBlob": "8d95150c3a5d9e9da246d52965fda7289956ceb6",
+      "mode": "100644"
+    },
+    {
+      "path": "public/images/articles/aramon-production-story/team-flame-barrage.png",
+      "gitBlob": "f5e422da7dee6e4ac07d93f284f0257e8d2735dd",
+      "mode": "100644"
+    },
+    {
+      "path": "public/images/articles/aramon-production-story/training-demon-flame.png",
+      "gitBlob": "82be9504317a1546fac98ba4c3c0180c5450c654",
+      "mode": "100644"
+    },
+    {
+      "path": "public/images/games/aramon/title-screen.png",
+      "gitBlob": "b696cdd8dd82aa75d7bc17b54bfc61b9111ba541",
+      "mode": "100644"
+    },
+    {
+      "path": "public/images/games/aura-connect-battle/screen.jpeg",
+      "gitBlob": "90bc53f28f914a6b717237275a37a8e1ccb8a4ab",
+      "mode": "100644"
+    },
+    {
+      "path": "public/images/games/create-monsters/battle.jpeg",
+      "gitBlob": "9cd4ee9c09822ffb6b08c33e3165daa22ad2f68c",
+      "mode": "100644"
+    },
+    {
+      "path": "public/images/games/monster-construction/screen.jpeg",
+      "gitBlob": "ef109a890412c7630f4e2ac24b60736ee78282bb",
+      "mode": "100644"
+    },
+    {
+      "path": "public/images/games/punching/screen.png",
+      "gitBlob": "0a6c27ca5e33d83104180b5f83dd1afd76f38440",
+      "mode": "100644"
+    },
+    {
+      "path": "public/images/games/rakugaction/screen.png",
+      "gitBlob": "2a513589a27a48016fc5b51d3c5e4894c7b362c1",
+      "mode": "100644"
+    },
+    {
+      "path": "public/images/games/sumaraku/screen.png",
+      "gitBlob": "66a29fd063829a128cde58f3db8e18a08574a43f",
+      "mode": "100644"
+    },
+    {
+      "path": "public/images/games/tomoshibi/screen.jpeg",
+      "gitBlob": "22f442e03cbdbccd7fa43677fcd959a10854b6c1",
+      "mode": "100644"
+    },
+    {
+      "path": "public/visual-v2/backgrounds/mint-atrium-1280.webp",
+      "gitBlob": "2eb556dfd93c953672e25a16152fb3c01f7d9fa8",
+      "mode": "100644"
+    },
+    {
+      "path": "public/visual-v2/backgrounds/mint-atrium-1672.webp",
+      "gitBlob": "cc47aafbe72981508f1f1d81e0f694b3768e8b18",
+      "mode": "100644"
+    },
+    {
+      "path": "public/visual-v2/backgrounds/mint-atrium-768.webp",
+      "gitBlob": "b9bb31a019b1cc400309c7ca31ca358ef9d035b4",
+      "mode": "100644"
+    },
+    {
+      "path": "public/visual-v2/icons/model.svg",
+      "gitBlob": "bbbbb26db03fdee14b12d3cc622266bb9faea1a2",
+      "mode": "100644"
+    },
+    {
+      "path": "public/visual-v2/icons/voice.svg",
+      "gitBlob": "6a31961985dba6165c0ef58faa2900031c9d2a04",
+      "mode": "100644"
+    },
+    {
+      "path": "public/visual-v2/thumbnails/development-480.webp",
+      "gitBlob": "dba08542cfb0ce89df8a4df9961d49bf4a91022e",
+      "mode": "100644"
+    },
+    {
+      "path": "public/visual-v2/thumbnails/development-960.webp",
+      "gitBlob": "5cdaac0cb4a0f197f853b8b48bd3354b395fad81",
+      "mode": "100644"
+    },
+    {
+      "path": "public/visual-v2/thumbnails/game-creation-480.webp",
+      "gitBlob": "db95d01e66b81707e532312af83a30786c41b94e",
+      "mode": "100644"
+    },
+    {
+      "path": "public/visual-v2/thumbnails/game-creation-960.webp",
+      "gitBlob": "80f37c35d60a7ebd724130aa7a728106f133c348",
+      "mode": "100644"
+    },
+    {
+      "path": "public/visual-v2/thumbnails/planning-480.webp",
+      "gitBlob": "c1360a70bd35e6924b62b265c8410906c88b92b4",
+      "mode": "100644"
+    },
+    {
+      "path": "public/visual-v2/thumbnails/planning-960.webp",
+      "gitBlob": "9c7817b36b9faa0de9e7509f18850f229136ac2d",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/affiliate-validation.ts",
+      "gitBlob": "ddc3602f4ad0aa6e2c09d69cecc6e5075fb3d282",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/check-links.ts",
+      "gitBlob": "62a4e6225bc5287cfeb0600cdd68e988b3e4bc4c",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/check-sitemap.ts",
+      "gitBlob": "5ed4a1a7db80c1d38c98d3980a7eb0e49f59fa94",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/check-stale-data.ts",
+      "gitBlob": "e7c63db8689742caf5bc2e2749eaf731881c17a1",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/gameai_jev.py",
+      "gitBlob": "54ad2e5f45ea09caefc93ff53801a066dd6baf74",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/jev/__init__.py",
+      "gitBlob": "d984755470f6719a2acfccabe4d21b5934b1a6fc",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/jev/browser/__init__.py",
+      "gitBlob": "647851ae6fd2ae0cb970c7dd14e0f4bab6556835",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/jev/browser/policy.py",
+      "gitBlob": "f45b33f83d8fb309a4bf507ffcca9c7bfc06ddbc",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/jev/client.py",
+      "gitBlob": "4fc53276aea76545a02f23fdb51b7918f93a960d",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/jev/config.py",
+      "gitBlob": "02f451bd816e479d33fba4b2cca43ffd3eff8932",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/jev/policy.py",
+      "gitBlob": "ca5f979f43cbcd351d83f462ca060b5657a74457",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/jev/redact.py",
+      "gitBlob": "14671d2fd97e6b8b13426bd0edeb2bef438c1891",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/jev/schemas.py",
+      "gitBlob": "ed3ee48772bbc8f279596a165fd80ced3c7c7f61",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/jev/semantic/__init__.py",
+      "gitBlob": "bf72c4cf7838c07f73aa3d2d84f07dd03d5a3040",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/jev/state.py",
+      "gitBlob": "bcedbe2fd9bae7c0438bc25a16eb1a9970ce2ea6",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/orchestration.py",
+      "gitBlob": "e5a77434c43e72cac9d0cf2eb8d2bf6e41f5b9ef",
+      "mode": "100755"
+    },
+    {
+      "path": "scripts/orchestration_browser_recovery.py",
+      "gitBlob": "51fbb5df48212fc1d9184e01bd0f32b572420939",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/orchestration_event_ingress.py",
+      "gitBlob": "6b8548a952a96908df2ec9cb17fa84a11b0dc5cc",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/orchestration_github.py",
+      "gitBlob": "48777a45df50aa0579455e1a8e7be88f066db77c",
+      "mode": "100755"
+    },
+    {
+      "path": "scripts/orchestration_hotfix_reconcile.py",
+      "gitBlob": "eb3f76e6abad819fd5f0e1adbbeed159779bd01b",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/orchestration_human_acceptance.py",
+      "gitBlob": "7e6e10160da3d1869343b762ad0adbb27b5dd112",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/orchestration_mode.py",
+      "gitBlob": "f33e5029dbc32168e548608e455e2c050c8ad3ab",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/orchestration_observe.py",
+      "gitBlob": "6ce6cdc6dc95db72027913d12357dd73725e5767",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/orchestration_post_merge_reconcile.py",
+      "gitBlob": "40958c1a102e15e12603522aca92a051a69d8f46",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/orchestration_post_merge_recovery_driver.py",
+      "gitBlob": "78c4049b853ea8f4faf061b6a3979c56dd21c961",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/orchestration_preview_readiness_reconcile.py",
+      "gitBlob": "20c1fe1ea1a649d1813068db7279727e2fd8ca34",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/orchestration_production_reconcile.py",
+      "gitBlob": "d82ade5a08b849f0de83bc64115a6b9054085e8b",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/orchestration_transition_relay.py",
+      "gitBlob": "06058cd575654d0023a121202625d681c2002d8a",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/orchestration_vercel_readiness.py",
+      "gitBlob": "ce01d6a90b564175e1261929089acc793d61ea1a",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/orchestration_work_ingress.py",
+      "gitBlob": "443373412c628f127ffa85d906341dbe28e2bbbb",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/orchestration_work_watchdog.py",
+      "gitBlob": "63e1b657a07c972eba9898aad867e07c97699be2",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/quality-report.ts",
+      "gitBlob": "db821fe627b4a9c8086e1844da3ad6db0dd146ea",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/set-affiliate.ts",
+      "gitBlob": "c5803edc6e02508a800a0bf5c470cace97b21916",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/sync-affiliates.ts",
+      "gitBlob": "95b2dbab16b0410c7e944dc37908d404a665191b",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/tests/test_hotfix_reconcile.py",
+      "gitBlob": "286d4d9b685d5c038c124612eb5926427e228acd",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/tests/test_jev.py",
+      "gitBlob": "d08bc2c30325cb30dacf325a865388e3f0b3242f",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/tests/test_operation_mode.py",
+      "gitBlob": "a2d9fe9682bd50075fd2e68f777fad1876104140",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/tests/test_orchestration.py",
+      "gitBlob": "0290381f1b56a73a1fe26011158523de32040cd7",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/tests/test_orchestration_browser_recovery.py",
+      "gitBlob": "667e73b3e236a4d82f2f833b17c30a8efaf3623d",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/validate-affiliates.ts",
+      "gitBlob": "29a618673fa55c7e941c64e5bed5f1d33c699d70",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/validate-articles.ts",
+      "gitBlob": "6e6c2ea551cb2ebba710a747e03fee5e2d403dec",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/validate-decision-data.ts",
+      "gitBlob": "930adfa01342be011652d40f603bd003b1c0bf66",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/validate-games.ts",
+      "gitBlob": "48e162f3c00e78799e22086f6943fa206208b1fa",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/validate-orchestration.py",
+      "gitBlob": "2283cd5349e64dcd7d0d5e596a56157a761f5122",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/validate-recommendation-coverage.ts",
+      "gitBlob": "a82595d3cae876e67539e0d577002498627c3713",
+      "mode": "100644"
+    },
+    {
+      "path": "scripts/validate-services.ts",
+      "gitBlob": "a7c353e552ad0570f6097bc0eb744d973897eb3e",
+      "mode": "100644"
+    },
+    {
+      "path": "tsconfig.json",
+      "gitBlob": "1a0ca4a34fe96c15554af6446dbe6aca722fa8c7",
+      "mode": "100644"
+    }
+  ],
+  "purpose": "Compare later evidence-only delivery source to the executed runtime/test source. This hash is source identity, not test acceptance."
+}

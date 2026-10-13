@@ -1,0 +1,101 @@
+{
+  "source": "ed5fd95902de06fe9cc1e54a50882c69842d7bb5",
+  "localBuild": "0am_yq1bZC1fJIszJq00d",
+  "origin": "http://127.0.0.1:3102",
+  "threshold": 8192,
+  "analyticsExclusion": "Privacy first visit, same context, localStorage gameai:analytics-excluded=1",
+  "records": [
+    {
+      "path": "/",
+      "deckB3Gzip": 8153,
+      "measured": [
+        {
+          "url": "http://127.0.0.1:3102/_next/static/chunks/1c373pgfpslhz.css",
+          "browserGzip": 33137,
+          "bytes": 94948,
+          "nodeGzip": 33827,
+          "sha256": "a33dd2ad2942cd26fce5f2bdcf852cf89196a63961e584323c67b47ba78ceef9",
+          "deck": false,
+          "B3": false,
+          "gameActions": false
+        },
+        {
+          "url": "http://127.0.0.1:3102/_next/static/chunks/2hfjc121rscq4.css",
+          "browserGzip": 33136,
+          "bytes": 95057,
+          "nodeGzip": 33827,
+          "sha256": "e6658491d6aea791cdb6c083d0e3822ca8b1c79a26636230c4c94c55d9677936",
+          "deck": false,
+          "B3": false,
+          "gameActions": false
+        },
+        {
+          "url": "http://127.0.0.1:3102/_next/static/chunks/3i-hm4teac6k-.css",
+          "browserGzip": 24258,
+          "bytes": 133836,
+          "nodeGzip": 24211,
+          "sha256": "3bfe5847c422183984188c5bba5a527904e6e44689e3a981e1697581940e8663",
+          "deck": false,
+          "B3": false,
+          "gameActions": false
+        },
+        {
+          "url": "http://127.0.0.1:3102/_next/static/chunks/06842dxd0fube.css",
+          "browserGzip": 8153,
+          "bytes": 35484,
+          "nodeGzip": 8157,
+          "sha256": "2e3a55229bd16ca818207a566c836c8b78355f8a5fd2b84cd7150f75a4e7e1e8",
+          "deck": true,
+          "B3": true,
+          "gameActions": true
+        }
+      ]
+    },
+    {
+      "path": "/articles/",
+      "deckB3Gzip": 8153,
+      "measured": [
+        {
+          "url": "http://127.0.0.1:3102/_next/static/chunks/1c373pgfpslhz.css",
+          "browserGzip": 33137,
+          "bytes": 94948,
+          "nodeGzip": 33827,
+          "sha256": "a33dd2ad2942cd26fce5f2bdcf852cf89196a63961e584323c67b47ba78ceef9",
+          "deck": false,
+          "B3": false,
+          "gameActions": false
+        },
+        {
+          "url": "http://127.0.0.1:3102/_next/static/chunks/2hfjc121rscq4.css",
+          "browserGzip": 33136,
+          "bytes": 95057,
+          "nodeGzip": 33827,
+          "sha256": "e6658491d6aea791cdb6c083d0e3822ca8b1c79a26636230c4c94c55d9677936",
+          "deck": false,
+          "B3": false,
+          "gameActions": false
+        },
+        {
+          "url": "http://127.0.0.1:3102/_next/static/chunks/3i-hm4teac6k-.css",
+          "browserGzip": 24258,
+          "bytes": 133836,
+          "nodeGzip": 24211,
+          "sha256": "3bfe5847c422183984188c5bba5a527904e6e44689e3a981e1697581940e8663",
+          "deck": false,
+          "B3": false,
+          "gameActions": false
+        },
+        {
+          "url": "http://127.0.0.1:3102/_next/static/chunks/06842dxd0fube.css",
+          "browserGzip": 8153,
+          "bytes": 35484,
+          "nodeGzip": 8157,
+          "sha256": "2e3a55229bd16ca818207a566c836c8b78355f8a5fd2b84cd7150f75a4e7e1e8",
+          "deck": true,
+          "B3": true,
+          "gameActions": true
+        }
+      ]
+    }
+  ]
+}

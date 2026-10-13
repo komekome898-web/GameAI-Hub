@@ -1,0 +1,442 @@
+{
+  "source": "ed5fd95902de06fe9cc1e54a50882c69842d7bb5",
+  "build": "0am_yq1bZC1fJIszJq00d",
+  "runtime": "http://127.0.0.1:3102",
+  "method": "viewport reflow; native ancestor summary clicks; no style/CSS injection",
+  "records": [
+    {
+      "width": 375,
+      "height": 700,
+      "idea": "2Dパズル。Godot。ブラウザ。一人開発。初心者。無料。音声なし。3Dなし。",
+      "initialOverflow": [],
+      "initialProbe": {
+        "clippedText": [],
+        "focusVerification": "unverified"
+      },
+      "nativeOpenedAncestors": [
+        {
+          "index": 23,
+          "class": "secondary-plan",
+          "summary": "工程・Prompt・リスクの詳細を見る"
+        },
+        {
+          "index": 29,
+          "class": "fit-details",
+          "summary": "適合度の根拠を見る"
+        }
+      ],
+      "expandedOverflow": [],
+      "fitProbe": {
+        "selector": "#roadmap > div:nth-of-type(1) > details:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > article:nth-of-type(1) > details:nth-of-type(1)",
+        "matched": 1,
+        "clippedText": [],
+        "undersizedTargets": [],
+        "focusable": 1,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "focusFailures": [],
+        "focusVerification": "verified"
+      },
+      "focus": {
+        "focused": true,
+        "visible": true,
+        "outline": "rgb(49, 90, 66) solid 3px",
+        "outlineOffset": "3px",
+        "color": "rgb(35, 53, 41)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "rect": {
+          "x": 81,
+          "y": 370.328125,
+          "width": 213,
+          "height": 44,
+          "top": 370.328125,
+          "right": 294,
+          "bottom": 414.328125,
+          "left": 81
+        },
+        "headerBottom": 64.640625
+      },
+      "live": {
+        "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+        "visible": true,
+        "client": 145,
+        "scroll": 145,
+        "paddingInlineEnd": "8px",
+        "font": "16px",
+        "color": "rgb(35, 53, 41)",
+        "bounds": {
+          "x": 135,
+          "y": 924.890625,
+          "width": 145,
+          "height": 108.75,
+          "top": 924.890625,
+          "right": 280,
+          "bottom": 1033.640625,
+          "left": 135
+        },
+        "charsOutsideRight": [],
+        "charsOutsideLeft": [],
+        "warning": {
+          "bg": "rgba(255, 209, 102, 0.05)",
+          "image": "none",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(98, 85, 44)"
+        },
+        "card": {
+          "bg": "rgb(250, 248, 242)",
+          "image": "none",
+          "border": "2px solid rgb(113, 128, 100)",
+          "radius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        "detailsAncestors": [
+          {
+            "class": "fit-details",
+            "open": true
+          },
+          {
+            "class": "plan-phase",
+            "open": true
+          },
+          {
+            "class": "secondary-plan",
+            "open": true
+          }
+        ]
+      },
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "ed5-godot-fit-open-375.png",
+      "warningFile": "ed5-godot-warning-375.png",
+      "warningViewportFile": "ed5-godot-warning-viewport-375.png",
+      "paintBounds": {
+        "bounds": {
+          "x": 135,
+          "y": 576.890625,
+          "width": 145,
+          "height": 108.75,
+          "top": 576.890625,
+          "right": 280,
+          "bottom": 685.640625,
+          "left": 135
+        },
+        "textRects": [
+          {
+            "x": 135,
+            "y": 577.890625,
+            "width": 128.015625,
+            "height": 24,
+            "top": 577.890625,
+            "right": 263.015625,
+            "bottom": 601.890625,
+            "left": 135
+          },
+          {
+            "x": 135,
+            "y": 605.078125,
+            "width": 128.015625,
+            "height": 24,
+            "top": 605.078125,
+            "right": 263.015625,
+            "bottom": 629.078125,
+            "left": 135
+          },
+          {
+            "x": 135,
+            "y": 632.265625,
+            "width": 132.453125,
+            "height": 24,
+            "top": 632.265625,
+            "right": 267.453125,
+            "bottom": 656.265625,
+            "left": 135
+          },
+          {
+            "x": 135,
+            "y": 659.453125,
+            "width": 48.015625,
+            "height": 24,
+            "top": 659.453125,
+            "right": 183.015625,
+            "bottom": 683.453125,
+            "left": 135
+          }
+        ],
+        "clipAncestors": [
+          {
+            "class": "plan-phase",
+            "bounds": {
+              "x": 43,
+              "y": -1612.515625,
+              "width": 289,
+              "height": 5085.796875,
+              "top": -1612.515625,
+              "right": 332,
+              "bottom": 3473.28125,
+              "left": 43
+            },
+            "overflowX": "hidden",
+            "overflowY": "hidden"
+          }
+        ],
+        "viewportHeight": 700,
+        "headerBottom": 64.640625
+      },
+      "captureLabels": {
+        "ed5-godot-fit-open-375.png": "fit context;375 capture partial at viewport edge, not full-warning proof",
+        "ed5-godot-warning-375.png": "complete affected warning section",
+        "ed5-godot-warning-viewport-375.png": "complete affected warning in actual viewport"
+      }
+    },
+    {
+      "width": 320,
+      "height": 700,
+      "idea": "2Dパズル。Godot。ブラウザ。一人開発。初心者。無料。音声なし。3Dなし。",
+      "initialOverflow": [],
+      "initialProbe": {
+        "clippedText": [],
+        "focusVerification": "unverified"
+      },
+      "nativeOpenedAncestors": [
+        {
+          "index": 23,
+          "class": "secondary-plan",
+          "summary": "工程・Prompt・リスクの詳細を見る"
+        },
+        {
+          "index": 29,
+          "class": "fit-details",
+          "summary": "適合度の根拠を見る"
+        }
+      ],
+      "expandedOverflow": [],
+      "fitProbe": {
+        "selector": "#roadmap > div:nth-of-type(1) > details:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > article:nth-of-type(1) > details:nth-of-type(1)",
+        "matched": 1,
+        "clippedText": [],
+        "undersizedTargets": [],
+        "focusable": 1,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "focusFailures": [],
+        "focusVerification": "verified"
+      },
+      "focus": {
+        "focused": true,
+        "visible": true,
+        "outline": "rgb(49, 90, 66) solid 3px",
+        "outlineOffset": "3px",
+        "color": "rgb(35, 53, 41)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "rect": {
+          "x": 75,
+          "y": 368.421875,
+          "width": 170,
+          "height": 44,
+          "top": 368.421875,
+          "right": 245,
+          "bottom": 412.421875,
+          "left": 75
+        },
+        "headerBottom": 64.640625
+      },
+      "live": {
+        "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+        "visible": true,
+        "client": 102,
+        "scroll": 102,
+        "paddingInlineEnd": "8px",
+        "font": "16px",
+        "color": "rgb(35, 53, 41)",
+        "bounds": {
+          "x": 129,
+          "y": 1004.546875,
+          "width": 102,
+          "height": 163.125,
+          "top": 1004.546875,
+          "right": 231,
+          "bottom": 1167.671875,
+          "left": 129
+        },
+        "charsOutsideRight": [],
+        "charsOutsideLeft": [],
+        "warning": {
+          "bg": "rgba(255, 209, 102, 0.05)",
+          "image": "none",
+          "color": "rgb(35, 53, 41)",
+          "border": "1px solid rgb(98, 85, 44)"
+        },
+        "card": {
+          "bg": "rgb(250, 248, 242)",
+          "image": "none",
+          "border": "2px solid rgb(113, 128, 100)",
+          "radius": "9px",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(120, 129, 107, 0.25) 0px 3px 0px 0px, rgba(35, 53, 41, 0.05) 0px 10px 20px 0px"
+        },
+        "detailsAncestors": [
+          {
+            "class": "fit-details",
+            "open": true
+          },
+          {
+            "class": "plan-phase",
+            "open": true
+          },
+          {
+            "class": "secondary-plan",
+            "open": true
+          }
+        ]
+      },
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "ed5-godot-fit-open-320.png",
+      "warningFile": "ed5-godot-warning-320.png",
+      "warningViewportFile": "ed5-godot-warning-viewport-320.png",
+      "paintBounds": {
+        "bounds": {
+          "x": 129,
+          "y": 522.546875,
+          "width": 102,
+          "height": 163.125,
+          "top": 522.546875,
+          "right": 231,
+          "bottom": 685.671875,
+          "left": 129
+        },
+        "textRects": [
+          {
+            "x": 129,
+            "y": 523.546875,
+            "width": 80.015625,
+            "height": 24,
+            "top": 523.546875,
+            "right": 209.015625,
+            "bottom": 547.546875,
+            "left": 129
+          },
+          {
+            "x": 129,
+            "y": 550.734375,
+            "width": 80.015625,
+            "height": 24,
+            "top": 550.734375,
+            "right": 209.015625,
+            "bottom": 574.734375,
+            "left": 129
+          },
+          {
+            "x": 129,
+            "y": 577.921875,
+            "width": 80.015625,
+            "height": 24,
+            "top": 577.921875,
+            "right": 209.015625,
+            "bottom": 601.921875,
+            "left": 129
+          },
+          {
+            "x": 129,
+            "y": 605.109375,
+            "width": 79.53125,
+            "height": 24,
+            "top": 605.109375,
+            "right": 208.53125,
+            "bottom": 629.109375,
+            "left": 129
+          },
+          {
+            "x": 129,
+            "y": 632.296875,
+            "width": 88.046875,
+            "height": 24,
+            "top": 632.296875,
+            "right": 217.046875,
+            "bottom": 656.296875,
+            "left": 129
+          },
+          {
+            "x": 129,
+            "y": 659.484375,
+            "width": 32.015625,
+            "height": 24,
+            "top": 659.484375,
+            "right": 161.015625,
+            "bottom": 683.484375,
+            "left": 129
+          }
+        ],
+        "clipAncestors": [
+          {
+            "class": "plan-phase",
+            "bounds": {
+              "x": 37,
+              "y": -1982.234375,
+              "width": 246,
+              "height": 5929.078125,
+              "top": -1982.234375,
+              "right": 283,
+              "bottom": 3946.84375,
+              "left": 37
+            },
+            "overflowX": "hidden",
+            "overflowY": "hidden"
+          }
+        ],
+        "viewportHeight": 700,
+        "headerBottom": 64.640625
+      },
+      "captureLabels": {
+        "ed5-godot-fit-open-320.png": "fit context;375 capture partial at viewport edge, not full-warning proof",
+        "ed5-godot-warning-320.png": "complete affected warning section",
+        "ed5-godot-warning-viewport-320.png": "complete affected warning in actual viewport"
+      }
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "css": [
+    {
+      "url": "http://127.0.0.1:3102/_next/static/chunks/1c373pgfpslhz.css",
+      "bytes": 94948,
+      "sha256": "a33dd2ad2942cd26fce5f2bdcf852cf89196a63961e584323c67b47ba78ceef9",
+      "phaseWarningPaddingCompiled": false,
+      "B3": false
+    },
+    {
+      "url": "http://127.0.0.1:3102/_next/static/chunks/2hfjc121rscq4.css",
+      "bytes": 95057,
+      "sha256": "e6658491d6aea791cdb6c083d0e3822ca8b1c79a26636230c4c94c55d9677936",
+      "phaseWarningPaddingCompiled": false,
+      "B3": false
+    },
+    {
+      "url": "http://127.0.0.1:3102/_next/static/chunks/3i-hm4teac6k-.css",
+      "bytes": 133836,
+      "sha256": "3bfe5847c422183984188c5bba5a527904e6e44689e3a981e1697581940e8663",
+      "phaseWarningPaddingCompiled": true,
+      "B3": false
+    },
+    {
+      "url": "http://127.0.0.1:3102/_next/static/chunks/06842dxd0fube.css",
+      "bytes": 35484,
+      "sha256": "2e3a55229bd16ca818207a566c836c8b78355f8a5fd2b84cd7150f75a4e7e1e8",
+      "phaseWarningPaddingCompiled": false,
+      "B3": true
+    }
+  ]
+}

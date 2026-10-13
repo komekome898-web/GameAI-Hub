@@ -1,0 +1,70 @@
+{
+  "source": "ed5fd95902de06fe9cc1e54a50882c69842d7bb5",
+  "build": "0am_yq1bZC1fJIszJq00d",
+  "verdict": "R7 reproduced affected375/320 branch repair verified; no broader final visual or CI claim",
+  "viewportWidths": [
+    375,
+    320
+  ],
+  "viewportHeight": 700,
+  "sourceReviewReport": "review-ed5.md",
+  "screenshots": 6,
+  "oldR7EvidencePreserved": true,
+  "files": [
+    {
+      "name": "review-ed5.md",
+      "bytes": 6000,
+      "sha256": "d326818057e5af53859d4efd5b5d24efc59de1b1a0356374f2a10e77c4bc664a"
+    },
+    {
+      "name": "observations-ed5.json",
+      "bytes": 13040,
+      "sha256": "9df06e15c4b5b20f0596fc4b5f9795b8cfe68f02cbf2adddced3c2ec888fc0fc"
+    },
+    {
+      "name": "source-build-hashes-ed5.json",
+      "bytes": 2589,
+      "sha256": "929185a4ca039b2e82f0c21a8f3d33760a14368aba320b5910476b5de265b06f"
+    },
+    {
+      "name": "contrast-ed5.json",
+      "bytes": 544,
+      "sha256": "570c507070786cb7d5859a11e964e4ab21c7505f8ec8376ef1670d15c60be387"
+    },
+    {
+      "name": "review.cjs",
+      "bytes": 8762,
+      "sha256": "e1e7c6cc001632dd644bc0e8d83d3527fa868e674dd54ea0a3d0087c256317de"
+    },
+    {
+      "name": "ed5-godot-fit-open-320.png",
+      "bytes": 43587,
+      "sha256": "4fff59eec74af6fcc2f3ed673109b1d9273b8478f84b0649f4e846215994eff1"
+    },
+    {
+      "name": "ed5-godot-fit-open-375.png",
+      "bytes": 42333,
+      "sha256": "6129a1e40e6669310c7fe72e4f58b396c3ced2a5c929e00c2f2812000d286215"
+    },
+    {
+      "name": "ed5-godot-warning-320.png",
+      "bytes": 12644,
+      "sha256": "a22773129d44d1b1877c07dfa33db7712adb77d494a55dad83bffac7a37e0953"
+    },
+    {
+      "name": "ed5-godot-warning-375.png",
+      "bytes": 12441,
+      "sha256": "ef61aa2fb54e0780c9c5b42382b683012fcfeb0de5885849487c025c872e29e9"
+    },
+    {
+      "name": "ed5-godot-warning-viewport-320.png",
+      "bytes": 49932,
+      "sha256": "2545a2c0ab68b59e2b624170b6a1f516eb5238f11b3c4147408c66e0cff657f8"
+    },
+    {
+      "name": "ed5-godot-warning-viewport-375.png",
+      "bytes": 55934,
+      "sha256": "8a00ef22a33775d0705a94eb9d99856269b847599aae6020f95783a17572315b"
+    }
+  ]
+}

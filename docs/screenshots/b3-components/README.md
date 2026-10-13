@@ -4,10 +4,10 @@
 
 ## コードと証跡の区別
 
-- B3素材の初期描画固定点：`e555d81678440a2faa76538b83e22f875ee96e93`。後続で警告リストの末尾余白を修正し、影響するGodot表示は新ビルドで別に再確認します。元画像を新しいコードの画像として再ラベルしません。
+- B3素材の初期描画固定点：`e555d81678440a2faa76538b83e22f875ee96e93`。後続で警告リストの末尾余白を修正し、影響するGodot表示は`ed5fd95902de06fe9cc1e54a50882c69842d7bb5`／build`0am_yq1bZC1fJIszJq00d`で別に再確認しました。[変更後の証拠](final-ed5/README.md)。元画像を新しいコードの画像として再ラベルしません。
 - ローカルのproduction-modeビルド：`zRTspQ8ojf93LGGMfzTnt`、Next.js 16.3.2、Chromium。
 - 比較元：main `b5f3887d1d5299ed95f2cfbe6acf391e5c047042`。保持した`f05ff0f`のアプリツリーは同一、ビルド`e6kNGqhSIVpfqFLf0m--c`。
-- このディレクトリの後続コミットは証跡・報告の追加です。コードの固定点と提出コミットは別に記録します。
+- e555から7e8までは証跡・報告の追加です。3dで警告余白と測定／回帰を、ed5で実Godot展開の観測を追加しました。コードの固定点と証跡提出コミットは別に記録します。
 - [画像ハッシュと出所](retained-evidence.json)：初期保持は修正後33枚、比較用4枚。[追加46画像](review-supplement/README.md)でGuides／Stack、実START／全記事一覧、Compareチェック／トレイ、Tools結果行、Meshy下部を補っています。以前の独立レビュー件数は増やしていません。レビューJSONには、保持しなかった一時キャプチャの名前も含まれます。
 - 画面幅1440／375／320pxはviewport reflow。root150／200とcomputed200は合成テキスト拡大で、実機やOSの文字拡大ではありません。
 
@@ -43,12 +43,20 @@
 | e555 実回復操作 | 初心者Aフロー（相談文コピー、3作業、進捗）1件PASS。[ログ](review/recovery-a-e555.log) |
 | e555 音声素材フロー | 1件PASS。[ログ](review/recovery-e555.log) |
 | e555 deck/B3 CSS gzip | browser CompressionStream8153／8192byte、Node zlib8157。既存4CSS内で測定、移動・分割による測定除外なし。[記録](review/e555-css-budget.json) |
+| 3d／ed5 新ビルド | PASS。[ログ](final-ed5/build.txt)。runtime同一、新build`0am_yq1bZC1fJIszJq00d` |
+| 3d 対象 E2E | Project＋B3 components5件＝6/6 PASS、3.1分。[ログ](final-ed5/targeted-six.txt) |
+| ed5 実Godot展開を含むProject | 1/1 PASS、2.2分。[ログ](final-ed5/native-godot-project.txt)、[元測定recordと実originの区別](final-ed5/native-godot-record.json) |
+| ed5 deck/B3 CSS gzip | 新compiled Home／記事でbrowser8153／8192byte、Node8157。[記録](final-ed5/css-budget.json) |
+| ed5 CI quality／build | [38363660354](https://github.com/komekome898-web/GameAI-Hub/actions/runs/38363660354) SUCCESS。49ファイル384件＋Python76件、workflow validatorとbuild成功。実checkoutはmerge ref`12303aa3e1b21560640e51d3a3c1d05a7868cc00`（ed5＋main b5f）。[要点](final-ed5/quality-ci-excerpt.txt) |
+| ed5 全E2E＋最終reconciliation CI | [38363660415](https://github.com/komekome898-web/GameAI-Hub/actions/runs/38363660415) SUCCESS。287/287、23.8分＋最終cross-route1/1、30.5秒。flaky表記なし。[要点](final-ed5/full-e2e-ci-excerpt.txt) |
 
 0419の対象E2Eは19/21件でした。[初回ログ](review/e2e-0419.log)。1件目は前の幅で保存されたHubのgames表示を、テストがcategoriesと仮定したfixtureの問題です。実際の永続化を保持し、明示的な`#categories`を使って対象状態を指定しました。2件目は実際のCSS優先順位の不具合で、`aria-invalid`とfocusは正しくても通常の緑1px枠が残っていました。通常フィールドとinvalidのspecificityを揃え、後段の赤2px枠を有効にしました。両方ともe555の22件に含めて再実行PASS。入力エラーはProject／Builderの両入口で再現しています。
 
 独立診断の折りたたみラベル待ちも、診断が実ラベル「概要を閉じる」を誤指定したfixtureの失敗です。診断のみ修正し、実UIのTab→展開→Enter→閉じるfocusまで再検査しました。製品側のラベルや挙動は変更していません。
 
-初回の全E2E CIは285通過／1失敗（22.4分）で、Projectの非描画内容を文字クリップとして数えた測定不整合に絞れました。[独立した原因確認と開いた実表示](review-supplement/godot-diagnosis/review.md)。開いた375pxの警告にも末尾括弧7pxの厳密な境界超過があったため、警告の末尾余白を修正しています。可視性を確認する測定修正と、可視のクリップを引き続き拒否するnative回帰を追加しました。最終cross-route reconciliationは初回失敗時には未実行。修正後の正確なコミットで新しい全E2E CI結果を記録します。旧PR183の結果を今回の結果として扱いません。
+初回の全E2E CIは285通過／1失敗（22.4分）で、Projectの非描画内容を文字クリップとして数えた測定不整合に絞れました。[独立した原因確認と開いた実表示](review-supplement/godot-diagnosis/review.md)。開いた375pxの警告にも末尾括弧7pxの厳密な境界超過があったため、警告の末尾余白を修正しています。可視性を確認する測定修正と、可視のクリップを引き続き拒否するnative回帰を追加しました。最終cross-route reconciliationは初回失敗時には未実行。修正後の[全E2E CI38363660415](https://github.com/komekome898-web/GameAI-Hub/actions/runs/38363660415)は上表のとおり成功し、最終reconciliationも実行成功しています。旧PR183の結果を今回の結果として扱いません。
+
+旧7e8の診断用ローカル全実行は途中停止し、228通過、3flaky（retry成功）、WORKSPACE1失敗、1中断、53未実行でした。[最終summary](final-ed5/old-local-full-summary.txt)。新コードの全体合格とは扱いません。ローカル最終qualityのRuby不在によるvalidator未実行も[環境制約](final-ed5/local-ruby-block.txt)として記録し、このゲートは上記CIで省略せず通過を確認しています。
 
 ## 未検査とプレビュー
 

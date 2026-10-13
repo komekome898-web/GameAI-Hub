@@ -1,0 +1,18 @@
+
+Running 6 tests using 2 workers
+
+(node:82854) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/6] e2e/issue-157-project-evidence.spec.ts:69:5 › Issue 157 Project states, workspace, and token observations validate
+(node:82855) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/6] e2e/b3-components.spec.ts:37:5 › inner component evidence reaches live families at desktop and narrow widths
+[3/6] e2e/b3-components.spec.ts:71:5 › nested hub and selected-list cards use the adopted artwork frame, with usable game actions
+[4/6] e2e/b3-components.spec.ts:98:5 › actual 200% computed text keeps short Japanese goal choices on one line
+[5/6] e2e/b3-components.spec.ts:122:5 › Project invalid state has a visible semantic edge and drawer focus remains trapped
+[6/6] e2e/b3-components.spec.ts:152:5 › clipping probe distinguishes cached closed content from visible disclosure text
+  6 passed (3.1m)

@@ -1,0 +1,7 @@
+import { defineConfig } from '/workspace/GameAI-Hub-b3-components/node_modules/@playwright/test';
+export default defineConfig({
+ testDir:'/workspace/GameAI-Hub-b3-components/e2e', outputDir:'/tmp/b3-components-test-results',
+ fullyParallel:false,workers:2,retries:0,reporter:'line',timeout:45000,expect:{timeout:10000},
+ use:{baseURL:'http://127.0.0.1:3102',screenshot:'only-on-failure',trace:'retain-on-failure',
+ launchOptions:{executablePath:'/usr/bin/chromium'}},
+});
