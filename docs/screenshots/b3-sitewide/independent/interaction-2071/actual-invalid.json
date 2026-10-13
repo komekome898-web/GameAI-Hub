@@ -1,0 +1,51 @@
+{
+  "sha": "2071bc57a6ff8cacbdaa80dbe3a5a81f88b0e613",
+  "records": [
+    {
+      "route": "/project/",
+      "snapshot": {
+        "id": "project-detail-detail-setting-0-h3u1",
+        "value": " ",
+        "invalid": "true",
+        "border": "rgb(163, 59, 53)",
+        "expected": "#a33b35",
+        "rect": {
+          "x": 64,
+          "y": 349.078125,
+          "width": 247,
+          "height": 76.375,
+          "top": 349.078125,
+          "right": 311,
+          "bottom": 425.453125,
+          "left": 64
+        },
+        "documentWidth": 375,
+        "viewport": 375
+      },
+      "invalidBorder": "PASS"
+    },
+    {
+      "route": "/builder/",
+      "snapshot": {
+        "id": "project-detail-detail-setting-0-h3u1",
+        "value": " ",
+        "invalid": "true",
+        "border": "rgb(163, 59, 53)",
+        "expected": "#a33b35",
+        "rect": {
+          "x": 64,
+          "y": 349.078125,
+          "width": 247,
+          "height": 76.375,
+          "top": 349.078125,
+          "right": 311,
+          "bottom": 425.453125,
+          "left": 64
+        },
+        "documentWidth": 375,
+        "viewport": 375
+      },
+      "invalidBorder": "PASS"
+    }
+  ]
+}

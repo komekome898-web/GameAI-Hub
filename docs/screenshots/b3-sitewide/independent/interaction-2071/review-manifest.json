@@ -1,0 +1,28 @@
+{
+  "runtimeSource": "2071bc57a6ff8cacbdaa80dbe3a5a81f88b0e613",
+  "buildId": "zAk6ky_dCA_TDzq3xN_Bv",
+  "review": "PASS within requested 375px affected scope",
+  "records": 18,
+  "screenshots": [
+    "article-back-focused-375-deck.png",
+    "article-back-focused-375-viewport.png",
+    "builder-actual-invalid-375.png",
+    "expanded-ai-browser-game-how-to-375-deck.png",
+    "expanded-ai-browser-game-how-to-375-viewport.png",
+    "project-actual-invalid-375.png",
+    "start-initial-375-deck.png",
+    "start-initial-375-viewport.png",
+    "start-list-375.png",
+    "start-restored-deck-375-deck.png",
+    "start-restored-deck-375-viewport.png"
+  ],
+  "recordFiles": [
+    "deck-records.json",
+    "actual-invalid.json"
+  ],
+  "unresolvedP0P1HighImpactP2": [],
+  "physicalDevice": false,
+  "productionVisited": false,
+  "observedPostCaptureHead": "2b5a7411da267aa479d24185ec17acf9d66638f0",
+  "postCaptureDelta": "Documentation and saved evidence only; no runtime change"
+}
