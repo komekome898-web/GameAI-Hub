@@ -1,0 +1,1422 @@
+{
+  "runtimeSource": "e555d81678440a2faa76538b83e22f875ee96e93",
+  "submittedEquivalentSource": "7e8d8313fce958e83104a89e864471d72b6fa262",
+  "build": "zRTspQ8ojf93LGGMfzTnt",
+  "runtime": "http://127.0.0.1:3102",
+  "records": [
+    {
+      "width": 375,
+      "variant": "Original beginner Godot condition; ordinary secondary plan phase and fit disclosures opened",
+      "method": "viewport-reflow; real summary clicks from outer to inner; no DOM open assignment",
+      "before": [
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 4920.703125,
+            "width": 145,
+            "height": 81.5625,
+            "top": 4920.703125,
+            "right": 280,
+            "bottom": 5002.265625,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 4976.078125,
+              "bottom": 5000.078125,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": true
+            },
+            {
+              "class": "secondary-plan",
+              "open": false
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 6536.921875,
+            "width": 145,
+            "height": 81.5625,
+            "top": 6536.921875,
+            "right": 280,
+            "bottom": 6618.484375,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 6592.296875,
+              "bottom": 6616.296875,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": true
+            },
+            {
+              "class": "secondary-plan",
+              "open": false
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 9487.75,
+            "width": 145,
+            "height": 81.5625,
+            "top": 9487.75,
+            "right": 280,
+            "bottom": 9569.3125,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 9543.125,
+              "bottom": 9567.125,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": false
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 11144.21875,
+            "width": 145,
+            "height": 81.5625,
+            "top": 11144.21875,
+            "right": 280,
+            "bottom": 11225.78125,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 11199.59375,
+              "bottom": 11223.59375,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": false
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 12226,
+            "width": 145,
+            "height": 81.5625,
+            "top": 12226,
+            "right": 280,
+            "bottom": 12307.5625,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 12281.375,
+              "bottom": 12305.375,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": false
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 13885.71875,
+            "width": 145,
+            "height": 81.5625,
+            "top": 13885.71875,
+            "right": 280,
+            "bottom": 13967.28125,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 13941.09375,
+              "bottom": 13965.09375,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": false
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 9694.5,
+            "width": 145,
+            "height": 81.5625,
+            "top": 9694.5,
+            "right": 280,
+            "bottom": 9776.0625,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 9749.875,
+              "bottom": 9773.875,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": false
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 11332.46875,
+            "width": 145,
+            "height": 81.5625,
+            "top": 11332.46875,
+            "right": 280,
+            "bottom": 11414.03125,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 11387.84375,
+              "bottom": 11411.84375,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": false
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 9787,
+            "width": 145,
+            "height": 81.5625,
+            "top": 9787,
+            "right": 280,
+            "bottom": 9868.5625,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 9842.375,
+              "bottom": 9866.375,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": false
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 11318.34375,
+            "width": 145,
+            "height": 81.5625,
+            "top": 11318.34375,
+            "right": 280,
+            "bottom": 11399.90625,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 11373.71875,
+              "bottom": 11397.71875,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": false
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 10298.3125,
+            "width": 145,
+            "height": 81.5625,
+            "top": 10298.3125,
+            "right": 280,
+            "bottom": 10379.875,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 10353.6875,
+              "bottom": 10377.6875,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": false
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 10461.5,
+            "width": 145,
+            "height": 81.5625,
+            "top": 10461.5,
+            "right": 280,
+            "bottom": 10543.0625,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 10516.875,
+              "bottom": 10540.875,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": false
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 12077.71875,
+            "width": 145,
+            "height": 81.5625,
+            "top": 12077.71875,
+            "right": 280,
+            "bottom": 12159.28125,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 12133.09375,
+              "bottom": 12157.09375,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": false
+            }
+          ]
+        }
+      ],
+      "openedAncestors": [
+        {
+          "index": 23,
+          "tag": "DETAILS",
+          "class": "secondary-plan",
+          "open": false,
+          "summary": "工程・Prompt・リスクの詳細を見る",
+          "visible": true,
+          "display": "block"
+        },
+        {
+          "index": 29,
+          "tag": "DETAILS",
+          "class": "fit-details",
+          "open": false,
+          "summary": "適合度の根拠を見る",
+          "visible": true,
+          "display": "block"
+        }
+      ],
+      "after": [
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": true,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 874.703125,
+            "width": 145,
+            "height": 81.5625,
+            "top": 874.703125,
+            "right": 280,
+            "bottom": 956.265625,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 930.078125,
+              "bottom": 954.078125,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": true
+            },
+            {
+              "class": "plan-phase",
+              "open": true
+            },
+            {
+              "class": "secondary-plan",
+              "open": true
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 3048.859375,
+            "width": 145,
+            "height": 81.5625,
+            "top": 3048.859375,
+            "right": 280,
+            "bottom": 3130.421875,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 3104.234375,
+              "bottom": 3128.234375,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": true
+            },
+            {
+              "class": "secondary-plan",
+              "open": true
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 5999.6875,
+            "width": 145,
+            "height": 81.5625,
+            "top": 5999.6875,
+            "right": 280,
+            "bottom": 6081.25,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 6055.0625,
+              "bottom": 6079.0625,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": true
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 7656.15625,
+            "width": 145,
+            "height": 81.5625,
+            "top": 7656.15625,
+            "right": 280,
+            "bottom": 7737.71875,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 7711.53125,
+              "bottom": 7735.53125,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": true
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 8737.9375,
+            "width": 145,
+            "height": 81.5625,
+            "top": 8737.9375,
+            "right": 280,
+            "bottom": 8819.5,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 8793.3125,
+              "bottom": 8817.3125,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": true
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 10397.65625,
+            "width": 145,
+            "height": 81.5625,
+            "top": 10397.65625,
+            "right": 280,
+            "bottom": 10479.21875,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 10453.03125,
+              "bottom": 10477.03125,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": true
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 6206.4375,
+            "width": 145,
+            "height": 81.5625,
+            "top": 6206.4375,
+            "right": 280,
+            "bottom": 6288,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 6261.8125,
+              "bottom": 6285.8125,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": true
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 7844.40625,
+            "width": 145,
+            "height": 81.5625,
+            "top": 7844.40625,
+            "right": 280,
+            "bottom": 7925.96875,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 7899.78125,
+              "bottom": 7923.78125,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": true
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 6298.9375,
+            "width": 145,
+            "height": 81.5625,
+            "top": 6298.9375,
+            "right": 280,
+            "bottom": 6380.5,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 6354.3125,
+              "bottom": 6378.3125,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": true
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 7830.28125,
+            "width": 145,
+            "height": 81.5625,
+            "top": 7830.28125,
+            "right": 280,
+            "bottom": 7911.84375,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 7885.65625,
+              "bottom": 7909.65625,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": true
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 6810.25,
+            "width": 145,
+            "height": 81.5625,
+            "top": 6810.25,
+            "right": 280,
+            "bottom": 6891.8125,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 6865.625,
+              "bottom": 6889.625,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": true
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 6973.4375,
+            "width": 145,
+            "height": 81.5625,
+            "top": 6973.4375,
+            "right": 280,
+            "bottom": 7055,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 7028.8125,
+              "bottom": 7052.8125,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": true
+            }
+          ]
+        },
+        {
+          "text": "無料限定条件を満たすと確認できません（無料プラン: 不明）",
+          "class": "",
+          "client": 145,
+          "scroll": 152,
+          "visible": false,
+          "rects": 1,
+          "bounds": {
+            "x": 135,
+            "y": 8589.65625,
+            "width": 145,
+            "height": 81.5625,
+            "top": 8589.65625,
+            "right": 280,
+            "bottom": 8671.21875,
+            "left": 135
+          },
+          "style": {
+            "display": "list-item",
+            "overflow": "visible",
+            "font": "16px",
+            "list": "outside"
+          },
+          "charsOutsideRight": [
+            {
+              "character": "）",
+              "x": 271.03125,
+              "right": 287.046875,
+              "y": 8645.03125,
+              "bottom": 8669.03125,
+              "width": 16.015625
+            }
+          ],
+          "charsOutsideLeft": [],
+          "ancestors": [
+            {
+              "class": "fit-details",
+              "open": false
+            },
+            {
+              "class": "plan-phase",
+              "open": false
+            },
+            {
+              "class": "secondary-plan",
+              "open": true
+            }
+          ]
+        }
+      ],
+      "live": {
+        "text": "Godot連携は未確認",
+        "visible": true,
+        "client": 145,
+        "scroll": 145,
+        "bounds": {
+          "x": 135,
+          "y": 782.296875,
+          "width": 145,
+          "height": 27.1875,
+          "top": 782.296875,
+          "right": 280,
+          "bottom": 809.484375,
+          "left": 135
+        },
+        "textRects": [
+          {
+            "x": 135,
+            "y": 783.296875,
+            "width": 142.03125,
+            "height": 24,
+            "top": 783.296875,
+            "right": 277.03125,
+            "bottom": 807.296875,
+            "left": 135
+          }
+        ]
+      },
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "fit-open-375.png"
+    },
+    {
+      "width": 320,
+      "variant": "Original beginner Godot condition; ordinary secondary plan phase and fit disclosures opened",
+      "method": "viewport-reflow; real summary clicks from outer to inner; no DOM open assignment",
+      "before": [],
+      "openedAncestors": [
+        {
+          "index": 23,
+          "tag": "DETAILS",
+          "class": "secondary-plan",
+          "open": false,
+          "summary": "工程・Prompt・リスクの詳細を見る",
+          "visible": true,
+          "display": "block"
+        },
+        {
+          "index": 29,
+          "tag": "DETAILS",
+          "class": "fit-details",
+          "open": false,
+          "summary": "適合度の根拠を見る",
+          "visible": true,
+          "display": "block"
+        }
+      ],
+      "after": [],
+      "live": {
+        "text": "Godot連携は未確認",
+        "visible": true,
+        "client": 102,
+        "scroll": 102,
+        "bounds": {
+          "x": 129,
+          "y": 863.953125,
+          "width": 102,
+          "height": 54.375,
+          "top": 863.953125,
+          "right": 231,
+          "bottom": 918.328125,
+          "left": 129
+        },
+        "textRects": [
+          {
+            "x": 129,
+            "y": 864.953125,
+            "width": 94.03125,
+            "height": 24,
+            "top": 864.953125,
+            "right": 223.03125,
+            "bottom": 888.953125,
+            "left": 129
+          },
+          {
+            "x": 129,
+            "y": 892.140625,
+            "width": 48.015625,
+            "height": 24,
+            "top": 892.140625,
+            "right": 177.015625,
+            "bottom": 916.140625,
+            "left": 129
+          }
+        ]
+      },
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "fit-open-320.png"
+    }
+  ]
+}

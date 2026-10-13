@@ -4,11 +4,11 @@
 
 ## コードと証跡の区別
 
-- 修正コードの固定点：`e555d81678440a2faa76538b83e22f875ee96e93`。
+- B3素材の初期描画固定点：`e555d81678440a2faa76538b83e22f875ee96e93`。後続で警告リストの末尾余白を修正し、影響するGodot表示は新ビルドで別に再確認します。元画像を新しいコードの画像として再ラベルしません。
 - ローカルのproduction-modeビルド：`zRTspQ8ojf93LGGMfzTnt`、Next.js 16.3.2、Chromium。
 - 比較元：main `b5f3887d1d5299ed95f2cfbe6acf391e5c047042`。保持した`f05ff0f`のアプリツリーは同一、ビルド`e6kNGqhSIVpfqFLf0m--c`。
 - このディレクトリの後続コミットは証跡・報告の追加です。コードの固定点と提出コミットは別に記録します。
-- [画像ハッシュと出所](retained-evidence.json)：修正後33枚、比較用4枚。画像は代表的な保持分です。レビューJSONには、保持しなかった一時キャプチャの名前も含まれます。
+- [画像ハッシュと出所](retained-evidence.json)：初期保持は修正後33枚、比較用4枚。[追加46画像](review-supplement/README.md)でGuides／Stack、実START／全記事一覧、Compareチェック／トレイ、Tools結果行、Meshy下部を補っています。以前の独立レビュー件数は増やしていません。レビューJSONには、保持しなかった一時キャプチャの名前も含まれます。
 - 画面幅1440／375／320pxはviewport reflow。root150／200とcomputed200は合成テキスト拡大で、実機やOSの文字拡大ではありません。
 
 ## 代表画面
@@ -21,7 +21,9 @@
 | 読書・下部導線 | [記事1440](final-e555/article-reading-1440.png)、[コピー結果375](final-e555/article-copy-feedback-375.png)、[Home制作フォーム375](final-e555/home-form-375.png)、[footer375](final-e555/footer-375.png) |
 | 制作・回復 | [作業面1440](final-e555/project-workspace-1440.png)、[375](final-e555/project-workspace-375.png)、[相談375](final-e555/project-stuck-375.png)、[動いた版へ戻す320](final-e555/project-recovery-320.png) |
 | 実状態 | [Project入力エラー320](final-e555/project-invalid-320.png)、[Builderエラーroot200・375](final-e555/e555-builder-invalid-root200-375.png)、[AI候補確認](final-e555/e555-provider-nine-confirm.png)、[能力確認](final-e555/e555-provider-capabilities.png)、[Privacy操作320](final-e555/privacy-control-320.png)、[空結果375](final-e555/tools-empty-375.png)、[出典の意味色](final-e555/e555-provenance-375.png)、[Compare実SSR fallback](final-e555/e555-state-compare-js-off-loading-375.png)、[menu root200・320](final-e555/menu-root200-last-focus-320.png) |
-| 比較元 | [カテゴリ1440](before-b5f/articles-categories-1440.png)、[375](before-b5f/articles-categories-375.png)、[Tools375](before-b5f/tools-goal-375.png)、[入力エラー375](before-b5f/project-invalid-375.png) |
+| 比較元 | [カテゴリ1440](before-b5f/articles-categories-1440.png)、[Aramon作品カード375](before-b5f/articles-categories-375.png)、[Tools375](before-b5f/tools-goal-375.png)、[入力エラー375](before-b5f/project-invalid-375.png) |
+
+比較元の`articles-categories-375.png`は旧診断のファイル名で、実体はAramon作品カードです。375カテゴリの直接before／afterとして扱いません。
 
 ## 検証範囲
 
@@ -46,7 +48,7 @@
 
 独立診断の折りたたみラベル待ちも、診断が実ラベル「概要を閉じる」を誤指定したfixtureの失敗です。診断のみ修正し、実UIのTab→展開→Enter→閉じるfocusまで再検査しました。製品側のラベルや挙動は変更していません。
 
-全E2Eと最終cross-route reconciliationはDraft PRの最終コミットで別途CI結果を記録します。旧PR183の結果を今回の結果として扱いません。
+初回の全E2E CIは285通過／1失敗（22.4分）で、Projectの非描画内容を文字クリップとして数えた測定不整合に絞れました。[独立した原因確認と開いた実表示](review-supplement/godot-diagnosis/review.md)。開いた375pxの警告にも末尾括弧7pxの厳密な境界超過があったため、警告の末尾余白を修正しています。可視性を確認する測定修正と、可視のクリップを引き続き拒否するnative回帰を追加しました。最終cross-route reconciliationは初回失敗時には未実行。修正後の正確なコミットで新しい全E2E CI結果を記録します。旧PR183の結果を今回の結果として扱いません。
 
 ## 未検査とプレビュー
 

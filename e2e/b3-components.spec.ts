@@ -2,7 +2,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { expect, test, type Page } from './fixtures';
 import { diagnoseWidths } from './acceptance/diagnostics';
 import { cleanSourceIdentity } from './acceptance/source-identity';
-import { applyTextMethod } from './acceptance/reflow';
+import { applyTextMethod, probeSurface } from './acceptance/reflow';
 
 const output = 'docs/screenshots/b3-components';
 const samples = [
@@ -98,6 +98,8 @@ test('nested hub and selected-list cards use the adopted artwork frame, with usa
 test('actual 200% computed text keeps short Japanese goal choices on one line', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 667 });
   await page.goto('/tools/');
+  // Tools streams behind Suspense: resize live controls after the SSR fallback.
+  await expect(page.locator('.goal-picker button').first()).toBeVisible();
   const applied = await applyTextMethod(page, [{ role: 'goal-button', selector: '.goal-picker button' }], 'synthetic-computed-text', 2);
   expect(applied.sufficient).toBe(true);
   const short = page.locator('.goal-picker button').filter({ hasText: /^コード$/ });
@@ -145,4 +147,29 @@ test('Project invalid state has a visible semantic edge and drawer focus remains
   await page.screenshot({ path: `${output}/menu-320.png` });
   await page.keyboard.press('Escape');
   await expect(page.getByRole('button', { name: 'メニューを開く' })).toBeFocused();
+});
+
+test('clipping probe distinguishes cached closed content from visible disclosure text', async ({ page }) => {
+  // A native diagnostic fixture, not a replacement for the live Project test.
+  await page.setContent(`<style>summary{min-height:44px;cursor:pointer}summary:focus-visible{outline:3px solid green}.fixture-panel{width:180px}.clip{width:120px;white-space:nowrap;overflow:hidden}</style><main class="fixture-panel"><details open><summary>詳細を開閉</summary><p class="clip">VisibleOverflowTokenWithoutBreaksVisibleOverflowToken</p></details></main>`);
+  const details = page.locator('details');
+  const summary = details.locator('summary');
+  expect((await probeSurface(page, '.fixture-panel', 44)).clippedText.length).toBeGreaterThan(0);
+  await summary.click();
+  const hidden = await page.locator('.clip').evaluate(element => ({
+    visible: element.checkVisibility(), client: element.clientWidth, scroll: element.scrollWidth,
+  }));
+  expect(hidden.visible).toBe(false);
+  expect(hidden.scroll).toBeGreaterThan(hidden.client + 4);
+  expect((await probeSurface(page, '.fixture-panel', 44)).clippedText).toEqual([]);
+  // A closed details element must still reject clipping in its painted summary.
+  await summary.evaluate(element => { element.classList.add('clip'); element.textContent = 'VisibleSummaryOverflowTokenWithoutBreaks'; });
+  expect((await probeSurface(page, '.fixture-panel', 44)).clippedText.length).toBeGreaterThan(0);
+  await summary.press('Enter');
+  expect(await details.evaluate(element => (element as HTMLDetailsElement).open)).toBe(true);
+  expect((await probeSurface(page, '.fixture-panel', 44)).clippedText.length).toBeGreaterThan(0);
+  await details.evaluate(element => { element.style.display = 'none'; });
+  expect((await probeSurface(page, '.fixture-panel', 44)).clippedText).toEqual([]);
+  await details.evaluate(element => { element.style.removeProperty('display'); });
+  expect((await probeSurface(page, '.fixture-panel', 44)).clippedText.length).toBeGreaterThan(0);
 });

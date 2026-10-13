@@ -1,0 +1,475 @@
+{
+  "head": "7e8d8313fce958e83104a89e864471d72b6fa262",
+  "codeSha": "e555d81678440a2faa76538b83e22f875ee96e93",
+  "build": "zRTspQ8ojf93LGGMfzTnt",
+  "imageRoot": "/workspace/GameAI-Hub-b3-components/docs/screenshots/b3-components/review-supplement",
+  "selectedCount": 22,
+  "suppliedCount": 46,
+  "records": [
+    {
+      "file": "guides-upper-1440.png",
+      "sha256": "2133e29b30ed64377e43e8d221205aa4361ba1514c162493ea5489ecbc2f40f4",
+      "url": "http://127.0.0.1:3102/guides/",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": "main upper",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 0,
+        "header": 84
+      },
+      "open": [],
+      "actualSha256": "2133e29b30ed64377e43e8d221205aa4361ba1514c162493ea5489ecbc2f40f4",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "guides-selected-375.png",
+      "sha256": "1b334d4b1c059aec9c94d451cfcdfe31d6f81c57e7a297bf86685f28ead4d31c",
+      "url": "http://127.0.0.1:3102/guides/?stage=start",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".guide-stage-nav",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 297,
+        "header": 64.640625
+      },
+      "open": [],
+      "actualSha256": "1b334d4b1c059aec9c94d451cfcdfe31d6f81c57e7a297bf86685f28ead4d31c",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "guides-lower-375.png",
+      "sha256": "7bb629dd4b53387a0678ede018996c2d3a113f9ded83cb679797c5f3519fedbf",
+      "url": "http://127.0.0.1:3102/guides/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".guide-method",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 2700,
+        "header": 64.640625
+      },
+      "open": [],
+      "actualSha256": "7bb629dd4b53387a0678ede018996c2d3a113f9ded83cb679797c5f3519fedbf",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "guides-resources-375.png",
+      "sha256": "2813b7e7e8d287a04d021608fbef7a00ca354a5950a27c380a28eac3ce60ca6f",
+      "url": "http://127.0.0.1:3102/guides/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".guide-resource-list",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 1136,
+        "header": 64.640625
+      },
+      "open": [],
+      "actualSha256": "2813b7e7e8d287a04d021608fbef7a00ca354a5950a27c380a28eac3ce60ca6f",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "guide-detail-upper-375.png",
+      "sha256": "d39367a3d9dce7278127e58ab4fedb57a751bdb165eaf51ba4e2ebdf2ac14bb7",
+      "url": "http://127.0.0.1:3102/guides/ai-2d-rpg-workflow/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": "main upper",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 0,
+        "header": 64.640625
+      },
+      "open": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "actualSha256": "d39367a3d9dce7278127e58ab4fedb57a751bdb165eaf51ba4e2ebdf2ac14bb7",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "guide-detail-closed-375.png",
+      "sha256": "2f02536d8937d7c3e32e4ac4b7ec6fd11bf61b566b6b865b0db147379b549fca",
+      "url": "http://127.0.0.1:3102/guides/ai-2d-rpg-workflow/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".stage-results",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 924,
+        "header": 64.640625
+      },
+      "open": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "actualSha256": "2f02536d8937d7c3e32e4ac4b7ec6fd11bf61b566b6b865b0db147379b549fca",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "guide-detail-open-320.png",
+      "sha256": "45bc8cc8e2e33b9f8b2478dcbad5247275f758678927ce3075bb8e522f74c451",
+      "url": "http://127.0.0.1:3102/guides/ai-2d-rpg-workflow/",
+      "width": 320,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".stage-results",
+      "measure": {
+        "root": "16px",
+        "viewport": 320,
+        "scrollWidth": 320,
+        "scrollY": 1070,
+        "header": 64.640625
+      },
+      "open": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "actualSha256": "45bc8cc8e2e33b9f8b2478dcbad5247275f758678927ce3075bb8e522f74c451",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "guide-detail-lower-320.png",
+      "sha256": "f917055f6e04cc16813cf2df565164b43c4112c829fea58f5c30e3b07dc9071e",
+      "url": "http://127.0.0.1:3102/guides/ai-2d-rpg-workflow/",
+      "width": 320,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".result-next",
+      "measure": {
+        "root": "16px",
+        "viewport": 320,
+        "scrollWidth": 320,
+        "scrollY": 3476,
+        "header": 64.640625
+      },
+      "open": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "actualSha256": "f917055f6e04cc16813cf2df565164b43c4112c829fea58f5c30e3b07dc9071e",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "guide-open-card-375.png",
+      "sha256": "12dbaaf79b5ede672f2bca092ebff067b6dcde47c8d5d7ec8191f1ad8d7d758e",
+      "url": "http://127.0.0.1:3102/guides/ai-2d-rpg-workflow/",
+      "width": 375,
+      "height": 667,
+      "method": "element capture at actual viewport",
+      "selector": ".stage-decision",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 924,
+        "header": 64.640625
+      },
+      "open": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "actualSha256": "12dbaaf79b5ede672f2bca092ebff067b6dcde47c8d5d7ec8191f1ad8d7d758e",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "stacks-cards-1440.png",
+      "sha256": "e0be7030f082d2c44e6924368000d58a982e6a4ef70ddd238e6d77a7fcc612c0",
+      "url": "http://127.0.0.1:3102/stacks/",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": ".stack-directory",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 292,
+        "header": 84
+      },
+      "open": [],
+      "actualSha256": "e0be7030f082d2c44e6924368000d58a982e6a4ef70ddd238e6d77a7fcc612c0",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "stack-detail-upper-375.png",
+      "sha256": "0f5d0da8cf392218225c9abccc581d6d3a7c375e6e40e969f2aad816eb35f48e",
+      "url": "http://127.0.0.1:3102/stacks/2d-rpg/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": "main upper",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 0,
+        "header": 64.640625
+      },
+      "open": [],
+      "actualSha256": "0f5d0da8cf392218225c9abccc581d6d3a7c375e6e40e969f2aad816eb35f48e",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "stack-tool-card-375.png",
+      "sha256": "0a4bcdb35d6acf009756530d489e3859a06ddea0b305ee1622de162de523c44c",
+      "url": "http://127.0.0.1:3102/stacks/2d-rpg/",
+      "width": 375,
+      "height": 667,
+      "method": "element capture at actual viewport",
+      "selector": ".stack-tools article",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 5987,
+        "header": 64.640625
+      },
+      "open": [],
+      "actualSha256": "0a4bcdb35d6acf009756530d489e3859a06ddea0b305ee1622de162de523c44c",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "stack-detail-lower-320.png",
+      "sha256": "ffcad77ed548ee0789615ed958c39aadc6c16c83e7019c9d0c1a71effd89fabb",
+      "url": "http://127.0.0.1:3102/stacks/2d-rpg/",
+      "width": 320,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".stack-next",
+      "measure": {
+        "root": "16px",
+        "viewport": 320,
+        "scrollWidth": 320,
+        "scrollY": 10289,
+        "header": 64.640625
+      },
+      "open": [],
+      "actualSha256": "ffcad77ed548ee0789615ed958c39aadc6c16c83e7019c9d0c1a71effd89fabb",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "articles-start-card-375.png",
+      "sha256": "04316e35f9dcc5059fd3c2d7330cd99219ad3284b16e74d3178ac028421c3b5c",
+      "url": "http://127.0.0.1:3102/articles/?hubArticle=ai-browser-game-how-to#start",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": "#start .creation-deck",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 658,
+        "header": 64.640625
+      },
+      "open": [],
+      "actualSha256": "04316e35f9dcc5059fd3c2d7330cd99219ad3284b16e74d3178ac028421c3b5c",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "articles-all-list-320.png",
+      "sha256": "284e3d60b20c33d729f1c4990072f7da7fbc8019ac5cffe4bdfce1559e97205f",
+      "url": "http://127.0.0.1:3102/articles/?hubArticle=ai-browser-game-how-to#all",
+      "width": 320,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": "#all",
+      "measure": {
+        "root": "16px",
+        "viewport": 320,
+        "scrollWidth": 320,
+        "scrollY": 384,
+        "header": 64.640625
+      },
+      "open": [],
+      "actualSha256": "284e3d60b20c33d729f1c4990072f7da7fbc8019ac5cffe4bdfce1559e97205f",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "compare-selection-tray-1440.png",
+      "sha256": "401b3b45a6bbc9d03a7187c99d2c6c5ab0de75fb151ff3f2a5f4ea439af64406",
+      "url": "http://127.0.0.1:3102/compare/?ids=meshy,tripo-ai&goal=3d&stage=3d",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": ".compare-selection-tray",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 419,
+        "header": 84
+      },
+      "open": [],
+      "actualSha256": "401b3b45a6bbc9d03a7187c99d2c6c5ab0de75fb151ff3f2a5f4ea439af64406",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "compare-checked-candidate-320.png",
+      "sha256": "61fa6541ed82076b0994eff35816b44f49f5afc3310f85c9ec9cd006443b4c35",
+      "url": "http://127.0.0.1:3102/compare/?ids=meshy,tripo-ai&goal=3d&stage=3d",
+      "width": 320,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".compare-picker-panel",
+      "measure": {
+        "root": "16px",
+        "viewport": 320,
+        "scrollWidth": 320,
+        "scrollY": 2135,
+        "header": 64.640625
+      },
+      "open": [],
+      "actualSha256": "61fa6541ed82076b0994eff35816b44f49f5afc3310f85c9ec9cd006443b4c35",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "compare-unchecked-candidate-375.png",
+      "sha256": "521b5418c4cc2d697adcfe9db9990e858cd82ec8ba6a4efec93ca955d88d163f",
+      "url": "http://127.0.0.1:3102/compare/?ids=tripo-ai&goal=3d&stage=3d",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".compare-picker-panel",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 892,
+        "header": 64.640625
+      },
+      "open": [],
+      "actualSha256": "521b5418c4cc2d697adcfe9db9990e858cd82ec8ba6a4efec93ca955d88d163f",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "tools-populated-rows-1440.png",
+      "sha256": "c08d4c181a3b60f691d49fa086e7fe69fbd88e3595a626d4e7c160c46b7ee70d",
+      "url": "http://127.0.0.1:3102/tools/",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": ".results-head",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 794,
+        "header": 84
+      },
+      "open": [],
+      "actualSha256": "c08d4c181a3b60f691d49fa086e7fe69fbd88e3595a626d4e7c160c46b7ee70d",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "tools-populated-rows-320.png",
+      "sha256": "e790fb97af7d80127fe837a19e0682d0f80cb0806b719a3a0a5163c494a0bd47",
+      "url": "http://127.0.0.1:3102/tools/",
+      "width": 320,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".results-head",
+      "measure": {
+        "root": "16px",
+        "viewport": 320,
+        "scrollWidth": 320,
+        "scrollY": 1612,
+        "header": 64.640625
+      },
+      "open": [],
+      "actualSha256": "e790fb97af7d80127fe837a19e0682d0f80cb0806b719a3a0a5163c494a0bd47",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "meshy-good-fit-1440.png",
+      "sha256": "c7b474ce6379ba53680976bb4479440c89d5e0984eab7ac8693138fe9c767331",
+      "url": "http://127.0.0.1:3102/tools/meshy/",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": ".two-col",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 1170,
+        "header": 84
+      },
+      "open": [],
+      "actualSha256": "c7b474ce6379ba53680976bb4479440c89d5e0984eab7ac8693138fe9c767331",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    },
+    {
+      "file": "meshy-poor-fit-375.png",
+      "sha256": "9b30397ade8ada45667e3828cb530f25b4c0dbf6716905b42342c7e12ba828bb",
+      "url": "http://127.0.0.1:3102/tools/meshy/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".content-card.positive + .content-card",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 2137,
+        "header": 64.640625
+      },
+      "open": [],
+      "actualSha256": "9b30397ade8ada45667e3828cb530f25b4c0dbf6716905b42342c7e12ba828bb",
+      "hashMatches": true,
+      "independentReviewMethod": "Viewed retained screenshot; not independently captured or live interaction executed by this reviewer in this supplement"
+    }
+  ]
+}

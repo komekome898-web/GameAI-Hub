@@ -1,0 +1,849 @@
+{
+  "head": "7e8d8313fce958e83104a89e864471d72b6fa262",
+  "codeSha": "e555d81678440a2faa76538b83e22f875ee96e93",
+  "ciSha": "7e8d8313fce958e83104a89e864471d72b6fa262",
+  "build": "zRTspQ8ojf93LGGMfzTnt",
+  "environment": "local Next.js production-mode build / Chromium",
+  "physicalDevice": false,
+  "scope": "Implementer capture supplement, 8 representative routes plus actual state variants; not an expanded independent all-route acceptance claim",
+  "errors": [],
+  "records": [
+    {
+      "file": "guides-upper-1440.png",
+      "sha256": "2133e29b30ed64377e43e8d221205aa4361ba1514c162493ea5489ecbc2f40f4",
+      "url": "http://127.0.0.1:3102/guides/",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": "main upper",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 0,
+        "header": 84
+      },
+      "open": []
+    },
+    {
+      "file": "guides-lower-1440.png",
+      "sha256": "5483935d533dd323cbee699b995da5f6c8c6f2d020ef7c5c3a090d33cca2472a",
+      "url": "http://127.0.0.1:3102/guides/",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": ".guide-method",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 1476,
+        "header": 84
+      },
+      "open": []
+    },
+    {
+      "file": "guide-detail-upper-1440.png",
+      "sha256": "4b0c1a6a56e6ebfc5b232d06b32863f0a5df251e5c2f5152184cb6913eb50fc4",
+      "url": "http://127.0.0.1:3102/guides/ai-2d-rpg-workflow/",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": "main upper",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 0,
+        "header": 84
+      },
+      "open": [
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "file": "guide-detail-open-1440.png",
+      "sha256": "6fb73f832b5db88d62f0c4042fb8b332061b7128481576ab2212f0c5fa942eba",
+      "url": "http://127.0.0.1:3102/guides/ai-2d-rpg-workflow/",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": ".stage-results",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 642,
+        "header": 84
+      },
+      "open": [
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "file": "guide-detail-lower-1440.png",
+      "sha256": "d7a26b68e080bf79467e1eb3d8688f1d94ba7a68865a0ddf096c1134dbee8ca3",
+      "url": "http://127.0.0.1:3102/guides/ai-2d-rpg-workflow/",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": ".result-next",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 2283,
+        "header": 84
+      },
+      "open": [
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "file": "stacks-cards-1440.png",
+      "sha256": "e0be7030f082d2c44e6924368000d58a982e6a4ef70ddd238e6d77a7fcc612c0",
+      "url": "http://127.0.0.1:3102/stacks/",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": ".stack-directory",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 292,
+        "header": 84
+      },
+      "open": []
+    },
+    {
+      "file": "stack-detail-upper-1440.png",
+      "sha256": "227e260d0371e3621c74e0f78b03b85809e33755d6db7ecd3b1d56f94b72a8f1",
+      "url": "http://127.0.0.1:3102/stacks/2d-rpg/",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": "main upper",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 0,
+        "header": 84
+      },
+      "open": []
+    },
+    {
+      "file": "stack-detail-tools-1440.png",
+      "sha256": "956d282172da712399c0a354afa0a4238318b41f0d355adbe9f564963684a377",
+      "url": "http://127.0.0.1:3102/stacks/2d-rpg/",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": ".stack-tools",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 3302,
+        "header": 84
+      },
+      "open": []
+    },
+    {
+      "file": "stack-detail-lower-1440.png",
+      "sha256": "adf9679f82e1ba67f7de63ec8e690b8519c2165305438c3479ca36d39d52bcdb",
+      "url": "http://127.0.0.1:3102/stacks/2d-rpg/",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": ".stack-next",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 5441,
+        "header": 84
+      },
+      "open": []
+    },
+    {
+      "file": "articles-start-card-1440.png",
+      "sha256": "00b4d46ed117e920117926cd6ee733f5f486d52597769e533306673a01c94fb5",
+      "url": "http://127.0.0.1:3102/articles/?hubArticle=ai-browser-game-how-to#start",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": "#start .creation-deck",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 575,
+        "header": 84
+      },
+      "open": []
+    },
+    {
+      "file": "articles-all-list-1440.png",
+      "sha256": "9938cbe35ac760ab1a6a0a78d1021d617ea190863b63dd26f64c56dc28c56fec",
+      "url": "http://127.0.0.1:3102/articles/?hubArticle=ai-browser-game-how-to#all",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": "#all",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 398,
+        "header": 84
+      },
+      "open": []
+    },
+    {
+      "file": "compare-selection-tray-1440.png",
+      "sha256": "401b3b45a6bbc9d03a7187c99d2c6c5ab0de75fb151ff3f2a5f4ea439af64406",
+      "url": "http://127.0.0.1:3102/compare/?ids=meshy,tripo-ai&goal=3d&stage=3d",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": ".compare-selection-tray",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 419,
+        "header": 84
+      },
+      "open": []
+    },
+    {
+      "file": "compare-checked-candidate-1440.png",
+      "sha256": "44d5e7c4b504c0b3345f2de0b6eef146fa11c67dd0050abda59c9341ac682500",
+      "url": "http://127.0.0.1:3102/compare/?ids=meshy,tripo-ai&goal=3d&stage=3d",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": ".compare-picker-panel",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 1242,
+        "header": 84
+      },
+      "open": []
+    },
+    {
+      "file": "tools-populated-rows-1440.png",
+      "sha256": "c08d4c181a3b60f691d49fa086e7fe69fbd88e3595a626d4e7c160c46b7ee70d",
+      "url": "http://127.0.0.1:3102/tools/",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": ".results-head",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 794,
+        "header": 84
+      },
+      "open": []
+    },
+    {
+      "file": "meshy-good-fit-1440.png",
+      "sha256": "c7b474ce6379ba53680976bb4479440c89d5e0984eab7ac8693138fe9c767331",
+      "url": "http://127.0.0.1:3102/tools/meshy/",
+      "width": 1440,
+      "height": 900,
+      "method": "viewport-reflow",
+      "selector": ".two-col",
+      "measure": {
+        "root": "16px",
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "scrollY": 1170,
+        "header": 84
+      },
+      "open": []
+    },
+    {
+      "file": "guides-upper-375.png",
+      "sha256": "6decead8a7b1078da101ab3a54689e57b51cd365f9150a96b6508ba690eee483",
+      "url": "http://127.0.0.1:3102/guides/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": "main upper",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 0,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "guides-selected-375.png",
+      "sha256": "1b334d4b1c059aec9c94d451cfcdfe31d6f81c57e7a297bf86685f28ead4d31c",
+      "url": "http://127.0.0.1:3102/guides/?stage=start",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".guide-stage-nav",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 297,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "guides-resources-375.png",
+      "sha256": "2813b7e7e8d287a04d021608fbef7a00ca354a5950a27c380a28eac3ce60ca6f",
+      "url": "http://127.0.0.1:3102/guides/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".guide-resource-list",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 1136,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "guides-lower-375.png",
+      "sha256": "7bb629dd4b53387a0678ede018996c2d3a113f9ded83cb679797c5f3519fedbf",
+      "url": "http://127.0.0.1:3102/guides/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".guide-method",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 2700,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "guide-detail-upper-375.png",
+      "sha256": "d39367a3d9dce7278127e58ab4fedb57a751bdb165eaf51ba4e2ebdf2ac14bb7",
+      "url": "http://127.0.0.1:3102/guides/ai-2d-rpg-workflow/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": "main upper",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 0,
+        "header": 64.640625
+      },
+      "open": [
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "file": "guide-detail-closed-375.png",
+      "sha256": "2f02536d8937d7c3e32e4ac4b7ec6fd11bf61b566b6b865b0db147379b549fca",
+      "url": "http://127.0.0.1:3102/guides/ai-2d-rpg-workflow/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".stage-results",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 924,
+        "header": 64.640625
+      },
+      "open": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "file": "guide-detail-open-375.png",
+      "sha256": "0559ca2df07d310d447a78c6d97906ae827221d4007be46d8b92d0d2b5e39363",
+      "url": "http://127.0.0.1:3102/guides/ai-2d-rpg-workflow/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".stage-results",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 924,
+        "header": 64.640625
+      },
+      "open": [
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "file": "guide-open-card-375.png",
+      "sha256": "12dbaaf79b5ede672f2bca092ebff067b6dcde47c8d5d7ec8191f1ad8d7d758e",
+      "url": "http://127.0.0.1:3102/guides/ai-2d-rpg-workflow/",
+      "width": 375,
+      "height": 667,
+      "method": "element capture at actual viewport",
+      "selector": ".stage-decision",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 924,
+        "header": 64.640625
+      },
+      "open": [
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "file": "guide-detail-lower-375.png",
+      "sha256": "9d28d3b8d45562d1d7f4eb1924f1faa9e5111de89ef329ad89151cc18722b6f1",
+      "url": "http://127.0.0.1:3102/guides/ai-2d-rpg-workflow/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".result-next",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 3173,
+        "header": 64.640625
+      },
+      "open": [
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "file": "stacks-cards-375.png",
+      "sha256": "ba8984ad3c384ceeb6233efe38048fa9df6b18ac3ad42a61deb81af0c3e340a8",
+      "url": "http://127.0.0.1:3102/stacks/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".stack-directory",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 316,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "stack-detail-upper-375.png",
+      "sha256": "0f5d0da8cf392218225c9abccc581d6d3a7c375e6e40e969f2aad816eb35f48e",
+      "url": "http://127.0.0.1:3102/stacks/2d-rpg/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": "main upper",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 0,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "stack-detail-tools-375.png",
+      "sha256": "6bdc3d1bacdfab4a11a7b31c5b6aa93176cd16416e6dbac934ed8a18bb4d1534",
+      "url": "http://127.0.0.1:3102/stacks/2d-rpg/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".stack-tools",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 5987,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "stack-tool-card-375.png",
+      "sha256": "0a4bcdb35d6acf009756530d489e3859a06ddea0b305ee1622de162de523c44c",
+      "url": "http://127.0.0.1:3102/stacks/2d-rpg/",
+      "width": 375,
+      "height": 667,
+      "method": "element capture at actual viewport",
+      "selector": ".stack-tools article",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 5987,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "stack-detail-lower-375.png",
+      "sha256": "45b85b963c3db4e7ae82336c4747776029fb3e2557589c1154fc0e69f5e56ff2",
+      "url": "http://127.0.0.1:3102/stacks/2d-rpg/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".stack-next",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 9548,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "articles-start-card-375.png",
+      "sha256": "04316e35f9dcc5059fd3c2d7330cd99219ad3284b16e74d3178ac028421c3b5c",
+      "url": "http://127.0.0.1:3102/articles/?hubArticle=ai-browser-game-how-to#start",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": "#start .creation-deck",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 658,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "articles-all-list-375.png",
+      "sha256": "3bc2444efe4f37cb25c8becdf2b4a5e73148de0bb5b88bf56388d224f628a31e",
+      "url": "http://127.0.0.1:3102/articles/?hubArticle=ai-browser-game-how-to#all",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": "#all",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 384,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "compare-selection-tray-375.png",
+      "sha256": "f11cf7e5c01db89bf1cec8e171b50582d3d64f6b6216d58f206126fa0a13302a",
+      "url": "http://127.0.0.1:3102/compare/?ids=meshy,tripo-ai&goal=3d&stage=3d",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".compare-selection-tray",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 539,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "compare-checked-candidate-375.png",
+      "sha256": "f6f61bc420f3e4fe497090889eab3b26758594a75dbca1eba9f6894eb69f66ec",
+      "url": "http://127.0.0.1:3102/compare/?ids=meshy,tripo-ai&goal=3d&stage=3d",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".compare-picker-panel",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 2024,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "compare-unchecked-candidate-375.png",
+      "sha256": "521b5418c4cc2d697adcfe9db9990e858cd82ec8ba6a4efec93ca955d88d163f",
+      "url": "http://127.0.0.1:3102/compare/?ids=tripo-ai&goal=3d&stage=3d",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".compare-picker-panel",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 892,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "tools-populated-rows-375.png",
+      "sha256": "599efbcaeb5eb6792f7793ac7af210ea9b1a7a25b46e4fd507ec762dd5ca2646",
+      "url": "http://127.0.0.1:3102/tools/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".results-head",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 1504,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "meshy-good-fit-375.png",
+      "sha256": "771fa364689c65afdafd5ab172180cd0eb539948291e24119eb1380cff643551",
+      "url": "http://127.0.0.1:3102/tools/meshy/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".content-card.positive",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 1912,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "meshy-poor-fit-375.png",
+      "sha256": "9b30397ade8ada45667e3828cb530f25b4c0dbf6716905b42342c7e12ba828bb",
+      "url": "http://127.0.0.1:3102/tools/meshy/",
+      "width": 375,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".content-card.positive + .content-card",
+      "measure": {
+        "root": "16px",
+        "viewport": 375,
+        "scrollWidth": 375,
+        "scrollY": 2137,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "guide-detail-open-320.png",
+      "sha256": "45bc8cc8e2e33b9f8b2478dcbad5247275f758678927ce3075bb8e522f74c451",
+      "url": "http://127.0.0.1:3102/guides/ai-2d-rpg-workflow/",
+      "width": 320,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".stage-results",
+      "measure": {
+        "root": "16px",
+        "viewport": 320,
+        "scrollWidth": 320,
+        "scrollY": 1070,
+        "header": 64.640625
+      },
+      "open": [
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "file": "guide-detail-lower-320.png",
+      "sha256": "f917055f6e04cc16813cf2df565164b43c4112c829fea58f5c30e3b07dc9071e",
+      "url": "http://127.0.0.1:3102/guides/ai-2d-rpg-workflow/",
+      "width": 320,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".result-next",
+      "measure": {
+        "root": "16px",
+        "viewport": 320,
+        "scrollWidth": 320,
+        "scrollY": 3476,
+        "header": 64.640625
+      },
+      "open": [
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "file": "stack-detail-tools-320.png",
+      "sha256": "f2e594b977461fcd66c3f74cab95b4b192260c17cd53462da98b84b41e5e4cd7",
+      "url": "http://127.0.0.1:3102/stacks/2d-rpg/",
+      "width": 320,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".stack-tools",
+      "measure": {
+        "root": "16px",
+        "viewport": 320,
+        "scrollWidth": 320,
+        "scrollY": 6482,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "stack-detail-lower-320.png",
+      "sha256": "ffcad77ed548ee0789615ed958c39aadc6c16c83e7019c9d0c1a71effd89fabb",
+      "url": "http://127.0.0.1:3102/stacks/2d-rpg/",
+      "width": 320,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".stack-next",
+      "measure": {
+        "root": "16px",
+        "viewport": 320,
+        "scrollWidth": 320,
+        "scrollY": 10289,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "articles-start-card-320.png",
+      "sha256": "e1cd1243e4028f8bbf5bb4575501335585780782508b42d2e129611b94b55600",
+      "url": "http://127.0.0.1:3102/articles/?hubArticle=ai-browser-game-how-to#start",
+      "width": 320,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": "#start .creation-deck",
+      "measure": {
+        "root": "16px",
+        "viewport": 320,
+        "scrollWidth": 320,
+        "scrollY": 658,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "articles-all-list-320.png",
+      "sha256": "284e3d60b20c33d729f1c4990072f7da7fbc8019ac5cffe4bdfce1559e97205f",
+      "url": "http://127.0.0.1:3102/articles/?hubArticle=ai-browser-game-how-to#all",
+      "width": 320,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": "#all",
+      "measure": {
+        "root": "16px",
+        "viewport": 320,
+        "scrollWidth": 320,
+        "scrollY": 384,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "compare-selection-tray-320.png",
+      "sha256": "b05cae00dc016ebc8ba1a5b44432b57758ce2b24501cbc1be331339b0ed78bf8",
+      "url": "http://127.0.0.1:3102/compare/?ids=meshy,tripo-ai&goal=3d&stage=3d",
+      "width": 320,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".compare-selection-tray",
+      "measure": {
+        "root": "16px",
+        "viewport": 320,
+        "scrollWidth": 320,
+        "scrollY": 569,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "compare-checked-candidate-320.png",
+      "sha256": "61fa6541ed82076b0994eff35816b44f49f5afc3310f85c9ec9cd006443b4c35",
+      "url": "http://127.0.0.1:3102/compare/?ids=meshy,tripo-ai&goal=3d&stage=3d",
+      "width": 320,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".compare-picker-panel",
+      "measure": {
+        "root": "16px",
+        "viewport": 320,
+        "scrollWidth": 320,
+        "scrollY": 2135,
+        "header": 64.640625
+      },
+      "open": []
+    },
+    {
+      "file": "tools-populated-rows-320.png",
+      "sha256": "e790fb97af7d80127fe837a19e0682d0f80cb0806b719a3a0a5163c494a0bd47",
+      "url": "http://127.0.0.1:3102/tools/",
+      "width": 320,
+      "height": 667,
+      "method": "viewport-reflow",
+      "selector": ".results-head",
+      "measure": {
+        "root": "16px",
+        "viewport": 320,
+        "scrollWidth": 320,
+        "scrollY": 1612,
+        "header": 64.640625
+      },
+      "open": []
+    }
+  ],
+  "initialAnalyticsExclusion": {
+    "storageKey": "gameai:analytics-excluded",
+    "value": "1",
+    "verifiedBeforeEachContextCapture": true
+  }
+}
