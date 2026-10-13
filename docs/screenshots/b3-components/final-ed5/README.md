@@ -27,3 +27,7 @@
 375pxはLI client／scrollが旧145／152から145／145へ、320pxは102／102です。可視glyphの外側超過、strict fit probeのクリップ、document／unowned overflowは両幅0。祖先detailsを実summaryクリックで外側から開き、ShiftTab→Tabでsummaryが可視、44px高、green3px outline／3pxoffsetを確認しました。warning本文のcontrast12.07:1、focus7.40:1は実取得色からの合成計算です。
 
 fit-open画像は文脈用です。特に[375のfit部分](independent/ed5-godot-fit-open-375.png)はviewport端で下部が切れた部分キャプチャで、全文の証拠は上表です。1440／拡大文字／全条件・全サイトの再目視をこの限定レビューから推定しません。未変更の各ページには旧画像が対応し、変わった警告にはこの新画像が対応します。
+
+診断runnerの原本は`.cjs.txt`として保存しています。[原名・保存名・hashの対応](independent/runner-source-archive.json)。原本manifestの`review.cjs`は`review.cjs.txt`に対応し、bytes／hashは同じです。資料のコードコピーをアプリのlint対象に入れず、lint設定・実行テスト・原本レビューの変更や例外追加はしていません。
+
+資料コミットccf52a4の[quality CI38367667204](https://github.com/komekome898-web/GameAI-Hub/actions/runs/38367667204)は、診断用`review.cjs`のrequire-import6件で失敗しました。上の保存形式へ修正し、[リポジトリ全体lint](evidence-lint.txt)が成功しています。資料修正後のCIはed5の実行済みアプリゲートと別に追跡します。
