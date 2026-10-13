@@ -48,7 +48,7 @@ export default function MeshyPricingCreditsGame() {
       <li><strong>reset：</strong>Freeは毎月1日00:00 UTC。有料はsubscription更新日にrefill。</li>
     </ul><aside className="article-callout"><h3>1,000 credits = 完成50点、とは限らない</h3><p>20-creditのAPI生成だけなら算数上50回ですが、texture、代替案、修正、rigを足すと試行回数は減ります。さらに、生成成功はゲーム内のscale、topology、style、performanceに合格したことを保証しません。</p></aside></section>
 
-    <section><h2>「何体作れる？」を透明な式で考える</h2><p>以下ではweb appとAPIを混ぜません。web app HelpはMeshy 7のmodel stageを25、2K/4K textureを10と案内します。API DocsはMeshy 7 / 7.1のbaseを20、高geometryを+5、textureを10（8Kは15）と案内します。画面表示が違う場合は画面を優先してください。</p><dl className="article-lesson-grid">
+    <section><h2>「何体作れる？」を透明な式で考える</h2><p>以下ではweb appとAPIを分けて計算します。下のweb app試算は、2026年9月22日に確認したHelpの「Meshy 7のモデル生成25＋2K/4K texture 10」を使った例です。10月13日の再確認でも<a href="https://help.meshy.ai/en/articles/10000507-how-many-credits-does-each-generation-task-cost">Help</a>は25としていますが、<a href="https://docs.meshy.ai/en/webapp/pricing">Webapp Docs</a>には「通常20／Ultra Mode 25」とあり、同ページの表は25のままです。公式資料が一致していないため、合計35 creditsを全設定共通の料金とは扱わず、生成前に選択中のモデル・生成方式・解像度に対する画面表示を確認してください。<a href="https://docs.meshy.ai/en/api/pricing">API</a>のMeshy 7／7.1はモデル生成20、Ultra形状解像度は追加5、textureは2K/4Kが10、8Kが15です。</p><dl className="article-lesson-grid">
       <div><dt>web app：baseだけ1回</dt><dd>Meshy 7 model stage = <strong>25 credits</strong>。textureも採用品質も含まない。</dd></div>
       <div><dt>web app：base + 4K texture</dt><dd>25 + texture 10 = <strong>35 credits</strong>。8K textureなら textureが15。</dd></div>
       <div><dt>web app：代替案2回 + 採用案をtexture</dt><dd>(25 × 3) + 10 = <strong>85 credits</strong>。3案すべてにtextureなら105。</dd></div>
