@@ -9,6 +9,9 @@
 - Preserved journeys: `homeGame/homeView`; article `hubCategory/hubArticle/hubEntry`; Tools `goal` → Compare `ids/goal/stage`; Compare `ids/diff`; Project draft/source/progress and return focus.
 - Baseline: production build passed (81 generated pages). Representative 1440 screenshots and computed typography captured in `/tmp/b3-sitewide-baseline` before runtime edits. PR182 Meshy paragraph is unchanged.
 - Independent read-only source audits: `sitewide_route_review`, `sitewide_visual_review`; actual rendered acceptance pending.
-- Current status: implementation in progress, no acceptance claim and no Draft PR yet.
+- First local source checkpoint: `00c09d0e22658386a353311d24cf55fa34e2e64b`. Quality passed (49 files/384 unit tests, 76 orchestration tests); production build passed. Focused browser run: 19 passed, 3 failed. No acceptance claim.
+- First independent render findings: 320 Stack breadcrumb nowrap overflow, low breadcrumb contrast, low field-boundary contrast, common field rule masking `aria-invalid`. Confirmed fixes: shared natural breadcrumb wrapping/paper-muted, distinct control edge (3.65:1 against field), explicit invalid border. Two new test harness defects repaired without weakening assertions (scope duplicate menu link; render real DirectoryState outside Playwright JSX transform).
+- Independent actual flows on first checkpoint: header/menu/anchors, Home swipe/list/game return, category/article return, Tools/Compare state/history, Project/Builder input/clarification/recovery; second pass required after fixes.
+- Current status: fixes in progress, no Draft PR yet. Rendered DirectoryState fixture explicitly does not prove actual boundary invocation/reset.
 - Remaining: focused checks, quality/build/full relevant E2E, exact-source screenshots (1440/375/320, synthetic text enlargement), contrast/focus/noJS/gesture/state/exception review; fix blockers; coherent checkpoint and new Draft PR.
 - Physical iPhone/Safari/OS text sizing/production: untested. No production navigation for this task.

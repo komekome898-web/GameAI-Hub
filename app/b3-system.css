@@ -5,7 +5,7 @@
   --b3-light:#f1f0e7; --b3-light-muted:#c5cebd; --b3-amber:#e9c383;
   --b3-paper:#faf8f2; --b3-work:#e0d9c6; --b3-recess:#eeece2;
   --b3-ink:#233529; --b3-muted:#52604b; --b3-edge:#b8bba6;
-  --b3-action:#315a42; --b3-action-hover:#254733;
+  --b3-action:#315a42; --b3-action-hover:#254733; --b3-control-edge:#7c896d;
 }
 body.b3-system {
   --text:var(--b3-light); --muted:var(--b3-light-muted); --line:#4a574b;
@@ -56,11 +56,13 @@ body.b3-system {
 .b3-system main:not(:has(.home-b3)) :is(.card,.quick-facts,.goal-picker,.secondary-filters,.compare-picker-panel,.compare-view-options,.compare-decision,.compare-scroll,.builder-form,.clarify-form,.project-idea-card,.project-detail-card,.directory-state,.stack-grid>article,.stack-tools>article,.stack-fit>div,.stack-checks>div) {
   background:var(--color-surface); border-color:var(--color-border);
 }
-.b3-system main:not(:has(.home-b3)) :is(.project-idea-card,.clarify-form,.goal-picker,.compare-picker-panel) { box-shadow:inset 0 1px 0 #fffdf4,0 3px 10px #2335290c; }
 .b3-system main:not(:has(.home-b3)) :is(.project-start-page .project-idea-card,.idea-review,.compare-decision,.quick-facts) { background:var(--b3-work); }
 .b3-system main:not(:has(.home-b3)) :is(.directory-meta span,.active-filter-summary,.builder-choice,.idea-examples button,.goal-picker button,.picker label,.compare-scroll thead th,.compare-scroll tbody th) { background:var(--color-surface-subtle); border-color:var(--color-border); color:var(--color-text); }
 .b3-system main:not(:has(.home-b3)) :is(.goal-picker button[aria-pressed=true],.builder-choice:has(input:checked)) { background:var(--surface-accent); border-color:var(--color-action); }
-.b3-system main:not(:has(.home-b3)) :is(input:not([type=checkbox]):not([type=radio]),select,textarea) { background:#fffdf8; border-color:var(--color-border); color:var(--color-text); }
+.b3-system main:not(:has(.home-b3)) :is(input:not([type=checkbox]):not([type=radio]),select,textarea) { background:#fffdf8; border-color:var(--b3-control-edge); color:var(--color-text); }
+.b3-system main:not(:has(.home-b3)) :is(input,select,textarea)[aria-invalid=true] { border-color:var(--color-danger); }
+.b3-system .breadcrumbs { flex-wrap:wrap; align-items:center; white-space:normal; overflow:visible; color:var(--color-text-muted); }
+.b3-system .breadcrumbs>span:last-child { flex:1 1 12rem; min-width:0; overflow-wrap:anywhere; }
 .b3-system main:not(:has(.home-b3)) :is(.lead,.results-head p,.compare-decision p,.compare-decision li,.today-why,.plan-tool-card header p) { color:var(--color-text-muted); }
 .b3-system main:not(:has(.home-b3)) .tool-rows article { background:var(--color-surface); }
 .b3-system main:not(:has(.home-b3)) .tool-rows article:hover { background:var(--color-surface-subtle); }

@@ -1,6 +1,5 @@
 import { mkdir, writeFile } from 'node:fs/promises';
-import { renderToStaticMarkup } from 'react-dom/server';
-import { createElement } from 'react';
+import { execFileSync } from 'node:child_process';
 import { expect, test } from './fixtures';
 import { diagnoseWidths } from './acceptance/diagnostics';
 import { cleanSourceIdentity } from './acceptance/source-identity';
@@ -9,7 +8,6 @@ import { getPublishedGames } from '../data/games';
 import { guides } from '../data/guides';
 import { stackTemplates } from '../data/stack-templates';
 import { getServices } from '../lib/services';
-import { DirectoryState } from '../components/DirectoryState';
 
 const fixed=['/','/articles/','/tools/','/guides/','/stacks/','/project/','/builder/','/compare/','/methodology/','/privacy/','/affiliate-disclosure/'];
 const routes=[...fixed,...publishedArticles.map(x=>`/articles/${x.slug}/`),...getPublishedGames().map(x=>`/games/${x.slug}/`),...getServices().map(x=>`/tools/${x.slug}/`),...guides.map(x=>`/guides/${x.slug}/`),...stackTemplates.map(x=>`/stacks/${x.slug}/`)];
@@ -68,7 +66,7 @@ test('shared navigation keeps current area, destinations, focus and measured anc
  await page.setViewportSize({width:320,height:667});await page.goto('/privacy/');await page.evaluate(()=>document.documentElement.style.fontSize='200%');
  await page.getByRole('button',{name:'メニューを開く'}).click();await expect(page.locator('main')).toHaveAttribute('inert','');
  const games=page.getByRole('navigation',{name:'モバイルナビゲーション'}).getByRole('link',{name:'ゲームで遊ぶ'});
- await expect(page.locator('.mobile-menu-close')).toBeFocused();await page.keyboard.press('Tab');await expect(games).toBeFocused();await page.keyboard.press('Shift+Tab');await page.keyboard.press('Shift+Tab');await expect(page.getByRole('link',{name:'プライバシー',exact:true})).toBeFocused();
+ await expect(page.locator('.mobile-menu-close')).toBeFocused();await page.keyboard.press('Tab');await expect(games).toBeFocused();await page.keyboard.press('Shift+Tab');await page.keyboard.press('Shift+Tab');await expect(page.getByRole('navigation',{name:'モバイルナビゲーション'}).getByRole('link',{name:'プライバシー',exact:true})).toBeFocused();
  await page.keyboard.press('Escape');await expect(page.getByRole('button',{name:'メニューを開く'})).toBeFocused();await expect(page.locator('main')).not.toHaveAttribute('inert','');
  await page.locator('.trust-nav a').first().click();
  const target=await page.locator('.trust-nav a').first().getAttribute('href');const bottom=await page.locator('.site-header').evaluate(el=>el.getBoundingClientRect().bottom);
@@ -76,16 +74,38 @@ test('shared navigation keeps current area, destinations, focus and measured anc
 });
 
 test('rendered shared loading/error component and 404 families retain recovery surfaces',async({page})=>{
+ await mkdir(output,{recursive:true});
  await page.setViewportSize({width:320,height:667});await page.goto('/tools/?goal=models3d');
  for(const kind of ['loading','error'] as const) {
-  const html=renderToStaticMarkup(createElement(DirectoryState,{kind,title:kind==='loading'?'ツールを読み込んでいます':'ツール情報を読み込めませんでした',message:'入力した条件はURLに残っています。'+ '長い日本語の回復説明。'.repeat(12),retry:kind==='error'?()=>{}:undefined}));
+  // Render the real component with tsx, outside Playwright's JSX transformer.
+  // This is disposable visual/focus evidence, not a fired error boundary/reset.
+  const html=execFileSync(process.execPath,['--import','tsx','--eval',`
+   const {renderToStaticMarkup}=require('react-dom/server');const{createElement}=require('react');
+   const{DirectoryState}=require('./components/DirectoryState.tsx');const kind=process.argv[1];
+   process.stdout.write(renderToStaticMarkup(createElement(DirectoryState,{kind,title:kind==='loading'?'ツールを読み込んでいます':'ツール情報を読み込めませんでした',message:'入力した条件はURLに残っています。'+'長い日本語の回復説明。'.repeat(12),retry:kind==='error'?()=>{}:undefined})));
+  `,kind],{encoding:'utf8'});
   await page.locator('main').evaluate((el,markup)=>el.innerHTML=markup,html);
   await expect(page.getByRole(kind==='error'?'alert':'status')).toBeVisible();expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
   if(kind==='error') {const retry=page.getByRole('button',{name:'もう一度読み込む'});await retry.focus();await expect(retry).toBeFocused();expect((await retry.boundingBox())!.height).toBeGreaterThanOrEqual(48);}
+  await page.screenshot({path:`${output}/directory-${kind}-fixture-320.png`});
  }
  for(const route of ['/missing-b3-page/','/tools/missing-b3-tool/','/guides/missing-b3-guide/','/stacks/missing-b3-stack/','/games/missing-b3-game/']) {
   expect((await page.goto(route))?.status()).toBe(404);await expect(page.locator('main h1')).toBeVisible();expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
  }
+});
+
+test('paper fields retain visible keyboard focus and a distinct invalid boundary',async({page})=>{
+ await page.setViewportSize({width:320,height:667});await page.goto('/project/');
+ const field=page.locator('.project-idea-card textarea');
+ const contrast=await field.evaluate(el=>{
+  const s=getComputedStyle(el);const luminance=(color:string)=>{const values=(color.match(/[\d.]+/g)??[]).slice(0,3).map(x=>Number(x)/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4);return values.reduce((sum,x,i)=>sum+x*[.2126,.7152,.0722][i],0);};
+  const a=luminance(s.borderTopColor),b=luminance(s.backgroundColor);return {border:s.borderTopColor,ratio:(Math.max(a,b)+.05)/(Math.min(a,b)+.05)};
+ });expect(contrast.ratio).toBeGreaterThanOrEqual(3);
+ await page.getByRole('button',{name:'メニューを開く'}).focus();await page.keyboard.press('Tab');await expect(field).toBeFocused();
+ expect(await field.evaluate(el=>parseFloat(getComputedStyle(el).outlineWidth))).toBeGreaterThanOrEqual(3);
+ await field.evaluate(el=>el.setAttribute('aria-invalid','true'));
+ expect(await field.evaluate(el=>getComputedStyle(el).borderTopColor)).not.toBe(contrast.border);
+ await page.screenshot({path:`${output}/project-invalid-focus-fixture-320.png`});
 });
 
 test('JS-off shared shell keeps actual reading and game destinations',async({browser,baseURL})=>{
