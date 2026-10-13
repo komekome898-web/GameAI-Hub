@@ -14,7 +14,7 @@ body.b3-system {
   --color-border:#64735b; --color-action:var(--b3-amber);
   --focus-ring:3px solid #f5d79e;
   color:var(--text); background-color:var(--b3-graphite);
-  background-image:radial-gradient(ellipse 85% 700px at 10% 0,#a5b29b19,transparent),linear-gradient(142deg,#303a32 0,#202b2a 360px,#171e1e 1100px);
+  background-image:linear-gradient(142deg,#303a32 0,#202b2a 360px,#171e1e 1100px);
 }
 /* Paper is one shared role, not a palette per route. No content wrappers change. */
 .b3-system main:not(:has(.home-b3)), .b3-system .b3-paper {
@@ -59,7 +59,7 @@ body.b3-system {
 .b3-system main:not(:has(.home-b3)) :is(.project-start-page .project-idea-card,.idea-review,.compare-decision,.quick-facts) { background:var(--b3-work); }
 .b3-system main:not(:has(.home-b3)) :is(.directory-meta span,.active-filter-summary,.builder-choice,.idea-examples button,.goal-picker button,.picker label,.compare-scroll thead th,.compare-scroll tbody th) { background:var(--color-surface-subtle); border-color:var(--color-border); color:var(--color-text); }
 .b3-system main:not(:has(.home-b3)) :is(.goal-picker button[aria-pressed=true],.builder-choice:has(input:checked)) { background:var(--surface-accent); border-color:var(--color-action); }
-.b3-system main:not(:has(.home-b3)) :is(input:not([type=checkbox]):not([type=radio]),select,textarea) { background:#fffdf8; border-color:var(--b3-control-edge); color:var(--color-text); }
+.b3-system main:not(:has(.home-b3)) :where(input:not([type=checkbox]):not([type=radio]),select,textarea) { background:#fffdf8; border-color:var(--b3-control-edge); color:var(--color-text); }
 .b3-system main:not(:has(.home-b3)) :is(input,select,textarea)[aria-invalid=true] { border-color:var(--color-danger); }
 .b3-system .breadcrumbs { flex-wrap:wrap; align-items:center; white-space:normal; overflow:visible; color:var(--color-text-muted); }
 .b3-system .breadcrumbs>span:last-child { flex:1 1 12rem; min-width:0; overflow-wrap:anywhere; }
@@ -72,7 +72,6 @@ body.b3-system {
 .b3-system .site-footer :is(p,small,a) { color:var(--b3-light-muted); }
 .b3-system .site-footer a:hover { color:var(--b3-amber); }
 .b3-system .skip-link { background:var(--b3-graphite); color:var(--b3-light); border-color:var(--b3-amber); }
-.b3-system .b3-site-header .brand-copy { display:grid; }
 .b3-system .b3-site-header .main-nav a:hover { border-color:transparent; color:var(--b3-light); background:#35432f; }
 .b3-system .b3-site-header .main-nav a[aria-current]:hover { color:var(--b3-ink); background:#ded8be; }
 .b3-system .b3-site-header .header-cta:hover { background:#435139; }

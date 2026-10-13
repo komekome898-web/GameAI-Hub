@@ -95,6 +95,7 @@ test('rendered shared loading/error component and 404 families retain recovery s
 });
 
 test('paper fields retain visible keyboard focus and a distinct invalid boundary',async({page})=>{
+ await mkdir(output,{recursive:true});
  await page.setViewportSize({width:320,height:667});await page.goto('/project/');
  const field=page.locator('.project-idea-card textarea');
  const contrast=await field.evaluate(el=>{
