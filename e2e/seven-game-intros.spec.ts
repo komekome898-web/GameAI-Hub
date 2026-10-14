@@ -1,6 +1,7 @@
 import { test, expect } from './fixtures';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { gameIntroductions } from '../data/game-introductions';
+import { getPublishedGames } from '../data/games';
 const evidence='docs/screenshots/game-owner-corrections';
 test.beforeEach(async ({context}) => {
   await mkdir(evidence,{recursive:true});
@@ -39,7 +40,7 @@ test('all eight cards preserve original assets, introduction links and sitemap',
   await expect(page.locator('#games ol')).toHaveAttribute('data-motion','idle');
   await page.locator('#games').scrollIntoViewIfNeeded();
   const list=page.locator('#games');
-  await expect(list.locator('[data-deck-id]')).toHaveCount(8);
+  await expect(list.locator('[data-deck-id]')).toHaveCount(getPublishedGames().length);
   for (const game of gameIntroductions) {
     const card=list.locator(`[data-deck-id="${game.slug}"]`);
     await expect(card.locator('.v2-start-card-face')).toHaveAttribute('href',`/games/${game.slug}/`);

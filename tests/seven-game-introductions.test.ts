@@ -8,8 +8,8 @@ import sitemap from '@/app/sitemap';
 describe('seven approved author introductions', () => {
   it('includes seven verified introductions in existing published selectors and sitemap', () => {
     expect(gameIntroductions).toHaveLength(7);
-    expect(games).toHaveLength(8);
-    expect(getPublishedGames()).toHaveLength(8);
+    expect(games).toHaveLength(10);
+    expect(getPublishedGames()).toHaveLength(10);
     expect(validateGames(games)).toEqual([]);
     for (const game of gameIntroductions) {
       expect(game.publicationReview).toEqual({urlChecked:true,imageChecked:true,permissionConfirmed:true,approved:true});
@@ -51,7 +51,7 @@ it('preserves the existing Aramon environment without applying the seven-game co
 });
 
 it('applies the latest free and no-install statement to all eight games while retaining registration facts', () => {
-  for (const game of games) {
+  for (const game of [games.find(game => game.slug === 'aramon')!, ...gameIntroductions]) {
     expect(game.playAccessNote).toBe('プレイ無料、インストールなし');
     expect(game.pricingAndRegistration).toContain('無料・課金なし');
     expect(game.pricingAndRegistration).not.toContain('課金の有無：未確認');

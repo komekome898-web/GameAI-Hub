@@ -29,7 +29,7 @@ for(const width of [1440,375,320]) test(`B3 game-first frame, actions and header
  await expect(page).toHaveURL(new RegExp(`homeGame=${selected}(?:&[^#]*)?#games$`));await expect(page.locator('.b3-game-selection h2 a')).toBeFocused();
  await page.locator('.b3-game-selection .b3-game-detail').click();await expect(page).toHaveURL(new RegExp(`/games/${selected}/$`));await page.goBack();await idle(page);await expect(page.locator('.b3-game-selection h2 a')).toBeFocused();
  await page.getByRole('button',{name:'作品一覧',exact:true}).click();await expect(page.locator('.b3-showcase')).toHaveAttribute('data-mode','list');
- await expect(page.locator('.b3-static-copy:visible')).toHaveCount(8);await page.locator('.b3-showcase').screenshot({path:`${dir}/list-${width}.png`});
+ await expect(page.locator('.b3-static-copy:visible')).toHaveCount(getPublishedGames().length);await page.locator('.b3-showcase').screenshot({path:`${dir}/list-${width}.png`});
  await page.locator('.b3-game-stage [data-deck-id="tomoshibi"] .b3-game-detail').click();await expect(page).toHaveURL(/\/games\/tomoshibi\/$/);
  await page.getByRole('navigation',{name:'パンくず'}).getByRole('link',{name:'作品一覧へ戻る'}).click();await expect(page.locator('.b3-showcase')).toHaveAttribute('data-mode','list');
  await expect(page.locator('.b3-game-stage [data-deck-id="tomoshibi"] .b3-game-detail')).toBeFocused();
@@ -93,7 +93,7 @@ test('320 text 150/200, spacing and long text retain natural list/focus',async({
 });
 test('no-JS complete game links and current category entry remain usable',async({browser,baseURL})=>{
  const context=await browser.newContext({baseURL,javaScriptEnabled:false,viewport:{width:375,height:667}});const page=await context.newPage();await page.goto('/');
- await expect(page.locator('.b3-static-copy')).toHaveCount(8);await expect(page.locator('[data-category="games"]')).toBeVisible();
+ await expect(page.locator('.b3-static-copy')).toHaveCount(getPublishedGames().length);await expect(page.locator('[data-category="games"]')).toBeVisible();
  await page.locator('.b3-static-copy .b3-game-detail').first().click();await expect(page).toHaveURL(/\/games\/monster-construction\/$/);await context.close();
 });
 test('fresh category deep-link restores a visible focused target',async({page})=>{

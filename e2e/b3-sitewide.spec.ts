@@ -138,5 +138,5 @@ test('JS-off shared shell keeps actual reading and game destinations',async({bro
  await page.goto('/articles/meshy-pricing-credits-game/?gameai_analytics=off');
  await expect(page.locator('main h1')).toBeVisible();await expect(page.locator('.site-footer a[href="/tools/"]')).toBeVisible();
  expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
- await page.goto('/');await expect(page.locator('.b3-art-link')).toHaveCount(8);await context.close();
+ await page.goto('/');await expect(page.locator('.b3-art-link')).toHaveCount(getPublishedGames().length);await context.close();
 });
