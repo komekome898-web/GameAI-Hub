@@ -5,7 +5,7 @@
     "order": 9,
     "publicationReview": {
       "urlChecked": true,
-      "imageChecked": false,
+      "imageChecked": true,
       "permissionConfirmed": true,
       "approved": false
     },
@@ -18,8 +18,8 @@
     "image": {
       "src": "/images/games/swarm-front/screen.jpeg",
       "alt": "市街地で、兵士たちがHARROWを含むANOMALYの大群に立ち向かう紹介用の場面。ゲーム本体の地形・モデル・描画を使い、配置とカメラを調整して撮影し、正式タイトルロゴを重ねています。",
-      "width": null,
-      "height": null,
+      "width": 1600,
+      "height": 900,
       "credit": "メロソ／SWARM FRONT.（作者表記案。追加クレジットは未確認）"
     },
     "deviceNote": "作者の動作確認：WindowsのCodex内ブラウザ、Android（OPPO Find X8）",
@@ -83,7 +83,7 @@
     "order": 10,
     "publicationReview": {
       "urlChecked": true,
-      "imageChecked": false,
+      "imageChecked": true,
       "permissionConfirmed": true,
       "approved": false
     },
@@ -95,9 +95,9 @@
     "sourceNote": "ゲーム内容・操作・制作情報は作者提供の紹介をもとに編集しています。作者によるiPhone・Safariの縦横画面での動作確認と、編集側の確認は下記で区別しています。編集側のクラウドChromeでは現行版の読込・タイトル・助手選択画面の表示まで確認しました（未選択）。名前入力・ランキング送信・プレイは行っていません。",
     "image": {
       "src": "/images/games/monhero/screen.jpeg",
-      "alt": null,
-      "width": null,
-      "height": null,
+      "alt": "ハロウィーン調の城を背景に、青い翼のあるモンスター、魔女帽子のピンクのモンスター、一つ目のモンスター、金色と黒のドラゴンが並ぶモンスターヒーローのタイトル画面。",
+      "width": 1882,
+      "height": 870,
       "credit": "ゲーム画面の撮影：あつ／ゲーム内イラスト：ChatGPTで生成"
     },
     "deviceNote": "作者の動作確認：iPhone・Safari（縦／横）",

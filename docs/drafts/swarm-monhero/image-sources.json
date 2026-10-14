@@ -7,11 +7,14 @@
     "credit_from_author": "メロソ／SWARM FRONT.（作者表記案。追加クレジットは未確認）",
     "permission_from_author": "了承済み（サイト・紹介カード・SNS向けOG画像）",
     "third_party_conditions_from_author": "2026.10.10の提出準備記録で作者確認済み。",
-    "materialization_status": "BLOCKED: original image unavailable in the publishing workspace; processing and inspection remain incomplete",
-    "sha256": null,
-    "width": null,
-    "height": null,
-    "original_size_bytes": 348808
+    "materialization_status": "READY: publication image inspected and stored at intended_repository_path; page integration and runtime verification remain incomplete",
+    "sha256": "2b1c2ce9f2bbf5f421b0f66a411b5a49c7b3ddf49e6ddc20199b61cbbc930e23",
+    "width": 1600,
+    "height": 900,
+    "original_size_bytes": 348808,
+    "sha256_target": "repository image at intended_repository_path",
+    "repository_size_bytes": 348808,
+    "repository_blob_sha": "4b1908b8b9b1b1c662187a56c7582fc0ac6f2275"
   },
   {
     "slug": "monhero",
@@ -21,10 +24,13 @@
     "credit_from_author": "ゲーム画面の撮影は作者（あつ）。中のイラストはChatGPTで生成。",
     "permission_from_author": "はい（サイト・紹介カード・SNS向けOG画像）",
     "third_party_conditions_from_author": "作者が確認済み",
-    "materialization_status": "BLOCKED: original image unavailable in the publishing workspace; processing and inspection remain incomplete",
-    "sha256": null,
-    "width": null,
-    "height": null,
-    "original_size_bytes": 697317
+    "materialization_status": "READY: PLAYER ID masked; publication JPEG inspected and stored at intended_repository_path; page integration and runtime verification remain incomplete",
+    "sha256": "4451ff3d1ca8dbf9be8a252f6cb5eae97ff9879c40f63f0a321317bb3f9c3cee",
+    "width": 1882,
+    "height": 870,
+    "original_size_bytes": 697317,
+    "sha256_target": "repository image at intended_repository_path",
+    "repository_size_bytes": 687411,
+    "repository_blob_sha": "c5ed9ce11cfe762a1b9916e2dc7767f47c5f345a"
   }
 ]
