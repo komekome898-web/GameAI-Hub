@@ -91,6 +91,7 @@ export const swarmMonheroIntroductions: GameRecord[] = [
       "approved": true
     },
     "title": "モンスターヒーロー（モンヒロ）",
+    "titleParts": ["モンスター", "ヒーロー", "（モンヒロ）"],
     "description": "モンスターを育てて絆を深め、技とカードで敵のWAVEを勝ち抜くカードバトルに、親指2本で遊ぶ音ゲーも入ったスマホ向けブラウザゲーム。",
     "genre": "カードバトル／育成／リズムゲーム",
     "playUrl": "https://aknkakykhk-maker.github.io/monhero/",

@@ -42,4 +42,5 @@ it('preserves distinct payment, registration, author verification and production
   expect(monhero.verifiedDevices.join(' ')).toContain('2026年10月13日');
   expect(monhero.highlights.join(' ')).not.toMatch(/[56]難易度/);
   expect(monhero.aiRoles.map(ai => ai.name)).toEqual(['Claude（Claude Code）', 'ChatGPT']);
+  expect(monhero.titleParts?.join('')).toBe(monhero.title);
 });

@@ -21,7 +21,7 @@ export default async function GamePage({ params }: { params: Promise<{ slug: str
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
     <nav className="breadcrumbs" aria-label="パンくず"><Link href="/">ホーム</Link><span aria-hidden="true"> / </span><ArticleReturnLink slug={game.slug} purpose="games" label="作品一覧へ戻る" /><span aria-hidden="true"> / </span><span>{game.title}</span></nav>
     <article className="article-content">
-      <header className="page-head"><p className="eyebrow">AIで作ったゲームを遊ぶ</p><h1>{game.title}</h1><p className="lead">{game.description}</p><p>{game.genre}</p>{game.playAccessNote && <p><strong>{game.playAccessNote}</strong></p>}
+      <header className="page-head"><p className="eyebrow">AIで作ったゲームを遊ぶ</p><h1>{game.titleParts ? game.titleParts.map(part => <span className="game-title-part" key={part}>{part}</span>) : game.title}</h1><p className="lead">{game.description}</p><p>{game.genre}</p>{game.playAccessNote && <p><strong>{game.playAccessNote}</strong></p>}
         <figure className="game-hero"><Image src={game.image.src} width={game.image.width} height={game.image.height} sizes="(max-width: 767px) 100vw, 760px" alt={game.image.alt} /><figcaption>{game.image.credit}</figcaption></figure>
         <GamePlayLink href={game.playUrl} slug={game.slug} placement="top" />
       </header>

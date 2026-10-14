@@ -9,6 +9,7 @@ export type GameRecord = {
   order: number;
   publicationReview: { urlChecked: boolean; imageChecked: boolean; permissionConfirmed: boolean; approved: boolean };
   title: string;
+  titleParts?: string[];
   description: string;
   sourceNote?: string;
   developmentNote?: string;

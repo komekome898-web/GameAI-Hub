@@ -16,6 +16,11 @@ for (const width of [1280, 375, 320]) test(`two game introductions and card navi
   for (const game of swarmMonheroIntroductions) {
     expect((await page.goto(`/games/${game.slug}/`))?.status()).toBe(200);
     await expect(page.locator('h1')).toHaveText(game.title);
+    if (game.slug === 'monhero') {
+      const hero = page.locator('h1 .game-title-part').filter({ hasText: /^ヒーロー$/ });
+      expect(await hero.evaluate(el => el.getClientRects().length)).toBe(1);
+      expect(await hero.evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);
+    }
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://game-ai-hub.vercel.app/games/${game.slug}/`);
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', new RegExp(`${game.image.src}$`));
     await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', String(game.image.width));
@@ -71,4 +76,28 @@ test('two introductions at 320px with 200% CSS zoom', async ({ page }) => {
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.screenshot({ path: `${evidence}/${game.slug}-320-zoom200.png`, fullPage: true });
   }
+});
+
+for (const width of [1280, 375, 320]) test(`Home retains complete frames with long credits at ${width}`, async ({ page }) => {
+  await page.setViewportSize({ width, height: 900 });
+  await page.goto('/?homeGame=swarm-front#games');
+  const showcase = page.locator('.b3-showcase');
+  await expect(showcase).toHaveAttribute('data-mode', 'deck');
+  await expect(showcase.locator('li[data-distance="0"]')).toHaveAttribute('data-deck-id', 'swarm-front');
+  const heights: number[] = [];
+  for (const slug of ['swarm-front', 'monhero', 'aramon']) {
+    await page.goto(`/?homeGame=${slug}#games`);
+    const card = showcase.locator(`li[data-deck-id="${slug}"] .b3-art-card`);
+    await expect(showcase.locator('li[data-distance="0"]')).toHaveAttribute('data-deck-id', slug);
+    await expect(showcase.locator('.b3-game-stage')).toHaveAttribute('data-motion', 'idle');
+    await expect(card).toBeVisible();
+    const windowBox = (await showcase.locator('.b3-stage-window').boundingBox())!;
+    const cardBox = (await card.boundingBox())!;
+    // The bottom 3D layer extends 9px beyond the card's border box.
+    expect(cardBox.y + cardBox.height + 9).toBeLessThanOrEqual(windowBox.y + windowBox.height);
+    heights.push((await showcase.locator('.b3-game-stage').boundingBox())!.height);
+    if (slug === 'swarm-front') await expect(card.locator('.b3-art-credit')).toContainText('追加クレジットは未確認');
+    await page.screenshot({ path: `${evidence}/home-work-${slug}-${width}.png` });
+  }
+  expect(new Set(heights).size).toBe(1);
 });
