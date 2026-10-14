@@ -1,3 +1,4 @@
+import { getPublishedGames } from '../data/games';
 import { test, expect } from './fixtures';
 import { mkdir, writeFile } from 'node:fs/promises';
 const evidence = 'docs/screenshots/articles-background-overflow';
@@ -37,7 +38,7 @@ test('game deck still swipes, focuses and reflows at zoom',async ({page})=>{
   await page.screenshot({path:`${evidence}/games-375-swipe-focus.png`,fullPage:true});
   await page.setViewportSize({width:320,height:900});await page.addStyleTag({content:'html{zoom:2}'});
   await expect(deck).toHaveAttribute('data-mode','list');
-  await expect(deck.locator('[data-deck-id]')).toHaveCount(8);
+  await expect(deck.locator('[data-deck-id]')).toHaveCount(getPublishedGames().length);
   const overflow=await page.evaluate(()=>({document:document.documentElement.scrollWidth,layout:document.documentElement.clientWidth}));
   expect(overflow.document).toBeLessThanOrEqual(overflow.layout);
   await page.screenshot({path:`${evidence}/games-320-zoom200.png`,fullPage:true});

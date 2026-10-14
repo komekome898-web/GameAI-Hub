@@ -938,3 +938,5 @@ article.page-shell .stage-decision>summary strong{
  .trust-nav a{min-height:44px}
  .trust-sections>section{padding-block:var(--space-5)}
 }
+
+.game-detail .game-title-part{display:inline-block;max-width:100%;overflow-wrap:anywhere}

@@ -20,6 +20,7 @@ export function GameShowcase({ games }: { games: ShowcaseGame[] }) {
   const [available, setAvailable] = useState(false);
   const [list, setList] = useState(false);
   const [instant, setInstant] = useState(false);
+  const [cardHeight, setCardHeight] = useState(0);
   const stage = useRef<HTMLOListElement>(null);
   const root = useRef<HTMLDivElement>(null);
   const selectedLink = useRef<HTMLAnchorElement>(null);
@@ -30,6 +31,18 @@ export function GameShowcase({ games }: { games: ShowcaseGame[] }) {
   const active = Math.max(0, ids.indexOf(activeId));
   const game = games[active];
   const previousGame = useRef(activeId);
+
+  useEffect(() => {
+    if (!carousel || !stage.current) return;
+    const cards = Array.from(stage.current.querySelectorAll<HTMLElement>('.b3-art-card'));
+    // Measure untransformed cards so wrapped credits retain the full frame,
+    // without changing the stage height as the carousel moves.
+    const measure = () => setCardHeight(Math.max(0, ...cards.map(card => card.offsetHeight)));
+    measure();
+    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(measure);
+    cards.forEach(card => observer?.observe(card));
+    return () => observer?.disconnect();
+  }, [carousel, games]);
 
   useEffect(() => {
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
@@ -151,7 +164,7 @@ export function GameShowcase({ games }: { games: ShowcaseGame[] }) {
       </div>
     </div>
     <div className="b3-stage-window">
-      <ol ref={stage} className="b3-game-stage" tabIndex={carousel ? 0 : undefined} aria-label="掲載ゲームのカード" aria-describedby={carousel ? "b3-deck-help" : undefined}>
+      <ol ref={stage} className="b3-game-stage" style={carousel && cardHeight ? { minHeight: cardHeight } : undefined} tabIndex={carousel ? 0 : undefined} aria-label="掲載ゲームのカード" aria-describedby={carousel ? "b3-deck-help" : undefined}>
         {games.map((item, index) => <li key={item.slug} data-deck-id={item.slug} data-selected={item.slug === activeId}>
           <div className="b3-art-card">
             <span className="b3-frame-face" aria-hidden="true" />

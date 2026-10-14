@@ -15,8 +15,8 @@ const samples=[['home','/'],['articles','/articles/'],['article','/articles/mesh
 const output='docs/screenshots/b3-sitewide';
 
 for (const width of [1440,375,320]) {
- test(`B3 shell covers all 76 public UI URLs at ${width}`,async({page})=>{
-  test.setTimeout(600_000); expect(new Set(routes).size).toBe(76);
+ test(`B3 shell covers all 78 public UI URLs at ${width}`,async({page})=>{
+  test.setTimeout(600_000); expect(new Set(routes).size).toBe(78);
   await page.setViewportSize({width,height:width===1440?900:667});
   for(const route of routes) {
    const response=await page.goto(route);expect(response?.status(),route).toBe(200);
@@ -138,5 +138,5 @@ test('JS-off shared shell keeps actual reading and game destinations',async({bro
  await page.goto('/articles/meshy-pricing-credits-game/?gameai_analytics=off');
  await expect(page.locator('main h1')).toBeVisible();await expect(page.locator('.site-footer a[href="/tools/"]')).toBeVisible();
  expect((await diagnoseWidths(page)).documentOverflowPx).toBe(0);
- await page.goto('/');await expect(page.locator('.b3-art-link')).toHaveCount(8);await context.close();
+ await page.goto('/');await expect(page.locator('.b3-art-link')).toHaveCount(getPublishedGames().length);await context.close();
 });
