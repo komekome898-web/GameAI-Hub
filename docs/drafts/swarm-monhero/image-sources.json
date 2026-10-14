@@ -1,32 +1,30 @@
 [
   {
     "slug": "swarm-front",
-    "library_file_id": "libfile_ad293aa601fc819181a35a62e7c93469",
     "file_name": "IMG_2707.jpeg",
     "intended_repository_path": "public/images/games/swarm-front/screen.jpeg",
-    "original_size_bytes_from_library": 348808,
     "description_from_author": "市街地で、兵士たちがHARROWを含むANOMALYの大群に立ち向かう場面です。ゲーム本体の地形・モデル・描画を使い、紹介用に配置とカメラを調整して撮影し、正式タイトルロゴを重ねています。",
     "credit_from_author": "メロソ／SWARM FRONT.（作者表記案。追加クレジットは未確認）",
     "permission_from_author": "了承済み（サイト・紹介カード・SNS向けOG画像）",
     "third_party_conditions_from_author": "2026.10.10の提出準備記録で作者確認済み。",
-    "materialization_status": "BLOCKED: official Library helper returned download failed; no original bytes materialized or inspected",
+    "materialization_status": "BLOCKED: original image unavailable in the publishing workspace; processing and inspection remain incomplete",
     "sha256": null,
     "width": null,
-    "height": null
+    "height": null,
+    "original_size_bytes": 348808
   },
   {
     "slug": "monhero",
-    "library_file_id": "libfile_cc7d23665b508191b5fc3d8e5db7b5b3",
     "file_name": "IMG_2698.jpeg",
     "intended_repository_path": "public/images/games/monhero/screen.jpeg",
-    "original_size_bytes_from_library": 697317,
     "description_from_author": null,
     "credit_from_author": "ゲーム画面の撮影は作者（あつ）。中のイラストはChatGPTで生成。",
     "permission_from_author": "はい（サイト・紹介カード・SNS向けOG画像）",
     "third_party_conditions_from_author": "作者が確認済み",
-    "materialization_status": "BLOCKED: official Library helper returned download failed; no original bytes materialized or inspected",
+    "materialization_status": "BLOCKED: original image unavailable in the publishing workspace; processing and inspection remain incomplete",
     "sha256": null,
     "width": null,
-    "height": null
+    "height": null,
+    "original_size_bytes": 697317
   }
 ]
