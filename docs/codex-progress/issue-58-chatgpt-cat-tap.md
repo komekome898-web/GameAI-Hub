@@ -1,10 +1,18 @@
-# Issue #58 — ChatGPT cat-tap article
+# Issue #58 / PR #113 — ChatGPT cat-tap article
 
-- Branch: `feat/issue-58-chatgpt-cat-tap`
-- Completed: article route and registry, playable example, recovery guidance, Project handoff, unit/E2E coverage, responsive screenshots
-- Acceptance: independent second-pass review found no remaining P0, P1, or high-impact P2 product defects
-- Quality: passed `npm run quality`
-- Build: passed `npm run build`
-- E2E: 5 cat-tap article tests passed across functional, desktop, 375 px, 320 px, and 320 px at 200% equivalent zoom cases
-- Remaining: physical-device behavior and Production deployment are UNTESTED; merge is not authorized
-- Next action: review the pull request and its Vercel Preview
+- Launch: delegated saved execution environment, source thread `01a13a49-3ec6-705f-ba25-a358fd8ac007`; no GitHub mention dispatch.
+- Authorized: finish existing article/registry/article tests, integrate main, normal push and update PR #113. No force push, merge, production publish, new PR, external generation or shared Playwright changes.
+- Canonical origin verified: `https://github.com/komekome898-web/GameAI-Hub.git`.
+- Fetched main: `c7013491dc46f2a316bb4a79094a21f3802041f0`.
+- Resumed remote branch: `feat/issue-58-chatgpt-cat-tap`; initial remote checkpoint `147aff87d706a0a1cff2c1292a3d405a809c5393`. Normal push of that exact head returned Everything up-to-date; remote ref verified.
+- Implementation: main merged without rewriting history; registry conflict resolved preserving all current main articles, cat article appended to start purpose order 7. Current ArticleHeader/ArticleFrame and category return retained. Required registry count assertions updated. Shared components/config unchanged relative to main.
+- Beginner outcome: play sample → copy first prompt → replace whole HTML → verify 0→1→2→0→1 → record working version → change background only → reproduce error/restore working version → copy same idea into Project conditions with source attribution.
+- Fixed during review: nonexistent help-button guidance replaced by article-specific copy guidance; explicit sample backup before color change; named Project input/submit controls; sample fits 300px iframe with cat/score/reset simultaneously visible.
+- Final gates: quality PASS (51 files / 388 tests, 76 orchestration tests, validators); build PASS; targeted E2E PASS (8 tests / 26.5s, includes browser-game pillar regression). Raw logs: `docs/screenshots/issue-58-cat-tap/checks/`.
+- E2E method: ordinary Node Playwright 1.62.1, system Chromium 151.0.7922.173, local production build at 127.0.0.1:3100, GA collector blocked. Both 320×812 and 375×812 viewport paths exercise click/score/reset/re-click, computed color change, deliberate runtime error and restore, actual clipboard strings, category discovery and Project input/parsed details. Test scrolls iframe into the viewport before pointer interaction to avoid clicks while the page smooth-scrolls. This is viewport emulation, not device touch.
+- Rendered evidence: `final-{320,375}.png`, `header-*`, `game-*`, `color-*`, `recovery-*`, `handoff-*`, `project-*`, desktop and zoom images in `docs/screenshots/issue-58-cat-tap/`. Width metrics: 320/320/320 and 375/375/375 (inner/client/scroll). All code regions contained locally.
+- Independent reviewer: `/root/review`, direct view_image inspection including original-size crops, two passes. Initial P1 game clipping fixed; final normal 320/375 images have no remaining P0/P1/high-impact P2. Reviewer did not independently run E2E.
+- Shared UI P2 / NOT PASS: 320px with CSS zoom 200% has an oversized sticky header and approximately 3-character wrapping in the Project handoff code region. See `zoom-{prompt,recovery,handoff}.png`. Needs shared header/article reflow review by parallel owner; no common fix made here. Normal 320/375 acceptance is separate.
+- UNTESTED: physical iPhone/Android, touch/OS text zoom, Safari/WebKit (parallel task), external ChatGPT generation, exact final Vercel Preview and Production. No production visit or deploy command performed. Existing Preview evidence applies only to old head.
+- Delivery: final commit is the commit containing this ledger; remote SHA and PR status must be re-read after push. PR remains #113. No merge or auto-merge.
+- Next action: coordinator reviews final SHA and shared 200% limitation; verify exact final Preview separately if required; owner decides merge only under separate authorization.

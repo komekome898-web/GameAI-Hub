@@ -1,0 +1,6 @@
+
+> gameai-hub@0.1.0 validate:workflows
+> python scripts/validate-orchestration.py
+
+orchestration contracts, writer concurrency, and workflows valid
+owner-directed mode and affiliate PR delivery valid

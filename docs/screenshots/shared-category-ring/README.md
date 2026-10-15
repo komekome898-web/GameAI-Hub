@@ -1,0 +1,11 @@
+# GameBuildiary shared category ring — review evidence
+
+Source candidate: f183f29980fa4c9e00dd89eb912946efded61d37. Base / initial remote proof: 93124abba0d91b9e527baae27028967948f23fb4. Final delivery adds evidence/ledger only; Library package pins final PR/head and CI after push.
+
+Inspect home-first-{320,375,390,1440}.png, categories-{width}.png, home-return-{width}.png and category/article screenshots. root200 captures are synthetic root text enlargement, not native accessibility zoom. home-operations / operations JSON show stable IDs and return context. category-motion-operations.json and its reproducible check record controlled synthetic pointer timing on the actual app plus trusted native neighbor/central mouse taps. CI browser artifacts cover broader existing touch/Project/analytics regression evidence.
+
+Local final quality: 347 tests plus all quality validators PASS. Production-mode local build PASS. Final affected suite: 24 PASS; current typed reconciliation: 1 PASS; Stage A: 1 PASS. Category motion checks PASS on both entry mounts. Initial full suite is retained honestly (192 passed, 23 failed, 1 not run); corrected obsolete Home expectations, category clipping ownership, clean checkpoint identity and production environment are documented in source diff. Corrected-case suite 47 passed/1 failed; its remaining evidence issues were resolved in final scope. Final GitHub full-suite CI is authoritative for final delivery HEAD.
+
+No article data/body, physics module/controller, assets, affiliate or analytics implementation changes. The 8 KiB gzip deck budget was preserved using one SSR-enabled load boundary. Four public categories derive from the ledger; games0 is disabled outside the ring.
+
+Independent visual/product review: PENDING coordinator review of final exact head. Physical Safari/iPhone, native OS text scaling: UNTESTED. Production/Preview direct access, merge and manual deployment: not performed. The analytics Production harness routes the canonical URL to localhost and fulfills/blocks Google transport; it is not live Production evidence. Branch-protection configuration read was unavailable (GitHub integration 403); required repository workflow results are recorded separately.

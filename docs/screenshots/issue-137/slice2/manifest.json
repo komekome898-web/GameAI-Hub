@@ -1,0 +1,238 @@
+{
+  "schema": "gameai-rendered-evidence/v1",
+  "target": {
+    "sha": "add94554dc9cfb5de17784e65d2851a9254c74e0",
+    "environment": "local",
+    "baseUrl": "http://127.0.0.1:3100"
+  },
+  "records": [
+    {
+      "id": "home-320x844",
+      "route": "/",
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false,
+        "userAgentProfile": "Desktop Chrome"
+      },
+      "state": [
+        "slice-two-home-composition"
+      ],
+      "screenshot": "home-320x844.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "measurement": {
+        "h1": {
+          "top": 98.109375,
+          "height": 70.78125,
+          "bottom": 168.890625
+        },
+        "input": {
+          "top": 298.78125,
+          "bottom": 426.34375
+        },
+        "action": {
+          "top": 462.796875,
+          "bottom": 510.796875
+        },
+        "documentWidth": 320,
+        "clientWidth": 320
+      },
+      "provenance": {
+        "capturedAt": "2026-09-27T08:15:31.488Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      },
+      "analyticsCollectorAttempts": []
+    },
+    {
+      "id": "home-375x844",
+      "route": "/",
+      "viewport": {
+        "width": 375,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false,
+        "userAgentProfile": "Desktop Chrome"
+      },
+      "state": [
+        "slice-two-home-composition"
+      ],
+      "screenshot": "home-375x844.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "measurement": {
+        "h1": {
+          "top": 102.109375,
+          "height": 70.78125,
+          "bottom": 172.890625
+        },
+        "input": {
+          "top": 302.78125,
+          "bottom": 430.34375
+        },
+        "action": {
+          "top": 466.796875,
+          "bottom": 514.796875
+        },
+        "documentWidth": 375,
+        "clientWidth": 375
+      },
+      "provenance": {
+        "capturedAt": "2026-09-27T08:15:33.729Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      },
+      "analyticsCollectorAttempts": []
+    },
+    {
+      "id": "home-390x844",
+      "route": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false,
+        "userAgentProfile": "Desktop Chrome"
+      },
+      "state": [
+        "slice-two-home-composition"
+      ],
+      "screenshot": "home-390x844.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "measurement": {
+        "h1": {
+          "top": 102.109375,
+          "height": 70.9375,
+          "bottom": 173.046875
+        },
+        "input": {
+          "top": 302.9375,
+          "bottom": 430.5
+        },
+        "action": {
+          "top": 466.953125,
+          "bottom": 514.953125
+        },
+        "documentWidth": 390,
+        "clientWidth": 390
+      },
+      "provenance": {
+        "capturedAt": "2026-09-27T08:15:36.250Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      },
+      "analyticsCollectorAttempts": []
+    },
+    {
+      "id": "mobile-menu-390x844",
+      "route": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false,
+        "userAgentProfile": "Desktop Chrome"
+      },
+      "state": [
+        "mobile-menu-open"
+      ],
+      "screenshot": "mobile-menu-390x844.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "provenance": {
+        "capturedAt": "2026-09-27T08:15:38.544Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      },
+      "analyticsCollectorAttempts": []
+    },
+    {
+      "id": "home-1440x900",
+      "route": "/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "zoom": {
+        "mode": "none",
+        "factor": 1
+      },
+      "emulation": {
+        "viewport": true,
+        "physicalDevice": false,
+        "userAgentProfile": "Desktop Chrome"
+      },
+      "state": [
+        "slice-two-home-composition"
+      ],
+      "screenshot": "home-1440x900.png",
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "ownedLocalScrollers": 0,
+        "unownedOverflowingElements": 0
+      },
+      "measurement": {
+        "h1": {
+          "top": 160.109375,
+          "height": 113.40625,
+          "bottom": 273.515625
+        },
+        "input": {
+          "top": 427.234375,
+          "bottom": 554.796875
+        },
+        "action": {
+          "top": 591.0625,
+          "bottom": 639.0625
+        },
+        "documentWidth": 1440,
+        "clientWidth": 1440
+      },
+      "provenance": {
+        "capturedAt": "2026-09-27T08:15:41.000Z",
+        "runner": "Playwright Chromium viewport emulation",
+        "note": "Responsive evidence only; not physical-device evidence."
+      },
+      "analyticsCollectorAttempts": []
+    }
+  ]
+}

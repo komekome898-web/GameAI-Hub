@@ -33,6 +33,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   update:
@@ -56,9 +57,10 @@ jobs:
         run: npm run affiliate:set
       - name: Quality gate
         run: npm run quality
-      - name: Commit and deploy through main
+      - name: Commit to a dedicated branch and open a draft PR
         env:
           AFFILIATE_SERVICE: ${{ inputs.service }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           if [[ ! "$AFFILIATE_SERVICE" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
             echo "Invalid service slug" >&2
@@ -68,8 +70,18 @@ jobs:
             echo "No changes to commit"
             exit 0
           fi
+          branch="affiliate/update-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          git switch -c "$branch"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/affiliate-programs.json data/services.json
           git commit -m "chore: update affiliate program for ${AFFILIATE_SERVICE}"
-          git push origin HEAD:main
+          git push origin "HEAD:refs/heads/$branch"
+          cat > /tmp/affiliate-pr-body.md <<'BODY'
+          Affiliate registry and derived service data updated from explicit workflow inputs.
+
+          Validation: npm run quality passed. Independent review and required checks on this exact SHA remain required. Merge requires separate owner approval; this workflow never merges.
+          BODY
+          gh pr create --base main --head "$branch" --draft \
+            --title "chore: update affiliate program for ${AFFILIATE_SERVICE}" \
+            --body-file /tmp/affiliate-pr-body.md

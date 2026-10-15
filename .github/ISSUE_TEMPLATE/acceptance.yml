@@ -1,6 +1,9 @@
 name: Acceptance
 about: Request independent acceptance
 body:
+  - type: markdown
+    attributes:
+      value: "Owner-directed task: the owner approves scope and merge; どっさん coordinates; Codex implements/tests; independent review is separate. This form does not authorize GitHub writes or start Work/Codex."
   - type: textarea
     id: goal
     attributes: { label: Goal, description: What journey or artifact needs acceptance? }

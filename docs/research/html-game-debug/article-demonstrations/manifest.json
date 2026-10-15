@@ -1,0 +1,39 @@
+{
+  "source": "layout-correction/fixtures",
+  "displayChanges": [
+    "viewport meta",
+    "h1 font-size 1.25rem; line-height 1.4",
+    "h1 phrase spans and wbr",
+    "narrow iframe at <=220px: reduce main padding and heading size"
+  ],
+  "files": [
+    {
+      "id": "original",
+      "sha256": "fbe28cc6570c84b0d2adbcd2751c168be79120a53d54597c1b20c6fd4c2e6c9c"
+    },
+    {
+      "id": "syntax-broken",
+      "sha256": "262d76e7d43674d73fd6daa7a44170e3c0ca7844aa8911dfd3c9d2a8e9204a12"
+    },
+    {
+      "id": "syntax-repaired",
+      "sha256": "fbe28cc6570c84b0d2adbcd2751c168be79120a53d54597c1b20c6fd4c2e6c9c"
+    },
+    {
+      "id": "selector-broken",
+      "sha256": "d89eff81912f36b3f1a420a2273f3426e6f0035546cde2be5d0939248875601a"
+    },
+    {
+      "id": "selector-repaired",
+      "sha256": "fbe28cc6570c84b0d2adbcd2751c168be79120a53d54597c1b20c6fd4c2e6c9c"
+    },
+    {
+      "id": "reset-broken",
+      "sha256": "b67ef87baf3308f2c5eefd3b0c6a97d614f0b15eb3cb2b0ea680935365a85f7c"
+    },
+    {
+      "id": "reset-repaired",
+      "sha256": "fbe28cc6570c84b0d2adbcd2751c168be79120a53d54597c1b20c6fd4c2e6c9c"
+    }
+  ]
+}

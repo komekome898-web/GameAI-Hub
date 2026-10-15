@@ -1,0 +1,22 @@
+
+Running 9 tests using 1 worker
+
+(node:53652) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/9] e2e/b3-home.spec.ts:8:40 › B3 game-first frame, actions and header at 1440
+[2/9] e2e/b3-home.spec.ts:8:40 › B3 game-first frame, actions and header at 375
+[3/9] e2e/b3-home.spec.ts:8:40 › B3 game-first frame, actions and header at 320
+[4/9] e2e/b3-home.spec.ts:37:5 › all artwork, rapid input, touch, reduced motion and article/learning links
+[5/9] e2e/b3-home.spec.ts:69:5 › 320 text 150/200, spacing and long text retain natural list/focus
+[6/9] e2e/b3-home.spec.ts:91:5 › no-JS complete game links and current category entry remain usable
+[7/9] e2e/b3-home.spec.ts:96:5 › fresh category deep-link restores a visible focused target
+[8/9] e2e/b3-home.spec.ts:104:5 › explicit category activation after playable anchor retains Back context
+[9/9] e2e/b3-home.spec.ts:114:5 › enlarged Home anchors clear the measured header and clean up on route change
+  9 passed (38.7s)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

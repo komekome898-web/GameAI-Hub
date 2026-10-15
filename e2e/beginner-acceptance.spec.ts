@@ -6,7 +6,28 @@ import {
   type Locator,
   type Page,
   type TestInfo,
-} from "@playwright/test";
+} from "./fixtures";
+
+// Match the existing article-runner timing contract: iframe-local stability
+// does not include smooth scrolling of the parent page. Keep real mouse clicks.
+async function clickStableGameButton(page: Page, button: Locator) {
+  await expect(button).toBeVisible();
+  await page.locator('iframe[title="作ったゲームの動作確認"]').evaluate(frame => frame.scrollIntoView({ behavior: "instant", block: "center" }));
+  await button.evaluate(element => element.scrollIntoView({ behavior: "instant", block: "center" }));
+  await expect.poll(() => page.locator('iframe[title="作ったゲームの動作確認"]').evaluate(async frame => {
+    let stable = 0;
+    let previous = frame.getBoundingClientRect();
+    for (let sample = 0; sample < 120; sample++) {
+      await new Promise<void>(resolve => requestAnimationFrame(() => resolve()));
+      const current = frame.getBoundingClientRect();
+      stable = ['x', 'y', 'width', 'height'].every(key => Math.abs(current[key as 'x'] - previous[key as 'x']) < .1) ? stable + 1 : 0;
+      previous = current;
+      if (stable >= 12) return true;
+    }
+    return false;
+  })).toBe(true);
+  await button.click();
+}
 
 // This is a runner fixture, not an AI response or proof that an AI generated a game.
 // Its only purpose is to exercise paste → play → save → reopen in the real UI.
@@ -37,7 +58,7 @@ async function beginFromHome(page: Page, idea: string) {
   await page.goto("/");
   await page.getByLabel("どんなゲームを作りたいですか？").fill(idea);
   await page
-    .getByRole("button", { name: "制作ロードマップを作る", exact: true })
+    .getByRole("button", { name: "最初の作業を作る", exact: true })
     .click();
   const starter = page.locator(".beginner-starter");
   await expect(starter).toBeVisible();
@@ -228,7 +249,9 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
     const guidePage = await guidePagePromise;
     await guidePage.waitForLoadState();
     await expect(guidePage.locator(".article-return-to-project")).toHaveCount(2);
-    await expect(guidePage.getByRole("link", { name: /元のProject/ })).toHaveCount(0);
+    await expect(guidePage.locator(".article-return-to-project a")).toHaveCount(
+      0,
+    );
     await guidePage.close();
     await page.bringToFront();
 
@@ -379,7 +402,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
           guidePage.getByRole("heading", { name: "Projectからこの記事を開いた人" }),
         ).toHaveCount(2);
         await expect(
-          guidePage.getByRole("link", { name: /Project|元のProject/ }),
+          guidePage.locator(".article-return-to-project a"),
         ).toHaveCount(0);
         await retainScreenshot(guidePage, testInfo, "github-guide-return-375");
         await guidePage.close();
@@ -427,6 +450,8 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
       await expect(help.locator("pre")).toContainText("現在の作業:");
       await expect(help.locator("pre")).toContainText("相談先のAI:");
       await expect(help.locator("pre")).toContainText("完了条件:");
+      await expect(help.getByRole("button", { name: "相談文をコピー", exact: true }))
+        .toHaveCSS("border-top-style", "solid");
       await help
         .getByRole("button", { name: "相談文をコピー", exact: true })
         .click();
@@ -461,7 +486,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
           name: "モバイルナビゲーション",
           exact: true,
         })
-        .getByRole("link", { name: "目的からAIを探す", exact: true })
+        .getByRole("link", { name: "AI・ツール", exact: true })
         .click();
       await expect(page).toHaveURL(/\/tools/);
       await page.goBack();
@@ -496,7 +521,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
     await expect(frameElement).toHaveAttribute("sandbox", "allow-scripts");
     const game = page.frameLocator('iframe[title="作ったゲームの動作確認"]');
     await expect(game.getByText("開始できます", { exact: true })).toBeVisible();
-    await game.getByRole("button", { name: "ゴールへ進む" }).click();
+    await clickStableGameButton(page, game.getByRole("button", { name: "ゴールへ進む" }));
     await expect(
       game.getByText("クリアしました", { exact: true }),
     ).toBeVisible();
@@ -514,7 +539,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
       "--- 編集中のindex.html ---",
     );
     await retainScreenshot(page, testInfo, "combined-copy-320");
-    await game.getByRole("button", { name: "やり直す" }).click();
+    await clickStableGameButton(page, game.getByRole("button", { name: "やり直す" }));
     await expect(game.getByText("開始できます", { exact: true })).toBeVisible();
 
     const downloadEvent = page.waitForEvent("download");
@@ -542,7 +567,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
     await page
       .getByRole("button", { name: "ゲームを表示", exact: true })
       .click();
-    await game.getByRole("button", { name: "ゴールへ進む" }).click();
+    await clickStableGameButton(page, game.getByRole("button", { name: "ゴールへ進む" }));
     await expect(
       game.getByText("クリアしました", { exact: true }),
     ).toBeVisible();
@@ -597,7 +622,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
       .getByRole("button", { name: "ゲームを表示", exact: true })
       .click();
     const game = page.frameLocator('iframe[title="作ったゲームの動作確認"]');
-    await game.getByRole("button", { name: "エラーを起こす" }).click();
+    await clickStableGameButton(page, game.getByRole("button", { name: "エラーを起こす" }));
     await expect(
       page
         .getByRole("alert")
@@ -612,7 +637,7 @@ test.describe("Beginner acceptance: current production journey contracts", () =>
     await page
       .getByRole("button", { name: "ここで詰まった", exact: true })
       .click();
-    await game.getByRole("button", { name: "拒否を起こす" }).click();
+    await clickStableGameButton(page, game.getByRole("button", { name: "拒否を起こす" }));
     await expect(
       page
         .getByRole("alert")

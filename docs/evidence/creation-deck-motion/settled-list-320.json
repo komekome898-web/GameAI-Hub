@@ -1,0 +1,27 @@
+{
+  "innerWidth": 320,
+  "viewportWidth": 320,
+  "scale": 1,
+  "transform": "none",
+  "card": {
+    "left": 8,
+    "right": 312,
+    "top": 221.34375,
+    "bottom": 694.703125,
+    "width": 304
+  },
+  "title": {
+    "left": 25,
+    "right": 295,
+    "top": 419.140625,
+    "bottom": 500.140625,
+    "width": 270
+  },
+  "cta": {
+    "left": 25,
+    "right": 295,
+    "top": 633.703125,
+    "bottom": 677.703125,
+    "width": 270
+  }
+}

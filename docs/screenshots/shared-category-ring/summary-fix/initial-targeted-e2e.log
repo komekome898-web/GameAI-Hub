@@ -1,0 +1,99 @@
+[WebServer] (node:28526) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:28526) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:28585) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:28579) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:28578) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:28577) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:28649) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 20 tests using 2 workers
+
+(node:28665) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:28666) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/20] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives resize, expanded=false, without stealing surviving focus
+[2/20] e2e/creation-deck-motion.spec.ts:112:5 › neighbor tap centers, overview expands the same node, list and large text remain readable
+[3/20] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives resize, expanded=true, without stealing surviving focus
+[4/20] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 375
+[5/20] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives reduced-motion, expanded=false, without stealing surviving focus
+[6/20] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 390
+[7/20] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives reduced-motion, expanded=true, without stealing surviving focus
+[8/20] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 1440
+[9/20] e2e/deck-acceptance-contract.spec.ts:14:5 › summary exception is earned through real expansion and list recovery, not shared with other clipping
+[10/20] e2e/creation-deck-summary.spec.ts:45:5 › long category visible height grows, close remains, resize/font/content remeasure without lost focus
+[11/20] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects missing-summary
+  1) e2e/creation-deck-summary.spec.ts:45:5 › long category visible height grows, close remains, resize/font/content remeasure without lost focus 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  locator('[data-deck-id="summary-0"]').locator('a')
+    Expected: focused
+    Received: inactive
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toBeFocused" with timeout 10000ms
+      - waiting for locator('[data-deck-id="summary-0"]').locator('a')
+        24 × locator resolved to <a href="#summary-0" aria-label="検証用カテゴリ 1" data-category="summary-0" class="v2-start-card-face">…</a>
+           - unexpected value "inactive"
+
+
+      67 |   await page.setViewportSize({ width: 320, height: 900 });
+      68 |   await expect(page.locator('.creation-deck')).toHaveAttribute('data-mode', 'list');
+    > 69 |   await expect(button).toHaveCount(0); await expect(card.locator('a')).toBeFocused();
+         |                                                                        ^
+      70 |   expect((await geometry(summary)).full).toBeLessThanOrEqual((await geometry(summary)).visible + 1);
+      71 |   await page.setViewportSize({ width: 390, height: 900 }); await idle(page);
+      72 |   await expect(button).toHaveCount(1); await button.click();
+        at /workspace/GameAI-Hub/e2e/creation-deck-summary.spec.ts:69:72
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/creation-deck-summary-long-35dec-emeasure-without-lost-focus/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/creation-deck-summary-long-35dec-emeasure-without-lost-focus/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/creation-deck-summary-long-35dec-emeasure-without-lost-focus/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/creation-deck-summary-long-35dec-emeasure-without-lost-focus/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:29259) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[12/20] e2e/creation-deck-summary.spec.ts:88:5 › existing long article expands to full height and keeps its closing control
+[13/20] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects missing-button
+[14/20] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects wrong-controls
+[15/20] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects disabled-button
+[16/20] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects collapsed-clipping
+[17/20] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects expanded-clipping
+[18/20] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects list-clipping
+[19/20] e2e/deck-acceptance-contract.spec.ts:59:7 › recovery rejects an identical replacement summary after expanded
+[20/20] e2e/deck-acceptance-contract.spec.ts:59:7 › recovery rejects an identical replacement summary after list
+  1 failed
+    e2e/creation-deck-summary.spec.ts:45:5 › long category visible height grows, close remains, resize/font/content remeasure without lost focus 
+  19 passed (1.1m)

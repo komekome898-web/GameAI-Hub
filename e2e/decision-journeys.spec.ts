@@ -1,4 +1,4 @@
-import { expect, test, type Page, type TestInfo } from '@playwright/test';
+import { expect, test, type Page, type TestInfo } from './fixtures';
 
 const mobile = { width: 375, height: 812 };
 const defaults = {
@@ -32,7 +32,7 @@ async function openDetailedConditions(page: Page) {
 
 async function generateProject(page: Page, idea: string) {
   await page.getByLabel('どんなゲームを作りたいですか？').fill(idea);
-  await page.getByRole('button', { name: '制作ロードマップを作る' }).click();
+  await page.getByRole('button', { name: /(?:最初の作業|制作ロードマップ)を作る/ }).click();
   const form = page.locator('.clarify-form');
   await openDetailedConditions(page);
   await expect(form).toBeVisible({ timeout: 20_000 });
@@ -77,6 +77,14 @@ test.describe('Project Interpreter provider states',()=>{
     await page.goto('/project');await page.getByLabel('どんなゲームを作りたいですか？').fill('2D RPG');
     await page.getByRole('button',{name:'制作ロードマップを作る'}).click();
     await expect(page.getByText('E2E Provider が条件候補を抽出しました',{exact:false})).toBeVisible();
+    // These controls only appear after provider interpretation; the old B3
+    // shell checks never reached their browser-default appearance.
+    for (const selector of ['.clarify-form label>button', '.capability-picker>button']) {
+      const confirm = page.locator(selector).first();
+      await expect(confirm).toBeVisible();
+      await expect(confirm).toHaveCSS('border-top-style', 'solid');
+      expect(await confirm.evaluate(element => element.getBoundingClientRect().height)).toBeGreaterThanOrEqual(44);
+    }
     await page.getByRole('button',{name:'Project Planを作る'}).click();
     await expect(page.locator('#clarify-error')).toContainText('AIが抽出した候補を確認してください');
     for(const label of Object.keys(defaults))await page.getByRole('button',{name:`${label}のAI候補を確認`}).click();
@@ -145,7 +153,7 @@ test('375px: 明示したGodotを保持しno voice/no 3Dの最初の工程を完
   await page.setViewportSize(mobile);
   await page.goto('/');
   await expectNoHorizontalOverflow(page);
-  const button = page.getByRole('button', { name: '制作ロードマップを作る' });
+  const button = page.getByRole('button', { name: '最初の作業を作る' });
   const box = await button.boundingBox();
   expect(box?.height).toBeGreaterThanOrEqual(44);
   await generateProject(page, '2Dパズル。ブラウザゲーム。一人開発。初心者。無料で作る。個人利用。Godot。音声なし。3Dなし。');
@@ -204,8 +212,11 @@ test('375px: 2候補比較と差分のみ表示を操作できる', async ({ pag
   await expect(page.locator('.compare-picker-panel > summary')).toContainText('2 / 4件');
   await page.getByLabel('差分のみ表示').check();
   await expect(page.getByText(/差分のみ表示中/)).toBeVisible();
-  await expect(page.locator('.compare-mobile article')).toHaveCount(2);
-  expect(await page.locator('.paired-fields > section > div').first().evaluate((node) => getComputedStyle(node).gridTemplateColumns.split(' ').length)).toBe(1);
+  const mobileResults = page.getByRole('region', { name: '選択したツールの比較結果' });
+  await expect(mobileResults).toBeVisible();
+  await expect(mobileResults.getByRole('heading', { level: 3 }).first()).toBeVisible();
+  await expect(mobileResults.locator('.compare-criteria-groups > section').first().locator('dl')).toHaveCount(2);
+  await expect(mobileResults.locator('.compare-mobile-actions article')).toHaveCount(2);
   await expectNoHorizontalOverflow(page);
 });
 
@@ -311,10 +322,12 @@ test('4ツール比較、差分絞り込み、キーボードfocusを維持す�
   await page.keyboard.press('Space');
   await expect(differences).toBeChecked();
   await expect(page.getByText(/差分のみ表示中/)).toBeVisible();
-  const remove = page.getByRole('button', { name: 'Meshyを比較から解除' });
+  const remove = page.getByRole('region', { name: '4件を比較' })
+    .getByRole('button', { name: 'Meshyを比較から解除' });
   await remove.focus();
   await expect(remove).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.locator('.compare-picker-panel > summary')).toContainText('3 / 4件');
+  await expect(page.getByRole('region', { name: '3件を比較' })).toBeVisible();
   await expect(page).toHaveURL(/ids=github-copilot%2Ccursor%2Celevenlabs|ids=github-copilot,cursor,elevenlabs/);
 });

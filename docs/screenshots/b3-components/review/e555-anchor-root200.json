@@ -1,0 +1,163 @@
+{
+  "pin": "e555d81678440a2faa76538b83e22f875ee96e93",
+  "build": "zRTspQ8ojf93LGGMfzTnt",
+  "method": "synthetic-root-text; native anchor click then bounded stable geometry polling; no forced scroll",
+  "href": "#analytics",
+  "result": {
+    "top": 341.6875,
+    "heading": {
+      "top": 366.6875,
+      "bottom": 556.765625
+    },
+    "headerBottom": 154.671875,
+    "scrollY": 2724,
+    "stable": true,
+    "sample": [
+      {
+        "ms": 39.30000000074506,
+        "top": 1447.6875,
+        "scrollY": 1618
+      },
+      {
+        "ms": 91,
+        "top": 886.6875,
+        "scrollY": 2179
+      },
+      {
+        "ms": 167.90000000223517,
+        "top": 667.6875,
+        "scrollY": 2398
+      },
+      {
+        "ms": 189.19999999925494,
+        "top": 544.6875,
+        "scrollY": 2521
+      },
+      {
+        "ms": 230.10000000149012,
+        "top": 488.6875,
+        "scrollY": 2577
+      },
+      {
+        "ms": 242.40000000223517,
+        "top": 466.6875,
+        "scrollY": 2599
+      },
+      {
+        "ms": 263.1000000014901,
+        "top": 446.6875,
+        "scrollY": 2619
+      },
+      {
+        "ms": 282.30000000074506,
+        "top": 429.6875,
+        "scrollY": 2636
+      },
+      {
+        "ms": 296.80000000074506,
+        "top": 414.6875,
+        "scrollY": 2651
+      },
+      {
+        "ms": 319.9000000022352,
+        "top": 389.6875,
+        "scrollY": 2676
+      },
+      {
+        "ms": 341,
+        "top": 379.6875,
+        "scrollY": 2686
+      },
+      {
+        "ms": 356.9000000022352,
+        "top": 371.6875,
+        "scrollY": 2694
+      },
+      {
+        "ms": 380,
+        "top": 364.6875,
+        "scrollY": 2701
+      },
+      {
+        "ms": 389.6000000014901,
+        "top": 357.6875,
+        "scrollY": 2708
+      },
+      {
+        "ms": 426.80000000074506,
+        "top": 348.6875,
+        "scrollY": 2717
+      },
+      {
+        "ms": 449.80000000074506,
+        "top": 345.6875,
+        "scrollY": 2720
+      },
+      {
+        "ms": 454.19999999925494,
+        "top": 343.6875,
+        "scrollY": 2722
+      },
+      {
+        "ms": 473.6000000014901,
+        "top": 342.6875,
+        "scrollY": 2723
+      },
+      {
+        "ms": 488.1000000014901,
+        "top": 341.6875,
+        "scrollY": 2724
+      },
+      {
+        "ms": 531.4000000022352,
+        "top": 341.6875,
+        "scrollY": 2724
+      },
+      {
+        "ms": 547.6000000014901,
+        "top": 341.6875,
+        "scrollY": 2724
+      },
+      {
+        "ms": 554.6000000014901,
+        "top": 341.6875,
+        "scrollY": 2724
+      },
+      {
+        "ms": 571.1999999992549,
+        "top": 341.6875,
+        "scrollY": 2724
+      },
+      {
+        "ms": 591.1000000014901,
+        "top": 341.6875,
+        "scrollY": 2724
+      },
+      {
+        "ms": 618.3000000007451,
+        "top": 341.6875,
+        "scrollY": 2724
+      },
+      {
+        "ms": 620.3000000007451,
+        "top": 341.6875,
+        "scrollY": 2724
+      },
+      {
+        "ms": 637.3000000007451,
+        "top": 341.6875,
+        "scrollY": 2724
+      }
+    ],
+    "viewport": 667
+  },
+  "widths": {
+    "viewportWidth": 320,
+    "documentScrollWidth": 320,
+    "documentOverflowPx": 0,
+    "ownedClippedDeckElements": [],
+    "ownedLocalScrollers": [],
+    "unownedOverflowingElements": []
+  },
+  "headingFullyVisible": true
+}

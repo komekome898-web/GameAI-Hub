@@ -1,0 +1,42 @@
+[WebServer] (node:34013) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:34013) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:34228) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:34223) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:34234) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:34221) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:34357) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 9 tests using 2 workers
+
+(node:34416) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/9] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives resize, expanded=false, without stealing surviving focus
+(node:34417) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/9] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 375
+[3/9] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 390
+[4/9] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives resize, expanded=true, without stealing surviving focus
+[5/9] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 1440
+[6/9] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives reduced-motion, expanded=false, without stealing surviving focus
+[7/9] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives reduced-motion, expanded=true, without stealing surviving focus
+[8/9] e2e/creation-deck-summary.spec.ts:45:5 › long category visible height grows, close remains, resize/font/content remeasure without lost focus
+[9/9] e2e/creation-deck-summary.spec.ts:98:5 › existing long article expands to full height and keeps its closing control
+  9 passed (18.8s)

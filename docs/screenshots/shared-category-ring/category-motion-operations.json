@@ -1,0 +1,4981 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "physicalSafari": "UNTESTED",
+  "records": [
+    {
+      "route": "/?hubCategory=start#categories",
+      "beforeHistory": 2,
+      "afterNeighbor": 5,
+      "slow": {
+        "release": {
+          "pos": 0.2,
+          "phase": "coasting",
+          "speed": 1.25
+        },
+        "frames": [
+          {
+            "pos": 0.2,
+            "phase": "coasting",
+            "speed": 1.25,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.21915135190485363,
+            "phase": "coasting",
+            "speed": 1.1901520252973325,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.23851716885061638,
+            "phase": "coasting",
+            "speed": 1.129633847341824,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.2568982511311714,
+            "phase": "coasting",
+            "speed": 1.0721929652150894,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.2743446716333778,
+            "phase": "coasting",
+            "speed": 1.0176729011456944,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.2908073494745167,
+            "phase": "coasting",
+            "speed": 0.9662270328921353,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3065295223140427,
+            "phase": "coasting",
+            "speed": 0.9170952427686165,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3213651767903912,
+            "phase": "coasting",
+            "speed": 0.8707338225300274,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.335533511135231,
+            "phase": "coasting",
+            "speed": 0.8264577777024033,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3489813982086392,
+            "phase": "coasting",
+            "speed": 0.7844331305980026,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3616710059425314,
+            "phase": "coasting",
+            "speed": 0.7447781064295895,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.37378982452011933,
+            "phase": "coasting",
+            "speed": 0.7069067983746272,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.38529241189051694,
+            "phase": "coasting",
+            "speed": 0.6709612128421346,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3962101028656354,
+            "phase": "coasting",
+            "speed": 0.6368434285448894,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.40651218341389195,
+            "phase": "coasting",
+            "speed": 0.6046494268315876,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.41629346845110904,
+            "phase": "coasting",
+            "speed": 0.5740829110902841,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.42568926373366095,
+            "phase": "coasting",
+            "speed": 0.5447210508323093,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.4345011001921568,
+            "phase": "coasting",
+            "speed": 0.5171840618995096,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.44286747664380244,
+            "phase": "coasting",
+            "speed": 0.49103913548811706,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.45085752649368843,
+            "phase": "coasting",
+            "speed": 0.46607022970722334,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.458441289374842,
+            "phase": "coasting",
+            "speed": 0.44237097070361836,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.46563942462031654,
+            "phase": "coasting",
+            "speed": 0.4198767980615104,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.4724316821833053,
+            "phase": "coasting",
+            "speed": 0.39865099317717057,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.47891841832710746,
+            "phase": "coasting",
+            "speed": 0.3783799427277887,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.48503939009678254,
+            "phase": "coasting",
+            "speed": 0.3592519059475541,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.4908850354430219,
+            "phase": "coasting",
+            "speed": 0.34098426424055606,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.4964334348930993,
+            "phase": "coasting",
+            "speed": 0.3236455159590642,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.5016689794948715,
+            "phase": "coasting",
+            "speed": 0.307284439078526,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.5039999999999999,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.6092748005640467,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.6922052792857551,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.7571873368597511,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.8087237374374019,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.8491062530229146,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.8811330859248792,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9063623009912543,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9262366761695243,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9418927632767714,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9541604454301642,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9638381571443585,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9715134208432619,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9775275477995456,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9822972714358116,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.98605463276451,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9889987984554753,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9913337768800009,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.993173161780407,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.994622141683735,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9957635791065303,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1,
+            "phase": "idle",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          }
+        ],
+        "final": 1,
+        "method": "synthetic controlled PointerEvent timing on actual production-build category component; rAF motion"
+      },
+      "fast": {
+        "release": {
+          "pos": 0.2,
+          "phase": "coasting",
+          "speed": 10
+        },
+        "frames": [
+          {
+            "pos": 0.2,
+            "phase": "coasting",
+            "speed": 10,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3446296590641168,
+            "phase": "coasting",
+            "speed": 9.548032315424635,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.49999253883281347,
+            "phase": "coasting",
+            "speed": 9.062523316147457,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.647455353563035,
+            "phase": "coasting",
+            "speed": 8.601702020115516,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.7866032556868057,
+            "phase": "coasting",
+            "speed": 8.166864825978733,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9194921689339852,
+            "phase": "coasting",
+            "speed": 7.751586972081297,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.0456237984650802,
+            "phase": "coasting",
+            "speed": 7.357425629796625,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.1653417461811364,
+            "phase": "coasting",
+            "speed": 6.98330704318395,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.2783092173482147,
+            "phase": "coasting",
+            "speed": 6.63028369578683,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.386195317293308,
+            "phase": "coasting",
+            "speed": 6.293139633458414,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.4885955044670705,
+            "phase": "coasting",
+            "speed": 5.973139048540406,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.5852217030675673,
+            "phase": "coasting",
+            "speed": 5.671182177913853,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.6775015745370243,
+            "phase": "coasting",
+            "speed": 5.3828075795718,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.7650890961515076,
+            "phase": "coasting",
+            "speed": 5.10909657452654,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.8477378636199215,
+            "phase": "coasting",
+            "speed": 4.850819176187747,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.9266690204858512,
+            "phase": "coasting",
+            "speed": 4.604159310981717,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.0015865978292373,
+            "phase": "coasting",
+            "speed": 4.370041881783635,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.072279834891063,
+            "phase": "coasting",
+            "speed": 4.14912551596543,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.1393993549400783,
+            "phase": "coasting",
+            "speed": 3.9393770158122567,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.2034997829080987,
+            "phase": "coasting",
+            "speed": 3.739063178412193,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.2643407608022312,
+            "phase": "coasting",
+            "speed": 3.5489351224930292,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.3217511286472736,
+            "phase": "coasting",
+            "speed": 3.3695277229772724,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.376579130188126,
+            "phase": "coasting",
+            "speed": 3.198190218162109,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.428619176338686,
+            "phase": "coasting",
+            "speed": 3.035565073941608,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.4780130321649767,
+            "phase": "coasting",
+            "speed": 2.8812092744844504,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.5246217411375156,
+            "phase": "coasting",
+            "speed": 2.735557058945266,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.56913395144526,
+            "phase": "coasting",
+            "speed": 2.596456401733565,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.611382755223974,
+            "phase": "coasting",
+            "speed": 2.4644288899250837,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.651249296655467,
+            "phase": "coasting",
+            "speed": 2.339845947951669,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.6893226077503214,
+            "phase": "coasting",
+            "speed": 2.220866850780249,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.725459924646773,
+            "phase": "coasting",
+            "speed": 2.107937735478839,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.759559584576108,
+            "phase": "coasting",
+            "speed": 2.001376298199667,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.7921254133162137,
+            "phase": "coasting",
+            "speed": 1.8996080833868367,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.8228549688207516,
+            "phase": "coasting",
+            "speed": 1.8035782224351555,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.852373443289685,
+            "phase": "coasting",
+            "speed": 1.7113329897197387,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.880057312691093,
+            "phase": "coasting",
+            "speed": 1.6248208978403396,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.906495938520734,
+            "phase": "coasting",
+            "speed": 1.5422001921227106,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.931443782666801,
+            "phase": "coasting",
+            "speed": 1.464238179166251,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.955269451942662,
+            "phase": "coasting",
+            "speed": 1.3897829626791856,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.9778836070064747,
+            "phase": "coasting",
+            "speed": 1.31911372810477,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.999222628923207,
+            "phase": "coasting",
+            "speed": 1.2524292846149816,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.019601803808287,
+            "phase": "coasting",
+            "speed": 1.188744363099107,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0388318682652833,
+            "phase": "coasting",
+            "speed": 1.128650411670993,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.057196948358912,
+            "phase": "coasting",
+            "speed": 1.0712595363784025,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.074628180371246,
+            "phase": "coasting",
+            "speed": 1.0167869363398594,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0910765261483584,
+            "phase": "coasting",
+            "speed": 0.9653858557863828,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.1067850115920703,
+            "phase": "coasting",
+            "speed": 0.9162968387747825,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.1216947344430315,
+            "phase": "coasting",
+            "speed": 0.8697039548655284,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.135846311072684,
+            "phase": "coasting",
+            "speed": 0.8254802778978638,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.149199929768777,
+            "phase": "coasting",
+            "speed": 0.783750219472573,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.1619528915407953,
+            "phase": "coasting",
+            "speed": 0.7438972139350153,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.1739867583816492,
+            "phase": "coasting",
+            "speed": 0.7062913800573465,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.185546359074599,
+            "phase": "coasting",
+            "speed": 0.6701676278918784,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.196323879256731,
+            "phase": "coasting",
+            "speed": 0.6364878773227164,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.206741032736866,
+            "phase": "coasting",
+            "speed": 0.6039342726972943,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.216510748877922,
+            "phase": "coasting",
+            "speed": 0.5734039097564949,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.2257865818381424,
+            "phase": "coasting",
+            "speed": 0.5444169317558054,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.23469684539122,
+            "phase": "coasting",
+            "speed": 0.5165723581524373,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.243053326441592,
+            "phase": "coasting",
+            "speed": 0.4904583548700249,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.25103392599362,
+            "phase": "coasting",
+            "speed": 0.4655189812699381,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.258608719116204,
+            "phase": "coasting",
+            "speed": 0.4418477527618636,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.2657563961353726,
+            "phase": "coasting",
+            "speed": 0.4195112620769615,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.2725427405005685,
+            "phase": "coasting",
+            "speed": 0.39830393593572455,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.2790616285740337,
+            "phase": "coasting",
+            "speed": 0.3779324107061453,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.2851753607134824,
+            "phase": "coasting",
+            "speed": 0.35882699777036847,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.2910140920741107,
+            "phase": "coasting",
+            "speed": 0.3405809622684057,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.296523597784971,
+            "phase": "coasting",
+            "speed": 0.3233637569219677,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.3017852813265174,
+            "phase": "coasting",
+            "speed": 0.3069209958546356,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.3040000000000007,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.239819089240213,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.1889180674837316,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.1488206645053145,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.117233838344819,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0924832642762787,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0728539150783005,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.05747289329494,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.045274410675054,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.03571601294072,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.028135375563145,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0221953952071865,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0174844762477577,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0137537761526425,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0108500594425673,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0085593795188115,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0067426719143864,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.005311556105806,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.004190172854417,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3,
+            "phase": "idle",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3,
+            "phase": "idle",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          }
+        ],
+        "final": 3,
+        "method": "synthetic controlled PointerEvent timing on actual production-build category component; rAF motion"
+      },
+      "reverse": {
+        "release": {
+          "pos": 0.2,
+          "phase": "coasting",
+          "speed": 10
+        },
+        "grab": {
+          "before": 0.3570169224089849,
+          "held": 0.3570169224089849,
+          "reverseSpeed": -10,
+          "reversePhase": "coasting"
+        },
+        "frames": [
+          {
+            "pos": 0.2,
+            "phase": "coasting",
+            "speed": 10,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3570169224089849,
+            "phase": "coasting",
+            "speed": 9.509322117471923,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3570169224089849,
+            "phase": "dragging",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.1570169224089849,
+            "phase": "coasting",
+            "speed": -10,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.003806107169268824,
+            "phase": "coasting",
+            "speed": -9.521216202375888,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -0.15112042839678771,
+            "phase": "coasting",
+            "speed": -9.03707077873196,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -0.298169086641185,
+            "phase": "coasting",
+            "speed": -8.57754372171822,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -0.43692618511551484,
+            "phase": "coasting",
+            "speed": -8.14392778898594,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -0.5694418733878686,
+            "phase": "coasting",
+            "speed": -7.729816263134834,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -0.69521925610404,
+            "phase": "coasting",
+            "speed": -7.336761942146799,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -0.814600970142427,
+            "phase": "coasting",
+            "speed": -6.963694085776839,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -0.9272511666734786,
+            "phase": "coasting",
+            "speed": -6.611662221617303,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.0348342632607133,
+            "phase": "coasting",
+            "speed": -6.275465044782195,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.1369468545293981,
+            "phase": "coasting",
+            "speed": -5.956363197067555,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.2333016737524964,
+            "phase": "coasting",
+            "speed": -5.655254386995373,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.3253223727156507,
+            "phase": "coasting",
+            "speed": -5.367689702735516,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.412663900516573,
+            "phase": "coasting",
+            "speed": -5.094747428357634,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.4950805449026017,
+            "phase": "coasting",
+            "speed": -4.837195414651295,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.5737900197762986,
+            "phase": "coasting",
+            "speed": -4.591228305670992,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.648061342522819,
+            "phase": "coasting",
+            "speed": -4.359130422088116,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.718991879128656,
+            "phase": "coasting",
+            "speed": -4.137472495194875,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.7863156606766937,
+            "phase": "coasting",
+            "speed": -3.9270856778572574,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.850216087471926,
+            "phase": "coasting",
+            "speed": -3.7273968441221563,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.910867234076033,
+            "phase": "coasting",
+            "speed": -3.537862010984322,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.9680984745538617,
+            "phase": "coasting",
+            "speed": -3.3590143844911076,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.0224365350577562,
+            "phase": "coasting",
+            "speed": -3.1892079454164373,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.0743304242081586,
+            "phase": "coasting",
+            "speed": -3.0270395418214306,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.1232981983655455,
+            "phase": "coasting",
+            "speed": -2.8740152475795973,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.1700633611354467,
+            "phase": "coasting",
+            "speed": -2.7278741139236558,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.2144505567360526,
+            "phase": "coasting",
+            "speed": -2.5891641276717623,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.256580702694927,
+            "phase": "coasting",
+            "speed": -2.4575074215502792,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.2963352770062246,
+            "phase": "coasting",
+            "speed": -2.333274376827475,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.3343016573554833,
+            "phase": "coasting",
+            "speed": -2.214629438236041,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.3703374808401865,
+            "phase": "coasting",
+            "speed": -2.102017489846344,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.4043413702164504,
+            "phase": "coasting",
+            "speed": -1.995755335545519,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.4368157362429654,
+            "phase": "coasting",
+            "speed": -1.89427294171266,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.467638809476281,
+            "phase": "coasting",
+            "speed": -1.797950837858548,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.4968945566945835,
+            "phase": "coasting",
+            "speed": -1.7065266278013536,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.5245006746025975,
+            "phase": "coasting",
+            "speed": -1.6202575093388094,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.5507112353494756,
+            "phase": "coasting",
+            "speed": -1.5383495070048152,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.575742823178616,
+            "phase": "coasting",
+            "speed": -1.4601257950387512,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.599501576903748,
+            "phase": "coasting",
+            "speed": -1.3858796896477132,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.622052219013409,
+            "phase": "coasting",
+            "speed": -1.3154089330550238,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.643456180914831,
+            "phase": "coasting",
+            "speed": -1.2485215521130792,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.663653248230878,
+            "phase": "coasting",
+            "speed": -1.1854057167504322,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.682941834587158,
+            "phase": "coasting",
+            "speed": -1.1251288843870568,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.701142804989899,
+            "phase": "coasting",
+            "speed": -1.0682508518784914,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.718423671571095,
+            "phase": "coasting",
+            "speed": -1.014248143812253,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.73502348274971,
+            "phase": "coasting",
+            "speed": -0.9623737338790821,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.7505915977361552,
+            "phase": "coasting",
+            "speed": -0.913723374546441,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.7654594459054764,
+            "phase": "coasting",
+            "speed": -0.867261349017312,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.779488948093134,
+            "phase": "coasting",
+            "speed": -0.8234191546808818,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.792887391552658,
+            "phase": "coasting",
+            "speed": -0.7815490188698683,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.8056045360114035,
+            "phase": "coasting",
+            "speed": -0.7418079424362896,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.8176046051520656,
+            "phase": "coasting",
+            "speed": -0.70430772637172,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.8290649011583624,
+            "phase": "coasting",
+            "speed": -0.6684943013520425,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.8399424512478437,
+            "phase": "coasting",
+            "speed": -0.6345019573224138,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.8502066543146753,
+            "phase": "coasting",
+            "speed": -0.6024263227385654,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.860066335367578,
+            "phase": "coasting",
+            "speed": -0.5716148194482445,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.8692589462855183,
+            "phase": "coasting",
+            "speed": -0.5428879103296808,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.87809266472656,
+            "phase": "coasting",
+            "speed": -0.5152825402014253,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.886477196397122,
+            "phase": "coasting",
+            "speed": -0.4890808787309205,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.894435382047236,
+            "phase": "coasting",
+            "speed": -0.46421154857431307,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9019448334296123,
+            "phase": "coasting",
+            "speed": -0.44074451300438827,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9091165034156883,
+            "phase": "coasting",
+            "speed": -0.4183330442979011,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9159235003253587,
+            "phase": "coasting",
+            "speed": -0.39706117895518134,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.922346674475916,
+            "phase": "coasting",
+            "speed": -0.37698875973468904,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.928480928887497,
+            "phase": "coasting",
+            "speed": -0.3578192146984987,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.93430326188718,
+            "phase": "coasting",
+            "speed": -0.33962442407449067,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.939797293883341,
+            "phase": "coasting",
+            "speed": -0.3224555740864869,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.945044199730802,
+            "phase": "coasting",
+            "speed": -0.30605899331317227,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.946983077591017,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9581760853735486,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9671001434959643,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9740460078193043,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9795546798972548,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9838711248478127,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.987294439595734,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.989991164066729,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.992104243691211,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9937800988740944,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9950932532132275,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1,
+            "phase": "idle",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          }
+        ],
+        "final": 1,
+        "method": "synthetic controlled PointerEvent timing on actual production-build category component; rAF motion"
+      },
+      "slowTravel": 0.7999999999999999,
+      "fastTravel": 2.8000000000000003,
+      "neighbor": "first tap centers 3d, same route",
+      "center": "second tap opens 3d article ring",
+      "url": "http://127.0.0.1:3100/articles/?hubEntry=home&hubCategory=3d&hubArticle=meshy-game-development-guide#3d"
+    },
+    {
+      "route": "/articles/?hubCategory=start#categories",
+      "beforeHistory": 7,
+      "afterNeighbor": 10,
+      "slow": {
+        "release": {
+          "pos": 0.2,
+          "phase": "coasting",
+          "speed": 1.25
+        },
+        "frames": [
+          {
+            "pos": 0.2,
+            "phase": "coasting",
+            "speed": 1.25,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.21962711530101245,
+            "phase": "coasting",
+            "speed": 1.188665264684336,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.2388559001997947,
+            "phase": "coasting",
+            "speed": 1.1285753118756416,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.2572197582908067,
+            "phase": "coasting",
+            "speed": 1.071188255341229,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.27464983043827595,
+            "phase": "coasting",
+            "speed": 1.0167192798803875,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.2910970817512489,
+            "phase": "coasting",
+            "speed": 0.9653216195273471,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3068961312329256,
+            "phase": "coasting",
+            "speed": 0.9159495898971074,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3217132527267017,
+            "phase": "coasting",
+            "speed": 0.869646085229057,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.33586388771800674,
+            "phase": "coasting",
+            "speed": 0.8254253508812287,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3492949754343549,
+            "phase": "coasting",
+            "speed": 0.7834532017676408,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.36196873106820265,
+            "phase": "coasting",
+            "speed": 0.7438477154118665,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3740017971819869,
+            "phase": "coasting",
+            "speed": 0.7062443838062907,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.38549360592999005,
+            "phase": "coasting",
+            "speed": 0.6703324814687809,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3964010663661307,
+            "phase": "coasting",
+            "speed": 0.6362466676058414,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.4066934932397373,
+            "phase": "coasting",
+            "speed": 0.6040828336258207,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.41658028577232226,
+            "phase": "coasting",
+            "speed": 0.5731866069614927,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.42585260347149584,
+            "phase": "coasting",
+            "speed": 0.5442106141515752,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.4346561827044886,
+            "phase": "coasting",
+            "speed": 0.5166994290484729,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.4430637695893934,
+            "phase": "coasting",
+            "speed": 0.4904257200331453,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.45104383811659104,
+            "phase": "coasting",
+            "speed": 0.46548800588565264,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.4585739384771121,
+            "phase": "coasting",
+            "speed": 0.4419564422590244,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.4657653286330466,
+            "phase": "coasting",
+            "speed": 0.41948334802172904,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.47259104295937815,
+            "phase": "coasting",
+            "speed": 0.398152990751943,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.47903187911690576,
+            "phase": "coasting",
+            "speed": 0.37802537775966927,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.48518300108362894,
+            "phase": "coasting",
+            "speed": 0.3588031216136593,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.49102134393819197,
+            "phase": "coasting",
+            "speed": 0.34055830019314987,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.4965304830494859,
+            "phase": "coasting",
+            "speed": 0.32334224047035637,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.5017918164814206,
+            "phase": "coasting",
+            "speed": 0.3069005734955603,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.5039999999999999,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.6087162228186018,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.6917652583160179,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.756840213740643,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.8084502903609052,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.8491062530229146,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.8809631546970804,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9063623009912541,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9261312246880707,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9417265052019845,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9541604454301641,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9638381571443585,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.971472696648396,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9775275477995455,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9822972714358115,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9860546327645098,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9889987984554751,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9913337768800008,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9931634021848991,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9946144535387728,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9957575227517448,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1,
+            "phase": "idle",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          }
+        ],
+        "final": 1,
+        "method": "synthetic controlled PointerEvent timing on actual production-build category component; rAF motion"
+      },
+      "fast": {
+        "release": {
+          "pos": 0.2,
+          "phase": "coasting",
+          "speed": 10
+        },
+        "frames": [
+          {
+            "pos": 0.2,
+            "phase": "coasting",
+            "speed": 10,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3579677060539357,
+            "phase": "coasting",
+            "speed": 9.50635091858145,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.512652357928925,
+            "phase": "coasting",
+            "speed": 9.022961381472108,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.6594714320540318,
+            "phase": "coasting",
+            "speed": 8.56415177483115,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.7980118918549542,
+            "phase": "coasting",
+            "speed": 8.131212837953267,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.9303206860424018,
+            "phase": "coasting",
+            "speed": 7.7177478561174935,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.0551690498647701,
+            "phase": "coasting",
+            "speed": 7.327596719172592,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.1744016299886548,
+            "phase": "coasting",
+            "speed": 6.954994906285453,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.2875713388585674,
+            "phase": "coasting",
+            "speed": 6.601339566066976,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.3949864681159712,
+            "phase": "coasting",
+            "speed": 6.26566728713759,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.49634483374778,
+            "phase": "coasting",
+            "speed": 5.9489223945381875,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.59257928469264,
+            "phase": "coasting",
+            "speed": 5.6481897353354995,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.684485029643262,
+            "phase": "coasting",
+            "speed": 5.360984282364806,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.771717448741529,
+            "phase": "coasting",
+            "speed": 5.088382972682722,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.8540311366832105,
+            "phase": "coasting",
+            "speed": 4.831152697864967,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1.9331007638241386,
+            "phase": "coasting",
+            "speed": 4.584060113049566,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.007256128244858,
+            "phase": "coasting",
+            "speed": 4.352324599234818,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.0780759224272565,
+            "phase": "coasting",
+            "speed": 4.131012742414823,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.1449024359950757,
+            "phase": "coasting",
+            "speed": 3.9221798875153886,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.208723037158191,
+            "phase": "coasting",
+            "speed": 3.722740508880652,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.269298417192979,
+            "phase": "coasting",
+            "speed": 3.5334424462719403,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.3267935927238486,
+            "phase": "coasting",
+            "speed": 3.3537700227379728,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.3810468163042806,
+            "phase": "coasting",
+            "speed": 3.184228699049122,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.4328596845669077,
+            "phase": "coasting",
+            "speed": 3.0223134857284126,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.4817510063211388,
+            "phase": "coasting",
+            "speed": 2.86952810524644,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.5284431555808444,
+            "phase": "coasting",
+            "speed": 2.7236151388098597,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.5727610503436775,
+            "phase": "coasting",
+            "speed": 2.585121717676006,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.6145800139520428,
+            "phase": "coasting",
+            "speed": 2.454437456399864,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.6545179256432725,
+            "phase": "coasting",
+            "speed": 2.329631482364771,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.692425029844764,
+            "phase": "coasting",
+            "speed": 2.21117178173511,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.7281946849600187,
+            "phase": "coasting",
+            "speed": 2.0993916094999396,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.762355391107529,
+            "phase": "coasting",
+            "speed": 1.992639402788971,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.7945898944580096,
+            "phase": "coasting",
+            "speed": 1.891906579818719,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.8253744629202613,
+            "phase": "coasting",
+            "speed": 1.7957048033741827,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.854593663301056,
+            "phase": "coasting",
+            "speed": 1.7043948021841995,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.8823270931829756,
+            "phase": "coasting",
+            "speed": 1.6177278338031993,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.908650302681923,
+            "phase": "coasting",
+            "speed": 1.5354678041189898,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.933489238420699,
+            "phase": "coasting",
+            "speed": 1.457846129935314,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.9572108980804073,
+            "phase": "coasting",
+            "speed": 1.3837159434987254,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 2.9795949762806044,
+            "phase": "coasting",
+            "speed": 1.3137656991231086,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0009721999445174,
+            "phase": "coasting",
+            "speed": 1.2469618751733804,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.021144036698794,
+            "phase": "coasting",
+            "speed": 1.183924885316267,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0405208821638925,
+            "phase": "coasting",
+            "speed": 1.1233722432378332,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.058586760788361,
+            "phase": "coasting",
+            "speed": 1.06691637253637,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0759473220677607,
+            "phase": "coasting",
+            "speed": 1.012664618538245,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.092425114159206,
+            "phase": "coasting",
+            "speed": 0.9611715182524777,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.108065025095213,
+            "phase": "coasting",
+            "speed": 0.9122967965774565,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.1229096603915405,
+            "phase": "coasting",
+            "speed": 0.8659073112764323,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.1369172585989626,
+            "phase": "coasting",
+            "speed": 0.8221335668782378,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.1502947833375803,
+            "phase": "coasting",
+            "speed": 0.7803288020700577,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.162992072773877,
+            "phase": "coasting",
+            "speed": 0.7406497725816302,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.174973406447396,
+            "phase": "coasting",
+            "speed": 0.7032081048518851,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.1863490542340487,
+            "phase": "coasting",
+            "speed": 0.6676592055185954,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.1972763769123183,
+            "phase": "coasting",
+            "speed": 0.6335113221490025,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.2075245546848734,
+            "phase": "coasting",
+            "speed": 0.6014857666097679,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.2173117608602664,
+            "phase": "coasting",
+            "speed": 0.5709007473116648,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.2265471006945847,
+            "phase": "coasting",
+            "speed": 0.5420403103294195,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.235367027228291,
+            "phase": "coasting",
+            "speed": 0.5144780399115879,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.2437384682978077,
+            "phase": "coasting",
+            "speed": 0.48831728656934803,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.251637873071188,
+            "phase": "coasting",
+            "speed": 0.46363164665253415,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.2591819560189883,
+            "phase": "coasting",
+            "speed": 0.4400563874406584,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.2663006545027695,
+            "phase": "coasting",
+            "speed": 0.4178104546788423,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.27309914798205,
+            "phase": "coasting",
+            "speed": 0.3965651625560911,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.2795519440802705,
+            "phase": "coasting",
+            "speed": 0.3764001747491519,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.285676621203535,
+            "phase": "coasting",
+            "speed": 0.35726055873895113,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.2914898639115417,
+            "phase": "coasting",
+            "speed": 0.3390941752764293,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.296975318185796,
+            "phase": "coasting",
+            "speed": 0.3219521306693844,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.302214032144447,
+            "phase": "coasting",
+            "speed": 0.30558114954860083,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.303999999999999,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.2398190892402114,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.1891881433026463,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.148820664505313,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.11740143494009,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0924832642762774,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0729580664759824,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.057472893294939,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.045339134624974,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.035716012940719,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0281353755631444,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.022163710137329,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0174844762477573,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.01377343844544,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0108500594425673,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0085593795188115,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.0067426719143864,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.005311556105806,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3.004190172854417,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3,
+            "phase": "idle",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 3,
+            "phase": "idle",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          }
+        ],
+        "final": 3,
+        "method": "synthetic controlled PointerEvent timing on actual production-build category component; rAF motion"
+      },
+      "reverse": {
+        "release": {
+          "pos": 0.2,
+          "phase": "coasting",
+          "speed": 10
+        },
+        "grab": {
+          "before": 0.3446296590641168,
+          "held": 0.3446296590641168,
+          "reverseSpeed": -10,
+          "reversePhase": "coasting"
+        },
+        "frames": [
+          {
+            "pos": 0.2,
+            "phase": "coasting",
+            "speed": 10,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3446296590641168,
+            "phase": "coasting",
+            "speed": 9.548032315424635,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.3446296590641168,
+            "phase": "dragging",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 0.1446296590641168,
+            "phase": "coasting",
+            "speed": -10,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -0.008581156177372817,
+            "phase": "coasting",
+            "speed": -9.521216202370345,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -0.16350769174333918,
+            "phase": "coasting",
+            "speed": -9.0370707787267,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -0.3105563499876506,
+            "phase": "coasting",
+            "speed": -8.577543721713228,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -0.44931344846190024,
+            "phase": "coasting",
+            "speed": -8.143927788981198,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -0.5818291367341768,
+            "phase": "coasting",
+            "speed": -7.729816263130334,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -0.7076065194502746,
+            "phase": "coasting",
+            "speed": -7.3367619421425285,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -0.8269882334885925,
+            "phase": "coasting",
+            "speed": -6.963694085772786,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -0.939638430019579,
+            "phase": "coasting",
+            "speed": -6.611662221613453,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.0472215266067502,
+            "phase": "coasting",
+            "speed": -6.275465044778543,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.1487383884777995,
+            "phase": "coasting",
+            "speed": -5.958224851431514,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.2456889370984185,
+            "phase": "coasting",
+            "speed": -5.6552543869920795,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.3377096360615186,
+            "phase": "coasting",
+            "speed": -5.367689702732392,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.4250511638623906,
+            "phase": "coasting",
+            "speed": -5.094747428354666,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.507467808248371,
+            "phase": "coasting",
+            "speed": -4.837195414648478,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.5861772831220216,
+            "phase": "coasting",
+            "speed": -4.59122830566832,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.6604486058684986,
+            "phase": "coasting",
+            "speed": -4.359130422085579,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.7313791424742948,
+            "phase": "coasting",
+            "speed": -4.137472495192466,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.798702924022293,
+            "phase": "coasting",
+            "speed": -3.9270856778549725,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.8622305528864336,
+            "phase": "coasting",
+            "speed": -3.728561837654533,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.9229006559356094,
+            "phase": "coasting",
+            "speed": -3.5389677656258587,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -1.9804857378993552,
+            "phase": "coasting",
+            "speed": -3.359014384489153,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.034823798403218,
+            "phase": "coasting",
+            "speed": -3.1892079454145814,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.08671768755359,
+            "phase": "coasting",
+            "speed": -3.027039541819668,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.135972818333895,
+            "phase": "coasting",
+            "speed": -2.873117258131215,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.1824506244808224,
+            "phase": "coasting",
+            "speed": -2.727874113922068,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.2265788632087316,
+            "phase": "coasting",
+            "speed": -2.5899733678973513,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.2689679660402526,
+            "phase": "coasting",
+            "speed": -2.4575074215488484,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.308722540351527,
+            "phase": "coasting",
+            "speed": -2.333274376826116,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.346688920700764,
+            "phase": "coasting",
+            "speed": -2.2146294382347502,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.3827247441854458,
+            "phase": "coasting",
+            "speed": -2.1020174898451196,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.4167286335616898,
+            "phase": "coasting",
+            "speed": -1.9957553355443565,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.4490135426929167,
+            "phase": "coasting",
+            "speed": -1.8948649945092724,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.4798462496417897,
+            "phase": "coasting",
+            "speed": -1.798512785294045,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.509111140709733,
+            "phase": "coasting",
+            "speed": -1.7070600007067227,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.5368879379477676,
+            "phase": "coasting",
+            "speed": -1.620257509337865,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.56309849869463,
+            "phase": "coasting",
+            "speed": -1.5383495070039193,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.588130086523756,
+            "phase": "coasting",
+            "speed": -1.4601257950379007,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.6118888402488745,
+            "phase": "coasting",
+            "speed": -1.3858796896469054,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.634307920909811,
+            "phase": "coasting",
+            "speed": -1.3158200625814793,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.655718572594539,
+            "phase": "coasting",
+            "speed": -1.2489117760667037,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.675921952480398,
+            "phase": "coasting",
+            "speed": -1.1857762139233945,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.695216567461827,
+            "phase": "coasting",
+            "speed": -1.1254805421064287,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.713530068334966,
+            "phase": "coasting",
+            "speed": -1.068250851877869,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.730912343884557,
+            "phase": "coasting",
+            "speed": -1.0139312407853975,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.7474107460947574,
+            "phase": "coasting",
+            "speed": -0.962373733878521,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.7629788610811934,
+            "phase": "coasting",
+            "speed": -0.9137233745459089,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.777759969563234,
+            "phase": "coasting",
+            "speed": -0.867532410539532,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.7919585404890395,
+            "phase": "coasting",
+            "speed": -0.8231618763963898,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.805274654897672,
+            "phase": "coasting",
+            "speed": -0.7815490188694131,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.8179176069702097,
+            "phase": "coasting",
+            "speed": -0.7420397936427332,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.829991868497065,
+            "phase": "coasting",
+            "speed": -0.7043077263713098,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.8414521645033552,
+            "phase": "coasting",
+            "speed": -0.6684943013516531,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.852266254481972,
+            "phase": "coasting",
+            "speed": -0.634700270168476,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.8625939176596558,
+            "phase": "coasting",
+            "speed": -0.6024263227382146,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.8723964282981957,
+            "phase": "coasting",
+            "speed": -0.5717934769927765,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.8817004899397807,
+            "phase": "coasting",
+            "speed": -0.5427182843628241,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.8904799280715245,
+            "phase": "coasting",
+            "speed": -0.5152825402011251,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.8988644597420814,
+            "phase": "coasting",
+            "speed": -0.48908087873063555,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9068226453921913,
+            "phase": "coasting",
+            "speed": -0.4642115485740426,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.914332096774563,
+            "phase": "coasting",
+            "speed": -0.4407445130041315,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9215037667606345,
+            "phase": "coasting",
+            "speed": -0.41833304429765733,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.928310763670301,
+            "phase": "coasting",
+            "speed": -0.39706117895494997,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.934733937820855,
+            "phase": "coasting",
+            "speed": -0.3769887597344694,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9408681922324322,
+            "phase": "coasting",
+            "speed": -0.3578192146982902,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9466905252321114,
+            "phase": "coasting",
+            "speed": -0.3396244240742928,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9521845572282692,
+            "phase": "coasting",
+            "speed": -0.322455574086299,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.957431463075727,
+            "phase": "coasting",
+            "speed": -0.3060589933129939,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9593703409358847,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9679938878208847,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9747871077331567,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.980138483146533,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.98433167472787,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9876395937609157,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.9902630600950086,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.992340651789203,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.993957704236556,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": -2.995233362279904,
+            "phase": "settling",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          },
+          {
+            "pos": 1,
+            "phase": "idle",
+            "speed": 0,
+            "ids": [
+              "start",
+              "3d",
+              "voice",
+              "practice"
+            ]
+          }
+        ],
+        "final": 1,
+        "method": "synthetic controlled PointerEvent timing on actual production-build category component; rAF motion"
+      },
+      "slowTravel": 0.7999999999999999,
+      "fastTravel": 2.8,
+      "neighbor": "first tap centers 3d, same route",
+      "center": "second tap opens 3d article ring",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=3d&hubArticle=meshy-game-development-guide#3d"
+    }
+  ],
+  "source_sha": "f183f29980fa4c9e00dd89eb912946efded61d37"
+}

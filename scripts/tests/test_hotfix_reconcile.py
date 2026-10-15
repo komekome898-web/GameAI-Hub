@@ -127,5 +127,24 @@ class HotfixReconcileTests(unittest.TestCase):
         self.assertNotIn(102, called)
 
 
+
+
+# These regression cases exercise the retained legacy engine, never live GitHub.
+def setUpModule():
+    import orchestration_mode
+    global legacy_mode_fixture
+    legacy_mode_fixture = patch.object(orchestration_mode, "legacy_automation_enabled", return_value=True)
+    legacy_mode_fixture.start()
+    # The human-control adapter imports this predicate directly.
+    global adapter_mode_fixture
+    adapter_mode_fixture = patch("orchestration_github.legacy_automation_enabled", return_value=True)
+    adapter_mode_fixture.start()
+
+
+def tearDownModule():
+    adapter_mode_fixture.stop()
+    legacy_mode_fixture.stop()
+
+
 if __name__ == "__main__":
     unittest.main()

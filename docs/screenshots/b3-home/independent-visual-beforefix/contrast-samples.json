@@ -1,0 +1,2705 @@
+{
+  "method": "Rendered background pixel sampling; disposable text-transparent browser styles; no source edits",
+  "server": "http://127.0.0.1:3179",
+  "samples": [
+    {
+      "name": "contrast-bg-home-1440",
+      "width": 1440,
+      "section": "home",
+      "nodes": [
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "GameBuildiary",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 22,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 173,
+              "top": 19.203125,
+              "right": 324.140625,
+              "bottom": 51.203125
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "ビルダイアリー",
+          "color": "rgb(197, 206, 185)",
+          "fontSize": 10,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 173,
+              "top": 46.296875,
+              "right": 245.8125,
+              "bottom": 61.296875
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "制作を始める",
+          "color": "rgb(235, 239, 217)",
+          "fontSize": 12,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 1191.984375,
+              "top": 33.5,
+              "right": 1264,
+              "bottom": 50.5
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "↗",
+          "color": "rgb(39, 48, 37)",
+          "fontSize": 19.2,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 1282.90625,
+              "top": 28.5,
+              "right": 1302.09375,
+              "bottom": 56.5
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .main-nav",
+          "text": "ゲームで遊ぶ",
+          "color": "rgb(41, 49, 36)",
+          "fontSize": 12,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 863.546875,
+              "top": 32.5,
+              "right": 935.1875,
+              "bottom": 49.5
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .main-nav",
+          "text": "作り方を知る",
+          "color": "rgb(202, 211, 192)",
+          "fontSize": 12,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 974.1875,
+              "top": 32.5,
+              "right": 1046.203125,
+              "bottom": 49.5
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .main-nav",
+          "text": "AIを選ぶ",
+          "color": "rgb(202, 211, 192)",
+          "fontSize": 12,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 1085.203125,
+              "top": 32.5,
+              "right": 1132.984375,
+              "bottom": 49.5
+            }
+          ]
+        },
+        {
+          "selector": ".b3-intro",
+          "text": "PLAY FIRST. CREATE NEXT.",
+          "color": "rgb(212, 217, 196)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 108,
+              "top": 97,
+              "right": 281.90625,
+              "bottom": 113
+            }
+          ]
+        },
+        {
+          "selector": ".b3-intro",
+          "text": "遊べる世界から、",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 61,
+          "fontWeight": "650",
+          "rects": [
+            {
+              "left": 108,
+              "top": 120.25,
+              "right": 574.046875,
+              "bottom": 209.25
+            }
+          ]
+        },
+        {
+          "selector": ".b3-intro",
+          "text": "作るヒントを。",
+          "color": "rgb(224, 212, 183)",
+          "fontSize": 61,
+          "fontWeight": "500",
+          "rects": [
+            {
+              "left": 592.046875,
+              "top": 120.25,
+              "right": 999.84375,
+              "bottom": 209.25
+            }
+          ]
+        },
+        {
+          "selector": ".b3-intro",
+          "text": "AIと人が作ったゲーム。スマホだけで制作した作品も。",
+          "color": "rgb(195, 203, 185)",
+          "fontSize": 14,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 108,
+              "top": 215.546875,
+              "right": 455.78125,
+              "bottom": 235.546875
+            }
+          ]
+        },
+        {
+          "selector": ".b3-intro",
+          "text": "コードが初めてでも。遊ぶところから、制作の一歩へ。",
+          "color": "rgb(195, 203, 185)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 1112,
+              "top": 151.75,
+              "right": 1328.015625,
+              "bottom": 168.75
+            },
+            {
+              "left": 1112,
+              "top": 173.34375,
+              "right": 1196.015625,
+              "bottom": 190.34375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-intro",
+          "text": "初めての方へ ↓",
+          "color": "rgb(235, 208, 158)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 1112,
+              "top": 204.9375,
+              "right": 1198.703125,
+              "bottom": 221.9375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "プレイ無料、インストールなし",
+          "color": "rgb(201, 209, 190)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 108,
+              "top": 262.4375,
+              "right": 275.765625,
+              "bottom": 279.4375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "←",
+          "color": "rgb(239, 237, 219)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 1132.53125,
+              "top": 262.4375,
+              "right": 1144.546875,
+              "bottom": 279.4375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "1",
+          "color": "rgb(201, 209, 190)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 1170.546875,
+              "top": 262.4375,
+              "right": 1177.21875,
+              "bottom": 279.4375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "/",
+          "color": "rgb(201, 209, 190)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 1177.21875,
+              "top": 262.4375,
+              "right": 1187.3125,
+              "bottom": 279.4375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "8",
+          "color": "rgb(201, 209, 190)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 1187.3125,
+              "top": 262.4375,
+              "right": 1193.984375,
+              "bottom": 279.4375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "→",
+          "color": "rgb(239, 237, 219)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 1219.96875,
+              "top": 262.4375,
+              "right": 1231.984375,
+              "bottom": 279.4375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "作品一覧",
+          "color": "rgb(239, 237, 219)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 1270.984375,
+              "top": 262.4375,
+              "right": 1319,
+              "bottom": 279.4375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+          "text": "PLAYABLE /",
+          "color": "rgb(205, 214, 194)",
+          "fontSize": 10,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 415,
+              "top": 315.9375,
+              "right": 470.171875,
+              "bottom": 330.9375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+          "text": "01",
+          "color": "rgb(205, 214, 194)",
+          "fontSize": 10,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 470.171875,
+              "top": 315.9375,
+              "right": 481.28125,
+              "bottom": 330.9375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+          "text": "カードバトル／戦略／モンスター育成・合体",
+          "color": "rgb(205, 214, 194)",
+          "fontSize": 10,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 824.890625,
+              "top": 315.9375,
+              "right": 1025,
+              "bottom": 330.9375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-credit",
+          "text": "作者提供：かど",
+          "color": "rgb(205, 214, 194)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 415,
+              "top": 694.5625,
+              "right": 492,
+              "bottom": 710.5625
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-credit",
+          "text": "FULL FRAME",
+          "color": "rgb(205, 214, 194)",
+          "fontSize": 9,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 964.046875,
+              "top": 694.5625,
+              "right": 1025,
+              "bottom": 707.5625
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "カードバトル／戦略／モンスター育成・合体",
+          "color": "rgb(197, 206, 187)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 260,
+              "top": 781.9375,
+              "right": 500.125,
+              "bottom": 798.9375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "スマホのみで制作",
+          "color": "rgb(197, 206, 187)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 525.125,
+              "top": 781.9375,
+              "right": 620.78125,
+              "bottom": 798.9375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "モンスターコンストラクション",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 25,
+          "fontWeight": "760",
+          "rects": [
+            {
+              "left": 260,
+              "top": 805.125,
+              "right": 595.765625,
+              "bottom": 841.125
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "モンスターを育成・合体させ、勝利後のカード交換で自分だけの40枚をつくるカードバトルです。",
+          "color": "rgb(192, 200, 183)",
+          "fontSize": 14,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 260,
+              "top": 851.375,
+              "right": 876,
+              "bottom": 871.375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "プレイ無料、インストールなし",
+          "color": "rgb(192, 200, 183)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 260,
+              "top": 881.5625,
+              "right": 413.78125,
+              "bottom": 897.5625
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "· 作者：",
+          "color": "rgb(192, 200, 183)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 413.78125,
+              "top": 881.5625,
+              "right": 457.890625,
+              "bottom": 897.5625
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "かど",
+          "color": "rgb(192, 200, 183)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 457.890625,
+              "top": 881.5625,
+              "right": 479.890625,
+              "bottom": 897.5625
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "遊ぶ",
+          "color": "rgb(46, 40, 29)",
+          "fontSize": 14,
+          "fontWeight": "900",
+          "rects": [
+            {
+              "left": 1084,
+              "top": 794.6875,
+              "right": 1112,
+              "bottom": 814.6875
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "↗",
+          "color": "rgb(46, 40, 29)",
+          "fontSize": 14,
+          "fontWeight": "900",
+          "rects": [
+            {
+              "left": 1112,
+              "top": 794.6875,
+              "right": 1126,
+              "bottom": 814.6875
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "作品の紹介",
+          "color": "rgb(224, 229, 214)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 1063.984375,
+              "top": 848.4375,
+              "right": 1124,
+              "bottom": 865.4375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "↗",
+          "color": "rgb(224, 229, 214)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 1134,
+              "top": 848.4375,
+              "right": 1146.015625,
+              "bottom": 865.4375
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "contrast-bg-home-375",
+      "width": 375,
+      "section": "home",
+      "nodes": [
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "GameBuildiary",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 18,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 63,
+              "top": 13.359375,
+              "right": 186.65625,
+              "bottom": 39.359375
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "ビルダイアリー",
+          "color": "rgb(197, 206, 185)",
+          "fontSize": 8,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 63,
+              "top": 36.25,
+              "right": 121.25,
+              "bottom": 47.25
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "作る",
+          "color": "rgb(235, 239, 217)",
+          "fontSize": 11,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 237,
+              "top": 23.65625,
+              "right": 259,
+              "bottom": 39.65625
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "↗",
+          "color": "rgb(39, 48, 37)",
+          "fontSize": 19.2,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 267.40625,
+              "top": 19,
+              "right": 286.59375,
+              "bottom": 47
+            }
+          ]
+        },
+        {
+          "selector": ".b3-intro",
+          "text": "遊べる世界から、",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 32,
+          "fontWeight": "650",
+          "rects": [
+            {
+              "left": 18,
+              "top": 68,
+              "right": 262.484375,
+              "bottom": 114
+            }
+          ]
+        },
+        {
+          "selector": ".b3-intro",
+          "text": "作るヒントを。",
+          "color": "rgb(224, 212, 183)",
+          "fontSize": 32,
+          "fontWeight": "500",
+          "rects": [
+            {
+              "left": 18,
+              "top": 106.390625,
+              "right": 231.921875,
+              "bottom": 152.390625
+            }
+          ]
+        },
+        {
+          "selector": ".b3-intro",
+          "text": "AIと人が作ったゲーム。スマホだけで制作した作品も。",
+          "color": "rgb(195, 203, 185)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 18,
+              "top": 154.78125,
+              "right": 291.25,
+              "bottom": 170.78125
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "プレイ無料、インストールなし",
+          "color": "rgb(201, 209, 190)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 18,
+              "top": 185.375,
+              "right": 171.78125,
+              "bottom": 201.375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "←",
+          "color": "rgb(239, 237, 219)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 182.03125,
+              "top": 220.71875,
+              "right": 193.03125,
+              "bottom": 236.71875
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "1",
+          "color": "rgb(201, 209, 190)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 215.53125,
+              "top": 220.71875,
+              "right": 221.640625,
+              "bottom": 236.71875
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "/",
+          "color": "rgb(201, 209, 190)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 221.640625,
+              "top": 220.71875,
+              "right": 230.890625,
+              "bottom": 236.71875
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "8",
+          "color": "rgb(201, 209, 190)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 230.890625,
+              "top": 220.71875,
+              "right": 237,
+              "bottom": 236.71875
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "→",
+          "color": "rgb(239, 237, 219)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 259.5,
+              "top": 220.71875,
+              "right": 270.5,
+              "bottom": 236.71875
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "作品一覧",
+          "color": "rgb(239, 237, 219)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 303,
+              "top": 220.71875,
+              "right": 347,
+              "bottom": 236.71875
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+          "text": "PLAYABLE /",
+          "color": "rgb(205, 214, 194)",
+          "fontSize": 8,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 24,
+              "top": 269.0625,
+              "right": 68.140625,
+              "bottom": 280.0625
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+          "text": "01",
+          "color": "rgb(205, 214, 194)",
+          "fontSize": 8,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 68.140625,
+              "top": 269.0625,
+              "right": 77.03125,
+              "bottom": 280.0625
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+          "text": "カードバトル／戦略／モンスター育成・合体",
+          "color": "rgb(205, 214, 194)",
+          "fontSize": 8,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 190.921875,
+              "top": 269.0625,
+              "right": 351,
+              "bottom": 280.0625
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-credit",
+          "text": "作者提供：かど",
+          "color": "rgb(205, 214, 194)",
+          "fontSize": 9,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 24,
+              "top": 480.25,
+              "right": 87.015625,
+              "bottom": 493.25
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-credit",
+          "text": "FULL FRAME",
+          "color": "rgb(205, 214, 194)",
+          "fontSize": 8,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 296.8125,
+              "top": 480.25,
+              "right": 351,
+              "bottom": 491.25
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "カードバトル／戦略／モンスター育成・合体",
+          "color": "rgb(197, 206, 187)",
+          "fontSize": 10,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 18,
+              "top": 514.25,
+              "right": 218.109375,
+              "bottom": 529.25
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "スマホのみで制作",
+          "color": "rgb(197, 206, 187)",
+          "fontSize": 10,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 243.109375,
+              "top": 514.25,
+              "right": 322.8125,
+              "bottom": 529.25
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "モンスターコンストラクション",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 18,
+          "fontWeight": "760",
+          "rects": [
+            {
+              "left": 18,
+              "top": 536.25,
+              "right": 259.75,
+              "bottom": 562.25
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "モンスターを育成・合体させ、勝利後のカード交換で自分だけの40枚をつくるカードバトルです。",
+          "color": "rgb(192, 200, 183)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 18,
+              "top": 628.34375,
+              "right": 353.765625,
+              "bottom": 645.34375
+            },
+            {
+              "left": 18,
+              "top": 649.9375,
+              "right": 210.25,
+              "bottom": 666.9375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "遊ぶ",
+          "color": "rgb(46, 40, 29)",
+          "fontSize": 14,
+          "fontWeight": "900",
+          "rects": [
+            {
+              "left": 39,
+              "top": 583.4375,
+              "right": 67,
+              "bottom": 603.4375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "↗",
+          "color": "rgb(46, 40, 29)",
+          "fontSize": 14,
+          "fontWeight": "900",
+          "rects": [
+            {
+              "left": 67,
+              "top": 583.4375,
+              "right": 81,
+              "bottom": 603.4375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "作品の紹介",
+          "color": "rgb(224, 229, 214)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 266.96875,
+              "top": 585.140625,
+              "right": 326.984375,
+              "bottom": 602.140625
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "↗",
+          "color": "rgb(224, 229, 214)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 336.984375,
+              "top": 585.140625,
+              "right": 349,
+              "bottom": 602.140625
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "contrast-bg-home-320",
+      "width": 320,
+      "section": "home",
+      "nodes": [
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "GameBuildiary",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 16,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 60,
+              "top": 14.40625,
+              "right": 169.921875,
+              "bottom": 38.40625
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "ビルダイアリー",
+          "color": "rgb(197, 206, 185)",
+          "fontSize": 8,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 60,
+              "top": 35.203125,
+              "right": 118.25,
+              "bottom": 46.203125
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "作る",
+          "color": "rgb(235, 239, 217)",
+          "fontSize": 11,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 188,
+              "top": 23.65625,
+              "right": 210,
+              "bottom": 39.65625
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "↗",
+          "color": "rgb(39, 48, 37)",
+          "fontSize": 19.2,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 218.40625,
+              "top": 19,
+              "right": 237.59375,
+              "bottom": 47
+            }
+          ]
+        },
+        {
+          "selector": ".b3-intro",
+          "text": "遊べる世界から、",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 30,
+          "fontWeight": "650",
+          "rects": [
+            {
+              "left": 18,
+              "top": 68,
+              "right": 247.203125,
+              "bottom": 112
+            }
+          ]
+        },
+        {
+          "selector": ".b3-intro",
+          "text": "作るヒントを。",
+          "color": "rgb(224, 212, 183)",
+          "fontSize": 30,
+          "fontWeight": "500",
+          "rects": [
+            {
+              "left": 18,
+              "top": 104,
+              "right": 218.5625,
+              "bottom": 148
+            }
+          ]
+        },
+        {
+          "selector": ".b3-intro",
+          "text": "AIと人が作ったゲーム。スマホだけで制作した作品も。",
+          "color": "rgb(195, 203, 185)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 18,
+              "top": 150,
+              "right": 291.25,
+              "bottom": 166
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "プレイ無料、インストールなし",
+          "color": "rgb(201, 209, 190)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 18,
+              "top": 180.59375,
+              "right": 171.78125,
+              "bottom": 196.59375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "←",
+          "color": "rgb(239, 237, 219)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 127.03125,
+              "top": 214.9375,
+              "right": 138.03125,
+              "bottom": 230.9375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "1",
+          "color": "rgb(201, 209, 190)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 160.53125,
+              "top": 214.9375,
+              "right": 166.640625,
+              "bottom": 230.9375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "/",
+          "color": "rgb(201, 209, 190)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 166.640625,
+              "top": 214.9375,
+              "right": 175.890625,
+              "bottom": 230.9375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "8",
+          "color": "rgb(201, 209, 190)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 175.890625,
+              "top": 214.9375,
+              "right": 182,
+              "bottom": 230.9375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "→",
+          "color": "rgb(239, 237, 219)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 204.5,
+              "top": 214.9375,
+              "right": 215.5,
+              "bottom": 230.9375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-gallery-bar",
+          "text": "作品一覧",
+          "color": "rgb(239, 237, 219)",
+          "fontSize": 11,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 248,
+              "top": 214.9375,
+              "right": 292,
+              "bottom": 230.9375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+          "text": "PLAYABLE /",
+          "color": "rgb(205, 214, 194)",
+          "fontSize": 8,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 24,
+              "top": 263.28125,
+              "right": 68.140625,
+              "bottom": 274.28125
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+          "text": "01",
+          "color": "rgb(205, 214, 194)",
+          "fontSize": 8,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 68.140625,
+              "top": 263.28125,
+              "right": 77.03125,
+              "bottom": 274.28125
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-top",
+          "text": "カードバトル／戦略／モンスター育成・合体",
+          "color": "rgb(205, 214, 194)",
+          "fontSize": 8,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 135.921875,
+              "top": 263.28125,
+              "right": 296,
+              "bottom": 274.28125
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-credit",
+          "text": "作者提供：かど",
+          "color": "rgb(205, 214, 194)",
+          "fontSize": 9,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 24,
+              "top": 443.53125,
+              "right": 87.015625,
+              "bottom": 456.53125
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-stage [data-distance=\"0\"] .b3-art-credit",
+          "text": "FULL FRAME",
+          "color": "rgb(205, 214, 194)",
+          "fontSize": 8,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 241.8125,
+              "top": 443.53125,
+              "right": 296,
+              "bottom": 454.53125
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "カードバトル／戦略／モンスター育成・合体",
+          "color": "rgb(197, 206, 187)",
+          "fontSize": 10,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 18,
+              "top": 477.53125,
+              "right": 218.109375,
+              "bottom": 492.53125
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "スマホのみで制作",
+          "color": "rgb(197, 206, 187)",
+          "fontSize": 10,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 31,
+              "top": 505.53125,
+              "right": 110.703125,
+              "bottom": 520.53125
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "モンスターコンストラクション",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 18,
+          "fontWeight": "760",
+          "rects": [
+            {
+              "left": 18,
+              "top": 527.53125,
+              "right": 259.75,
+              "bottom": 553.53125
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "モンスターを育成・合体させ、勝利後のカード交換で自分だけの40枚をつくるカードバトルです。",
+          "color": "rgb(192, 200, 183)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 18,
+              "top": 619.625,
+              "right": 293.765625,
+              "bottom": 636.625
+            },
+            {
+              "left": 18,
+              "top": 641.21875,
+              "right": 270.25,
+              "bottom": 658.21875
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "遊ぶ",
+          "color": "rgb(46, 40, 29)",
+          "fontSize": 14,
+          "fontWeight": "900",
+          "rects": [
+            {
+              "left": 39,
+              "top": 574.71875,
+              "right": 67,
+              "bottom": 594.71875
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "↗",
+          "color": "rgb(46, 40, 29)",
+          "fontSize": 14,
+          "fontWeight": "900",
+          "rects": [
+            {
+              "left": 67,
+              "top": 574.71875,
+              "right": 81,
+              "bottom": 594.71875
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "作品の紹介",
+          "color": "rgb(224, 229, 214)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 211.96875,
+              "top": 576.421875,
+              "right": 271.984375,
+              "bottom": 593.421875
+            }
+          ]
+        },
+        {
+          "selector": ".b3-game-selection",
+          "text": "↗",
+          "color": "rgb(224, 229, 214)",
+          "fontSize": 12,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 281.984375,
+              "top": 576.421875,
+              "right": 294,
+              "bottom": 593.421875
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "contrast-bg-next-375",
+      "width": 375,
+      "section": "next",
+      "nodes": [
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "GameBuildiary",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 18,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 63,
+              "top": 13.359375,
+              "right": 186.65625,
+              "bottom": 39.359375
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "ビルダイアリー",
+          "color": "rgb(197, 206, 185)",
+          "fontSize": 8,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 63,
+              "top": 36.25,
+              "right": 121.25,
+              "bottom": 47.25
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "作る",
+          "color": "rgb(235, 239, 217)",
+          "fontSize": 11,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 237,
+              "top": 23.65625,
+              "right": 259,
+              "bottom": 39.65625
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "↗",
+          "color": "rgb(39, 48, 37)",
+          "fontSize": 19.2,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 267.40625,
+              "top": 19,
+              "right": 286.59375,
+              "bottom": 47
+            }
+          ]
+        },
+        {
+          "selector": ".b3-next-chapter",
+          "text": "YOUR NEXT CHAPTER",
+          "color": "rgb(233, 195, 131)",
+          "fontSize": 11.52,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 18,
+              "top": 124.828125,
+              "right": 159.953125,
+              "bottom": 140.828125
+            }
+          ]
+        },
+        {
+          "selector": ".b3-next-chapter",
+          "text": "「遊んでみた」の、その先へ。",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 28.8,
+          "fontWeight": "760",
+          "rects": [
+            {
+              "left": 18,
+              "top": 135.9375,
+              "right": 350.328125,
+              "bottom": 176.9375
+            },
+            {
+              "left": 18,
+              "top": 167.609375,
+              "right": 73.578125,
+              "bottom": 208.609375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-next-chapter",
+          "text": "知識より、最初の一歩から。",
+          "color": "rgb(190, 200, 182)",
+          "fontSize": 16,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 18,
+              "top": 229.28125,
+              "right": 225.046875,
+              "bottom": 253.28125
+            }
+          ]
+        },
+        {
+          "selector": ".b3-next-chapter",
+          "text": "01 / LEARN",
+          "color": "rgb(233, 195, 131)",
+          "fontSize": 11.52,
+          "fontWeight": "900",
+          "rects": [
+            {
+              "left": 39,
+              "top": 301.46875,
+              "right": 110.65625,
+              "bottom": 317.46875
+            }
+          ]
+        },
+        {
+          "selector": ".b3-next-chapter",
+          "text": "作り方を知る",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 23.2,
+          "fontWeight": "700",
+          "rects": [
+            {
+              "left": 39,
+              "top": 335.03125,
+              "right": 176.734375,
+              "bottom": 369.03125
+            }
+          ]
+        },
+        {
+          "selector": ".b3-next-chapter",
+          "text": "AIへの頼み方から、ブラウザで動かして確かめるところまで。",
+          "color": "rgb(197, 206, 189)",
+          "fontSize": 16,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 39,
+              "top": 376.03125,
+              "right": 324.9375,
+              "bottom": 400.03125
+            },
+            {
+              "left": 39,
+              "top": 403.21875,
+              "right": 198.375,
+              "bottom": 427.21875
+            }
+          ]
+        },
+        {
+          "selector": ".b3-next-chapter",
+          "text": "初めてのゲーム制作 →",
+          "color": "rgb(233, 195, 131)",
+          "fontSize": 16,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 39,
+              "top": 446.40625,
+              "right": 202.1875,
+              "bottom": 470.40625
+            }
+          ]
+        },
+        {
+          "selector": ".b3-next-chapter",
+          "text": "02 / CHOOSE",
+          "color": "rgb(233, 195, 131)",
+          "fontSize": 11.52,
+          "fontWeight": "900",
+          "rects": [
+            {
+              "left": 39,
+              "top": 531.59375,
+              "right": 122.1875,
+              "bottom": 547.59375
+            }
+          ]
+        },
+        {
+          "selector": ".b3-next-chapter",
+          "text": "AI・ツールを選ぶ",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 23.2,
+          "fontWeight": "700",
+          "rects": [
+            {
+              "left": 39,
+              "top": 565.15625,
+              "right": 221.75,
+              "bottom": 599.15625
+            }
+          ]
+        },
+        {
+          "selector": ".b3-next-chapter",
+          "text": "コード、イラスト、声、3D。作りたいものに合う道具を探す。",
+          "color": "rgb(197, 206, 189)",
+          "fontSize": 16,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 39,
+              "top": 606.15625,
+              "right": 329.609375,
+              "bottom": 630.15625
+            },
+            {
+              "left": 39,
+              "top": 633.34375,
+              "right": 197.40625,
+              "bottom": 657.34375
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "contrast-bg-create-375",
+      "width": 375,
+      "section": "create",
+      "nodes": [
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "GameBuildiary",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 18,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 63,
+              "top": 13.359375,
+              "right": 186.65625,
+              "bottom": 39.359375
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "ビルダイアリー",
+          "color": "rgb(197, 206, 185)",
+          "fontSize": 8,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 63,
+              "top": 36.25,
+              "right": 121.25,
+              "bottom": 47.25
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "作る",
+          "color": "rgb(235, 239, 217)",
+          "fontSize": 11,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 237,
+              "top": 23.65625,
+              "right": 259,
+              "bottom": 39.65625
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "↗",
+          "color": "rgb(39, 48, 37)",
+          "fontSize": 19.2,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 267.40625,
+              "top": 19,
+              "right": 286.59375,
+              "bottom": 47
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "作りたいものが決まったら",
+          "color": "rgb(35, 53, 41)",
+          "fontSize": 28.8,
+          "fontWeight": "760",
+          "rects": [
+            {
+              "left": 32,
+              "top": 88.375,
+              "right": 337.6875,
+              "bottom": 129.375
+            },
+            {
+              "left": 32,
+              "top": 120.046875,
+              "right": 59.796875,
+              "bottom": 161.046875
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "どんなゲームを作りたいですか？",
+          "color": "rgb(35, 53, 41)",
+          "fontSize": 15,
+          "fontWeight": "700",
+          "rects": [
+            {
+              "left": 32,
+              "top": 174.71875,
+              "right": 256.109375,
+              "bottom": 195.71875
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "0",
+          "color": "rgb(82, 96, 75)",
+          "fontSize": 11.52,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 32,
+              "top": 342.96875,
+              "right": 38.40625,
+              "bottom": 358.96875
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "/ 1200",
+          "color": "rgb(82, 96, 75)",
+          "fontSize": 11.52,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 38.40625,
+              "top": 342.96875,
+              "right": 73.65625,
+              "bottom": 358.96875
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "アクセス解析へは送信しません。外部AI設定時は条件整理に使用します",
+          "color": "rgb(82, 96, 75)",
+          "fontSize": 11.52,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 32,
+              "top": 372.234375,
+              "right": 340.875,
+              "bottom": 388.234375
+            },
+            {
+              "left": 32,
+              "top": 389.5,
+              "right": 89.578125,
+              "bottom": 405.5
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "最初の作業を作る",
+          "color": "rgb(255, 255, 255)",
+          "fontSize": 16,
+          "fontWeight": "900",
+          "rects": [
+            {
+              "left": 123.484375,
+              "top": 426.765625,
+              "right": 251.5,
+              "bottom": 450.765625
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "入力例を見る",
+          "color": "rgb(49, 90, 66)",
+          "fontSize": 14,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 48.828125,
+              "top": 481.953125,
+              "right": 132.828125,
+              "bottom": 501.953125
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "入力後の完成イメージを見る",
+          "color": "rgb(49, 90, 66)",
+          "fontSize": 14,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 32,
+              "top": 529.046875,
+              "right": 213.734375,
+              "bottom": 549.046875
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "↓",
+          "color": "rgb(49, 90, 66)",
+          "fontSize": 14,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 221.734375,
+              "top": 529.046875,
+              "right": 235.734375,
+              "bottom": 549.046875
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "contrast-bg-create-expanded-375",
+      "width": 375,
+      "section": "create-expanded",
+      "nodes": [
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "GameBuildiary",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 18,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 63,
+              "top": 13.359375,
+              "right": 186.65625,
+              "bottom": 39.359375
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "ビルダイアリー",
+          "color": "rgb(197, 206, 185)",
+          "fontSize": 8,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 63,
+              "top": 36.25,
+              "right": 121.25,
+              "bottom": 47.25
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "作る",
+          "color": "rgb(235, 239, 217)",
+          "fontSize": 11,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 237,
+              "top": 23.65625,
+              "right": 259,
+              "bottom": 39.65625
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "↗",
+          "color": "rgb(39, 48, 37)",
+          "fontSize": 19.2,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 267.40625,
+              "top": 19,
+              "right": 286.59375,
+              "bottom": 47
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "作りたいものが決まったら",
+          "color": "rgb(35, 53, 41)",
+          "fontSize": 28.8,
+          "fontWeight": "760",
+          "rects": [
+            {
+              "left": 32,
+              "top": 88.375,
+              "right": 337.6875,
+              "bottom": 129.375
+            },
+            {
+              "left": 32,
+              "top": 120.046875,
+              "right": 59.796875,
+              "bottom": 161.046875
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "どんなゲームを作りたいですか？",
+          "color": "rgb(35, 53, 41)",
+          "fontSize": 15,
+          "fontWeight": "700",
+          "rects": [
+            {
+              "left": 32,
+              "top": 174.71875,
+              "right": 256.109375,
+              "bottom": 195.71875
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "0",
+          "color": "rgb(82, 96, 75)",
+          "fontSize": 11.52,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 32,
+              "top": 342.96875,
+              "right": 38.40625,
+              "bottom": 358.96875
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "/ 1200",
+          "color": "rgb(82, 96, 75)",
+          "fontSize": 11.52,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 38.40625,
+              "top": 342.96875,
+              "right": 73.65625,
+              "bottom": 358.96875
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "アクセス解析へは送信しません。外部AI設定時は条件整理に使用します",
+          "color": "rgb(82, 96, 75)",
+          "fontSize": 11.52,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 32,
+              "top": 372.234375,
+              "right": 340.875,
+              "bottom": 388.234375
+            },
+            {
+              "left": 32,
+              "top": 389.5,
+              "right": 89.578125,
+              "bottom": 405.5
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "最初の作業を作る",
+          "color": "rgb(255, 255, 255)",
+          "fontSize": 16,
+          "fontWeight": "900",
+          "rects": [
+            {
+              "left": 123.484375,
+              "top": 426.765625,
+              "right": 251.5,
+              "bottom": 450.765625
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "入力例を見る",
+          "color": "rgb(49, 90, 66)",
+          "fontSize": 14,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 48.828125,
+              "top": 481.953125,
+              "right": 132.828125,
+              "bottom": 501.953125
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "入力例を使う",
+          "color": "rgb(82, 96, 75)",
+          "fontSize": 11.52,
+          "fontWeight": "900",
+          "rects": [
+            {
+              "left": 34,
+              "top": 527.953125,
+              "right": 103.09375,
+              "bottom": 543.953125
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "モンスター収集とバトルのブラウザゲームを作りたい。ゲーム制作は初めてです。",
+          "color": "rgb(53, 89, 81)",
+          "fontSize": 13.76,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 43,
+              "top": 560.515625,
+              "right": 331.484375,
+              "bottom": 580.515625
+            },
+            {
+              "left": 43,
+              "top": 583.90625,
+              "right": 261.21875,
+              "bottom": 603.90625
+            }
+          ]
+        },
+        {
+          "selector": ".home-execution-hero",
+          "text": "Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。",
+          "color": "rgb(53, 89, 81)",
+          "fontSize": 13.76,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 43,
+              "top": 632.296875,
+              "right": 327.453125,
+              "bottom": 652.296875
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "contrast-bg-categories-375",
+      "width": 375,
+      "section": "categories",
+      "nodes": [
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "GameBuildiary",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 18,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 63,
+              "top": 13.359375,
+              "right": 186.65625,
+              "bottom": 39.359375
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "ビルダイアリー",
+          "color": "rgb(197, 206, 185)",
+          "fontSize": 8,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 63,
+              "top": 36.25,
+              "right": 121.25,
+              "bottom": 47.25
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "作る",
+          "color": "rgb(235, 239, 217)",
+          "fontSize": 11,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 237,
+              "top": 23.65625,
+              "right": 259,
+              "bottom": 39.65625
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "↗",
+          "color": "rgb(39, 48, 37)",
+          "fontSize": 19.2,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 267.40625,
+              "top": 19,
+              "right": 286.59375,
+              "bottom": 47
+            }
+          ]
+        },
+        {
+          "selector": ".home-category-entry",
+          "text": "気になる制作から、めくって探す。",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 28.8,
+          "fontWeight": "760",
+          "rects": [
+            {
+              "left": 18,
+              "top": 104.84375,
+              "right": 350.90625,
+              "bottom": 145.84375
+            },
+            {
+              "left": 18,
+              "top": 136.515625,
+              "right": 126.859375,
+              "bottom": 177.515625
+            }
+          ]
+        },
+        {
+          "selector": ".home-category-entry",
+          "text": "←",
+          "color": "rgb(11, 104, 85)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 78.8125,
+              "top": 255.1875,
+              "right": 94.828125,
+              "bottom": 279.1875
+            }
+          ]
+        },
+        {
+          "selector": ".home-category-entry",
+          "text": "1",
+          "color": "rgb(82, 100, 94)",
+          "fontSize": 14,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 116.828125,
+              "top": 257.28125,
+              "right": 124.609375,
+              "bottom": 277.28125
+            }
+          ]
+        },
+        {
+          "selector": ".home-category-entry",
+          "text": "/",
+          "color": "rgb(82, 100, 94)",
+          "fontSize": 14,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 124.609375,
+              "top": 257.28125,
+              "right": 136.375,
+              "bottom": 277.28125
+            }
+          ]
+        },
+        {
+          "selector": ".home-category-entry",
+          "text": "5",
+          "color": "rgb(82, 100, 94)",
+          "fontSize": 14,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 136.375,
+              "top": 257.28125,
+              "right": 144.15625,
+              "bottom": 277.28125
+            }
+          ]
+        },
+        {
+          "selector": ".home-category-entry",
+          "text": "→",
+          "color": "rgb(11, 104, 85)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 166.140625,
+              "top": 255.1875,
+              "right": 182.15625,
+              "bottom": 279.1875
+            }
+          ]
+        },
+        {
+          "selector": ".home-category-entry",
+          "text": "一覧で見る",
+          "color": "rgb(11, 104, 85)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 217.15625,
+              "top": 255.1875,
+              "right": 297.171875,
+              "bottom": 279.1875
+            }
+          ]
+        },
+        {
+          "selector": ".home-category-entry",
+          "text": "制作カテゴリ",
+          "color": "rgb(255, 255, 255)",
+          "fontSize": 14,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 60.5,
+              "top": 337.375,
+              "right": 144.5,
+              "bottom": 357.375
+            }
+          ]
+        },
+        {
+          "selector": ".home-category-entry",
+          "text": "6",
+          "color": "rgb(82, 100, 94)",
+          "fontSize": 14,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 258.71875,
+              "top": 337.375,
+              "right": 266.5,
+              "bottom": 357.375
+            }
+          ]
+        },
+        {
+          "selector": ".home-category-entry",
+          "text": "本の記事",
+          "color": "rgb(82, 100, 94)",
+          "fontSize": 14,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 266.5,
+              "top": 337.375,
+              "right": 322.5,
+              "bottom": 357.375
+            }
+          ]
+        },
+        {
+          "selector": ".home-category-entry",
+          "text": "ゲーム制作をはじめる",
+          "color": "rgb(11, 104, 85)",
+          "fontSize": 18,
+          "fontWeight": "700",
+          "rects": [
+            {
+              "left": 52.5,
+              "top": 371.171875,
+              "right": 231.96875,
+              "bottom": 397.171875
+            }
+          ]
+        },
+        {
+          "selector": ".home-category-entry",
+          "text": "記事を見る",
+          "color": "rgb(11, 104, 85)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 133.484375,
+              "top": 488.359375,
+              "right": 213.5,
+              "bottom": 512.359375
+            }
+          ]
+        },
+        {
+          "selector": ".home-category-entry",
+          "text": "→",
+          "color": "rgb(11, 104, 85)",
+          "fontSize": 20,
+          "fontWeight": "900",
+          "rects": [
+            {
+              "left": 221.5,
+              "top": 485.953125,
+              "right": 241.5,
+              "bottom": 514.953125
+            }
+          ]
+        },
+        {
+          "selector": ".home-category-entry",
+          "text": "まず動く小さなゲームを作り、AIへ渡す条件と完了基準を決めます。",
+          "color": "rgb(82, 100, 94)",
+          "fontSize": 16,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 52.5,
+              "top": 408.171875,
+              "right": 321.796875,
+              "bottom": 432.171875
+            },
+            {
+              "left": 52.5,
+              "top": 434.5625,
+              "right": 274.90625,
+              "bottom": 458.5625
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "contrast-bg-menu-375",
+      "width": 375,
+      "section": "menu",
+      "nodes": [
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "GameBuildiary",
+          "color": "rgb(241, 240, 231)",
+          "fontSize": 18,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 63,
+              "top": 13.359375,
+              "right": 186.65625,
+              "bottom": 39.359375
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .brand-copy",
+          "text": "ビルダイアリー",
+          "color": "rgb(197, 206, 185)",
+          "fontSize": 8,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 63,
+              "top": 36.25,
+              "right": 121.25,
+              "bottom": 47.25
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "作る",
+          "color": "rgb(235, 239, 217)",
+          "fontSize": 11,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 237,
+              "top": 23.65625,
+              "right": 259,
+              "bottom": 39.65625
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .header-cta",
+          "text": "↗",
+          "color": "rgb(39, 48, 37)",
+          "fontSize": 19.2,
+          "fontWeight": "800",
+          "rects": [
+            {
+              "left": 267.40625,
+              "top": 19,
+              "right": 286.59375,
+              "bottom": 47
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "次にしたいことを選ぶ",
+          "color": "rgb(20, 46, 42)",
+          "fontSize": 16,
+          "fontWeight": "700",
+          "rects": [
+            {
+              "left": 17,
+              "top": 89.40625,
+              "right": 177.015625,
+              "bottom": 113.40625
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "×",
+          "color": "rgb(20, 46, 42)",
+          "fontSize": 25.6,
+          "fontWeight": "400",
+          "rects": [
+            {
+              "left": 320.390625,
+              "top": 83.203125,
+              "right": 346,
+              "bottom": 120.203125
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "ゲームで遊ぶ",
+          "color": "rgb(20, 46, 42)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 29,
+              "top": 147,
+              "right": 124.53125,
+              "bottom": 171
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "→",
+          "color": "rgb(20, 46, 42)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 330.984375,
+              "top": 147,
+              "right": 347,
+              "bottom": 171
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "作る",
+          "color": "rgb(185, 190, 181)",
+          "fontSize": 11.2,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 22,
+              "top": 209.1875,
+              "right": 46.625,
+              "bottom": 225.1875
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "Projectを始める",
+          "color": "rgb(20, 46, 42)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 29,
+              "top": 241.21875,
+              "right": 149.984375,
+              "bottom": 265.21875
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "→",
+          "color": "rgb(20, 46, 42)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 330.984375,
+              "top": 241.21875,
+              "right": 347,
+              "bottom": 265.21875
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "学ぶ",
+          "color": "rgb(185, 190, 181)",
+          "fontSize": 11.2,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 22,
+              "top": 316.40625,
+              "right": 46.625,
+              "bottom": 332.40625
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "記事",
+          "color": "rgb(20, 46, 42)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 29,
+              "top": 348.4375,
+              "right": 61.015625,
+              "bottom": 372.4375
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "→",
+          "color": "rgb(20, 46, 42)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 330.984375,
+              "top": 348.4375,
+              "right": 347,
+              "bottom": 372.4375
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "制作ガイド",
+          "color": "rgb(20, 46, 42)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 29,
+              "top": 393.625,
+              "right": 109.015625,
+              "bottom": 417.625
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "→",
+          "color": "rgb(20, 46, 42)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 330.984375,
+              "top": 393.625,
+              "right": 347,
+              "bottom": 417.625
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "選ぶ",
+          "color": "rgb(185, 190, 181)",
+          "fontSize": 11.2,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 22,
+              "top": 468.8125,
+              "right": 46.625,
+              "bottom": 484.8125
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "AI・ツール",
+          "color": "rgb(20, 46, 42)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 29,
+              "top": 500.84375,
+              "right": 108.703125,
+              "bottom": 524.84375
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "→",
+          "color": "rgb(20, 46, 42)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 330.984375,
+              "top": 500.84375,
+              "right": 347,
+              "bottom": 524.84375
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "候補を比較",
+          "color": "rgb(20, 46, 42)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 29,
+              "top": 546.03125,
+              "right": 109.015625,
+              "bottom": 570.03125
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "→",
+          "color": "rgb(20, 46, 42)",
+          "fontSize": 16,
+          "fontWeight": "750",
+          "rects": [
+            {
+              "left": 330.984375,
+              "top": 546.03125,
+              "right": 347,
+              "bottom": 570.03125
+            }
+          ]
+        },
+        {
+          "selector": ".site-header .mobile-menu",
+          "text": "信頼情報",
+          "color": "rgb(185, 190, 181)",
+          "fontSize": 11.2,
+          "fontWeight": "850",
+          "rects": [
+            {
+              "left": 22,
+              "top": 621.21875,
+              "right": 71.234375,
+              "bottom": 637.21875
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

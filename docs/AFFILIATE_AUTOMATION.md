@@ -33,8 +33,8 @@ The workflow will:
 1. update the central registry
 2. synchronize `services.json`
 3. run the full quality gate
-4. commit to `main` only if validation succeeds
-5. let the existing Vercel `main` integration deploy production automatically
+4. commit to a dedicated `affiliate/update-<run>-<attempt>` branch only if validation succeeds
+5. open a draft PR against `main`; independent review, exact-SHA checks and separate owner merge approval are required. The workflow never pushes main or merges.
 
 For pending/rejected/inactive programs, run the same workflow with the matching status and leave the URL empty.
 
@@ -51,7 +51,7 @@ npm run affiliate:set
 npm run quality
 ```
 
-Codex does not need to push or deploy. The owner/chat GitHub integration can perform the final GitHub write if Codex Cloud lacks GitHub credentials.
+Codex does not need to push or deploy. An explicitly authorized operator may complete branch/PR delivery if credentials or Actions PR creation are unavailable; report the blocker without changing repository settings.
 
 ## Rules
 

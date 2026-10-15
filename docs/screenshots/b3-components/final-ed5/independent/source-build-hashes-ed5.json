@@ -1,0 +1,78 @@
+{
+  "source": "ed5fd95902de06fe9cc1e54a50882c69842d7bb5",
+  "actualHEAD": "ed5fd95902de06fe9cc1e54a50882c69842d7bb5",
+  "build": "0am_yq1bZC1fJIszJq00d",
+  "viewportWidths": [
+    375,
+    320
+  ],
+  "viewportHeight": 700,
+  "runtime": "http://127.0.0.1:3102",
+  "changedAppPathsSinceR7": [
+    "app/globals.css"
+  ],
+  "sourceHashes": [
+    {
+      "path": "app/globals.css",
+      "blob": "b4afc8ddd80ac740d84e57d12223c4165c30174d",
+      "sha256": "a7359f84687a4a46d0804a729c966a8457b8660de6ad9d612a4673d83799dd08"
+    },
+    {
+      "path": "app/b3-system.css",
+      "blob": "27d45762194f429cc107b1468303b5641758e32d",
+      "sha256": "9bbbbcecba6cff933dd6cf87c8caccaf529696200741b205e8024062def87cf5"
+    },
+    {
+      "path": "app/home-b3.css",
+      "blob": "8c2fc771967fa83587e73da5b454a657c7146027",
+      "sha256": "97b90558862e50f966eb0e6a86ad4850dbd8c7523e82cb5fe4a22e8570d13552"
+    },
+    {
+      "path": "app/visual-layer-v2.css",
+      "blob": "18c9028f3b412eded994340c6b9ab7b35d84e110",
+      "sha256": "6457579cc10a35852d55f56cd14f3e132c7d7306aebc5b0f118eb574094f5290"
+    },
+    {
+      "path": "e2e/acceptance/reflow.ts",
+      "blob": "d5cf20e63f960b14875bed47870be03a46f019a0",
+      "sha256": "08eea85b53860a0122503af52eb3305986dce460c1c902f6c72c9d8442043659"
+    },
+    {
+      "path": "e2e/acceptance/diagnostics.ts",
+      "blob": "a004316c0c5247d629ef1787b6a7ec93c9b1b4de",
+      "sha256": "f15c33afad0b4e7573b252f13fb9b57f28022cf3a60e7f77105e984c98c45ac6"
+    },
+    {
+      "path": "e2e/b3-components.spec.ts",
+      "blob": "8887a3b44d56a916c4677d91e837095366198dff",
+      "sha256": "8a9fcf58b07386d8e7956c1b636496afa589f14b2c11dbacbb348bd11c8a7633"
+    },
+    {
+      "path": "e2e/issue-157-project-evidence.spec.ts",
+      "blob": "39840681b9be4cc26012ae93cd0c6efa97a648b0",
+      "sha256": "6786a9292944a0ef166a935ff41cfe9ef74c7c36f48a601542b816f6b4295cad"
+    }
+  ],
+  "priorEvidenceIntegrity": [
+    {
+      "name": "review.md",
+      "matchesPriorSha256": true,
+      "sha256": "a7541a3ca50ffadd0259bc53a13e755244f2b20c4465d8f311c1192219c1a6aa"
+    },
+    {
+      "name": "observations.json",
+      "matchesPriorSha256": true,
+      "sha256": "de4b47e53b0cab251b6ad4065fbdea9873ed5a288fdd3c761905da8892a87e50"
+    },
+    {
+      "name": "fit-open-375.png",
+      "matchesPriorSha256": true,
+      "sha256": "17976a0a0febac3b4e3f121d18340e80373e5dcc7cb43e0aad6a2d782d8885b7"
+    },
+    {
+      "name": "fit-open-320.png",
+      "matchesPriorSha256": true,
+      "sha256": "7fb1477047d0c54372c7c8c565ec579cc4144e76a22d18a9c69c27c83cdecfd3"
+    }
+  ]
+}

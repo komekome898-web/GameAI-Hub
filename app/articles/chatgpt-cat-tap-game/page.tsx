@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArticleHeader } from "@/components/ArticleHeader";
 import { ArticleFrame } from "@/components/ArticleFrame";
 import { ArticleProjectLink } from "@/components/ArticleProjectLink";
 import { BeginnerGameWorkspace } from "@/components/BeginnerGameWorkspace";
@@ -35,19 +36,21 @@ const catTapGame = `<!doctype html>
 <html lang="ja">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>猫タップゲーム</title>
   <style>
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; display: grid; place-items: center;
       font-family: system-ui, sans-serif; color: #30251f; background: #fff3d9; }
-    main { width: min(90%, 360px); padding: 28px; text-align: center;
+    main { width: min(90%, 360px); padding: 12px; text-align: center;
       background: white; border: 3px solid #30251f; border-radius: 24px; }
-    #cat { display: block; width: 100%; min-height: 150px; margin: 18px 0;
-      font-size: 6rem; border: 0; border-radius: 20px; cursor: pointer;
+    h1 { margin: 0; font-size: 1.2rem; line-height: 1.3; }
+    #cat { display: block; width: 100%; min-height: 96px; margin: 8px 0;
+      font-size: 4rem; border: 0; border-radius: 20px; cursor: pointer;
       background: #ffd166; touch-action: manipulation; }
     #cat:focus-visible, #reset:focus-visible { outline: 4px solid #176b87; outline-offset: 3px; }
-    #score { font-size: 2rem; font-weight: 800; }
-    #reset { padding: 12px 20px; font: inherit; font-weight: 700;
+    #score { margin: 8px 0; font-size: 1.5rem; line-height: 1.3; font-weight: 800; }
+    #reset { min-height: 44px; padding: 8px 16px; font: inherit; font-weight: 700;
       border: 2px solid #30251f; border-radius: 10px; background: white; cursor: pointer; }
   </style>
 </head>
@@ -92,25 +95,22 @@ export default function ChatGptCatTapGame() {
   return (
     <ArticleFrame article={article} showProjectCta={false}>
       <div className="article-content">
-        <header className="page-head">
-          <p className="eyebrow">CHATGPT / FIRST PLAYABLE GAME</p>
-          <h1>ChatGPTで猫タップゲームを作る</h1>
-          <p className="lead">
+        <ArticleHeader article={article} eyebrow="CHATGPT / FIRST PLAYABLE GAME" title="ChatGPTで猫タップゲームを作る" lead={<>
             コードを書いたことがなくても、最初に作るものを小さく固定すれば、画面を見ながら確認できます。この記事では、
             <strong>猫をタップ／クリックするたびスコアが1増える、1画面のブラウザゲーム</strong>を作ります。
-          </p>
+          </>}>
           <div className="article-contract">
             <p><strong>完成物：</strong>見える猫、0から始まるスコア、1ずつの加算、リセット</p>
-            <p><strong>必要なもの：</strong>ChatGPTへpromptを入力する手段と、このページの動作確認欄</p>
+            <p><strong>必要なもの：</strong>ChatGPTへプロンプト（AIへの依頼文）を入力する手段と、このページの動作確認欄</p>
             <p><strong>不要：</strong>外部画像、ライブラリ、API、ログイン機能、移動・収集・戦闘</p>
-            <p><strong>完了：</strong>0→1→2→0を自分で操作し、猫の色を1回変え、同じゲームをProjectへ渡す</p>
+            <p><strong>完了：</strong>0→1→2→0→1を自分で操作し、猫ボタンの背景色を1回変え、同じゲームをProjectへ渡す</p>
           </div>
-        </header>
+        </ArticleHeader>
 
         <section>
           <h2>1. まず完成例を遊ぶ</h2>
           <p>「ゲームを表示」を押し、表示された猫を2回押してから「リセット」を押してください。コードはこのページ内の隔離された表示枠で動き、外部通信は使いません。</p>
-          <BeginnerGameWorkspace projectId="article-chatgpt-cat-tap-game" initialCode={catTapGame} />
+          <BeginnerGameWorkspace projectId="article-chatgpt-cat-tap-game" initialCode={catTapGame} helpMode="copy" helpGuidance={{ preview: "画面が変わらない場合は、手順4の「不具合をAIへ返す型をコピー」を使い、操作・期待・実結果を添えてAIに相談してください。", error: "「エラー概要をコピー」でこの内容をコピーし、手順4の「不具合をAIへ返す型をコピー」で用意した相談文に添えてください。" }} />
           <h3>目で確認する完了条件</h3>
           <ol>
             <li>猫の絵と「スコア: 0」と「リセット」が同じ画面に見える。</li>
@@ -123,15 +123,15 @@ export default function ChatGptCatTapGame() {
 
         <section>
           <h2>2. ChatGPTへ最初のコードを頼む</h2>
-          <p>次のpromptをコピーしてChatGPTの入力欄へ貼ります。返答から <code>&lt;!doctype html&gt;</code> で始まるHTML全文だけをコピーし、上の「ゲームのコード」を置き換えて「ゲームを表示」を押してください。</p>
+          <p>次のプロンプトをコピーしてChatGPTの入力欄へ貼ります。返答から <code>&lt;!doctype html&gt;</code> で始まるHTML全文だけをコピーし、上の「ゲームのコード」を置き換えて「ゲームを表示」を押してください。</p>
           <pre className="article-code"><code>{firstPrompt}</code></pre>
           <CopyTextButton label="猫タップゲームのpromptをコピー" text={firstPrompt} />
           <p>返されたコードの見た目や変数名が掲載例と違っても、上の完了条件をすべて満たせば成功です。AIが「完成」と書いたことではなく、あなたが0→1→2→0を確認したことを基準にします。</p>
         </section>
 
         <section>
-          <h2>3. 最初の成功後は、猫の色だけ変える</h2>
-          <p>掲載例へ戻してから、コード内の <code>background: #ffd166;</code> を <code>background: #bde0fe;</code> に変え、もう一度「ゲームを表示」を押します。これは猫のボタン背景を黄色から水色へ変えるだけです。</p>
+          <h2>3. 最初の成功後は、猫ボタンの背景色だけ変える</h2>
+          <p>AIのコードを試した後は「掲載完成例へ戻す」を押します（すでに掲載例なら不要です）。「ゲームを表示」で0→1→2→0→1を確認し、「この版は動いたと記録」を押して、この掲載例を復旧用に残します。その後、コード内の <code>background: #ffd166;</code> を <code>background: #bde0fe;</code> に変え、もう一度「ゲームを表示」を押します。これは猫のボタン背景を黄色から水色へ変えるだけです。</p>
           <h3>変更後の確認</h3>
           <ul>
             <li>猫の背景色が変わっている。</li>
@@ -164,7 +164,7 @@ export default function ChatGptCatTapGame() {
         <section className="article-inline-handoff">
           <p className="eyebrow">NEXT: KEEP THE SAME GAME</p>
           <h2>6. 次は同じ猫タップゲームをProjectへ渡す</h2>
-          <p>最初の成功後の次の行動は、機能を思いつきで増やすことではなく、今動いている条件をProject Generatorへ渡して次の小さなtaskを決めることです。下のゲーム案をコピーしてから進み、条件確認でも<strong>猫、タップ／クリック、スコアが1ずつ増える</strong>の3点が残っていることを確認してください。</p>
+          <p>最初の成功後の次の行動は、機能を思いつきで増やすことではなく、今動いている条件をProject Generatorへ渡して次の小さな制作手順を決めることです。下のゲーム案をコピーしてからリンク先へ進み、「どんなゲームを作りたいですか？」へ貼り付けて「制作ロードマップを作る」を押します。読み取った条件でも<strong>猫、タップ／クリック、スコアが1ずつ増える</strong>の3点が残っていることを確認してください。</p>
           <pre className="article-code"><code>{projectIdea}</code></pre>
           <CopyTextButton label="Project用の猫タップゲーム案をコピー" text={projectIdea} />
           <p><ArticleProjectLink slug="chatgpt-cat-tap-game" label="同じ猫タップゲームの次の制作手順を作る" placement="article_body_after_first_success" /></p>

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Accept an exact Work candidate only after an explicit owner attestation."""
+from orchestration_mode import legacy_only
 import os
 
 import orchestration_github as adapter
@@ -10,6 +11,7 @@ ACCEPTANCE_MARKER = "<!-- gameai-acceptance:v1 -->"
 WORK_APP_ID = 1144995
 
 
+@legacy_only
 def main():
     event = adapter.strict_json(open(os.environ["ORCH_GITHUB_EVENT"]).read())
     issue = event.get("issue") or {}

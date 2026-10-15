@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Replay owner-authorized merge recovery and exact-SHA Production readiness from a recovery PR event."""
+from orchestration_mode import legacy_only
 import os
 import urllib.request
 from urllib.parse import urlparse
@@ -13,6 +14,7 @@ CANONICAL_ISSUE = 74
 PRODUCTION_URL = "https://game-ai-hub.vercel.app"
 
 
+@legacy_only
 def _production_readiness():
     comment, manifest = adapter.find_manifest(CANONICAL_ISSUE)
     adapter.verify_task(CANONICAL_ISSUE, manifest)
@@ -38,7 +40,7 @@ def _production_readiness():
         if response.status < 200 or response.status >= 400:
             raise Rejected("canonical Production origin is not reachable")
 
-    event = adapter.envelope(
+    event = adapter.readiness_envelope(
         manifest,
         {
             "environment": "production",
@@ -56,7 +58,6 @@ def _production_readiness():
             "targets": ["/"],
             "transition_id": f"production-readiness:{manifest['generation']}:{status.get('id')}:{merge_sha}",
         },
-        "readiness",
     )
     out, result = reduce(manifest, event, "deployment")
     if result != "applied":
@@ -105,6 +106,7 @@ def _current_reconcile_request(owner):
     return max(matches, key=lambda item: int(item["id"]))
 
 
+@legacy_only
 def main():
     event = adapter.strict_json(open(os.environ["ORCH_GITHUB_EVENT"]).read())
     pr = event.get("pull_request") or {}

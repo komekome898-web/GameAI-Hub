@@ -1,0 +1,71 @@
+[
+  {
+    "id": "ai-browser-game-how-to",
+    "card": {
+      "x": 35.5,
+      "y": 140.1875,
+      "width": 304,
+      "height": 490.96875
+    },
+    "title": {
+      "x": 52.5,
+      "y": 337.984375,
+      "width": 270,
+      "height": 81
+    },
+    "image": {
+      "x": 53.5,
+      "y": 158.1875,
+      "width": 268,
+      "height": 133
+    },
+    "meta": "14px",
+    "summary": "16px"
+  },
+  {
+    "id": "before-asking-ai-build-game",
+    "card": {
+      "x": 35.5,
+      "y": 140.1875,
+      "width": 304,
+      "height": 463.96875
+    },
+    "title": {
+      "x": 52.5,
+      "y": 337.984375,
+      "width": 270,
+      "height": 54
+    },
+    "image": {
+      "x": 53.5,
+      "y": 158.1875,
+      "width": 268,
+      "height": 133
+    },
+    "meta": "14px",
+    "summary": "16px"
+  },
+  {
+    "id": "github-beginner-game-development",
+    "card": {
+      "x": 35.5,
+      "y": 140.1875,
+      "width": 304,
+      "height": 490.96875
+    },
+    "title": {
+      "x": 52.5,
+      "y": 337.984375,
+      "width": 270,
+      "height": 81
+    },
+    "image": {
+      "x": 53.5,
+      "y": 158.1875,
+      "width": 268,
+      "height": 133
+    },
+    "meta": "14px",
+    "summary": "16px"
+  }
+]

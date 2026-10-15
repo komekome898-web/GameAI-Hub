@@ -1,0 +1,1135 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/GameAI-Hub/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "/tmp/gameai-review-final.config.cjs",
+      "-g",
+      "native Chromium|native mouse|actual Stack|article-origin Project|direct Project|all cards follow|trusted short|neighbor tap|long drag|failed images|Creation Deck|article → Project|E-01|E-02|overview focus|outside mouse release|contact ignores"
+    ],
+    "configFile": "/tmp/gameai-review-final.config.cjs",
+    "rootDir": "/workspace/GameAI-Hub/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/gameai-review-final-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/workspace/GameAI-Hub/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "deck-project-continuity.spec.ts",
+          "creation-deck-motion.spec.ts",
+          "creation-deck-review-regressions.spec.ts",
+          "issue-157-stage-b.spec.ts",
+          "measurement-baseline.spec.ts",
+          "issue-157-dots-followups.spec.ts",
+          "issue-155-v1.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/tmp/gameai-review-final-e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "creation-deck-motion.spec.ts",
+      "file": "creation-deck-motion.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "all cards follow fractional position and interrupted snap resumes without a jump",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3129,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:54:55.653Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "continuous-card-positions",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJkeCI6IC0yMCwKICAgICJwb3MiOiAwLjExNzQ4MTIwMzAwNzUxODgsCiAgICAidHJhbnNmb3JtcyI6IFsKICAgICAgInRyYW5zbGF0ZVgoLTIwcHgpIHBlcnNwZWN0aXZlKDEyMDBweCkgcm90YXRlWSgwLjgyMjM2OGRlZykgc2NhbGUoMC45OTI5NTEpIiwKICAgICAgInRyYW5zbGF0ZVgoMTUwLjI0cHgpIHBlcnNwZWN0aXZlKDEyMDBweCkgcm90YXRlWSgtNi4xNzc2M2RlZykgc2NhbGUoMC45NDcwNDkpIiwKICAgICAgInRyYW5zbGF0ZVgoLTE5MC4yNHB4KSBwZXJzcGVjdGl2ZSgxMjAwcHgpIHJvdGF0ZVkoN2RlZykgc2NhbGUoMC45NCkiCiAgICBdCiAgfSwKICB7CiAgICAiZHgiOiAtNjAsCiAgICAicG9zIjogMC4zNTI0NDM2MDkwMjI1NTY0LAogICAgInRyYW5zZm9ybXMiOiBbCiAgICAgICJ0cmFuc2xhdGVYKC02MHB4KSBwZXJzcGVjdGl2ZSgxMjAwcHgpIHJvdGF0ZVkoMi40NjcxMWRlZykgc2NhbGUoMC45Nzg4NTMpIiwKICAgICAgInRyYW5zbGF0ZVgoMTEwLjI0cHgpIHBlcnNwZWN0aXZlKDEyMDBweCkgcm90YXRlWSgtNC41MzI4OWRlZykgc2NhbGUoMC45NjExNDcpIiwKICAgICAgInRyYW5zbGF0ZVgoLTIzMC4yNHB4KSBwZXJzcGVjdGl2ZSgxMjAwcHgpIHJvdGF0ZVkoN2RlZykgc2NhbGUoMC45NCkiCiAgICBdCiAgfSwKICB7CiAgICAiZHgiOiAtMTIwLAogICAgInBvcyI6IDAuNzA0ODg3MjE4MDQ1MTEyOCwKICAgICJ0cmFuc2Zvcm1zIjogWwogICAgICAidHJhbnNsYXRlWCgtMTIwcHgpIHBlcnNwZWN0aXZlKDEyMDBweCkgcm90YXRlWSg0LjkzNDIxZGVnKSBzY2FsZSgwLjk1NzcwNykiLAogICAgICAidHJhbnNsYXRlWCg1MC4yNHB4KSBwZXJzcGVjdGl2ZSgxMjAwcHgpIHJvdGF0ZVkoLTIuMDY1NzlkZWcpIHNjYWxlKDAuOTgyMjkzKSIsCiAgICAgICJ0cmFuc2xhdGVYKDIyMC40OHB4KSBwZXJzcGVjdGl2ZSgxMjAwcHgpIHJvdGF0ZVkoLTdkZWcpIHNjYWxlKDAuOTQpIgogICAgXQogIH0sCiAgewogICAgImR4IjogMjAsCiAgICAicG9zIjogLTAuMTE3NDgxMjAzMDA3NTE4OCwKICAgICJ0cmFuc2Zvcm1zIjogWwogICAgICAidHJhbnNsYXRlWCgyMHB4KSBwZXJzcGVjdGl2ZSgxMjAwcHgpIHJvdGF0ZVkoLTAuODIyMzY4ZGVnKSBzY2FsZSgwLjk5Mjk1MSkiLAogICAgICAidHJhbnNsYXRlWCgxOTAuMjRweCkgcGVyc3BlY3RpdmUoMTIwMHB4KSByb3RhdGVZKC03ZGVnKSBzY2FsZSgwLjk0KSIsCiAgICAgICJ0cmFuc2xhdGVYKC0xNTAuMjRweCkgcGVyc3BlY3RpdmUoMTIwMHB4KSByb3RhdGVZKDYuMTc3NjNkZWcpIHNjYWxlKDAuOTQ3MDQ5KSIKICAgIF0KICB9LAogIHsKICAgICJkeCI6IDYwLAogICAgInBvcyI6IC0wLjM1MjQ0MzYwOTAyMjU1NjQsCiAgICAidHJhbnNmb3JtcyI6IFsKICAgICAgInRyYW5zbGF0ZVgoNjBweCkgcGVyc3BlY3RpdmUoMTIwMHB4KSByb3RhdGVZKC0yLjQ2NzExZGVnKSBzY2FsZSgwLjk3ODg1MykiLAogICAgICAidHJhbnNsYXRlWCgyMzAuMjRweCkgcGVyc3BlY3RpdmUoMTIwMHB4KSByb3RhdGVZKC03ZGVnKSBzY2FsZSgwLjk0KSIsCiAgICAgICJ0cmFuc2xhdGVYKC0xMTAuMjRweCkgcGVyc3BlY3RpdmUoMTIwMHB4KSByb3RhdGVZKDQuNTMyODlkZWcpIHNjYWxlKDAuOTYxMTQ3KSIKICAgIF0KICB9LAogIHsKICAgICJkeCI6IDEyMCwKICAgICJwb3MiOiAtMC43MDQ4ODcyMTgwNDUxMTI4LAogICAgInRyYW5zZm9ybXMiOiBbCiAgICAgICJ0cmFuc2xhdGVYKDEyMHB4KSBwZXJzcGVjdGl2ZSgxMjAwcHgpIHJvdGF0ZVkoLTQuOTM0MjFkZWcpIHNjYWxlKDAuOTU3NzA3KSIsCiAgICAgICJ0cmFuc2xhdGVYKC0yMjAuNDhweCkgcGVyc3BlY3RpdmUoMTIwMHB4KSByb3RhdGVZKDdkZWcpIHNjYWxlKDAuOTQpIiwKICAgICAgInRyYW5zbGF0ZVgoLTUwLjI0cHgpIHBlcnNwZWN0aXZlKDEyMDBweCkgcm90YXRlWSgyLjA2NTc5ZGVnKSBzY2FsZSgwLjk4MjI5MykiCiAgICBdCiAgfQpd"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "50d6f4b19467f47c87a0-11c2784e2848bdac3e97",
+          "file": "creation-deck-motion.spec.ts",
+          "line": 28,
+          "column": 5
+        },
+        {
+          "title": "trusted short flick, paused release, twenty wraps, repeated controls and keyboard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 100000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 52823,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:54:58.996Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "50d6f4b19467f47c87a0-3b654b383ca7f44a08b6",
+          "file": "creation-deck-motion.spec.ts",
+          "line": 62,
+          "column": 5
+        },
+        {
+          "title": "neighbor tap centers, overview expands the same node, list and large text remain readable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1894,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:55:51.829Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "50d6f4b19467f47c87a0-79cc0be34411d06e4f72",
+          "file": "creation-deck-motion.spec.ts",
+          "line": 97,
+          "column": 5
+        },
+        {
+          "title": "long drag chooses two cards; capture loss and resize return to the committed card",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3599,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:55:53.733Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "50d6f4b19467f47c87a0-75e283d55d3b653e07b4",
+          "file": "creation-deck-motion.spec.ts",
+          "line": 125,
+          "column": 5
+        },
+        {
+          "title": "failed images keep article links, summaries and natural card height",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1183,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:55:57.340Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "50d6f4b19467f47c87a0-c511f78d1f85930ff951",
+          "file": "creation-deck-motion.spec.ts",
+          "line": 155,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "creation-deck-review-regressions.spec.ts",
+      "file": "creation-deck-review-regressions.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "overview focus survives resize, expanded=false, without stealing surviving focus",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1256,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:55:58.548Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "focus-after-fallback",
+                      "contentType": "application/json",
+                      "body": "eyJocmVmIjoiL2FydGljbGVzL2JlZm9yZS1hc2tpbmctYWktYnVpbGQtZ2FtZS8iLCJhY3RpdmUiOnRydWUsInNjcm9sbFkiOjB9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c413d65a856cc0309e57-9e8fb67eeade59b2109e",
+          "file": "creation-deck-review-regressions.spec.ts",
+          "line": 21,
+          "column": 7
+        },
+        {
+          "title": "overview focus survives resize, expanded=true, without stealing surviving focus",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1458,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:55:59.812Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "focus-after-fallback",
+                      "contentType": "application/json",
+                      "body": "eyJocmVmIjoiL2FydGljbGVzL2JlZm9yZS1hc2tpbmctYWktYnVpbGQtZ2FtZS8iLCJhY3RpdmUiOnRydWUsInNjcm9sbFkiOjB9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c413d65a856cc0309e57-68df7b43dde167dbbe9f",
+          "file": "creation-deck-review-regressions.spec.ts",
+          "line": 21,
+          "column": 7
+        },
+        {
+          "title": "overview focus survives reduced-motion, expanded=false, without stealing surviving focus",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1233,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:01.280Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "focus-after-fallback",
+                      "contentType": "application/json",
+                      "body": "eyJocmVmIjoiL2FydGljbGVzL2JlZm9yZS1hc2tpbmctYWktYnVpbGQtZ2FtZS8iLCJhY3RpdmUiOnRydWUsInNjcm9sbFkiOjg3M30="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c413d65a856cc0309e57-9c5322d7e33846a9e430",
+          "file": "creation-deck-review-regressions.spec.ts",
+          "line": 21,
+          "column": 7
+        },
+        {
+          "title": "overview focus survives reduced-motion, expanded=true, without stealing surviving focus",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1453,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:02.524Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "focus-after-fallback",
+                      "contentType": "application/json",
+                      "body": "eyJocmVmIjoiL2FydGljbGVzL2JlZm9yZS1hc2tpbmctYWktYnVpbGQtZ2FtZS8iLCJhY3RpdmUiOnRydWUsInNjcm9sbFkiOjEwNTd9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c413d65a856cc0309e57-b17f6654dc06218e77d6",
+          "file": "creation-deck-review-regressions.spec.ts",
+          "line": 21,
+          "column": 7
+        },
+        {
+          "title": "outside mouse release ends pending, interrupted=false, and leaves the next gesture usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2523,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:03.992Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "outside-release",
+                      "contentType": "application/json",
+                      "body": "eyJwaGFzZSI6InBlbmRpbmciLCJpbnRlcnJ1cHRlZCI6ZmFsc2UsImJlZm9yZSI6IjAiLCJhZnRlciI6IjIiLCJmaW5hbCI6IjEgLyAzIn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c413d65a856cc0309e57-5ecd591b5643e464eafc",
+          "file": "creation-deck-review-regressions.spec.ts",
+          "line": 63,
+          "column": 7
+        },
+        {
+          "title": "outside mouse release ends pending, interrupted=true, and leaves the next gesture usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2130,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:06.529Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "outside-release",
+                      "contentType": "application/json",
+                      "body": "eyJwaGFzZSI6InBlbmRpbmciLCJpbnRlcnJ1cHRlZCI6dHJ1ZSwiYmVmb3JlIjoiMC40Mzg0OTk2MzYzMzkwOTk4IiwiYWZ0ZXIiOiIwIiwiZmluYWwiOiIyIC8gMyJ9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c413d65a856cc0309e57-a677110a1475b850649e",
+          "file": "creation-deck-review-regressions.spec.ts",
+          "line": 63,
+          "column": 7
+        },
+        {
+          "title": "outside mouse release ends vertical, interrupted=false, and leaves the next gesture usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1861,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:08.669Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "outside-release",
+                      "contentType": "application/json",
+                      "body": "eyJwaGFzZSI6InZlcnRpY2FsIiwiaW50ZXJydXB0ZWQiOmZhbHNlLCJiZWZvcmUiOiIwIiwiYWZ0ZXIiOiIwIiwiZmluYWwiOiIyIC8gMyJ9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c413d65a856cc0309e57-79305fb8773f8747a406",
+          "file": "creation-deck-review-regressions.spec.ts",
+          "line": 63,
+          "column": 7
+        },
+        {
+          "title": "outside mouse release ends vertical, interrupted=true, and leaves the next gesture usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2151,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:10.540Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "outside-release",
+                      "contentType": "application/json",
+                      "body": "eyJwaGFzZSI6InZlcnRpY2FsIiwiaW50ZXJydXB0ZWQiOnRydWUsImJlZm9yZSI6IjAuMzAyMzIzNjczOTI4OTY5NCIsImFmdGVyIjoiMCIsImZpbmFsIjoiMiAvIDMifQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c413d65a856cc0309e57-a3d30b2bdf2cd297748d",
+          "file": "creation-deck-review-regressions.spec.ts",
+          "line": 63,
+          "column": 7
+        },
+        {
+          "title": "contact ignores an unrelated terminal event and cancels on window blur",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2065,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:12.703Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c413d65a856cc0309e57-95970a9a046eb9fffe21",
+          "file": "creation-deck-review-regressions.spec.ts",
+          "line": 98,
+          "column": 57
+        },
+        {
+          "title": "contact ignores an unrelated terminal event and cancels on window cancel",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1962,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:14.781Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c413d65a856cc0309e57-b7cd977a3fba5dc6d17e",
+          "file": "creation-deck-review-regressions.spec.ts",
+          "line": 98,
+          "column": 57
+        }
+      ]
+    },
+    {
+      "title": "deck-project-continuity.spec.ts",
+      "file": "deck-project-continuity.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "native Chromium touch swipes survive capture transfer and interruptions at 375",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11517,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:16.762Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "browser-generated-touch-events",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAicG9pbnRlcnVwIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJsb3N0cG9pbnRlcmNhcHR1cmUiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJPTCIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiU1RST05HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiU1RST05HIgogIH0sCiAgewogICAgInR5cGUiOiAicG9pbnRlcnVwIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJsb3N0cG9pbnRlcmNhcHR1cmUiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJPTCIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAicG9pbnRlcmNhbmNlbCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVydXAiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJJTUciCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVydXAiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJJTUciCiAgfSwKICB7CiAgICAidHlwZSI6ICJsb3N0cG9pbnRlcmNhcHR1cmUiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJJTUciCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfQpd"
+                    },
+                    {
+                      "name": "settled-deck-375",
+                      "contentType": "application/json",
+                      "body": "ewogICJpbm5lcldpZHRoIjogMzc1LAogICJ2aWV3cG9ydFdpZHRoIjogMzc1LAogICJzY2FsZSI6IDEsCiAgInRyYW5zZm9ybSI6ICJtYXRyaXgzZCgxLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAxLCAtMC4wMDA4MzMzMzMsIDAsIDAsIDAsIDEpIiwKICAiY2FyZCI6IHsKICAgICJsZWZ0IjogMzUuNSwKICAgICJyaWdodCI6IDMzOS41LAogICAgInRvcCI6IDIxMi4xODc1LAogICAgImJvdHRvbSI6IDcwMy4xNTYyNSwKICAgICJ3aWR0aCI6IDMwNAogIH0sCiAgInRpdGxlIjogewogICAgImxlZnQiOiA1Mi41LAogICAgInJpZ2h0IjogMzIyLjUsCiAgICAidG9wIjogNDA5Ljk4NDM3NSwKICAgICJib3R0b20iOiA0OTAuOTg0Mzc1LAogICAgIndpZHRoIjogMjcwCiAgfSwKICAiY3RhIjogewogICAgImxlZnQiOiA1Mi41LAogICAgInJpZ2h0IjogMzIyLjUsCiAgICAidG9wIjogNjQyLjE1NjI1LAogICAgImJvdHRvbSI6IDY4Ni4xNTYyNSwKICAgICJ3aWR0aCI6IDI3MAogIH0KfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c508cd8aa48e8b95221-1352cdeb9fcc5b48a48c",
+          "file": "deck-project-continuity.spec.ts",
+          "line": 64,
+          "column": 7
+        },
+        {
+          "title": "native Chromium touch swipes survive capture transfer and interruptions at 390",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11532,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:28.288Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "browser-generated-touch-events",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAicG9pbnRlcnVwIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJsb3N0cG9pbnRlcmNhcHR1cmUiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJPTCIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiU1RST05HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiU1RST05HIgogIH0sCiAgewogICAgInR5cGUiOiAicG9pbnRlcnVwIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJsb3N0cG9pbnRlcmNhcHR1cmUiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJPTCIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAicG9pbnRlcmNhbmNlbCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJkb3duIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiSU1HIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVydXAiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJJTUciCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVydXAiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJJTUciCiAgfSwKICB7CiAgICAidHlwZSI6ICJsb3N0cG9pbnRlcmNhcHR1cmUiLAogICAgInRydXN0ZWQiOiB0cnVlLAogICAgInRhcmdldCI6ICJJTUciCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfSwKICB7CiAgICAidHlwZSI6ICJwb2ludGVyZG93biIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogImxvc3Rwb2ludGVyY2FwdHVyZSIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIklNRyIKICB9LAogIHsKICAgICJ0eXBlIjogInBvaW50ZXJ1cCIsCiAgICAidHJ1c3RlZCI6IHRydWUsCiAgICAidGFyZ2V0IjogIk9MIgogIH0sCiAgewogICAgInR5cGUiOiAibG9zdHBvaW50ZXJjYXB0dXJlIiwKICAgICJ0cnVzdGVkIjogdHJ1ZSwKICAgICJ0YXJnZXQiOiAiT0wiCiAgfQpd"
+                    },
+                    {
+                      "name": "settled-deck-390",
+                      "contentType": "application/json",
+                      "body": "ewogICJpbm5lcldpZHRoIjogMzkwLAogICJ2aWV3cG9ydFdpZHRoIjogMzkwLAogICJzY2FsZSI6IDEsCiAgInRyYW5zZm9ybSI6ICJtYXRyaXgzZCgxLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAxLCAtMC4wMDA4MzMzMzMsIDAsIDAsIDAsIDEpIiwKICAiY2FyZCI6IHsKICAgICJsZWZ0IjogNDMsCiAgICAicmlnaHQiOiAzNDcsCiAgICAidG9wIjogMjEyLjM0Mzc1LAogICAgImJvdHRvbSI6IDcwMy4zMTI1LAogICAgIndpZHRoIjogMzA0CiAgfSwKICAidGl0bGUiOiB7CiAgICAibGVmdCI6IDYwLAogICAgInJpZ2h0IjogMzMwLAogICAgInRvcCI6IDQxMC4xNDA2MjUsCiAgICAiYm90dG9tIjogNDkxLjE0MDYyNSwKICAgICJ3aWR0aCI6IDI3MAogIH0sCiAgImN0YSI6IHsKICAgICJsZWZ0IjogNjAsCiAgICAicmlnaHQiOiAzMzAsCiAgICAidG9wIjogNjQyLjMxMjUsCiAgICAiYm90dG9tIjogNjg2LjMxMjUsCiAgICAid2lkdGgiOiAyNzAKICB9Cn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c508cd8aa48e8b95221-ee00d7968db2b570ffd1",
+          "file": "deck-project-continuity.spec.ts",
+          "line": 64,
+          "column": 7
+        },
+        {
+          "title": "native mouse dragging, controls, resize and reduced-motion fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5180,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:39.832Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "settled-list-320",
+                      "contentType": "application/json",
+                      "body": "ewogICJpbm5lcldpZHRoIjogMzIwLAogICJ2aWV3cG9ydFdpZHRoIjogMzIwLAogICJzY2FsZSI6IDEsCiAgInRyYW5zZm9ybSI6ICJub25lIiwKICAiY2FyZCI6IHsKICAgICJsZWZ0IjogOCwKICAgICJyaWdodCI6IDMxMiwKICAgICJ0b3AiOiAyMjEuMzQzNzUsCiAgICAiYm90dG9tIjogNjk0LjcwMzEyNSwKICAgICJ3aWR0aCI6IDMwNAogIH0sCiAgInRpdGxlIjogewogICAgImxlZnQiOiAyNSwKICAgICJyaWdodCI6IDI5NSwKICAgICJ0b3AiOiA0MTkuMTQwNjI1LAogICAgImJvdHRvbSI6IDUwMC4xNDA2MjUsCiAgICAid2lkdGgiOiAyNzAKICB9LAogICJjdGEiOiB7CiAgICAibGVmdCI6IDI1LAogICAgInJpZ2h0IjogMjk1LAogICAgInRvcCI6IDYzMy43MDMxMjUsCiAgICAiYm90dG9tIjogNjc3LjcwMzEyNSwKICAgICJ3aWR0aCI6IDI3MAogIH0KfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c508cd8aa48e8b95221-f146466e48e3c2d9688c",
+          "file": "deck-project-continuity.spec.ts",
+          "line": 125,
+          "column": 5
+        },
+        {
+          "title": "actual Stack CTA carries supported conditions into editable Project confirmation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1587,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:45.022Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c508cd8aa48e8b95221-e2350eef09d4c9361a4d",
+          "file": "deck-project-continuity.spec.ts",
+          "line": 155,
+          "column": 5
+        },
+        {
+          "title": "article-origin Project survives repeated Tools and Compare returns",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4876,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:46.620Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c508cd8aa48e8b95221-3ca5b42bbd9bface6cec",
+          "file": "deck-project-continuity.spec.ts",
+          "line": 179,
+          "column": 7
+        },
+        {
+          "title": "direct Project survives repeated Tools and Compare returns",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4810,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:51.508Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c508cd8aa48e8b95221-6f3d1341f3115c2817c6",
+          "file": "deck-project-continuity.spec.ts",
+          "line": 179,
+          "column": 7
+        }
+      ]
+    },
+    {
+      "title": "issue-157-dots-followups.spec.ts",
+      "file": "issue-157-dots-followups.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "E-01 measures actual Deck title line-height and description paragraph spacing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1332,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:56.336Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a079bd31d5b55a553f31-78f6752953d064d7a9db",
+          "file": "issue-157-dots-followups.spec.ts",
+          "line": 79,
+          "column": 5
+        },
+        {
+          "title": "E-02 cancels owned gestures and preserves click and list preference recovery",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6002,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:56:57.676Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a079bd31d5b55a553f31-3e6d2e1c318edcd945d9",
+          "file": "issue-157-dots-followups.spec.ts",
+          "line": 103,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "issue-157-stage-b.spec.ts",
+      "file": "issue-157-stage-b.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Creation Deck is explicit, preserves links, and retains a list fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7837,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:57:03.692Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42706e8ef18efb197d68-3d8f28f78c41db15dfd1",
+          "file": "issue-157-stage-b.spec.ts",
+          "line": 28,
+          "column": 5
+        },
+        {
+          "title": "Creation Deck remains usable when session storage is blocked",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1875,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:57:11.539Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42706e8ef18efb197d68-14d79c33f3734d3c1751",
+          "file": "issue-157-stage-b.spec.ts",
+          "line": 99,
+          "column": 5
+        },
+        {
+          "title": "Creation Deck transfers only control focus when forced flat",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2448,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:57:13.423Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42706e8ef18efb197d68-a7cf68a75f2c3f07367c",
+          "file": "issue-157-stage-b.spec.ts",
+          "line": 114,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "measurement-baseline.spec.ts",
+      "file": "measurement-baseline.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "article → Project → first completion → next task is observable without raw input",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2166,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-03T01:57:15.886Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4267ffa9b3b8c97798be-7a1e8ed5de17ade803f0",
+          "file": "measurement-baseline.spec.ts",
+          "line": 30,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-03T01:54:55.164Z",
+    "duration": 143044.88199999998,
+    "expected": 27,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

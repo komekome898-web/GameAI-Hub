@@ -1,0 +1,9 @@
+
+Running 1 test using 1 worker
+
+(node:66145) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/1] e2e/beginner-acceptance.spec.ts:373:9 › Beginner acceptance: current production journey contracts › A: 移動してゴールする2Dゲームを新規状態から開始し3作業の進捗を保持する
+  1 passed (26.1s)

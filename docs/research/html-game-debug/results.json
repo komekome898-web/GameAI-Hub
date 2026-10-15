@@ -1,0 +1,2179 @@
+{
+  "date": "2026-10-11T08:41:46.460Z",
+  "mode": "headless real Chromium; local HTTP; normal clicks only",
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "width": 375,
+      "height": 800
+    },
+    {
+      "width": 320,
+      "height": 800
+    }
+  ],
+  "cases": [
+    {
+      "file": "original",
+      "width": 1280,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-1-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-1-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-1-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reset-1",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-2-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-2-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-2-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reset-2",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reload-first-attack",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "syntax-broken",
+      "width": 1280,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "clicks-have-no-effect",
+          "player": "24",
+          "enemy": "18",
+          "name": "",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        }
+      ],
+      "errors": [
+        {
+          "name": "SyntaxError",
+          "message": "Unexpected token ';'"
+        },
+        {
+          "name": "SyntaxError",
+          "message": "Unexpected token ';'"
+        }
+      ],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "syntax-repaired",
+      "width": 1280,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-1-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-1-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-1-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reset-1",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-2-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-2-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-2-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reset-2",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reload-first-attack",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "selector-broken",
+      "width": 1280,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "clicks-have-no-effect",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        }
+      ],
+      "errors": [
+        {
+          "name": "TypeError",
+          "message": "Cannot read properties of null (reading 'addEventListener')"
+        },
+        {
+          "name": "TypeError",
+          "message": "Cannot read properties of null (reading 'addEventListener')"
+        }
+      ],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "selector-repaired",
+      "width": 1280,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-1-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-1-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-1-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reset-1",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-2-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-2-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-2-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reset-2",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reload-first-attack",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "reset-broken",
+      "width": 1280,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-1-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-1-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-1-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reset-1",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "replay-click-has-no-effect",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reload-first-attack",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "reset-repaired",
+      "width": 1280,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-1-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-1-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-1-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reset-1",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-2-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-2-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "round-2-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reset-2",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        },
+        {
+          "label": "reload-first-attack",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 1280,
+          "scrollWidth": 1280
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "original",
+      "width": 375,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-1-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-1-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-1-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reset-1",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-2-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-2-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-2-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reset-2",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reload-first-attack",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "syntax-broken",
+      "width": 375,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "clicks-have-no-effect",
+          "player": "24",
+          "enemy": "18",
+          "name": "",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        }
+      ],
+      "errors": [
+        {
+          "name": "SyntaxError",
+          "message": "Unexpected token ';'"
+        },
+        {
+          "name": "SyntaxError",
+          "message": "Unexpected token ';'"
+        }
+      ],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "syntax-repaired",
+      "width": 375,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-1-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-1-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-1-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reset-1",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-2-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-2-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-2-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reset-2",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reload-first-attack",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "selector-broken",
+      "width": 375,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "clicks-have-no-effect",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        }
+      ],
+      "errors": [
+        {
+          "name": "TypeError",
+          "message": "Cannot read properties of null (reading 'addEventListener')"
+        },
+        {
+          "name": "TypeError",
+          "message": "Cannot read properties of null (reading 'addEventListener')"
+        }
+      ],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "selector-repaired",
+      "width": 375,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-1-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-1-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-1-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reset-1",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-2-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-2-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-2-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reset-2",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reload-first-attack",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "reset-broken",
+      "width": 375,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-1-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-1-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-1-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reset-1",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "replay-click-has-no-effect",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reload-first-attack",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "reset-repaired",
+      "width": 375,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-1-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-1-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-1-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reset-1",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-2-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-2-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "round-2-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reset-2",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        },
+        {
+          "label": "reload-first-attack",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 375,
+          "scrollWidth": 380
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "original",
+      "width": 320,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-1-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-1-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-1-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reset-1",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-2-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-2-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-2-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reset-2",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reload-first-attack",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "syntax-broken",
+      "width": 320,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "clicks-have-no-effect",
+          "player": "24",
+          "enemy": "18",
+          "name": "",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        }
+      ],
+      "errors": [
+        {
+          "name": "SyntaxError",
+          "message": "Unexpected token ';'"
+        },
+        {
+          "name": "SyntaxError",
+          "message": "Unexpected token ';'"
+        }
+      ],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "syntax-repaired",
+      "width": 320,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-1-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-1-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-1-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reset-1",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-2-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-2-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-2-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reset-2",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reload-first-attack",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "selector-broken",
+      "width": 320,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "clicks-have-no-effect",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        }
+      ],
+      "errors": [
+        {
+          "name": "TypeError",
+          "message": "Cannot read properties of null (reading 'addEventListener')"
+        },
+        {
+          "name": "TypeError",
+          "message": "Cannot read properties of null (reading 'addEventListener')"
+        }
+      ],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "selector-repaired",
+      "width": 320,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-1-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-1-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-1-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reset-1",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-2-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-2-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-2-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reset-2",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reload-first-attack",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "reset-broken",
+      "width": 320,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-1-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-1-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-1-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reset-1",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "replay-click-has-no-effect",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reload-first-attack",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "pass": true
+    },
+    {
+      "file": "reset-repaired",
+      "width": 320,
+      "states": [
+        {
+          "label": "initial",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-1-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-1-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-1-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reset-1",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-2-attack-1",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-2-attack-2",
+          "player": "16",
+          "enemy": "6",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "round-2-attack-3",
+          "player": "16",
+          "enemy": "0",
+          "name": "スライム",
+          "message": "スライムに勝った！",
+          "disabled": true,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reset-2",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reload",
+          "player": "24",
+          "enemy": "18",
+          "name": "スライム",
+          "message": "たたかうを押そう",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        },
+        {
+          "label": "reload-first-attack",
+          "player": "20",
+          "enemy": "12",
+          "name": "スライム",
+          "message": "スライムが反撃した！",
+          "disabled": false,
+          "mainVisible": true,
+          "viewport": 320,
+          "scrollWidth": 328
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "pass": true
+    }
+  ],
+  "browser": "151.0.7922.173",
+  "pass": true
+}

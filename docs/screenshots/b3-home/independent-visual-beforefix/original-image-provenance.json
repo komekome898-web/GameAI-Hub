@@ -1,0 +1,69 @@
+{
+  "allMatch": true,
+  "records": [
+    {
+      "slug": "aramon",
+      "repoImage": "/images/games/aramon/title-screen.png",
+      "approvedAsset": "/workspace/design-mocks/gameai-hub-b3/assets/aramon.png",
+      "repoSHA256": "957c94b9a24d57d2901d6d332ce2769d5d67220e808c0cc45d3b915c582540d3",
+      "mockSHA256": "957c94b9a24d57d2901d6d332ce2769d5d67220e808c0cc45d3b915c582540d3",
+      "match": true
+    },
+    {
+      "slug": "create-monsters",
+      "repoImage": "/images/games/create-monsters/battle.jpeg",
+      "approvedAsset": "/workspace/design-mocks/gameai-hub-b3/assets/create-monsters.jpeg",
+      "repoSHA256": "73dbcfccefa7613c989b65788902b97ac6756863cebeee44805a718e4cc7fdd1",
+      "mockSHA256": "73dbcfccefa7613c989b65788902b97ac6756863cebeee44805a718e4cc7fdd1",
+      "match": true
+    },
+    {
+      "slug": "monster-construction",
+      "repoImage": "/images/games/monster-construction/screen.jpeg",
+      "approvedAsset": "/workspace/design-mocks/gameai-hub-b3/assets/monster-construction.jpeg",
+      "repoSHA256": "810685cd5d93eb4bf2f6a17fa3cbbeb3aa9109288fe3f4ea90487782b2610f78",
+      "mockSHA256": "810685cd5d93eb4bf2f6a17fa3cbbeb3aa9109288fe3f4ea90487782b2610f78",
+      "match": true
+    },
+    {
+      "slug": "aura-connect-battle",
+      "repoImage": "/images/games/aura-connect-battle/screen.jpeg",
+      "approvedAsset": "/workspace/design-mocks/gameai-hub-b3/assets/aura-connect-battle.jpeg",
+      "repoSHA256": "45e3f87fd56c71eab3a83b92d853aca5b8f64c642ada97abf3a114d277f681cc",
+      "mockSHA256": "45e3f87fd56c71eab3a83b92d853aca5b8f64c642ada97abf3a114d277f681cc",
+      "match": true
+    },
+    {
+      "slug": "tomoshibi",
+      "repoImage": "/images/games/tomoshibi/screen.jpeg",
+      "approvedAsset": "/workspace/design-mocks/gameai-hub-b3/assets/tomoshibi.jpeg",
+      "repoSHA256": "b295ea173fef4166723f2446272c4ea9c2ff11336ddc1737845d99229263e588",
+      "mockSHA256": "b295ea173fef4166723f2446272c4ea9c2ff11336ddc1737845d99229263e588",
+      "match": true
+    },
+    {
+      "slug": "punching",
+      "repoImage": "/images/games/punching/screen.png",
+      "approvedAsset": "/workspace/design-mocks/gameai-hub-b3/assets/punching.png",
+      "repoSHA256": "bad86301fae27f486d80375a1689550284f2252790df40caa4162537da441107",
+      "mockSHA256": "bad86301fae27f486d80375a1689550284f2252790df40caa4162537da441107",
+      "match": true
+    },
+    {
+      "slug": "rakugaction",
+      "repoImage": "/images/games/rakugaction/screen.png",
+      "approvedAsset": "/workspace/design-mocks/gameai-hub-b3/assets/rakugaction.png",
+      "repoSHA256": "f2622011f63c1032393a1c5a064bad79cf04e00e229b36ee0d3f90f8e5e495f4",
+      "mockSHA256": "f2622011f63c1032393a1c5a064bad79cf04e00e229b36ee0d3f90f8e5e495f4",
+      "match": true
+    },
+    {
+      "slug": "sumaraku",
+      "repoImage": "/images/games/sumaraku/screen.png",
+      "approvedAsset": "/workspace/design-mocks/gameai-hub-b3/assets/sumaraku.png",
+      "repoSHA256": "58f5054768219e887ebbcb2dfbd412a2bcd17b519b31bfccb4e4a1ffbe04d3ef",
+      "mockSHA256": "58f5054768219e887ebbcb2dfbd412a2bcd17b519b31bfccb4e4a1ffbe04d3ef",
+      "match": true
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+2026-10-13T07:35:56.0995755Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +12303aa3e1b21560640e51d3a3c1d05a7868cc00:refs/remotes/pull/184/merge
+2026-10-13T07:36:11.5753943Z  * [new ref]         12303aa3e1b21560640e51d3a3c1d05a7868cc00 -> pull/184/merge
+2026-10-13T07:36:14.0926964Z HEAD is now at 12303aa Merge ed5fd95902de06fe9cc1e54a50882c69842d7bb5 into b5f3887d1d5299ed95f2cfbe6acf391e5c047042
+2026-10-13T07:36:14.1012546Z [command]/usr/bin/git log -1 --format=%H
+2026-10-13T07:36:14.1041760Z 12303aa3e1b21560640e51d3a3c1d05a7868cc00
+2026-10-13T07:38:12.8447777Z > playwright test --grep-invert 'final cross-route evidence reconciles every required local case$' && playwright test e2e/issue-157-final-evidence.spec.ts --grep 'final cross-route evidence reconciles every required local case$' --output=test-results/final-reconciliation
+2026-10-13T07:38:35.5237783Z Running 287 tests using 1 worker
+2026-10-13T07:39:49.0115177Z [19/287] e2e/b3-components.spec.ts:152:5 › clipping probe distinguishes cached closed content from visible disclosure text
+2026-10-13T07:55:39.9753829Z [201/287] e2e/issue-157-project-evidence.spec.ts:69:5 › Issue 157 Project states, workspace, and token observations validate
+2026-10-13T08:02:02.7661698Z   287 passed (23.8m)
+2026-10-13T08:02:10.6982793Z Running 1 test using 1 worker
+2026-10-13T08:02:11.2023164Z [1/1] e2e/issue-157-final-evidence.spec.ts:320:5 › final cross-route evidence reconciles every required local case
+2026-10-13T08:02:33.8415757Z   1 passed (30.5s)
+2026-10-13T08:02:56.0283912Z Artifact beginner-acceptance-evidence.zip successfully finalized. Artifact ID 11796398533
+2026-10-13T08:02:56.0285554Z Artifact beginner-acceptance-evidence has been successfully uploaded! Final size is 591619412 bytes. Artifact ID is 11796398533

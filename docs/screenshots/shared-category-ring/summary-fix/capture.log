@@ -1,0 +1,13 @@
+
+Running 5 tests using 1 worker
+
+(node:33212) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/5] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 375
+[2/5] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 390
+[3/5] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 1440
+[4/5] e2e/creation-deck-summary.spec.ts:45:5 › long category visible height grows, close remains, resize/font/content remeasure without lost focus
+[5/5] e2e/creation-deck-summary.spec.ts:92:5 › existing long article expands to full height and keeps its closing control
+  5 passed (6.5s)

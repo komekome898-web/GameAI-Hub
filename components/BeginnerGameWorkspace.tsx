@@ -50,11 +50,15 @@ export function BeginnerGameWorkspace({
   initialCode = "",
   onCodeChange,
   onRuntimeError,
+  helpMode = "button",
+  helpGuidance,
 }: {
   projectId: string;
   initialCode?: string;
   onCodeChange?: (code: string) => void;
   onRuntimeError?: (error: PreviewError | null) => void;
+  helpMode?: "button" | "copy";
+  helpGuidance?: { preview: string; error: string };
 }) {
   const editorId = useId();
   const fileId = useId();
@@ -326,7 +330,10 @@ export function BeginnerGameWorkspace({
             allow="camera 'none'; microphone 'none'; geolocation 'none'; payment 'none'; clipboard-read 'none'; clipboard-write 'none'"
           />
           <p>
-            ゲーム内のボタンを押して確認してください。すべてのエラーを捕捉できるとは限りません。画面が変わらない場合も「ここで詰まった」ボタンで相談できます。
+            ゲーム内のボタンを押して確認してください。すべてのエラーを捕捉できるとは限りません。
+            {helpGuidance?.preview ?? (helpMode === "copy"
+              ? "画面が変わらない場合は、記事の「相談例をコピー」を使い、起きたことを添えてAIに相談してください。"
+              : "画面が変わらない場合も「ここで詰まった」ボタンで相談できます。")}
           </p>
           {runtimeError && (
             <section className="beginner-runtime-error" role="alert">
@@ -357,7 +364,9 @@ export function BeginnerGameWorkspace({
                 エラー概要をコピー
               </button>
               {errorCopyStatus && <p role="status">{errorCopyStatus}</p>}
-              <p>この内容は「ここで詰まった」に自動で渡されます。</p>
+              <p>{helpGuidance?.error ?? (helpMode === "copy"
+                ? "「エラー概要をコピー」でこの内容をコピーし、記事の「相談例をコピー」で用意した相談文に添えてください。"
+                : "この内容は「ここで詰まった」に自動で渡されます。")}</p>
             </section>
           )}
           <button

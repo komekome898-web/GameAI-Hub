@@ -1,0 +1,16 @@
+2026-10-13T05:59:37.0102235Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +e1d6f5d2259f724d15aacd3b4112612d51d99a60:refs/remotes/pull/184/merge
+2026-10-13T05:59:52.8042703Z  * [new ref]         e1d6f5d2259f724d15aacd3b4112612d51d99a60 -> pull/184/merge
+2026-10-13T05:59:54.9472688Z HEAD is now at e1d6f5d Merge 7e8d8313fce958e83104a89e864471d72b6fa262 into b5f3887d1d5299ed95f2cfbe6acf391e5c047042
+2026-10-13T05:59:54.9578771Z e1d6f5d2259f724d15aacd3b4112612d51d99a60
+2026-10-13T06:19:33.1911201Z     Error: VL-V2-PROJECT-WORKSPACE: executed subset evidence is not accepted
+2026-10-13T06:19:33.1911858Z        at acceptance/reflow-matrix.ts:275
+2026-10-13T06:19:33.1914406Z       276 |         `${record.caseId}: executed subset evidence is not accepted`,
+2026-10-13T06:19:33.1916329Z         at validateExecutionSubset (/home/runner/work/GameAI-Hub/GameAI-Hub/e2e/acceptance/reflow-matrix.ts:275:13)
+2026-10-13T06:19:33.1917234Z         at /home/runner/work/GameAI-Hub/GameAI-Hub/e2e/issue-157-project-evidence.spec.ts:241:28
+2026-10-13T06:19:33.1927386Z     Error: VL-V2-PROJECT-WORKSPACE: executed subset evidence is not accepted
+2026-10-13T06:19:33.1928288Z        at acceptance/reflow-matrix.ts:275
+2026-10-13T06:19:33.1930826Z       276 |         `${record.caseId}: executed subset evidence is not accepted`,
+2026-10-13T06:19:33.1932446Z         at validateExecutionSubset (/home/runner/work/GameAI-Hub/GameAI-Hub/e2e/acceptance/reflow-matrix.ts:275:13)
+2026-10-13T06:19:33.1933225Z         at /home/runner/work/GameAI-Hub/GameAI-Hub/e2e/issue-157-project-evidence.spec.ts:241:28
+2026-10-13T06:24:07.5245964Z   1 failed
+2026-10-13T06:24:07.5248686Z   285 passed (22.4m)

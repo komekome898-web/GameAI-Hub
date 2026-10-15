@@ -1,0 +1,50 @@
+{
+  "width": 390,
+  "method": "Chromium viewport emulation; not physical device",
+  "operations": [
+    {
+      "category": "start",
+      "ids": [
+        "ai-browser-game-how-to",
+        "before-asking-ai-build-game",
+        "small-first-success",
+        "github-beginner-game-development",
+        "ai-tool-comparison-later"
+      ],
+      "mode": "deck",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=ai-browser-game-how-to#start"
+    },
+    {
+      "category": "3d",
+      "ids": [
+        "meshy-game-development-guide",
+        "meshy-pricing-credits-game",
+        "meshy-commercial-use-game"
+      ],
+      "mode": "deck",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=3d&hubArticle=meshy-game-development-guide#3d"
+    },
+    {
+      "category": "voice",
+      "ids": [
+        "elevenlabs-game-development-guide",
+        "elevenlabs-v4-game-voice",
+        "elevenlabs-commercial-use-game"
+      ],
+      "mode": "deck",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=voice&hubArticle=elevenlabs-game-development-guide#voice"
+    },
+    {
+      "category": "practice",
+      "ids": [
+        "ai-usage-guide",
+        "ai-completion-claim",
+        "ai-delegation-trap",
+        "ai-fantasy",
+        "ai-auto-trading-reality"
+      ],
+      "mode": "deck",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=practice&hubArticle=ai-usage-guide#practice"
+    }
+  ]
+}

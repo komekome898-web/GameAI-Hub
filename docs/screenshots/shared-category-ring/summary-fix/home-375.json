@@ -1,0 +1,34 @@
+{
+  "width": 375,
+  "method": "Chromium viewport emulation",
+  "records": [
+    {
+      "id": "start",
+      "visible": 53,
+      "full": 53,
+      "width": 270,
+      "clipped": false
+    },
+    {
+      "id": "3d",
+      "visible": 79,
+      "full": 79,
+      "width": 270,
+      "clipped": false
+    },
+    {
+      "id": "voice",
+      "visible": 53,
+      "full": 53,
+      "width": 270,
+      "clipped": false
+    },
+    {
+      "id": "practice",
+      "visible": 53,
+      "full": 53,
+      "width": 270,
+      "clipped": false
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+
+Running 3 tests using 1 worker
+
+(node:27940) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/3] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 375
+  1) e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 375 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('.creation-deck li').first().locator('.v2-start-card-expand')
+    Expected: 0
+    Received: 1
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toHaveCount" with timeout 10000ms
+      - waiting for locator('.creation-deck li').first().locator('.v2-start-card-expand')
+        24 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      32 |     expect(sizes.visible).toBeGreaterThan(0);
+      33 |     const clipped = sizes.full > sizes.visible + 1;
+    > 34 |     await expect(card.locator('.v2-start-card-expand')).toHaveCount(clipped ? 1 : 0);
+         |                                                         ^
+      35 |     records.push({ id: await card.getAttribute('data-deck-id'), ...sizes, clipped });
+      36 |   }
+      37 |   const start = page.locator('[data-deck-id="start"]');
+        at /workspace/GameAI-Hub/e2e/creation-deck-summary.spec.ts:34:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/creation-deck-summary-real-f4dc6-on-only-when-clipped-at-375/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/creation-deck-summary-real-f4dc6-on-only-when-clipped-at-375/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/creation-deck-summary-real-f4dc6-on-only-when-clipped-at-375/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/creation-deck-summary-real-f4dc6-on-only-when-clipped-at-375/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:28173) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/3] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 390
+  2) e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 390 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('.creation-deck li').first().locator('.v2-start-card-expand')
+    Expected: 0
+    Received: 1
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toHaveCount" with timeout 10000ms
+      - waiting for locator('.creation-deck li').first().locator('.v2-start-card-expand')
+        24 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      32 |     expect(sizes.visible).toBeGreaterThan(0);
+      33 |     const clipped = sizes.full > sizes.visible + 1;
+    > 34 |     await expect(card.locator('.v2-start-card-expand')).toHaveCount(clipped ? 1 : 0);
+         |                                                         ^
+      35 |     records.push({ id: await card.getAttribute('data-deck-id'), ...sizes, clipped });
+      36 |   }
+      37 |   const start = page.locator('[data-deck-id="start"]');
+        at /workspace/GameAI-Hub/e2e/creation-deck-summary.spec.ts:34:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/creation-deck-summary-real-ce54a-on-only-when-clipped-at-390/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/creation-deck-summary-real-ce54a-on-only-when-clipped-at-390/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/creation-deck-summary-real-ce54a-on-only-when-clipped-at-390/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/creation-deck-summary-real-ce54a-on-only-when-clipped-at-390/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:28320) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/3] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 1440
+  3) e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 1440 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('.creation-deck li').first().locator('.v2-start-card-expand')
+    Expected: 0
+    Received: 1
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toHaveCount" with timeout 10000ms
+      - waiting for locator('.creation-deck li').first().locator('.v2-start-card-expand')
+        24 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      32 |     expect(sizes.visible).toBeGreaterThan(0);
+      33 |     const clipped = sizes.full > sizes.visible + 1;
+    > 34 |     await expect(card.locator('.v2-start-card-expand')).toHaveCount(clipped ? 1 : 0);
+         |                                                         ^
+      35 |     records.push({ id: await card.getAttribute('data-deck-id'), ...sizes, clipped });
+      36 |   }
+      37 |   const start = page.locator('[data-deck-id="start"]');
+        at /workspace/GameAI-Hub/e2e/creation-deck-summary.spec.ts:34:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/creation-deck-summary-real-e0def-n-only-when-clipped-at-1440/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/creation-deck-summary-real-e0def-n-only-when-clipped-at-1440/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/creation-deck-summary-real-e0def-n-only-when-clipped-at-1440/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/creation-deck-summary-real-e0def-n-only-when-clipped-at-1440/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  3 failed
+    e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 375 
+    e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 390 
+    e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 1440 

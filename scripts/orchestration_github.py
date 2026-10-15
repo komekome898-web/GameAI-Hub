@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """GitHub adapter for the reducer. Comments are optimistic cooperative storage, not CAS."""
-import datetime as dt, hashlib, json, os, subprocess, sys, urllib.request, uuid
+from orchestration_mode import legacy_only, legacy_automation_enabled
+import base64, datetime as dt, hashlib, json, os, subprocess, sys, urllib.parse, urllib.request, uuid
 from orchestration import Rejected, acceptance_event, create_hotfix, projection, reduce, summary
 
 REPO = os.getenv("GITHUB_REPOSITORY", "komekome898-web/GameAI-Hub")
@@ -117,6 +118,7 @@ def render_codex_dispatch(manifest):
     return instructions + "\n\n" + block(CODEX_DISPATCH, contract)
 
 
+@legacy_only
 def ensure_codex_dispatch(number, manifest):
     """Idempotently materialize a requested dispatch as exactly one Issue comment."""
     claim = manifest.get("codex_outbox") or {}
@@ -161,6 +163,7 @@ def render_work_dispatch(manifest):
     return instructions + "\n\n" + block(WORK_DISPATCH, contract)
 
 
+@legacy_only
 def ensure_work_dispatch(number, manifest, *, record=False):
     """Crash-safe, idempotent projection of a runnable acceptance claim onto its PR."""
     claim = manifest.get("acceptance_claim") or {}
@@ -225,6 +228,41 @@ def labels():
         gh(endpoint, "--method", "PATCH" if name in existing else "POST", "--input", "-", input={"color": color} if name in existing else {"name": name, "color": color})
 
 
+def authoritative_profile_registry():
+    """Read the profile registry pinned by the repository's current default branch."""
+    repository = gh(f"repos/{REPO}")
+    default_branch = repository.get("default_branch")
+    if not default_branch:
+        raise Rejected("repository default branch is unavailable")
+    path = urllib.parse.quote(".github/orchestration/profiles.json", safe="/")
+    content = gh(f"repos/{REPO}/contents/{path}?ref={urllib.parse.quote(default_branch, safe='')}")
+    if content.get("type") != "file" or content.get("encoding") != "base64":
+        raise Rejected("authoritative profile registry is unavailable")
+    try:
+        encoded = "".join(content["content"].split())
+        registry = strict_json(base64.b64decode(encoded, validate=True).decode())
+    except (KeyError, ValueError, UnicodeDecodeError) as exc:
+        raise Rejected("authoritative profile registry is malformed") from exc
+    revision = registry.get("revision")
+    if registry.get("schema") != "gameai-work-profiles/v1" or type(revision) is not int or revision < 1:
+        raise Rejected("authoritative profile registry is malformed")
+    return registry
+
+
+def readiness_envelope(manifest, payload):
+    """Fence readiness to the current default-branch profile registry."""
+    registry = authoritative_profile_registry()
+    profile_id = manifest.get("profile", {}).get("id")
+    if profile_id not in registry.get("profiles", {}):
+        raise Rejected("required profile is absent from the authoritative registry")
+    return envelope(
+        manifest,
+        {**payload, "profile_registry_revision": registry["revision"]},
+        "readiness",
+    )
+
+
+@legacy_only
 def init():
     number = int(os.environ["ORCH_ISSUE"]); version = int(os.environ["ORCH_TASK_VERSION"]); source = issue(number)
     try:
@@ -250,6 +288,7 @@ def envelope(manifest, payload, operation):
     return {"operation": operation, "run_id": manifest["run_id"], "canonical_task_version": manifest["canonical_task_version"], "expected_manifest_revision": manifest["revision"], "generation": manifest["generation"], "from_stage": manifest["stage"], "from_status": manifest["status"], "transition_id": payload.get("transition_id") or os.getenv("GITHUB_RUN_ID") + ":" + os.getenv("GITHUB_RUN_ATTEMPT", "1"), "repository": manifest["repository"], "issue": manifest["issue"], **payload}
 
 
+@legacy_only
 def ingest():
     raw = os.environ.get("ORCH_PAYLOAD", "{}"); payload = strict_json(raw); number = int(payload.get("issue", 0)); comment, manifest = find_manifest(number); verify_task(number, manifest)
     kind = os.environ.get("ORCH_EVENT_NAME"); trusted = json.load(open(".github/orchestration/trusted-actors.json")); sender = os.environ.get("ORCH_SENDER", "")
@@ -269,7 +308,7 @@ def ingest():
         elif kind == "orchestration-readiness":
             if sender not in trusted.get("deployment_observers", []): raise Rejected("unauthorized deployment observer")
             payload = observed_deployment(payload)
-            out, mutation_status = reduce(manifest, envelope(manifest, payload, "readiness"), "deployment")
+            out, mutation_status = reduce(manifest, readiness_envelope(manifest, payload), "deployment")
         elif kind in {"orchestration-codex-dispatch", "orchestration-codex-ack", "orchestration-codex-result"}:
             if sender not in trusted.get("codex_bridge_actors", []): raise Rejected("unauthorized Codex bridge actor")
             operation = "codex_dispatch" if kind.endswith("dispatch") else "codex_ack" if kind.endswith("ack") else "codex_result"
@@ -294,6 +333,9 @@ def observed_deployment(payload):
 
 
 def human():
+    if os.environ.get("ORCH_OPERATION") == "resume" and not legacy_automation_enabled():
+        print("SUPPRESSED owner resume: legacy automation disabled; use an explicit owner-directed task")
+        return False
     number = int(os.environ["ORCH_ISSUE"]); comment, manifest = find_manifest(number); verify_task(number, manifest)
     trusted = json.load(open(".github/orchestration/trusted-actors.json")); actor = os.environ.get("GITHUB_ACTOR", "")
     if actor not in trusted.get("human_approvers", []): raise Rejected("human approver not enrolled")
@@ -339,6 +381,7 @@ def bind():
     gate_status(out["binding"]["head_sha"], "pending", f"Issue #{number}: awaiting fresh Preview PASS and authorization")
 
 
+@legacy_only
 def create_child_hotfix(parent_issue, parent_comment, parent, result_id):
     count = parent.get("lineage", {}).get("hotfix_count", 0) + 1; maximum = parent.get("lineage", {}).get("max_hotfixes", 2)
     if count > maximum:
@@ -411,6 +454,7 @@ def reconcile():
         except Rejected: pass
 
 
+@legacy_only
 def dispatch():
     """Crash-safe replay: manifest mutation precedes comment projection."""
     number = int(os.environ["ORCH_ISSUE"]); _, manifest = find_manifest(number); verify_task(number, manifest)

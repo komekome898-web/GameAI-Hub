@@ -1,0 +1,67 @@
+[WebServer] (node:30955) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:30955) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:31069) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:31077) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:31070) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:31072) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:31216) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 34 tests using 2 workers
+
+(node:31249) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/34] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives resize, expanded=false, without stealing surviving focus
+(node:31248) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/34] e2e/creation-deck-motion.spec.ts:112:5 › neighbor tap centers, overview expands the same node, list and large text remain readable
+[3/34] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives resize, expanded=true, without stealing surviving focus
+[4/34] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 375
+[5/34] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives reduced-motion, expanded=false, without stealing surviving focus
+[6/34] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 390
+[7/34] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives reduced-motion, expanded=true, without stealing surviving focus
+[8/34] e2e/creation-deck-summary.spec.ts:26:43 › real Home categories offer expansion only when clipped at 1440
+[9/34] e2e/deck-acceptance-contract.spec.ts:14:5 › summary exception is earned through real expansion and list recovery, not shared with other clipping
+[10/34] e2e/creation-deck-summary.spec.ts:45:5 › long category visible height grows, close remains, resize/font/content remeasure without lost focus
+[11/34] e2e/creation-deck-summary.spec.ts:91:5 › existing long article expands to full height and keeps its closing control
+[12/34] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 320
+[13/34] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects missing-summary
+[14/34] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 390
+[15/34] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 320
+[16/34] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 390
+[17/34] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 320
+[18/34] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 375
+[19/34] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects missing-button
+[20/34] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 390
+[21/34] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 1440
+[22/34] e2e/shared-category-ring.spec.ts:82:5 › entry preferences and focus ownership remain separate across mounts
+[23/34] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects wrong-controls
+[24/34] e2e/shared-category-ring.spec.ts:101:5 › category tiny flick, inertia, recontact and navigation history use shared motion
+[25/34] e2e/shared-category-ring.spec.ts:129:36 › category enlarged Japanese remains usable at 320
+[26/34] e2e/shared-category-ring.spec.ts:129:36 › category enlarged Japanese remains usable at 375
+[27/34] e2e/shared-category-ring.spec.ts:137:5 › Home no-JS category links reach actual articles, unsafe context is ignored
+[28/34] e2e/shared-category-ring.spec.ts:147:5 › Home example fragment remains native and Project input survives
+[29/34] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects disabled-button
+[30/34] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects collapsed-clipping
+[31/34] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects expanded-clipping
+[32/34] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects list-clipping
+[33/34] e2e/deck-acceptance-contract.spec.ts:59:7 › recovery rejects an identical replacement summary after expanded
+[34/34] e2e/deck-acceptance-contract.spec.ts:59:7 › recovery rejects an identical replacement summary after list
+  34 passed (1.3m)

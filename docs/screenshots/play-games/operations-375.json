@@ -1,0 +1,12 @@
+{
+  "method": "Chromium viewport reflow, not physical device",
+  "width": 375,
+  "imageMetrics": {
+    "naturalWidth": 667,
+    "naturalHeight": 375,
+    "width": 305,
+    "height": 171.46875
+  },
+  "errors": [],
+  "flow": "Home → games → detail → browser Back/Forward → reload → list return → Home category; article counts"
+}

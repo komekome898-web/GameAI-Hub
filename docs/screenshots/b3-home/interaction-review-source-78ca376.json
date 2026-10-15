@@ -1,0 +1,19 @@
+{
+  "reviewer": "/root/b3_prod_interaction_review",
+  "base": "96da279c5db51b4c217e509d900b8efa87a05070",
+  "codeCommit": "78ca376c5cdd3e0a4aeef2d402d2225569fc8f9d",
+  "buildId": "Y7SqhDg-ISlaC_vIUTHYo",
+  "origin": "http://127.0.0.1:3180",
+  "runtimeWorktreeMatchesCodeCommit": true,
+  "files": {
+    "app/layout.tsx": "b31a44b8ef81451205d44146c7ad3f814016148a20fc2552985a2a2d36b35a06",
+    "app/page.tsx": "018136f73b553aab2585d311fe9f887a82b4f10c8610a72a5629d9e0ecb5e623",
+    "app/home-b3.css": "87bf3f5307306e152da9f21dbf1ac829f1484587a8c9adff88bc4ecf1baea382",
+    "components/GameShowcase.tsx": "e8ede8232f4be41952c35d3dd89cf61b8e051f45b3da6aa78e0e971f0c89337a",
+    "components/ArticleBrowser.tsx": "b50a106bf6e195581ad60bec225a5db1b3cdf9fe028222c1d2e4fbd8f86188f0",
+    "components/ArticleHub.tsx": "a54c34601c23c8363416ecfabb8ef14d2d1f1e774faf6a61b64c181b528b7ac7",
+    "components/ArticleReturnLink.tsx": "5f50642170f954c6822226155c847470b4fa8c2e78f5ef126c80b9ceb00b3f55",
+    "components/Header.tsx": "58632baa7719628fd856923ecf6b9253dd1c68d5ef20357ee651946ddb6d8911",
+    "components/useCreationDeckMotion.ts": "dea52cc92299e38b997e43183373afaaad4516361ce3a9d6cc7da58aad704514"
+  }
+}

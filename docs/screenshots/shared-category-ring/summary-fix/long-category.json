@@ -1,0 +1,31 @@
+{
+  "method": "Chromium; isolated real-component fixture, synthetic font and wrapping stress",
+  "collapsed": {
+    "visible": 79,
+    "full": 449,
+    "width": 270
+  },
+  "expanded": {
+    "visible": 449,
+    "full": 449,
+    "width": 270
+  },
+  "collapsedStage": 323,
+  "expandedStage": 692,
+  "enlarged": {
+    "visible": 99,
+    "full": 693,
+    "width": 270
+  },
+  "enlargedFull": {
+    "visible": 693,
+    "full": 693,
+    "width": 270
+  },
+  "final": {
+    "visible": 40,
+    "full": 40,
+    "width": 766
+  },
+  "sameNode": true
+}

@@ -1,0 +1,813 @@
+{
+  "source": "e555d81678440a2faa76538b83e22f875ee96e93",
+  "build": "zRTspQ8ojf93LGGMfzTnt",
+  "rows": [
+    {
+      "id": "category-root150",
+      "url": "/",
+      "width": 375,
+      "focus": ".home-category-entry",
+      "matches": 1,
+      "method": "root-text",
+      "factor": 1.5,
+      "before": [
+        {
+          "tag": "BODY",
+          "text": "body",
+          "font": "16px"
+        },
+        {
+          "tag": "TEXTAREA",
+          "text": "",
+          "font": "16px"
+        }
+      ],
+      "after": [
+        {
+          "tag": "BODY",
+          "text": "body",
+          "font": "24px"
+        },
+        {
+          "tag": "TEXTAREA",
+          "text": "",
+          "font": "24px"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "id": "category-root200",
+      "url": "/",
+      "width": 375,
+      "focus": ".home-category-entry",
+      "matches": 1,
+      "method": "root-text",
+      "factor": 2,
+      "before": [
+        {
+          "tag": "BODY",
+          "text": "body",
+          "font": "16px"
+        },
+        {
+          "tag": "TEXTAREA",
+          "text": "",
+          "font": "16px"
+        }
+      ],
+      "after": [
+        {
+          "tag": "BODY",
+          "text": "body",
+          "font": "32px"
+        },
+        {
+          "tag": "TEXTAREA",
+          "text": "",
+          "font": "32px"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "id": "tools-root150",
+      "url": "/tools/",
+      "width": 320,
+      "focus": ".goal-picker",
+      "matches": 3,
+      "method": "root-text",
+      "factor": 1.5,
+      "before": [
+        {
+          "tag": "BODY",
+          "text": "body",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "コード",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "UI",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "キャラクター",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "2D画像",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "3Dモデル",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "アニメーション",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "声",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "BGM",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "効果音",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "NPC会話",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "翻訳",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "テスト",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "トレーラー",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "ストア素材",
+          "font": "16px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "ツールを検索",
+          "font": "16px"
+        },
+        {
+          "tag": "SELECT",
+          "text": "すべてのカテゴリ2D画像生成3Dモデル生成アニメーションキャ",
+          "font": "16px"
+        },
+        {
+          "tag": "SELECT",
+          "text": "すべての利用環境GodotUnityUnreal Engin",
+          "font": "16px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "16px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "16px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "16px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "16px"
+        }
+      ],
+      "after": [
+        {
+          "tag": "BODY",
+          "text": "body",
+          "font": "24px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "コード",
+          "font": "24px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "UI",
+          "font": "24px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "キャラクター",
+          "font": "24px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "2D画像",
+          "font": "24px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "3Dモデル",
+          "font": "24px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "アニメーション",
+          "font": "24px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "声",
+          "font": "24px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "BGM",
+          "font": "24px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "効果音",
+          "font": "24px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "NPC会話",
+          "font": "24px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "翻訳",
+          "font": "24px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "テスト",
+          "font": "24px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "トレーラー",
+          "font": "24px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "ストア素材",
+          "font": "24px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "ツールを検索",
+          "font": "24px"
+        },
+        {
+          "tag": "SELECT",
+          "text": "すべてのカテゴリ2D画像生成3Dモデル生成アニメーションキャ",
+          "font": "24px"
+        },
+        {
+          "tag": "SELECT",
+          "text": "すべての利用環境GodotUnityUnreal Engin",
+          "font": "24px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "24px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "24px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "24px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "24px"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "id": "tools-root200",
+      "url": "/tools/",
+      "width": 320,
+      "focus": ".goal-picker",
+      "matches": 3,
+      "method": "root-text",
+      "factor": 2,
+      "before": [
+        {
+          "tag": "BODY",
+          "text": "body",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "コード",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "UI",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "キャラクター",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "2D画像",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "3Dモデル",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "アニメーション",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "声",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "BGM",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "効果音",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "NPC会話",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "翻訳",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "テスト",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "トレーラー",
+          "font": "16px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "ストア素材",
+          "font": "16px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "ツールを検索",
+          "font": "16px"
+        },
+        {
+          "tag": "SELECT",
+          "text": "すべてのカテゴリ2D画像生成3Dモデル生成アニメーションキャ",
+          "font": "16px"
+        },
+        {
+          "tag": "SELECT",
+          "text": "すべての利用環境GodotUnityUnreal Engin",
+          "font": "16px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "16px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "16px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "16px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "16px"
+        }
+      ],
+      "after": [
+        {
+          "tag": "BODY",
+          "text": "body",
+          "font": "32px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "コード",
+          "font": "32px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "UI",
+          "font": "32px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "キャラクター",
+          "font": "32px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "2D画像",
+          "font": "32px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "3Dモデル",
+          "font": "32px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "アニメーション",
+          "font": "32px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "声",
+          "font": "32px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "BGM",
+          "font": "32px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "効果音",
+          "font": "32px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "NPC会話",
+          "font": "32px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "翻訳",
+          "font": "32px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "テスト",
+          "font": "32px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "トレーラー",
+          "font": "32px"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "ストア素材",
+          "font": "32px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "ツールを検索",
+          "font": "32px"
+        },
+        {
+          "tag": "SELECT",
+          "text": "すべてのカテゴリ2D画像生成3Dモデル生成アニメーションキャ",
+          "font": "32px"
+        },
+        {
+          "tag": "SELECT",
+          "text": "すべての利用環境GodotUnityUnreal Engin",
+          "font": "32px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "32px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "32px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "32px"
+        },
+        {
+          "tag": "INPUT",
+          "text": "",
+          "font": "32px"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "id": "project-root150",
+      "url": "/project/",
+      "width": 320,
+      "focus": ".project-idea-card",
+      "matches": 1,
+      "method": "root-text",
+      "factor": 1.5,
+      "before": [
+        {
+          "tag": "BODY",
+          "text": "body",
+          "font": "16px"
+        },
+        {
+          "tag": "TEXTAREA",
+          "text": "",
+          "font": "16px"
+        }
+      ],
+      "after": [
+        {
+          "tag": "BODY",
+          "text": "body",
+          "font": "24px"
+        },
+        {
+          "tag": "TEXTAREA",
+          "text": "",
+          "font": "24px"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "id": "project-root200",
+      "url": "/project/",
+      "width": 320,
+      "focus": ".project-idea-card",
+      "matches": 1,
+      "method": "root-text",
+      "factor": 2,
+      "before": [
+        {
+          "tag": "BODY",
+          "text": "body",
+          "font": "16px"
+        },
+        {
+          "tag": "TEXTAREA",
+          "text": "",
+          "font": "16px"
+        }
+      ],
+      "after": [
+        {
+          "tag": "BODY",
+          "text": "body",
+          "font": "32px"
+        },
+        {
+          "tag": "TEXTAREA",
+          "text": "",
+          "font": "32px"
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "id": "tools-computed200-320",
+      "url": "/tools/",
+      "width": 320,
+      "focus": ".goal-picker",
+      "matches": 3,
+      "method": "synthetic-computed-text",
+      "factor": 2,
+      "before": {
+        "count": 408,
+        "root": "16px"
+      },
+      "after": [
+        {
+          "text": "コード",
+          "font": "32px",
+          "width": 230,
+          "height": 72.390625
+        },
+        {
+          "text": "UI",
+          "font": "32px",
+          "width": 230,
+          "height": 72.390625
+        },
+        {
+          "text": "キャラクター",
+          "font": "32px",
+          "width": 230,
+          "height": 72.390625
+        },
+        {
+          "text": "2D画像",
+          "font": "32px",
+          "width": 230,
+          "height": 72.390625
+        },
+        {
+          "text": "3Dモデル",
+          "font": "32px",
+          "width": 230,
+          "height": 72.390625
+        },
+        {
+          "text": "アニメーション",
+          "font": "32px",
+          "width": 230,
+          "height": 126.78125
+        },
+        {
+          "text": "声",
+          "font": "32px",
+          "width": 230,
+          "height": 72.390625
+        },
+        {
+          "text": "BGM",
+          "font": "32px",
+          "width": 230,
+          "height": 72.390625
+        },
+        {
+          "text": "効果音",
+          "font": "32px",
+          "width": 230,
+          "height": 72.390625
+        },
+        {
+          "text": "NPC会話",
+          "font": "32px",
+          "width": 230,
+          "height": 72.390625
+        },
+        {
+          "text": "翻訳",
+          "font": "32px",
+          "width": 230,
+          "height": 72.390625
+        },
+        {
+          "text": "テスト",
+          "font": "32px",
+          "width": 230,
+          "height": 72.390625
+        },
+        {
+          "text": "トレーラー",
+          "font": "32px",
+          "width": 230,
+          "height": 72.390625
+        },
+        {
+          "text": "ストア素材",
+          "font": "32px",
+          "width": 230,
+          "height": 72.390625
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "id": "article-workspace-spacing",
+      "url": "/articles/ai-browser-game-how-to/",
+      "width": 320,
+      "focus": ".beginner-workspace",
+      "matches": 1,
+      "method": "spacing",
+      "before": [],
+      "after": [],
+      "overflow": false
+    },
+    {
+      "id": "compare-criteria-spacing",
+      "url": "/compare/?ids=meshy,elevenlabs",
+      "width": 320,
+      "focus": ".compare-mobile",
+      "matches": 1,
+      "method": "spacing",
+      "before": [],
+      "after": [],
+      "overflow": false
+    },
+    {
+      "id": "footer-1440",
+      "url": "/tools/",
+      "width": 1440,
+      "focus": ".site-footer",
+      "matches": 1,
+      "method": "normal",
+      "before": [],
+      "after": [],
+      "overflow": false
+    },
+    {
+      "id": "footer-375",
+      "url": "/tools/",
+      "width": 375,
+      "focus": ".site-footer",
+      "matches": 1,
+      "method": "normal",
+      "before": [],
+      "after": [],
+      "overflow": false
+    },
+    {
+      "id": "footer-320",
+      "url": "/tools/",
+      "width": 320,
+      "focus": ".site-footer",
+      "matches": 1,
+      "method": "normal",
+      "before": [],
+      "after": [],
+      "overflow": false
+    },
+    {
+      "id": "menu-root200",
+      "lastFocus": "プライバシー→",
+      "focusInside": true,
+      "arrow": {
+        "client": 65,
+        "scroll": 65
+      }
+    },
+    {
+      "id": "menu-escape",
+      "returnedFocus": true
+    },
+    {
+      "id": "home-category",
+      "initial": "list",
+      "clicked": false,
+      "mode": "list",
+      "items": 5,
+      "supersededBy": "cards-normal-recheck.json"
+    },
+    {
+      "id": "article-start",
+      "initial": "deck",
+      "clicked": true,
+      "mode": "list",
+      "items": 6,
+      "supersededBy": "cards-normal-recheck.json"
+    },
+    {
+      "id": "article-game",
+      "initial": "deck",
+      "clicked": true,
+      "mode": "list",
+      "items": 8,
+      "supersededBy": "cards-normal-recheck.json"
+    },
+    {
+      "id": "reduced-category",
+      "mode": "list",
+      "available": "false",
+      "supersededBy": "cards-normal-recheck.json"
+    },
+    {
+      "id": "article-copy",
+      "text": "最初のゲーム生成promptをコピーコピーしました。"
+    }
+  ],
+  "notes": "The first card portion inherited root200 through a same-document hash navigation. Those card images and state assertions are superseded by cards-normal-recheck.json and recaptured normal-font screenshots. Root/spacing/menu records remain their stated stress methods."
+}

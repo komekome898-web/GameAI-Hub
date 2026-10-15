@@ -1,0 +1,91 @@
+{
+  "method": "Chromium viewport reflow; not physical device",
+  "metrics": {
+    "viewport": 1440,
+    "document": 1440,
+    "play": {
+      "x": 1030,
+      "y": 780.9375,
+      "width": 150,
+      "height": 48,
+      "top": 780.9375,
+      "right": 1180,
+      "bottom": 828.9375,
+      "left": 1030
+    },
+    "headerTargets": [
+      {
+        "label": "GameBuildiaryビルダイアリー",
+        "height": 44
+      },
+      {
+        "label": "ゲームで遊ぶ",
+        "height": 44
+      },
+      {
+        "label": "作り方を知る",
+        "height": 44
+      },
+      {
+        "label": "AIを選ぶ",
+        "height": 44
+      },
+      {
+        "label": "制作を始める作る ↗",
+        "height": 44
+      }
+    ],
+    "image": [
+      {
+        "src": "/images/games/monster-construction/screen.jpeg",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      },
+      {
+        "src": "/images/games/aramon/title-screen.png",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      },
+      {
+        "src": "/images/games/create-monsters/battle.jpeg",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      },
+      {
+        "src": "/images/games/aura-connect-battle/screen.jpeg",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      },
+      {
+        "src": "/images/games/tomoshibi/screen.jpeg",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      },
+      {
+        "src": "/images/games/punching/screen.png",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      },
+      {
+        "src": "/images/games/rakugaction/screen.png",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      },
+      {
+        "src": "/images/games/sumaraku/screen.png",
+        "fit": "contain",
+        "filter": "none",
+        "opacity": "1"
+      }
+    ]
+  },
+  "selected": "aramon",
+  "errors": []
+}

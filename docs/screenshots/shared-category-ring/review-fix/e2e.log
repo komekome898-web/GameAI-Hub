@@ -1,0 +1,43 @@
+[WebServer] (node:26288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:26288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:26327) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:26328) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:26334) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:26326) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:26398) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 14 tests using 1 worker
+
+(node:26414) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/14] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 320
+[2/14] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 390
+[3/14] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 320
+[4/14] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 390
+[5/14] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 320
+[6/14] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 375
+[7/14] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 390
+[8/14] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 1440
+[9/14] e2e/shared-category-ring.spec.ts:82:5 › entry preferences and focus ownership remain separate across mounts
+[10/14] e2e/shared-category-ring.spec.ts:101:5 › category tiny flick, inertia, recontact and navigation history use shared motion
+[11/14] e2e/shared-category-ring.spec.ts:129:36 › category enlarged Japanese remains usable at 320
+[12/14] e2e/shared-category-ring.spec.ts:129:36 › category enlarged Japanese remains usable at 375
+[13/14] e2e/shared-category-ring.spec.ts:137:5 › Home no-JS category links reach actual articles, unsafe context is ignored
+[14/14] e2e/shared-category-ring.spec.ts:147:5 › Home example fragment remains native and Project input survives
+  14 passed (41.7s)

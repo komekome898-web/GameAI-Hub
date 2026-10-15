@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { site } from "@/lib/site";
+import { articlePurposes, type ArticlePurpose } from "@/data/article-purposes";
 
 export const articleCategories = [
   "field-note",
@@ -26,12 +28,16 @@ export type ArticleRecord = {
   title: string;
   description: string;
   category: ArticleCategory;
+  purpose: ArticlePurpose;
+  purposeOrder: number;
+  contextNote?: string;
   tags: readonly string[];
   publicationStatus: "published" | "draft" | "research_required";
   publishedAt: string;
   updatedAt: string;
   lastVerifiedAt?: string;
   author: string;
+  authorProfileUrl?: string;
   editorialNote: string;
   sources: readonly ArticleSource[];
   related: readonly ArticleLink[];
@@ -55,6 +61,8 @@ export const articleCategoryLabels: Record<ArticleCategory, string> = {
 export const articles = [
   {
     slug: "chatgpt-cat-tap-game",
+    purpose: "start",
+    purposeOrder: 7,
     title: "ChatGPTで猫タップゲームを作る｜初心者向けHTML入門",
     description:
       "初心者が1つのHTMLで、猫をタップ／クリックするとスコアが1ずつ増え、リセットできるブラウザゲームを作って確かめる実践手順。",
@@ -62,7 +70,7 @@ export const articles = [
     tags: ["ChatGPT", "ブラウザゲーム", "HTML", "初心者", "タップゲーム"],
     publicationStatus: "published",
     publishedAt: "2026-09-20",
-    updatedAt: "2026-09-20",
+    updatedAt: "2026-10-15",
     author: "AI Iterproof編集部",
     editorialNote:
       "掲載コードをブラウザで操作して確認できる形にし、特定プラン、料金、商用利用条件を前提にしない手順として構成しています。AIの出力は毎回確認し、動いた版を残してから変更してください。",
@@ -90,43 +98,606 @@ export const articles = [
     promotions: [],
   },
   {
-    slug: "elevenlabs-commercial-use-game",
+    slug: "meshy-pricing-credits-game",
+    purpose: "3d",
+    purposeOrder: 2,
     title:
-      "ElevenLabsの商用利用ガイド｜ゲーム音声で確認すべき権利とプラン",
+      "Meshy AIの料金は？無料版・Pro・Premium・Ultraの違いとゲーム開発のクレジット目安",
+    description:
+      "MeshyのFree・Pro・Premium・Ultraを、クレジットの仕組み、ゲーム用3Dアセットの透明な計算例、リトライを含む制作予算から選ぶガイド。",
+    category: "tool",
+    tags: ["Meshy", "料金", "クレジット", "3Dモデル", "ゲーム開発"],
+    publishedAt: "2026-09-22",
+    updatedAt: "2026-09-22",
+    publicationStatus: "published",
+    lastVerifiedAt: "2026-09-22",
+    author: "AI Iterproof編集部",
+    editorialNote:
+      "Meshy公式Pricing、Help、API Docsの料金・credit・reset・refund・Free・license資料を2026-09-22に確認。同時点でUltraの月間credit数とFreeのdownload表現に一次資料間の差があるため、購入前に公式Pricing表示を優先してください。 2026-10-06（日本時間）はcreditsの有効期限、返却・APIキャンセル、FreeのPlaygroundとAPIキー条件のみ再確認しました。Terms第2.10節と期限Helpの不一致を併記し、APIの状態別動作はChangelogの9月11日項目とErrorsで照合しています。料金表や記事全体の再確認ではありません。",
+    sources: [
+      {
+        label: "Meshy Terms: 第2.10節（追加購入creditsの有効期限）",
+        url: "https://www.meshy.ai/terms-of-use",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
+      {
+        label: "Meshy Docs: Errors（409 Conflict）",
+        url: "https://docs.meshy.ai/en/api/errors",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
+      {
+        label: "Meshy Docs: Developer Platform（Freeの試用とAPIキー）",
+        url: "https://docs.meshy.ai/en/api/developer-platform",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
+      {
+        label: "Meshy Pricing",
+        url: "https://www.meshy.ai/pricing",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Plan comparison",
+        url: "https://help.meshy.ai/en/articles/12062933-which-meshy-plan-is-right-for-you-free-vs-pro-vs-premium-vs-ultra",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Free plan",
+        url: "https://help.meshy.ai/en/articles/15696428-what-is-included-on-the-free-plan",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Docs: API pricing & credits",
+        url: "https://docs.meshy.ai/en/api/pricing",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Workspace task credit costs",
+        url: "https://help.meshy.ai/en/articles/10000507-how-many-credits-does-each-generation-task-cost",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: API task credit costs",
+        url: "https://help.meshy.ai/en/articles/16815622-how-many-credits-does-each-meshy-api-task-cost",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Credit reset",
+        url: "https://help.meshy.ai/en/articles/9991991-when-will-my-credits-reset",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Monthly credit refill",
+        url: "https://help.meshy.ai/en/articles/12462244-why-do-my-monthly-credits-not-give-me-the-full-amount-that-you-advertise",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Credit usage and refunds",
+        url: "https://help.meshy.ai/en/articles/15643245-when-were-my-meshy-credits-used-or-refunded",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
+      {
+        label: "Meshy Help: Free and permanent credits",
+        url: "https://help.meshy.ai/en/articles/9991982-can-i-get-free-credits",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Credit expiration and permanent credits",
+        url: "https://help.meshy.ai/en/articles/9991985-do-credits-have-an-expiration-date",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
+      {
+        label: "Meshy Docs: Changelog",
+        url: "https://docs.meshy.ai/en/api/changelog",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
+      {
+        label: "Meshy Help: Commercial use",
+        url: "https://help.meshy.ai/en/articles/9992001-can-i-use-meshy-assets-commercially-license-copyright-explained",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+    ],
+    related: [
+      {
+        href: "/articles/meshy-commercial-use-game/",
+        label: "Meshyの商用利用とライセンスを確認",
+        reason: "料金を決める前後に生成時プランと権利条件を分けて確認する",
+        kind: "article",
+      },
+      {
+        href: "/articles/meshy-game-development-guide/",
+        label: "Meshyでゲーム用3Dアセットを作る",
+        reason: "実際に1点を生成・書き出し・importして検品する",
+        kind: "article",
+      },
+      {
+        href: "/tools/meshy/",
+        label: "Meshyの検証済みツール情報",
+        reason: "現在の機能と一次資料を確認する",
+        kind: "tool",
+      },
+    ],
+    projectCta: {
+      label: "3Dアセット予算を次の制作taskへ整理する",
+      description:
+        "必要数、試行回数、texture・rigの条件を分け、最初の1点を検証します。",
+      placement: "article_end",
+    },
+    promotions: [
+      {
+        serviceSlug: "meshy",
+        placement: "production_tools",
+        context:
+          "クレジット予算を計算した後に、現行の料金・プラン条件を公式で確認するため。",
+      },
+    ],
+  },
+  {
+    slug: "meshy-commercial-use-game",
+    purpose: "3d",
+    purposeOrder: 3,
+    title:
+      "Meshy AIは商用利用できる？無料版・有料版のライセンスとゲーム利用条件",
+    description:
+      "Meshyで生成した3Dアセットを商用ゲームに使う前に、FreeのCC BY 4.0、Paidの所有条件、生成時プラン、参照画像、素材販売の注意点を確認するガイド。",
+    category: "tool",
+    tags: [
+      "Meshy",
+      "商用利用",
+      "3Dモデル",
+      "ゲーム開発",
+      "ライセンス",
+      "著作権",
+    ],
+    publishedAt: "2026-09-21",
+    updatedAt: "2026-09-22",
+    publicationStatus: "published",
+    lastVerifiedAt: "2026-09-22",
+    author: "AI Iterproof編集部",
+    editorialNote:
+      "Meshy公式の商用利用、Freeプラン、所有権、解約、参照画像、Marketplace、販売、Termsの一次資料を2026-09-22に確認しました。Marketplace記事にはFree生成物について他の専用案内と異なる記述があるため、素材自体を出品する場合は両方の最新条件を確認してください。",
+    sources: [
+      {
+        label: "Meshy Help: Commercial use",
+        url: "https://help.meshy.ai/en/articles/9992001-can-i-use-meshy-assets-commercially-license-copyright-explained",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Free plan",
+        url: "https://help.meshy.ai/en/articles/15696428-what-is-included-on-the-free-plan",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Ownership of generated models",
+        url: "https://help.meshy.ai/en/articles/10137554-what-is-the-ownership-of-the-generated-models",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Cancellation and downgrade",
+        url: "https://help.meshy.ai/en/articles/9992023-if-i-cancel-my-subscription-will-all-my-models-revert-to-a-cc-by-4-0-license",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Copyright checklist for reference images",
+        url: "https://help.meshy.ai/en/articles/16103168-copyright-checklist-for-meshy-reference-images-and-assets",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Marketplace publishing checklist",
+        url: "https://help.meshy.ai/en/articles/16102951-can-you-publish-or-sell-meshy-models-on-marketplaces",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Help: Selling models",
+        url: "https://help.meshy.ai/en/articles/9992022-can-i-sell-meshy-models-marketplaces-stores-licensing",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Meshy Terms of Use",
+        url: "https://www.meshy.ai/terms-of-use",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+      {
+        label: "Creative Commons: Attribution 4.0 International",
+        url: "https://creativecommons.org/licenses/by/4.0/",
+        kind: "primary",
+        verifiedAt: "2026-09-22",
+      },
+    ],
+    related: [
+      {
+        href: "/articles/meshy-game-development-guide/",
+        label: "ゲーム用3Dモデルを作ってUnity・Blenderへ持っていく",
+        reason: "権利を確認した後、1点を生成・importして検品する",
+        kind: "article",
+      },
+      {
+        href: "/tools/meshy/",
+        label: "Meshyの検証済みツール情報",
+        reason: "現在の機能、条件、一次資料を確認する",
+        kind: "tool",
+      },
+      {
+        href: "/compare/",
+        label: "3D制作ツールを比較する",
+        reason: "条件が合わない場合に別の候補を比較する",
+        kind: "compare",
+      },
+    ],
+    projectCta: {
+      label: "公開条件を制作taskへ整理する",
+      description:
+        "利用するアセットごとの生成時プラン、帰属表示、参照素材、公開先の確認を具体的なtaskへ分けます。",
+      placement: "article_end",
+    },
+    promotions: [
+      {
+        serviceSlug: "meshy",
+        placement: "production_tools",
+        context:
+          "ライセンス判断を終えた後に、現行プランと商用利用条件を公式で確認するため。",
+      },
+    ],
+  },
+  {
+    slug: "meshy-game-development-guide",
+    purpose: "3d",
+    purposeOrder: 1,
+    title:
+      "Meshy AIの使い方｜ゲーム用3Dモデルの生成からUnity・Blenderへの読み込みまで",
+    description:
+      "Meshyで最初のゲーム用3Dアセットを作り、FBXまたはGLBでBlender・Unityへ読み込み、実際の制作環境で採用可否を確認する手順。",
+    category: "tool",
+    tags: ["Meshy", "3Dモデル", "ゲーム開発", "Unity", "Blender"],
+    publishedAt: "2026-09-21",
+    updatedAt: "2026-09-21",
+    publicationStatus: "published",
+    lastVerifiedAt: "2026-09-21",
+    author: "AI Iterproof編集部",
+    editorialNote:
+      "Meshy公式の生成、書き出し、Blender・Unity連携、料金、ライセンス資料を2026-09-21に確認しました。料金、credits、利用可能な機能や権利条件は変更されるため、制作・公開時点の公式表示を確認してください。",
+    sources: [
+      {
+        label: "Meshy Docs: Text to 3D",
+        url: "https://docs.meshy.ai/en/webapp/text-to-3d",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
+      {
+        label: "Meshy Docs: Image to 3D",
+        url: "https://docs.meshy.ai/en/webapp/image-to-3d",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
+      {
+        label: "Meshy Docs: Export Formats",
+        url: "https://docs.meshy.ai/en/webapp/guides/platform/export-formats",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
+      {
+        label: "Meshy Docs: Blender Plugin",
+        url: "https://docs.meshy.ai/en/webapp/plugins/blender/introduction",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
+      {
+        label: "Meshy Docs: Unity Plugin",
+        url: "https://docs.meshy.ai/en/webapp/plugins/unity/introduction",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
+      {
+        label: "Meshy Pricing",
+        url: "https://www.meshy.ai/pricing",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
+      {
+        label: "Meshy Help: Commercial use",
+        url: "https://help.meshy.ai/en/articles/9992001-can-i-use-meshy-assets-commercially-license-copyright-explained",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
+      {
+        label: "Meshy Terms of Use",
+        url: "https://www.meshy.ai/terms-of-use",
+        kind: "primary",
+        verifiedAt: "2026-09-21",
+      },
+    ],
+    related: [
+      {
+        href: "/articles/meshy-pricing-credits-game/",
+        label: "Meshyの料金とクレジットを見積もる",
+        reason: "1点を検品した後、試行回数を含む制作予算を決める",
+        kind: "article",
+      },
+      {
+        href: "/articles/meshy-commercial-use-game/",
+        label: "Meshyの商用利用とライセンスを確認",
+        reason: "公開前に生成時プランと帰属・権利条件を確認する",
+        kind: "article",
+      },
+      {
+        href: "/tools/meshy/",
+        label: "Meshyの検証済みツール情報",
+        reason: "現在の機能、条件、一次資料を確認する",
+        kind: "tool",
+      },
+    ],
+    projectCta: {
+      label: "取り込んだ3Dアセットの次のtaskを決める",
+      description:
+        "同じゲーム案を保ったまま、当たり判定、操作との連携、スタイル確認のうち次に検証する1つを決めます。",
+      placement: "article_end",
+    },
+    promotions: [
+      {
+        serviceSlug: "meshy",
+        placement: "production_tools",
+        context:
+          "最初のアセットと採用条件を決めてから、公式の生成・書き出し条件を確認するため。",
+      },
+    ],
+  },
+  {
+    slug: "elevenlabs-v4-game-voice",
+    purpose: "voice",
+    purposeOrder: 2,
+    title:
+      "ElevenLabs v4とは？ゲーム音声の変化・v3との違い・日本語・Turboを解説",
+    description:
+      "ElevenLabs v4 / v4 Turboを固定ゲーム音声、複数話者カットシーン、リアルタイムAI NPCで選び分け、日本語セリフの発音・演技・一貫性を検品するガイド。",
+    category: "tool",
+    tags: [
+      "ElevenLabs v4",
+      "ゲーム音声",
+      "日本語音声",
+      "Audio Tags",
+      "AI NPC",
+      "Voice Cloning",
+    ],
+    publishedAt: "2026-09-30",
+    updatedAt: "2026-10-11",
+    publicationStatus: "published",
+    lastVerifiedAt: "2026-09-30",
+    author: "AI Iterproof編集部",
+    editorialNote:
+      "ElevenLabs公式のv4公開情報、製品ページ、モデル、TTS、prompting、Text to Dialogue、Voice Cloning、Pricing、Termsを2026-09-30に再確認しました。2026-10-11にText to Dialogue概要の話者数上限なしの説明とCreate dialogue APIの1リクエスト最大10個の異なるvoice ID制限を再確認し、適用範囲を補足しました。他の資料の確認日は据え置きです。GameBuildiaryによる音声生成・試聴評価ではなく、掲載セリフは再現用テスト手順です。",
+    sources: [
+      {
+        label: "ElevenLabs: Eleven v4 release",
+        url: "https://elevenlabs.io/ja/blog/eleven-v4",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+      {
+        label: "ElevenLabs: Eleven v4",
+        url: "https://elevenlabs.io/ja/v4",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+      {
+        label: "ElevenLabs Docs: Models",
+        url: "https://elevenlabs.io/docs/overview/models",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+      {
+        label: "ElevenLabs Docs: Text to Speech",
+        url: "https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+      {
+        label: "ElevenLabs Docs: v4 best practices",
+        url: "https://elevenlabs.io/docs/ja/overview/capabilities/text-to-speech/best-practices",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+      {
+        label: "ElevenLabs Docs: Text to Dialogue",
+        url: "https://elevenlabs.io/docs/overview/capabilities/text-to-dialogue",
+        kind: "primary",
+        verifiedAt: "2026-10-11",
+      },
+      {
+        label: "ElevenLabs API: Create dialogue",
+        url: "https://elevenlabs.io/docs/api-reference/text-to-dialogue/convert",
+        kind: "primary",
+        verifiedAt: "2026-10-11",
+      },
+      {
+        label: "ElevenLabs Docs: Voice Cloning",
+        url: "https://elevenlabs.io/docs/ja/eleven-creative/voices/voice-cloning",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+      {
+        label: "ElevenLabs Pricing",
+        url: "https://elevenlabs.io/pricing",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+      {
+        label: "ElevenLabs Terms of Use",
+        url: "https://elevenlabs.io/terms-of-use",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
+    ],
+    related: [
+      {
+        href: "/articles/elevenlabs-game-development-guide/",
+        label: "代表音声を保存・組み込み・検品する",
+        reason: "選んだモデルで最初の1〜3本をゲーム内成果物にする",
+        kind: "article",
+      },
+      {
+        href: "/articles/elevenlabs-commercial-use-game/",
+        label: "商用利用とVoice Cloningの権利を確認",
+        reason: "公開前のプラン・同意・入力素材を判定する",
+        kind: "article",
+      },
+      {
+        href: "/tools/elevenlabs/",
+        label: "ElevenLabsの検証済みツール情報",
+        reason: "現在の公式情報と中立的なサービス記録を確認する",
+        kind: "tool",
+      },
+    ],
+    projectCta: {
+      label: "自分のゲーム用に最初の音声taskを作る",
+      description:
+        "固定音声、複数話者、リアルタイムNPCの要件を保ったまま、代表セリフと完了条件へ分けます。",
+      placement: "article_end",
+    },
+    promotions: [
+      {
+        serviceSlug: "elevenlabs",
+        placement: "production_tools",
+        context:
+          "音声方式と代表セリフを決めた後に、現行モデルを実際に比較するため。",
+      },
+    ],
+  },
+  {
+    slug: "elevenlabs-commercial-use-game",
+    purpose: "voice",
+    purposeOrder: 3,
+    title: "ElevenLabsの商用利用ガイド｜ゲーム音声で確認すべき権利とプラン",
     description:
       "ElevenLabsの音声を商用ゲームで使う前に確認すべきプラン、Commercial License、Free利用、入力素材の権利、Voice Cloningの同意条件をゲーム制作者向けに整理。",
     category: "tool",
-    tags: ["ElevenLabs", "商用利用", "AI音声", "ゲーム開発", "Voice Cloning", "著作権"],
+    tags: [
+      "ElevenLabs",
+      "商用利用",
+      "AI音声",
+      "ゲーム開発",
+      "Voice Cloning",
+      "著作権",
+    ],
     publishedAt: "2026-09-10",
     updatedAt: "2026-09-10",
     publicationStatus: "published",
     lastVerifiedAt: "2026-09-10",
     author: "AI Iterproof編集部",
     editorialNote:
-      "ElevenLabs公式Pricing、Terms、Text to Speech、Voice Cloning関連の一次資料を2026-09-10に確認しました。料金・credits・商用条件・Voice Cloning要件は変更される可能性があるため、公開時点の公式条件を優先してください。",
+      "ElevenLabs公式Pricing、Terms、Text to Speech、Voice Cloning関連の一次資料を2026-09-10に確認しました。料金・credits・商用条件・Voice Cloning要件は変更される可能性があるため、公開時点の公式条件を優先してください。 2026-10-06（日本時間）は商用利用Help、Terms第1(c)項と補足条件、Beta Services Addendum第3項を照合し、Beta対象の商用・本番利用制限のみ補足しました。記事全体やTermsの他の論点、個別モデルのBeta該当性は再確認していません。",
     sources: [
-      { label: "ElevenLabs Pricing", url: "https://elevenlabs.io/pricing", kind: "primary", verifiedAt: "2026-09-10" },
-      { label: "ElevenLabs Terms of Use", url: "https://elevenlabs.io/terms-of-use", kind: "primary", verifiedAt: "2026-09-10" },
-      { label: "ElevenLabs Docs: Text to Speech", url: "https://elevenlabs.io/docs/overview/capabilities/text-to-speech", kind: "primary", verifiedAt: "2026-09-10" },
-      { label: "ElevenLabs Docs: Instant Voice Cloning", url: "https://elevenlabs.io/docs/eleven-creative/voices/voice-cloning/instant-voice-cloning", kind: "primary", verifiedAt: "2026-09-10" },
-      { label: "ElevenLabs Docs: Professional Voice Cloning", url: "https://elevenlabs.io/docs/eleven-creative/voices/voice-cloning/professional-voice-cloning", kind: "primary", verifiedAt: "2026-09-10" },
-      { label: "ElevenLabs Help: What happens to my content after my subscription ends?", url: "https://help.elevenlabs.io/hc/en-us/articles/15993008593297-What-happens-to-my-content-after-my-subscription-ends", kind: "primary", verifiedAt: "2026-09-10" },
-      { label: "ElevenLabs Help: Can I publish the content I generate on the platform?", url: "https://help.elevenlabs.io/hc/en-us/articles/13313564601361-Can-I-publish-the-content-I-generate-on-the-platform", kind: "primary", verifiedAt: "2026-09-10" },
+      {
+        label: "ElevenLabs Beta Services Addendum: 第3項",
+        url: "https://elevenlabs.io/bsa",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
+      {
+        label: "ElevenLabs Pricing",
+        url: "https://elevenlabs.io/pricing",
+        kind: "primary",
+        verifiedAt: "2026-09-10",
+      },
+      {
+        label: "ElevenLabs Terms of Use",
+        url: "https://elevenlabs.io/terms-of-use",
+        kind: "primary",
+        verifiedAt: "2026-09-10",
+      },
+      {
+        label: "ElevenLabs Docs: Text to Speech",
+        url: "https://elevenlabs.io/docs/overview/capabilities/text-to-speech",
+        kind: "primary",
+        verifiedAt: "2026-09-10",
+      },
+      {
+        label: "ElevenLabs Docs: Instant Voice Cloning",
+        url: "https://elevenlabs.io/docs/eleven-creative/voices/voice-cloning/instant-voice-cloning",
+        kind: "primary",
+        verifiedAt: "2026-09-10",
+      },
+      {
+        label: "ElevenLabs Docs: Professional Voice Cloning",
+        url: "https://elevenlabs.io/docs/eleven-creative/voices/voice-cloning/professional-voice-cloning",
+        kind: "primary",
+        verifiedAt: "2026-09-10",
+      },
+      {
+        label:
+          "ElevenLabs Help: What happens to my content after my subscription ends?",
+        url: "https://help.elevenlabs.io/hc/en-us/articles/15993008593297-What-happens-to-my-content-after-my-subscription-ends",
+        kind: "primary",
+        verifiedAt: "2026-09-10",
+      },
+      {
+        label:
+          "ElevenLabs Help: Can I publish the content I generate on the platform?",
+        url: "https://help.elevenlabs.io/hc/en-us/articles/13313564601361-Can-I-publish-the-content-I-generate-on-the-platform",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
     ],
     related: [
-      { href: "/articles/elevenlabs-game-development-guide/", label: "ゲーム開発向けElevenLabs使い方ガイド", reason: "実際の音声生成・ゲーム実装へ進む", kind: "article" },
-      { href: "/tools/elevenlabs/", label: "ElevenLabsの検証済みツール情報", reason: "現在の公式情報と機能を確認する", kind: "tool" },
-      { href: "/compare/", label: "AIツールを比較する", reason: "料金や商用条件を他の候補と比較する", kind: "compare" },
+      {
+        href: "/articles/elevenlabs-game-development-guide/",
+        label: "ゲーム開発向けElevenLabs使い方ガイド",
+        reason: "実際の音声生成・ゲーム実装へ進む",
+        kind: "article",
+      },
+      {
+        href: "/tools/elevenlabs/",
+        label: "ElevenLabsの検証済みツール情報",
+        reason: "現在の公式情報と機能を確認する",
+        kind: "tool",
+      },
+      {
+        href: "/compare/",
+        label: "AIツールを比較する",
+        reason: "料金や商用条件を他の候補と比較する",
+        kind: "compare",
+      },
     ],
     projectCta: {
       label: "Project Generatorで公開条件と音声taskを整理する",
-      description: "無料公開、広告、販売、Voice Cloningの有無を整理し、ゲーム公開前に確認すべき音声制作taskへ分解します。",
+      description:
+        "無料公開、広告、販売、Voice Cloningの有無を整理し、ゲーム公開前に確認すべき音声制作taskへ分解します。",
       placement: "article_end",
     },
-    promotions: [{ serviceSlug: "elevenlabs", placement: "production_tools", context: "商用条件を判定した後に、現行プランの公式表示を確認するため。" }],
+    promotions: [
+      {
+        serviceSlug: "elevenlabs",
+        placement: "production_tools",
+        context: "商用条件を判定した後に、現行プランの公式表示を確認するため。",
+      },
+    ],
   },
   {
     slug: "elevenlabs-game-development-guide",
+    purpose: "voice",
+    purposeOrder: 1,
     title:
       "ゲーム開発向けElevenLabs使い方ガイド｜日本語音声・効果音・APIの選び方",
     description:
@@ -134,13 +705,19 @@ export const articles = [
     category: "tool",
     tags: ["ElevenLabs", "ゲーム音声", "日本語音声", "効果音", "API"],
     publishedAt: "2026-09-09",
-    updatedAt: "2026-09-09",
+    updatedAt: "2026-09-30",
     publicationStatus: "published",
-    lastVerifiedAt: "2026-09-09",
+    lastVerifiedAt: "2026-09-30",
     author: "AI Iterproof編集部",
     editorialNote:
-      "ElevenLabs公式の機能、モデル、API出力形式、料金、規約を2026-09-09に確認しました。音声の自然さは文章・声・設定で変わるため、代表セリフを実際のゲーム内で検品する手順を基準にしています。",
+      "ElevenLabs公式のv4公開情報を2026-09-30に追加確認しました。既存の機能、Sound Effects、API出力形式、料金、規約の確認日は各sourceに記録しています。音声の自然さは文章・声・設定で変わるため、代表セリフを実際のゲーム内で検品する手順を基準にしています。",
     sources: [
+      {
+        label: "ElevenLabs: Eleven v4 release",
+        url: "https://elevenlabs.io/ja/blog/eleven-v4",
+        kind: "primary",
+        verifiedAt: "2026-09-30",
+      },
       {
         label: "ElevenLabs Docs: Text to Speech",
         url: "https://elevenlabs.io/docs/overview/capabilities/text-to-speech",
@@ -180,6 +757,18 @@ export const articles = [
     ],
     related: [
       {
+        href: "/articles/elevenlabs-v4-game-voice/",
+        label: "Eleven v4 / v4 Turboをゲーム用途で選ぶ",
+        reason: "固定音声、複数話者、リアルタイムNPCのモデルを決める",
+        kind: "article",
+      },
+      {
+        href: "/articles/elevenlabs-commercial-use-game/",
+        label: "ElevenLabsの商用利用条件を確認",
+        reason: "代表音声を採用した後、公開前にプランと権利を判断する",
+        kind: "article",
+      },
+      {
         href: "/tools/elevenlabs/",
         label: "ElevenLabsの検証済みツール情報",
         reason: "登録済みの用途、料金区分、商用条件、一次資料を確認する",
@@ -190,12 +779,6 @@ export const articles = [
         label: "AIで2D RPGを作る制作フロー",
         reason: "音声素材をゲーム制作全体の工程に置く",
         kind: "guide",
-      },
-      {
-        href: "/articles/ai-usage-guide/",
-        label: "ゲーム開発に使えるAIの正しい使い方",
-        reason: "音声以外も含め、成果物からAIを選ぶ基準を確認する",
-        kind: "article",
       },
     ],
     projectCta: {
@@ -208,25 +791,28 @@ export const articles = [
       {
         serviceSlug: "elevenlabs",
         placement: "production_tools",
-        context: "代表セリフを決め、実際の音声生成を試す段階で公式機能と無料枠を確認するため。",
+        context:
+          "代表セリフを決め、実際の音声生成を試す段階で公式機能と無料枠を確認するため。",
       },
     ],
   },
   {
     slug: "github-beginner-game-development",
+    purpose: "start",
+    purposeOrder: 4,
     title:
-      "GitHubの使い方【ゲーム開発初心者向け】登録・リポジトリ作成・ファイル保存まで",
+      "GitHubの使い方と画面の見方｜初心者がゲームのHTMLを保存するまで",
     description:
-      "ゲーム開発初心者がGitHub account、repository、Copilot、Pagesの違いを理解し、Web画面だけでindex.htmlを保存する手順。",
+      "GitHubの登録からCode画面の見方とindex.htmlの保存までをWeb画面で解説。リポジトリの公開範囲やbranchの確認方法と Copilot・GitHub Pagesとの違いも整理します",
     category: "beginner",
     tags: ["GitHub", "ゲーム開発", "初心者", "HTML"],
     publishedAt: "2026-09-04",
-    updatedAt: "2026-09-04",
+    updatedAt: "2026-10-04",
     publicationStatus: "published",
-    lastVerifiedAt: "2026-09-04",
+    lastVerifiedAt: "2026-10-04",
     author: "AI Iterproof編集部",
     editorialNote:
-      "GitHub公式Docsの手順とラベルを2026-09-04に確認して構成しています。ログイン後の新規アカウントによる全操作は実測しておらず、UIはアカウントや更新により異なる場合があります。",
+      "GitHub公式Docsをもとに構成しています。2026-10-04にリポジトリ作成・ファイル保存・branch・Pull requestの説明だけを再確認しました。その他の項目は今回再確認していません。ログイン後の所有者画面で全手順を通した実測はしていないため 表示や配置が異なる場合があります。各出典の確認日は下記のとおりです",
     sources: [
       {
         label: "GitHub Docs: Creating an account on GitHub",
@@ -238,7 +824,7 @@ export const articles = [
         label: "GitHub Docs: Create a repository",
         url: "https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository",
         kind: "primary",
-        verifiedAt: "2026-09-04",
+        verifiedAt: "2026-10-04",
       },
       {
         label: "GitHub Docs: About repositories and visibility",
@@ -256,7 +842,7 @@ export const articles = [
         label: "GitHub Docs: Adding a file to a repository",
         url: "https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository",
         kind: "primary",
-        verifiedAt: "2026-09-04",
+        verifiedAt: "2026-10-04",
       },
       {
         label: "GitHub Docs: About commits",
@@ -276,12 +862,36 @@ export const articles = [
         kind: "primary",
         verifiedAt: "2026-09-04",
       },
+      {
+        label: "GitHub Docs: Creating new files",
+        url: "https://docs.github.com/en/repositories/working-with-files/managing-files/creating-new-files",
+        kind: "primary",
+        verifiedAt: "2026-10-04",
+      },
+      {
+        label: "GitHub Docs: Branches",
+        url: "https://docs.github.com/en/pull-requests/reference/branches",
+        kind: "primary",
+        verifiedAt: "2026-10-04",
+      },
+      {
+        label: "GitHub Docs: Pull requests",
+        url: "https://docs.github.com/en/pull-requests/reference/pull-requests",
+        kind: "primary",
+        verifiedAt: "2026-10-04",
+      },
+      {
+        label: "GitHub Docs: Managing branches within your repository",
+        url: "https://docs.github.com/en/pull-requests/how-tos/commit-changes/managing-branches-within-your-repository",
+        kind: "primary",
+        verifiedAt: "2026-10-04",
+      },
     ],
     related: [
       {
         href: "/articles/ai-browser-game-how-to/",
         label: "AIでブラウザゲームを作る方法",
-        reason: "保存する前に1つのindex.htmlを作ってHubで動かす",
+        reason: "保存する前に1つのindex.htmlを作ってGameBuildiaryで動かす",
         kind: "article",
       },
       {
@@ -292,7 +902,7 @@ export const articles = [
       },
       {
         href: "/methodology/",
-        label: "AI Iterproofの調査・評価方法",
+        label: "GameBuildiaryの調査・評価方法",
         reason: "公式確認と実測、未確認をどう分けるか確認する",
         kind: "reference",
       },
@@ -307,20 +917,34 @@ export const articles = [
   },
   {
     slug: "ai-browser-game-how-to",
+    purpose: "start",
+    purposeOrder: 1,
     title:
-      "AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む",
+      "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方",
     description:
-      "初心者がAIの返した1つのindex.htmlを貼り付けて実行し、勝敗とやり直しを確認し、保存・復旧して同じゲームの次の作業へ進む手順。",
+      "AIに1つのHTMLでモンスターバトルを作ってもらい このページで実行。攻撃・HP・勝利・やり直しを確認します。完成例を使った敵名変更と 動いた版の保存・復旧までを解説",
     category: "beginner",
     tags: ["AIゲーム開発", "ブラウザゲーム", "初心者", "HTML"],
     publishedAt: "2026-09-04",
-    updatedAt: "2026-09-08",
+    updatedAt: "2026-10-04",
     publicationStatus: "published",
     lastVerifiedAt: "2026-09-08",
     author: "AI Iterproof編集部",
     editorialNote:
-      "AI生成版と掲載完成例を分け、貼付・実行・勝利結果・保存・1変更・復旧を確認できる初心者向け手順です。外部AIの出力は毎回同一とは限りません。",
+      "AI生成版と掲載完成例を分け、貼付・実行・勝利結果・保存・1変更・復旧を確認できる初心者向け手順です。外部AIの出力は毎回同一とは限りません。 2026-10-06（日本時間）は表示枠の実装・注意コメントとHTMLのsandbox仕様を照合し、安全性を全面保証する説明のみ修正しました。攻撃や情報流出の再現試験、記事全体の再確認ではありません。",
     sources: [
+      {
+        label: "GameAI-Hub: 表示枠の通信制限と注意コメント（e07db538）",
+        url: "https://github.com/komekome898-web/GameAI-Hub/blob/e07db5385d192ba21bc43b8fc299215b9c1e339d/components/BeginnerGameWorkspace.tsx#L7-L29",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
+      {
+        label: "WHATWG HTML: Sandboxing",
+        url: "https://html.spec.whatwg.org/multipage/browsers.html#sandboxing",
+        kind: "primary",
+        verifiedAt: "2026-10-06",
+      },
       {
         label: "MDN: HTML basics",
         url: "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content",
@@ -370,6 +994,8 @@ export const articles = [
   },
   {
     slug: "ai-fantasy",
+    purpose: "practice",
+    purposeOrder: 4,
     title: "AIに幻想を抱くあなたへ",
     description:
       "AIに任せれば全部うまくいく、と思っていた私が、実際の開発で何度も失敗してわかったこと。AIは魔法ではない。使う側の検証と判断が必要だ。",
@@ -397,7 +1023,7 @@ export const articles = [
       },
       {
         href: "/methodology/",
-        label: "AI Iterproofの調査・評価方法",
+        label: "GameBuildiaryの調査・評価方法",
         reason: "確認済み情報と不明情報の扱いを確認する",
         kind: "reference",
       },
@@ -411,6 +1037,8 @@ export const articles = [
   },
   {
     slug: "ai-usage-guide",
+    purpose: "practice",
+    purposeOrder: 1,
     title: "AIの正しい使い方",
     description:
       "AIに期待しすぎて何度も失敗した私が、初めてAIを使う人に向けて、プロンプトの書き方、失敗時の対処法、用途別のAIの使い分けを実体験ベースで整理する。",
@@ -473,6 +1101,8 @@ export const articles = [
   },
   {
     slug: "ai-delegation-trap",
+    purpose: "practice",
+    purposeOrder: 3,
     title: "AIにゲーム開発を丸投げすると、なぜ途中で詰むのか",
     description:
       "AIにゲーム全体を一気に作らせるより、最小の1プレイと観察できる完了条件に分けた方が初心者は進みやすい。AIゲーム開発を丸投げしないための実践的な考え方。",
@@ -515,6 +1145,8 @@ export const articles = [
   },
   {
     slug: "before-asking-ai-build-game",
+    purpose: "start",
+    purposeOrder: 2,
     title: "AIに「ゲームを作って」と頼む前に決めるべき5つのこと",
     description:
       "AIへゲーム制作を頼む前に、最初の1プレイ、実行環境、成果物、完了条件、次の1作業を決める。初心者がAIゲーム開発を始める前の実践チェック。",
@@ -557,6 +1189,8 @@ export const articles = [
   },
   {
     slug: "ai-completion-claim",
+    purpose: "practice",
+    purposeOrder: 2,
     title: "AIが「完成しました」と言っても信用してはいけない理由",
     description:
       "AIの「完成」「修正済み」「問題なし」を最終判断にせず、実物・再現手順・観察可能な完了条件で確認するための品質管理の考え方。",
@@ -584,7 +1218,7 @@ export const articles = [
       },
       {
         href: "/methodology/",
-        label: "AI Iterproofの調査・評価方法",
+        label: "GameBuildiaryの調査・評価方法",
         reason: "確認済み情報と不明情報をどう分けるかを見る",
         kind: "reference",
       },
@@ -599,6 +1233,8 @@ export const articles = [
   },
   {
     slug: "ai-tool-comparison-later",
+    purpose: "start",
+    purposeOrder: 5,
     title: "ゲーム開発初心者ほど、AIツール比較を後回しにした方がいい",
     description:
       "AIツールを先に大量比較するより、今必要な成果物を決めてから選ぶ方が初心者は迷いにくい。制作工程の中でAIを選ぶ考え方。",
@@ -641,6 +1277,8 @@ export const articles = [
   },
   {
     slug: "small-first-success",
+    purpose: "start",
+    purposeOrder: 3,
     title: "AIでゲームを作るなら、最初の成功体験は小さい方がいい",
     description:
       "企画書ではなく、キャラクターが動く・台詞が進むなど小さなプレイ可能状態を最初の成功にする。AIゲーム開発を続けやすくする進め方。",
@@ -683,8 +1321,11 @@ export const articles = [
   },
   {
     slug: "ai-auto-trading-reality",
+    purpose: "practice",
+    purposeOrder: 5,
+    contextNote: "ゲーム制作外の検証事例",
     title:
-      "AI自動売買は本当に稼げる？最新AI Claude Fable 5.1にトレード研究を丸投げして分かった現実",
+      "AIにトレード研究を丸投げしたら、間違った方向へ全力疾走した話",
     description:
       "最新AI Claude Fable 5.1を研究リーダーにして、AIトレード研究を実際に進めたら何が起きたのか。AUC 0.82の落とし穴、全件再監査で16件の結論が変わった話、見えていなかったデータまで、AIに自動売買を任せる前の実体験をまとめます。",
     category: "field-note",
@@ -724,21 +1365,110 @@ export const articles = [
     },
     promotions: [],
   },
+  {
+    slug: "aramon-production-story",
+    purpose: "practice",
+    purposeOrder: 6,
+    title: "Claude とのチャットから Claude Code へ 荒野モン動を作った流れとエフェクト作りの試行錯誤",
+    description: "おりょうによる荒野モン動の制作体験談。ClaudeのチャットからClaude Codeへ進めた制作の流れ、技のエフェクト作りの試行錯誤、記事編集時のプレイ確認を紹介します。",
+    category: "field-note",
+    tags: ["荒野モン動", "Claude Code", "制作体験談", "エフェクト"],
+    publicationStatus: "published",
+    publishedAt: "2026-10-04",
+    updatedAt: "2026-10-04",
+    author: "おりょう",
+    authorProfileUrl: "https://x.com/oryoooo_game",
+    editorialNote: "作者の制作体験を紹介します。Claude Proの記述は制作時の利用体験です。写真は2026年10月4日の記事編集時のプレイ確認で撮影したもので、開発当時の写真ではありません。",
+    sources: [
+      {
+        label: "荒野モン動 — 作者が公開しているゲーム",
+        url: "https://komekome898-web.github.io/aramon/index.html",
+        kind: "first-hand",
+        verifiedAt: "2026-10-04",
+      },
+      {
+        label: "作者 おりょう / X @oryoooo_game",
+        url: "https://x.com/oryoooo_game",
+        kind: "first-hand",
+        verifiedAt: "2026-10-04",
+      },
+    ],
+    related: [
+      {
+        href: "/articles/ai-usage-guide/",
+        label: "AIの正しい使い方",
+        reason: "AIへの依頼と実際の動作確認を制作に取り入れる",
+        kind: "article",
+      },
+      {
+        href: "/articles/ai-browser-game-how-to/",
+        label: "AIでブラウザゲームを作る方法",
+        reason: "自分のゲームで最初の1プレイを動かす手順へ進む",
+        kind: "article",
+      },
+    ],
+    projectCta: {
+      label: "自分のゲームの最初の制作手順を作る",
+      description: "作りたいゲームを、AIへ頼む作業と自分で確認できる完了条件に分けます。",
+      placement: "article_end",
+    },
+    promotions: [],
+  },
+  {
+    slug: "ai-html-game-not-working",
+    purpose: "start",
+    purposeOrder: 6,
+    title: "AIで作ったHTMLゲームが動かないときの直し方",
+    description: "元のファイルを残し、最初のエラーと操作順から原因を調べます。構文エラー、ボタンの取得ミス、リセット後だけ止まる不具合を実演で直し、2回目の勝利まで確認するガイド。",
+    category: "beginner",
+    tags: ["AIゲーム開発", "HTML", "JavaScript", "エラー", "動作確認"],
+    publicationStatus: "published",
+    publishedAt: "2026-10-11",
+    updatedAt: "2026-10-11",
+    lastVerifiedAt: "2026-10-11",
+    author: "AI Iterproof編集部",
+    editorialNote: "掲載バトルに3種類の不具合を1つずつ入れ、実Chromiumで破損版と修正版を検証しました。環境・再実行手順・スクリーンショットはリポジトリのdocs/research/html-game-debugに記録しています。実機モバイルや他ブラウザーの動作を保証する検証ではありません。",
+    sources: [
+      { label: "MDN: SyntaxError Unexpected token", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Unexpected_token", kind: "primary", verifiedAt: "2026-10-11" },
+      { label: "MDN: Document querySelector", url: "https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector", kind: "primary", verifiedAt: "2026-10-11" },
+      { label: "MDN: DOMContentLoaded", url: "https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event", kind: "primary", verifiedAt: "2026-10-11" },
+      { label: "MDN: HTML disabled", url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/disabled", kind: "primary", verifiedAt: "2026-10-11" },
+      { label: "MDN: JavaScript Modules", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules", kind: "primary", verifiedAt: "2026-10-11" },
+      { label: "Chrome DevTools: Console overview", url: "https://developer.chrome.com/docs/devtools/console", kind: "primary", verifiedAt: "2026-10-11" },
+      { label: "MDN: box-sizing", url: "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/box-sizing", kind: "primary", verifiedAt: "2026-10-11" },
+    ],
+    related: [
+      { href: "/articles/ai-browser-game-how-to/", label: "完成例を動かして保存する", reason: "動く基準へ戻り、最初の1プレイから確認する", kind: "article" },
+      { href: "/articles/github-beginner-game-development/", label: "動いた版をGitHubへ保存する", reason: "復旧できる版を残す手順を確認する", kind: "article" },
+    ],
+    projectCta: { label: "ゲームの次の作業を決める", description: "動いた版を保存し、次の1変更と確認条件を決めます。", placement: "article_end" },
+    promotions: [],
+  },
 ] as const satisfies readonly ArticleRecord[];
 
 export const publishedArticles = articles.filter(
   (article) => article.publicationStatus === "published",
 );
 
-export function validateArticles(records: readonly ArticleRecord[]) {
+export function validateArticles(records: readonly ArticleRecord[], purposes: readonly { id: string }[] = articlePurposes) {
   const errors: string[] = [];
   const seen = new Set<string>();
+  const purposeSlots = new Set<string>();
+  const purposeIds = purposes.map(p => p.id);
+  if (new Set(purposeIds).size !== purposeIds.length) errors.push("duplicate purpose category");
   const publishedSlugs = new Set(
     records
       .filter((a) => a.publicationStatus === "published")
       .map((a) => a.slug),
   );
   for (const a of records) {
+    if (!purposes.some(p => p.id === a.purpose)) errors.push(`unknown or missing purpose: ${a.slug}`);
+    if (!Number.isInteger(a.purposeOrder) || a.purposeOrder < 1) errors.push(`invalid purpose order: ${a.slug}`);
+    if (a.publicationStatus === "published") {
+      const slot = `${a.purpose}:${a.purposeOrder}`;
+      if (purposeSlots.has(slot)) errors.push(`duplicate purpose order: ${slot}`);
+      purposeSlots.add(slot);
+    }
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(a.slug))
       errors.push(`invalid slug: ${a.slug}`);
     if (seen.has(a.slug)) errors.push(`duplicate slug: ${a.slug}`);
@@ -782,8 +1512,8 @@ export function validateArticles(records: readonly ArticleRecord[]) {
         Number.isNaN(Date.parse(source.verifiedAt))
       )
         errors.push(`invalid source date: ${a.slug}`);
-      if (a.lastVerifiedAt && source.verifiedAt > a.lastVerifiedAt)
-        errors.push(`source newer than article verification: ${a.slug}`);
+      // A targeted source check does not reverify the whole article.
+      // Keep source.verifiedAt independent from article.lastVerifiedAt.
     }
     const relatedHrefs = new Set<string>();
     for (const link of a.related) {
@@ -820,7 +1550,7 @@ export function articleMetadata(article: ArticleRecord): Metadata {
     alternates: { canonical: articlePath(article) },
     openGraph: {
       type: "article",
-      title: `${article.title} | AI Iterproof`,
+      title: `${article.title} | ${site.name}`,
       description: article.description,
       url: articlePath(article),
       publishedTime: article.publishedAt,
@@ -829,4 +1559,9 @@ export function articleMetadata(article: ArticleRecord): Metadata {
     },
     authors: [{ name: article.author }],
   };
+}
+
+/** Published entry projections share membership, order and counts. */
+export function getArticleGroups(records: readonly ArticleRecord[] = articles) {
+  return articlePurposes.map(purpose => ({ ...purpose, articles: records.filter(article => article.publicationStatus === "published" && article.purpose === purpose.id).sort((a, b) => a.purposeOrder - b.purposeOrder || a.slug.localeCompare(b.slug)) }));
 }

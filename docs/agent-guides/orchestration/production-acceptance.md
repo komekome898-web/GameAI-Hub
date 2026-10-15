@@ -1,4 +1,10 @@
 # Production acceptance
+
+> Legacy protocol retained for history and regression tests. Current operation is
+> **owner-directed**; the automatic dispatch/retry/result-ingress instructions below
+> are inactive. For new work follow [どっさん司令塔運用](../OWNER_DIRECTED_OPERATIONS.md).
+> Do not configure new Work tasks, emit legacy result markers or treat どっさん's
+> report as Work/model attestation. Required evidence and independent review remain.
 Use work-critical. Wait until Production proves the exact merge SHA. Do not reuse Preview evidence. A FAIL links evidence to a child hotfix run; P0 immediately blocks visibly.
 
 ## Interactive-browser capability handshake

@@ -1,0 +1,9 @@
+{
+  "viewport": 375,
+  "layout": 360,
+  "document": 360,
+  "body": 360,
+  "artLeft": 17,
+  "artRight": 343,
+  "bodyOverflow": "visible"
+}

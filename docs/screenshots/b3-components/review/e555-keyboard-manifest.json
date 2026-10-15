@@ -1,0 +1,1093 @@
+{
+  "pin": "e555d81678440a2faa76538b83e22f875ee96e93",
+  "build": "zRTspQ8ojf93LGGMfzTnt",
+  "records": [
+    {
+      "name": "home-control-inventory",
+      "controls": [
+        {
+          "label": "前の掲載作品",
+          "text": "←",
+          "class": ""
+        },
+        {
+          "label": "次の掲載作品",
+          "text": "→",
+          "class": ""
+        },
+        {
+          "label": null,
+          "text": "作品一覧",
+          "class": "b3-list-toggle"
+        }
+      ]
+    },
+    {
+      "name": "home-list-button",
+      "url": "http://127.0.0.1:3102/?hubCategory=start",
+      "state": {
+        "text": "作品一覧",
+        "aria": null,
+        "class": "b3-list-toggle",
+        "bg": "rgb(42, 56, 43)",
+        "image": "none",
+        "color": "rgb(239, 237, 219)",
+        "border": "1px solid rgba(135, 155, 113, 0.44)",
+        "shadow": "rgb(255, 255, 255) 0px 0px 0px 1px",
+        "outline": "rgb(245, 215, 158) solid 3px",
+        "outlineOffset": "4px",
+        "rect": {
+          "x": 293,
+          "y": 207.703125,
+          "width": 64,
+          "height": 44,
+          "top": 207.703125,
+          "right": 357,
+          "bottom": 251.703125,
+          "left": 293
+        },
+        "focused": true,
+        "headerBottom": 64.640625,
+        "unobscured": true
+      },
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-1",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-2",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-3",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-4",
+            "owner": "div.creation-deck"
+          }
+        ],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-keyboard-home-list-button.png"
+    },
+    {
+      "name": "article-expand",
+      "url": "http://127.0.0.1:3102/articles/?hubArticle=ai-browser-game-how-to#start",
+      "state": {
+        "text": "概要をすべて表示",
+        "aria": null,
+        "class": "v2-start-card-expand",
+        "bg": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "color": "rgb(49, 90, 66)",
+        "border": "0px none rgb(49, 90, 66)",
+        "shadow": "none",
+        "outline": "rgb(49, 90, 66) solid 3px",
+        "outlineOffset": "3px",
+        "rect": {
+          "x": 52.5,
+          "y": 490.328125,
+          "width": 150.25,
+          "height": 48,
+          "top": 490.328125,
+          "right": 202.75,
+          "bottom": 538.328125,
+          "left": 52.5
+        },
+        "focused": true,
+        "headerBottom": 64.640625,
+        "unobscured": true
+      },
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-1",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-2",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-3",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-4",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-5",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          }
+        ],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-keyboard-article-expand.png",
+      "activeId": "ai-browser-game-how-to"
+    },
+    {
+      "name": "article-expanded-keyboard",
+      "url": "http://127.0.0.1:3102/articles/?hubArticle=ai-browser-game-how-to#start",
+      "state": {
+        "text": "概要を閉じる",
+        "aria": null,
+        "class": "v2-start-card-expand",
+        "bg": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "color": "rgb(49, 90, 66)",
+        "border": "0px none rgb(49, 90, 66)",
+        "shadow": "none",
+        "outline": "rgb(49, 90, 66) solid 3px",
+        "outlineOffset": "3px",
+        "rect": {
+          "x": 52.5,
+          "y": 543.109375,
+          "width": 120.015625,
+          "height": 48,
+          "top": 543.109375,
+          "right": 172.515625,
+          "bottom": 591.109375,
+          "left": 52.5
+        },
+        "focused": true,
+        "headerBottom": 64.640625,
+        "unobscured": true
+      },
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-1",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-2",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-3",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-4",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-5",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          }
+        ],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-keyboard-article-expanded-keyboard.png"
+    },
+    {
+      "name": "creation-control-inventory",
+      "controls": [
+        {
+          "label": "前の記事",
+          "text": "←",
+          "class": ""
+        },
+        {
+          "label": "次の記事",
+          "text": "→",
+          "class": ""
+        },
+        {
+          "label": null,
+          "text": "一覧で見る",
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "game-detail-local-return",
+      "url": "http://127.0.0.1:3102/games/aramon/",
+      "state": {
+        "text": "作品一覧へ戻る",
+        "aria": null,
+        "class": "",
+        "bg": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "color": "rgb(82, 96, 75)",
+        "border": "0px none rgb(82, 96, 75)",
+        "shadow": "none",
+        "outline": "rgb(82, 96, 75) none 3px",
+        "outlineOffset": "0px",
+        "rect": {
+          "x": 90.9375,
+          "y": 127.640625,
+          "width": 87.296875,
+          "height": 44,
+          "top": 127.640625,
+          "right": 178.234375,
+          "bottom": 171.640625,
+          "left": 90.9375
+        },
+        "focused": false,
+        "headerBottom": 64.640625,
+        "unobscured": true
+      },
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "file": "e555-keyboard-game-detail-local-return.png",
+      "geometry": []
+    }
+  ],
+  "errors": [],
+  "external": []
+}

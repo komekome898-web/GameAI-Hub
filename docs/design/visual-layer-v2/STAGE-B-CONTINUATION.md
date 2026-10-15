@@ -1,0 +1,7 @@
+# Issue #157 Stage B continuation prompt
+
+Resume `codex/issue-157-visual-layer-v2-complete` and its single draft PR after the commander records Stage A acceptance. Run the repository bootstrap/write-path verification; reconcile, never overwrite, remote lineage. Read the active README, `REFLOW-CONTRACT.md`, `IMPLEMENTATION-PLAN.md`, `TEST-MATRIX.json`, evidence template, Issue #157, and the progress ledger.
+
+Implement continuously in reversible slices: (1) V2 Home/Project, (2) V3 directories/Compare/articles/trust/remaining routes/shared chrome, (3) V4 START-only Creation Deck, (4) integrated final acceptance. Use only minimum targeted checks while coding; do not require per-slice typography records, manifest reconciliation, or an independent verdict before implementing the next slice. Bind observations and advance status only from results actually executed. At final run matrix final-execution validation, quality, build, designated full relevant E2E, independent rendered review and second pass.
+
+Preserve game intent, behavior, data, article facts/order, PR #154, analytics privacy, SEO, attribution, affiliate neutrality, and immutable handoff/reference assets. Add no providers/routes/content/dependencies or runtime test toggles. Creation Deck remains last and progressive. Do not merge, close Issues, visit/mutate Production, claim real-device/browser-zoom evidence from synthetic methods, or change Production's `OWNER-DEFERRED / UNTESTED` status without new authority.

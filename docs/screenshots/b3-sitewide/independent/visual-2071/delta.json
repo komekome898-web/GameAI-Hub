@@ -1,0 +1,715 @@
+{
+  "sha": "2071bc57a6ff8cacbdaa80dbe3a5a81f88b0e613",
+  "records": [
+    {
+      "id": "categories-375",
+      "method": "viewport-reflow",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start#categories",
+      "mode": "deck",
+      "root": {
+        "x": 31,
+        "y": 280.296875,
+        "width": 313,
+        "height": 344.1875,
+        "top": 280.296875,
+        "right": 344,
+        "bottom": 624.484375,
+        "left": 31
+      },
+      "stage": {
+        "x": 35,
+        "y": 345.484375,
+        "width": 305,
+        "height": 275,
+        "top": 345.484375,
+        "right": 340,
+        "bottom": 620.484375,
+        "left": 35
+      },
+      "active": {
+        "id": "start",
+        "distance": "0",
+        "box": {
+          "x": 35.5,
+          "y": 345.484375,
+          "width": 304,
+          "height": 232.578125,
+          "top": 345.484375,
+          "right": 339.5,
+          "bottom": 578.0625,
+          "left": 35.5
+        },
+        "card": {
+          "x": 35.5,
+          "y": 345.484375,
+          "width": 304,
+          "height": 232.578125,
+          "top": 345.484375,
+          "right": 339.5,
+          "bottom": 578.0625,
+          "left": 35.5
+        },
+        "title": "ゲーム制作をはじめる",
+        "descriptionExpanded": "false"
+      },
+      "doc": 375,
+      "width": 375,
+      "focus": "制作カテゴリ6本の記事ゲーム制作をはじめる記事を見る →"
+    },
+    {
+      "id": "start-375",
+      "method": "viewport-reflow",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=ai-browser-game-how-to#start",
+      "mode": "deck",
+      "root": {
+        "x": 31,
+        "y": 241.53125,
+        "width": 313,
+        "height": 580.1875,
+        "top": 241.53125,
+        "right": 344,
+        "bottom": 821.71875,
+        "left": 31
+      },
+      "stage": {
+        "x": 35,
+        "y": 306.71875,
+        "width": 305,
+        "height": 511,
+        "top": 306.71875,
+        "right": 340,
+        "bottom": 817.71875,
+        "left": 35
+      },
+      "active": {
+        "id": "ai-browser-game-how-to",
+        "distance": "0",
+        "box": {
+          "x": 35.5,
+          "y": 306.71875,
+          "width": 304,
+          "height": 467.96875,
+          "top": 306.71875,
+          "right": 339.5,
+          "bottom": 774.6875,
+          "left": 35.5
+        },
+        "card": {
+          "x": 35.5,
+          "y": 306.71875,
+          "width": 304,
+          "height": 467.96875,
+          "top": 306.71875,
+          "right": 339.5,
+          "bottom": 774.6875,
+          "left": 35.5
+        },
+        "title": "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方",
+        "descriptionExpanded": "false"
+      },
+      "doc": 375,
+      "width": 375,
+      "focus": "初心者向け更新 2026-10-04AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方記事を読む →"
+    },
+    {
+      "id": "start-expanded-375",
+      "method": "viewport-reflow",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=ai-browser-game-how-to#start",
+      "mode": "deck",
+      "root": {
+        "x": 31,
+        "y": 237.53125,
+        "width": 313,
+        "height": 606.1875,
+        "top": 237.53125,
+        "right": 344,
+        "bottom": 843.71875,
+        "left": 31
+      },
+      "stage": {
+        "x": 35,
+        "y": 302.71875,
+        "width": 305,
+        "height": 537,
+        "top": 302.71875,
+        "right": 340,
+        "bottom": 839.71875,
+        "left": 35
+      },
+      "active": {
+        "id": "ai-browser-game-how-to",
+        "distance": "0",
+        "box": {
+          "x": 35.5,
+          "y": 302.71875,
+          "width": 304,
+          "height": 520.75,
+          "top": 302.71875,
+          "right": 339.5,
+          "bottom": 823.46875,
+          "left": 35.5
+        },
+        "card": {
+          "x": 35.5,
+          "y": 302.71875,
+          "width": 304,
+          "height": 520.75,
+          "top": 302.71875,
+          "right": 339.5,
+          "bottom": 823.46875,
+          "left": 35.5
+        },
+        "title": "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方",
+        "descriptionExpanded": "true"
+      },
+      "doc": 375,
+      "width": 375,
+      "focus": "概要を閉じる"
+    },
+    {
+      "id": "start-list-375",
+      "method": "viewport-reflow",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=ai-browser-game-how-to#start",
+      "mode": "list",
+      "root": {
+        "x": 31,
+        "y": 79.53125,
+        "width": 313,
+        "height": 2537.015625,
+        "top": 79.53125,
+        "right": 344,
+        "bottom": 2616.546875,
+        "left": 31
+      },
+      "stage": {
+        "x": 31,
+        "y": 140.71875,
+        "width": 313,
+        "height": 2475.828125,
+        "top": 140.71875,
+        "right": 344,
+        "bottom": 2616.546875,
+        "left": 31
+      },
+      "active": {
+        "id": "ai-browser-game-how-to",
+        "box": {
+          "x": 31,
+          "y": 140.71875,
+          "width": 313,
+          "height": 477.25,
+          "top": 140.71875,
+          "right": 344,
+          "bottom": 617.96875,
+          "left": 31
+        },
+        "card": {
+          "x": 31,
+          "y": 140.71875,
+          "width": 313,
+          "height": 477.25,
+          "top": 140.71875,
+          "right": 344,
+          "bottom": 617.96875,
+          "left": 31
+        },
+        "title": "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方",
+        "descriptionExpanded": "true"
+      },
+      "doc": 375,
+      "width": 375,
+      "focus": "円環で見る"
+    },
+    {
+      "id": "start-return-375",
+      "method": "viewport-reflow",
+      "url": "http://127.0.0.1:3100/articles/?hubArticle=ai-browser-game-how-to&hubCategory=start#start",
+      "mode": "list",
+      "root": {
+        "x": 31,
+        "y": 79.53125,
+        "width": 313,
+        "height": 2537.015625,
+        "top": 79.53125,
+        "right": 344,
+        "bottom": 2616.546875,
+        "left": 31
+      },
+      "stage": {
+        "x": 31,
+        "y": 140.71875,
+        "width": 313,
+        "height": 2475.828125,
+        "top": 140.71875,
+        "right": 344,
+        "bottom": 2616.546875,
+        "left": 31
+      },
+      "active": {
+        "id": "ai-browser-game-how-to",
+        "box": {
+          "x": 31,
+          "y": 140.71875,
+          "width": 313,
+          "height": 477.25,
+          "top": 140.71875,
+          "right": 344,
+          "bottom": 617.96875,
+          "left": 31
+        },
+        "card": {
+          "x": 31,
+          "y": 140.71875,
+          "width": 313,
+          "height": 477.25,
+          "top": 140.71875,
+          "right": 344,
+          "bottom": 617.96875,
+          "left": 31
+        },
+        "title": "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方",
+        "descriptionExpanded": "true"
+      },
+      "doc": 375,
+      "width": 375,
+      "focus": "初心者向け更新 2026-10-04AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方記事を読む →"
+    },
+    {
+      "returnedTitle": "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方",
+      "focused": "AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方"
+    },
+    {
+      "id": "category-return-375",
+      "method": "viewport-reflow",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start#categories",
+      "mode": "deck",
+      "root": {
+        "x": 31,
+        "y": 280.296875,
+        "width": 313,
+        "height": 344.1875,
+        "top": 280.296875,
+        "right": 344,
+        "bottom": 624.484375,
+        "left": 31
+      },
+      "stage": {
+        "x": 35,
+        "y": 345.484375,
+        "width": 305,
+        "height": 275,
+        "top": 345.484375,
+        "right": 340,
+        "bottom": 620.484375,
+        "left": 35
+      },
+      "active": {
+        "id": "start",
+        "distance": "0",
+        "box": {
+          "x": 35.5,
+          "y": 345.484375,
+          "width": 304,
+          "height": 232.578125,
+          "top": 345.484375,
+          "right": 339.5,
+          "bottom": 578.0625,
+          "left": 35.5
+        },
+        "card": {
+          "x": 35.5,
+          "y": 345.484375,
+          "width": 304,
+          "height": 232.578125,
+          "top": 345.484375,
+          "right": 339.5,
+          "bottom": 578.0625,
+          "left": 35.5
+        },
+        "title": "ゲーム制作をはじめる",
+        "descriptionExpanded": "false"
+      },
+      "doc": 375,
+      "width": 375,
+      "focus": "制作カテゴリ6本の記事ゲーム制作をはじめる記事を見る →"
+    },
+    {
+      "id": "start",
+      "method": "viewport-reflow",
+      "before": [
+        {
+          "s": "#start .v2-start-card strong",
+          "size": 18
+        },
+        {
+          "s": "#start .v2-start-card-description",
+          "size": 16
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "width": 375,
+        "roles": [
+          {
+            "s": "#start .v2-start-card strong",
+            "size": 18
+          },
+          {
+            "s": "#start .v2-start-card-description",
+            "size": 16
+          }
+        ],
+        "deckMode": "deck",
+        "focus": {
+          "x": 52.5,
+          "y": 323.71875,
+          "width": 270,
+          "height": 433.96875,
+          "top": 323.71875,
+          "right": 322.5,
+          "bottom": 757.6875,
+          "left": 52.5
+        },
+        "headerBottom": 64
+      }
+    },
+    {
+      "id": "mesh",
+      "method": "viewport-reflow",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30
+        },
+        {
+          "s": ".lead",
+          "size": 17.28
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "width": 375,
+        "roles": [
+          {
+            "s": "h1",
+            "size": 30
+          },
+          {
+            "s": ".lead",
+            "size": 17.28
+          }
+        ],
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 14847.75,
+          "top": 0,
+          "right": 375,
+          "bottom": 14847.75,
+          "left": 0
+        },
+        "headerBottom": 64
+      }
+    },
+    {
+      "id": "project",
+      "method": "viewport-reflow",
+      "before": [
+        {
+          "s": ".project-idea-card label strong",
+          "size": 17.28
+        },
+        {
+          "s": "textarea",
+          "size": 16
+        },
+        {
+          "s": ".project-idea-card button[type=submit]",
+          "size": 16
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "width": 375,
+        "roles": [
+          {
+            "s": ".project-idea-card label strong",
+            "size": 17.28
+          },
+          {
+            "s": "textarea",
+            "size": 16
+          },
+          {
+            "s": ".project-idea-card button[type=submit]",
+            "size": 16
+          }
+        ],
+        "focus": {
+          "x": 48,
+          "y": 714.390625,
+          "width": 279,
+          "height": 49.1875,
+          "top": 714.390625,
+          "right": 327,
+          "bottom": 763.578125,
+          "left": 48
+        },
+        "headerBottom": 64
+      }
+    },
+    {
+      "id": "start",
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "#start .v2-start-card strong",
+          "size": 18
+        },
+        {
+          "s": "#start .v2-start-card-description",
+          "size": 16
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "width": 375,
+        "roles": [
+          {
+            "s": "#start .v2-start-card strong",
+            "size": 36
+          },
+          {
+            "s": "#start .v2-start-card-description",
+            "size": 32
+          }
+        ],
+        "deckMode": "list",
+        "focus": {
+          "x": 48,
+          "y": -2759.6875,
+          "width": 279,
+          "height": 1160.65625,
+          "top": -2759.6875,
+          "right": 327,
+          "bottom": -1599.03125,
+          "left": 48
+        },
+        "headerBottom": 133.984375
+      }
+    },
+    {
+      "id": "mesh",
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30
+        },
+        {
+          "s": ".lead",
+          "size": 17.28
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "width": 375,
+        "roles": [
+          {
+            "s": "h1",
+            "size": 60
+          },
+          {
+            "s": ".lead",
+            "size": 34.56
+          }
+        ],
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 32468.625,
+          "top": 0,
+          "right": 375,
+          "bottom": 32468.625,
+          "left": 0
+        },
+        "headerBottom": 133.984375
+      }
+    },
+    {
+      "id": "project",
+      "method": "synthetic-root-text",
+      "before": [
+        {
+          "s": ".project-idea-card label strong",
+          "size": 17.28
+        },
+        {
+          "s": "textarea",
+          "size": 16
+        },
+        {
+          "s": ".project-idea-card button[type=submit]",
+          "size": 16
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "width": 375,
+        "roles": [
+          {
+            "s": ".project-idea-card label strong",
+            "size": 34.56
+          },
+          {
+            "s": "textarea",
+            "size": 32
+          },
+          {
+            "s": ".project-idea-card button[type=submit]",
+            "size": 16
+          }
+        ],
+        "focus": {
+          "x": 48,
+          "y": 472.21875,
+          "width": 279,
+          "height": 49.1875,
+          "top": 472.21875,
+          "right": 327,
+          "bottom": 521.40625,
+          "left": 48
+        },
+        "headerBottom": 133.984375
+      }
+    },
+    {
+      "id": "start",
+      "method": "synthetic-computed-text",
+      "before": [
+        {
+          "s": "#start .v2-start-card strong",
+          "size": 18
+        },
+        {
+          "s": "#start .v2-start-card-description",
+          "size": 16
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "width": 375,
+        "roles": [
+          {
+            "s": "#start .v2-start-card strong",
+            "size": 36
+          },
+          {
+            "s": "#start .v2-start-card-description",
+            "size": 32
+          }
+        ],
+        "deckMode": "list",
+        "focus": {
+          "x": 48,
+          "y": -2719.125,
+          "width": 279,
+          "height": 1147.046875,
+          "top": -2719.125,
+          "right": 327,
+          "bottom": -1572.078125,
+          "left": 48
+        },
+        "headerBottom": 133.984375
+      }
+    },
+    {
+      "id": "mesh",
+      "method": "synthetic-computed-text",
+      "before": [
+        {
+          "s": "h1",
+          "size": 30
+        },
+        {
+          "s": ".lead",
+          "size": 17.28
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "width": 375,
+        "roles": [
+          {
+            "s": "h1",
+            "size": 60
+          },
+          {
+            "s": ".lead",
+            "size": 34.56
+          }
+        ],
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 39508.28125,
+          "top": 0,
+          "right": 375,
+          "bottom": 39508.28125,
+          "left": 0
+        },
+        "headerBottom": 133.984375
+      }
+    },
+    {
+      "id": "project",
+      "method": "synthetic-computed-text",
+      "before": [
+        {
+          "s": ".project-idea-card label strong",
+          "size": 17.28
+        },
+        {
+          "s": "textarea",
+          "size": 16
+        },
+        {
+          "s": ".project-idea-card button[type=submit]",
+          "size": 16
+        }
+      ],
+      "after": {
+        "doc": 375,
+        "width": 375,
+        "roles": [
+          {
+            "s": ".project-idea-card label strong",
+            "size": 34.56
+          },
+          {
+            "s": "textarea",
+            "size": 32
+          },
+          {
+            "s": ".project-idea-card button[type=submit]",
+            "size": 32
+          }
+        ],
+        "focus": {
+          "x": 48,
+          "y": 431.21875,
+          "width": 279,
+          "height": 130.78125,
+          "top": 431.21875,
+          "right": 327,
+          "bottom": 562,
+          "left": 48
+        },
+        "headerBottom": 133.984375
+      }
+    }
+  ]
+}

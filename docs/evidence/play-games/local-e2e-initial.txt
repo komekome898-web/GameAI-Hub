@@ -1,0 +1,187 @@
+[WebServer] (node:3204) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:3204) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:3272) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:3273) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:3271) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:3279) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:3343) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 59 tests using 2 workers
+
+(node:3360) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:3359) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/59] e2e/creation-deck-inertia.spec.ts:91:38 › 3 stable cards: speed-dependent coast, passage order and invisible seam
+[2/59] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: 12ms final movement arrives only on up
+[3/59] e2e/creation-deck-inertia.spec.ts:91:38 › 12 stable cards: speed-dependent coast, passage order and invisible seam
+[4/59] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: one sparse move after90ms
+[5/59] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: diagonal wobble remains pending until horizontal up
+[6/59] e2e/creation-deck-inertia.spec.ts:91:38 › 30 stable cards: speed-dependent coast, passage order and invisible seam
+[7/59] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: committed vertical never revives on horizontal up
+[8/59] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: long hold followed by release is not a flick
+[9/59] e2e/creation-deck-inertia.spec.ts:117:5 › paused placements, fast long release, sparse input and genuine final reversal
+[10/59] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: paused movement plus tiny release jitter stays put
+[11/59] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: tiny fast movement stays put
+[12/59] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: cancel never becomes a flick on later up
+[13/59] e2e/creation-deck-sparse-input.spec.ts:63:5 › native mouse survives height-only resize, but cancels changed width, step and availability
+[14/59] e2e/creation-deck-inertia.spec.ts:138:5 › release-owned focus/click does not rewind; next tap and keyboard work
+[15/59] e2e/creation-deck-sparse-input.spec.ts:102:5 › native Chromium short touch retains vertical scrolling coexistence
+[16/59] e2e/creation-deck-inertia.spec.ts:149:5 › true cancel cannot create coast or a second release
+[17/59] e2e/creation-deck-inertia.spec.ts:155:5 › three cards travel multiple turns both ways; background stops inertia
+[18/59] e2e/creation-deck-sparse-input.spec.ts:123:5 › active identity publication does not cancel a newly started contact
+[19/59] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 320px
+[20/59] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 375px
+[21/59] e2e/creation-deck-inertia.spec.ts:171:5 › grab fractional coast without jump, hold and reverse with new velocity
+[22/59] e2e/creation-deck-inertia.spec.ts:196:5 › native long touch placement from image and heading remains after paused release
+[23/59] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 390px
+[24/59] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 1440px
+[25/59] e2e/creation-deck-inertia.spec.ts:220:5 › a delayed animation frame hides cards crossing the circular seam
+[26/59] e2e/creation-deck-inertia.spec.ts:245:36 › 0 items remain an ordinary static list even with automatic deck preference
+[27/59] e2e/creation-deck-inertia.spec.ts:245:36 › 1 items remain an ordinary static list even with automatic deck preference
+[28/59] e2e/creation-deck-inertia.spec.ts:245:36 › 2 items remain an ordinary static list even with automatic deck preference
+[29/59] e2e/games.spec.ts:6:41 › game category, title image, detail and context return at 320
+[30/59] e2e/gamebuildiary-category-entry.spec.ts:47:5 › voice v4 roundtrip, category focus, history and list selection
+[31/59] e2e/games.spec.ts:6:41 › game category, title image, detail and context return at 375
+[32/59] e2e/gamebuildiary-category-entry.spec.ts:78:5 › all-list roundtrip, explicit URL precedence and removed IDs
+[33/59] e2e/games.spec.ts:6:41 › game category, title image, detail and context return at 1440
+[34/59] e2e/gamebuildiary-category-entry.spec.ts:100:5 › rapid controls and back during motion do not publish a transient article
+[35/59] e2e/games.spec.ts:51:5 › 320 synthetic root text 200% and direct entry retain readable details and return
+[36/59] e2e/gamebuildiary-category-entry.spec.ts:113:5 › fallback focus, missing images, Japanese enlargement and mode recovery
+[37/59] e2e/games.spec.ts:60:5 › no-JS Home category and game detail links remain usable; unknown slug is 404
+[38/59] e2e/gamebuildiary-category-entry.spec.ts:135:5 › no JavaScript exposes all seventeen normal article links once
+  1) e2e/gamebuildiary-category-entry.spec.ts:135:5 › no JavaScript exposes all seventeen normal article links once
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('.article-cluster:not(.category-cluster) .creation-deck li a')
+    Expected: 17
+    Received: 19
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toHaveCount" with timeout 10000ms
+      - waiting for locator('.article-cluster:not(.category-cluster) .creation-deck li a')
+        24 × locator resolved to 19 elements
+           - unexpected value "19"
+
+
+      137 |   const page = await context.newPage();
+      138 |   await page.goto('/articles/');
+    > 139 |   await expect(page.locator('.article-cluster:not(.category-cluster) .creation-deck li a')).toHaveCount(17);
+          |                                                                                             ^
+      140 |   await page.locator('#voice li a').nth(1).locator('strong').click();
+      141 |   await expect(page).toHaveURL(/elevenlabs-v4-game-voice\/$/);
+      142 |   await context.close();
+        at /workspace/GameAI-Hub/e2e/gamebuildiary-category-entry.spec.ts:139:93
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gamebuildiary-category-ent-68c89-n-normal-article-links-once/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gamebuildiary-category-ent-68c89-n-normal-article-links-once/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gamebuildiary-category-ent-68c89-n-normal-article-links-once/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/gamebuildiary-category-ent-68c89-n-normal-article-links-once/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/gamebuildiary-category-ent-68c89-n-normal-article-links-once/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:5957) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[39/59] e2e/gamebuildiary-category-entry.spec.ts:146:5 › START preserves native dragging from the supplied image with five unique cards
+[40/59] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 320
+[41/59] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from / at 390
+[42/59] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 320
+[43/59] e2e/shared-category-ring.spec.ts:16:7 › list category browser Back restores selected voice from /articles/#categories at 390
+[44/59] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 320
+[45/59] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 375
+[46/59] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 390
+[47/59] e2e/shared-category-ring.spec.ts:49:45 › Home order and complete return context at 1440
+[WebServer] Error: Internal: NoFallbackError
+[WebServer]     at ignore-listed frames
+
+[48/59] e2e/games.spec.ts:68:5 › disposable zero, two and future three-work cards reuse fallback, ring, list and keyboard
+[49/59] e2e/shared-category-ring.spec.ts:83:5 › entry preferences and focus ownership remain separate across mounts
+[50/59] e2e/slice-three-articles.spec.ts:21:5 › Slice 3 representative routes meet the rendered reading contract
+[51/59] e2e/shared-category-ring.spec.ts:102:5 › category tiny flick, inertia, recontact and navigation history use shared motion
+[52/59] e2e/shared-category-ring.spec.ts:130:36 › category enlarged Japanese remains usable at 320
+[53/59] e2e/shared-category-ring.spec.ts:130:36 › category enlarged Japanese remains usable at 375
+  2) e2e/slice-three-articles.spec.ts:21:5 › Slice 3 representative routes meet the rendered reading contract
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('region', { name: '制作目的から記事を選ぶ' })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByRole('region', { name: '制作目的から記事を選ぶ' })
+
+
+      47 |         await expect(
+      48 |           page.getByRole("region", { name: "制作目的から記事や作品を選ぶ" }),
+    > 49 |         ).toBeVisible();
+         |           ^
+      50 |         await expect(page.locator("#categories [data-deck-id]")).toHaveCount(5);
+      51 |         await expect(page.locator(".hub-preparation")).toHaveCount(0);
+      52 |       } else {
+        at /workspace/GameAI-Hub/e2e/slice-three-articles.spec.ts:49:11
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-three-articles-Slice-f57d5-e-rendered-reading-contract/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-three-articles-Slice-f57d5-e-rendered-reading-contract/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-three-articles-Slice-f57d5-e-rendered-reading-contract/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-three-articles-Slice-f57d5-e-rendered-reading-contract/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[54/59] e2e/shared-category-ring.spec.ts:138:5 › Home no-JS category links reach actual articles, unsafe context is ignored
+(node:6706) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[55/59] e2e/slice-three-articles.spec.ts:110:5 › affiliate disclosure, destination, events, and local scrollers retain parity
+[56/59] e2e/shared-category-ring.spec.ts:148:5 › Home example fragment remains native and Project input survives
+[57/59] e2e/slice-three-articles.spec.ts:198:5 › shared-template commercial and pricing articles regress safely at every acceptance width
+[58/59] e2e/slice-three-articles.spec.ts:240:5 › TOC supports mobile disclosure, sticky-safe anchors, initial fragments, and owned code scroll
+[59/59] e2e/slice-three-articles.spec.ts:283:5 › initial-fragment reconciliation yields to the reader and rearms for later navigation
+  2 failed
+    e2e/gamebuildiary-category-entry.spec.ts:135:5 › no JavaScript exposes all seventeen normal article links once
+    e2e/slice-three-articles.spec.ts:21:5 › Slice 3 representative routes meet the rendered reading contract
+  57 passed (2.2m)

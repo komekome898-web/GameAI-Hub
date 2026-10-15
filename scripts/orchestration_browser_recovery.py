@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Owner-only recovery for a stranded Production browser-capability attempt."""
+from orchestration_mode import legacy_only
 import json
 import os
 
@@ -35,6 +36,7 @@ def _same_claim_evidence(pr_number, claim_id):
     return acceptance, retry
 
 
+@legacy_only
 def recover(event):
     issue = event.get("issue") or {}
     comment = event.get("comment") or {}
@@ -117,6 +119,7 @@ def recover(event):
     return out
 
 
+@legacy_only
 def main():
     event = adapter.strict_json(open(os.environ["ORCH_GITHUB_EVENT"]).read())
     recover(event)

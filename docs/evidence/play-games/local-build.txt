@@ -1,0 +1,72 @@
+
+> gameai-hub@0.1.0 build
+> next build
+
+▲ Next.js 16.3.2 (Turbopack)
+✓ Running next.config.ts took 25ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 705ms
+  Running TypeScript ...
+  Finished TypeScript in 2.6s ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/73) ...
+  Generating static pages using 4 workers (18/73)
+  Generating static pages using 4 workers (36/73)
+  Generating static pages using 4 workers (54/73)
+✓ Generating static pages using 4 workers (73/73) in 641ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /affiliate-disclosure
+├ ƒ /api/project/interpret
+├ ○ /articles
+├ ○ /articles/ai-auto-trading-reality
+├ ○ /articles/ai-browser-game-how-to
+├ ○ /articles/ai-completion-claim
+├ ○ /articles/ai-delegation-trap
+├ ○ /articles/ai-fantasy
+├ ○ /articles/ai-tool-comparison-later
+├ ○ /articles/ai-usage-guide
+├ ○ /articles/aramon-production-story
+├ ○ /articles/before-asking-ai-build-game
+├ ○ /articles/elevenlabs-commercial-use-game
+├ ○ /articles/elevenlabs-game-development-guide
+├ ○ /articles/elevenlabs-v4-game-voice
+├ ○ /articles/github-beginner-game-development
+├ ○ /articles/meshy-commercial-use-game
+├ ○ /articles/meshy-game-development-guide
+├ ○ /articles/meshy-pricing-credits-game
+├ ○ /articles/small-first-success
+├ ○ /builder
+├ ○ /compare
+├   /games/[slug]
+│ └ ● /games/aramon
+├ ○ /guides
+├   /guides/[slug]
+│ ├ ● /guides/ai-2d-rpg-workflow
+│ └ ● /guides/codex-game-development-brief
+├ ○ /methodology
+├ ○ /privacy
+├ ○ /project
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+├ ○ /stacks
+├   /stacks/[slug]
+│ ├ ● /stacks/2d-rpg
+│ ├ ● /stacks/monster-collection-mobile
+│ ├ ● /stacks/visual-novel
+│ └ ● [+5 more paths]
+├ ○ /tools
+└   /tools/[slug]
+  ├ ● /tools/github-copilot
+  ├ ● /tools/cursor
+  ├ ● /tools/scenario
+  └ ● [+26 more paths]
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand

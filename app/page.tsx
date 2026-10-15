@@ -1,47 +1,98 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ProjectIdeaForm } from '@/components/ProjectGeneratorClient';
-import { getArticle } from '@/data/articles';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { site } from "@/lib/site";
+import { ProjectIdeaForm } from "@/components/ProjectGeneratorClient";
 
-export const metadata:Metadata={title:'作りたいゲームから制作ロードマップを作る',description:'ゲーム案を入力すると、今日やること、制作ロードマップ、使うAI、具体的なPrompt、完了条件を整理します。',alternates:{canonical:'/'},openGraph:{url:'/'}};
-const examples=['Unityでモンスター収集RPG','Godotで2Dアクション','Steam向け3Dホラー','フルボイスのノベルゲーム','ブラウザ戦略ゲーム'];
-const articleRouteGroups=[
-  {
-    label:'START',
-    title:'まず、AIで作り始める',
-    description:'ゲーム制作が初めてなら、最初の成果物を小さく決めるところから。',
-    slugs:['ai-browser-game-how-to','before-asking-ai-build-game','github-beginner-game-development'],
-  },
-  {
-    label:'POSTMORTEM',
-    title:'失敗から、AIの使い方を学ぶ',
-    description:'AIの「できた」を鵜呑みにしないために、実際に起きた失敗と検証の考え方を読む。',
-    slugs:['ai-auto-trading-reality','ai-completion-claim','ai-delegation-trap'],
-  },
-  {
-    label:'PRACTICE',
-    title:'AIへの任せ方を整える',
-    description:'プロンプトやツール比較の前に、AIへ何を渡し、どこを自分で確かめるかを整理する。',
-    slugs:['ai-usage-guide','ai-tool-comparison-later','small-first-success'],
-  },
-] as const;
+import { ArticleBrowser, GameShowcaseBrowser } from "@/components/ArticleBrowser";
+import { getHubGroups } from "@/lib/article-hub-groups";
+import { getPublishedGames } from "@/data/games";
 
-export default function Home(){return <>
-  <section className="studio-hero">
-    <div className="hero-command"><p className="system-label">はじめてのAIゲーム制作ナビ</p><h1>ゲームを作ったことがなくても、<span>次の1作業から</span><span>完成へ進める。</span></h1><p className="lead">作りたいゲームを1文で書くと、<strong>使うAI、コピーする指示、実際の操作、できたと判断する条件</strong>を1ステップずつ返します。AIツールを探すだけの一覧ではありません。</p><ul className="hero-trust" aria-label="AI Iterproofで分かること"><li>今日やることは最大3つ</li><li>最初の目標は「ゲームが動く」</li><li>詰まった時の相談文も作成</li></ul><ProjectIdeaForm location="home"/></div>
-    <aside className="deliverable-board" aria-label="入力後に得られる制作ナビの表示例"><header><div><span>入力後の表示例</span><strong>モンスター収集ゲーム</strong></div><small>最初の1作業</small></header><div className="board-now"><span>まず動かすもの</span><h2>1体対1体のバトル</h2><p>味方と敵を表示し、「たたかう」でHPが減り、勝敗とやり直しまで動かします。</p></div><dl className="board-gates"><div><dt>コピーするもの</dt><dd>1つのHTMLを作る、このゲーム専用のAI指示</dd></div><div><dt>できた条件</dt><dd>行動 → 勝敗 → やり直しを自分で操作できる</dd></div></dl><div className="board-evidence"><span>詰まったら</span><p><strong>いまの作業と成功条件</strong>を入れた相談文をコピーして、使用中のAIへそのまま渡せます。</p></div><ol className="board-route" aria-label="制作ナビの流れ"><li className="current"><b>01</b><span>動かす</span></li><li><b>02</b><span>確かめる</span></li><li><b>03</b><span>できた</span></li><li><b>04</b><span>次へ</span></li></ol></aside>
-  </section>
-  <section className="home-flow"><div className="section-head"><div><span className="system-label">HOW IT WORKS</span><h2>検索では終わらない、4つの判断。</h2></div><p>一般的なAI一覧は「候補」を返します。AI Iterproofは候補を制作工程へ接続します。</p></div><ol><li><b>01</b><h3>ゲームを説明</h3><p>決まっている条件だけを自由文で入力。</p></li><li><b>02</b><h3>成果物を決める</h3><p>いま作る1つと、明確な完了条件を表示。</p></li><li><b>03</b><h3>根拠を確かめる</h3><p>条件一致・制約・公式確認日を同じ場所で確認。</p></li><li><b>04</b><h3>次工程へ渡す</h3><p>Promptと成果物を次の制作作業へ接続。</p></li></ol></section>
-  <section className="page-shell" aria-labelledby="home-articles-title">
-    <div className="section-head"><div><span className="system-label">READ BY PURPOSE</span><h2 id="home-articles-title">今の悩みから、読む記事を選ぶ。</h2></div><p>記事一覧を探し回らなくても、作り始める・失敗を知る・AIへの任せ方を整える、の3つから直接読めます。</p></div>
-    {articleRouteGroups.map(group=><section key={group.label} aria-labelledby={`article-group-${group.label.toLowerCase()}`}>
-      <div className="section-head"><div><span className="system-label">{group.label}</span><h3 id={`article-group-${group.label.toLowerCase()}`}>{group.title}</h3></div><p>{group.description}</p></div>
-      <div className="home-resources">{group.slugs.map(slug=>{const article=getArticle(slug)!;return <article key={slug}><span>{article.category === 'beginner' ? '初心者向け' : article.category === 'practical-guide' ? '実践ガイド' : 'フィールドノート'}</span><h2>{article.title}</h2><p>{article.description}</p><Link href={`/articles/${article.slug}/`}>この記事を読む →</Link></article>})}</div>
-    </section>)}
-    <p><Link className="button secondary" href="/articles/">すべての記事を見る</Link></p>
-  </section>
-  <section className="example-projects"><div><span className="system-label">プロジェクト例</span><h2>たとえば、こんな計画</h2></div><div className="example-list">{examples.map((item,index)=><Link key={item} href={`/project?idea=${encodeURIComponent(item)}`}><span>{String(index+1).padStart(2,'0')}</span><strong>{item}</strong><small>制作計画を作る →</small></Link>)}</div></section>
-  <section className="roadmap-explainer"><div><span className="system-label">PRODUCTION HANDOFF</span><h2>AIではなく、成果物で工程をつなぐ。</h2><p>各工程のPromptを「作るもの」「完了条件」「次へ渡すもの」に接続。不要な音声や3D工程は計画へ加えません。</p></div><div className="blueprint-line"><span>企画<small>1ページ仕様</small></span><span>試作<small>操作build</small></span><span>素材<small>素材台帳</small></span><span>検証<small>QA記録</small></span><span>公開<small>候補build</small></span></div></section>
-  <section className="home-resources"><article><span>AI DATABASE</span><h2>目的からAIを検証</h2><p>コード、声、3Dなど「作るもの」から候補と公式根拠を確認します。</p><Link href="/tools">目的から探す →</Link></article><article><span>GUIDES</span><h2>工程の判断を深掘り</h2><p>制作の進め方と、契約前に確認する条件を読み解きます。</p><Link href="/guides">ガイドを読む →</Link></article><article><span>ALL ARTICLES</span><h2>記事を一覧から探す</h2><p>AI実践、失敗、検証、初心者向けの記事をまとめて確認できます。</p><Link href="/articles/">すべての記事を見る →</Link></article></section>
-  <section className="final-project-cta"><span className="system-label">制作を始める</span><h2>まず、作りたいゲームを1文で。</h2><p>ツール選びの前に、最初のプレイ可能範囲と今日の作業を決めます。</p><Link className="button" style={{color:'#fff'}} href="/project">制作ロードマップを作る</Link></section>
-  </>}
+export const metadata: Metadata = {
+  title: "作りたいゲームから制作ロードマップを作る",
+  description: site.description,
+  alternates: { canonical: "/" },
+  openGraph: { url: "/" },
+};
+
+const examples = ["Unityでモンスター収集RPG", "Godotで2Dアクション", "Steam向け3Dホラー"];
+
+export default function Home() {
+  const published = getPublishedGames();
+  const showcaseGames = [...published.filter(game => game.slug === "monster-construction"), ...published.filter(game => game.slug !== "monster-construction")]
+    .map(({ slug, title, description, genre, image, author, playUrl, playAccessNote, developmentNote, productionArticle }) => ({ slug, title, description, genre, image, author, playUrl, playAccessNote, developmentNote, productionArticle }));
+  return <div className="home-v2-route home-b3">
+    <div className="b3-ambient" aria-hidden="true"><span /><span /><span /></div>
+    <section className="b3-play-hero" id="games" aria-labelledby="home-title">
+      <div className="b3-intro">
+        <p className="b3-eyebrow">PLAY FIRST. CREATE NEXT.</p>
+        <h1 id="home-title">遊べる世界から、<em>作るヒントを。</em></h1>
+        <p className="b3-intro-note">AIと人が作ったゲーム。スマホだけで制作した作品も。</p>
+        <p className="b3-beginner-note">コードが初めてでも。遊ぶところから、制作の一歩へ。<Link href="/articles/ai-browser-game-how-to/">初めての方へ ↓</Link></p>
+      </div>
+      <GameShowcaseBrowser games={showcaseGames} />
+    </section>
+
+    <section className="b3-next-chapter" aria-labelledby="b3-next-title">
+      <div className="section-head"><div><span className="system-label">YOUR NEXT CHAPTER</span><h2 id="b3-next-title">「遊んでみた」の、その先へ。</h2></div><p>知識より、最初の一歩から。</p></div>
+      <div className="home-path-grid">
+        <Link href="/articles/ai-browser-game-how-to/"><span>01 / LEARN</span><h3>作り方を知る</h3><p>AIへの頼み方から、ブラウザで動かして確かめるところまで。</p><b>初めてのゲーム制作 →</b></Link>
+        <Link href="/tools/"><span>02 / CHOOSE</span><h3>AI・ツールを選ぶ</h3><p>コード、イラスト、声、3D。作りたいものに合う道具を探す。</p><b>制作課題から探す →</b></Link>
+        <Link className="is-primary" href="#home-idea-title"><span>03 / BUILD</span><h3>自分のゲームを作る</h3><p>作りたいゲームを言葉にして、今やる作業と確認の手順をつくる。</p><b>アイデアから始める ↓</b></Link>
+      </div>
+    </section>
+    <section className="home-category-entry" aria-labelledby="home-categories-title">
+      <h2 id="home-categories-title">気になる制作から、めくって探す。</h2>
+      <ArticleBrowser groups={getHubGroups()} home />
+    </section>
+    <section className="home-execution-hero" aria-labelledby="home-idea-title">
+      <div className="home-execution-copy">
+        <h2 id="home-idea-title">作りたいものが決まったら</h2>
+        <ProjectIdeaForm location="home" />
+        <a className="home-example-link" href="#home-example">入力後の完成イメージを見る <span aria-hidden="true">↓</span></a>
+      </div>
+      <aside className="home-output-cue" aria-label="入力後に得られるもの">
+        <span>入力後に得られるもの</span>
+        <strong>迷わず始められる、最初の1作業</strong>
+        <ul><li>具体的な操作とAIへの指示</li><li>自分で確認できる完了条件</li><li>詰まった時の戻り方</li></ul>
+      </aside>
+    </section>
+
+    <section className="home-example" id="home-example" aria-labelledby="home-example-title">
+      <div className="section-head"><div><span className="system-label">PROJECT PREVIEW</span><h2 id="home-example-title">入力後は、次の作業だけに集中。</h2></div><p>例：モンスター収集ゲームの最初のプレイ可能版</p></div>
+      <div className="home-task-preview">
+        <div><span>今やること</span><h3>1体対1体のバトルを動かす</h3><p>味方と敵を表示し、「たたかう」でHPが減り、勝敗とやり直しまで操作できる状態にします。</p></div>
+        <dl><div><dt>成果物</dt><dd>ブラウザで動く1つのHTML</dd></div><div><dt>できた条件</dt><dd>行動 → 勝敗 → やり直しを自分で確認できる</dd></div></dl>
+      </div>
+    </section>
+
+    <section className="home-paths" aria-labelledby="home-paths-title">
+      <div className="section-head"><div><span className="system-label">次の目的</span><h2 id="home-paths-title">必要な入口だけを選ぶ。</h2></div><p>新しく始める時はProjectへ。途中の制作課題や調査には、目的別の入口を使えます。</p></div>
+      <div className="home-path-grid">
+        <Link className="is-primary" href="/project"><span>作る</span><h3>ゲーム案から始める</h3><p>今日の作業・Prompt・完了条件を作る。</p><b>Projectを始める →</b></Link>
+        <Link href="/tools"><span>選ぶ</span><h3>制作課題に合うAIを探す</h3><p>声、3D、コードなど、必要な成果物から候補を確認。</p><b>AI・ツールへ →</b></Link>
+        <Link href="/articles"><span>学ぶ</span><h3>手順と判断材料を読む</h3><p>作り方、料金、商用利用を次の作業につながる順番で読む。</p><b>記事へ →</b></Link>
+      </div>
+    </section>
+
+    <section className="home-continuation" aria-labelledby="home-continuation-title">
+      <div><span className="system-label">続け方</span><h2 id="home-continuation-title">成果物を確かめて、次へ。</h2><p>入力したゲーム条件を保ったまま、作業 → 確認 → 完了 → 次の作業へ進みます。</p></div>
+      <ol><li><b>1</b><span>作業を1つに絞る</span></li><li><b>2</b><span>完了条件を操作して確認</span></li><li><b>3</b><span>結果を次の作業へつなぐ</span></li></ol>
+    </section>
+
+    <section className="home-featured" aria-labelledby="home-featured-title">
+      <div className="section-head"><div><span className="system-label">実践記事</span><h2 id="home-featured-title">制作段階ごとの手順。</h2></div><Link href="/articles">すべての記事を見る →</Link></div>
+      <div className="home-resource-list">
+        <Link href="/articles/ai-browser-game-how-to/"><strong>最初のプレイ可能版</strong><span>AIでブラウザゲームを作り、動作を検証する</span></Link>
+        <Link href="/articles/elevenlabs-game-development-guide/"><strong>ゲーム音声</strong><span>代表セリフを試し、採用条件を確認する</span></Link>
+        <Link href="/articles/meshy-game-development-guide/"><strong>3Dアセット</strong><span>1点をゲームへ取り込み、品質と条件を判断する</span></Link>
+      </div>
+    </section>
+
+    <section className="example-projects" aria-labelledby="home-ideas-title">
+      <div><span className="system-label">入力例</span><h2 id="home-ideas-title">案を選んで試す</h2><p>例を選んでも、ゲームの種類や条件を勝手に置き換えません。</p></div>
+      <div className="example-list">{examples.map((item, index) => <Link key={item} href={`/project?idea=${encodeURIComponent(item)}`}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item}</strong><small>制作手順を作る →</small></Link>)}</div>
+    </section>
+
+    <aside className="home-trust-note" aria-label="情報の扱い"><strong>根拠と入力内容を大切にします。</strong><p>ゲーム案はアクセス解析へ送りません。料金や商用条件は一次情報で確認し、不明な点を推測で埋めません。</p><Link href="/methodology">調査・評価方法を見る →</Link></aside>
+  </div>;
+}

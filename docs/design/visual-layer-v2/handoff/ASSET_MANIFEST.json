@@ -1,0 +1,149 @@
+{
+  "version": "1.0",
+  "assets": [
+    {
+      "path": "assets/backgrounds/mint-atrium-1280.webp",
+      "bytes": 26384,
+      "sha256": "3050f0864dfa02149021dc9cc56bc93abddbb2e90a7806b0439f7b1ac8df7dd8",
+      "width": 1280,
+      "height": 720,
+      "mode": "RGB",
+      "use": "runtime candidate; see docs/06",
+      "provenance": "generated from adopted visual reference"
+    },
+    {
+      "path": "assets/backgrounds/mint-atrium-1672.webp",
+      "bytes": 37810,
+      "sha256": "5e6b19a9ee2857c485b32d234f601dc706d12ee524cafc242818be413d828376",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "use": "runtime candidate; see docs/06",
+      "provenance": "generated from adopted visual reference"
+    },
+    {
+      "path": "assets/backgrounds/mint-atrium-768.webp",
+      "bytes": 12746,
+      "sha256": "e55b610dc19f64cf29aaa08ed3d9c3499fdf0e0254c99faee32c106641564367",
+      "width": 768,
+      "height": 432,
+      "mode": "RGB",
+      "use": "runtime candidate; see docs/06",
+      "provenance": "generated from adopted visual reference"
+    },
+    {
+      "path": "assets/backgrounds/mint-atrium-master.png",
+      "bytes": 1296055,
+      "sha256": "1baab65508f3595db85fd1cc51d4a2ba502f98623f5809c24a99e67bcea13c48",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "use": "source-only; do not serve",
+      "provenance": "generated from adopted visual reference"
+    },
+    {
+      "path": "assets/icons/model.svg",
+      "bytes": 379,
+      "sha256": "35536c47c1a726f77b85983e89de4b0379a880177aa8e6cd891bb82553712b9a",
+      "use": "runtime candidate; see docs/06",
+      "provenance": "original vector illustration for this handoff"
+    },
+    {
+      "path": "assets/icons/voice.svg",
+      "bytes": 389,
+      "sha256": "18085014fd74a5304bba168b1c9a1744ff1a1c2fd618ebf3d450887e59d1caef",
+      "use": "runtime candidate; see docs/06",
+      "provenance": "original vector illustration for this handoff"
+    },
+    {
+      "path": "assets/thumbnails/development-480.webp",
+      "bytes": 8028,
+      "sha256": "172d669480f72000c8227ea3f43ae691b7ed5f4511b4bf95a9d741f89a6d3ba8",
+      "width": 480,
+      "height": 320,
+      "mode": "RGB",
+      "use": "runtime candidate; see docs/06",
+      "provenance": "generated from adopted visual reference"
+    },
+    {
+      "path": "assets/thumbnails/development-960.webp",
+      "bytes": 19272,
+      "sha256": "c59987319648e636f424c46879d0b00c46297a410d231e3caccc01a157a05b09",
+      "width": 960,
+      "height": 640,
+      "mode": "RGB",
+      "use": "runtime candidate; see docs/06",
+      "provenance": "generated from adopted visual reference"
+    },
+    {
+      "path": "assets/thumbnails/development-master.png",
+      "bytes": 1503210,
+      "sha256": "605764c4a4bc6e265c266af8ba3bb154d9e33a1f144b53efbfe2b4eaca3d02d8",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "use": "source-only; do not serve",
+      "provenance": "generated from adopted visual reference"
+    },
+    {
+      "path": "assets/thumbnails/game-creation-480.webp",
+      "bytes": 10426,
+      "sha256": "647aa53ff2a14228a4953fa10428c98420825978ded32d5e04a41bc064f82693",
+      "width": 480,
+      "height": 320,
+      "mode": "RGB",
+      "use": "runtime candidate; see docs/06",
+      "provenance": "generated from adopted visual reference"
+    },
+    {
+      "path": "assets/thumbnails/game-creation-960.webp",
+      "bytes": 24576,
+      "sha256": "96f27a35c22e7919ee1402b73bb6a0d93d9f9c7cb0b197ca9e37b70881e15df3",
+      "width": 960,
+      "height": 640,
+      "mode": "RGB",
+      "use": "runtime candidate; see docs/06",
+      "provenance": "generated from adopted visual reference"
+    },
+    {
+      "path": "assets/thumbnails/game-creation-master.png",
+      "bytes": 1869351,
+      "sha256": "36f1cd2cfa54f6aa2ac729f3edf2af0ad3c970ebb9088b813121ef34c8c554fe",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "use": "source-only; do not serve",
+      "provenance": "generated from adopted visual reference"
+    },
+    {
+      "path": "assets/thumbnails/planning-480.webp",
+      "bytes": 7958,
+      "sha256": "85b06fe5253d6d6b5c1da68b8d3d93239fc03d4e6782d87203b254203fbb4b0e",
+      "width": 480,
+      "height": 320,
+      "mode": "RGB",
+      "use": "runtime candidate; see docs/06",
+      "provenance": "generated from adopted visual reference"
+    },
+    {
+      "path": "assets/thumbnails/planning-960.webp",
+      "bytes": 17712,
+      "sha256": "2c9a6e5e8e808e021e16aff912dd8a75e3fed3312d6277d9988b5765884de18f",
+      "width": 960,
+      "height": 640,
+      "mode": "RGB",
+      "use": "runtime candidate; see docs/06",
+      "provenance": "generated from adopted visual reference"
+    },
+    {
+      "path": "assets/thumbnails/planning-master.png",
+      "bytes": 1564326,
+      "sha256": "338c8ab4c9b78619d47075fdc9ea879ae1fd9f93a08fe5b280510b54e5a773c7",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "use": "source-only; do not serve",
+      "provenance": "generated from adopted visual reference"
+    }
+  ]
+}

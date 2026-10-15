@@ -109,7 +109,22 @@ Never invent:
 
 Unknown must remain unknown. Time-sensitive claims require current verification when the task depends on them.
 
-## 5. Risk-based agent orchestration
+## 5. Owner-directed roles and independent review
+
+The owner decides objectives, priorities, adopted proposals and merge. どっさん
+coordinates requirements, design/materials, task instructions, progress and result
+verification. Codex Cloud implements and tests only the instructed scope.
+Independent review is separate from the implementer's self-evaluation. Keep
+implementation in one coherent unit; investigation/design may run in parallel.
+Unexpected conditions or unclear scope require reporting facts, impact and options
+to the owner/coordinator before expanding work.
+
+Follow `docs/agent-guides/OWNER_DIRECTED_OPERATIONS.md` for current operations.
+New work must not enter the legacy Chat/Work automatic request loop. A documented
+branch/push/PR/merge procedure is not authorization to execute it. GitHub writes
+require the user's instructed scope; merge always requires separate explicit approval.
+
+### Risk-based review
 
 Use additional agents when independent expertise or review materially improves the task. Do not spawn specialists mechanically.
 
@@ -232,14 +247,47 @@ Prefer:
 Detailed article and publishing rules are scoped under `app/articles/AGENTS.md`.
 Growth, SEO, acquisition, retention, or monetization strategy work should also read `docs/GROWTH_STRATEGY.md`.
 
+For explicitly requested Japanese readability edits, use the repository-local
+[`yomiyasu` skill](.agents/skills/yomiyasu/SKILL.md). It is advisory and limited
+to the requested prose; it does not authorize article publication or changes to
+acceptance/audit records, and never replaces the protections above.
+
 ## 11. Cloud Task execution and repository truth
 
 For Codex Cloud Tasks, follow `CODEX_CLOUD_TASK.md`.
-For repository orchestration runs, also follow `docs/agent-guides/ORCHESTRATION.md` and only the guide for the actor's current stage. The pinned Canonical Task owns intent; the Run Manifest is the sole mutable machine-state authority.
+
+### Mandatory pre-work Git/GitHub hard gate
+
+For any Codex Cloud Task expected to create or preserve repository artifacts, **no substantial audit, research, implementation, screenshot/evidence generation, documentation drafting, or other expensive work may begin until the Git/GitHub bootstrap in `CODEX_CLOUD_TASK.md` has passed**.
+
+At minimum, Codex must first verify:
+- the canonical `origin` exists and points to this repository
+- `git fetch origin --prune` succeeds
+- `origin/main` exists and its SHA is known
+- the available GitHub authentication/write path is usable without exposing credentials
+- when the task requires branch/commit/PR delivery, a remote task branch or harmless checkpoint can actually be pushed and verified remotely
+
+If this hard gate fails, stop before producing substantial local-only work. A local commit, file, screenshot set, audit, or report that cannot be durably handed off is **not task progress** and must not be created in place of a recoverable repository artifact.
+
+Read-only investigation/review requires origin/auth/fetch/base verification but
+**no branch, commit or push checkpoint**. Do not create writes to prove write access
+for a task without write authorization; report its read-only handoff accurately.
+A task prompt does not need to repeat this gate for authorized artifact work.
+For existing legacy repository orchestration runs, also follow `docs/agent-guides/ORCHESTRATION.md` and only the guide for the actor's current stage. The pinned Canonical Task owns intent; the Run Manifest is the sole mutable machine-state authority.
 
 Core invariant:
 
 > Repository state is the source of truth for resumable work.
+
+どっさん launching a task in the saved Environment and an explicitly authorized
+GitHub Codex mention are distinct launch paths; neither proves the other's
+execution or model. Record the actual launch path and observed task identity.
+A GitHub-comment dispatch normally starts a fresh Codex Cloud task in the
+published reusable GameAI-Hub Environment when that Environment is available.
+The fresh task must resume valid Issue, branch, PR, checkpoint, and ledger
+lineage rather than duplicate it: **NEW_TASK does not mean NEW_BRANCH or
+NEW_PR.** Environment preparation and caches never replace origin, auth,
+fetch, base-SHA, and remote write-path verification.
 
 Do not rely on chat history when Git state, Issues, PRs, scoped instructions, or progress ledgers contain the relevant state.
 Preserve unrelated user changes.

@@ -1,0 +1,1244 @@
+{
+  "schema": "gameai-reflow-evidence/v2",
+  "target": {
+    "sha": "e4bb01e5a1d39ceef402925e9e8251c71c695f11",
+    "environment": "local",
+    "baseUrl": "http://127.0.0.1:3100",
+    "sourceIdentity": {
+      "kind": "clean-git-checkpoint",
+      "sha": "e4bb01e5a1d39ceef402925e9e8251c71c695f11",
+      "status": "clean"
+    }
+  },
+  "records": [
+    {
+      "id": "project-state-input",
+      "caseId": "VL-V2-PROJECT-STATES",
+      "variantId": "input",
+      "route": "/project/",
+      "state": [
+        "input"
+      ],
+      "coverage": [
+        "viewport-reflow",
+        "short-height"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "heading",
+          "baselineFontPx": 30,
+          "changedFontPx": 30,
+          "factor": 1,
+          "baselineLineHeightPx": 36.6,
+          "changedLineHeightPx": 36.6
+        },
+        {
+          "role": "idea-label",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 320,
+          "height": 700
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2-project/project-state-input.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:50:59.822Z"
+    },
+    {
+      "id": "project-state-loading",
+      "caseId": "VL-V2-PROJECT-STATES",
+      "variantId": "loading",
+      "route": "/project/",
+      "state": [
+        "loading"
+      ],
+      "coverage": [
+        "viewport-reflow"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "loading-status",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 700
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": false,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2-project/project-state-loading.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:51:01.031Z"
+    },
+    {
+      "id": "project-state-clarification",
+      "caseId": "VL-V2-PROJECT-STATES",
+      "variantId": "clarification",
+      "route": "/project/",
+      "state": [
+        "clarification"
+      ],
+      "coverage": [
+        "semantic-row"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "clarification-heading",
+          "baselineFontPx": 30,
+          "changedFontPx": 30,
+          "factor": 1,
+          "baselineLineHeightPx": 36.6,
+          "changedLineHeightPx": 36.6
+        },
+        {
+          "role": "interpretation-status",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 700
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "stacked",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0,
+        "ordinaryLabelSqueezed": false,
+        "labelWidth": 291,
+        "naturalLabelWidth": 795
+      },
+      "screenshot": "v2-project/project-state-clarification.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:51:03.692Z"
+    },
+    {
+      "id": "project-state-error",
+      "caseId": "VL-V2-PROJECT-STATES",
+      "variantId": "error",
+      "route": "/project/",
+      "state": [
+        "error"
+      ],
+      "coverage": [
+        "viewport-reflow"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "validation-error",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 700
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2-project/project-state-error.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:51:11.543Z"
+    },
+    {
+      "id": "project-state-result",
+      "caseId": "VL-V2-PROJECT-STATES",
+      "variantId": "result",
+      "route": "/project/",
+      "state": [
+        "result"
+      ],
+      "coverage": [
+        "viewport-reflow"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "result-heading",
+          "baselineFontPx": 30.055,
+          "changedFontPx": 30.055,
+          "factor": 1,
+          "baselineLineHeightPx": 36.6671,
+          "changedLineHeightPx": 36.6671
+        },
+        {
+          "role": "current-task",
+          "baselineFontPx": 24,
+          "changedFontPx": 24,
+          "factor": 1,
+          "baselineLineHeightPx": 33.6,
+          "changedLineHeightPx": 33.6
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 390,
+          "height": 700
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2-project/project-state-result.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:51:27.175Z"
+    },
+    {
+      "id": "project-workspace",
+      "caseId": "VL-V2-PROJECT-WORKSPACE",
+      "variantId": "workspace",
+      "route": "/project/",
+      "state": [
+        "workspace"
+      ],
+      "coverage": [
+        "long-content",
+        "focus-reachability"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "workspace-summary",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 700
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2-project/project-workspace.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:51:31.822Z"
+    },
+    {
+      "id": "project-workspace-expanded",
+      "caseId": "VL-V2-PROJECT-WORKSPACE",
+      "variantId": "expanded",
+      "route": "/project/",
+      "state": [
+        "expanded"
+      ],
+      "coverage": [
+        "text-scale",
+        "synthetic-computed-text",
+        "factor-150"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "synthetic-computed-text",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1.5,
+      "achieved": [
+        {
+          "role": "expanded-summary",
+          "baselineFontPx": 16,
+          "changedFontPx": 24,
+          "factor": 1.5,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 40.8
+        },
+        {
+          "role": "expanded-copy",
+          "baselineFontPx": 16,
+          "changedFontPx": 24,
+          "factor": 1.5,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 40.8
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 700
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2-project/project-workspace-expanded.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:51:35.934Z"
+    },
+    {
+      "id": "project-workspace-copy-failure",
+      "caseId": "VL-V2-PROJECT-WORKSPACE",
+      "variantId": "copy-failure",
+      "route": "/project/",
+      "state": [
+        "copy-failure"
+      ],
+      "coverage": [
+        "focus-reachability"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "copy-error",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "copy-error",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 700
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2-project/project-workspace-copy-failure.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:51:40.181Z"
+    },
+    {
+      "id": "project-workspace-save-failure",
+      "caseId": "VL-V2-PROJECT-WORKSPACE",
+      "variantId": "save-failure",
+      "route": "/project/",
+      "state": [
+        "save-failure"
+      ],
+      "coverage": [
+        "long-content"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "save-error",
+          "baselineFontPx": 13.3333,
+          "changedFontPx": 13.3333,
+          "factor": 1,
+          "baselineLineHeightPx": 22.6667,
+          "changedLineHeightPx": 22.6667
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 700
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2-project/project-workspace-save-failure.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:51:47.940Z"
+    },
+    {
+      "id": "project-state-done",
+      "caseId": "VL-V2-PROJECT-STATES",
+      "variantId": "done",
+      "route": "/project/",
+      "state": [
+        "done"
+      ],
+      "coverage": [
+        "viewport-reflow"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "progress",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 700
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2-project/project-state-done.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:51:52.123Z"
+    },
+    {
+      "id": "project-state-next",
+      "caseId": "VL-V2-PROJECT-STATES",
+      "variantId": "next",
+      "route": "/project/",
+      "state": [
+        "next"
+      ],
+      "coverage": [
+        "viewport-reflow"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "next-task",
+          "baselineFontPx": 24,
+          "changedFontPx": 24,
+          "factor": 1,
+          "baselineLineHeightPx": 33.6,
+          "changedLineHeightPx": 33.6
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 700
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2-project/project-state-next.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:51:56.311Z"
+    },
+    {
+      "id": "project-state-recovery",
+      "caseId": "VL-V2-PROJECT-STATES",
+      "variantId": "recovery",
+      "route": "/project/",
+      "state": [
+        "recovery"
+      ],
+      "coverage": [
+        "short-height"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "recovery-heading",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "runtime-error",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 25.6,
+          "changedLineHeightPx": 25.6
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 520
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2-project/project-state-recovery.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:52:04.032Z"
+    },
+    {
+      "id": "project-no-workspace",
+      "caseId": "VL-V2-PROJECT-WORKSPACE",
+      "variantId": "no-workspace",
+      "route": "/project/",
+      "state": [
+        "no-workspace"
+      ],
+      "coverage": [
+        "long-content"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "viewport-reflow",
+      "evidenceClass": "responsive",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "task-heading",
+          "baselineFontPx": 24,
+          "changedFontPx": 24,
+          "factor": 1,
+          "baselineLineHeightPx": 33.6,
+          "changedLineHeightPx": 33.6
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 700
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2-project/project-no-workspace.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:52:12.731Z"
+    },
+    {
+      "id": "project-tokens-100",
+      "caseId": "VL-V2-PROJECT-TOKENS",
+      "variantId": "long-project-task-note-file-runtime-error",
+      "route": "/project/",
+      "state": [
+        "long-project-task-note-file-runtime-error"
+      ],
+      "coverage": [
+        "synthetic-computed-text",
+        "owned-scroll",
+        "unbroken-token",
+        "factor-100",
+        "viewport-320"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "synthetic-computed-text",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1,
+      "achieved": [
+        {
+          "role": "project-name",
+          "baselineFontPx": 30,
+          "changedFontPx": 30,
+          "factor": 1,
+          "baselineLineHeightPx": 36.6,
+          "changedLineHeightPx": 36.6
+        },
+        {
+          "role": "task-name",
+          "baselineFontPx": 24,
+          "changedFontPx": 24,
+          "factor": 1,
+          "baselineLineHeightPx": 33.6,
+          "changedLineHeightPx": 33.6
+        },
+        {
+          "role": "workspace-note",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 27.2
+        },
+        {
+          "role": "file-name",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 24,
+          "changedLineHeightPx": 24
+        },
+        {
+          "role": "runtime-error",
+          "baselineFontPx": 16,
+          "changedFontPx": 16,
+          "factor": 1,
+          "baselineLineHeightPx": 25.6,
+          "changedLineHeightPx": 25.6
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 320,
+          "height": 700
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2-project/project-tokens-100.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:52:23.190Z"
+    },
+    {
+      "id": "project-tokens-150",
+      "caseId": "VL-V2-PROJECT-TOKENS",
+      "variantId": "long-project-task-note-file-runtime-error",
+      "route": "/project/",
+      "state": [
+        "long-project-task-note-file-runtime-error"
+      ],
+      "coverage": [
+        "synthetic-computed-text",
+        "owned-scroll",
+        "unbroken-token",
+        "factor-150",
+        "viewport-320"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "synthetic-computed-text",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 1.5,
+      "achieved": [
+        {
+          "role": "project-name",
+          "baselineFontPx": 30,
+          "changedFontPx": 45,
+          "factor": 1.5,
+          "baselineLineHeightPx": 36.6,
+          "changedLineHeightPx": 54.9
+        },
+        {
+          "role": "task-name",
+          "baselineFontPx": 24,
+          "changedFontPx": 36,
+          "factor": 1.5,
+          "baselineLineHeightPx": 33.6,
+          "changedLineHeightPx": 50.4
+        },
+        {
+          "role": "workspace-note",
+          "baselineFontPx": 16,
+          "changedFontPx": 24,
+          "factor": 1.5,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 40.8
+        },
+        {
+          "role": "file-name",
+          "baselineFontPx": 16,
+          "changedFontPx": 24,
+          "factor": 1.5,
+          "baselineLineHeightPx": 24,
+          "changedLineHeightPx": 36
+        },
+        {
+          "role": "runtime-error",
+          "baselineFontPx": 16,
+          "changedFontPx": 24,
+          "factor": 1.5,
+          "baselineLineHeightPx": 25.6,
+          "changedLineHeightPx": 38.4
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 320,
+          "height": 700
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2-project/project-tokens-150.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:52:29.157Z"
+    },
+    {
+      "id": "project-tokens-200",
+      "caseId": "VL-V2-PROJECT-TOKENS",
+      "variantId": "long-project-task-note-file-runtime-error",
+      "route": "/project/",
+      "state": [
+        "long-project-task-note-file-runtime-error"
+      ],
+      "coverage": [
+        "synthetic-computed-text",
+        "owned-scroll",
+        "unbroken-token",
+        "factor-200",
+        "viewport-375"
+      ],
+      "surface": {
+        "kind": "dom",
+        "selector": ".project-v2-route",
+        "matched": 1
+      },
+      "method": "synthetic-computed-text",
+      "evidenceClass": "synthetic",
+      "requestedFactor": 2,
+      "achieved": [
+        {
+          "role": "project-name",
+          "baselineFontPx": 30,
+          "changedFontPx": 60,
+          "factor": 2,
+          "baselineLineHeightPx": 36.6,
+          "changedLineHeightPx": 73.2
+        },
+        {
+          "role": "task-name",
+          "baselineFontPx": 24,
+          "changedFontPx": 48,
+          "factor": 2,
+          "baselineLineHeightPx": 33.6,
+          "changedLineHeightPx": 67.2
+        },
+        {
+          "role": "workspace-note",
+          "baselineFontPx": 16,
+          "changedFontPx": 32,
+          "factor": 2,
+          "baselineLineHeightPx": 27.2,
+          "changedLineHeightPx": 54.4
+        },
+        {
+          "role": "file-name",
+          "baselineFontPx": 16,
+          "changedFontPx": 32,
+          "factor": 2,
+          "baselineLineHeightPx": 24,
+          "changedLineHeightPx": 48
+        },
+        {
+          "role": "runtime-error",
+          "baselineFontPx": 16,
+          "changedFontPx": 32,
+          "factor": 2,
+          "baselineLineHeightPx": 25.6,
+          "changedLineHeightPx": 51.2
+        }
+      ],
+      "browser": {
+        "name": "chromium",
+        "version": "151.0.7922.34",
+        "viewport": {
+          "width": 375,
+          "height": 700
+        },
+        "dpr": 1
+      },
+      "diagnostics": {
+        "documentOverflowPx": 0,
+        "unownedOverflowingElements": 0,
+        "clippedText": 0,
+        "undersizedTargets": 0,
+        "focusApplicable": true,
+        "focusReachable": true,
+        "focusVisible": true,
+        "orderPreserved": true,
+        "associationsPreserved": true
+      },
+      "geometry": {
+        "layout": "not-applicable",
+        "nonoverlapping": true,
+        "contentVisible": true,
+        "ownedScrollers": 0
+      },
+      "screenshot": "v2-project/project-tokens-200.png",
+      "limitations": [
+        "Local Chromium synthetic text/responsive evidence; not browser zoom, OS scaling, or physical-device evidence."
+      ],
+      "reviewerDecision": "PASS",
+      "review": {
+        "kind": "automated",
+        "reviewer": "Playwright Project evidence emitter"
+      },
+      "capturedAt": "2026-10-01T05:52:35.280Z"
+    }
+  ],
+  "execution": {
+    "command": "npx playwright test e2e/issue-157-project-evidence.spec.ts",
+    "caseIds": [
+      "VL-V2-PROJECT-STATES",
+      "VL-V2-PROJECT-WORKSPACE",
+      "VL-V2-PROJECT-TOKENS"
+    ],
+    "subsetGate": "PASS",
+    "reasons": []
+  }
+}

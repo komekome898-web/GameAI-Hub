@@ -1,0 +1,289 @@
+"use client";
+
+import Link from "next/link";
+import { GamePlayLink } from "./GamePlayLink";
+import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type FocusEvent as ReactFocusEvent, type KeyboardEvent, type MouseEvent } from "react";
+
+import { useCreationDeckMotion } from "./useCreationDeckMotion";
+
+export type CreationDeckItem = {
+  id: string;
+  href: string;
+  title: string;
+  description: string;
+  updatedAt?: string;
+  count?: number;
+  label: string;
+  countUnit?: "記事" | "作品";
+  playUrl?: string;
+  deviceNote?: string;
+  image?: { src: string; srcSet: string; width?: number; height?: number };
+};
+
+export function CreationDeck({ items, initialId, defaultMode = "list", forceList = false, onCommitted, onOpen, onActivate, kind = "article", preferenceKey = "gameai-creation-deck-mode" }: {
+  items: CreationDeckItem[];
+  initialId?: string;
+  defaultMode?: "list" | "deck";
+  forceList?: boolean;
+  onCommitted?: (id: string) => void;
+  onOpen?: (id: string) => void;
+  onActivate?: (event: MouseEvent<HTMLAnchorElement>, id: string) => void;
+  kind?: "article" | "category" | "game";
+  preferenceKey?: string;
+}) {
+  const [mode, setMode] = useState<"list" | "deck">("list");
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const [clipped, setClipped] = useState<Set<string>>(new Set());
+  const descriptionPrefix = useId();
+  const [available, setAvailable] = useState(false);
+  const [candidate, setCandidate] = useState(false);
+  const [fitUsable, setFitUsable] = useState(false);
+  const [deckHeight, setDeckHeight] = useState<number>();
+  const stage = useRef<HTMLOListElement>(null);
+  const root = useRef<HTMLDivElement>(null);
+  const controls = useRef<HTMLDivElement>(null);
+  const ids = useMemo(() => items.map(item => item.id), [items]);
+  const { activeId, move, cancel: cancelGesture } = useCreationDeckMotion(stage, ids, mode === "deck" && available, initialId);
+  const active = Math.max(0, ids.indexOf(activeId));
+  const preferredMode = useRef<"list" | "deck">(defaultMode);
+  // CSS can remove the controls before a media-query callback runs. Remember
+  // control ownership while focus is still present so fallback can move it to
+  // the active article rather than leaving focus on <body>.
+  const controlFocusOwned = useRef(false);
+
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem(preferenceKey);
+      preferredMode.current = saved === "list" || saved === "deck" ? saved : defaultMode;
+    } catch {
+      preferredMode.current = defaultMode;
+    }
+  }, [defaultMode, preferenceKey]);
+
+  useEffect(() => { if (activeId && mode === "deck") onCommitted?.(activeId); }, [activeId, mode, onCommitted]);
+
+  useLayoutEffect(() => {
+    const list = stage.current;
+    if (!list || mode !== "deck") return;
+    let stopped = false;
+    const measure = () => {
+      if (stopped) return;
+      const next = new Set<string>();
+      for (const card of Array.from(list.children) as HTMLElement[]) {
+        const description = card.querySelector<HTMLElement>(".v2-start-card-description");
+        if (!description || !card.dataset.deckId) continue;
+        // Read the collapsed geometry even when open, then restore it before
+        // paint. Keep the same description node, natural height and focus.
+        const previous = description.dataset.expanded;
+        try {
+          description.dataset.expanded = "false";
+          if (description.clientHeight > 0 && description.scrollHeight > description.clientHeight + 1) next.add(card.dataset.deckId);
+        } finally {
+          if (previous === undefined) delete description.dataset.expanded;
+          else description.dataset.expanded = previous;
+        }
+      }
+      const focused = document.activeElement;
+      if (focused instanceof HTMLButtonElement && focused.matches('.v2-start-card-expand') && list.contains(focused)) {
+        const card = focused.closest<HTMLElement>('li');
+        const id = card?.dataset.deckId;
+        if (id && !next.has(id) && !expanded.has(id)) card?.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true });
+      }
+      setClipped(old => old.size === next.size && [...next].every(id => old.has(id)) ? old : next);
+    };
+    measure();
+    const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(measure);
+    list.querySelectorAll('.v2-start-card-description').forEach(description => observer?.observe(description));
+    const fonts = document.fonts;
+    fonts?.addEventListener('loadingdone', measure);
+    fonts?.addEventListener('loadingerror', measure);
+    if (fonts) void fonts.ready.then(measure);
+    window.addEventListener('resize', measure);
+    return () => {
+      stopped = true;
+      observer?.disconnect();
+      fonts?.removeEventListener('loadingdone', measure);
+      fonts?.removeEventListener('loadingerror', measure);
+      window.removeEventListener('resize', measure);
+    };
+  }, [items, mode, expanded]);
+
+  useLayoutEffect(() => {
+    const root = stage.current;
+    if (!root) return;
+    const failSafe = () => {
+      const focused = document.activeElement;
+      if (focused instanceof HTMLButtonElement && focused.matches('.v2-start-card-expand') && root.contains(focused)) {
+        focused.closest('li')?.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true });
+      }
+      setFitUsable(false);
+      setMode("list");
+      setDeckHeight(undefined);
+    };
+    const measure = () => {
+      try {
+      // Deck items are top-positioned but never bottom-constrained, so this is
+      // their intrinsic, width-correct height rather than the stage min-height.
+      const cards = Array.from(root.children) as HTMLElement[];
+      const height = Math.ceil(Math.max(...cards.map((child) => child.scrollHeight), 0)) + 16;
+      const width = root.getBoundingClientRect().width;
+      const cardsFit = cards.length > 2 && width >= 280 && cards.every((card) => {
+        const cardWidth = card.offsetWidth || card.getBoundingClientRect().width;
+        const title = card.querySelector<HTMLElement>("strong");
+        const description = card.querySelector<HTMLElement>(".v2-start-card-description");
+        const titleSizeText = title ? getComputedStyle(title).fontSize : "";
+        const descriptionSizeText = description ? getComputedStyle(description).fontSize : "";
+        const titleSize = Number.parseFloat(titleSizeText);
+        const descriptionSize = Number.parseFloat(descriptionSizeText);
+        return Number.isFinite(cardWidth) && cardWidth >= 240 &&
+          Boolean(title) && (!titleSizeText || (Number.isFinite(titleSize) && titleSize <= 32)) &&
+          Boolean(description) && (!descriptionSizeText || (Number.isFinite(descriptionSize) && descriptionSize <= 24));
+      });
+      if (!Number.isFinite(height) || height <= 16 || !cardsFit) {
+        failSafe();
+        return;
+      }
+      setFitUsable(true);
+      setDeckHeight((current) => current === height ? current : height);
+      } catch {
+        failSafe();
+      }
+    };
+    measure();
+    const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(measure);
+    Array.from(root.children).forEach((child) => observer?.observe(child));
+    const fonts = document.fonts;
+    const onFontsSettled = () => measure();
+    fonts?.addEventListener("loadingdone", onFontsSettled);
+    fonts?.addEventListener("loadingerror", onFontsSettled);
+    if (fonts) void fonts.ready.then(measure);
+    window.addEventListener("resize", measure);
+    return () => {
+      observer?.disconnect();
+      fonts?.removeEventListener("loadingdone", onFontsSettled);
+      fonts?.removeEventListener("loadingerror", onFontsSettled);
+      window.removeEventListener("resize", measure);
+    };
+  }, [items]);
+
+  useLayoutEffect(() => {
+    if (!candidate) return;
+    const control = controls.current;
+    if (!control || control.clientWidth <= 0 || control.scrollWidth > control.clientWidth + 1) {
+      setCandidate(false);
+      setFitUsable(false);
+      setAvailable(false);
+      setMode("list");
+      return;
+    }
+    setAvailable(true);
+  }, [candidate]);
+
+  useEffect(() => {
+    if (typeof window.matchMedia !== "function") return;
+    const narrow = matchMedia("(max-width: 340px)");
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+    const forced = matchMedia("(forced-colors: active)");
+    const update = () => {
+      // A two-card set remains an ordinary flat rail; the circular treatment
+      // only adds useful spatial context when a third card exists.
+      const next = !forceList && items.length > 2 && fitUsable && !narrow.matches && !reduced.matches && !forced.matches;
+      setCandidate(next);
+      if (!next) setAvailable(false);
+      if (!next) {
+        cancelGesture();
+        // Only a currently focused overview button is about to disappear.
+        // Surviving links and focus outside this deck keep their ownership.
+        const focused = document.activeElement;
+        if (focused instanceof HTMLButtonElement && focused.matches('.v2-start-card-expand') && stage.current?.contains(focused)) {
+          focused.closest('li')?.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true });
+        } else if (controlFocusOwned.current) {
+          controlFocusOwned.current = false;
+          stage.current?.querySelectorAll<HTMLAnchorElement>(".v2-start-card-face")[active]?.focus({ preventScroll: true });
+        }
+        setMode("list");
+      } else if (preferredMode.current === "deck") {
+        setMode("deck");
+      }
+    };
+    update();
+    [narrow, reduced, forced].forEach((query) => query.addEventListener("change", update));
+    return () => [narrow, reduced, forced].forEach((query) => query.removeEventListener("change", update));
+  }, [active, cancelGesture, fitUsable, forceList, items.length]);
+
+  useEffect(() => {
+    const rememberFocusOwner = (event: FocusEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      if (controls.current?.contains(target)) controlFocusOwned.current = true;
+      else if (target !== document.body) controlFocusOwned.current = false;
+    };
+    document.addEventListener("focusin", rememberFocusOwner, true);
+    return () => document.removeEventListener("focusin", rememberFocusOwner, true);
+  }, []);
+
+  const changeMode = (next: "list" | "deck") => {
+    cancelGesture();
+    setMode(next);
+    preferredMode.current = next;
+    try {
+      sessionStorage.setItem(preferenceKey, next);
+    } catch {
+      // The in-memory preference remains usable when storage is unavailable.
+    }
+  };
+  const onControlsKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (mode !== "deck" || (event.key !== "ArrowLeft" && event.key !== "ArrowRight")) return;
+    event.preventDefault();
+    move(event.key === "ArrowLeft" ? -1 : 1);
+  };
+  const recoverHiddenControlFocus = (event: ReactFocusEvent<HTMLDivElement>) => {
+    const controls = event.currentTarget;
+    queueMicrotask(() => {
+      if (!controlFocusOwned.current || document.activeElement !== document.body) return;
+      if (getComputedStyle(controls).display !== "none") return;
+      controlFocusOwned.current = false;
+      stage.current?.querySelectorAll<HTMLAnchorElement>(".v2-start-card-face")[active]?.focus({ preventScroll: true });
+    });
+  };
+  return <div ref={root} className="creation-deck" data-mode={mode} data-available={available ? "true" : "false"}>
+    {candidate && <div ref={controls} className="creation-deck-controls" onBlurCapture={recoverHiddenControlFocus} onFocusCapture={() => { controlFocusOwned.current = true; }} onKeyDown={onControlsKeyDown}>
+      {mode === "deck" && <button type="button" onClick={() => move(-1)} aria-label={kind === "category" ? "前のカテゴリ" : kind === "game" ? "前の作品" : "前の記事"}>←</button>}
+      {mode === "deck" && <span className="creation-deck-count" aria-hidden="true">{active + 1} / {items.length}</span>}
+      {mode === "deck" && <button type="button" onClick={() => move(1)} aria-label={kind === "category" ? "次のカテゴリ" : kind === "game" ? "次の作品" : "次の記事"}>→</button>}
+      <button type="button" aria-pressed={mode === "deck"} onClick={() => changeMode(mode === "list" ? "deck" : "list")}>
+        {mode === "list" ? "円環で見る" : "一覧で見る"}
+      </button>
+      {mode === "deck" && <span className="creation-deck-status sr-only" aria-live="polite">{items.length}件中{active + 1}件目、{items[active]?.title}</span>}
+    </div>}
+    {items.length === 0 && <p>現在、表示できる{kind === "category" ? "カテゴリ" : kind === "game" ? "作品" : "記事"}はありません。</p>}
+    <ol ref={stage} className="article-cluster-list" style={mode === "deck" && deckHeight ? { minHeight: deckHeight } : undefined} onDragStart={(event) => { if (mode === "deck") event.preventDefault(); }}>
+      {items.map((item, index) => {
+        const descriptionId = `${descriptionPrefix}-${index}`;
+        const isExpanded = mode === "list" || expanded.has(item.id);
+        return <li key={item.id} data-deck-id={item.id} className="v2-start-card-item" data-kind={kind}>
+          <div className="v2-start-card">
+            <Link className="v2-start-card-face" href={item.href} aria-label={item.title} data-category={kind === "category" ? item.id : undefined} onClick={event => { onOpen?.(item.id); onActivate?.(event, item.id); }}>
+              {item.image && <span className="v2-start-card-image" aria-hidden="true">
+                {/* Approved source bytes are served without re-encoding. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={item.image.src} srcSet={item.image.srcSet} sizes="(max-width: 680px) calc(100vw - 96px), 272px" width={item.image.width ?? 960} height={item.image.height ?? 640} alt="" />
+              </span>}
+              <span className="v2-start-card-meta"><span className="v2-start-card-label">{item.label}</span>{kind === "category" ? <small>{item.count}{item.countUnit === "作品" ? "作品" : "本の記事"}</small> : item.updatedAt ? <small>更新 {item.updatedAt}</small> : null}</span>
+              <strong>{item.title}</strong>
+              <span className="v2-start-card-read" aria-hidden="true">{kind === "category" ? (item.countUnit === "作品" ? "作品を見る" : "記事を見る") : kind === "game" ? "紹介を見る" : "記事を読む"} <b>→</b></span>
+            </Link>
+            <p id={descriptionId} className="v2-start-card-description" data-expanded={isExpanded}>{item.description}</p>
+            {item.playUrl && <div className="game-card-actions">{item.deviceNote && <p>{item.deviceNote}</p>}<GamePlayLink href={item.playUrl} slug={item.id} placement="card" /></div>}
+            {mode === "deck" && (clipped.has(item.id) || expanded.has(item.id)) && <button className="v2-start-card-expand" type="button" aria-expanded={isExpanded} aria-controls={descriptionId} onClick={event => {
+              if (expanded.has(item.id) && !clipped.has(item.id)) event.currentTarget.closest('li')?.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true });
+              setExpanded(old => {
+                const next = new Set(old); if (next.has(item.id)) next.delete(item.id); else next.add(item.id); return next;
+              });
+            }}>{isExpanded ? "概要を閉じる" : "概要をすべて表示"}</button>}
+          </div>
+        </li>;
+      })}
+    </ol>
+  </div>;
+}

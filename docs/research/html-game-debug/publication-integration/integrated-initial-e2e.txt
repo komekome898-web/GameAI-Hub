@@ -1,0 +1,97 @@
+[WebServer] (node:33867) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:33880) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:33880) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:33926) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:33925) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:33918) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:33920) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] npm notice
+[WebServer] npm notice New major version of npm available! 11.9.0 -> 12.2.0
+[WebServer] npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+[WebServer] npm notice To update run: npm install -g npm@12.2.0
+[WebServer] npm notice
+
+[WebServer] (node:33982) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:33995) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 11 tests using 1 worker
+
+(node:34011) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/11] e2e/deck-acceptance-contract.spec.ts:15:5 › summary exception is earned through real expansion and list recovery, not shared with other clipping
+[2/11] e2e/html-game-debug-article.spec.ts:10:7 › HTML game diagnosis and replay at 375px
+[3/11] e2e/issue-155-v1.spec.ts:264:5 › V1 shared probe records the intermediate 150% metadata state
+[4/11] e2e/issue-157-final-evidence.spec.ts:146:5 › V3 route, state, text, navigation, affiliate, and SEO observations
+  1) e2e/issue-157-final-evidence.spec.ts:146:5 › V3 route, state, text, navigation, affiliate, and SEO observations
+
+    Error: jsHandle.evaluate: Error: surface: text measurement targets changed (identity/order/count): .article-hub :is(h1,h2,h3,p,a,button); expected 20, found 20
+        at Object.assertStable (eval at evaluate (:311:30), <anonymous>:14:120)
+        at eval (eval at evaluate (:311:30), <anonymous>:1:45)
+        at Array.forEach (<anonymous>)
+        at eval (eval at evaluate (:311:30), <anonymous>:1:20)
+        at UtilityScript.evaluate (<anonymous>:313:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at Object.assertStable (eval at evaluate (:311:30), <anonymous>:14:120)
+        at eval (eval at evaluate (:311:30), <anonymous>:1:45)
+        at eval (eval at evaluate (:311:30), <anonymous>:1:20)
+        at UtilityScript.evaluate (<anonymous>:313:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at Object.restore (/workspace/GameAI-Hub-debug/e2e/acceptance/reflow.ts:171:26)
+        at observe (/workspace/GameAI-Hub-debug/e2e/issue-157-final-evidence.spec.ts:140:15)
+        at /workspace/GameAI-Hub-debug/e2e/issue-157-final-evidence.spec.ts:219:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[5/11] e2e/issue-157-final-evidence.spec.ts:241:5 › V4 dynamic input, cancellation, follow-up, focus, and budget observations
+(node:34489) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[6/11] e2e/seven-game-intros.spec.ts:9:41 › seven introductions and original screenshots at 1280
+[7/11] e2e/seven-game-intros.spec.ts:9:41 › seven introductions and original screenshots at 375
+[8/11] e2e/seven-game-intros.spec.ts:9:41 › seven introductions and original screenshots at 320
+[9/11] e2e/seven-game-intros.spec.ts:36:5 › all eight cards preserve original assets, introduction links and sitemap
+[10/11] e2e/seven-game-intros.spec.ts:61:5 › all seven at 320px with 200% CSS zoom
+[11/11] e2e/seven-game-intros.spec.ts:71:5 › Aramon keeps its environment and receives the free no-install statement
+  1 failed
+    e2e/issue-157-final-evidence.spec.ts:146:5 › V3 route, state, text, navigation, affiliate, and SEO observations
+  1 did not run
+  9 passed (2.8m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

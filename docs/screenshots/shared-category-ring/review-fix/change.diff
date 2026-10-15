@@ -1,0 +1,68 @@
+diff --git a/components/ArticleHub.tsx b/components/ArticleHub.tsx
+index 97f950c..0946878 100644
+--- a/components/ArticleHub.tsx
++++ b/components/ArticleHub.tsx
+@@ -91,6 +91,9 @@ export function ArticleHub({ groups, home = false }: { groups: HubGroup[]; home?
+ 
+   const navigate = (event: MouseEvent<HTMLAnchorElement>, view: string) => {
+     if (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
++    // List activation does not commit ring selection. Update the originating
++    // entry before navigating so Back's explicit URL agrees with its memory.
++    if (memory.current.view === 'categories' && groups.some(group => group.id === view && group.items.length)) rememberCategory(view);
+     if (home) {
+       if (groups.some(group => group.id === view && group.items.length)) memory.current.category = view;
+       memory.current.categoryScroll = scrollY;
+diff --git a/e2e/shared-category-ring.spec.ts b/e2e/shared-category-ring.spec.ts
+index ba4ca35..0ffdd0f 100644
+--- a/e2e/shared-category-ring.spec.ts
++++ b/e2e/shared-category-ring.spec.ts
+@@ -4,11 +4,48 @@ import { mkdir, writeFile } from 'node:fs/promises';
+ const evidence = 'docs/screenshots/shared-category-ring';
+ const deck = (page: Page) => page.locator('.creation-deck');
+ const current = (page: Page) => deck(page).locator('li[data-distance="0"]');
+-const idle = async (page: Page) => { await expect(deck(page).locator('ol')).toHaveAttribute('data-motion', 'idle'); };
++const idle = async (page: Page) => {
++  await expect(deck(page)).toHaveCount(1);
++  await expect(deck(page).locator('ol')).toHaveAttribute('data-motion', 'idle');
++};
+ test.beforeEach(async ({ context }) => {
+   await context.route('**/*', r => new URL(r.request().url()).hostname === '127.0.0.1' ? r.continue() : r.abort());
+ });
+ 
++for (const entry of ['/', '/articles/#categories']) for (const width of [320, 390]) {
++  test(`list category browser Back restores selected voice from ${entry} at ${width}`, async ({ page }) => {
++    await page.setViewportSize({ width: 390, height: 844 });
++    await page.goto(entry); await idle(page);
++    await page.locator('[data-category="start"]').focus();
++    await expect(page).toHaveURL(/hubCategory=start/);
++    if (width > 340) await page.getByRole('button', { name: '一覧で見る', exact: true }).click();
++    else await page.setViewportSize({ width, height: 844 });
++    await expect(deck(page)).toHaveAttribute('data-mode', 'list');
++    const historyBefore = await page.evaluate(() => history.length);
++    // Clicking a list item does not commit the ring's selected ID first.
++    await page.locator('[data-category="voice"] strong').click();
++    await expect(page).toHaveURL(/#voice$/); await idle(page);
++    expect(await page.evaluate(() => history.length)).toBe(historyBefore + 1);
++    await page.goBack(); await idle(page);
++    await expect(page).toHaveURL(/hubCategory=voice.*#categories$/);
++    await expect(deck(page)).toHaveAttribute('data-mode', 'list');
++    await expect(page.locator('[data-category="voice"]')).toBeFocused();
++    const returnedUrl = page.url();
++    await page.reload(); await idle(page);
++    await expect(page.locator('[data-category="voice"]')).toBeFocused();
++    await expect(deck(page)).toHaveAttribute('data-mode', 'list');
++    if (width > 340) {
++      await page.getByRole('button', { name: '円環で見る', exact: true }).click(); await idle(page);
++      await expect(current(page)).toHaveAttribute('data-deck-id', 'voice');
++    }
++    const dir = `${evidence}/review-fix`;
++    await mkdir(dir, { recursive: true });
++    const label = `${entry === '/' ? 'home' : 'articles'}-${width}`;
++    await page.screenshot({ path: `${dir}/${label}.png` });
++    await writeFile(`${dir}/${label}.json`, JSON.stringify({ width, entry, method: 'Chromium viewport emulation', flow: 'start → list/fallback → voice → browser Back → reload → ring when supported', returnedUrl, historyBefore, focus: await page.locator(':focus').getAttribute('data-category') }, null, 2));
++  });
++}
++
+ for (const width of [320,375,390,1440]) test(`Home order and complete return context at ${width}`, async ({ page }) => {
+   await mkdir(evidence, { recursive:true });
+   await page.setViewportSize({ width, height:width === 1440 ? 900 : 844 });

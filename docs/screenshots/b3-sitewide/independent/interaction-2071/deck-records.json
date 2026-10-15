@@ -1,0 +1,750 @@
+{
+  "sha": "2071bc57a6ff8cacbdaa80dbe3a5a81f88b0e613",
+  "buildId": "zAk6ky_dCA_TDzq3xN_Bv",
+  "method": "Independent Chromium375 viewport actual interactions and rendered screenshots; no physical device",
+  "records": [
+    {
+      "id": "start-initial-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=ai-browser-game-how-to#start",
+      "geometry": {
+        "mode": "deck",
+        "deck": {
+          "x": 31,
+          "y": 74.53125,
+          "width": 313,
+          "height": 580.1875,
+          "top": 74.53125,
+          "right": 344,
+          "bottom": 654.71875,
+          "left": 31
+        },
+        "stage": {
+          "x": 35,
+          "y": 139.71875,
+          "width": 305,
+          "height": 511,
+          "top": 139.71875,
+          "right": 340,
+          "bottom": 650.71875,
+          "left": 35
+        },
+        "stageClient": {
+          "width": 305,
+          "height": 511
+        },
+        "active": {
+          "id": "ai-browser-game-how-to",
+          "rect": {
+            "x": 35.5,
+            "y": 139.71875,
+            "width": 304,
+            "height": 467.96875,
+            "top": 139.71875,
+            "right": 339.5,
+            "bottom": 607.6875,
+            "left": 35.5
+          },
+          "offsetWidth": 304,
+          "scrollHeight": 468
+        },
+        "scroll": 375,
+        "client": 375,
+        "focus": "<a class=\"v2-start-card-face\" aria-label=\"AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方\" href=\"/articles/ai-browser-game-how-to/\"><span class=\"v2-start-card-image\" aria-hidden=\"true\"><img sizes=\"(max-width: 680px) calc(100vw - 96px), 272px\" width=\"960\" height=\"640\" alt=\"\" srcset=\"/visual-v2/thumbnails/game-creation-480.webp 480w, /visual-v2/thumbnails/game-creation-960.webp 960w\" src=\"/visual-v2/thumbnails/game-creation-960.webp\"></span><span class=\"v2-start-card-meta\"><span class=\"v2-start-card-label\">初心者向け</span><small>更新 2026-10-04</small></span><strong>AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方</strong><span class=\"v2-start-card-read\" aria-hidden=\"true\">記事を読む <b>→</b></span></a>"
+      }
+    },
+    {
+      "id": "collapsed-ai-browser-game-how-to-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=ai-browser-game-how-to#start",
+      "geometry": {
+        "mode": "deck",
+        "deck": {
+          "x": 31,
+          "y": 79.53125,
+          "width": 313,
+          "height": 580.1875,
+          "top": 79.53125,
+          "right": 344,
+          "bottom": 659.71875,
+          "left": 31
+        },
+        "stage": {
+          "x": 35,
+          "y": 144.71875,
+          "width": 305,
+          "height": 511,
+          "top": 144.71875,
+          "right": 340,
+          "bottom": 655.71875,
+          "left": 35
+        },
+        "stageClient": {
+          "width": 305,
+          "height": 511
+        },
+        "active": {
+          "id": "ai-browser-game-how-to",
+          "rect": {
+            "x": 35.5,
+            "y": 144.71875,
+            "width": 304,
+            "height": 467.96875,
+            "top": 144.71875,
+            "right": 339.5,
+            "bottom": 612.6875,
+            "left": 35.5
+          },
+          "offsetWidth": 304,
+          "scrollHeight": 468
+        },
+        "scroll": 375,
+        "client": 375,
+        "focus": "<a class=\"v2-start-card-face\" aria-label=\"AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方\" href=\"/articles/ai-browser-game-how-to/\"><span class=\"v2-start-card-image\" aria-hidden=\"true\"><img sizes=\"(max-width: 680px) calc(100vw - 96px), 272px\" width=\"960\" height=\"640\" alt=\"\" srcset=\"/visual-v2/thumbnails/game-creation-480.webp 480w, /visual-v2/thumbnails/game-creation-960.webp 960w\" src=\"/visual-v2/thumbnails/game-creation-960.webp\"></span><span class=\"v2-start-card-meta\"><span class=\"v2-start-card-label\">初心者向け</span><small>更新 2026-10-04</small></span><strong>AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方</strong><span class=\"v2-start-card-read\" aria-hidden=\"true\">記事を読む <b>→</b></span></a>"
+      }
+    },
+    {
+      "id": "expanded-ai-browser-game-how-to-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=ai-browser-game-how-to#start",
+      "geometry": {
+        "mode": "deck",
+        "deck": {
+          "x": 31,
+          "y": 79.53125,
+          "width": 313,
+          "height": 606.1875,
+          "top": 79.53125,
+          "right": 344,
+          "bottom": 685.71875,
+          "left": 31
+        },
+        "stage": {
+          "x": 35,
+          "y": 144.71875,
+          "width": 305,
+          "height": 537,
+          "top": 144.71875,
+          "right": 340,
+          "bottom": 681.71875,
+          "left": 35
+        },
+        "stageClient": {
+          "width": 305,
+          "height": 537
+        },
+        "active": {
+          "id": "ai-browser-game-how-to",
+          "rect": {
+            "x": 35.5,
+            "y": 144.71875,
+            "width": 304,
+            "height": 520.75,
+            "top": 144.71875,
+            "right": 339.5,
+            "bottom": 665.46875,
+            "left": 35.5
+          },
+          "offsetWidth": 304,
+          "scrollHeight": 521
+        },
+        "scroll": 375,
+        "client": 375,
+        "focus": "<button class=\"v2-start-card-expand\" type=\"button\" aria-expanded=\"true\" aria-controls=\"_r_0_-0\">概要を閉じる</button>"
+      }
+    },
+    {
+      "id": "collapsed-before-asking-ai-build-game-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=before-asking-ai-build-game#start",
+      "geometry": {
+        "mode": "deck",
+        "deck": {
+          "x": 31,
+          "y": 79.53125,
+          "width": 313,
+          "height": 606.1875,
+          "top": 79.53125,
+          "right": 344,
+          "bottom": 685.71875,
+          "left": 31
+        },
+        "stage": {
+          "x": 35,
+          "y": 144.71875,
+          "width": 305,
+          "height": 537,
+          "top": 144.71875,
+          "right": 340,
+          "bottom": 681.71875,
+          "left": 35
+        },
+        "stageClient": {
+          "width": 305,
+          "height": 537
+        },
+        "active": {
+          "id": "before-asking-ai-build-game",
+          "rect": {
+            "x": 35.5,
+            "y": 144.71875,
+            "width": 304,
+            "height": 467.96875,
+            "top": 144.71875,
+            "right": 339.5,
+            "bottom": 612.6875,
+            "left": 35.5
+          },
+          "offsetWidth": 304,
+          "scrollHeight": 468
+        },
+        "scroll": 375,
+        "client": 375,
+        "focus": "<a class=\"v2-start-card-face\" aria-label=\"AIに「ゲームを作って」と頼む前に決めるべき5つのこと\" href=\"/articles/before-asking-ai-build-game/\"><span class=\"v2-start-card-image\" aria-hidden=\"true\"><img sizes=\"(max-width: 680px) calc(100vw - 96px), 272px\" width=\"960\" height=\"640\" alt=\"\" srcset=\"/visual-v2/thumbnails/planning-480.webp 480w, /visual-v2/thumbnails/planning-960.webp 960w\" src=\"/visual-v2/thumbnails/planning-960.webp\"></span><span class=\"v2-start-card-meta\"><span class=\"v2-start-card-label\">開発フィールドノート</span><small>更新 2026-09-02</small></span><strong>AIに「ゲームを作って」と頼む前に決めるべき5つのこと</strong><span class=\"v2-start-card-read\" aria-hidden=\"true\">記事を読む <b>→</b></span></a>"
+      }
+    },
+    {
+      "id": "expanded-before-asking-ai-build-game-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=before-asking-ai-build-game#start",
+      "geometry": {
+        "mode": "deck",
+        "deck": {
+          "x": 31,
+          "y": 79.53125,
+          "width": 313,
+          "height": 606.1875,
+          "top": 79.53125,
+          "right": 344,
+          "bottom": 685.71875,
+          "left": 31
+        },
+        "stage": {
+          "x": 35,
+          "y": 144.71875,
+          "width": 305,
+          "height": 537,
+          "top": 144.71875,
+          "right": 340,
+          "bottom": 681.71875,
+          "left": 35
+        },
+        "stageClient": {
+          "width": 305,
+          "height": 537
+        },
+        "active": {
+          "id": "before-asking-ai-build-game",
+          "rect": {
+            "x": 35.5,
+            "y": 144.71875,
+            "width": 304,
+            "height": 520.75,
+            "top": 144.71875,
+            "right": 339.5,
+            "bottom": 665.46875,
+            "left": 35.5
+          },
+          "offsetWidth": 304,
+          "scrollHeight": 521
+        },
+        "scroll": 375,
+        "client": 375,
+        "focus": "<button class=\"v2-start-card-expand\" type=\"button\" aria-expanded=\"true\" aria-controls=\"_r_0_-1\">概要を閉じる</button>"
+      }
+    },
+    {
+      "id": "collapsed-small-first-success-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=small-first-success#start",
+      "geometry": {
+        "mode": "deck",
+        "deck": {
+          "x": 31,
+          "y": 79.53125,
+          "width": 313,
+          "height": 606.1875,
+          "top": 79.53125,
+          "right": 344,
+          "bottom": 685.71875,
+          "left": 31
+        },
+        "stage": {
+          "x": 35,
+          "y": 144.71875,
+          "width": 305,
+          "height": 537,
+          "top": 144.71875,
+          "right": 340,
+          "bottom": 681.71875,
+          "left": 35
+        },
+        "stageClient": {
+          "width": 305,
+          "height": 537
+        },
+        "active": {
+          "id": "small-first-success",
+          "rect": {
+            "x": 35.5,
+            "y": 144.71875,
+            "width": 304,
+            "height": 333.96875,
+            "top": 144.71875,
+            "right": 339.5,
+            "bottom": 478.6875,
+            "left": 35.5
+          },
+          "offsetWidth": 304,
+          "scrollHeight": 334
+        },
+        "scroll": 375,
+        "client": 375,
+        "focus": "<a class=\"v2-start-card-face\" aria-label=\"AIでゲームを作るなら、最初の成功体験は小さい方がいい\" href=\"/articles/small-first-success/\"><span class=\"v2-start-card-meta\"><span class=\"v2-start-card-label\">開発フィールドノート</span><small>更新 2026-09-02</small></span><strong>AIでゲームを作るなら、最初の成功体験は小さい方がいい</strong><span class=\"v2-start-card-read\" aria-hidden=\"true\">記事を読む <b>→</b></span></a>"
+      }
+    },
+    {
+      "id": "expanded-small-first-success-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=small-first-success#start",
+      "geometry": {
+        "mode": "deck",
+        "deck": {
+          "x": 31,
+          "y": 79.53125,
+          "width": 313,
+          "height": 606.1875,
+          "top": 79.53125,
+          "right": 344,
+          "bottom": 685.71875,
+          "left": 31
+        },
+        "stage": {
+          "x": 35,
+          "y": 144.71875,
+          "width": 305,
+          "height": 537,
+          "top": 144.71875,
+          "right": 340,
+          "bottom": 681.71875,
+          "left": 35
+        },
+        "stageClient": {
+          "width": 305,
+          "height": 537
+        },
+        "active": {
+          "id": "small-first-success",
+          "rect": {
+            "x": 35.5,
+            "y": 144.71875,
+            "width": 304,
+            "height": 360.359375,
+            "top": 144.71875,
+            "right": 339.5,
+            "bottom": 505.078125,
+            "left": 35.5
+          },
+          "offsetWidth": 304,
+          "scrollHeight": 360
+        },
+        "scroll": 375,
+        "client": 375,
+        "focus": "<button class=\"v2-start-card-expand\" type=\"button\" aria-expanded=\"true\" aria-controls=\"_r_0_-2\">概要を閉じる</button>"
+      }
+    },
+    {
+      "id": "collapsed-github-beginner-game-development-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=github-beginner-game-development#start",
+      "geometry": {
+        "mode": "deck",
+        "deck": {
+          "x": 31,
+          "y": 79.53125,
+          "width": 313,
+          "height": 606.1875,
+          "top": 79.53125,
+          "right": 344,
+          "bottom": 685.71875,
+          "left": 31
+        },
+        "stage": {
+          "x": 35,
+          "y": 144.71875,
+          "width": 305,
+          "height": 537,
+          "top": 144.71875,
+          "right": 340,
+          "bottom": 681.71875,
+          "left": 35
+        },
+        "stageClient": {
+          "width": 305,
+          "height": 537
+        },
+        "active": {
+          "id": "github-beginner-game-development",
+          "rect": {
+            "x": 35.5,
+            "y": 144.71875,
+            "width": 304,
+            "height": 494.96875,
+            "top": 144.71875,
+            "right": 339.5,
+            "bottom": 639.6875,
+            "left": 35.5
+          },
+          "offsetWidth": 304,
+          "scrollHeight": 495
+        },
+        "scroll": 375,
+        "client": 375,
+        "focus": "<a class=\"v2-start-card-face\" aria-label=\"GitHubの使い方と画面の見方｜初心者がゲームのHTMLを保存するまで\" href=\"/articles/github-beginner-game-development/\"><span class=\"v2-start-card-image\" aria-hidden=\"true\"><img sizes=\"(max-width: 680px) calc(100vw - 96px), 272px\" width=\"960\" height=\"640\" alt=\"\" srcset=\"/visual-v2/thumbnails/development-480.webp 480w, /visual-v2/thumbnails/development-960.webp 960w\" src=\"/visual-v2/thumbnails/development-960.webp\"></span><span class=\"v2-start-card-meta\"><span class=\"v2-start-card-label\">初心者向け</span><small>更新 2026-10-04</small></span><strong>GitHubの使い方と画面の見方｜初心者がゲームのHTMLを保存するまで</strong><span class=\"v2-start-card-read\" aria-hidden=\"true\">記事を読む <b>→</b></span></a>"
+      }
+    },
+    {
+      "id": "expanded-github-beginner-game-development-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=github-beginner-game-development#start",
+      "geometry": {
+        "mode": "deck",
+        "deck": {
+          "x": 31,
+          "y": 79.53125,
+          "width": 313,
+          "height": 633.1875,
+          "top": 79.53125,
+          "right": 344,
+          "bottom": 712.71875,
+          "left": 31
+        },
+        "stage": {
+          "x": 35,
+          "y": 144.71875,
+          "width": 305,
+          "height": 564,
+          "top": 144.71875,
+          "right": 340,
+          "bottom": 708.71875,
+          "left": 35
+        },
+        "stageClient": {
+          "width": 305,
+          "height": 564
+        },
+        "active": {
+          "id": "github-beginner-game-development",
+          "rect": {
+            "x": 35.5,
+            "y": 144.71875,
+            "width": 304,
+            "height": 547.75,
+            "top": 144.71875,
+            "right": 339.5,
+            "bottom": 692.46875,
+            "left": 35.5
+          },
+          "offsetWidth": 304,
+          "scrollHeight": 548
+        },
+        "scroll": 375,
+        "client": 375,
+        "focus": "<button class=\"v2-start-card-expand\" type=\"button\" aria-expanded=\"true\" aria-controls=\"_r_0_-3\">概要を閉じる</button>"
+      }
+    },
+    {
+      "id": "collapsed-ai-tool-comparison-later-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=ai-tool-comparison-later#start",
+      "geometry": {
+        "mode": "deck",
+        "deck": {
+          "x": 31,
+          "y": 79.53125,
+          "width": 313,
+          "height": 633.1875,
+          "top": 79.53125,
+          "right": 344,
+          "bottom": 712.71875,
+          "left": 31
+        },
+        "stage": {
+          "x": 35,
+          "y": 144.71875,
+          "width": 305,
+          "height": 564,
+          "top": 144.71875,
+          "right": 340,
+          "bottom": 708.71875,
+          "left": 35
+        },
+        "stageClient": {
+          "width": 305,
+          "height": 564
+        },
+        "active": {
+          "id": "ai-tool-comparison-later",
+          "rect": {
+            "x": 35.5,
+            "y": 144.71875,
+            "width": 304,
+            "height": 333.96875,
+            "top": 144.71875,
+            "right": 339.5,
+            "bottom": 478.6875,
+            "left": 35.5
+          },
+          "offsetWidth": 304,
+          "scrollHeight": 334
+        },
+        "scroll": 375,
+        "client": 375,
+        "focus": "<a class=\"v2-start-card-face\" aria-label=\"ゲーム開発初心者ほど、AIツール比較を後回しにした方がいい\" href=\"/articles/ai-tool-comparison-later/\"><span class=\"v2-start-card-meta\"><span class=\"v2-start-card-label\">開発フィールドノート</span><small>更新 2026-09-02</small></span><strong>ゲーム開発初心者ほど、AIツール比較を後回しにした方がいい</strong><span class=\"v2-start-card-read\" aria-hidden=\"true\">記事を読む <b>→</b></span></a>"
+      }
+    },
+    {
+      "id": "expanded-ai-tool-comparison-later-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=ai-tool-comparison-later#start",
+      "geometry": {
+        "mode": "deck",
+        "deck": {
+          "x": 31,
+          "y": 79.53125,
+          "width": 313,
+          "height": 633.1875,
+          "top": 79.53125,
+          "right": 344,
+          "bottom": 712.71875,
+          "left": 31
+        },
+        "stage": {
+          "x": 35,
+          "y": 144.71875,
+          "width": 305,
+          "height": 564,
+          "top": 144.71875,
+          "right": 340,
+          "bottom": 708.71875,
+          "left": 35
+        },
+        "stageClient": {
+          "width": 305,
+          "height": 564
+        },
+        "active": {
+          "id": "ai-tool-comparison-later",
+          "rect": {
+            "x": 35.5,
+            "y": 144.71875,
+            "width": 304,
+            "height": 360.359375,
+            "top": 144.71875,
+            "right": 339.5,
+            "bottom": 505.078125,
+            "left": 35.5
+          },
+          "offsetWidth": 304,
+          "scrollHeight": 360
+        },
+        "scroll": 375,
+        "client": 375,
+        "focus": "<button class=\"v2-start-card-expand\" type=\"button\" aria-expanded=\"true\" aria-controls=\"_r_0_-4\">概要を閉じる</button>"
+      }
+    },
+    {
+      "id": "collapsed-ai-html-game-not-working-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=ai-html-game-not-working#start",
+      "geometry": {
+        "mode": "deck",
+        "deck": {
+          "x": 31,
+          "y": 79.53125,
+          "width": 313,
+          "height": 633.1875,
+          "top": 79.53125,
+          "right": 344,
+          "bottom": 712.71875,
+          "left": 31
+        },
+        "stage": {
+          "x": 35,
+          "y": 144.71875,
+          "width": 305,
+          "height": 564,
+          "top": 144.71875,
+          "right": 340,
+          "bottom": 708.71875,
+          "left": 35
+        },
+        "stageClient": {
+          "width": 305,
+          "height": 564
+        },
+        "active": {
+          "id": "ai-html-game-not-working",
+          "rect": {
+            "x": 35.5,
+            "y": 144.71875,
+            "width": 304,
+            "height": 333.96875,
+            "top": 144.71875,
+            "right": 339.5,
+            "bottom": 478.6875,
+            "left": 35.5
+          },
+          "offsetWidth": 304,
+          "scrollHeight": 334
+        },
+        "scroll": 375,
+        "client": 375,
+        "focus": "<a class=\"v2-start-card-face\" aria-label=\"AIで作ったHTMLゲームが動かないときの直し方\" href=\"/articles/ai-html-game-not-working/\"><span class=\"v2-start-card-meta\"><span class=\"v2-start-card-label\">初心者向け</span><small>更新 2026-10-11</small></span><strong>AIで作ったHTMLゲームが動かないときの直し方</strong><span class=\"v2-start-card-read\" aria-hidden=\"true\">記事を読む <b>→</b></span></a>"
+      }
+    },
+    {
+      "id": "expanded-ai-html-game-not-working-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=ai-html-game-not-working#start",
+      "geometry": {
+        "mode": "deck",
+        "deck": {
+          "x": 31,
+          "y": 79.53125,
+          "width": 313,
+          "height": 633.1875,
+          "top": 79.53125,
+          "right": 344,
+          "bottom": 712.71875,
+          "left": 31
+        },
+        "stage": {
+          "x": 35,
+          "y": 144.71875,
+          "width": 305,
+          "height": 564,
+          "top": 144.71875,
+          "right": 340,
+          "bottom": 708.71875,
+          "left": 35
+        },
+        "stageClient": {
+          "width": 305,
+          "height": 564
+        },
+        "active": {
+          "id": "ai-html-game-not-working",
+          "rect": {
+            "x": 35.5,
+            "y": 144.71875,
+            "width": 304,
+            "height": 413.140625,
+            "top": 144.71875,
+            "right": 339.5,
+            "bottom": 557.859375,
+            "left": 35.5
+          },
+          "offsetWidth": 304,
+          "scrollHeight": 413
+        },
+        "scroll": 375,
+        "client": 375,
+        "focus": "<button class=\"v2-start-card-expand\" type=\"button\" aria-expanded=\"true\" aria-controls=\"_r_0_-5\">概要を閉じる</button>"
+      }
+    },
+    {
+      "id": "start-list-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=ai-html-game-not-working#start",
+      "count": 6,
+      "fullSummaries": true
+    },
+    {
+      "id": "start-restored-deck-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=ai-browser-game-how-to#start",
+      "geometry": {
+        "mode": "deck",
+        "deck": {
+          "x": 31,
+          "y": 79.53125,
+          "width": 313,
+          "height": 580.1875,
+          "top": 79.53125,
+          "right": 344,
+          "bottom": 659.71875,
+          "left": 31
+        },
+        "stage": {
+          "x": 35,
+          "y": 144.71875,
+          "width": 305,
+          "height": 511,
+          "top": 144.71875,
+          "right": 340,
+          "bottom": 655.71875,
+          "left": 35
+        },
+        "stageClient": {
+          "width": 305,
+          "height": 511
+        },
+        "active": {
+          "id": "ai-browser-game-how-to",
+          "rect": {
+            "x": 35.5,
+            "y": 144.71875,
+            "width": 304,
+            "height": 467.96875,
+            "top": 144.71875,
+            "right": 339.5,
+            "bottom": 612.6875,
+            "left": 35.5
+          },
+          "offsetWidth": 304,
+          "scrollHeight": 468
+        },
+        "scroll": 375,
+        "client": 375,
+        "focus": "<a class=\"v2-start-card-face\" aria-label=\"AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方\" href=\"/articles/ai-browser-game-how-to/\"><span class=\"v2-start-card-image\" aria-hidden=\"true\"><img sizes=\"(max-width: 680px) calc(100vw - 96px), 272px\" width=\"960\" height=\"640\" alt=\"\" srcset=\"/visual-v2/thumbnails/game-creation-480.webp 480w, /visual-v2/thumbnails/game-creation-960.webp 960w\" src=\"/visual-v2/thumbnails/game-creation-960.webp\"></span><span class=\"v2-start-card-meta\"><span class=\"v2-start-card-label\">初心者向け</span><small>更新 2026-10-04</small></span><strong>AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方</strong><span class=\"v2-start-card-read\" aria-hidden=\"true\">記事を読む <b>→</b></span></a>"
+      }
+    },
+    {
+      "id": "article-back-focused-375",
+      "url": "http://127.0.0.1:3100/articles/?hubCategory=start&hubArticle=ai-browser-game-how-to#start",
+      "geometry": {
+        "mode": "deck",
+        "deck": {
+          "x": 31,
+          "y": 74.53125,
+          "width": 313,
+          "height": 580.1875,
+          "top": 74.53125,
+          "right": 344,
+          "bottom": 654.71875,
+          "left": 31
+        },
+        "stage": {
+          "x": 35,
+          "y": 139.71875,
+          "width": 305,
+          "height": 511,
+          "top": 139.71875,
+          "right": 340,
+          "bottom": 650.71875,
+          "left": 35
+        },
+        "stageClient": {
+          "width": 305,
+          "height": 511
+        },
+        "active": {
+          "id": "ai-browser-game-how-to",
+          "rect": {
+            "x": 35.5,
+            "y": 139.71875,
+            "width": 304,
+            "height": 467.96875,
+            "top": 139.71875,
+            "right": 339.5,
+            "bottom": 607.6875,
+            "left": 35.5
+          },
+          "offsetWidth": 304,
+          "scrollHeight": 468
+        },
+        "scroll": 375,
+        "client": 375,
+        "focus": "<a class=\"v2-start-card-face\" aria-label=\"AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方\" href=\"/articles/ai-browser-game-how-to/\"><span class=\"v2-start-card-image\" aria-hidden=\"true\"><img sizes=\"(max-width: 680px) calc(100vw - 96px), 272px\" width=\"960\" height=\"640\" alt=\"\" srcset=\"/visual-v2/thumbnails/game-creation-480.webp 480w, /visual-v2/thumbnails/game-creation-960.webp 960w\" src=\"/visual-v2/thumbnails/game-creation-960.webp\"></span><span class=\"v2-start-card-meta\"><span class=\"v2-start-card-label\">初心者向け</span><small>更新 2026-10-04</small></span><strong>AIでブラウザゲームを作る方法｜初心者向け1画面バトルの作り方</strong><span class=\"v2-start-card-read\" aria-hidden=\"true\">記事を読む <b>→</b></span></a>"
+      }
+    }
+  ],
+  "errors": [],
+  "external": []
+}

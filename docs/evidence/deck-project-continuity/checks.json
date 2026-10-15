@@ -1,0 +1,88 @@
+{
+  "base": "cd97360383a84b2f220dcc22343035d990f7503b",
+  "runtime": "Local next build + next start, Chromium 151.0.7922.173",
+  "e2e": [
+    {
+      "title": "native Chromium touch swipes survive capture transfer and interruptions at 375",
+      "status": "passed"
+    },
+    {
+      "title": "native Chromium touch swipes survive capture transfer and interruptions at 390",
+      "status": "passed"
+    },
+    {
+      "title": "native mouse dragging, controls, resize and reduced-motion fallback",
+      "status": "passed"
+    },
+    {
+      "title": "actual Stack CTA carries supported conditions into editable Project confirmation",
+      "status": "passed"
+    },
+    {
+      "title": "article-origin Project survives repeated Tools and Compare returns",
+      "status": "passed"
+    },
+    {
+      "title": "direct Project survives repeated Tools and Compare returns",
+      "status": "passed"
+    },
+    {
+      "title": "Creation Deck is explicit, preserves links, and retains a list fallback",
+      "status": "passed"
+    },
+    {
+      "title": "Creation Deck remains usable when session storage is blocked",
+      "status": "passed"
+    },
+    {
+      "title": "Creation Deck transfers only control focus when forced flat",
+      "status": "passed"
+    },
+    {
+      "title": "article → Project → first completion → next task is observable without raw input",
+      "status": "passed"
+    }
+  ],
+  "quality": "PASS: 330 Vitest tests, 76 Python tests, lint/typecheck/data/affiliate/content/workflow validators",
+  "build": "PASS",
+  "webkit": "BLOCKED: supported Playwright WebKit 26.5 v2336 mirrors returned HTTP 403 Domain forbidden",
+  "physical_safari": "UNTESTED",
+  "visual": [
+    {
+      "name": "desktop",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "engine": "godot",
+      "engineLabel": "ゲームエンジンUnityUnreal EngineGodotその他未定未確認Stackから引継ぎ・要確認"
+    },
+    {
+      "name": "375",
+      "width": 375,
+      "scrollWidth": 375,
+      "engine": "godot",
+      "engineLabel": "ゲームエンジンUnityUnreal EngineGodotその他未定未確認Stackから引継ぎ・要確認"
+    },
+    {
+      "name": "320",
+      "width": 320,
+      "scrollWidth": 320,
+      "engine": "godot",
+      "engineLabel": "ゲームエンジンUnityUnreal EngineGodotその他未定未確認Stackから引継ぎ・要確認"
+    },
+    {
+      "name": "320-root200",
+      "width": 320,
+      "scrollWidth": 320,
+      "engine": "godot",
+      "engineLabel": "ゲームエンジンUnityUnreal EngineGodotその他未定未確認Stackから引継ぎ・要確認"
+    }
+  ],
+  "capture_followup": {
+    "runtime_head": "8a3ef48ec9db7859e08bd7086f7f91e2b90c270f",
+    "result": "PASS: three native input regressions with settled geometry checks; eslint and typecheck pass",
+    "method": "Wait for fonts, no running deck animations, innerWidth and visualViewport width equal requested width, scale 1; instant center-scroll active/first card, two animation frames; assert card/title/CTA inside viewport below sticky header",
+    "geometry": "settled-capture-geometry.json",
+    "originals": "transient-deck-375.png, transient-deck-390.png, transient-list-320.png",
+    "conclusion": "Original images caught transitions and mobile viewport settling. No persistent layout defect reproduced. Runtime/CSS unchanged. Safari remains UNTESTED."
+  }
+}

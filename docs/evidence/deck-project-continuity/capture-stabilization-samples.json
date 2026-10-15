@@ -1,0 +1,505 @@
+[
+  {
+    "label": "deck-375-immediate",
+    "mode": "deck",
+    "innerWidth": 375,
+    "clientWidth": 375,
+    "scrollWidth": 375,
+    "visualViewport": {
+      "width": 375,
+      "scale": 1,
+      "offsetLeft": 0,
+      "pageLeft": 0
+    },
+    "scrollX": 0,
+    "scrollY": 646,
+    "deck": {
+      "x": 17,
+      "y": 322,
+      "width": 341,
+      "height": 637.1875,
+      "right": 358,
+      "bottom": 959.1875
+    },
+    "stage": {
+      "x": 21,
+      "y": 437.1875,
+      "width": 333,
+      "height": 518,
+      "right": 354,
+      "bottom": 955.1875
+    },
+    "active": {
+      "x": 278.75335693359375,
+      "y": 456.767333984375,
+      "width": 283.68975830078125,
+      "height": 478.57470703125,
+      "right": 562.443115234375,
+      "bottom": 935.342041015625
+    },
+    "title": {
+      "x": 294.1884765625,
+      "y": 692.7440185546875,
+      "width": 251.9500732421875,
+      "height": 75.9735107421875,
+      "right": 546.1385498046875,
+      "bottom": 768.717529296875
+    },
+    "cta": {
+      "x": 294.1884765625,
+      "y": 872.2589721679688,
+      "width": 251.9500732421875,
+      "height": 46.50103759765625,
+      "right": 546.1385498046875,
+      "bottom": 918.760009765625
+    },
+    "transform": "matrix3d(0.910937, -0.000763715, 0.114557, -9.54643e-05, 0, 0.94, 0, 0, -0.312968, -0.00661697, 0.992546, -0.000827122, 231.04, 8, 0, 1)",
+    "drag": "",
+    "animations": [
+      {
+        "playState": "running",
+        "currentTime": 0
+      },
+      {
+        "playState": "running",
+        "currentTime": 0
+      },
+      {
+        "playState": "running",
+        "currentTime": 0
+      }
+    ]
+  },
+  {
+    "label": "deck-375-settled",
+    "mode": "deck",
+    "innerWidth": 375,
+    "clientWidth": 375,
+    "scrollWidth": 375,
+    "visualViewport": {
+      "width": 375,
+      "scale": 1,
+      "offsetLeft": 0,
+      "pageLeft": 0
+    },
+    "scrollX": 0,
+    "scrollY": 646,
+    "deck": {
+      "x": 17,
+      "y": 322,
+      "width": 341,
+      "height": 637.1875,
+      "right": 358,
+      "bottom": 959.1875
+    },
+    "stage": {
+      "x": 21,
+      "y": 437.1875,
+      "width": 333,
+      "height": 518,
+      "right": 354,
+      "bottom": 955.1875
+    },
+    "active": {
+      "x": 35.5,
+      "y": 437.1875,
+      "width": 304,
+      "height": 501.734375,
+      "right": 339.5,
+      "bottom": 938.921875
+    },
+    "title": {
+      "x": 52.5,
+      "y": 684.578125,
+      "width": 270,
+      "height": 79.78125,
+      "right": 322.5,
+      "bottom": 764.359375
+    },
+    "cta": {
+      "x": 52.5,
+      "y": 877.921875,
+      "width": 270,
+      "height": 44,
+      "right": 322.5,
+      "bottom": 921.921875
+    },
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "drag": "",
+    "animations": []
+  },
+  {
+    "label": "deck-390-immediate",
+    "mode": "deck",
+    "innerWidth": 390,
+    "clientWidth": 390,
+    "scrollWidth": 390,
+    "visualViewport": {
+      "width": 390,
+      "scale": 1,
+      "offsetLeft": 0,
+      "pageLeft": 0
+    },
+    "scrollX": 0,
+    "scrollY": 896,
+    "deck": {
+      "x": 17,
+      "y": 72.15625,
+      "width": 356,
+      "height": 637.1875,
+      "right": 373,
+      "bottom": 709.34375
+    },
+    "stage": {
+      "x": 21,
+      "y": 187.34375,
+      "width": 348,
+      "height": 518,
+      "right": 369,
+      "bottom": 705.34375
+    },
+    "active": {
+      "x": 286.25335693359375,
+      "y": 206.923583984375,
+      "width": 283.68975830078125,
+      "height": 478.57470703125,
+      "right": 569.943115234375,
+      "bottom": 685.498291015625
+    },
+    "title": {
+      "x": 301.6884765625,
+      "y": 442.9002990722656,
+      "width": 251.9500732421875,
+      "height": 75.97348022460938,
+      "right": 553.6385498046875,
+      "bottom": 518.873779296875
+    },
+    "cta": {
+      "x": 301.6884765625,
+      "y": 622.4152221679688,
+      "width": 251.9500732421875,
+      "height": 46.50103759765625,
+      "right": 553.6385498046875,
+      "bottom": 668.916259765625
+    },
+    "transform": "matrix3d(0.910937, -0.000763715, 0.114557, -9.54643e-05, 0, 0.94, 0, 0, -0.312968, -0.00661697, 0.992546, -0.000827122, 231.04, 8, 0, 1)",
+    "drag": "",
+    "animations": [
+      {
+        "playState": "running",
+        "currentTime": 0
+      },
+      {
+        "playState": "running",
+        "currentTime": 0
+      },
+      {
+        "playState": "running",
+        "currentTime": 0
+      }
+    ]
+  },
+  {
+    "label": "deck-390-settled",
+    "mode": "deck",
+    "innerWidth": 390,
+    "clientWidth": 390,
+    "scrollWidth": 390,
+    "visualViewport": {
+      "width": 390,
+      "scale": 1,
+      "offsetLeft": 0,
+      "pageLeft": 0
+    },
+    "scrollX": 0,
+    "scrollY": 896,
+    "deck": {
+      "x": 17,
+      "y": 72.15625,
+      "width": 356,
+      "height": 637.1875,
+      "right": 373,
+      "bottom": 709.34375
+    },
+    "stage": {
+      "x": 21,
+      "y": 187.34375,
+      "width": 348,
+      "height": 518,
+      "right": 369,
+      "bottom": 705.34375
+    },
+    "active": {
+      "x": 43,
+      "y": 187.34375,
+      "width": 304,
+      "height": 501.734375,
+      "right": 347,
+      "bottom": 689.078125
+    },
+    "title": {
+      "x": 60,
+      "y": 434.734375,
+      "width": 270,
+      "height": 79.78125,
+      "right": 330,
+      "bottom": 514.515625
+    },
+    "cta": {
+      "x": 60,
+      "y": 628.078125,
+      "width": 270,
+      "height": 44,
+      "right": 330,
+      "bottom": 672.078125
+    },
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "drag": "",
+    "animations": []
+  },
+  {
+    "label": "resize-list-immediate",
+    "mode": "list",
+    "innerWidth": 535,
+    "clientWidth": 320,
+    "scrollWidth": 535,
+    "visualViewport": {
+      "width": 535,
+      "scale": 0.5981308221817017,
+      "offsetLeft": 0,
+      "pageLeft": 0
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "deck": {
+      "x": 8,
+      "y": 1024.34375,
+      "width": 304,
+      "height": 1506.578125,
+      "right": 312,
+      "bottom": 2530.921875
+    },
+    "stage": {
+      "x": 8,
+      "y": 1024.34375,
+      "width": 304,
+      "height": 1506.578125,
+      "right": 312,
+      "bottom": 2530.921875
+    },
+    "active": {
+      "x": -187.34494018554688,
+      "y": 1041.8206787109375,
+      "width": 286.396240234375,
+      "height": 479.462890625,
+      "right": 99.05130004882812,
+      "bottom": 1521.2835693359375
+    },
+    "title": {
+      "x": -172.90830993652344,
+      "y": 1279.495849609375,
+      "width": 258.1273498535156,
+      "height": 76.35888671875,
+      "right": 85.21903991699219,
+      "bottom": 1355.854736328125
+    },
+    "cta": {
+      "x": -172.90830993652344,
+      "y": 1460.8734130859375,
+      "width": 258.1273498535156,
+      "height": 45.7847900390625,
+      "right": 85.21903991699219,
+      "bottom": 1506.658203125
+    },
+    "transform": "matrix3d(0.92699, 0.000518843, -0.101273, 7.39827e-05, 0, 0.947402, 0, 0, 0.254006, -0.00509384, 0.99427, -0.000726339, -202.536, 7.01304, 0, 1)",
+    "drag": "",
+    "animations": [
+      {
+        "playState": "running",
+        "currentTime": 16.71899999983495
+      },
+      {
+        "playState": "running",
+        "currentTime": 16.71899999983495
+      },
+      {
+        "playState": "running",
+        "currentTime": 16.71899999983495
+      }
+    ]
+  },
+  {
+    "label": "resize-list-settled",
+    "mode": "list",
+    "innerWidth": 320,
+    "clientWidth": 320,
+    "scrollWidth": 320,
+    "visualViewport": {
+      "width": 320,
+      "scale": 1,
+      "offsetLeft": 0,
+      "pageLeft": 0
+    },
+    "scrollX": 0,
+    "scrollY": 1209,
+    "deck": {
+      "x": 8,
+      "y": -184.65625,
+      "width": 304,
+      "height": 1506.578125,
+      "right": 312,
+      "bottom": 1321.921875
+    },
+    "stage": {
+      "x": 8,
+      "y": -184.65625,
+      "width": 304,
+      "height": 1506.578125,
+      "right": 312,
+      "bottom": 1321.921875
+    },
+    "active": {
+      "x": 8,
+      "y": -184.65625,
+      "width": 304,
+      "height": 500.390625,
+      "right": 312,
+      "bottom": 315.734375
+    },
+    "title": {
+      "x": 23,
+      "y": 63.390625,
+      "width": 274,
+      "height": 79.78125,
+      "right": 297,
+      "bottom": 143.171875
+    },
+    "cta": {
+      "x": 23,
+      "y": 256.734375,
+      "width": 274,
+      "height": 44,
+      "right": 297,
+      "bottom": 300.734375
+    },
+    "transform": "none",
+    "drag": "",
+    "animations": []
+  },
+  {
+    "label": "resize-list-reloaded",
+    "mode": "list",
+    "innerWidth": 320,
+    "clientWidth": 320,
+    "scrollWidth": 320,
+    "visualViewport": {
+      "width": 320,
+      "scale": 1,
+      "offsetLeft": 0,
+      "pageLeft": 0
+    },
+    "scrollX": 0,
+    "scrollY": 1209,
+    "deck": {
+      "x": 8,
+      "y": -184.65625,
+      "width": 304,
+      "height": 1506.578125,
+      "right": 312,
+      "bottom": 1321.921875
+    },
+    "stage": {
+      "x": 8,
+      "y": -184.65625,
+      "width": 304,
+      "height": 1506.578125,
+      "right": 312,
+      "bottom": 1321.921875
+    },
+    "active": {
+      "x": 8,
+      "y": -184.65625,
+      "width": 304,
+      "height": 500.390625,
+      "right": 312,
+      "bottom": 315.734375
+    },
+    "title": {
+      "x": 23,
+      "y": 63.390625,
+      "width": 274,
+      "height": 79.78125,
+      "right": 297,
+      "bottom": 143.171875
+    },
+    "cta": {
+      "x": 23,
+      "y": 256.734375,
+      "width": 274,
+      "height": 44,
+      "right": 297,
+      "bottom": 300.734375
+    },
+    "transform": "none",
+    "drag": "",
+    "animations": []
+  },
+  {
+    "label": "fresh-list-320-settled",
+    "mode": "list",
+    "innerWidth": 320,
+    "clientWidth": 320,
+    "scrollWidth": 320,
+    "visualViewport": {
+      "width": 320,
+      "scale": 1,
+      "offsetLeft": 0,
+      "pageLeft": 0
+    },
+    "scrollX": 0,
+    "scrollY": 702,
+    "deck": {
+      "x": 8,
+      "y": 322.34375,
+      "width": 304,
+      "height": 1506.578125,
+      "right": 312,
+      "bottom": 1828.921875
+    },
+    "stage": {
+      "x": 8,
+      "y": 322.34375,
+      "width": 304,
+      "height": 1506.578125,
+      "right": 312,
+      "bottom": 1828.921875
+    },
+    "active": {
+      "x": 8,
+      "y": 322.34375,
+      "width": 304,
+      "height": 500.390625,
+      "right": 312,
+      "bottom": 822.734375
+    },
+    "title": {
+      "x": 23,
+      "y": 570.390625,
+      "width": 274,
+      "height": 79.78125,
+      "right": 297,
+      "bottom": 650.171875
+    },
+    "cta": {
+      "x": 23,
+      "y": 763.734375,
+      "width": 274,
+      "height": 44,
+      "right": 297,
+      "bottom": 807.734375
+    },
+    "transform": "none",
+    "drag": "",
+    "animations": []
+  }
+]

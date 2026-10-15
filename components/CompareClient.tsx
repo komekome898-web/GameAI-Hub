@@ -152,6 +152,7 @@ function CompareClientState({
   );
   const [pickerQuery, setPickerQuery] = useState('');
   const [pickerOpen, setPickerOpen] = useState(ids.length < 2);
+  const pickerPanelRef = useRef<HTMLDetailsElement>(null);
 
   const selected = useMemo(
     () =>
@@ -249,14 +250,20 @@ function CompareClientState({
     }
   }, [selected]);
 
+  function focusPickerSummary() {
+    window.setTimeout(() => pickerPanelRef.current?.querySelector('summary')?.focus(), 0);
+  }
+
   function toggle(id: string) {
-    const nextIds = ids.includes(id)
+    const removing = ids.includes(id);
+    const nextIds = removing
       ? ids.filter((item) => item !== id)
       : ids.length < 4
         ? [...ids, id]
         : ids;
     setIds(nextIds);
     updateUrl(nextIds);
+    if (removing) focusPickerSummary();
   }
 
   return (
@@ -269,6 +276,20 @@ function CompareClientState({
           <Link href={projectContext ? `${projectContext.returnUrl}#${beginnerBrowser ? 'beginner-action-title' : 'build-progress-title'}` : '/project'}>{projectContext ? '制作中のゲームに戻る →' : 'Projectへ戻る →'}</Link>
         </div>
       )}
+
+      <section className="compare-selection-tray" aria-labelledby="compare-selection-title">
+        <div>
+          <span className="section-label">選択中の候補</span>
+          <h2 id="compare-selection-title">{selected.length > 0 ? `${selected.length}件を比較` : '比較する候補を選ぶ'}</h2>
+          <p>{selected.length > 0 ? '候補は4件まで。解除しても、検索条件と制作工程の文脈は維持されます。' : '勝者を自動で決めず、制作条件に必要な差分と公式根拠を並べます。'}</p>
+        </div>
+        {selected.length > 0 && <ul aria-label="選択中のツール">
+          {selected.map((service) => <li key={service.id}>
+            <ServiceDetailLink service={service} />
+            <button type="button" onClick={() => toggle(service.slug)} aria-label={`${service.name}を比較から解除`}>解除</button>
+          </li>)}
+        </ul>}
+      </section>
 
       {showBeginnerDecision && selected.length > 0 && <section className="compare-decision" aria-labelledby="beginner-compare-title">
         <h2 id="beginner-compare-title">今回の選び方：ブラウザでAIへ依頼する</h2>
@@ -360,13 +381,14 @@ function CompareClientState({
       )}
 
       <details
+        ref={pickerPanelRef}
         className="compare-picker-panel"
         open={selected.length < 2 || pickerOpen}
         onToggle={(event) => setPickerOpen(event.currentTarget.open)}
       >
         <summary>
           比較候補を{selected.length >= 2 ? '変更する' : '選ぶ'}
-          <span>（{selected.length} / 4件）</span>
+          <span>（{selected.length} / 4件{selected.length >= 4 ? '・選択上限です' : ''}）</span>
         </summary>
         <div className="compare-selection-head">
           <p>
@@ -381,6 +403,7 @@ function CompareClientState({
               onClick={() => {
                 setIds([]);
                 updateUrl([]);
+                focusPickerSummary();
               }}
             >
               すべて解除
@@ -451,7 +474,7 @@ function CompareClientState({
         </div>
       )}
 
-      <div className="compare-scroll">
+      <div className="compare-scroll" role="region" aria-label="デスクトップ比較表（横にスクロールできます）" tabIndex={0}>
         <table>
           <caption>
             差分のある項目を先に、共通項目を後に表示します。サービス利用環境は、そのAIサービスを使う環境であり、ゲームの出力先ではありません。
@@ -525,86 +548,28 @@ function CompareClientState({
         <h2 id="mobile-compare-heading" className="sr-only">
           選択したツールの比較結果
         </h2>
-        {selected.length === 2 ? (
-          <div className="paired-fields">
-            {orderedRows.map(([name, get]) => {
-              const differs = new Set(selected.map(get)).size > 1;
-              if (differencesOnly && !differs) return null;
-              return (
-                <section key={name} className={differs ? 'different' : ''}>
-                  <h3>
-                    {name}
-                    {differs && <span className="diff">差分</span>}
-                  </h3>
-                  <div>
-                    {selected.map((service) => (
-                      <dl key={service.id}>
-                        <dt>
-                          <ServiceDetailLink service={service} />
-                        </dt>
-                        <dd>
-                          {get(service)}{' '}
-                          <EvidenceLinks service={service} row={name} />
-                        </dd>
-                      </dl>
-                    ))}
-                  </div>
-                </section>
-              );
-            })}
-            {selected.map((service) => (
-              <article key={service.id}>
-                <h3>
-                  <ServiceDetailLink service={service} />
-                  の公式確認と次の行動
-                </h3>
-                <VerificationLinks service={service} />
-                <OutboundLink
-                  service={service}
-                  page="/compare"
-                  placement="mobile-paired"
-                />
-              </article>
-            ))}
-          </div>
-        ) : (
-          selected.map((service) => (
-            <article key={service.id}>
-              <header>
-                <h2>
-                  <ServiceDetailLink service={service} />
-                </h2>
-                <button type="button" onClick={() => toggle(service.slug)}>
-                  比較から解除
-                </button>
-              </header>
-              <dl>
-                {orderedRows.map(([name, get]) => {
-                  const differs = new Set(selected.map(get)).size > 1;
-                  if (differencesOnly && !differs) return null;
-                  return (
-                    <div key={name} className={differs ? 'different' : ''}>
-                      <dt>
-                        {name}
-                        {differs && <span className="diff">差分</span>}
-                      </dt>
-                      <dd>
-                        {get(service)}{' '}
-                        <EvidenceLinks service={service} row={name} />
-                      </dd>
-                    </div>
-                  );
-                })}
-              </dl>
-              <VerificationLinks service={service} />
-              <OutboundLink
-                service={service}
-                page="/compare"
-                placement="mobile-card"
-              />
-            </article>
-          ))
-        )}
+        {selected.length > 0 && <div className="compare-criteria-groups">
+          {orderedRows.map(([name, get]) => {
+            const differs = new Set(selected.map(get)).size > 1;
+            if (differencesOnly && !differs) return null;
+            return <section key={name} className={differs ? 'different' : ''}>
+              <h3>{name}{differs && <span className="diff">差分</span>}</h3>
+              <div>
+                {selected.map((service) => <dl key={service.id}>
+                  <dt><ServiceDetailLink service={service} /></dt>
+                  <dd>{get(service)} <EvidenceLinks service={service} row={name} /></dd>
+                </dl>)}
+              </div>
+            </section>;
+          })}
+        </div>}
+        {selected.length > 0 && <div className="compare-mobile-actions">
+          {selected.map((service) => <article key={service.id}>
+            <h3><ServiceDetailLink service={service} />の公式確認と次の行動</h3>
+            <VerificationLinks service={service} />
+            <OutboundLink service={service} page="/compare" placement="mobile-criteria" />
+          </article>)}
+        </div>}
       </section>
     </>
   );

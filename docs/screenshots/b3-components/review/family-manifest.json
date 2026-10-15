@@ -1,0 +1,3000 @@
+{
+  "source": {
+    "kind": "clean-git-checkpoint",
+    "sha": "e555d81678440a2faa76538b83e22f875ee96e93",
+    "status": "clean"
+  },
+  "method": "live components and viewport screenshots; independent review is separate",
+  "records": [
+    {
+      "family": "home-categories",
+      "route": "/",
+      "width": 1440,
+      "selector": ".category-cluster .v2-start-card",
+      "matched": 5,
+      "screenshot": "home-categories-1440.png",
+      "widths": {
+        "viewportWidth": 1440,
+        "documentScrollWidth": 1440,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          }
+        ],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": [
+        {
+          "text": "モンスター収集とバトルのブラウザゲームを作りたい。ゲーム制作は初めてです。",
+          "height": 81.796875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。",
+          "height": 81.796875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "ビジュアルノベル。日本語と英語。音声あり。できるだけ低予算。",
+          "height": 81.796875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        }
+      ]
+    },
+    {
+      "family": "hub-categories",
+      "route": "/articles/#categories",
+      "width": 1440,
+      "selector": ".category-cluster .v2-start-card",
+      "matched": 5,
+      "screenshot": "hub-categories-1440.png",
+      "widths": {
+        "viewportWidth": 1440,
+        "documentScrollWidth": 1440,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "hub-start",
+      "route": "/articles/#start",
+      "width": 1440,
+      "selector": ".creation-deck .v2-start-card",
+      "matched": 6,
+      "screenshot": "hub-start-1440.png",
+      "widths": {
+        "viewportWidth": 1440,
+        "documentScrollWidth": 1440,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "hub-all",
+      "route": "/articles/#all",
+      "width": 1440,
+      "selector": ".creation-deck .v2-start-card",
+      "matched": 18,
+      "screenshot": "hub-all-1440.png",
+      "widths": {
+        "viewportWidth": 1440,
+        "documentScrollWidth": 1440,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "hub-games",
+      "route": "/articles/#games",
+      "width": 1440,
+      "selector": ".game-card-actions",
+      "matched": 8,
+      "screenshot": "hub-games-1440.png",
+      "widths": {
+        "viewportWidth": 1440,
+        "documentScrollWidth": 1440,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-4",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.game-card-actions",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "p",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.button",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.sr-only",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span",
+            "owner": "div.creation-deck"
+          }
+        ],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "reading-workspace",
+      "route": "/articles/ai-browser-game-how-to/",
+      "width": 1440,
+      "selector": ".beginner-workspace",
+      "matched": 1,
+      "screenshot": "reading-workspace-1440.png",
+      "widths": {
+        "viewportWidth": 1440,
+        "documentScrollWidth": 1440,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": [
+        {
+          "text": "最初のゲーム生成promptをコピー",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "1変更のAI指示をコピー",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "Project用のゲーム案をコピー",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        }
+      ]
+    },
+    {
+      "family": "tools",
+      "route": "/tools/?goal=3d",
+      "width": 1440,
+      "selector": ".goal-picker",
+      "matched": 3,
+      "screenshot": "tools-1440.png",
+      "widths": {
+        "viewportWidth": 1440,
+        "documentScrollWidth": 1440,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": [
+        {
+          "text": "コード",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "UI",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "キャラクター",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "2D画像",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "3Dモデル",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgba(237, 240, 207, 0.4) 0px 1px 0px 0px inset, rgb(23, 37, 27) 0px 2px 0px 0px"
+        },
+        {
+          "text": "アニメーション",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "声",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "BGM",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "効果音",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "NPC会話",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "翻訳",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "テスト",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "トレーラー",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "ストア素材",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        }
+      ]
+    },
+    {
+      "family": "tool-detail",
+      "route": "/tools/meshy/",
+      "width": 1440,
+      "selector": ".verdict",
+      "matched": 1,
+      "screenshot": "tool-detail-1440.png",
+      "widths": {
+        "viewportWidth": 1440,
+        "documentScrollWidth": 1440,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "compare",
+      "route": "/compare/?ids=meshy,tripo-ai&goal=3d&stage=3d",
+      "width": 1440,
+      "selector": ".compare-context",
+      "matched": 1,
+      "screenshot": "compare-1440.png",
+      "widths": {
+        "viewportWidth": 1440,
+        "documentScrollWidth": 1440,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": [
+        {
+          "text": "解除",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "解除",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        }
+      ]
+    },
+    {
+      "family": "guides",
+      "route": "/guides/",
+      "width": 1440,
+      "selector": ".guide-stage-options",
+      "matched": 1,
+      "screenshot": "guides-1440.png",
+      "widths": {
+        "viewportWidth": 1440,
+        "documentScrollWidth": 1440,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "guide-detail",
+      "route": "/guides/ai-2d-rpg-workflow/",
+      "width": 1440,
+      "selector": ".stage-decision",
+      "matched": 4,
+      "screenshot": "guide-detail-1440.png",
+      "widths": {
+        "viewportWidth": 1440,
+        "documentScrollWidth": 1440,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "stack",
+      "route": "/stacks/2d-rpg/",
+      "width": 1440,
+      "selector": ".stack-tools",
+      "matched": 1,
+      "screenshot": "stack-1440.png",
+      "widths": {
+        "viewportWidth": 1440,
+        "documentScrollWidth": 1440,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "project",
+      "route": "/project/",
+      "width": 1440,
+      "selector": ".idea-examples",
+      "matched": 1,
+      "screenshot": "project-1440.png",
+      "widths": {
+        "viewportWidth": 1440,
+        "documentScrollWidth": 1440,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": [
+        {
+          "text": "モンスター収集とバトルのブラウザゲームを作りたい。ゲーム制作は初めてです。",
+          "height": 81.796875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。",
+          "height": 81.796875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "ビジュアルノベル。日本語と英語。音声あり。できるだけ低予算。",
+          "height": 81.796875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        }
+      ]
+    },
+    {
+      "family": "404",
+      "route": "/missing-b3-components/",
+      "width": 1440,
+      "selector": ".empty",
+      "matched": 1,
+      "screenshot": "404-1440.png",
+      "widths": {
+        "viewportWidth": 1440,
+        "documentScrollWidth": 1440,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "home-categories",
+      "route": "/",
+      "width": 375,
+      "selector": ".category-cluster .v2-start-card",
+      "matched": 5,
+      "screenshot": "home-categories-375.png",
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-1",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-2",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-3",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-4",
+            "owner": "div.creation-deck"
+          }
+        ],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": [
+        {
+          "text": "モンスター収集とバトルのブラウザゲームを作りたい。ゲーム制作は初めてです。",
+          "height": 64.78125,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。",
+          "height": 64.78125,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "ビジュアルノベル。日本語と英語。音声あり。できるだけ低予算。",
+          "height": 64.78125,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        }
+      ]
+    },
+    {
+      "family": "hub-categories",
+      "route": "/articles/#categories",
+      "width": 375,
+      "selector": ".category-cluster .v2-start-card",
+      "matched": 5,
+      "screenshot": "hub-categories-375.png",
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-0",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-1",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-2",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-3",
+            "owner": "div.creation-deck"
+          }
+        ],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "hub-start",
+      "route": "/articles/#start",
+      "width": 375,
+      "selector": ".creation-deck .v2-start-card",
+      "matched": 6,
+      "screenshot": "hub-start-375.png",
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-1",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-2",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-3",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "small",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-4",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-5",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "button.v2-start-card-expand",
+            "owner": "div.creation-deck"
+          }
+        ],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "hub-all",
+      "route": "/articles/#all",
+      "width": 375,
+      "selector": ".creation-deck .v2-start-card",
+      "matched": 18,
+      "screenshot": "hub-all-375.png",
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "hub-games",
+      "route": "/articles/#games",
+      "width": 375,
+      "selector": ".game-card-actions",
+      "matched": 8,
+      "screenshot": "hub-games-375.png",
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-1",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.game-card-actions",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "p",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.button",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-2",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.game-card-actions",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "p",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.button",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.sr-only",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-3",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.game-card-actions",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "p",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.button",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.sr-only",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-4",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.game-card-actions",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "p",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.button",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.sr-only",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-5",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.game-card-actions",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "p",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.button",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.sr-only",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "b",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-6",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.game-card-actions",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "p",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.button",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.sr-only",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "li.v2-start-card-item",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.v2-start-card",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.v2-start-card-face",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-image",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "img",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-meta",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-label",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "strong",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.v2-start-card-read",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "#_r_0_-7",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "div.game-card-actions",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "p",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "a.button",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span.sr-only",
+            "owner": "div.creation-deck"
+          },
+          {
+            "selector": "span",
+            "owner": "div.creation-deck"
+          }
+        ],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "reading-workspace",
+      "route": "/articles/ai-browser-game-how-to/",
+      "width": 375,
+      "selector": ".beginner-workspace",
+      "matched": 1,
+      "screenshot": "reading-workspace-375.png",
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": [
+        {
+          "text": "最初のゲーム生成promptをコピー",
+          "height": 45.1875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "1変更のAI指示をコピー",
+          "height": 45.1875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "Project用のゲーム案をコピー",
+          "height": 45.1875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        }
+      ]
+    },
+    {
+      "family": "tools",
+      "route": "/tools/?goal=3d",
+      "width": 375,
+      "selector": ".goal-picker",
+      "matched": 3,
+      "screenshot": "tools-375.png",
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": [
+        {
+          "text": "コード",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "UI",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "キャラクター",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "2D画像",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "3Dモデル",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgba(237, 240, 207, 0.4) 0px 1px 0px 0px inset, rgb(23, 37, 27) 0px 2px 0px 0px"
+        },
+        {
+          "text": "アニメーション",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "声",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "BGM",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "効果音",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "NPC会話",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "翻訳",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "テスト",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "トレーラー",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "ストア素材",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        }
+      ]
+    },
+    {
+      "family": "tool-detail",
+      "route": "/tools/meshy/",
+      "width": 375,
+      "selector": ".verdict",
+      "matched": 1,
+      "screenshot": "tool-detail-375.png",
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "compare",
+      "route": "/compare/?ids=meshy,tripo-ai&goal=3d&stage=3d",
+      "width": 375,
+      "selector": ".compare-context",
+      "matched": 1,
+      "screenshot": "compare-375.png",
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": [
+        {
+          "text": "解除",
+          "height": 45.1875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "解除",
+          "height": 45.1875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        }
+      ]
+    },
+    {
+      "family": "guides",
+      "route": "/guides/",
+      "width": 375,
+      "selector": ".guide-stage-options",
+      "matched": 1,
+      "screenshot": "guides-375.png",
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "guide-detail",
+      "route": "/guides/ai-2d-rpg-workflow/",
+      "width": 375,
+      "selector": ".stage-decision",
+      "matched": 4,
+      "screenshot": "guide-detail-375.png",
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "stack",
+      "route": "/stacks/2d-rpg/",
+      "width": 375,
+      "selector": ".stack-tools",
+      "matched": 1,
+      "screenshot": "stack-375.png",
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "project",
+      "route": "/project/",
+      "width": 375,
+      "selector": ".idea-examples",
+      "matched": 1,
+      "screenshot": "project-375.png",
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": [
+        {
+          "text": "モンスター収集とバトルのブラウザゲームを作りたい。ゲーム制作は初めてです。",
+          "height": 88.171875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。",
+          "height": 64.78125,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "ビジュアルノベル。日本語と英語。音声あり。できるだけ低予算。",
+          "height": 64.78125,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        }
+      ]
+    },
+    {
+      "family": "404",
+      "route": "/missing-b3-components/",
+      "width": 375,
+      "selector": ".empty",
+      "matched": 1,
+      "screenshot": "404-375.png",
+      "widths": {
+        "viewportWidth": 375,
+        "documentScrollWidth": 375,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "home-categories",
+      "route": "/",
+      "width": 320,
+      "selector": ".category-cluster .v2-start-card",
+      "matched": 5,
+      "screenshot": "home-categories-320.png",
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "li",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-card",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span.b3-frame-face",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-top",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "a.b3-art-link",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "img",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "div.b3-art-credit",
+            "owner": "div.b3-stage-window"
+          },
+          {
+            "selector": "span",
+            "owner": "div.b3-stage-window"
+          }
+        ],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": [
+        {
+          "text": "モンスター収集とバトルのブラウザゲームを作りたい。ゲーム制作は初めてです。",
+          "height": 88.171875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。",
+          "height": 88.171875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "ビジュアルノベル。日本語と英語。音声あり。できるだけ低予算。",
+          "height": 64.78125,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        }
+      ]
+    },
+    {
+      "family": "hub-categories",
+      "route": "/articles/#categories",
+      "width": 320,
+      "selector": ".category-cluster .v2-start-card",
+      "matched": 5,
+      "screenshot": "hub-categories-320.png",
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "hub-start",
+      "route": "/articles/#start",
+      "width": 320,
+      "selector": ".creation-deck .v2-start-card",
+      "matched": 6,
+      "screenshot": "hub-start-320.png",
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "hub-all",
+      "route": "/articles/#all",
+      "width": 320,
+      "selector": ".creation-deck .v2-start-card",
+      "matched": 18,
+      "screenshot": "hub-all-320.png",
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "hub-games",
+      "route": "/articles/#games",
+      "width": 320,
+      "selector": ".game-card-actions",
+      "matched": 8,
+      "screenshot": "hub-games-320.png",
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "reading-workspace",
+      "route": "/articles/ai-browser-game-how-to/",
+      "width": 320,
+      "selector": ".beginner-workspace",
+      "matched": 1,
+      "screenshot": "reading-workspace-320.png",
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": [
+        {
+          "text": "最初のゲーム生成promptをコピー",
+          "height": 72.375,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "1変更のAI指示をコピー",
+          "height": 45.1875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "Project用のゲーム案をコピー",
+          "height": 72.375,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        }
+      ]
+    },
+    {
+      "family": "tools",
+      "route": "/tools/?goal=3d",
+      "width": 320,
+      "selector": ".goal-picker",
+      "matched": 3,
+      "screenshot": "tools-320.png",
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": [
+        {
+          "text": "コード",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "UI",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "キャラクター",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "2D画像",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "3Dモデル",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgba(237, 240, 207, 0.4) 0px 1px 0px 0px inset, rgb(23, 37, 27) 0px 2px 0px 0px"
+        },
+        {
+          "text": "アニメーション",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "声",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "BGM",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "効果音",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "NPC会話",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "翻訳",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "テスト",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "トレーラー",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "ストア素材",
+          "height": 46,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        }
+      ]
+    },
+    {
+      "family": "tool-detail",
+      "route": "/tools/meshy/",
+      "width": 320,
+      "selector": ".verdict",
+      "matched": 1,
+      "screenshot": "tool-detail-320.png",
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "compare",
+      "route": "/compare/?ids=meshy,tripo-ai&goal=3d&stage=3d",
+      "width": 320,
+      "selector": ".compare-context",
+      "matched": 1,
+      "screenshot": "compare-320.png",
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": [
+        {
+          "text": "解除",
+          "height": 45.1875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "解除",
+          "height": 45.1875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        }
+      ]
+    },
+    {
+      "family": "guides",
+      "route": "/guides/",
+      "width": 320,
+      "selector": ".guide-stage-options",
+      "matched": 1,
+      "screenshot": "guides-320.png",
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "guide-detail",
+      "route": "/guides/ai-2d-rpg-workflow/",
+      "width": 320,
+      "selector": ".stage-decision",
+      "matched": 4,
+      "screenshot": "guide-detail-320.png",
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "stack",
+      "route": "/stacks/2d-rpg/",
+      "width": 320,
+      "selector": ".stack-tools",
+      "matched": 1,
+      "screenshot": "stack-320.png",
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    },
+    {
+      "family": "project",
+      "route": "/project/",
+      "width": 320,
+      "selector": ".idea-examples",
+      "matched": 1,
+      "screenshot": "project-320.png",
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": [
+        {
+          "text": "モンスター収集とバトルのブラウザゲームを作りたい。ゲーム制作は初めてです。",
+          "height": 88.171875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "Steam向け3Dホラー。Unity。プログラミング中級。絵と音声はAIで作りたい。",
+          "height": 88.171875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        },
+        {
+          "text": "ビジュアルノベル。日本語と英語。音声あり。できるだけ低予算。",
+          "height": 88.171875,
+          "edge": "solid",
+          "shadow": "rgb(255, 253, 244) 0px 1px 0px 0px inset, rgba(124, 137, 109, 0.2) 0px 2px 0px 0px"
+        }
+      ]
+    },
+    {
+      "family": "404",
+      "route": "/missing-b3-components/",
+      "width": 320,
+      "selector": ".empty",
+      "matched": 1,
+      "screenshot": "404-320.png",
+      "widths": {
+        "viewportWidth": 320,
+        "documentScrollWidth": 320,
+        "documentOverflowPx": 0,
+        "ownedClippedDeckElements": [],
+        "ownedLocalScrollers": [],
+        "unownedOverflowingElements": []
+      },
+      "controls": []
+    }
+  ]
+}

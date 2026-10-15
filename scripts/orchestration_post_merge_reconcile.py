@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Owner-only reconciliation for a PR merged before durable Preview PASS/authorization."""
+from orchestration_mode import legacy_only
 import os
 import urllib.request
 from urllib.parse import urlparse
@@ -15,12 +16,32 @@ def _ensure_production_work_dispatch(manifest):
     """Project exactly one current Production claim onto the bound merged PR."""
     return adapter.ensure_work_dispatch(manifest["issue"], manifest, record=True)
 
+@legacy_only
 def _production_readiness(number, manifest_comment, manifest, merge_sha):
     """Derive exact Production readiness from GitHub's Vercel status for the merge SHA."""
     if (manifest.get("stage"), manifest.get("status")) != ("production_acceptance", "pending"):
         raise Rejected("merge reconciliation did not reach production_acceptance/pending")
     if manifest.get("binding", {}).get("merge_sha") != merge_sha:
         raise Rejected("Production merge SHA does not match the authoritative binding")
+
+    registry = adapter.authoritative_profile_registry()
+    profile = manifest.get("profile", {})
+    if profile.get("id") not in registry.get("profiles", {}):
+        raise Rejected("required profile is absent from the authoritative registry")
+    claim = manifest.get("acceptance_claim") or {}
+    if claim and claim.get("profile_registry_revision") == registry["revision"]:
+        if (
+            profile.get("registry_revision") != registry["revision"]
+            or
+            claim.get("generation") != manifest.get("generation")
+            or claim.get("expected_manifest_revision") != manifest.get("revision")
+            or claim.get("environment") != "production"
+            or claim.get("sha") != merge_sha
+            or claim.get("required_profile") != profile.get("id")
+        ):
+            raise Rejected("current Production claim is malformed")
+        _ensure_production_work_dispatch(manifest)
+        return manifest
 
     combined = adapter.gh(f"repos/{adapter.REPO}/commits/{merge_sha}/status")
     vercel = [
@@ -56,7 +77,23 @@ def _production_readiness(number, manifest_comment, manifest, merge_sha):
             raise Rejected("canonical Production origin is not reachable")
 
     status_id = str(status.get("id") or "vercel-status")
-    readiness_event = adapter.envelope(
+    if claim and claim.get("profile_registry_revision") != registry["revision"]:
+        refresh_event = adapter.envelope(
+            manifest,
+            {
+                "profile_registry_revision": registry["revision"],
+                "transition_id": f"profile-registry-refresh:{manifest['generation']}:{registry['revision']}",
+                "trigger": {"actor": "github-actions[bot]", "source": "default-branch-profile-registry"},
+            },
+            "refresh_profile_registry",
+        )
+        refreshed, refresh_status = reduce(manifest, refresh_event, "deployment")
+        if refresh_status != "applied":
+            raise Rejected("profile registry refresh was not applied")
+        adapter.write(number, manifest_comment, refreshed, manifest["revision"])
+        manifest_comment, manifest = adapter.find_manifest(number)
+
+    readiness_event = adapter.readiness_envelope(
         manifest,
         {
             "environment": "production",
@@ -75,7 +112,6 @@ def _production_readiness(number, manifest_comment, manifest, merge_sha):
             "transition_id": f"production-readiness:{manifest['generation']}:{status_id}:{merge_sha}",
             "trigger": {"actor": "github-actions[bot]", "source": "github-vercel-status-reconcile"},
         },
-        "readiness",
     )
     ready, readiness_status = reduce(manifest, readiness_event, "deployment")
     if readiness_status != "applied":
@@ -85,6 +121,7 @@ def _production_readiness(number, manifest_comment, manifest, merge_sha):
     return ready
 
 
+@legacy_only
 def reconcile_production_pending(number):
     """Repository-owned relay after an already authorized/observed merge; no owner marker required."""
     manifest_comment, manifest = adapter.find_manifest(number)
@@ -98,6 +135,7 @@ def reconcile_production_pending(number):
     return _production_readiness(number, manifest_comment, manifest, binding["merge_sha"])
 
 
+@legacy_only
 def reconcile(event):
     issue = event.get("issue") or {}
     event_comment = event.get("comment") or {}
@@ -195,6 +233,7 @@ def reconcile(event):
     return _production_readiness(number, current_comment, current, request["merge_sha"])
 
 
+@legacy_only
 def main():
     event = adapter.strict_json(open(os.environ["ORCH_GITHUB_EVENT"]).read())
     reconcile(event)

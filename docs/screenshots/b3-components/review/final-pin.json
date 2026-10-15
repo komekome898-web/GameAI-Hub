@@ -1,0 +1,15 @@
+{
+  "head": "e555d81678440a2faa76538b83e22f875ee96e93",
+  "source": "/workspace/GameAI-Hub-b3-components",
+  "build": "zRTspQ8ojf93LGGMfzTnt",
+  "runtime": "http://127.0.0.1:3102",
+  "sourceDiff": "",
+  "status": "?? docs/screenshots/b3-components/\n?? docs/screenshots/beginner-acceptance-a-375-after-three.png\n?? docs/screenshots/beginner-acceptance-a-375-help.png\n?? docs/screenshots/beginner-acceptance-github-guide-return-375.png\n?? docs/screenshots/beginner-acceptance-voice-320-help.png\n",
+  "hashes": {
+    "app/b3-system.css": "9bbbbcecba6cff933dd6cf87c8caccaf529696200741b205e8024062def87cf5",
+    "app/globals.css": "d2cdc617a7543525a4b61eb1191d13e6de98d4bfa809be7373c54331f9ff7bd9",
+    "app/home-b3.css": "97b90558862e50f966eb0e6a86ad4850dbd8c7523e82cb5fe4a22e8570d13552",
+    "app/visual-layer-v2.css": "6457579cc10a35852d55f56cd14f3e132c7d7306aebc5b0f118eb574094f5290"
+  },
+  "reviewWrites": "Only /tmp evidence and ephemeral browser state. No source/test/Git/build/server writes."
+}

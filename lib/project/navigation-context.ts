@@ -22,8 +22,12 @@ function safeReturnUrl(value: unknown): string | null {
   if (typeof value !== 'string' || value.length > 22000 || !/^\/project\/?(?:\?|$)/.test(value)) return null;
   try {
     const url = new URL(value, 'https://project.invalid');
-    if (url.origin !== 'https://project.invalid' || !['/project', '/project/'].includes(url.pathname) || url.hash) return null;
-    if ([...url.searchParams.keys()].some(key => !['draft', 'v', 'p'].includes(key))) return null;
+    if (url.origin !== 'https://project.invalid' || !['/project', '/project/'].includes(url.pathname)) return null;
+    // These are the anchors emitted by Tools/Compare. Do not store a fragment;
+    // the destination chooses the current workflow anchor on each return.
+    if (url.hash && !['#beginner-action-title', '#build-progress-title'].includes(url.hash)) return null;
+    if ([...url.searchParams.keys()].some(key => !['draft', 'v', 'p', 'source'].includes(key))) return null;
+    if ([...url.searchParams.keys()].some(key => url.searchParams.getAll(key).length !== 1)) return null;
     const params = new URLSearchParams();
     const draft = url.searchParams.get('draft');
     if (draft !== null) {
@@ -35,6 +39,11 @@ function safeReturnUrl(value: unknown): string | null {
       if (!shared) return null;
       // Re-encode so manually supplied private text cannot survive in a URL.
       new URLSearchParams(encodeProjectState(shared)).forEach((item, key) => params.set(key, item));
+    }
+    const source = url.searchParams.get('source');
+    if (source !== null) {
+      if (!/^[a-z0-9-]{1,80}$/.test(source)) return null;
+      params.set('source', source);
     }
     return `/project${params.size ? `?${params}` : ''}`;
   } catch { return null; }

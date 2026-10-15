@@ -1,0 +1,22 @@
+{
+  "source": "e555d81678440a2faa76538b83e22f875ee96e93",
+  "build": "zRTspQ8ojf93LGGMfzTnt",
+  "method": "assistant actual screenshot view_image inspection",
+  "files": [
+    "e555-project-invalid-375.png",
+    "e555-project-ignore-selected.png",
+    "e555-provider-nine-confirm.png",
+    "e555-privacy-44-neutral.png",
+    "e555-provenance-375.png",
+    "e555-route-home-375-upper.png",
+    "e555-route-home-375-middle.png",
+    "e555-flow-start-expanded.png",
+    "e555-keyboard-article-expand.png",
+    "e555-flow-menu-root200-last-focus.png",
+    "e555-builder-invalid-root200-375.png",
+    "e555-state-compare-js-off-loading-375.png",
+    "e555-stuck-copy-neutral.png",
+    "e555-tools-zero-frame.png"
+  ],
+  "other_screenshots": "Captured evidence only; not individually declared visually accepted"
+}

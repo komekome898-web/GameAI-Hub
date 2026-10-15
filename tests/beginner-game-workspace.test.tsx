@@ -160,8 +160,8 @@ describe("beginner game isolation and recovery", () => {
     expect(screen.getByTitle("作ったゲームの動作確認")).toBeTruthy();
   });
 
-  it("accepts only the active iframe runtime-error schema and renders text safely", async () => {
-    render(<BeginnerGameWorkspace projectId="runtime" initialCode={game} />);
+  it.each(["button", "copy", "article"] as const)("accepts only the active iframe runtime-error schema with %s guidance", async (helpMode) => {
+    render(<BeginnerGameWorkspace projectId="runtime" initialCode={game} {...(helpMode === "copy" ? { helpMode } : helpMode === "article" ? { helpGuidance: { preview: "本文の復旧手順を確認してAIに相談してください。", error: "エラー概要をコピーしてAIの入力欄へ貼り付けてください。" } } : {})} />);
     await waitFor(() =>
       expect(screen.getByRole("button", { name: "ゲームを表示" })).toBeTruthy(),
     );
@@ -190,6 +190,18 @@ describe("beginner game isolation and recovery", () => {
       await screen.findByText("ゲーム内でエラーが発生しました"),
     ).toBeTruthy();
     expect(screen.getByText("QA_RUNTIME_0904")).toBeTruthy();
+    if (helpMode === "article") {
+      expect(screen.getByText(/本文の復旧手順を確認してAIに相談/)).toBeTruthy();
+      expect(screen.getByText("エラー概要をコピーしてAIの入力欄へ貼り付けてください。")).toBeTruthy();
+      expect(screen.queryByText(/ここで詰まった|相談例をコピー/)).toBeNull();
+    } else if (helpMode === "copy") {
+      expect(screen.getByText(/画面が変わらない場合は、記事の「相談例をコピー」/)).toBeTruthy();
+      expect(screen.getByText(/「エラー概要をコピー」でこの内容をコピーし/)).toBeTruthy();
+      expect(screen.queryByText(/ここで詰まった/)).toBeNull();
+    } else {
+      expect(screen.getByText(/画面が変わらない場合も「ここで詰まった」/)).toBeTruthy();
+      expect(screen.getByText("この内容は「ここで詰まった」に自動で渡されます。")).toBeTruthy();
+    }
     window.dispatchEvent(
       new MessageEvent("message", {
         source: window,

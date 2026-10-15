@@ -1,0 +1,16 @@
+{
+  "url": "http://127.0.0.1:3180/?hubCategory=voice#categories",
+  "focus": "voice",
+  "rect": {
+    "x": 52.5,
+    "y": 1898.375,
+    "width": 270,
+    "height": 198.578125,
+    "top": 1898.375,
+    "right": 322.5,
+    "bottom": 2096.953125,
+    "left": 52.5
+  },
+  "scrollY": 0,
+  "storage": "{\"view\":\"categories\",\"articles\":{},\"category\":\"voice\",\"categoryScroll\":0}"
+}

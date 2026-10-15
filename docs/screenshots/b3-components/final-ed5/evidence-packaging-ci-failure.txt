@@ -1,0 +1,14 @@
+2026-10-13T08:12:35.5102310Z HEAD is now at d288e67 Merge ccf52a4034af04a6457c1a7a4358bd93f666b0ec into b5f3887d1d5299ed95f2cfbe6acf391e5c047042
+2026-10-13T08:12:47.2378639Z npm warn deprecated eslint@9.39.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+2026-10-13T08:14:14.5633167Z > npm run affiliate:sync && npm run lint && npm run typecheck && npm test && npm run validate:data && npm run check:affiliates && npm run check:sitemap && npm run validate:content && npm run test:orchestration && npm run validate:workflows
+2026-10-13T08:14:15.1198709Z > gameai-hub@0.1.0 lint
+2026-10-13T08:14:15.1199139Z > eslint .
+2026-10-13T08:14:27.3228375Z /home/runner/work/GameAI-Hub/GameAI-Hub/docs/screenshots/b3-components/final-ed5/independent/review.cjs
+2026-10-13T08:14:27.3258774Z ##[error]  1:10   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+2026-10-13T08:14:27.3266665Z ##[error]  1:27   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+2026-10-13T08:14:27.3268261Z ##[error]  1:59   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+2026-10-13T08:14:27.3269645Z ##[error]  1:95   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+2026-10-13T08:14:27.3270968Z ##[error]  1:189  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+2026-10-13T08:14:27.3272310Z ##[error]  1:233  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+2026-10-13T08:14:27.3273669Z ✖ 6 problems (6 errors, 0 warnings)
+2026-10-13T08:14:27.4014223Z ##[error]Process completed with exit code 1.

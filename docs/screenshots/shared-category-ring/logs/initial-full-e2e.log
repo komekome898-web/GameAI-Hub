@@ -1,0 +1,2487 @@
+[WebServer] (node:4693) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 216 tests using 2 workers
+
+(node:4711) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:4712) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/216] e2e/analytics-production-harness.spec.ts:36:7 › permitted Production browser harness › retains bounded early events, loads once, and does not replay excluded events
+[2/216] e2e/beginner-acceptance.spec.ts:220:7 › Beginner acceptance: current production journey contracts › ProjectからGitHub guideを読み、元タブの同じidea・task・進捗へ戻る
+[3/216] e2e/beginner-acceptance.spec.ts:265:9 › Beginner acceptance: current production journey contracts › optional voice: 素材の入力・保存・相談をコード制作から区別する
+  1) e2e/analytics-production-harness.spec.ts:36:7 › permitted Production browser harness › retains bounded early events, loads once, and does not replay excluded events 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: undefined
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+      54 |     );
+      55 |     releaseLoader();
+    > 56 |     await expect.poll(() => page.evaluate(() => (window as AnalyticsWindow).__gameAIAnalyticsLoaded)).toBe(true);
+         |                                                                                                       ^
+      57 |     expect(await page.evaluate(() => (window as AnalyticsWindow).__gameAIAnalyticsEligible)).toBe(true);
+      58 |     const firstDocument = await page.evaluate(() => ({
+      59 |       loads: (window as AnalyticsWindow).__gaFixtureLoads,
+        at /workspace/GameAI-Hub/e2e/analytics-production-harness.spec.ts:56:103
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/analytics-production-harne-0c0f2--not-replay-excluded-events/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/analytics-production-harne-0c0f2--not-replay-excluded-events/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/analytics-production-harne-0c0f2--not-replay-excluded-events/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/analytics-production-harne-0c0f2--not-replay-excluded-events/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:5047) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[4/216] e2e/analytics-production-harness.spec.ts:116:7 › permitted Production browser harness › caps a delayed queue and disposes failed loading before late fixture execution
+  2) e2e/analytics-production-harness.spec.ts:116:7 › permitted Production browser harness › caps a delayed queue and disposes failed loading before late fixture execution 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 32
+    Received length: 0
+    Received array:  []
+
+      133 |       ((window as AnalyticsWindow).dataLayer ?? []).map((entry) => Array.from(entry).slice(0, 2)),
+      134 |     );
+    > 135 |     expect(pending).toHaveLength(32);
+          |                     ^
+      136 |     expect(pending.slice(0, 2).map((entry) => entry[0])).toEqual(["js", "config"]);
+      137 |     expect(pending[2]).toEqual(["event", "early-20"]);
+      138 |
+        at /workspace/GameAI-Hub/e2e/analytics-production-harness.spec.ts:135:21
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/analytics-production-harne-796ed-fore-late-fixture-execution/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/analytics-production-harne-796ed-fore-late-fixture-execution/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/analytics-production-harne-796ed-fore-late-fixture-execution/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/analytics-production-harne-796ed-fore-late-fixture-execution/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:5193) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[5/216] e2e/content-seo.spec.ts:6:6 › Meshy game-development guide completes an imported asset — mobile-375
+[6/216] e2e/content-seo.spec.ts:6:6 › Meshy game-development guide completes an imported asset — mobile-320
+[7/216] e2e/content-seo.spec.ts:6:6 › Meshy game-development guide completes an imported asset — desktop
+[8/216] e2e/content-seo.spec.ts:22:6 › ElevenLabs commercial-use guide renders its decision path — mobile-375
+[9/216] e2e/content-seo.spec.ts:22:6 › ElevenLabs commercial-use guide renders its decision path — mobile-320
+[10/216] e2e/content-seo.spec.ts:22:6 › ElevenLabs commercial-use guide renders its decision path — desktop
+[11/216] e2e/content-seo.spec.ts:47:6 › article discovery and Project handoff — mobile-375
+[12/216] e2e/content-seo.spec.ts:47:6 › article discovery and Project handoff — zoom-320
+[13/216] e2e/content-seo.spec.ts:47:6 › article discovery and Project handoff — desktop
+[14/216] e2e/content-seo.spec.ts:76:5 › browser-game article supports play, one change, and recovery
+[15/216] e2e/content-seo.spec.ts:120:6 › GitHub beginner guide explains return and repository choices — mobile-375
+[16/216] e2e/content-seo.spec.ts:120:6 › GitHub beginner guide explains return and repository choices — mobile-360
+[17/216] e2e/beginner-acceptance.spec.ts:265:9 › Beginner acceptance: current production journey contracts › optional image: 素材の入力・保存・相談をコード制作から区別する
+[18/216] e2e/content-seo.spec.ts:120:6 › GitHub beginner guide explains return and repository choices — mobile-320
+[19/216] e2e/content-seo.spec.ts:120:6 › GitHub beginner guide explains return and repository choices — zoom-320
+[20/216] e2e/content-seo.spec.ts:120:6 › GitHub beginner guide explains return and repository choices — desktop
+[21/216] e2e/content-seo.spec.ts:145:6 › Meshy commercial-use guide renders its decision path — mobile-375
+[22/216] e2e/content-seo.spec.ts:145:6 › Meshy commercial-use guide renders its decision path — mobile-320
+[23/216] e2e/content-seo.spec.ts:145:6 › Meshy commercial-use guide renders its decision path — desktop
+[24/216] e2e/content-seo.spec.ts:163:139 › Meshy pricing credit guide responsive acceptance › desktoppx has one safe affiliate CTA and no overflow
+[25/216] e2e/content-seo.spec.ts:163:139 › Meshy pricing credit guide responsive acceptance › 375px has one safe affiliate CTA and no overflow
+[26/216] e2e/content-seo.spec.ts:163:139 › Meshy pricing credit guide responsive acceptance › 320px has one safe affiliate CTA and no overflow
+[27/216] e2e/content-seo.spec.ts:179:5 › Issue 135 journey keeps analytics local and navigates Home to cluster, article, and Project
+[28/216] e2e/beginner-acceptance.spec.ts:373:9 › Beginner acceptance: current production journey contracts › A: 移動してゴールする2Dゲームを新規状態から開始し3作業の進捗を保持する
+  3) e2e/content-seo.spec.ts:179:5 › Issue 135 journey keeps analytics local and navigates Home to cluster, article, and Project 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: /次の1作業を決める/, level: 1 })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByRole('heading', { name: /次の1作業を決める/, level: 1 })
+
+
+      181 |  await page.route(/google-analytics|googletagmanager|analytics\.google/,route=>{collectorRequests.push(route.request().url());return route.abort()});
+      182 |  await page.goto('/');
+    > 183 |  await expect(page.getByRole('heading',{level:1,name:/次の1作業を決める/})).toBeVisible();
+          |                                                                     ^
+      184 |  await page.getByRole('link',{name:/記事へ/}).first().click();
+      185 |  await expect(page).toHaveURL(/\/articles\/#categories$/);
+      186 |  await page.locator('[data-category="voice"]').focus();
+        at /workspace/GameAI-Hub/e2e/content-seo.spec.ts:183:69
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/content-seo-Issue-135-jour-80ef2-cluster-article-and-Project/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/content-seo-Issue-135-jour-80ef2-cluster-article-and-Project/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/content-seo-Issue-135-jour-80ef2-cluster-article-and-Project/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/content-seo-Issue-135-jour-80ef2-cluster-article-and-Project/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:6219) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[29/216] e2e/content-seo.spec.ts:198:5 › Issue 135 mobile table and navigation remain usable at 320px
+[30/216] e2e/creation-deck-inertia.spec.ts:91:38 › 3 stable cards: speed-dependent coast, passage order and invisible seam
+[31/216] e2e/creation-deck-inertia.spec.ts:91:38 › 12 stable cards: speed-dependent coast, passage order and invisible seam
+[32/216] e2e/creation-deck-inertia.spec.ts:91:38 › 30 stable cards: speed-dependent coast, passage order and invisible seam
+[33/216] e2e/creation-deck-inertia.spec.ts:117:5 › paused placements, fast long release, sparse input and genuine final reversal
+[34/216] e2e/beginner-acceptance.spec.ts:373:9 › Beginner acceptance: current production journey contracts › B: モンスター1対1バトルを新規状態から開始し3作業の進捗を保持する
+[35/216] e2e/creation-deck-inertia.spec.ts:138:5 › release-owned focus/click does not rewind; next tap and keyboard work
+[36/216] e2e/creation-deck-inertia.spec.ts:149:5 › true cancel cannot create coast or a second release
+[37/216] e2e/creation-deck-inertia.spec.ts:155:5 › three cards travel multiple turns both ways; background stops inertia
+[38/216] e2e/creation-deck-inertia.spec.ts:171:5 › grab fractional coast without jump, hold and reverse with new velocity
+[39/216] e2e/beginner-acceptance.spec.ts:373:9 › Beginner acceptance: current production journey contracts › C: 恋愛ノベルゲームを新規状態から開始し3作業の進捗を保持する
+[40/216] e2e/creation-deck-inertia.spec.ts:196:5 › native long touch placement from image and heading remains after paused release
+[41/216] e2e/creation-deck-inertia.spec.ts:220:5 › a delayed animation frame hides cards crossing the circular seam
+[42/216] e2e/creation-deck-inertia.spec.ts:245:36 › 0 items remain an ordinary static list even with automatic deck preference
+[43/216] e2e/creation-deck-inertia.spec.ts:245:36 › 1 items remain an ordinary static list even with automatic deck preference
+[44/216] e2e/creation-deck-inertia.spec.ts:245:36 › 2 items remain an ordinary static list even with automatic deck preference
+[45/216] e2e/creation-deck-motion.spec.ts:30:5 › all cards follow fractional position and interrupted snap resumes without a jump
+[46/216] e2e/creation-deck-motion.spec.ts:65:5 › trusted short flick, paused release, twenty wraps, repeated controls and keyboard
+[47/216] e2e/beginner-acceptance.spec.ts:505:7 › Beginner acceptance: current production journey contracts › 320px: HTML貼付・実行・保存・読込と隔離された操作を検証する
+[48/216] e2e/beginner-acceptance.spec.ts:610:7 › Beginner acceptance: current production journey contracts › QA_RUNTIME_0904: runtime error and rejection appear in Hub and flow into trouble help
+[49/216] e2e/beginner-acceptance.spec.ts:691:9 › Issue 49: long runtime errors stay inside the Project document › 1348px ascii-600-desktop
+[50/216] e2e/beginner-acceptance.spec.ts:691:9 › Issue 49: long runtime errors stay inside the Project document › 375px ascii-600-375
+[51/216] e2e/beginner-acceptance.spec.ts:691:9 › Issue 49: long runtime errors stay inside the Project document › 360px url-360
+[52/216] e2e/beginner-acceptance.spec.ts:691:9 › Issue 49: long runtime errors stay inside the Project document › 320px alphanumeric-320
+[53/216] e2e/creation-deck-motion.spec.ts:112:5 › neighbor tap centers, overview expands the same node, list and large text remain readable
+[54/216] e2e/creation-deck-motion.spec.ts:140:5 › long drag chooses two cards; capture loss and resize return to the committed card
+[55/216] e2e/beginner-acceptance.spec.ts:691:9 › Issue 49: long runtime errors stay inside the Project document › 320px mixed-320-pinch-200-percent
+[56/216] e2e/creation-deck-motion.spec.ts:171:5 › failed images keep article links, summaries and natural card height
+[57/216] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives resize, expanded=false, without stealing surviving focus
+[58/216] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives resize, expanded=true, without stealing surviving focus
+[59/216] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives reduced-motion, expanded=false, without stealing surviving focus
+[60/216] e2e/creation-deck-review-regressions.spec.ts:23:7 › overview focus survives reduced-motion, expanded=true, without stealing surviving focus
+[61/216] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: 12ms final movement arrives only on up
+[62/216] e2e/creation-deck-review-regressions.spec.ts:65:7 › outside mouse release ends pending, interrupted=false, and leaves the next gesture usable
+[63/216] e2e/creation-deck-review-regressions.spec.ts:65:7 › outside mouse release ends pending, interrupted=true, and leaves the next gesture usable
+[64/216] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: one sparse move after90ms
+[65/216] e2e/creation-deck-review-regressions.spec.ts:65:7 › outside mouse release ends vertical, interrupted=false, and leaves the next gesture usable
+[66/216] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: diagonal wobble remains pending until horizontal up
+[67/216] e2e/creation-deck-review-regressions.spec.ts:65:7 › outside mouse release ends vertical, interrupted=true, and leaves the next gesture usable
+[68/216] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: committed vertical never revives on horizontal up
+[69/216] e2e/creation-deck-review-regressions.spec.ts:100:57 › contact ignores an unrelated terminal event and cancels on window blur
+[70/216] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: long hold followed by release is not a flick
+[71/216] e2e/creation-deck-review-regressions.spec.ts:100:57 › contact ignores an unrelated terminal event and cancels on window cancel
+[72/216] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: paused movement plus tiny release jitter stays put
+[73/216] e2e/decision-journeys.spec.ts:74:7 › Project Interpreter provider states › provider successは全AI候補の確認後にのみ計画を生成する
+[74/216] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: tiny fast movement stays put
+[75/216] e2e/decision-journeys.spec.ts:89:7 › Project Interpreter provider states › provider未設定は実Route Handlerから決定ルールへフォールバックする
+[76/216] e2e/decision-journeys.spec.ts:102:9 › Project Interpreter provider states › provider error fallbackを375pxで正直に表示する
+[77/216] e2e/decision-journeys.spec.ts:102:9 › Project Interpreter provider states › provider timeout fallbackを375pxで正直に表示する
+[78/216] e2e/creation-deck-sparse-input.spec.ts:32:28 › synthetic sparse sequence: cancel never becomes a flick on later up
+[79/216] e2e/decision-journeys.spec.ts:102:9 › Project Interpreter provider states › rate limited fallbackを375pxで正直に表示する
+[80/216] e2e/decision-journeys.spec.ts:111:7 › Issue 55 production intent regressions › cat tap-to-score stays consistent through first task, prompt, recovery, and next task
+[81/216] e2e/creation-deck-sparse-input.spec.ts:63:5 › native mouse survives height-only resize, but cancels changed width, step and availability
+[82/216] e2e/creation-deck-sparse-input.spec.ts:102:5 › native Chromium short touch retains vertical scrolling coexistence
+[83/216] e2e/creation-deck-sparse-input.spec.ts:123:5 › active identity publication does not cancel a newly started contact
+[84/216] e2e/decision-journeys.spec.ts:131:7 › Issue 55 production intent regressions › bilingual novel preserves language switching without adding romance
+[85/216] e2e/decision-journeys.spec.ts:144:5 › 375px: 明示したGodotを保持しno voice/no 3Dの最初の工程を完了できる
+[86/216] e2e/deck-acceptance-contract.spec.ts:14:5 › summary exception is earned through real expansion and list recovery, not shared with other clipping
+[87/216] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects missing-summary
+[88/216] e2e/decision-journeys.spec.ts:175:5 › 自由文のゲーム固有情報が主要な制作成果物すべてに反映される
+[89/216] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects missing-button
+[90/216] e2e/decision-journeys.spec.ts:201:5 › 375px: 2候補比較と差分のみ表示を操作できる
+[91/216] e2e/decision-journeys.spec.ts:215:5 › Toolsの検索直後クリックと履歴移動が競合しない
+[92/216] e2e/decision-journeys.spec.ts:236:5 › Compare候補は2件選択後も開いたままでback/forwardに同期する
+[93/216] e2e/decision-journeys.spec.ts:251:5 › affiliate CTAは広告表示と安全な外部リンク属性を保つ
+[94/216] e2e/decision-journeys.spec.ts:260:5 › 375px: Stacksを補助ルートとして閲覧できる
+[95/216] e2e/decision-journeys.spec.ts:267:5 › Project Generatorのエンジン条件が計画と共有stateへ反映される
+[96/216] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects wrong-controls
+[97/216] e2e/decision-journeys.spec.ts:273:5 › 3Dブラウザ初心者はHTML試作へ置き換えずエンジン決定を待つ
+[98/216] e2e/decision-journeys.spec.ts:282:5 › 320pxかつ200% zoomでも主要画面に横方向の文書overflowがない
+[99/216] e2e/decision-journeys.spec.ts:308:5 › 4ツール比較、差分絞り込み、キーボードfocusを維持する
+[100/216] e2e/deck-project-continuity.spec.ts:66:7 › native Chromium touch swipes survive capture transfer and interruptions at 375
+[101/216] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects disabled-button
+[102/216] e2e/deck-project-continuity.spec.ts:66:7 › native Chromium touch swipes survive capture transfer and interruptions at 390
+[103/216] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects collapsed-clipping
+[104/216] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects expanded-clipping
+[105/216] e2e/deck-acceptance-contract.spec.ts:27:7 › recovery verification rejects list-clipping
+[106/216] e2e/deck-acceptance-contract.spec.ts:48:5 › overflow outside an actual inactive card never receives the deck owner
+[107/216] e2e/deck-acceptance-contract.spec.ts:59:7 › recovery rejects an identical replacement summary after expanded
+[108/216] e2e/deck-acceptance-contract.spec.ts:59:7 › recovery rejects an identical replacement summary after list
+[109/216] e2e/elevenlabs-v4-article.spec.ts:10:7 › ElevenLabs v4 article supports the game-voice decision — desktop-1440
+[110/216] e2e/deck-project-continuity.spec.ts:127:5 › native mouse dragging, controls, resize and reduced-motion fallback
+[111/216] e2e/elevenlabs-v4-article.spec.ts:10:7 › ElevenLabs v4 article supports the game-voice decision — mobile-390
+[112/216] e2e/elevenlabs-v4-article.spec.ts:10:7 › ElevenLabs v4 article supports the game-voice decision — mobile-375
+[113/216] e2e/elevenlabs-v4-article.spec.ts:10:7 › ElevenLabs v4 article supports the game-voice decision — mobile-320
+[114/216] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 320px
+[115/216] e2e/deck-project-continuity.spec.ts:158:5 › actual Stack CTA carries supported conditions into editable Project confirmation
+[116/216] e2e/deck-project-continuity.spec.ts:182:7 › article-origin Project survives repeated Tools and Compare returns
+[117/216] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 375px
+[118/216] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 390px
+[119/216] e2e/deck-project-continuity.spec.ts:182:7 › direct Project survives repeated Tools and Compare returns
+[120/216] e2e/gamebuildiary-category-entry.spec.ts:15:48 › category entry and all public articles at 1440px
+[121/216] e2e/gamebuildiary-category-entry.spec.ts:47:5 › voice v4 roundtrip, category focus, history and list selection
+[122/216] e2e/issue-155-v1.spec.ts:28:5 › Explicit START list retains complete responsive article cards
+[123/216] e2e/gamebuildiary-category-entry.spec.ts:78:5 › all-list roundtrip, explicit URL precedence and removed IDs
+[124/216] e2e/issue-155-v1.spec.ts:83:5 › V1 remains readable without JavaScript and in forced colors
+[125/216] e2e/gamebuildiary-category-entry.spec.ts:100:5 › rapid controls and back during motion do not publish a transient article
+[126/216] e2e/gamebuildiary-category-entry.spec.ts:113:5 › fallback focus, missing images, Japanese enlargement and mode recovery
+[127/216] e2e/issue-155-v1.spec.ts:158:7 › V1 START cards reflow with synthetic 200% root text at 320px
+[128/216] e2e/issue-155-v1.spec.ts:158:7 › V1 START cards reflow with synthetic 200% root text at 375px
+[129/216] e2e/gamebuildiary-category-entry.spec.ts:135:5 › no JavaScript exposes all sixteen normal article links once
+[130/216] e2e/issue-155-v1.spec.ts:260:5 › V1 shared probe records the intermediate 150% metadata state
+[131/216] e2e/gamebuildiary-category-entry.spec.ts:146:5 › START preserves native dragging from the supplied image with five unique cards
+[132/216] e2e/issue-155-v1.spec.ts:289:5 › V1 START cards contain long Japanese and unbroken ASCII stress content
+[133/216] e2e/issue-157-dots-followups.spec.ts:30:5 › V-01 keeps every mobile model/value association and desktop headers
+[134/216] e2e/issue-155-v1.spec.ts:392:5 › mobile menu returns focus on Escape and preserves surrounding keyboard order
+[135/216] e2e/issue-157-final-evidence.spec.ts:104:5 › V3 route, state, text, navigation, affiliate, and SEO observations
+[136/216] e2e/issue-157-dots-followups.spec.ts:51:5 › V-03 gives all article copy readable width at root 200%
+  4) e2e/issue-157-final-evidence.spec.ts:104:5 › V3 route, state, text, navigation, affiliate, and SEO observations 
+
+    Error: evidence requires a clean source checkpoint; commit or restore:
+    M app/articles/page.tsx
+     M app/page.tsx
+     M app/visual-layer-v2.css
+     M components/ArticleFrame.tsx
+     M components/ArticleHub.tsx
+     M components/CreationDeck.tsx
+     M e2e/content-seo.spec.ts
+     M e2e/gamebuildiary-category-entry.spec.ts
+     M e2e/issue-157-reflow-evidence.spec.ts
+     M e2e/slice-three-articles.spec.ts
+     M tests/creation-deck.test.tsx
+    ?? .ring-playwright.config.ts
+    ?? components/ArticleReturnLink.tsx
+    ?? docs/codex-progress/shared-category-ring.md
+    ?? docs/design/shared-category-ring.md
+    ?? e2e/shared-category-ring.spec.ts
+    ?? lib/article-hub-groups.ts
+
+       at acceptance/source-identity.ts:25
+
+      23 |   ).trim();
+      24 |   if (status) {
+    > 25 |     throw new Error(
+         |           ^
+      26 |       `evidence requires a clean source checkpoint; commit or restore:\n${status}`,
+      27 |     );
+      28 |   }
+        at cleanSourceIdentity (/workspace/GameAI-Hub/e2e/acceptance/source-identity.ts:25:11)
+        at /workspace/GameAI-Hub/e2e/issue-157-final-evidence.spec.ts:107:39
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/issue-157-final-evidence-V-eb6aa-iliate-and-SEO-observations/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[137/216] e2e/issue-157-final-evidence.spec.ts:199:5 › V4 dynamic input, cancellation, follow-up, focus, and budget observations
+(node:10685) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[138/216] e2e/issue-157-project-evidence.spec.ts:69:5 › Issue 157 Project states, workspace, and token observations validate
+  5) e2e/issue-157-project-evidence.spec.ts:69:5 › Issue 157 Project states, workspace, and token observations validate 
+
+    Error: evidence requires a clean source checkpoint; commit or restore:
+    M app/articles/page.tsx
+     M app/page.tsx
+     M app/visual-layer-v2.css
+     M components/ArticleFrame.tsx
+     M components/ArticleHub.tsx
+     M components/CreationDeck.tsx
+     M e2e/content-seo.spec.ts
+     M e2e/gamebuildiary-category-entry.spec.ts
+     M e2e/issue-157-reflow-evidence.spec.ts
+     M e2e/slice-three-articles.spec.ts
+     M tests/creation-deck.test.tsx
+    ?? .ring-playwright.config.ts
+    ?? components/ArticleReturnLink.tsx
+    ?? docs/codex-progress/shared-category-ring.md
+    ?? docs/design/shared-category-ring.md
+    ?? e2e/shared-category-ring.spec.ts
+    ?? lib/article-hub-groups.ts
+
+       at acceptance/source-identity.ts:25
+
+      23 |   ).trim();
+      24 |   if (status) {
+    > 25 |     throw new Error(
+         |           ^
+      26 |       `evidence requires a clean source checkpoint; commit or restore:\n${status}`,
+      27 |     );
+      28 |   }
+        at cleanSourceIdentity (/workspace/GameAI-Hub/e2e/acceptance/source-identity.ts:25:11)
+        at /workspace/GameAI-Hub/e2e/issue-157-project-evidence.spec.ts:72:39
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/issue-157-project-evidence-7eea4-token-observations-validate/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/issue-157-project-evidence-7eea4-token-observations-validate/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/issue-157-project-evidence-7eea4-token-observations-validate/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/issue-157-project-evidence-7eea4-token-observations-validate/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[139/216] e2e/issue-157-dots-followups.spec.ts:77:5 › E-01 measures actual Deck title line-height and description paragraph spacing
+(node:10824) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[140/216] e2e/issue-157-reflow-evidence.spec.ts:27:5 › V2 Home observations emit and validate current typed evidence
+  6) e2e/issue-157-reflow-evidence.spec.ts:27:5 › V2 Home observations emit and validate current typed evidence 
+
+    Error: evidence requires a clean source checkpoint; commit or restore:
+    M app/articles/page.tsx
+     M app/page.tsx
+     M app/visual-layer-v2.css
+     M components/ArticleFrame.tsx
+     M components/ArticleHub.tsx
+     M components/CreationDeck.tsx
+     M e2e/content-seo.spec.ts
+     M e2e/gamebuildiary-category-entry.spec.ts
+     M e2e/issue-157-reflow-evidence.spec.ts
+     M e2e/slice-three-articles.spec.ts
+     M tests/creation-deck.test.tsx
+    ?? .ring-playwright.config.ts
+    ?? components/ArticleReturnLink.tsx
+    ?? docs/codex-progress/shared-category-ring.md
+    ?? docs/design/shared-category-ring.md
+    ?? e2e/shared-category-ring.spec.ts
+    ?? lib/article-hub-groups.ts
+
+       at acceptance/source-identity.ts:25
+
+      23 |   ).trim();
+      24 |   if (status) {
+    > 25 |     throw new Error(
+         |           ^
+      26 |       `evidence requires a clean source checkpoint; commit or restore:\n${status}`,
+      27 |     );
+      28 |   }
+        at cleanSourceIdentity (/workspace/GameAI-Hub/e2e/acceptance/source-identity.ts:25:11)
+        at /workspace/GameAI-Hub/e2e/issue-157-reflow-evidence.spec.ts:33:45
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/issue-157-reflow-evidence--5bdf0-date-current-typed-evidence/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/issue-157-reflow-evidence--5bdf0-date-current-typed-evidence/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/issue-157-reflow-evidence--5bdf0-date-current-typed-evidence/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/issue-157-reflow-evidence--5bdf0-date-current-typed-evidence/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[141/216] e2e/issue-157-dots-followups.spec.ts:101:5 › E-02 cancels owned gestures and preserves click and list preference recovery
+(node:10991) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[142/216] e2e/issue-157-stage-b.spec.ts:8:5 › shared visual layer reflows across representative routes
+[143/216] e2e/measurement-baseline.spec.ts:30:5 › article → Project → first completion → next task is observable without raw input
+[144/216] e2e/issue-157-stage-b.spec.ts:28:5 › Creation Deck starts circular, preserves links, and retains a list fallback
+[145/216] e2e/measurement-baseline.spec.ts:111:5 › affiliate CTA records one viewable impression before comparable click events
+[146/216] e2e/measurement-baseline.spec.ts:161:5 › local production build cannot initialize or contact Google Analytics
+[147/216] e2e/measurement-baseline.spec.ts:174:7 › owner exclusion is usable and persistent at 375px
+[148/216] e2e/measurement-baseline.spec.ts:174:7 › owner exclusion is usable and persistent at 320px
+[149/216] e2e/measurement-baseline.spec.ts:192:5 › shared E2E fixture aborts direct GA collection independently of app gating
+[150/216] e2e/reflow-contract.spec.ts:9:5 › semantic-row probe catches squeeze without document overflow and accepts wrap/stack
+[151/216] e2e/reflow-contract.spec.ts:39:5 › surface probe catches clipping/token overflow but permits an owned code scroller
+[152/216] e2e/reflow-contract.spec.ts:61:5 › text methods record achieved sizes, detect fixed-px root failure, and restore
+[153/216] e2e/reflow-contract.spec.ts:134:5 › semantic rows preserve scoped typography and group inline fragments by line
+[154/216] e2e/issue-157-stage-b.spec.ts:98:5 › Creation Deck remains usable when session storage is blocked
+[155/216] e2e/reflow-contract.spec.ts:169:5 › focus visibility requires a keyboard-focus-specific visual change
+[156/216] e2e/reflow-contract.spec.ts:185:5 › surface positive case records reachable focus and minimum target
+[157/216] e2e/reflow-contract.spec.ts:198:5 › text measurements reject changed target count, identity and order at either boundary
+[158/216] e2e/reflow-contract.spec.ts:236:5 › text restore rejects changed targets and restores only original elements
+[159/216] e2e/issue-157-stage-b.spec.ts:111:5 › Creation Deck transfers only control focus when forced flat
+[160/216] e2e/shared-category-ring.spec.ts:12:45 › Home order and complete return context at 320
+[161/216] e2e/shared-category-ring.spec.ts:12:45 › Home order and complete return context at 375
+[162/216] e2e/issue-157-stage-b.spec.ts:177:5 › reading and trust planes remain readable and preserve ElevenLabs v4
+[163/216] e2e/slice-five-tools-guides.spec.ts:15:5 › Slice 5 directories and representative details reflow at every acceptance viewport
+[164/216] e2e/shared-category-ring.spec.ts:12:45 › Home order and complete return context at 390
+[165/216] e2e/shared-category-ring.spec.ts:12:45 › Home order and complete return context at 1440
+[166/216] e2e/shared-category-ring.spec.ts:45:5 › entry preferences and focus ownership remain separate across mounts
+[167/216] e2e/shared-category-ring.spec.ts:64:5 › category tiny flick, inertia, recontact and navigation history use shared motion
+[168/216] e2e/slice-five-tools-guides.spec.ts:61:5 › Tools keeps criteria, URL history, evidence and empty recovery understandable
+[169/216] e2e/slice-five-tools-guides.spec.ts:79:5 › Guides stage state survives history and keeps prerequisite/output visible
+[170/216] e2e/slice-five-tools-guides.spec.ts:102:5 › Tool affiliate and non-affiliate destinations retain disclosure and rel behavior
+[171/216] e2e/slice-four-project.spec.ts:44:5 › Slice 4 empty and clarification states reflow at every acceptance viewport
+[172/216] e2e/shared-category-ring.spec.ts:92:36 › category enlarged Japanese remains usable at 320
+[173/216] e2e/shared-category-ring.spec.ts:92:36 › category enlarged Japanese remains usable at 375
+[174/216] e2e/shared-category-ring.spec.ts:100:5 › Home no-JS category links reach actual articles, unsafe context is ignored
+[175/216] e2e/slice-four-project.spec.ts:123:5 › validation preserves input and gives a focused recovery target
+[176/216] e2e/slice-four-project.spec.ts:139:5 › generated current task, recovery, completion, and local restore stay task-first
+[177/216] e2e/slice-one-foundations.spec.ts:19:7 › Issue 137 Slice 1 foundations › semantic tokens and reduced-motion contract are active
+[178/216] e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 320px
+[179/216] e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 375px
+  7) e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 375px 
+
+    Error: / has unowned overflow
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -   1
+    + Received  + 205
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 217.95338439941406,
+    +     "right": 501.64308166503906,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 217.95338439941406,
+    +     "right": 501.64308166503906,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 424.6414794921875,
+    +     "right": 485.3385314941406,
+    +     "selector": "small",
+    +     "width": 60.697052001953125,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "strong",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 389.5650634765625,
+    +     "right": 408.3826904296875,
+    +     "selector": "b",
+    +     "width": 18.817626953125,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "#_r_0_-1",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -296.88311767578125,
+    +     "right": -13.193389892578125,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.6897277832031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -296.88311767578125,
+    +     "right": -13.193389892578125,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.6897277832031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -185.74424743652344,
+    +     "selector": "span.v2-start-card-label",
+    +     "width": 94.83430480957031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -86.98210144042969,
+    +     "right": -28.62850570678711,
+    +     "selector": "small",
+    +     "width": 58.35359573364258,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "strong",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -121.36087036132812,
+    +     "right": -102.85675811767578,
+    +     "selector": "b",
+    +     "width": 18.504112243652344,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "#_r_0_-2",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -149.94873046875,
+    +     "selector": "button.v2-start-card-expand",
+    +     "width": 130.62982177734375,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -126.64311218261719,
+    +     "right": 157.0465850830078,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -126.64311218261719,
+    +     "right": 157.0465850830078,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": -15.504241943359375,
+    +     "selector": "span.v2-start-card-label",
+    +     "width": 94.83432006835938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "strong",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "#_r_0_-3",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 20.291290283203125,
+    +     "selector": "button.v2-start-card-expand",
+    +     "width": 130.62985229492188,
+    +   },
+    + ]
+
+      48 |         const diagnostics = await diagnoseWidths(page);
+      49 |         expect(diagnostics.documentOverflowPx, `${route} introduced document overflow`).toBe(0);
+    > 50 |         expect(diagnostics.unownedOverflowingElements, `${route} has unowned overflow`).toEqual([]);
+         |                                                                                         ^
+      51 |       }
+      52 |     });
+      53 |   }
+        at /workspace/GameAI-Hub/e2e/slice-one-foundations.spec.ts:50:89
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-one-foundations-Issu-1a687-ir-width-ownership-at-375px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-one-foundations-Issu-1a687-ir-width-ownership-at-375px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-one-foundations-Issu-1a687-ir-width-ownership-at-375px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-one-foundations-Issu-1a687-ir-width-ownership-at-375px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:12551) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[180/216] e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 390px
+  8) e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 390px 
+
+    Error: /articles has unowned overflow
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -   1
+    + Received  + 205
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 225.45338439941406,
+    +     "right": 509.14308166503906,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 225.45338439941406,
+    +     "right": 509.14308166503906,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 240.88848876953125,
+    +     "right": 492.8385314941406,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 240.88848876953125,
+    +     "right": 492.8385314941406,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 432.1414794921875,
+    +     "right": 492.8385314941406,
+    +     "selector": "small",
+    +     "width": 60.697052001953125,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 240.88848876953125,
+    +     "right": 492.8385314941406,
+    +     "selector": "strong",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 240.88848876953125,
+    +     "right": 492.8385314941406,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 397.0650634765625,
+    +     "right": 415.8826904296875,
+    +     "selector": "b",
+    +     "width": 18.817626953125,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 240.88848876953125,
+    +     "right": 492.8385314941406,
+    +     "selector": "#_r_0_-1",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -289.38311767578125,
+    +     "right": -5.693389892578125,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.6897277832031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -289.38311767578125,
+    +     "right": -5.693389892578125,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.6897277832031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -273.07855224609375,
+    +     "right": -21.128509521484375,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -273.07855224609375,
+    +     "right": -21.128509521484375,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -273.07855224609375,
+    +     "right": -178.24424743652344,
+    +     "selector": "span.v2-start-card-label",
+    +     "width": 94.83430480957031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -79.48210144042969,
+    +     "right": -21.12850570678711,
+    +     "selector": "small",
+    +     "width": 58.35359573364258,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -273.07855224609375,
+    +     "right": -21.128509521484375,
+    +     "selector": "strong",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -273.07855224609375,
+    +     "right": -21.128509521484375,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -113.86087036132812,
+    +     "right": -95.35675811767578,
+    +     "selector": "b",
+    +     "width": 18.504112243652344,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -273.07855224609375,
+    +     "right": -21.128509521484375,
+    +     "selector": "#_r_0_-2",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -273.07855224609375,
+    +     "right": -142.44873046875,
+    +     "selector": "button.v2-start-card-expand",
+    +     "width": 130.62982177734375,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -119.14311218261719,
+    +     "right": 164.5465850830078,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -119.14311218261719,
+    +     "right": 164.5465850830078,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -102.83856201171875,
+    +     "right": 149.1114959716797,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -102.83856201171875,
+    +     "right": 149.1114959716797,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -102.83856201171875,
+    +     "right": -8.004249572753906,
+    +     "selector": "span.v2-start-card-label",
+    +     "width": 94.83431243896484,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -102.83856201171875,
+    +     "right": 149.1114959716797,
+    +     "selector": "strong",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -102.83856201171875,
+    +     "right": 149.1114959716797,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -102.83856201171875,
+    +     "right": 149.1114959716797,
+    +     "selector": "#_r_0_-3",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -102.83856201171875,
+    +     "right": 27.791290283203125,
+    +     "selector": "button.v2-start-card-expand",
+    +     "width": 130.62985229492188,
+    +   },
+    + ]
+
+      48 |         const diagnostics = await diagnoseWidths(page);
+      49 |         expect(diagnostics.documentOverflowPx, `${route} introduced document overflow`).toBe(0);
+    > 50 |         expect(diagnostics.unownedOverflowingElements, `${route} has unowned overflow`).toEqual([]);
+         |                                                                                         ^
+      51 |       }
+      52 |     });
+      53 |   }
+        at /workspace/GameAI-Hub/e2e/slice-one-foundations.spec.ts:50:89
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-one-foundations-Issu-8cb69-ir-width-ownership-at-390px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-one-foundations-Issu-8cb69-ir-width-ownership-at-390px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-one-foundations-Issu-8cb69-ir-width-ownership-at-390px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-one-foundations-Issu-8cb69-ir-width-ownership-at-390px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:12692) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[181/216] e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 1440px
+[182/216] e2e/slice-one-foundations.spec.ts:55:7 › Issue 137 Slice 1 foundations › intrinsic text, focus and owned scrollers satisfy the shared contract
+[183/216] e2e/slice-seven-final-acceptance.spec.ts:29:5 › Slice 7 cross-route matrix has contained, structured, durable rendered evidence
+  9) e2e/slice-seven-final-acceptance.spec.ts:29:5 › Slice 7 cross-route matrix has contained, structured, durable rendered evidence 
+
+    Error: / unowned overflow at 375px
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -   1
+    + Received  + 205
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 217.95338439941406,
+    +     "right": 501.64308166503906,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 217.95338439941406,
+    +     "right": 501.64308166503906,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 424.6414794921875,
+    +     "right": 485.3385314941406,
+    +     "selector": "small",
+    +     "width": 60.697052001953125,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "strong",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 389.5650634765625,
+    +     "right": 408.3826904296875,
+    +     "selector": "b",
+    +     "width": 18.817626953125,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "#_r_0_-1",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -296.88311767578125,
+    +     "right": -13.193389892578125,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.6897277832031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -296.88311767578125,
+    +     "right": -13.193389892578125,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.6897277832031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -185.74424743652344,
+    +     "selector": "span.v2-start-card-label",
+    +     "width": 94.83430480957031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -86.98210144042969,
+    +     "right": -28.62850570678711,
+    +     "selector": "small",
+    +     "width": 58.35359573364258,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "strong",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -121.36087036132812,
+    +     "right": -102.85675811767578,
+    +     "selector": "b",
+    +     "width": 18.504112243652344,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "#_r_0_-2",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -149.94873046875,
+    +     "selector": "button.v2-start-card-expand",
+    +     "width": 130.62982177734375,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -126.64311218261719,
+    +     "right": 157.0465850830078,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -126.64311218261719,
+    +     "right": 157.0465850830078,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": -15.504241943359375,
+    +     "selector": "span.v2-start-card-label",
+    +     "width": 94.83432006835938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "strong",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "#_r_0_-3",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 20.291290283203125,
+    +     "selector": "button.v2-start-card-expand",
+    +     "width": 130.62985229492188,
+    +   },
+    + ]
+
+      43 |       const widths = await diagnoseWidths(page);
+      44 |       expect(widths.documentScrollWidth, `${route.path} document width at ${viewport.width}px`).toBeLessThanOrEqual(widths.viewportWidth);
+    > 45 |       expect(widths.unownedOverflowingElements, `${route.path} unowned overflow at ${viewport.width}px`).toEqual([]);
+         |                                                                                                          ^
+      46 |
+      47 |       const screenshot = `${route.id}-${viewport.id}.png`;
+      48 |       await page.screenshot({ path: path.join(evidenceDir, screenshot), fullPage: true });
+        at /workspace/GameAI-Hub/e2e/slice-seven-final-acceptance.spec.ts:45:106
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-seven-final-acceptan-ca835-d-durable-rendered-evidence/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-seven-final-acceptan-ca835-d-durable-rendered-evidence/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-seven-final-acceptan-ca835-d-durable-rendered-evidence/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-seven-final-acceptan-ca835-d-durable-rendered-evidence/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:12950) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[184/216] e2e/slice-seven-final-acceptance.spec.ts:166:5 › shared chrome keyboard, focus return, targets and reduced motion remain consistent
+[185/216] e2e/slice-seven-final-acceptance.spec.ts:216:5 › Compare destructive changes restore focus and preserve mobile meaning
+[186/216] e2e/slice-seven-final-acceptance.spec.ts:227:5 › forms, breadcrumbs, owned scrollers and anchor offsets keep their semantics
+[187/216] e2e/slice-six-compare-trust.spec.ts:22:5 › Slice 6 Compare states and trust routes have zero mobile document overflow
+  10) e2e/shared-category-ring.spec.ts:100:5 › Home no-JS category links reach actual articles, unsafe context is ignored 
+
+    Test timeout of 45000ms exceeded.
+
+    Error: locator.click: Test ended.
+    Call log:
+      - waiting for locator('[data-category="voice"]')
+        3 × locator resolved to <a aria-label="音と声を作る" data-category="voice" class="v2-start-card-face" href="/articles/?hubEntry=home&hubCategory=voice#voice">…</a>
+        - attempting click action
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <p id="_R_4oinnb_-2" data-expanded="true" class="v2-start-card-description">代表セリフの制作から商用公開前の権利確認まで、順番に判断します。</p> intercepts pointer events
+        - retrying click action
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <p id="_R_4oinnb_-2" data-expanded="true" class="v2-start-card-description">代表セリフの制作から商用公開前の権利確認まで、順番に判断します。</p> intercepts pointer events
+        - retrying click action
+          - waiting 20ms
+        - element was detached from the DOM, retrying
+
+
+      101 |   const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:844}});
+      102 |   const nojs=await context.newPage(); await nojs.goto('/');
+    > 103 |   await nojs.locator('[data-category="voice"]').click();
+          |                                                 ^
+      104 |   await expect(nojs.locator('#voice li a')).toHaveCount(3); await context.close();
+      105 |   await page.goto('/articles/?hubEntry=https://evil.example&return=https://evil.example#voice'); await idle(page);
+      106 |   await expect(page.getByRole('link',{name:'← カテゴリへ戻る'})).toHaveAttribute('href','#categories');
+        at /workspace/GameAI-Hub/e2e/shared-category-ring.spec.ts:103:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/shared-category-ring-Home--e53cb-s-unsafe-context-is-ignored/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/shared-category-ring-Home--e53cb-s-unsafe-context-is-ignored/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/shared-category-ring-Home--e53cb-s-unsafe-context-is-ignored/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/shared-category-ring-Home--e53cb-s-unsafe-context-is-ignored/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/shared-category-ring-Home--e53cb-s-unsafe-context-is-ignored/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:13209) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[188/216] e2e/shared-category-ring.spec.ts:110:5 › Home example fragment remains native and Project input survives
+[189/216] e2e/slice-three-articles.spec.ts:21:5 › Slice 3 representative routes meet the rendered reading contract
+  11) e2e/slice-three-articles.spec.ts:21:5 › Slice 3 representative routes meet the rendered reading contract 
+
+    Error: /articles/ has unowned overflow
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -   1
+    + Received  + 205
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 217.95338439941406,
+    +     "right": 501.64308166503906,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 217.95338439941406,
+    +     "right": 501.64308166503906,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 424.6414794921875,
+    +     "right": 485.3385314941406,
+    +     "selector": "small",
+    +     "width": 60.697052001953125,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "strong",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 389.5650634765625,
+    +     "right": 408.3826904296875,
+    +     "selector": "b",
+    +     "width": 18.817626953125,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "#_r_0_-1",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -296.88311767578125,
+    +     "right": -13.193389892578125,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.6897277832031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -296.88311767578125,
+    +     "right": -13.193389892578125,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.6897277832031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -185.74424743652344,
+    +     "selector": "span.v2-start-card-label",
+    +     "width": 94.83430480957031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -86.98210144042969,
+    +     "right": -28.62850570678711,
+    +     "selector": "small",
+    +     "width": 58.35359573364258,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "strong",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -121.36087036132812,
+    +     "right": -102.85675811767578,
+    +     "selector": "b",
+    +     "width": 18.504112243652344,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "#_r_0_-2",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -149.94873046875,
+    +     "selector": "button.v2-start-card-expand",
+    +     "width": 130.62982177734375,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -126.64311218261719,
+    +     "right": 157.0465850830078,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -126.64311218261719,
+    +     "right": 157.0465850830078,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": -15.504241943359375,
+    +     "selector": "span.v2-start-card-label",
+    +     "width": 94.83432006835938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "strong",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "#_r_0_-3",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 20.291290283203125,
+    +     "selector": "button.v2-start-card-expand",
+    +     "width": 130.62985229492188,
+    +   },
+    + ]
+
+      42 |         diagnostics.unownedOverflowingElements,
+      43 |         `${route.path} has unowned overflow`,
+    > 44 |       ).toEqual([]);
+         |         ^
+      45 |
+      46 |       if (route.id === "hub") {
+      47 |         await expect(
+        at /workspace/GameAI-Hub/e2e/slice-three-articles.spec.ts:44:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-three-articles-Slice-f57d5-e-rendered-reading-contract/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-three-articles-Slice-f57d5-e-rendered-reading-contract/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-three-articles-Slice-f57d5-e-rendered-reading-contract/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-three-articles-Slice-f57d5-e-rendered-reading-contract/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:13402) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[190/216] e2e/slice-three-articles.spec.ts:110:5 › affiliate disclosure, destination, events, and local scrollers retain parity
+[191/216] e2e/slice-three-articles.spec.ts:198:5 › shared-template commercial and pricing articles regress safely at every acceptance width
+[192/216] e2e/slice-six-compare-trust.spec.ts:54:5 › picker search, limit, focus, history, evidence and mobile criteria remain usable
+[193/216] e2e/slice-six-compare-trust.spec.ts:79:5 › four-candidate limit and trust controls remain explicit
+[194/216] e2e/slice-three-articles.spec.ts:240:5 › TOC supports mobile disclosure, sticky-safe anchors, initial fragments, and owned code scroll
+[195/216] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary idea action and bounded title at 320x844
+[196/216] e2e/slice-three-articles.spec.ts:283:5 › initial-fragment reconciliation yields to the reader and rearms for later navigation
+[197/216] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 320x844
+  12) e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary idea action and bounded title at 320x844 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByRole('heading', { level: 1 })
+    Expected pattern: /作りたいゲームから、次の1作業を決める。/
+    Received string:  "GameBuildiaryビルダイアリー"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toHaveText" with timeout 10000ms
+      - waiting for getByRole('heading', { level: 1 })
+        24 × locator resolved to <h1 id="home-title">…</h1>
+           - unexpected value "GameBuildiaryビルダイアリー"
+
+
+      13 |       const h1 = page.getByRole("heading", { level: 1 });
+      14 |       const action = page.locator(".home-category-entry .v2-start-card-read").first();
+    > 15 |       await expect(page.getByRole("button", { name: "最初の作業を作る" })).toBeVisible();
+         |                        ^
+      16 |       await expect(h1).toHaveText(/GameBuildiary/);
+      17 |       await expect(action).toBeVisible();
+      18 |       const [headingBox, actionBox] = await Promise.all([h1.boundingBox(), action.boundingBox()]);
+        at /workspace/GameAI-Hub/e2e/slice-two-home-chrome.spec.ts:15:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-two-home-chrome-Issu-4bcf3-nd-bounded-title-at-320x844/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-two-home-chrome-Issu-4bcf3-nd-bounded-title-at-320x844/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-two-home-chrome-Issu-4bcf3-nd-bounded-title-at-320x844/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-two-home-chrome-Issu-4bcf3-nd-bounded-title-at-320x844/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:13808) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[198/216] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary idea action and bounded title at 375x844
+  13) e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 320x844 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: /次の1作業を決める/, level: 1 })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByRole('heading', { name: /次の1作業を決める/, level: 1 })
+
+
+      25 |       await page.setViewportSize(viewport);
+      26 |       await page.goto("/");
+    > 27 |       await expect(page.getByRole("heading", { level: 1, name: /GameBuildiary/ })).toBeVisible();
+         |                                                                                ^
+      28 |       const diagnostics = await diagnoseWidths(page);
+      29 |       const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
+      30 |       if (viewport.width < 400) {
+        at /workspace/GameAI-Hub/e2e/slice-zero-acceptance.spec.ts:27:80
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-zero-acceptance-Issu-abf51--with-provenance-at-320x844/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-zero-acceptance-Issu-abf51--with-provenance-at-320x844/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-zero-acceptance-Issu-abf51--with-provenance-at-320x844/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-zero-acceptance-Issu-abf51--with-provenance-at-320x844/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:13945) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[199/216] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 375x844
+  14) e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary idea action and bounded title at 375x844 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByRole('heading', { level: 1 })
+    Expected pattern: /作りたいゲームから、次の1作業を決める。/
+    Received string:  "GameBuildiaryビルダイアリー"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toHaveText" with timeout 10000ms
+      - waiting for getByRole('heading', { level: 1 })
+        24 × locator resolved to <h1 id="home-title">…</h1>
+           - unexpected value "GameBuildiaryビルダイアリー"
+
+
+      13 |       const h1 = page.getByRole("heading", { level: 1 });
+      14 |       const action = page.locator(".home-category-entry .v2-start-card-read").first();
+    > 15 |       await expect(page.getByRole("button", { name: "最初の作業を作る" })).toBeVisible();
+         |                        ^
+      16 |       await expect(h1).toHaveText(/GameBuildiary/);
+      17 |       await expect(action).toBeVisible();
+      18 |       const [headingBox, actionBox] = await Promise.all([h1.boundingBox(), action.boundingBox()]);
+        at /workspace/GameAI-Hub/e2e/slice-two-home-chrome.spec.ts:15:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-two-home-chrome-Issu-ae4f8-nd-bounded-title-at-375x844/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-two-home-chrome-Issu-ae4f8-nd-bounded-title-at-375x844/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-two-home-chrome-Issu-ae4f8-nd-bounded-title-at-375x844/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-two-home-chrome-Issu-ae4f8-nd-bounded-title-at-375x844/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:14085) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[200/216] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary idea action and bounded title at 390x844
+  15) e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 375x844 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: /次の1作業を決める/, level: 1 })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByRole('heading', { name: /次の1作業を決める/, level: 1 })
+
+
+      25 |       await page.setViewportSize(viewport);
+      26 |       await page.goto("/");
+    > 27 |       await expect(page.getByRole("heading", { level: 1, name: /GameBuildiary/ })).toBeVisible();
+         |                                                                                ^
+      28 |       const diagnostics = await diagnoseWidths(page);
+      29 |       const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
+      30 |       if (viewport.width < 400) {
+        at /workspace/GameAI-Hub/e2e/slice-zero-acceptance.spec.ts:27:80
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-zero-acceptance-Issu-b7564--with-provenance-at-375x844/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-zero-acceptance-Issu-b7564--with-provenance-at-375x844/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-zero-acceptance-Issu-b7564--with-provenance-at-375x844/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-zero-acceptance-Issu-b7564--with-provenance-at-375x844/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:14223) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[201/216] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 390x844
+  16) e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary idea action and bounded title at 390x844 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByRole('heading', { level: 1 })
+    Expected pattern: /作りたいゲームから、次の1作業を決める。/
+    Received string:  "GameBuildiaryビルダイアリー"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toHaveText" with timeout 10000ms
+      - waiting for getByRole('heading', { level: 1 })
+        24 × locator resolved to <h1 id="home-title">…</h1>
+           - unexpected value "GameBuildiaryビルダイアリー"
+
+
+      13 |       const h1 = page.getByRole("heading", { level: 1 });
+      14 |       const action = page.locator(".home-category-entry .v2-start-card-read").first();
+    > 15 |       await expect(page.getByRole("button", { name: "最初の作業を作る" })).toBeVisible();
+         |                        ^
+      16 |       await expect(h1).toHaveText(/GameBuildiary/);
+      17 |       await expect(action).toBeVisible();
+      18 |       const [headingBox, actionBox] = await Promise.all([h1.boundingBox(), action.boundingBox()]);
+        at /workspace/GameAI-Hub/e2e/slice-two-home-chrome.spec.ts:15:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-two-home-chrome-Issu-d1ec3-nd-bounded-title-at-390x844/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-two-home-chrome-Issu-d1ec3-nd-bounded-title-at-390x844/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-two-home-chrome-Issu-d1ec3-nd-bounded-title-at-390x844/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-two-home-chrome-Issu-d1ec3-nd-bounded-title-at-390x844/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:14362) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[202/216] e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary idea action and bounded title at 1440x900
+  17) e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 390x844 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: /次の1作業を決める/, level: 1 })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByRole('heading', { name: /次の1作業を決める/, level: 1 })
+
+
+      25 |       await page.setViewportSize(viewport);
+      26 |       await page.goto("/");
+    > 27 |       await expect(page.getByRole("heading", { level: 1, name: /GameBuildiary/ })).toBeVisible();
+         |                                                                                ^
+      28 |       const diagnostics = await diagnoseWidths(page);
+      29 |       const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
+      30 |       if (viewport.width < 400) {
+        at /workspace/GameAI-Hub/e2e/slice-zero-acceptance.spec.ts:27:80
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-zero-acceptance-Issu-590d9--with-provenance-at-390x844/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-zero-acceptance-Issu-590d9--with-provenance-at-390x844/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-zero-acceptance-Issu-590d9--with-provenance-at-390x844/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-zero-acceptance-Issu-590d9--with-provenance-at-390x844/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:14500) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[203/216] e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 1440x900
+  18) e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary idea action and bounded title at 1440x900 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByRole('heading', { level: 1 })
+    Expected pattern: /作りたいゲームから、次の1作業を決める。/
+    Received string:  "GameBuildiaryビルダイアリー"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toHaveText" with timeout 10000ms
+      - waiting for getByRole('heading', { level: 1 })
+        24 × locator resolved to <h1 id="home-title">…</h1>
+           - unexpected value "GameBuildiaryビルダイアリー"
+
+
+      13 |       const h1 = page.getByRole("heading", { level: 1 });
+      14 |       const action = page.locator(".home-category-entry .v2-start-card-read").first();
+    > 15 |       await expect(page.getByRole("button", { name: "最初の作業を作る" })).toBeVisible();
+         |                        ^
+      16 |       await expect(h1).toHaveText(/GameBuildiary/);
+      17 |       await expect(action).toBeVisible();
+      18 |       const [headingBox, actionBox] = await Promise.all([h1.boundingBox(), action.boundingBox()]);
+        at /workspace/GameAI-Hub/e2e/slice-two-home-chrome.spec.ts:15:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-two-home-chrome-Issu-b3e80-d-bounded-title-at-1440x900/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-two-home-chrome-Issu-b3e80-d-bounded-title-at-1440x900/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-two-home-chrome-Issu-b3e80-d-bounded-title-at-1440x900/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-two-home-chrome-Issu-b3e80-d-bounded-title-at-1440x900/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:14671) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[204/216] e2e/slice-two-home-chrome.spec.ts:28:7 › Issue 137 Slice 2 Home composition › preserves the exact idea and Home attribution while navigating to Project
+[205/216] e2e/slice-two-home-chrome.spec.ts:41:7 › Issue 137 Slice 2 Home composition › mobile menu traps focus, closes with Escape, and navigates
+  19) e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 1440x900 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: /次の1作業を決める/, level: 1 })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByRole('heading', { name: /次の1作業を決める/, level: 1 })
+
+
+      25 |       await page.setViewportSize(viewport);
+      26 |       await page.goto("/");
+    > 27 |       await expect(page.getByRole("heading", { level: 1, name: /GameBuildiary/ })).toBeVisible();
+         |                                                                                ^
+      28 |       const diagnostics = await diagnoseWidths(page);
+      29 |       const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
+      30 |       if (viewport.width < 400) {
+        at /workspace/GameAI-Hub/e2e/slice-zero-acceptance.spec.ts:27:80
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-zero-acceptance-Issu-25512-with-provenance-at-1440x900/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-zero-acceptance-Issu-25512-with-provenance-at-1440x900/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-zero-acceptance-Issu-25512-with-provenance-at-1440x900/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-zero-acceptance-Issu-25512-with-provenance-at-1440x900/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:14843) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[206/216] e2e/slice-zero-acceptance.spec.ts:65:9 › Issue 137 Slice 0 rendered baselines › Compare has no document-level overflow at 320px
+[207/216] e2e/slice-zero-acceptance.spec.ts:65:9 › Issue 137 Slice 0 rendered baselines › Compare has no document-level overflow at 375px
+[208/216] e2e/slice-zero-acceptance.spec.ts:65:9 › Issue 137 Slice 0 rendered baselines › Compare has no document-level overflow at 390px
+[209/216] e2e/slice-zero-acceptance.spec.ts:79:7 › Issue 137 Slice 0 rendered baselines › Compare supports the four-candidate stress contract
+[210/216] e2e/slice-zero-acceptance.spec.ts:95:5 › stress fixture covers every required state and distinguishes owned scrollers
+[211/216] e2e/slice-zero-acceptance.spec.ts:148:5 › manifest contract rejects physical-device claims made from emulation
+[212/216] e2e/stage-a-evidence.spec.ts:46:5 › emit and validate the Stage A executed subset
+  20) e2e/stage-a-evidence.spec.ts:46:5 › emit and validate the Stage A executed subset ────────────
+
+    Error: evidence requires a clean source checkpoint; commit or restore:
+    M app/articles/page.tsx
+     M app/page.tsx
+     M app/visual-layer-v2.css
+     M components/ArticleFrame.tsx
+     M components/ArticleHub.tsx
+     M components/CreationDeck.tsx
+     M e2e/acceptance/diagnostics.ts
+     M e2e/content-seo.spec.ts
+     M e2e/deck-acceptance-contract.spec.ts
+     M e2e/gamebuildiary-category-entry.spec.ts
+     M e2e/issue-157-reflow-evidence.spec.ts
+     M e2e/slice-three-articles.spec.ts
+     M e2e/slice-two-home-chrome.spec.ts
+     M e2e/slice-zero-acceptance.spec.ts
+     M tests/creation-deck.test.tsx
+    ?? .ring-playwright.config.ts
+    ?? components/ArticleReturnLink.tsx
+    ?? docs/codex-progress/shared-category-ring.md
+    ?? docs/design/shared-category-ring.md
+    ?? e2e/shared-category-ring.spec.ts
+    ?? lib/article-hub-groups.ts
+
+       at acceptance/source-identity.ts:25
+
+      23 |   ).trim();
+      24 |   if (status) {
+    > 25 |     throw new Error(
+         |           ^
+      26 |       `evidence requires a clean source checkpoint; commit or restore:\n${status}`,
+      27 |     );
+      28 |   }
+        at cleanSourceIdentity (/workspace/GameAI-Hub/e2e/acceptance/source-identity.ts:25:11)
+        at /workspace/GameAI-Hub/e2e/stage-a-evidence.spec.ts:51:45
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/stage-a-evidence-emit-and--2f051-the-Stage-A-executed-subset/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/stage-a-evidence-emit-and--2f051-the-Stage-A-executed-subset/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/stage-a-evidence-emit-and--2f051-the-Stage-A-executed-subset/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/stage-a-evidence-emit-and--2f051-the-Stage-A-executed-subset/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  21) e2e/slice-two-home-chrome.spec.ts:41:7 › Issue 137 Slice 2 Home composition › mobile menu traps focus, closes with Escape, and navigates 
+
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected pattern: /\/articles\/#categories$/
+    Received string:  "http://127.0.0.1:3100/articles/?hubCategory=start#categories"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toHaveURL" with timeout 10000ms
+        24 × locator resolved to <html lang="ja" data-scroll-behavior="smooth">…</html>
+           - unexpected value "http://127.0.0.1:3100/articles/?hubCategory=start#categories"
+
+
+      54 |     await expect(trigger).toBeFocused();
+      55 |     await trigger.click();
+    > 56 |     await dialog.getByRole("link", { name: /記事/ }).click();
+         |                        ^
+      57 |     await expect(page).toHaveURL(/\/articles\/.*#categories$/);
+      58 |     await expect(page.getByRole("dialog", { name: "サイトメニュー" })).toHaveCount(0);
+      59 |   });
+        at /workspace/GameAI-Hub/e2e/slice-two-home-chrome.spec.ts:56:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-two-home-chrome-Issu-f6b97-s-with-Escape-and-navigates/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-two-home-chrome-Issu-f6b97-s-with-Escape-and-navigates/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-two-home-chrome-Issu-f6b97-s-with-Escape-and-navigates/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-two-home-chrome-Issu-f6b97-s-with-Escape-and-navigates/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:15157) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[213/216] e2e/slice-two-home-chrome.spec.ts:61:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 320px
+[214/216] e2e/slice-two-home-chrome.spec.ts:61:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 375px
+  22) e2e/slice-two-home-chrome.spec.ts:61:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 375px 
+
+    Error: /articles has unowned overflow
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -   1
+    + Received  + 205
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 217.95338439941406,
+    +     "right": 501.64308166503906,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 217.95338439941406,
+    +     "right": 501.64308166503906,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 424.6414794921875,
+    +     "right": 485.3385314941406,
+    +     "selector": "small",
+    +     "width": 60.697052001953125,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "strong",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 389.5650634765625,
+    +     "right": 408.3826904296875,
+    +     "selector": "b",
+    +     "width": 18.817626953125,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 233.38848876953125,
+    +     "right": 485.3385314941406,
+    +     "selector": "#_r_0_-1",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -296.88311767578125,
+    +     "right": -13.193389892578125,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.6897277832031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -296.88311767578125,
+    +     "right": -13.193389892578125,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.6897277832031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -185.74424743652344,
+    +     "selector": "span.v2-start-card-label",
+    +     "width": 94.83430480957031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -86.98210144042969,
+    +     "right": -28.62850570678711,
+    +     "selector": "small",
+    +     "width": 58.35359573364258,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "strong",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -121.36087036132812,
+    +     "right": -102.85675811767578,
+    +     "selector": "b",
+    +     "width": 18.504112243652344,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -28.628509521484375,
+    +     "selector": "#_r_0_-2",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -280.57855224609375,
+    +     "right": -149.94873046875,
+    +     "selector": "button.v2-start-card-expand",
+    +     "width": 130.62982177734375,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -126.64311218261719,
+    +     "right": 157.0465850830078,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -126.64311218261719,
+    +     "right": 157.0465850830078,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": -15.504241943359375,
+    +     "selector": "span.v2-start-card-label",
+    +     "width": 94.83432006835938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "strong",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 141.6114959716797,
+    +     "selector": "#_r_0_-3",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -110.33856201171875,
+    +     "right": 20.291290283203125,
+    +     "selector": "button.v2-start-card-expand",
+    +     "width": 130.62985229492188,
+    +   },
+    + ]
+
+      65 |         await page.goto(route);
+      66 |         const diagnostics = await diagnoseWidths(page);
+    > 67 |         expect(diagnostics.documentOverflowPx, `${route} overflowed`).toBe(0);
+         |                                                                               ^
+      68 |         expect(diagnostics.unownedOverflowingElements, `${route} has unowned overflow`).toEqual([]);
+      69 |       }
+      70 |     });
+        at /workspace/GameAI-Hub/e2e/slice-two-home-chrome.spec.ts:67:89
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-two-home-chrome-Issu-12de6-ine-route-overflow-at-375px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-two-home-chrome-Issu-12de6-ine-route-overflow-at-375px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-two-home-chrome-Issu-12de6-ine-route-overflow-at-375px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-two-home-chrome-Issu-12de6-ine-route-overflow-at-375px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:15330) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[215/216] e2e/slice-two-home-chrome.spec.ts:61:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 390px
+  23) e2e/slice-two-home-chrome.spec.ts:61:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 390px 
+
+    Error: / has unowned overflow
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -   1
+    + Received  + 205
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 225.45338439941406,
+    +     "right": 509.14308166503906,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 225.45338439941406,
+    +     "right": 509.14308166503906,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 240.88848876953125,
+    +     "right": 492.8385314941406,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 240.88848876953125,
+    +     "right": 492.8385314941406,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 432.1414794921875,
+    +     "right": 492.8385314941406,
+    +     "selector": "small",
+    +     "width": 60.697052001953125,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 240.88848876953125,
+    +     "right": 492.8385314941406,
+    +     "selector": "strong",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 240.88848876953125,
+    +     "right": 492.8385314941406,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 397.0650634765625,
+    +     "right": 415.8826904296875,
+    +     "selector": "b",
+    +     "width": 18.817626953125,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": 240.88848876953125,
+    +     "right": 492.8385314941406,
+    +     "selector": "#_r_0_-1",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -289.38311767578125,
+    +     "right": -5.693389892578125,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.6897277832031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -289.38311767578125,
+    +     "right": -5.693389892578125,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.6897277832031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -273.07855224609375,
+    +     "right": -21.128509521484375,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -273.07855224609375,
+    +     "right": -21.128509521484375,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -273.07855224609375,
+    +     "right": -178.24424743652344,
+    +     "selector": "span.v2-start-card-label",
+    +     "width": 94.83430480957031,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -79.48210144042969,
+    +     "right": -21.12850570678711,
+    +     "selector": "small",
+    +     "width": 58.35359573364258,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -273.07855224609375,
+    +     "right": -21.128509521484375,
+    +     "selector": "strong",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -273.07855224609375,
+    +     "right": -21.128509521484375,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -113.86087036132812,
+    +     "right": -95.35675811767578,
+    +     "selector": "b",
+    +     "width": 18.504112243652344,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -273.07855224609375,
+    +     "right": -21.128509521484375,
+    +     "selector": "#_r_0_-2",
+    +     "width": 251.95004272460938,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -273.07855224609375,
+    +     "right": -142.44873046875,
+    +     "selector": "button.v2-start-card-expand",
+    +     "width": 130.62982177734375,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -119.14311218261719,
+    +     "right": 164.5465850830078,
+    +     "selector": "li.v2-start-card-item",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -119.14311218261719,
+    +     "right": 164.5465850830078,
+    +     "selector": "div.v2-start-card",
+    +     "width": 283.689697265625,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -102.83856201171875,
+    +     "right": 149.1114959716797,
+    +     "selector": "a.v2-start-card-face",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -102.83856201171875,
+    +     "right": 149.1114959716797,
+    +     "selector": "span.v2-start-card-meta",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -102.83856201171875,
+    +     "right": -8.004249572753906,
+    +     "selector": "span.v2-start-card-label",
+    +     "width": 94.83431243896484,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -102.83856201171875,
+    +     "right": 149.1114959716797,
+    +     "selector": "strong",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -102.83856201171875,
+    +     "right": 149.1114959716797,
+    +     "selector": "span.v2-start-card-read",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -102.83856201171875,
+    +     "right": 149.1114959716797,
+    +     "selector": "#_r_0_-3",
+    +     "width": 251.95005798339844,
+    +   },
+    +   Object {
+    +     "exceptionOwner": undefined,
+    +     "left": -102.83856201171875,
+    +     "right": 27.791290283203125,
+    +     "selector": "button.v2-start-card-expand",
+    +     "width": 130.62985229492188,
+    +   },
+    + ]
+
+      65 |         await page.goto(route);
+      66 |         const diagnostics = await diagnoseWidths(page);
+    > 67 |         expect(diagnostics.documentOverflowPx, `${route} overflowed`).toBe(0);
+         |                                                                               ^
+      68 |         expect(diagnostics.unownedOverflowingElements, `${route} has unowned overflow`).toEqual([]);
+      69 |       }
+      70 |     });
+        at /workspace/GameAI-Hub/e2e/slice-two-home-chrome.spec.ts:67:89
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/slice-two-home-chrome-Issu-0465b-ine-route-overflow-at-390px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/slice-two-home-chrome-Issu-0465b-ine-route-overflow-at-390px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/slice-two-home-chrome-Issu-0465b-ine-route-overflow-at-390px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/slice-two-home-chrome-Issu-0465b-ine-route-overflow-at-390px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:15466) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[216/216] e2e/slice-two-home-chrome.spec.ts:61:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 1440px
+  23 failed
+    e2e/analytics-production-harness.spec.ts:36:7 › permitted Production browser harness › retains bounded early events, loads once, and does not replay excluded events 
+    e2e/analytics-production-harness.spec.ts:116:7 › permitted Production browser harness › caps a delayed queue and disposes failed loading before late fixture execution 
+    e2e/content-seo.spec.ts:179:5 › Issue 135 journey keeps analytics local and navigates Home to cluster, article, and Project 
+    e2e/issue-157-final-evidence.spec.ts:104:5 › V3 route, state, text, navigation, affiliate, and SEO observations 
+    e2e/issue-157-project-evidence.spec.ts:69:5 › Issue 157 Project states, workspace, and token observations validate 
+    e2e/issue-157-reflow-evidence.spec.ts:27:5 › V2 Home observations emit and validate current typed evidence 
+    e2e/shared-category-ring.spec.ts:100:5 › Home no-JS category links reach actual articles, unsafe context is ignored 
+    e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 375px 
+    e2e/slice-one-foundations.spec.ts:44:9 › Issue 137 Slice 1 foundations › all baseline routes retain their width ownership at 390px 
+    e2e/slice-seven-final-acceptance.spec.ts:29:5 › Slice 7 cross-route matrix has contained, structured, durable rendered evidence 
+    e2e/slice-three-articles.spec.ts:21:5 › Slice 3 representative routes meet the rendered reading contract 
+    e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary idea action and bounded title at 320x844 
+    e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary idea action and bounded title at 375x844 
+    e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary idea action and bounded title at 390x844 
+    e2e/slice-two-home-chrome.spec.ts:9:9 › Issue 137 Slice 2 Home composition › primary idea action and bounded title at 1440x900 
+    e2e/slice-two-home-chrome.spec.ts:41:7 › Issue 137 Slice 2 Home composition › mobile menu traps focus, closes with Escape, and navigates 
+    e2e/slice-two-home-chrome.spec.ts:61:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 375px 
+    e2e/slice-two-home-chrome.spec.ts:61:9 › Issue 137 Slice 2 Home composition › shared chrome adds no new baseline-route overflow at 390px 
+    e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 320x844 
+    e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 375x844 
+    e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 390x844 
+    e2e/slice-zero-acceptance.spec.ts:24:9 › Issue 137 Slice 0 rendered baselines › Home is capturable with provenance at 1440x900 
+    e2e/stage-a-evidence.spec.ts:46:5 › emit and validate the Stage A executed subset ──────────────
+  1 did not run
+  192 passed (8.0m)

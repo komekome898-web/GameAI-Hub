@@ -1,0 +1,916 @@
+[
+  {
+    "width": 320,
+    "case": "fresh",
+    "state": {
+      "mode": "list",
+      "available": "false"
+    }
+  },
+  {
+    "width": 375,
+    "case": "fresh",
+    "state": {
+      "mode": "list",
+      "available": "true"
+    }
+  },
+  {
+    "width": 375,
+    "case": "touch-.v2-start-card-image--120-0",
+    "before": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "after": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "url": "http://127.0.0.1:3100/articles/#start",
+    "events": [
+      {
+        "type": "pointerdown",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 241.5,
+        "y": 489.1875,
+        "target": "IMG"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 229.5,
+        "y": 489.1875,
+        "target": "IMG"
+      },
+      {
+        "type": "lostpointercapture",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 217.5,
+        "y": 489.1875,
+        "target": "IMG"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 217.5,
+        "y": 489.1875,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 205.5,
+        "y": 489.1875,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 193.5,
+        "y": 489.1875,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 181.5,
+        "y": 489.1875,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 169.5,
+        "y": 489.1875,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 157.5,
+        "y": 489.1875,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 145.5,
+        "y": 489.1875,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 133.5,
+        "y": 489.1875,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 121.5,
+        "y": 489.1875,
+        "target": "OL"
+      },
+      {
+        "type": "pointerup",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 121.5,
+        "y": 489.1875,
+        "target": "OL"
+      },
+      {
+        "type": "lostpointercapture",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 121.5,
+        "y": 489.1875,
+        "target": "OL"
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "case": "touch-strong-120-0",
+    "before": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "after": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "url": "http://127.0.0.1:3100/articles/#start",
+    "events": [
+      {
+        "type": "pointerdown",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 241.5,
+        "y": 719.578125,
+        "target": "STRONG"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 253.5,
+        "y": 719.578125,
+        "target": "STRONG"
+      },
+      {
+        "type": "lostpointercapture",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 265.5,
+        "y": 719.578125,
+        "target": "STRONG"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 265.5,
+        "y": 719.578125,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 277.5,
+        "y": 719.578125,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 289.5,
+        "y": 719.578125,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 301.5,
+        "y": 719.578125,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 313.5,
+        "y": 719.578125,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 325.5,
+        "y": 719.578125,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 337.5,
+        "y": 719.578125,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 349.5,
+        "y": 719.578125,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 361.5,
+        "y": 719.578125,
+        "target": "OL"
+      },
+      {
+        "type": "pointerup",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 361.5,
+        "y": 719.578125,
+        "target": "OL"
+      },
+      {
+        "type": "lostpointercapture",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 361.5,
+        "y": 719.578125,
+        "target": "OL"
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "case": "mouse-.v2-start-card-image--120-0",
+    "before": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "after": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "url": "http://127.0.0.1:3100/articles/#start",
+    "events": [
+      {
+        "type": "pointermove",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 241.5,
+        "y": 489.1875,
+        "target": "IMG"
+      },
+      {
+        "type": "pointerdown",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 241.5,
+        "y": 489.1875,
+        "target": "IMG"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 229.5,
+        "y": 489.1875,
+        "target": "IMG"
+      },
+      {
+        "type": "dragstart",
+        "isTrusted": true,
+        "x": 241,
+        "y": 489,
+        "target": "IMG"
+      },
+      {
+        "type": "pointercancel",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 0,
+        "y": 0,
+        "target": "IMG"
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "case": "mouse-strong--120-0",
+    "before": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "after": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "url": "http://127.0.0.1:3100/articles/#start",
+    "events": [
+      {
+        "type": "pointermove",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 241.5,
+        "y": 719.578125,
+        "target": "STRONG"
+      },
+      {
+        "type": "pointerdown",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 241.5,
+        "y": 719.578125,
+        "target": "STRONG"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 229.5,
+        "y": 719.578125,
+        "target": "STRONG"
+      },
+      {
+        "type": "dragstart",
+        "isTrusted": true,
+        "x": 241,
+        "y": 719,
+        "target": "A"
+      },
+      {
+        "type": "pointercancel",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 0,
+        "y": 0,
+        "target": "STRONG"
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "case": "next-button",
+    "state": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中2件目、AIに「ゲームを作って」と頼む前に決めるべき5つのこと"
+    }
+  },
+  {
+    "width": 375,
+    "case": "previous-button",
+    "state": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    }
+  },
+  {
+    "width": 375,
+    "case": "touch-.v2-start-card-image--100--150",
+    "before": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "after": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "url": "http://127.0.0.1:3100/articles/#start",
+    "events": [
+      {
+        "type": "pointerdown",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 241.5,
+        "y": 489.1875,
+        "target": "IMG"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 231.5,
+        "y": 474.1875,
+        "target": "IMG"
+      },
+      {
+        "type": "pointercancel",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 0,
+        "y": 0,
+        "target": "IMG"
+      },
+      {
+        "type": "lostpointercapture",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 0,
+        "y": 0,
+        "target": "IMG"
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "case": "reduced",
+    "state": {
+      "mode": "list",
+      "available": "false"
+    }
+  },
+  {
+    "width": 390,
+    "case": "fresh",
+    "state": {
+      "mode": "list",
+      "available": "true"
+    }
+  },
+  {
+    "width": 390,
+    "case": "touch-.v2-start-card-image--120-0",
+    "before": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "after": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "url": "http://127.0.0.1:3100/articles/#start",
+    "events": [
+      {
+        "type": "pointerdown",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 249,
+        "y": 489.34375,
+        "target": "IMG"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 237,
+        "y": 489.34375,
+        "target": "IMG"
+      },
+      {
+        "type": "lostpointercapture",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 225,
+        "y": 489.34375,
+        "target": "IMG"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 225,
+        "y": 489.34375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 213,
+        "y": 489.34375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 201,
+        "y": 489.34375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 189,
+        "y": 489.34375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 177,
+        "y": 489.34375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 165,
+        "y": 489.34375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 153,
+        "y": 489.34375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 141,
+        "y": 489.34375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 129,
+        "y": 489.34375,
+        "target": "OL"
+      },
+      {
+        "type": "pointerup",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 129,
+        "y": 489.34375,
+        "target": "OL"
+      },
+      {
+        "type": "lostpointercapture",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 129,
+        "y": 489.34375,
+        "target": "OL"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "case": "touch-strong-120-0",
+    "before": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "after": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "url": "http://127.0.0.1:3100/articles/#start",
+    "events": [
+      {
+        "type": "pointerdown",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 249,
+        "y": 719.734375,
+        "target": "STRONG"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 261,
+        "y": 719.734375,
+        "target": "STRONG"
+      },
+      {
+        "type": "lostpointercapture",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 273,
+        "y": 719.734375,
+        "target": "STRONG"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 273,
+        "y": 719.734375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 285,
+        "y": 719.734375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 297,
+        "y": 719.734375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 309,
+        "y": 719.734375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 321,
+        "y": 719.734375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 333,
+        "y": 719.734375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 345,
+        "y": 719.734375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 357,
+        "y": 719.734375,
+        "target": "OL"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 369,
+        "y": 719.734375,
+        "target": "OL"
+      },
+      {
+        "type": "pointerup",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 369,
+        "y": 719.734375,
+        "target": "OL"
+      },
+      {
+        "type": "lostpointercapture",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 369,
+        "y": 719.734375,
+        "target": "OL"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "case": "mouse-.v2-start-card-image--120-0",
+    "before": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "after": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "url": "http://127.0.0.1:3100/articles/#start",
+    "events": [
+      {
+        "type": "pointermove",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 249,
+        "y": 489.34375,
+        "target": "IMG"
+      },
+      {
+        "type": "pointerdown",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 249,
+        "y": 489.34375,
+        "target": "IMG"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 237,
+        "y": 489.34375,
+        "target": "IMG"
+      },
+      {
+        "type": "dragstart",
+        "isTrusted": true,
+        "x": 249,
+        "y": 489,
+        "target": "IMG"
+      },
+      {
+        "type": "pointercancel",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 0,
+        "y": 0,
+        "target": "IMG"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "case": "mouse-strong--120-0",
+    "before": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "after": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "url": "http://127.0.0.1:3100/articles/#start",
+    "events": [
+      {
+        "type": "pointermove",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 249,
+        "y": 719.734375,
+        "target": "STRONG"
+      },
+      {
+        "type": "pointerdown",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 249,
+        "y": 719.734375,
+        "target": "STRONG"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 237,
+        "y": 719.734375,
+        "target": "STRONG"
+      },
+      {
+        "type": "dragstart",
+        "isTrusted": true,
+        "x": 249,
+        "y": 719,
+        "target": "A"
+      },
+      {
+        "type": "pointercancel",
+        "pointerType": "mouse",
+        "isTrusted": true,
+        "x": 0,
+        "y": 0,
+        "target": "STRONG"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "case": "next-button",
+    "state": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中2件目、AIに「ゲームを作って」と頼む前に決めるべき5つのこと"
+    }
+  },
+  {
+    "width": 390,
+    "case": "previous-button",
+    "state": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    }
+  },
+  {
+    "width": 390,
+    "case": "touch-.v2-start-card-image--100--150",
+    "before": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "after": {
+      "mode": "deck",
+      "available": "true",
+      "count": "3件中1件目、AIでブラウザゲームを作る方法｜1画面のゲームを動かし、直して次へ進む"
+    },
+    "url": "http://127.0.0.1:3100/articles/#start",
+    "events": [
+      {
+        "type": "pointerdown",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 249,
+        "y": 489.34375,
+        "target": "IMG"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 239,
+        "y": 474.34375,
+        "target": "IMG"
+      },
+      {
+        "type": "pointercancel",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 0,
+        "y": 0,
+        "target": "IMG"
+      },
+      {
+        "type": "lostpointercapture",
+        "pointerType": "touch",
+        "isTrusted": true,
+        "x": 0,
+        "y": 0,
+        "target": "IMG"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "case": "reduced",
+    "state": {
+      "mode": "list",
+      "available": "false"
+    }
+  }
+]

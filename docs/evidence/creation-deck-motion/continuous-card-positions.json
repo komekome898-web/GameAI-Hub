@@ -1,0 +1,56 @@
+[
+  {
+    "dx": -20,
+    "pos": 0.1174812030075188,
+    "transforms": [
+      "translateX(-20px) perspective(1200px) rotateY(0.822368deg) scale(0.992951)",
+      "translateX(150.24px) perspective(1200px) rotateY(-6.17763deg) scale(0.947049)",
+      "translateX(-190.24px) perspective(1200px) rotateY(7deg) scale(0.94)"
+    ]
+  },
+  {
+    "dx": -60,
+    "pos": 0.3524436090225564,
+    "transforms": [
+      "translateX(-60px) perspective(1200px) rotateY(2.46711deg) scale(0.978853)",
+      "translateX(110.24px) perspective(1200px) rotateY(-4.53289deg) scale(0.961147)",
+      "translateX(-230.24px) perspective(1200px) rotateY(7deg) scale(0.94)"
+    ]
+  },
+  {
+    "dx": -120,
+    "pos": 0.7048872180451128,
+    "transforms": [
+      "translateX(-120px) perspective(1200px) rotateY(4.93421deg) scale(0.957707)",
+      "translateX(50.24px) perspective(1200px) rotateY(-2.06579deg) scale(0.982293)",
+      "translateX(220.48px) perspective(1200px) rotateY(-7deg) scale(0.94)"
+    ]
+  },
+  {
+    "dx": 20,
+    "pos": -0.1174812030075188,
+    "transforms": [
+      "translateX(20px) perspective(1200px) rotateY(-0.822368deg) scale(0.992951)",
+      "translateX(190.24px) perspective(1200px) rotateY(-7deg) scale(0.94)",
+      "translateX(-150.24px) perspective(1200px) rotateY(6.17763deg) scale(0.947049)"
+    ]
+  },
+  {
+    "dx": 60,
+    "pos": -0.3524436090225564,
+    "transforms": [
+      "translateX(60px) perspective(1200px) rotateY(-2.46711deg) scale(0.978853)",
+      "translateX(230.24px) perspective(1200px) rotateY(-7deg) scale(0.94)",
+      "translateX(-110.24px) perspective(1200px) rotateY(4.53289deg) scale(0.961147)"
+    ]
+  },
+  {
+    "dx": 120,
+    "pos": -0.7048872180451128,
+    "transforms": [
+      "translateX(120px) perspective(1200px) rotateY(-4.93421deg) scale(0.957707)",
+      "translateX(-220.48px) perspective(1200px) rotateY(7deg) scale(0.94)",
+      "translateX(-50.24px) perspective(1200px) rotateY(2.06579deg) scale(0.982293)"
+    ]
+  }
+]

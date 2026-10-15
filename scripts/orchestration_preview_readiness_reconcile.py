@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Reconcile Preview readiness after PR/head observation has converged."""
+from orchestration_mode import legacy_only
 from urllib.parse import urlparse
 
 import orchestration_github as adapter
@@ -28,6 +29,7 @@ def current_vercel_success(sha):
     return status, parts[2]
 
 
+@legacy_only
 def main():
     query = adapter.gh(
         f'search/issues?q=repo:{adapter.REPO}+is:issue+%22gameai-orchestration-index:v1%22&per_page=100'
@@ -55,7 +57,7 @@ def main():
         preview_url, comment_url = matching_preview(pr_number, deployment_id)
         target_url = status["target_url"]
         status_id = str(status.get("id") or "status")
-        payload = adapter.envelope(
+        payload = adapter.readiness_envelope(
             manifest,
             {
                 "environment": "preview",
@@ -74,7 +76,6 @@ def main():
                 "transition_id": f"vercel-reconcile:{status_id}:{sha}",
                 "trigger": {"actor": "github-actions[bot]", "source": "github-current-status-reconcile"},
             },
-            "readiness",
         )
         out, _ = reduce(manifest, payload, "deployment")
         adapter.write(item["number"], comment, out, manifest["revision"])

@@ -1,0 +1,9 @@
+{
+  "width": 320,
+  "physicalDevice": false,
+  "route": "http://127.0.0.1:3100/articles/?hubArticle=ai-browser-game-how-to&hubCategory=start#start",
+  "headingTop": 196.296875,
+  "headerBottom": -315,
+  "client": 320,
+  "scroll": 320
+}

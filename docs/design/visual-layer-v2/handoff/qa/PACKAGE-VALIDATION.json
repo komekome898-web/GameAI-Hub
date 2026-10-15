@@ -1,0 +1,40 @@
+{
+  "package_checks": "PASS",
+  "image_decode": "PASS",
+  "svg_parse": "PASS",
+  "html_local_asset_references": "PASS",
+  "tokens_json": "PASS",
+  "contrast_pairs": [
+    {
+      "fg": "#142D2B",
+      "bg": "#FAF8F2",
+      "ratio": 13.73,
+      "threshold": 4.5
+    },
+    {
+      "fg": "#52645E",
+      "bg": "#FAF8F2",
+      "ratio": 5.91,
+      "threshold": 4.5
+    },
+    {
+      "fg": "#FFFFFF",
+      "bg": "#0B6855",
+      "ratio": 6.72,
+      "threshold": 4.5
+    },
+    {
+      "fg": "#78877F",
+      "bg": "#FAF8F2",
+      "ratio": 3.55,
+      "threshold": 3
+    }
+  ],
+  "webp_budget": "PASS",
+  "html_browser_render": "UNTESTED: installed Playwright missing Chromium executable",
+  "application_implementation": "NOT PERFORMED",
+  "application_acceptance": "UNTESTED",
+  "physical_device": "UNTESTED",
+  "production_change": "NONE",
+  "repository_mutation": "NONE"
+}
