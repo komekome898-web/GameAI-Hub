@@ -29,6 +29,15 @@
   hidden CTA or broken operation. CSS zoom2 gives a tall three-row header;
   reviewer classified vertical footprint as P2 candidate pending original exact
   evidence. No common UI change. PR113-specific code areas remain untouched.
+- Post-CI independent finding: coordinator's normal GitHub connector retrieved
+  b947b63 artifact and visually confirmed nearly-white title/genre/access note
+  on ivory in `webkit-375-punching-reduce.png`. Functional PASS did not establish
+  visual acceptance. Current common UI fix is one `.game-detail .page-head`
+  foreground rule using existing `--b3-ink`; no article or registry edits.
+  Added computed paper-text contrast regression and four engine-labelled JSONs
+  across all ten games, both widths and motion settings. Fresh final-head CI
+  and coordinator WebKit image review are required. Local artifact fetching
+  remains blocked and has not been retried.
 - Remaining: run WebKit on a capable runner, inspect rendered evidence,
   independent acceptance and physical iPhone checks. Full pre-existing
   Chromium E2E in CI is still running at the recorded checkpoint. Desktop and

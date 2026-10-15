@@ -1,9 +1,45 @@
 # Mobile navigation regression evidence
 
 Task: WebKit mobile regression coverage, 2026-10-15.
-Base/runtime source: `c7013491dc46f2a316bb4a79094a21f3802041f0` (PR185).
+Base source: `c7013491dc46f2a316bb4a79094a21f3802041f0` (PR185).
 Launch: saved execution environment via delegated request; source conversation
 `01a13a49-3ec6-705f-ba25-a358fd8ac007`. No GitHub mention was sent.
+
+## Post-CI visual finding and minimal common UI fix
+
+After the b947b63 functional CI passed, the coordinator retrieved its artifact
+through the normal GitHub connector, checked its source SHA and independently
+reviewed `webkit-375-punching-reduce.png`. The game title, genre and free-access
+note were nearly white on ivory, while the description and breadcrumbs were dark.
+This is a confirmed readability defect; functional PASS was not visual acceptance.
+This executor's artifact download remains blocked; it was not retried or bypassed.
+The finding above is the coordinator's independent WebKit observation, not this
+executor's own image review.
+
+The common UI change is one scoped rule in `app/b3-system.css`:
+`.b3-system .game-detail .page-head { color:var(--b3-ink); }`.
+It makes the paper header foreground explicit for all ten introductions rather
+than relying on the foreground inherited after leaving the dark Home deck.
+No browser-internal cache mechanism is claimed as a proven root cause. No article
+body, registry or shared header component was changed.
+
+The same 12-case suite now measures computed title/title-part/eyebrow/lead/genre/
+access-note colors against the closest opaque background on every game visit
+(all ten games, both widths and motion settings), asserts at least 4.5:1 and
+saves the measurements in engine-labelled JSON. The local Chromium measurements
+contain ten games in each of four JSON files; minimum ratio is 6.3104:1. This
+helper covers these single-color paper surfaces; it does not calculate arbitrary
+background images, opacity or translucent compositing. Fresh WebKit CI and
+independent coordinator image review are required for the fix's final head.
+
+Independent second pass by `/root/mobile_review`: reviewed the scoped CSS and
+contrast helper, then viewed regenerated Chromium images at both widths for all
+ten slugs (including `punching` in reduced motion). It found no new P0/P1/P2 in
+the color-fix scope. It independently read all four JSON files: ten games and
+63 measurements per file, opaque background `rgb(250,248,242)`, minimum 6.31046.
+Reviewed CSS blob: `32c23702d823c0444f3f60a413a97d52d02ecafb`; test blob:
+`a60f10441ae64c714811ff6c6e05163be897b3ff`. This is Chromium/source evidence,
+not fixed-head WebKit or physical-device acceptance.
 
 ## CI follow-up (source head b947b637d58c657d1237ffc726ae37b16b209751)
 
@@ -104,8 +140,8 @@ rerun in this task. No common UI component, article body or registry changed.
    traces/screenshots independently of the existing Chromium job. CI results
    must be checked against the final PR head; workflow registration is not PASS.
 2. Inspect actual WebKit screenshots; investigate failures before changing UI.
-   No product defect has been established in WebKit, so no speculative UI fix
-   was made. Independent visual acceptance is pending.
+   The post-CI paper-header defect and its scoped fix are documented above;
+   independent visual acceptance of the fixed head is pending.
 3. Desktop and synthetic 200% text stress evidence were not generated here;
    existing evidence does not establish acceptance of a new WebKit run.
 4. **Physical iPhone Safari: UNTESTED** (actual touch/swipe, dynamic browser bars,

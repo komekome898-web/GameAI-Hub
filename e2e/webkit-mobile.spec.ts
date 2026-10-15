@@ -1,4 +1,4 @@
-import { mkdir } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import { test, expect, type Page, type Locator } from './fixtures';
 import { getPublishedGames } from '../data/games';
 
@@ -26,6 +26,36 @@ const snapshot = async (page: Page, name: string) => {
   const engine = page.context().browser()!.browserType().name();
   await page.screenshot({ path: `${evidence}/${engine}-${page.viewportSize()!.width}-${name}.png` });
 };
+const gameHeaderContrast = async (page: Page) => {
+  const header = page.locator('.game-detail .page-head');
+  await expect(header.locator('h1')).toHaveCount(1);
+  expect(await header.locator(':scope > p').count()).toBeGreaterThanOrEqual(3);
+  const measurements = await header.evaluate(header => {
+    const luminance = (channels: number[]) => channels.slice(0, 3).map(channel => {
+      const value = channel / 255;
+      return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+    }).reduce((sum, value, index) => sum + value * [0.2126, 0.7152, 0.0722][index], 0);
+    return Array.from(header.querySelectorAll('h1, .game-title-part, :scope > p, :scope > p strong')).map(element => {
+      const foreground = getComputedStyle(element).color;
+      let surface: Element | null = element;
+      let background = '';
+      while (surface) {
+        const color = getComputedStyle(surface).backgroundColor;
+        const channels = color.match(/[\d.]+/g)?.map(Number) ?? [];
+        if (channels.length === 3 || channels[3] === 1) { background = color; break; }
+        surface = surface.parentElement;
+      }
+      const fg = luminance(foreground.match(/[\d.]+/g)!.map(Number));
+      const bg = luminance(background.match(/[\d.]+/g)!.map(Number));
+      return { text: element.textContent, foreground, background, ratio: (Math.max(fg, bg) + 0.05) / (Math.min(fg, bg) + 0.05) };
+    });
+  });
+  expect(measurements.length).toBeGreaterThanOrEqual(4);
+  for (const measurement of measurements) {
+    expect(measurement.ratio, JSON.stringify(measurement)).toBeGreaterThanOrEqual(4.5);
+  }
+  return measurements;
+};
 
 test.beforeEach(async ({ context, page }) => {
   await mkdir(evidence, { recursive: true });
@@ -45,6 +75,7 @@ for (const reducedMotion of ['no-preference', 'reduce'] as const) {
     expect([...slugs].sort()).toEqual(getPublishedGames().map(game => game.slug).sort());
     expect(slugs).toHaveLength(10);
     const games = slugs.map(slug => getPublishedGames().find(game => game.slug === slug)!);
+    const contrast = [];
     await snapshot(page, `home-${reducedMotion}`);
     for (const [index, game] of games.entries()) {
       await expect(page.locator('.b3-game-selection h2')).toHaveText(game.title);
@@ -56,6 +87,7 @@ for (const reducedMotion of ['no-preference', 'reduce'] as const) {
       await expect(page).toHaveURL(new RegExp(`/games/${game.slug}/$`));
       await expect(page.locator('main h1')).toContainText(game.title);
       await noOverflow(page);
+      contrast.push({ slug: game.slug, measurements: await gameHeaderContrast(page) });
       await snapshot(page, `${game.slug}-${reducedMotion}`);
       if (index % 2 === 0) {
         const back = page.getByRole('link', { name: '作品一覧へ戻る', exact: true }).first();
@@ -75,6 +107,8 @@ for (const reducedMotion of ['no-preference', 'reduce'] as const) {
       }
     }
     await snapshot(page, `home-restored-${reducedMotion}`);
+    const engine = page.context().browser()!.browserType().name();
+    await writeFile(`${evidence}/${engine}-${page.viewportSize()!.width}-contrast-${reducedMotion}.json`, JSON.stringify(contrast, null, 2) + '\n');
   });
 }
 

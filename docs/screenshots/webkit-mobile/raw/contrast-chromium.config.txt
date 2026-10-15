@@ -1,0 +1,13 @@
+import config from '/workspace/GameAI-Hub/playwright.config';
+export default {
+  ...config,
+  use: { ...config.use, baseURL: 'http://127.0.0.1:3103' },
+  testDir: '/workspace/GameAI-Hub/e2e',
+  outputDir: '/tmp/gameai-chromium-crosscheck-results',
+  projects: [320, 375].map(width => ({
+    name: `chromium-crosscheck-${width}`,
+    testMatch: '**/webkit-mobile.spec.ts',
+    use: { browserName: 'chromium', viewport: { width, height: 667 }, isMobile: true, hasTouch: true, launchOptions: { executablePath: '/usr/bin/chromium' } },
+  })),
+  webServer: { command: 'npm run start -- -H 127.0.0.1 -p 3103', cwd: '/workspace/GameAI-Hub', url: 'http://127.0.0.1:3103', reuseExistingServer: false },
+};
