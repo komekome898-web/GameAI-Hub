@@ -16,3 +16,14 @@
 - UNTESTED: physical iPhone/Android, touch/OS text zoom, Safari/WebKit (parallel task), external ChatGPT generation, exact final Vercel Preview and Production. No production visit or deploy command performed. Existing Preview evidence applies only to old head.
 - Delivery: final commit is the commit containing this ledger; remote SHA and PR status must be re-read after push. PR remains #113. No merge or auto-merge.
 - Next action: coordinator reviews final SHA and shared 200% limitation; verify exact final Preview separately if required; owner decides merge only under separate authorization.
+
+## CI follow-up (2026-10-15)
+
+- Head `507f91db4d131282dbf52003e2f44f47aa5c2a91`: GitHub quality/build and Vercel PASS. Full E2E run `38693916339` finished failure: 297 passed, 4 failed. All 7 cat-specific cases passed in that run.
+- Failures diagnosed from decoded job logs: B3 fixed public-route count expected 78, got 79 (three widths); V1 explicit START href list lacked `/articles/chatgpt-cat-tap-game/` (one case). No product failure was established by those four assertions.
+- Follow-up changes only the fixed expected count/label to 79 and adds the cat URL to the explicit START list. No checks removed, no shared UI or config changed. Independent reviewer `/root/review` verified the diff.
+- Local retry: all 4 previously failing cases PASS (1.9m), including actual traversal of all 79 public routes at 1440/375/320 and START list at four widths. Quality rerun PASS (51/388 plus validators). Raw follow-up logs in `checks/quality-registry.log` and `checks/registry-e2e.log`.
+- Exact original Preview: deployment `dpl_5N271BhmWx8C1uEa6UWTW7QWNeLf`, `https://game-ai-nzlfl890d-komekome898-web.vercel.app`, Vercel READY and exact SHA confirmed through the connected read API. Local HTTP CONNECT rejected with 403; Chromium navigation returned `net::ERR_TUNNEL_CONNECTION_FAILED`. This is an environment connection blocker, not evidence of a Vercel auth page or product failure. No auth bypass/share link created.
+- Shared CSS diagnosis: viewport 320x640, `html.style.zoom='2'` leaves `innerWidth=320`, so max-width:280px is false. `components/Header.tsx:112` uses `.site-header.b3-site-header`; `app/b3-system.css:185-204` applies sticky/wrap/padding and produces 325.28px header height. `app/visual-layer-v2.css:36`, `app/globals.css:265/275/765` stack article, handoff, pre and inline-code padding, leaving roughly 35 CSS px for the handoff text. Full numeric observations: `css-zoom-diagnostics.json`.
+- Shared-owner candidates (not applied): container-sensitive header layout/non-sticky narrow mode; reduce nested narrow-container padding; reset `pre > code` inline padding. CSS zoom stress is not browser page zoom, pinch zoom, or physical-device text zoom. Normal 320/375 PASS remains separate from this P2.
+- Next: verify follow-up remote head CI and Preview; no merge. Runtime article and reviewed image bytes are unchanged from 507f91d.
