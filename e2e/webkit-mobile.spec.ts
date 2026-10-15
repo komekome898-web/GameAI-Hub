@@ -9,7 +9,7 @@ const idle = async (page: Page) => {
   await expect(page.locator('.b3-game-stage')).toHaveAttribute('data-motion', 'idle');
 };
 const noOverflow = async (page: Page) => {
-  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0);
+  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
 };
 const exposed = async (target: Locator) => {
   await expect(target).toBeVisible();
@@ -110,6 +110,7 @@ test('article list restores a later item after breadcrumb and browser Back', asy
     await expect(page).toHaveURL(new RegExp(`${href!.replace(/\/$/, '')}/$`));
     await expect(page.locator('main h1').first()).toBeVisible();
     await noOverflow(page);
+    if (repeat === 0) await snapshot(page, 'article-detail');
     if (repeat === 1) await page.locator('.breadcrumbs').getByRole('link', { name: '記事', exact: true }).tap();
     else await page.goBack();
     await expect(link).toBeFocused();
@@ -148,4 +149,33 @@ test('menu traps focus, closes repeatedly and releases the page after navigation
   await page.getByRole('link', { name: /すべての記事を見る/ }).tap();
   await expect(page).toHaveURL(/#all$/);
   await noOverflow(page);
+});
+
+test('shared header retains readable actions at synthetic 200% root text size', async ({ page }) => {
+  for (const [name, route] of [['home', '/'], ['article', '/articles/meshy-pricing-credits-game/']] as const) {
+    await page.goto(route);
+    if (name === 'home') await idle(page);
+    // Synthetic text stress, distinct from CSS zoom and physical accessibility zoom.
+    await page.evaluate(() => { document.documentElement.style.fontSize = '200%'; });
+    await noOverflow(page);
+    const header = page.locator('.site-header');
+    const bounds = await header.locator('.brand, .header-cta, .menu-button').evaluateAll(elements => elements.map(element => {
+      const rect = element.getBoundingClientRect();
+      return { left: rect.left, right: rect.right, height: rect.height, viewport: document.documentElement.clientWidth };
+    }));
+    expect(bounds).toHaveLength(3);
+    expect(bounds.every(rect => rect.left >= 0 && rect.right <= rect.viewport && rect.height >= 44)).toBe(true);
+    const cta = header.locator('.b3-cta-mobile');
+    expect(await cta.evaluate(element => {
+      const range = document.createRange();
+      range.selectNodeContents(element);
+      return range.getClientRects().length;
+    })).toBe(1);
+    await snapshot(page, `${name}-root200`);
+    await page.getByRole('button', { name: 'メニューを開く', exact: true }).tap();
+    await expect(page.getByRole('dialog', { name: 'サイトメニュー' })).toBeVisible();
+    await noOverflow(page);
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('button', { name: 'メニューを開く', exact: true })).toBeFocused();
+  }
 });
