@@ -16,11 +16,30 @@ export default defineConfig({
     baseURL,
     screenshot: 'only-on-failure',
     trace: 'retain-on-failure',
-    ...devices['Desktop Chrome'],
-    launchOptions: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE
-      ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE }
-      : undefined,
   },
+  projects: [
+    {
+      name: 'chromium',
+      testIgnore: '**/webkit-mobile.spec.ts',
+      use: {
+        ...devices['Desktop Chrome'],
+        launchOptions: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE
+          ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE }
+          : undefined,
+      },
+    },
+    ...[320, 375].map(width => ({
+      name: `webkit-mobile-${width}`,
+      testMatch: '**/webkit-mobile.spec.ts',
+      use: {
+        browserName: 'webkit' as const,
+        viewport: { width, height: 667 },
+        isMobile: true,
+        hasTouch: true,
+        deviceScaleFactor: 2,
+      },
+    })),
+  ],
   webServer: {
     command: `VERCEL_ENV=production npm run build && npm run start -- -H 127.0.0.1 -p ${port}`,
     url: baseURL,

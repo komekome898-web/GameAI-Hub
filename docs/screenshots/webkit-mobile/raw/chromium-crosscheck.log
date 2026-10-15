@@ -1,0 +1,25 @@
+[WebServer] (node:4584) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 10 tests using 2 workers
+
+(node:4601) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:4600) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/10] [chromium-crosscheck-320] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (no-preference)
+[2/10] [chromium-crosscheck-375] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (no-preference)
+[3/10] [chromium-crosscheck-320] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (reduce)
+[4/10] [chromium-crosscheck-375] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (reduce)
+[5/10] [chromium-crosscheck-320] › e2e/webkit-mobile.spec.ts:81:5 › list mode restores the same later game through repeated detail visits
+[6/10] [chromium-crosscheck-375] › e2e/webkit-mobile.spec.ts:81:5 › list mode restores the same later game through repeated detail visits
+[7/10] [chromium-crosscheck-320] › e2e/webkit-mobile.spec.ts:100:5 › article list restores a later item after breadcrumb and browser Back
+[8/10] [chromium-crosscheck-375] › e2e/webkit-mobile.spec.ts:100:5 › article list restores a later item after breadcrumb and browser Back
+[9/10] [chromium-crosscheck-320] › e2e/webkit-mobile.spec.ts:122:5 › menu traps focus, closes repeatedly and releases the page after navigation
+[10/10] [chromium-crosscheck-375] › e2e/webkit-mobile.spec.ts:122:5 › menu traps focus, closes repeatedly and releases the page after navigation
+  10 passed (43.5s)

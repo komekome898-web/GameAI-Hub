@@ -1,0 +1,12 @@
+Listing tests:
+  [webkit-mobile-320] › webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (no-preference)
+  [webkit-mobile-320] › webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (reduce)
+  [webkit-mobile-320] › webkit-mobile.spec.ts:81:5 › list mode restores the same later game through repeated detail visits
+  [webkit-mobile-320] › webkit-mobile.spec.ts:100:5 › article list restores a later item after breadcrumb and browser Back
+  [webkit-mobile-320] › webkit-mobile.spec.ts:122:5 › menu traps focus, closes repeatedly and releases the page after navigation
+  [webkit-mobile-375] › webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (no-preference)
+  [webkit-mobile-375] › webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (reduce)
+  [webkit-mobile-375] › webkit-mobile.spec.ts:81:5 › list mode restores the same later game through repeated detail visits
+  [webkit-mobile-375] › webkit-mobile.spec.ts:100:5 › article list restores a later item after breadcrumb and browser Back
+  [webkit-mobile-375] › webkit-mobile.spec.ts:122:5 › menu traps focus, closes repeatedly and releases the page after navigation
+Total: 10 tests in 1 file
