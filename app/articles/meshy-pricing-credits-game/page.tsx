@@ -15,7 +15,7 @@ export default function MeshyPricingCreditsGame() {
       <p className="eyebrow">3D ASSET / CREDIT BUDGET</p>
       <h1>Meshy AIの料金は？無料版・Pro・Premium・Ultraの違いとゲーム開発のクレジット目安</h1>
       <p className="lead">Meshyにはカード登録なしで試せるFreeがあります。有料プランは主に月間クレジット、処理枠・優先度、download・API・非公開所有の条件が変わります。ただし、クレジット数は完成したゲーム用アセット数ではありません。</p>
-      <p><strong>公式情報確認: 2026-09-22</strong>。価格・付与量・対象モデルは変わるため、決済前は必ずライブの公式料金を確認してください。</p>
+      <p><strong>公式情報確認: 2026-09-22</strong>。価格・付与量・対象モデルは変わるため、決済前は必ず公式の最新料金を確認してください。</p>
       <p className="affiliate-disclosure-note"><strong>この記事にはプロモーションを含みます。</strong></p>
       <dl className="article-lesson-grid">
         <div><dt>まず試す</dt><dd>Freeの100 monthly creditsで1〜数点を生成し、制作環境へ持ち込めるか確認。</dd></div>
@@ -60,7 +60,7 @@ export default function MeshyPricingCreditsGame() {
       <tr><td data-label="ケース">小物10 + creature 2</td><td data-label="仮定">有料APIで小物各30、creature各44（rig + 3 actions）</td><td data-label="算数">(10 × 30) + (2 × 44) = 388</td><td data-label="判断">最低でもFree外。各assetに代替1回ならさらに12 × 20 = 240。</td></tr>
       <tr><td data-label="ケース">characterを反復</td><td data-label="仮定">有料APIで6案をbase + texture、1案にrig + 5 actions</td><td data-label="算数">(6 × 30) + 5 + (5 × 3) = 200</td><td data-label="判断">採用1体でも200。完成数でなく探索回数を予算化。</td></tr>
       <tr><td data-label="ケース">batch / API prototype</td><td data-label="仮定">30 inputs、各base + texture、10件を1回再試行</td><td data-label="算数">30 × 30 + 10 × 20 = 1,100</td><td data-label="判断">1,000も算数上100不足。失敗返却を期待して枠を小さくしない。</td></tr>
-    </tbody></table></div><p>いずれも成功率を仮定せず、post-processing、手修正、追加textureを含めない下限例です。実際のproduction-ready数はこれより少なくなり得ます。</p></section>
+    </tbody></table></div><p>いずれも成功率を仮定せず、後処理、手修正、追加テクスチャを含めない下限例です。実際に制作で使える数は、これより少なくなり得ます。</p></section>
 
     <section><h2>Freeは何を試せて、どこで止まる？</h2><p>Freeはカード不要、月100 creditsでcore generationを試せます。Free専用HelpはMeshy 6 Liteに限り月10 downloadsと案内する一方、plan comparison HelpはFree download不可と記載しています。モデル名とdownload可否は更新が速いため、生成前にFree画面の対象モデルと残りdownload数を確認してください。</p><p>Free生成物の商用利用はCC BY 4.0の帰属表示が必要という現行専用案内があります。詳しい判断は<Link href="/articles/meshy-commercial-use-game/">料金を決める前後にMeshyの権利条件を確認するガイド</Link>へ分けています。</p></section>
 

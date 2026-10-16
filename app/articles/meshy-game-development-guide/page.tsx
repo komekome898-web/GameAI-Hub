@@ -63,7 +63,7 @@ export default function MeshyGameDevelopmentGuide() {
             <div>
               <dt>Image to 3D</dt>
               <dd>
-                自作のコンセプト画など、守りたい輪郭や視覚方向がすでにあるとき。
+                自作のコンセプト画など、保ちたい輪郭や見た目の方向性がすでにあるとき。
               </dd>
             </div>
           </dl>
@@ -146,7 +146,7 @@ export default function MeshyGameDevelopmentGuide() {
             </table>
           </div>
           <p>
-            形式名だけで材料が必ず再現されるとは限りません。modelファイルとtextureの構成を確認し、読み込み先でmaterialを割り当て直せるよう元ファイルを保管します。
+            形式名だけでマテリアルが必ず再現されるとは限りません。モデルファイルとテクスチャの構成を確認し、読み込み先でマテリアルを割り当て直せるよう、元ファイルを保管します。
           </p>
         </section>
 
@@ -272,7 +272,7 @@ export default function MeshyGameDevelopmentGuide() {
           <p className="section-label">PROJECT HANDOFF</p>
           <h2 id="meshy-project-next">同じゲームで次の検証へ進む</h2>
           <p>
-            取り込んだ1点について、当たり判定、操作との連携、実機負荷、周囲とのstyle統一のどれかを次のtaskにします。合格する前に同系統のassetを量産しません。
+            取り込んだ1点について、当たり判定、操作との連携、実機負荷、周囲とのスタイル統一のどれかを次のタスクにします。合格する前に同系統のアセットを量産しません。
           </p>
           <ArticleProjectLink
             slug={article.slug}

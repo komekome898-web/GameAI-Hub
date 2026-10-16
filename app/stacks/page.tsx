@@ -3,11 +3,11 @@ import Link from 'next/link';
 import { stackTemplates } from '@/data/stack-templates';
 import { productionStages } from '@/lib/domain';
 
-export const metadata:Metadata={title:'ゲーム制作Stackテンプレート',description:'ゲーム種別ごとに、対象、制作順、必要なAIツール候補、費用の見え方、商用利用の注意点を確認できます。',alternates:{canonical:'/stacks/'},openGraph:{url:'/stacks/'}};
+export const metadata:Metadata={title:'ゲーム制作Stackテンプレート',description:'ゲーム種別ごとに、対象、制作順、必要なAIツール候補、費用について分かること、商用利用の注意点を確認できます。',alternates:{canonical:'/stacks/'},openGraph:{url:'/stacks/'}};
 const stageName=new Map(productionStages.map(stage=>[stage.id,stage.label]));
 
 export default function StacksPage(){return <>
-  <section className="page-hero compact"><p className="eyebrow">PRODUCTION STACK TEMPLATES</p><h1>ゲーム制作を、<br/>工程から組み立てる。</h1><p className="lead">似た企画の工程案を出発点に、必要・任意のツール、制約、費用の確認範囲を把握できます。条件に合わせる場合はBuilderへ進んでください。</p></section>
+  <section className="page-hero compact"><p className="eyebrow">PRODUCTION STACK TEMPLATES</p><h1>ゲーム制作を、<br/>工程から組み立てる。</h1><p className="lead">似た企画の工程案を出発点に、必要・任意のツール、制約、費用の確認範囲を把握できます。自分の条件に合わせる場合はBuilderへ進んでください。</p></section>
   <section className="stack-directory" aria-labelledby="stack-list-heading"><div className="section-head"><div><p className="eyebrow">8 STARTING POINTS</p><h2 id="stack-list-heading">制作するゲームに近い構成</h2></div></div>
     <div className="stack-grid">{stackTemplates.map(stack=><article key={stack.slug}>
       <header><span>{stack.forWhom[0]}</span><h2><Link href={`/stacks/${stack.slug}`}>{stack.title}</Link></h2><p>{stack.summary}</p></header>

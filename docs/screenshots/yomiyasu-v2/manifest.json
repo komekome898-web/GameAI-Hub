@@ -1,0 +1,788 @@
+{
+  "records": [
+    {
+      "route": "/",
+      "width": 1280,
+      "status": 200,
+      "screenshot": "home-1280.jpg",
+      "title": "遊べる世界から、作るヒントを。",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/tools/",
+      "width": 1280,
+      "status": 200,
+      "screenshot": "tools-1280.jpg",
+      "title": "何を作りたいですか？",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/guides/",
+      "width": 1280,
+      "status": 200,
+      "screenshot": "guides-1280.jpg",
+      "title": "今の作業から、次の成果物へ",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/guides/codex-game-development-brief/",
+      "width": 1280,
+      "status": 200,
+      "screenshot": "guides-codex-game-development-brief-1280.jpg",
+      "title": "Codexでゲーム開発を始める：実装ブリーフの作り方",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/stacks/",
+      "width": 1280,
+      "status": 200,
+      "screenshot": "stacks-1280.jpg",
+      "title": "ゲーム制作を、工程から組み立てる。",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/stacks/lowest-cost/",
+      "width": 1280,
+      "status": 200,
+      "screenshot": "stacks-lowest-cost-1280.jpg",
+      "title": "無料・最低コスト優先の制作構成",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/compare/",
+      "width": 1280,
+      "status": 200,
+      "screenshot": "compare-1280.jpg",
+      "title": "候補を、根拠から比べる。",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/project/",
+      "width": 1280,
+      "status": 200,
+      "screenshot": "project-1280.jpg",
+      "title": "ゲームのアイデアを実行計画へ",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/articles/github-beginner-game-development/",
+      "width": 1280,
+      "status": 200,
+      "screenshot": "articles-github-beginner-game-development-1280.jpg",
+      "title": "GitHubの使い方と画面の見方｜初心者がゲームのHTMLを保存するまで",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/articles/meshy-game-development-guide/",
+      "width": 1280,
+      "status": 200,
+      "screenshot": "articles-meshy-game-development-guide-1280.jpg",
+      "title": "Meshy AIの使い方｜ゲーム用3Dモデルの生成からUnity・Blenderへの読み込みまで",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/articles/meshy-pricing-credits-game/",
+      "width": 1280,
+      "status": 200,
+      "screenshot": "articles-meshy-pricing-credits-game-1280.jpg",
+      "title": "Meshy AIの料金は？無料版・Pro・Premium・Ultraの違いとゲーム開発のクレジット目安",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/articles/elevenlabs-v4-game-voice/",
+      "width": 1280,
+      "status": 200,
+      "screenshot": "articles-elevenlabs-v4-game-voice-1280.jpg",
+      "title": "ElevenLabs v4とは？ゲーム音声の変化・v3との違い・日本語・Turboを解説",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/",
+      "width": 375,
+      "status": 200,
+      "screenshot": "home-375.jpg",
+      "title": "遊べる世界から、作るヒントを。",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/tools/",
+      "width": 375,
+      "status": 200,
+      "screenshot": "tools-375.jpg",
+      "title": "何を作りたいですか？",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/guides/",
+      "width": 375,
+      "status": 200,
+      "screenshot": "guides-375.jpg",
+      "title": "今の作業から、次の成果物へ",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/guides/codex-game-development-brief/",
+      "width": 375,
+      "status": 200,
+      "screenshot": "guides-codex-game-development-brief-375.jpg",
+      "title": "Codexでゲーム開発を始める：実装ブリーフの作り方",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/stacks/",
+      "width": 375,
+      "status": 200,
+      "screenshot": "stacks-375.jpg",
+      "title": "ゲーム制作を、工程から組み立てる。",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/stacks/lowest-cost/",
+      "width": 375,
+      "status": 200,
+      "screenshot": "stacks-lowest-cost-375.jpg",
+      "title": "無料・最低コスト優先の制作構成",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/compare/",
+      "width": 375,
+      "status": 200,
+      "screenshot": "compare-375.jpg",
+      "title": "候補を、根拠から比べる。",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/project/",
+      "width": 375,
+      "status": 200,
+      "screenshot": "project-375.jpg",
+      "title": "ゲームのアイデアを実行計画へ",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/articles/github-beginner-game-development/",
+      "width": 375,
+      "status": 200,
+      "screenshot": "articles-github-beginner-game-development-375.jpg",
+      "title": "GitHubの使い方と画面の見方｜初心者がゲームのHTMLを保存するまで",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/articles/meshy-game-development-guide/",
+      "width": 375,
+      "status": 200,
+      "screenshot": "articles-meshy-game-development-guide-375.jpg",
+      "title": "Meshy AIの使い方｜ゲーム用3Dモデルの生成からUnity・Blenderへの読み込みまで",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/articles/meshy-pricing-credits-game/",
+      "width": 375,
+      "status": 200,
+      "screenshot": "articles-meshy-pricing-credits-game-375.jpg",
+      "title": "Meshy AIの料金は？無料版・Pro・Premium・Ultraの違いとゲーム開発のクレジット目安",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/articles/elevenlabs-v4-game-voice/",
+      "width": 375,
+      "status": 200,
+      "screenshot": "articles-elevenlabs-v4-game-voice-375.jpg",
+      "title": "ElevenLabs v4とは？ゲーム音声の変化・v3との違い・日本語・Turboを解説",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/",
+      "width": 320,
+      "status": 200,
+      "screenshot": "home-320.jpg",
+      "title": "遊べる世界から、作るヒントを。",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/tools/",
+      "width": 320,
+      "status": 200,
+      "screenshot": "tools-320.jpg",
+      "title": "何を作りたいですか？",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/guides/",
+      "width": 320,
+      "status": 200,
+      "screenshot": "guides-320.jpg",
+      "title": "今の作業から、次の成果物へ",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/guides/codex-game-development-brief/",
+      "width": 320,
+      "status": 200,
+      "screenshot": "guides-codex-game-development-brief-320.jpg",
+      "title": "Codexでゲーム開発を始める：実装ブリーフの作り方",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/stacks/",
+      "width": 320,
+      "status": 200,
+      "screenshot": "stacks-320.jpg",
+      "title": "ゲーム制作を、工程から組み立てる。",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/stacks/lowest-cost/",
+      "width": 320,
+      "status": 200,
+      "screenshot": "stacks-lowest-cost-320.jpg",
+      "title": "無料・最低コスト優先の制作構成",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/compare/",
+      "width": 320,
+      "status": 200,
+      "screenshot": "compare-320.jpg",
+      "title": "候補を、根拠から比べる。",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/project/",
+      "width": 320,
+      "status": 200,
+      "screenshot": "project-320.jpg",
+      "title": "ゲームのアイデアを実行計画へ",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/articles/github-beginner-game-development/",
+      "width": 320,
+      "status": 200,
+      "screenshot": "articles-github-beginner-game-development-320.jpg",
+      "title": "GitHubの使い方と画面の見方｜初心者がゲームのHTMLを保存するまで",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/articles/meshy-game-development-guide/",
+      "width": 320,
+      "status": 200,
+      "screenshot": "articles-meshy-game-development-guide-320.jpg",
+      "title": "Meshy AIの使い方｜ゲーム用3Dモデルの生成からUnity・Blenderへの読み込みまで",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/articles/meshy-pricing-credits-game/",
+      "width": 320,
+      "status": 200,
+      "screenshot": "articles-meshy-pricing-credits-game-320.jpg",
+      "title": "Meshy AIの料金は？無料版・Pro・Premium・Ultraの違いとゲーム開発のクレジット目安",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/articles/elevenlabs-v4-game-voice/",
+      "width": 320,
+      "status": 200,
+      "screenshot": "articles-elevenlabs-v4-game-voice-320.jpg",
+      "title": "ElevenLabs v4とは？ゲーム音声の変化・v3との違い・日本語・Turboを解説",
+      "overflow": 0,
+      "method": "Chromium viewport emulation; no physical-device claim"
+    },
+    {
+      "route": "/",
+      "width": 320,
+      "cssZoom": 2,
+      "screenshot": "home-320-css200.jpg",
+      "overflow": 8,
+      "method": "CSS zoom stress; not native text zoom/physical device"
+    },
+    {
+      "route": "/project/",
+      "width": 320,
+      "cssZoom": 2,
+      "screenshot": "project-320-css200.jpg",
+      "overflow": 0,
+      "method": "CSS zoom stress; not native text zoom/physical device"
+    },
+    {
+      "route": "/articles/elevenlabs-v4-game-voice/",
+      "width": 320,
+      "cssZoom": 2,
+      "screenshot": "articles-elevenlabs-v4-game-voice-320-css200.jpg",
+      "overflow": 0,
+      "method": "CSS zoom stress; not native text zoom/physical device"
+    }
+  ],
+  "linkResults": [
+    {
+      "link": "/",
+      "status": 200
+    },
+    {
+      "link": "/articles/",
+      "status": 200
+    },
+    {
+      "link": "/tools/",
+      "status": 200
+    },
+    {
+      "link": "/project/",
+      "status": 200
+    },
+    {
+      "link": "/articles/ai-browser-game-how-to/",
+      "status": 200
+    },
+    {
+      "link": "/games/monster-construction/",
+      "status": 200
+    },
+    {
+      "link": "/games/aramon/",
+      "status": 200
+    },
+    {
+      "link": "/games/create-monsters/",
+      "status": 200
+    },
+    {
+      "link": "/games/aura-connect-battle/",
+      "status": 200
+    },
+    {
+      "link": "/games/tomoshibi/",
+      "status": 200
+    },
+    {
+      "link": "/games/punching/",
+      "status": 200
+    },
+    {
+      "link": "/games/rakugaction/",
+      "status": 200
+    },
+    {
+      "link": "/games/sumaraku/",
+      "status": 200
+    },
+    {
+      "link": "/games/swarm-front/",
+      "status": 200
+    },
+    {
+      "link": "/games/monhero/",
+      "status": 200
+    },
+    {
+      "link": "/articles/?hubEntry=home&hubCategory=start",
+      "status": 200
+    },
+    {
+      "link": "/articles/?hubEntry=home&hubCategory=3d",
+      "status": 200
+    },
+    {
+      "link": "/articles/?hubEntry=home&hubCategory=voice",
+      "status": 200
+    },
+    {
+      "link": "/articles/?hubEntry=home&hubCategory=practice",
+      "status": 200
+    },
+    {
+      "link": "/articles/?hubEntry=home&hubCategory=games",
+      "status": 200
+    },
+    {
+      "link": "/articles/elevenlabs-game-development-guide/",
+      "status": 200
+    },
+    {
+      "link": "/articles/meshy-game-development-guide/",
+      "status": 200
+    },
+    {
+      "link": "/project/?idea=Unity%E3%81%A7%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E5%8F%8E%E9%9B%86RPG",
+      "status": 200
+    },
+    {
+      "link": "/project/?idea=Godot%E3%81%A72D%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3",
+      "status": 200
+    },
+    {
+      "link": "/project/?idea=Steam%E5%90%91%E3%81%913D%E3%83%9B%E3%83%A9%E3%83%BC",
+      "status": 200
+    },
+    {
+      "link": "/methodology/",
+      "status": 200
+    },
+    {
+      "link": "/compare/",
+      "status": 200
+    },
+    {
+      "link": "/affiliate-disclosure/",
+      "status": 200
+    },
+    {
+      "link": "/privacy/",
+      "status": 200
+    },
+    {
+      "link": "/tools/adobe-firefly/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=adobe-firefly",
+      "status": 200
+    },
+    {
+      "link": "/tools/anything-world/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=anything-world",
+      "status": 200
+    },
+    {
+      "link": "/tools/canva-magic-studio/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=canva-magic-studio",
+      "status": 200
+    },
+    {
+      "link": "/tools/anthropic-claude/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=anthropic-claude",
+      "status": 200
+    },
+    {
+      "link": "/tools/claude-code/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=claude-code",
+      "status": 200
+    },
+    {
+      "link": "/tools/openai-codex/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=openai-codex",
+      "status": 200
+    },
+    {
+      "link": "/tools/convai/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=convai",
+      "status": 200
+    },
+    {
+      "link": "/tools/cursor/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=cursor",
+      "status": 200
+    },
+    {
+      "link": "/tools/deepl-api/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=deepl-api",
+      "status": 200
+    },
+    {
+      "link": "/tools/deepseek/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=deepseek",
+      "status": 200
+    },
+    {
+      "link": "/tools/elevenlabs/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=elevenlabs",
+      "status": 200
+    },
+    {
+      "link": "/tools/google-gemini/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=google-gemini",
+      "status": 200
+    },
+    {
+      "link": "/tools/github-copilot/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=github-copilot",
+      "status": 200
+    },
+    {
+      "link": "/tools/openai-gpt/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=openai-gpt",
+      "status": 200
+    },
+    {
+      "link": "/tools/xai-grok/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=xai-grok",
+      "status": 200
+    },
+    {
+      "link": "/tools/inworld/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=inworld",
+      "status": 200
+    },
+    {
+      "link": "/tools/leonardo-ai/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=leonardo-ai",
+      "status": 200
+    },
+    {
+      "link": "/tools/ludo-ai/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=ludo-ai",
+      "status": 200
+    },
+    {
+      "link": "/tools/meshy/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=meshy",
+      "status": 200
+    },
+    {
+      "link": "/tools/midjourney/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=midjourney",
+      "status": 200
+    },
+    {
+      "link": "/tools/adobe-mixamo/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=adobe-mixamo",
+      "status": 200
+    },
+    {
+      "link": "/tools/modl-ai/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=modl-ai",
+      "status": 200
+    },
+    {
+      "link": "/tools/qwen/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=qwen",
+      "status": 200
+    },
+    {
+      "link": "/tools/rosebud-ai/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=rosebud-ai",
+      "status": 200
+    },
+    {
+      "link": "/tools/runway/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=runway",
+      "status": 200
+    },
+    {
+      "link": "/tools/scenario/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=scenario",
+      "status": 200
+    },
+    {
+      "link": "/tools/stable-audio/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=stable-audio",
+      "status": 200
+    },
+    {
+      "link": "/tools/suno/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=suno",
+      "status": 200
+    },
+    {
+      "link": "/tools/tripo-ai/",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=tripo-ai",
+      "status": 200
+    },
+    {
+      "link": "/guides/codex-game-development-brief/",
+      "status": 200
+    },
+    {
+      "link": "/guides/ai-2d-rpg-workflow/",
+      "status": 200
+    },
+    {
+      "link": "/articles/ai-usage-guide/",
+      "status": 200
+    },
+    {
+      "link": "/articles/ai-fantasy/",
+      "status": 200
+    },
+    {
+      "link": "/guides/",
+      "status": 200
+    },
+    {
+      "link": "/stacks/2d-rpg/",
+      "status": 200
+    },
+    {
+      "link": "/stacks/monster-collection-mobile/",
+      "status": 200
+    },
+    {
+      "link": "/stacks/visual-novel/",
+      "status": 200
+    },
+    {
+      "link": "/stacks/3d-indie/",
+      "status": 200
+    },
+    {
+      "link": "/stacks/browser-game/",
+      "status": 200
+    },
+    {
+      "link": "/stacks/horror-game/",
+      "status": 200
+    },
+    {
+      "link": "/stacks/lowest-cost/",
+      "status": 200
+    },
+    {
+      "link": "/stacks/solo-developer/",
+      "status": 200
+    },
+    {
+      "link": "/stacks/",
+      "status": 200
+    },
+    {
+      "link": "/builder/?template=lowest-cost",
+      "status": 200
+    },
+    {
+      "link": "/compare/?ids=github-copilot,suno",
+      "status": 200
+    },
+    {
+      "link": "/project/?source=meshy-game-development-guide",
+      "status": 200
+    },
+    {
+      "link": "/articles/meshy-pricing-credits-game/",
+      "status": 200
+    },
+    {
+      "link": "/articles/meshy-commercial-use-game/",
+      "status": 200
+    },
+    {
+      "link": "/articles/elevenlabs-commercial-use-game/",
+      "status": 200
+    },
+    {
+      "link": "/project/?source=elevenlabs-v4-game-voice",
+      "status": 200
+    }
+  ],
+  "analyticsRequestsBlocked": 0,
+  "productionVisited": false
+}

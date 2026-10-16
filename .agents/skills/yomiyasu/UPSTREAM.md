@@ -1,69 +1,58 @@
-# Upstream provenance
+# Upstream provenance — v2.0.0
 
-- Source: https://github.com/nanaism/yomiyasu
-- Pinned commit: `9b9a84757ade524ef9d477f75c6ea13190079f97`
-- Upstream plugin metadata version: `1.0.8` (`.claude-plugin/plugin.json` at this commit). The full commit, not a moving branch or version label, is the pin.
-- Verified annotated tag: `v1.0.8`, tag object `83c8ee1f83e9047861fea4c3c75b35f72d2cabb4`, peeled to the pinned commit.
-- Previous pin: `8d5abeebe2dd20c2db005deaddcc50be43c59c0a` (plugin metadata 1.0.4), adopted in [PR #163](https://github.com/komekome898-web/GameAI-Hub/pull/163).
-- Reviewed on: 2026-10-06 (UTC).
-- Latest release verified: [v1.0.8](https://github.com/nanaism/yomiyasu/releases/tag/v1.0.8), published 2026-10-06 15:55:49 UTC. Observed upstream `main`: `8f77b7aa8f19c3f718b511e71a3eee5d06eb3013`; its three later commits change only `README.md` and a logo. This integration pins the release, not `main`.
-- Copyright (c) 2026 nanaism. MIT license retained verbatim in [LICENSE](LICENSE).
-- Local `SKILL.md` is an adapted, condensed derivative of the root upstream `SKILL.md` and `references/domains/tech.md`, not an unchanged upstream installation.
+- Official release: https://github.com/nanaism/yomiyasu/releases/tag/v2.0.0
+- Annotated tag object: `a191c3d5edf9d5a8b86e0c755fae7cadcd68f58f`.
+- Pinned commit: `b8ddf6e5c044d7a3e24ae5db64852465e7bd6cd3` (not moving main).
+- Reviewed: 2026-10-16 UTC. Previous pin: `9b9a84757ade524ef9d477f75c6ea13190079f97` / v1.0.8.
+- Copyright (c) 2026 nanaism; MIT LICENSE retained verbatim. Unicode notice retained verbatim in UNICODE-LICENSE.txt.
 
-## Reviewed source identity
+## Adaptation and safety review
 
-These SHA-256 values identify upstream inputs inspected for this integration; they are not hashes of the adapted local skill.
+Local SKILL.md adapts the upstream skill to explicit requested prose, factual/affiliate/SEO protections, historical-record exclusions, and owner approval for merge. Explicit site-wide requests are supported. No hooks, installer, account configuration, external service, model, dependency, CI/publication gate or automatic rewrite is added. Upstream benchmark/marketing claims are not local evidence. Full upstream references are retained as supporting guidance; local meaning and scope rules take precedence over stylistic ratios or fact completion.
 
-| Upstream path | SHA-256 |
+Independent read-only source review inspected the four scripts: standard-library only, no network or model calls. lint/diff read inputs and write stdout; check run launches neighboring same-version lint/diff with argv subprocesses (no shell), writes snapshots/reports/indices/locks under explicit state directory. Plain verify reads and compares final/tool hashes. Optional start/export/end and hooks are not used. Records prove execution and hash correspondence, not readability, meaning preservation, approval or tamper resistance.
+
+TSX is not passed directly to Markdown lint. The repository inventory extracts conservative AST candidates with source positions, including labels/metadata/alt/templates/data and internal strings/quotes. Human review must resolve runtime composition/visibility; English-only UI is reviewed in source. Re-extract final source and compare bytes with checked manuscript. Do not interpret corpus counts as visible-text coverage or quality scores.
+
+The local integration now runs original lint then final check run (lint/diff) and verify. Original/final inventories and compact executed-check evidence are kept under docs/editorial/yomiyasu-v2. Full transient state can be reproduced with the documented commands. Historical pilot/progress records remain unchanged.
+
+## Byte-identical upstream files
+
+| Path | SHA-256 |
 |---|---|
-| `SKILL.md` | `15defbbff83deaa7eb946d993230c0230e576d32ed0b715b0bb9c3bce5b7e4a5` |
-| `references/domains/tech.md` | `bfad82a08de02325b1e7339f23aef4ac29892b39babdb74a7ad7c3f1c6a36131` |
-| `.claude-plugin/plugin.json` | `eb7ec2602051b359aa2c56b22de14f183ec9bf0544646c54dd6d8afd80322f27` |
 | `LICENSE` | `79d802f15bc8caf67f1a83c1bdbe214ccb41a0a0275f9046b329b89c65ee1fca` |
+| `UNICODE-LICENSE.txt` | `e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96` |
+| `scripts/markdown_visibility.py` | `3fb581980c3e4ee8a30dd9bbdc25a120de6f9e77c25bdf39b8d4718b0461bf8b` |
+| `scripts/yomiyasu_check.py` | `844ba9abf031e01c130c99cf4faf8fb0090eb99f036ce5da7d8be1557b781f8c` |
+| `scripts/yomiyasu_diff.py` | `c09399b0bece3f36a8f41d06a7bb3f2f542efe4913e29f0e6a12a23b239d9a78` |
+| `scripts/yomiyasu_lint.py` | `9c657b9d0c5657271bb8cc4658814ba04175531f9907053911438c4dd6390161` |
+| `references/audience.md` | `406938162e6238dc08dc46fcd2160ea6a2731fdb60478429903b15577bd4dbf8` |
+| `references/doc-types/article.md` | `e5009c496b4b4ac8974c16f2f15b0f8ce93620863dfe721803b01138db845716` |
+| `references/doc-types/essay.md` | `0f937b0dc89094813f83cdc51bc89c1eb3c9dc99a6ab08302941825ac1f54646` |
+| `references/doc-types/formal.md` | `61afdef04d810aee80d173daf675f8a75c9cde82db09fb0ed8fcedd1b362afad` |
+| `references/doc-types/incident.md` | `d25282690b220e5d4fa2595228d282d65f7b03d8d4b325c30bf251b58a474b77` |
+| `references/doc-types/mail.md` | `43c84865368c6e1e61c0ac1645583933092ddcaabb49b6ed4b6c4621e9ba2d4f` |
+| `references/doc-types/manual.md` | `37971c4b7cf8159656a2435b30444a05692fbdffdd7dc3dd8e8f4ada90e8ef8f` |
+| `references/doc-types/minutes.md` | `7869c10e72e0e4ce6ecb94833e84452beba7f8b676230908fe623deddc49b140` |
+| `references/doc-types/paper.md` | `ed2957332ef12464d4bc43bc22ca2250229eca57f39b11597d2632fab020f12c` |
+| `references/doc-types/pr.md` | `d7bb8a4ac7f5344abf66bb7dfe893480c67ea8d635078c5a8d2582264a21506b` |
+| `references/doc-types/promo.md` | `f25c7b387077cc354a97ecd94580ce550a94cec34f28e2c11ed86dfaa71112bb` |
+| `references/doc-types/proposal.md` | `2a8d8a557b33f2df51aedeed02ba5bb8ed623fcde55f6a42ff4b477920853731` |
+| `references/doc-types/slides.md` | `6443d9b6e6d1782795b37a2e6edae65a439b0f23534aed885373a308262762fc` |
+| `references/domains/business.md` | `7d5be30f2bac61b7f47849193f02eaecebd8b27ef5f00e75af12144c9ab061ea` |
+| `references/domains/essay.md` | `aeeeb9f9c842d68fa0fcf2e956bd2f87c5f450bc820df931f3f94b903a8a8c7a` |
+| `references/domains/tech.md` | `255b1bcbf42a0c7ea7f42c7293cd964e541d70f6f5079ebcbffc332ce6b7b0dd` |
+| `references/fact-recovery-details.md` | `d845b843578c9f7cb452b7a776adf8b0c162d6a46078271c9cfc6c2311a3875d` |
+| `references/fact-recovery.md` | `431eca7304c970570a1d04e81ad27f836dedf7b43cd876a9bb20e6ba7048bef8` |
+| `references/gemini-syntax.md` | `156c2c97481b386c0674161f84ea5931dc79c84751f3b86539116d215f407143` |
+| `references/lists/fact-gaps.txt` | `9511f320413e9b9cb970e32b19d238954e20387d8958c3a98a28608a065bfb86` |
+| `references/lists/feelings.txt` | `5f71a66f5e2679de04ecd30395ab74ca61962297c22ef3f4efa5c8e625446166` |
+| `references/lists/hedges.txt` | `ed666036f63f4705d2c129d3fd30e971018d50732bbef2c18081412a61ccd771` |
+| `references/lists/intensifiers.txt` | `3e4829226d871ce10e4ae89c49ae218b6d9ed77cafcd6ddfd0fdb6cecd1fec2e` |
+| `references/lists/nominalization.txt` | `2f685bbcd7dfc5ea871ff5655368195d471cea6ac4ff57e75a0648aadd466048` |
+| `references/persona.md` | `3c1517aac4227411cabd7c462dc5fe833bb8015bd83c842c5b5fe14d566bbdf2` |
+| `references/rephrase-test.md` | `6b6b857c0f09f94e07d5406890e10c270dd64cb3232dc3983b975c204b5ad8bf` |
+| `references/review-points.md` | `4d0163afa982b877de01e366361a93cc60761f0a9fe11ff99d9b432e5634c7a2` |
+| `references/slop-catalog.md` | `94a30e54fe272180e9483d9602e12039d457d17f0c6d930747c7357974641d57` |
 
-Pinned [skill](https://github.com/nanaism/yomiyasu/blob/9b9a84757ade524ef9d477f75c6ea13190079f97/SKILL.md),
-[technical guidance](https://github.com/nanaism/yomiyasu/blob/9b9a84757ade524ef9d477f75c6ea13190079f97/references/domains/tech.md),
-[plugin metadata](https://github.com/nanaism/yomiyasu/blob/9b9a84757ade524ef9d477f75c6ea13190079f97/.claude-plugin/plugin.json),
-and [license](https://github.com/nanaism/yomiyasu/blob/9b9a84757ade524ef9d477f75c6ea13190079f97/LICENSE).
-
-## Local adaptation
-
-Retain meaning preservation and practical Japanese revision principles. Limit activation to explicitly requested prose and preserve GameAI Hub factual, affiliate, SEO and owner-approval rules. Treat style ratios as optional, preserve important lists/tables, exclude acceptance/audit records, and document manual TSX excerpt review. Remove mandatory lint-on-save/full mode, global installation, plugin activation and any suggestion to disable other skills. Do not import upstream research/benchmark claims as verified evidence about this repository.
-
-Only static instructions and the license are installed. No upstream executable, installer, corpus, image, dependency, workflow, subscription or account integration is added. No upstream Python script was executed. Neither lint nor diff is installed or used by this integration, package scripts or CI. Their results are not acceptance or publication gates. The source hashes above cover the current static inputs, not a complete executable safety review. Selected v1.0.7-to-v1.0.8 source changes were read to identify the optimization and Markdown limits; no execution was necessary. The MIT license is byte-identical to the previous pin and local copy. Unicode modules/data are not incorporated, so the new upstream Unicode notice is not vendored.
-
-## Retained v1.0.4 safeguards and intentional differences
-
-- Adopt conditional sentence splitting: retain purpose, means, reasons, conditions, order, contrast and their scope; keep the original when these relationships would move.
-- Adopt information non-addition for lists and objective tool descriptions: do not invent evaluation, obligation, conditions or capability claims.
-- Adopt stance-aware endings and preservation of procedural/already consistent endings. Locally, preserve the original stance and strength; do not infer an advice stance merely from missing subjects or normalize every ending. Uncertainty requires keeping the original and asking the author.
-- Adopt bold-delimiter repairs only for prose rendered as Markdown, with rendering confirmation. Do not mechanically apply them to TSX/JSX/strong or code, or alter historical evidence.
-- Retain explicit requested scope, optional use, facts/uncertainty/lists, audit/comparison exclusions and separate publication/merge authorization. No disabling other skills, mandatory Python lint/diff execution, score gates or enforced numerical style ratios.
-- Preserve the historical [two-article comparison](../../../docs/editorial/yomiyasu-pilot.md) verbatim. The separate [update review](../../../docs/codex-progress/yomiyasu-v1.0.4.md) records recheck concerns without revising its evidence or live articles.
-
-## Selected v1.0.8 changes
-
-- Explicitly preserve each claim's actor, action, object, time, modifier/reference target, exceptions, limits and quantities. Check document purpose and heading/lead/list/conclusion correspondence before choosing endings; do not invent missing relationships or select an uncertain reading.
-- Distinguish observation time from event time, completed changes from current behavior/policy and future plans. Preserve the original plain/polite style unless requested otherwise.
-- Permit a settled technical term for an awkward literal translation only when the supplied context establishes the technical subject and meaning. Preserve actual names, UI/component labels, identifiers, everyday meanings, values and decision conditions; do not infer types or mechanisms.
-- Preserve original/requested spacing, readable punctuation and intentional paragraphs. Do not remove/add English/number spacing uniformly, force one sentence per line or add blank lines uniformly. Existing Markdown bold repairs remain conditional on the actual display.
-- Separate reader-facing prose from editorial reasons/questions. Keep the source's unknown/investigation status and conditional claims in the body; do not insert editor uncertainty or replace a direct claim with hearsay. Honor body-only output while recording source/scope/preservation internally; publication and merge gates remain intact.
-- Refresh the TSX caveat to describe current Markdown-oriented protection rather than retain the old linter's extraction details. No TSX extraction tool is added.
-
-## Performance applicability
-
-The [v1.0.8 release notes](https://github.com/nanaism/yomiyasu/releases/tag/v1.0.8) report internal Python API timings against v1.0.7 (`8dc47e2594dc63f3dc37cd2c36eaf549e54b4678`), not against this integration's v1.0.4 static rules:
-
-| Upstream workload | v1.0.7 total | v1.0.8 total | Reported reduction |
-|---|---|---|---|
-| diff: seven documents compared with themselves | 8473.40 ms | 73.08 ms | 99.1% |
-| diff: 48 original/revised pairs | 184.30 ms | 78.44 ms | 57.4% |
-| lint: 160 existing documents | 20.41 ms | 15.42 ms | 24.4% |
-
-Upstream used the same Mac, Python 3.14.5, one warm-up and the median of seven alternating runs, totaling all inputs. The seven self-comparisons cover README plus six guides and differ from the 48 actual revision pairs. The maximum is among five measured diff conditions; CLI startup and LLM generation are excluded. Source inspection found identical/contained-text shortcuts, sentence-match pruning/reuse and reuse of parsed endings in diff; lint also avoids repeated scanning of long inline-code endings. These are upstream measurements and inspected implementation details, not local speed measurements or a guarantee for all inputs.
-
-Since GameAI Hub uses only static advisory instructions, there is no installed lint/diff computation to accelerate. Adding those tools solely for this speed claim is unnecessary. No upstream benchmark or script was run and no local speedup is claimed. See the [v1.0.8 review record](../../../docs/codex-progress/yomiyasu-v1.0.8.md) for scope and validation.
-
-## Updates
-
-Updates are manual, separately reviewed repository changes. Fetch a specific commit, inspect all proposed text and any executable source before running it, retain the MIT notice, and update this pin and source hashes together. Recheck local exceptions and the bounded article comparison; record new findings separately without rewriting historical evidence. Do not track upstream HEAD automatically or run remote installers. No new credential setup or paid service is authorized by this skill.
+Updates require a new explicit fixed pin, executable review, license check and hashes. Do not run remote installers or silently track main.

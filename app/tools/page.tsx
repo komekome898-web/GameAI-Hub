@@ -4,7 +4,7 @@ import { getServices } from '@/lib/services';
 import { Suspense } from 'react';
 import { DirectoryState } from '@/components/DirectoryState';
 
-export const metadata:Metadata={title:'作りたいものからAIツールを探す',description:'コード、声、2D、3Dなど作りたい成果物からAIゲーム開発ツールを絞り、公式根拠と未確認条件を調べられます。',alternates:{canonical:'/tools/'},openGraph:{url:'/tools/'}};
+export const metadata:Metadata={title:'作りたいものからAIツールを探す',description:'コード、声、2D、3Dなど、作りたい成果物からAIゲーム開発ツールを絞り、公式根拠と未確認条件を調べられます。',alternates:{canonical:'/tools/'},openGraph:{url:'/tools/'}};
 
 export default function ToolsPage(){
   const services=getServices();

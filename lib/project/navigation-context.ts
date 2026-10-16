@@ -104,6 +104,6 @@ export function beginnerBrowserToolDecision(service: Service): { status: 'browse
   if (!service.capabilities.some(item => item.id === 'coding')) return { status: 'other', reason: 'コード制作の候補ではありません。必要な素材を作る工程で確認してください。' };
   if (service.verificationStatus !== 'verified' || !service.capabilities.some(item => item.id === 'coding' && item.status === 'verified')) return { status: 'unknown', reason: 'コード制作や利用環境の公式確認が揃っていません。最初に使う候補として決める前に公式情報を確認してください。' };
   if (service.platforms.includes('Web')) return { status: 'browser', reason: '公式確認済みの掲載情報にブラウザ利用とコード支援があります。最初の1ファイルをAIへ依頼する作業の候補です。ログイン・利用枠は公式案内で確認してください。' };
-  if (service.platforms.some(platform => ['Windows', 'macOS', 'Linux'].includes(platform))) return { status: 'desktop', reason: '掲載情報はパソコンに入れる開発ツールです。ブラウザ上のチャットから始める今回の手順とは異なり、導入とファイルを開く準備が必要です。' };
+  if (service.platforms.some(platform => ['Windows', 'macOS', 'Linux'].includes(platform))) return { status: 'desktop', reason: '掲載されているのは、パソコンに入れる開発ツールです。ブラウザ上のチャットから始める今回の手順とは異なり、導入とファイルを開く準備が必要です。' };
   return { status: 'unknown', reason: 'ブラウザでコード制作できるか掲載情報では確認できません。公式の開始方法を確認してください。' };
 }

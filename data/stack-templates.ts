@@ -7,7 +7,7 @@ const voiceTool = (optional=true) => ({ stage:'voice' as const, serviceSlug:'ele
 const musicTool = (optional=true) => ({ stage:'music-sfx' as const, serviceSlug:'suno', reason:'BGMと楽曲プロトタイプが登録済みの主要用途です。', limitation:'商用利用条件はプランと生成時点に依存します。効果音対応は確認できていません。', alternativeSlugs:[], optional });
 const modelTool = () => ({ stage:'3d' as const, serviceSlug:'meshy', reason:'3Dモデル・テクスチャ・プロトタイプが登録済みの主要用途です。', limitation:'トポロジーやリグ等は用途に応じた検品が必要です。', alternativeSlugs:[], optional:false });
 const prototypeTool = () => ({ stage:'prototype' as const, serviceSlug:'rosebud-ai', reason:'ゲームプロトタイプとノーコード制作が登録済みの主要用途です。', limitation:'エクスポート、商用条件、拡張性は採用前の確認が必要です。', alternativeSlugs:[], optional:false });
-const cost='掲載サービスは価格額を構造化していません。無料プランの有無と最新料金を各公式ページで確認し、確定額として扱わないでください。';
+const cost='掲載サービスの価格は、金額を比較できる形では登録していません。無料プランの有無と最新料金を各公式ページで確認し、確定額として扱わないでください。';
 const caveats=['掲載候補の商用利用は「条件付き」または「不明」です。公開前に生成時点のプラン・規約・入力素材の権利を確認してください。'];
 
 export const stackTemplates = StackTemplateSchema.array().parse([
@@ -17,7 +17,7 @@ export const stackTemplates = StackTemplateSchema.array().parse([
  {slug:'3d-indie',title:'3D インディーゲーム制作構成',summary:'操作プロトタイプを先に作り、3D素材を検品して統合する工程案です。',forWhom:['Unity・Unreal Engine・Godotで3D作品を作る人'],workflow:['concept','prototype','code','3d','animation','music-sfx',...commonEnd],tools:[codeTool('cursor'),modelTool(),musicTool()],limitations:['リグ、アニメーション、最適化、レベルデザインは別工程として人が判断する必要があります。'],costVisibility:cost,commercialCaveats:caveats},
  {slug:'browser-game',title:'ブラウザゲーム制作構成',summary:'遊べるWebプロトタイプを早く検証し、必要ならコード主体の実装へ進む工程案です。',forWhom:['ブラウザで動く小規模ゲームを検証したい人'],workflow:['concept','prototype','code','visuals',...commonEnd],tools:[prototypeTool(),codeTool('cursor'),{...visualTool(),optional:true}],limitations:['Rosebud AIのエクスポートと拡張性は採用前の確認が必要で、掲載情報だけでは配信要件を判断できません。'],costVisibility:cost,commercialCaveats:caveats},
  {slug:'horror-game',title:'2D ホラーゲーム制作構成',summary:'2Dの恐怖体験を先に試作し、ビジュアルと音を統合する工程案です。3D作品には3D Indie構成を使います。',forWhom:['2Dの雰囲気と演出を重視するホラーゲーム制作者'],workflow:['concept','prototype','code','visuals','music-sfx',...commonEnd],tools:[codeTool(),visualTool(),musicTool(false)],limitations:['効果音の生成可否、演出設計、年齢区分への適合はこの構成からは判断できません。3D制作工程は含みません。'],costVisibility:cost,commercialCaveats:caveats},
- {slug:'lowest-cost',title:'無料・最低コスト優先の制作構成',summary:'無料プランが確認済みの候補を中心に、小さな試作から始める工程案です。',forWhom:['初期費用を抑えて検証したい人'],workflow:['concept','prototype','code','visuals','music-sfx',...commonEnd],tools:[codeTool(),{...musicTool(),optional:true}],limitations:['無料は費用ゼロや商用利用可を意味しません。画像制作を含む全工程はこの構成だけでは完結しません。'],costVisibility:'候補には無料プランが確認されたサービスがありますが、上限・商用条件・最新価格は公式ページで確認してください。',commercialCaveats:caveats},
+ {slug:'lowest-cost',title:'無料・最低コスト優先の制作構成',summary:'無料プランが確認済みの候補を中心に、小さな試作から始める工程案です。',forWhom:['初期費用を抑えて検証したい人'],workflow:['concept','prototype','code','visuals','music-sfx',...commonEnd],tools:[codeTool(),{...musicTool(),optional:true}],limitations:['無料プランがあることは、費用ゼロや商用利用可を意味しません。画像制作を含む全工程はこの構成だけでは完結しません。'],costVisibility:'候補には無料プランが確認されたサービスがありますが、上限・商用条件・最新価格は公式ページで確認してください。',commercialCaveats:caveats},
  {slug:'solo-developer',title:'個人開発者向け制作構成',summary:'スコープを抑え、コード・ビジュアル・任意の音を順番に統合する工程案です。',forWhom:['複数工程を一人で進める開発者'],workflow:['concept','prototype','code','visuals','music-sfx',...commonEnd],tools:[codeTool(),visualTool(),musicTool()],limitations:['企画判断、統合作業、テスト、公開準備は自動化されず、制作者自身の作業が必要です。'],costVisibility:cost,commercialCaveats:caveats},
 ]);
 export function getStackTemplate(slug:string){return stackTemplates.find(stack=>stack.slug===slug);}

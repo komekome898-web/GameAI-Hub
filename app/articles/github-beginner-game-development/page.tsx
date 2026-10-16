@@ -39,10 +39,10 @@ export default function Page() {
           <p className="eyebrow">GITHUB FOR FIRST GAME</p>
           <h1>{article.title}</h1>
           <p className="lead">
-            AIで作ったゲームの<code>index.html</code>をGitHubに保存するためのガイドです。コマンドは使わず アカウントの準備から保存場所とCode画面を見ていきます。先にゲームを動かしたい人は <a href="/articles/ai-browser-game-how-to/">ブラウザゲームの作り方</a>へ進めます。Projectから来た人は 元の制作タブへ戻って続けられます
+            AIで作ったゲームの<code>index.html</code>をGitHubに保存するためのガイドです。コマンドは使わず、アカウントの準備から保存場所とCode画面を見ていきます。先にゲームを動かしたい人は、<a href="/articles/ai-browser-game-how-to/">ブラウザゲームの作り方</a>へ進めます。Projectから来た人は、元の制作タブへ戻って続けられます。
           </p>
           <p>
-            画面名と手順はGitHub公式Docsをもとにしています。ログイン後の所有者画面で全手順を通した実測はしていないため 表示や配置が異なる場合があります
+            画面名と手順はGitHub公式Docsをもとにしています。ログイン後の所有者画面で全手順を通した実測はしていないため、表示や配置が異なる場合があります。
           </p>
         </header>
         <section className="article-contract">

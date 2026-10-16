@@ -1,0 +1,881 @@
+{
+  "base": "c7013491dc46f2a316bb4a79094a21f3802041f0",
+  "limitations": "Conservative candidates, including internal strings/quotes. Template expressions are fragments; human source-context review required. No runtime/translation completeness claim.",
+  "files": [
+    {
+      "path": "app/affiliate-disclosure/page.tsx",
+      "sourceSha256": "20a496848ce21d3d7e80decb6737b409ec79d4f346104914ddaf4e2e927b554a",
+      "finalSha256": "20a496848ce21d3d7e80decb6737b409ec79d4f346104914ddaf4e2e927b554a",
+      "candidates": 17,
+      "status": "retained"
+    },
+    {
+      "path": "app/api/project/interpret/route.ts",
+      "sourceSha256": "c4d131960fc529ea8ab66472cc4c3b9f1b2cd5fb1ac806825b14c396fc0acf44",
+      "finalSha256": "c4d131960fc529ea8ab66472cc4c3b9f1b2cd5fb1ac806825b14c396fc0acf44",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/ai-auto-trading-reality/page.tsx",
+      "sourceSha256": "6e8c80603b38d15b9ccf923d6f3c77d850cc245bf302b94610e247cd22b88af8",
+      "finalSha256": "6e8c80603b38d15b9ccf923d6f3c77d850cc245bf302b94610e247cd22b88af8",
+      "candidates": 124,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/ai-browser-game-how-to/page.tsx",
+      "sourceSha256": "3e6ce8b6ade7a3e08d138b4a90491d37aa965ce66733ffca37b13f22b5c2d4a8",
+      "finalSha256": "3e6ce8b6ade7a3e08d138b4a90491d37aa965ce66733ffca37b13f22b5c2d4a8",
+      "candidates": 99,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/ai-completion-claim/page.tsx",
+      "sourceSha256": "bab49f8ee1d69b583998c7318914acc64d4edea03ddf6118027aff17033af85d",
+      "finalSha256": "bab49f8ee1d69b583998c7318914acc64d4edea03ddf6118027aff17033af85d",
+      "candidates": 22,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/ai-delegation-trap/page.tsx",
+      "sourceSha256": "72927b388b740fa8ec54a182a68b30f8a9ad7590676c97ce6d00278a3de2c89f",
+      "finalSha256": "72927b388b740fa8ec54a182a68b30f8a9ad7590676c97ce6d00278a3de2c89f",
+      "candidates": 90,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/ai-fantasy/page.tsx",
+      "sourceSha256": "a7408dc44a5e1fdea319a33c10f3b29f0c38c73a59d4d0ebed199110bc837ab0",
+      "finalSha256": "a7408dc44a5e1fdea319a33c10f3b29f0c38c73a59d4d0ebed199110bc837ab0",
+      "candidates": 91,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/ai-html-game-not-working/page.tsx",
+      "sourceSha256": "7f8fbdbf1f4399912c045a4f77b85d735c1c9dcd083c3b5225bc1073d93e1811",
+      "finalSha256": "7f8fbdbf1f4399912c045a4f77b85d735c1c9dcd083c3b5225bc1073d93e1811",
+      "candidates": 50,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/ai-tool-comparison-later/page.tsx",
+      "sourceSha256": "8853bee2fabfe4c93ff2759b9bf4cd145931aa4103176100c85a2804cb0aa42f",
+      "finalSha256": "8853bee2fabfe4c93ff2759b9bf4cd145931aa4103176100c85a2804cb0aa42f",
+      "candidates": 26,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/ai-usage-guide/page.tsx",
+      "sourceSha256": "55adf5d210189ae5ce2102424178cb1ac6da4a5945d89d69f1c3332b0a5ca89a",
+      "finalSha256": "55adf5d210189ae5ce2102424178cb1ac6da4a5945d89d69f1c3332b0a5ca89a",
+      "candidates": 138,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/aramon-production-story/images.ts",
+      "sourceSha256": "2dc09d3d37e67fc33f2ae480a145c8fd787ae32f5376ef6e7620cd5cb4fe9691",
+      "finalSha256": "2dc09d3d37e67fc33f2ae480a145c8fd787ae32f5376ef6e7620cd5cb4fe9691",
+      "candidates": 6,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/aramon-production-story/page.tsx",
+      "sourceSha256": "e057a689c9acc838287810085449386dfd39de1e56e6b45ac6307180eee94444",
+      "finalSha256": "e057a689c9acc838287810085449386dfd39de1e56e6b45ac6307180eee94444",
+      "candidates": 58,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/before-asking-ai-build-game/page.tsx",
+      "sourceSha256": "511e08c17374f253ca8b939b3d397050b9adcf54bacada97fde5dc892cab40d9",
+      "finalSha256": "511e08c17374f253ca8b939b3d397050b9adcf54bacada97fde5dc892cab40d9",
+      "candidates": 26,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/elevenlabs-commercial-use-game/page.tsx",
+      "sourceSha256": "e50b175e610d5597b76f8767d78f4ba7f10621de484a84a070a80b45eeed01ca",
+      "finalSha256": "e50b175e610d5597b76f8767d78f4ba7f10621de484a84a070a80b45eeed01ca",
+      "candidates": 85,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/elevenlabs-game-development-guide/page.tsx",
+      "sourceSha256": "d10c550a5a77fef321f6d994f6e4e7a54f6231b1702fe99d6f4316e6c2d0dba2",
+      "finalSha256": "d10c550a5a77fef321f6d994f6e4e7a54f6231b1702fe99d6f4316e6c2d0dba2",
+      "candidates": 101,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/elevenlabs-v4-game-voice/page.tsx",
+      "sourceSha256": "b197b896ee611bf4e1eef811f671518540cd713db03cada1cfc60524304a22b5",
+      "finalSha256": "bc268a833b0e6233ec735ad6d75a5a431df148a8a3f4cff3a4a99b1b0025b8d7",
+      "candidates": 110,
+      "status": "changed"
+    },
+    {
+      "path": "app/articles/github-beginner-game-development/page.tsx",
+      "sourceSha256": "e25dbd063dce638fd60bfcce85f3baf9209e1331ef74b045130ee35ed12c06bf",
+      "finalSha256": "6f9e2d2ed987141895f69f8f5b0cba54ed5323c58b03a71eb663d775eb3c7fb6",
+      "candidates": 135,
+      "status": "changed"
+    },
+    {
+      "path": "app/articles/layout.tsx",
+      "sourceSha256": "98a20c99d1b417445aa9ea50e432e674177d04943490323870df6beb49eb7241",
+      "finalSha256": "98a20c99d1b417445aa9ea50e432e674177d04943490323870df6beb49eb7241",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/meshy-commercial-use-game/page.tsx",
+      "sourceSha256": "2c9de870769d0a6ecddeab1a82d4bcc31b1d385b6ea6f555768c0c3f91687b76",
+      "finalSha256": "2c9de870769d0a6ecddeab1a82d4bcc31b1d385b6ea6f555768c0c3f91687b76",
+      "candidates": 112,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/meshy-game-development-guide/page.tsx",
+      "sourceSha256": "1c0ea4ed212a8dd3be8ac898c620f51a9f608446c178a7f57f6bed1469b001ae",
+      "finalSha256": "c1ed0977f38bd71cd8697032ab3880bde164a66e761bd3bcd26b63939834aa4c",
+      "candidates": 92,
+      "status": "changed"
+    },
+    {
+      "path": "app/articles/meshy-pricing-credits-game/page.tsx",
+      "sourceSha256": "775b058cf471f3f7cc384b8296c14149e45b240a00126753a2ca91c995605112",
+      "finalSha256": "eb1e22cced99e6230a0fda457fcb3fb84664c4774599b517d324a1a43d2b2fe5",
+      "candidates": 147,
+      "status": "changed"
+    },
+    {
+      "path": "app/articles/page.tsx",
+      "sourceSha256": "5e5564823abc3738d0ec7fa1dcca741d8cc5260703b1fe2b2e6d3f15e9d600d6",
+      "finalSha256": "5e5564823abc3738d0ec7fa1dcca741d8cc5260703b1fe2b2e6d3f15e9d600d6",
+      "candidates": 9,
+      "status": "retained"
+    },
+    {
+      "path": "app/articles/small-first-success/page.tsx",
+      "sourceSha256": "85f88911bc7495c756d96242cd3701ba570c67b691fe45231a91fbfa076cc5be",
+      "finalSha256": "85f88911bc7495c756d96242cd3701ba570c67b691fe45231a91fbfa076cc5be",
+      "candidates": 24,
+      "status": "retained"
+    },
+    {
+      "path": "app/builder/page.tsx",
+      "sourceSha256": "2ebbe74af076304d1fafa1c2d1e980941f01f6e26af8e56a9fe7123a778ffaab",
+      "finalSha256": "2ebbe74af076304d1fafa1c2d1e980941f01f6e26af8e56a9fe7123a778ffaab",
+      "candidates": 2,
+      "status": "retained"
+    },
+    {
+      "path": "app/compare/page.tsx",
+      "sourceSha256": "eb12a7d963bff2b58bf070807a2d3d7e9cedb0025ef0843ef3d8d1d3b8fdb55d",
+      "finalSha256": "17c15fffcf8de3328cd28c5590fe22e26388e88542a41698ce654885f66f3944",
+      "candidates": 8,
+      "status": "changed"
+    },
+    {
+      "path": "app/games/[slug]/page.tsx",
+      "sourceSha256": "0fef95f66d41643df31cfc884d633ee85287de8464b3ee48853b8033cbef4158",
+      "finalSha256": "0fef95f66d41643df31cfc884d633ee85287de8464b3ee48853b8033cbef4158",
+      "candidates": 22,
+      "status": "retained"
+    },
+    {
+      "path": "app/guides/[slug]/page.tsx",
+      "sourceSha256": "7b78f8ede45cbf5d7e60413af967145c6342ce45c0779e2da2ff553175da867e",
+      "finalSha256": "7b78f8ede45cbf5d7e60413af967145c6342ce45c0779e2da2ff553175da867e",
+      "candidates": 16,
+      "status": "retained"
+    },
+    {
+      "path": "app/guides/error.tsx",
+      "sourceSha256": "a55e0ca941c044ea4138806a48f99f8ae95041b11bf7d79c525884205911a3e8",
+      "finalSha256": "915eda17cbef1dd2b24bd4616d77a2adea57e52ff1e2bb2e51d885c687d9d828",
+      "candidates": 2,
+      "status": "changed"
+    },
+    {
+      "path": "app/guides/page.tsx",
+      "sourceSha256": "2e653a03ddcf15a3196ef488bb11ff9425394755bc6465748ac2123ff0cd74fb",
+      "finalSha256": "46bf1e3edba953c6b7f193324ad44b0f3f966403be4be4d234ad96f856c9fa43",
+      "candidates": 12,
+      "status": "changed"
+    },
+    {
+      "path": "app/layout.tsx",
+      "sourceSha256": "5b97421cebcd40646a7856d820ff2a45a095010027efc7d91a931c6a76d0fc24",
+      "finalSha256": "5b97421cebcd40646a7856d820ff2a45a095010027efc7d91a931c6a76d0fc24",
+      "candidates": 13,
+      "status": "retained"
+    },
+    {
+      "path": "app/methodology/page.tsx",
+      "sourceSha256": "921c5ee68b73be643a1df52215020f2388aa2af02d8e808c938f57ccd0f4f339",
+      "finalSha256": "921c5ee68b73be643a1df52215020f2388aa2af02d8e808c938f57ccd0f4f339",
+      "candidates": 29,
+      "status": "retained"
+    },
+    {
+      "path": "app/not-found.tsx",
+      "sourceSha256": "d562342a417bed9a4672ee4b51b495bda1d90f53a60152be2fadb9e4d73213bc",
+      "finalSha256": "d562342a417bed9a4672ee4b51b495bda1d90f53a60152be2fadb9e4d73213bc",
+      "candidates": 3,
+      "status": "retained"
+    },
+    {
+      "path": "app/page.tsx",
+      "sourceSha256": "018136f73b553aab2585d311fe9f887a82b4f10c8610a72a5629d9e0ecb5e623",
+      "finalSha256": "018136f73b553aab2585d311fe9f887a82b4f10c8610a72a5629d9e0ecb5e623",
+      "candidates": 76,
+      "status": "retained"
+    },
+    {
+      "path": "app/privacy/page.tsx",
+      "sourceSha256": "0aef7818d2d70cb6d4673fe0e5100162a194e1c7458ebe60ec24c3e2ab543e18",
+      "finalSha256": "0aef7818d2d70cb6d4673fe0e5100162a194e1c7458ebe60ec24c3e2ab543e18",
+      "candidates": 42,
+      "status": "retained"
+    },
+    {
+      "path": "app/project/page.tsx",
+      "sourceSha256": "c9a440c94b574099a80f5f1ab7eb633f926a88c948447ef77dee5fb6c6424e68",
+      "finalSha256": "c9a440c94b574099a80f5f1ab7eb633f926a88c948447ef77dee5fb6c6424e68",
+      "candidates": 1,
+      "status": "retained"
+    },
+    {
+      "path": "app/robots.ts",
+      "sourceSha256": "08ea17601ee19acb1c30754a411e37cd947b82baf3f7fc941aad04bd95fe260e",
+      "finalSha256": "08ea17601ee19acb1c30754a411e37cd947b82baf3f7fc941aad04bd95fe260e",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "app/sitemap.ts",
+      "sourceSha256": "9c0de383a569f9e02487b2efef6922da2f3fae4da762197cf09aa948f99acc88",
+      "finalSha256": "9c0de383a569f9e02487b2efef6922da2f3fae4da762197cf09aa948f99acc88",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "app/stacks/[slug]/page.tsx",
+      "sourceSha256": "a24cd3a1d99c35b196cdd53b1f889773fc9e44670f910044d35d80ce80857f63",
+      "finalSha256": "a24cd3a1d99c35b196cdd53b1f889773fc9e44670f910044d35d80ce80857f63",
+      "candidates": 59,
+      "status": "retained"
+    },
+    {
+      "path": "app/stacks/page.tsx",
+      "sourceSha256": "6613ffa644cb3a25603b23f5c5d7d2583b09c8082bf4be48ddb732eed8062895",
+      "finalSha256": "200102db313bb58e1ef58b331afb46395e22ce6d443e6923b27a8868812e5325",
+      "candidates": 12,
+      "status": "changed"
+    },
+    {
+      "path": "app/tools/[slug]/page.tsx",
+      "sourceSha256": "e8e300f6f92c59f705dd519c5067f0b73c85d0b967b5dbe0e2327a47602fb162",
+      "finalSha256": "e8e300f6f92c59f705dd519c5067f0b73c85d0b967b5dbe0e2327a47602fb162",
+      "candidates": 39,
+      "status": "retained"
+    },
+    {
+      "path": "app/tools/error.tsx",
+      "sourceSha256": "44cdce82689139486103f03a671ff0e22a2dd0f047c1751e3dadd7fc97d8597f",
+      "finalSha256": "01cf467b68e70ba279eb36e0859317318c8007a45822d26c5b2c76c31f235671",
+      "candidates": 2,
+      "status": "changed"
+    },
+    {
+      "path": "app/tools/page.tsx",
+      "sourceSha256": "71f5c747b5c7caa49000dd18c37ce0cd3b4ef9fb92905ee19492a313e2a6ea4f",
+      "finalSha256": "7fb79bdd0c09f4dc3a6250551b7b7cba1595c5116fd3201d2d722a0c13dc6daf",
+      "candidates": 8,
+      "status": "changed"
+    },
+    {
+      "path": "components/AnalyticsExclusionControl.tsx",
+      "sourceSha256": "596d5a251d127d0a78dbb8eb065fab1dfe9c860f814be138964e89a63f00f92a",
+      "finalSha256": "596d5a251d127d0a78dbb8eb065fab1dfe9c860f814be138964e89a63f00f92a",
+      "candidates": 7,
+      "status": "retained"
+    },
+    {
+      "path": "components/ArticleAffiliateCtas.tsx",
+      "sourceSha256": "0cc84d4779d52db8a705bb0c5f1eb59d99108e86dfaa4322b7cbef2ef0f635f9",
+      "finalSha256": "0cc84d4779d52db8a705bb0c5f1eb59d99108e86dfaa4322b7cbef2ef0f635f9",
+      "candidates": 26,
+      "status": "retained"
+    },
+    {
+      "path": "components/ArticleAnalytics.tsx",
+      "sourceSha256": "9c0799ddf9ba7526b2e731e4d6c28309b2a921b46221591eda44f0a52593b6c2",
+      "finalSha256": "9c0799ddf9ba7526b2e731e4d6c28309b2a921b46221591eda44f0a52593b6c2",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "components/ArticleBrowser.tsx",
+      "sourceSha256": "b50a106bf6e195581ad60bec225a5db1b3cdf9fe028222c1d2e4fbd8f86188f0",
+      "finalSha256": "b50a106bf6e195581ad60bec225a5db1b3cdf9fe028222c1d2e4fbd8f86188f0",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "components/ArticleFrame.tsx",
+      "sourceSha256": "b1a1045931cdbbdd806f2446ffe7afab30ee6bc40d02d1dcb96d536706f7629a",
+      "finalSha256": "b1a1045931cdbbdd806f2446ffe7afab30ee6bc40d02d1dcb96d536706f7629a",
+      "candidates": 22,
+      "status": "retained"
+    },
+    {
+      "path": "components/ArticleHeader.tsx",
+      "sourceSha256": "33424fc5f88780c27227fa37f2596173b8102bc68aed6119a66e72dc72ccdce0",
+      "finalSha256": "33424fc5f88780c27227fa37f2596173b8102bc68aed6119a66e72dc72ccdce0",
+      "candidates": 3,
+      "status": "retained"
+    },
+    {
+      "path": "components/ArticleHub.tsx",
+      "sourceSha256": "09b09ca97f3c92e003520cb255981f88af4a2b2686f4fca3a0dad6c5d6814007",
+      "finalSha256": "09b09ca97f3c92e003520cb255981f88af4a2b2686f4fca3a0dad6c5d6814007",
+      "candidates": 16,
+      "status": "retained"
+    },
+    {
+      "path": "components/ArticleProjectCta.tsx",
+      "sourceSha256": "e7822e36c33ac93f0e5925f0bc9d92dafb9f26f39e46a65fa553c9e3ecd0ae8f",
+      "finalSha256": "e7822e36c33ac93f0e5925f0bc9d92dafb9f26f39e46a65fa553c9e3ecd0ae8f",
+      "candidates": 2,
+      "status": "retained"
+    },
+    {
+      "path": "components/ArticleProjectLink.tsx",
+      "sourceSha256": "98849236e1f3c6ef174c73aa5fd6364510cb7bcfb4cf9f79977f8021aa4ce526",
+      "finalSha256": "98849236e1f3c6ef174c73aa5fd6364510cb7bcfb4cf9f79977f8021aa4ce526",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "components/ArticlePromotions.tsx",
+      "sourceSha256": "c24b4e7e8903f558feefb53a2444e7c70787a278c80dfaa38e58d35744f5cf09",
+      "finalSha256": "c24b4e7e8903f558feefb53a2444e7c70787a278c80dfaa38e58d35744f5cf09",
+      "candidates": 2,
+      "status": "retained"
+    },
+    {
+      "path": "components/ArticleReadingGuide.tsx",
+      "sourceSha256": "1464cd193c8411ad1daa4a1f375e0f992173848d9bf92794a4cfac523cae50c3",
+      "finalSha256": "1464cd193c8411ad1daa4a1f375e0f992173848d9bf92794a4cfac523cae50c3",
+      "candidates": 12,
+      "status": "retained"
+    },
+    {
+      "path": "components/ArticleReturnLink.tsx",
+      "sourceSha256": "5f50642170f954c6822226155c847470b4fa8c2e78f5ef126c80b9ceb00b3f55",
+      "finalSha256": "5f50642170f954c6822226155c847470b4fa8c2e78f5ef126c80b9ceb00b3f55",
+      "candidates": 1,
+      "status": "retained"
+    },
+    {
+      "path": "components/BeginnerGameWorkspace.tsx",
+      "sourceSha256": "aeb022ed4e4cb55d4296d53c50458a1a65cc9139c4a72b6e1c661ce155d728fc",
+      "finalSha256": "aeb022ed4e4cb55d4296d53c50458a1a65cc9139c4a72b6e1c661ce155d728fc",
+      "candidates": 52,
+      "status": "retained"
+    },
+    {
+      "path": "components/BuilderClient.tsx",
+      "sourceSha256": "e802c4262ed9e9a6ebddbcaf4046283c994c3bc428b1d71c3b2de72977283b67",
+      "finalSha256": "e802c4262ed9e9a6ebddbcaf4046283c994c3bc428b1d71c3b2de72977283b67",
+      "candidates": 213,
+      "status": "retained"
+    },
+    {
+      "path": "components/CompareClient.tsx",
+      "sourceSha256": "65644c48f6bd837e2b545a395c936fd0cf4c2bece6a675a2582456181986dbbe",
+      "finalSha256": "65644c48f6bd837e2b545a395c936fd0cf4c2bece6a675a2582456181986dbbe",
+      "candidates": 109,
+      "status": "retained"
+    },
+    {
+      "path": "components/ConversationEvidence.tsx",
+      "sourceSha256": "97c9038116a3fd18f3c5f405cf91b557d03c3cdb961f2b1e258f32a4353a6465",
+      "finalSha256": "97c9038116a3fd18f3c5f405cf91b557d03c3cdb961f2b1e258f32a4353a6465",
+      "candidates": 6,
+      "status": "retained"
+    },
+    {
+      "path": "components/CopyTextButton.tsx",
+      "sourceSha256": "783f925d10aaf488755b32a8c27ab3762bd604149d6a593c135bd4e2a5a90036",
+      "finalSha256": "783f925d10aaf488755b32a8c27ab3762bd604149d6a593c135bd4e2a5a90036",
+      "candidates": 3,
+      "status": "retained"
+    },
+    {
+      "path": "components/CreationDeck.tsx",
+      "sourceSha256": "417621c1721c3a55df245e0cef8a6fc0908a0862efd5bbb74faf7c4606ad3c3e",
+      "finalSha256": "417621c1721c3a55df245e0cef8a6fc0908a0862efd5bbb74faf7c4606ad3c3e",
+      "candidates": 28,
+      "status": "retained"
+    },
+    {
+      "path": "components/DirectoryState.tsx",
+      "sourceSha256": "dca78cc96d2e7634b613c38089aa0bd9486fc233b77c957b6ce3c049ce099c8c",
+      "finalSha256": "dca78cc96d2e7634b613c38089aa0bd9486fc233b77c957b6ce3c049ce099c8c",
+      "candidates": 2,
+      "status": "retained"
+    },
+    {
+      "path": "components/GamePlayAnalytics.tsx",
+      "sourceSha256": "9127d6ae8de674fa7ccd4c6bc1dc63f9ed7eddbd2d5415a485730ae7186873f6",
+      "finalSha256": "9127d6ae8de674fa7ccd4c6bc1dc63f9ed7eddbd2d5415a485730ae7186873f6",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "components/GamePlayLink.tsx",
+      "sourceSha256": "007a0d20a726fa40a70670d853b409550a7468b58f4774dbe2db0567a2aedd82",
+      "finalSha256": "007a0d20a726fa40a70670d853b409550a7468b58f4774dbe2db0567a2aedd82",
+      "candidates": 2,
+      "status": "retained"
+    },
+    {
+      "path": "components/GameShowcase.tsx",
+      "sourceSha256": "d6190e39a2f55eef0721a433bd854d9d5c837f4fac93388afd7e99c471691907",
+      "finalSha256": "d6190e39a2f55eef0721a433bd854d9d5c837f4fac93388afd7e99c471691907",
+      "candidates": 16,
+      "status": "retained"
+    },
+    {
+      "path": "components/GoogleAnalytics.tsx",
+      "sourceSha256": "281a811dae447b76bd722229a127fd152cdb487ddfa008f3b6475470a745657f",
+      "finalSha256": "281a811dae447b76bd722229a127fd152cdb487ddfa008f3b6475470a745657f",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "components/GuidesExplorer.tsx",
+      "sourceSha256": "0221ff39c7044bed92fec3a805fbb78fc132eef08fb645ac58ac745ca6b54689",
+      "finalSha256": "0221ff39c7044bed92fec3a805fbb78fc132eef08fb645ac58ac745ca6b54689",
+      "candidates": 36,
+      "status": "retained"
+    },
+    {
+      "path": "components/Header.tsx",
+      "sourceSha256": "5fcd68d89cd3840718f4dcabd943380925803d6d0a69755c4a191ec7fdee7ead",
+      "finalSha256": "5fcd68d89cd3840718f4dcabd943380925803d6d0a69755c4a191ec7fdee7ead",
+      "candidates": 27,
+      "status": "retained"
+    },
+    {
+      "path": "components/HtmlGameDebugDemo.tsx",
+      "sourceSha256": "3cdf7725b1e7e3925de863b15529a935610b127dddd98a26ab79ba61e42e38c5",
+      "finalSha256": "3cdf7725b1e7e3925de863b15529a935610b127dddd98a26ab79ba61e42e38c5",
+      "candidates": 7,
+      "status": "retained"
+    },
+    {
+      "path": "components/OutboundLink.tsx",
+      "sourceSha256": "38d47ae61be48a20564c7954bef7a8b286c105351194eb9c310707f8eff6cf66",
+      "finalSha256": "38d47ae61be48a20564c7954bef7a8b286c105351194eb9c310707f8eff6cf66",
+      "candidates": 4,
+      "status": "retained"
+    },
+    {
+      "path": "components/ProjectGeneratorClient.tsx",
+      "sourceSha256": "2ff33b9d1879302f1f433268443db865f11e9d6cdf0235fcd87d9468790194fd",
+      "finalSha256": "c343b51515bee5c19d1168cdf3a05821f7b64c7d2d758b7559509d6ce0a51f15",
+      "candidates": 451,
+      "status": "changed"
+    },
+    {
+      "path": "components/StackAnalytics.tsx",
+      "sourceSha256": "526d019fe0ed6ddd1e1a1adc057c0e5eba93e1a7063a9d487c649fbd3ab4e1d1",
+      "finalSha256": "526d019fe0ed6ddd1e1a1adc057c0e5eba93e1a7063a9d487c649fbd3ab4e1d1",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "components/ToolView.tsx",
+      "sourceSha256": "d4a8e210f3c7dbd79c138fa3e87edf3685aec7e9ff9fb3068b1018c6c50cba2b",
+      "finalSha256": "d4a8e210f3c7dbd79c138fa3e87edf3685aec7e9ff9fb3068b1018c6c50cba2b",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "components/ToolsExplorer.tsx",
+      "sourceSha256": "d84fc796e4dae92abb187839e7b15989fa69548994f2bf48eb226942c76a09b1",
+      "finalSha256": "d84fc796e4dae92abb187839e7b15989fa69548994f2bf48eb226942c76a09b1",
+      "candidates": 69,
+      "status": "retained"
+    },
+    {
+      "path": "components/TrustPage.tsx",
+      "sourceSha256": "d0cb1ee55e9128a8f934e36a35f0ec4cfc26b50698b8ad23d25840914e696d51",
+      "finalSha256": "d0cb1ee55e9128a8f934e36a35f0ec4cfc26b50698b8ad23d25840914e696d51",
+      "candidates": 3,
+      "status": "retained"
+    },
+    {
+      "path": "components/ui/Foundation.tsx",
+      "sourceSha256": "41f7a36c4c664fabb0ee698514782938fb3dcf3a57ed3e8496416e81567509d5",
+      "finalSha256": "41f7a36c4c664fabb0ee698514782938fb3dcf3a57ed3e8496416e81567509d5",
+      "candidates": 1,
+      "status": "retained"
+    },
+    {
+      "path": "components/useAffiliateImpression.ts",
+      "sourceSha256": "e4d1fcb3f43bfb2115bd81150b14cfe51edfc49b05c89764976c6b924ff5c4bd",
+      "finalSha256": "e4d1fcb3f43bfb2115bd81150b14cfe51edfc49b05c89764976c6b924ff5c4bd",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "components/useCreationDeckMotion.ts",
+      "sourceSha256": "dea52cc92299e38b997e43183373afaaad4516361ce3a9d6cc7da58aad704514",
+      "finalSha256": "dea52cc92299e38b997e43183373afaaad4516361ce3a9d6cc7da58aad704514",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "data/affiliate-programs.json",
+      "sourceSha256": "9eb6276b90edf67da1fbf8f57a1a0e396090da6a89260c106e648c77c42b1cc8",
+      "finalSha256": "9eb6276b90edf67da1fbf8f57a1a0e396090da6a89260c106e648c77c42b1cc8",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "data/article-purposes.ts",
+      "sourceSha256": "e8bb4060d0f84e6070517387b40437545651023cd04260096db0d46ceb745228",
+      "finalSha256": "e8bb4060d0f84e6070517387b40437545651023cd04260096db0d46ceb745228",
+      "candidates": 10,
+      "status": "retained"
+    },
+    {
+      "path": "data/articles.ts",
+      "sourceSha256": "28501d075f5a0a7af5f089b38fc442f6c6d1dd22a10e0471398132542179f0b1",
+      "finalSha256": "c255119ed8896ae3295cd599e254d66f3c7deede3fba1f6a9d6e29fcea873149",
+      "candidates": 293,
+      "status": "changed"
+    },
+    {
+      "path": "data/game-introductions.ts",
+      "sourceSha256": "af12ad5ef4054869a38cf0294c1e6a3edab6ed98dba31860d379701d07fac401",
+      "finalSha256": "af12ad5ef4054869a38cf0294c1e6a3edab6ed98dba31860d379701d07fac401",
+      "candidates": 169,
+      "status": "retained"
+    },
+    {
+      "path": "data/games.ts",
+      "sourceSha256": "df583ffffebb617b6848141a9eeab7cb4cbc0b8fba6adaddf16e218102164e51",
+      "finalSha256": "df583ffffebb617b6848141a9eeab7cb4cbc0b8fba6adaddf16e218102164e51",
+      "candidates": 29,
+      "status": "retained"
+    },
+    {
+      "path": "data/guides.ts",
+      "sourceSha256": "c319ac93de475db9e17fd7c52cfcd9bcac799a9329941b0f083690725dd98b0b",
+      "finalSha256": "eaa0b54345a8420c69ff7b94d3b6e1907f86e60eede943ec9d092a5aba20335d",
+      "candidates": 80,
+      "status": "changed"
+    },
+    {
+      "path": "data/html-game-debug-examples.ts",
+      "sourceSha256": "fbdf885b07e42bd5da69a8f196eb612fcdcf2cad35511eae6321c0da3aac4585",
+      "finalSha256": "fbdf885b07e42bd5da69a8f196eb612fcdcf2cad35511eae6321c0da3aac4585",
+      "candidates": 21,
+      "status": "retained"
+    },
+    {
+      "path": "data/recommendation-rules.ts",
+      "sourceSha256": "2bfccbea52312c01432c2c4fb0cc57ee9f4453b7e9f9da22f2eff116d2bfc47b",
+      "finalSha256": "2bfccbea52312c01432c2c4fb0cc57ee9f4453b7e9f9da22f2eff116d2bfc47b",
+      "candidates": 12,
+      "status": "retained"
+    },
+    {
+      "path": "data/services.json",
+      "sourceSha256": "0c33778b4f927d9a500e95e2e6c1ca5909538c7eca4de3a4a2cd206f462d1f9a",
+      "finalSha256": "237998eb15c64b73217010c5de0be432d45faf2a19361aae2fb819838fef1395",
+      "candidates": 389,
+      "status": "changed"
+    },
+    {
+      "path": "data/stack-templates.ts",
+      "sourceSha256": "83a9634a445312f6361d19df46d48f1cad24506ccffa95119fefcf85ab1d5181",
+      "finalSha256": "6fbd278ed5a7dd6294feaea872de60677ba43ede4a861f09e3d24c8d1f906246",
+      "candidates": 49,
+      "status": "changed"
+    },
+    {
+      "path": "data/swarm-monhero-introductions.ts",
+      "sourceSha256": "a78a692408bfc2584b9fc3c1b9e98a4b35936a1b8fd6db1e8a21385b140e8c88",
+      "finalSha256": "a78a692408bfc2584b9fc3c1b9e98a4b35936a1b8fd6db1e8a21385b140e8c88",
+      "candidates": 59,
+      "status": "retained"
+    },
+    {
+      "path": "lib/affiliate-analytics.ts",
+      "sourceSha256": "5e72a63cc9b0880ec09a277b8530a7b28f4e5cdd875f00bde82b31ddae328141",
+      "finalSha256": "5e72a63cc9b0880ec09a277b8530a7b28f4e5cdd875f00bde82b31ddae328141",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/analytics.ts",
+      "sourceSha256": "5755697090ef5bdfb68cc091a134f44624373e8f96bf35fb3d34472da4d1055f",
+      "finalSha256": "5755697090ef5bdfb68cc091a134f44624373e8f96bf35fb3d34472da4d1055f",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/article-hub-groups.ts",
+      "sourceSha256": "62e99109a5e7088b35bb65ae90f78d4c5932b1de33a88f730beabc2318e9029c",
+      "finalSha256": "62e99109a5e7088b35bb65ae90f78d4c5932b1de33a88f730beabc2318e9029c",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/article-visuals.ts",
+      "sourceSha256": "391e9ac31ea61918b85aaab11a4518e2a33e02bfcb8dd8bbf76d350a2179e002",
+      "finalSha256": "391e9ac31ea61918b85aaab11a4518e2a33e02bfcb8dd8bbf76d350a2179e002",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/creation-deck-motion.ts",
+      "sourceSha256": "0c0c6f2804273a58d3c3a1c28a7daefb5f76d23ae708f0fcb3bf841855ea341d",
+      "finalSha256": "0c0c6f2804273a58d3c3a1c28a7daefb5f76d23ae708f0fcb3bf841855ea341d",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/domain.ts",
+      "sourceSha256": "ebc64ee2f582603c4772cbb5b35a353a110428195b65150dde7922df5feb0ba3",
+      "finalSha256": "ebc64ee2f582603c4772cbb5b35a353a110428195b65150dde7922df5feb0ba3",
+      "candidates": 23,
+      "status": "retained"
+    },
+    {
+      "path": "lib/game-validation.ts",
+      "sourceSha256": "5f03f78a7d2684659b49258f3ae5bef6f46db928afb6396e35dda54c7cfb50c4",
+      "finalSha256": "5f03f78a7d2684659b49258f3ae5bef6f46db928afb6396e35dda54c7cfb50c4",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/json-ld.ts",
+      "sourceSha256": "8875aba864d6f1f3693e043b3021501138bc37d7a0e4c40302703b7c0dff85dc",
+      "finalSha256": "8875aba864d6f1f3693e043b3021501138bc37d7a0e4c40302703b7c0dff85dc",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/project/beginner-workflow.ts",
+      "sourceSha256": "1b013b5aa5e2bd86261fa3ff019da2c8b339a62688ca5b5aa32685ef830a2952",
+      "finalSha256": "1b013b5aa5e2bd86261fa3ff019da2c8b339a62688ca5b5aa32685ef830a2952",
+      "candidates": 186,
+      "status": "retained"
+    },
+    {
+      "path": "lib/project/checklist.ts",
+      "sourceSha256": "dc46d2c771e3fd9242eceb2040cc4c82305c887911ca25507efb364ce7cdd212",
+      "finalSha256": "dc46d2c771e3fd9242eceb2040cc4c82305c887911ca25507efb364ce7cdd212",
+      "candidates": 212,
+      "status": "retained"
+    },
+    {
+      "path": "lib/project/contextual-tool.ts",
+      "sourceSha256": "419efc335961427aa55880f8a3853493ec25ee2f20d5de0054f4b60942021784",
+      "finalSha256": "de8fa2b644121dfa0f632a70aad5fe6a356e13c943415c191b8c9280a4cf21cb",
+      "candidates": 26,
+      "status": "changed"
+    },
+    {
+      "path": "lib/project/generator.ts",
+      "sourceSha256": "0cc53c6df94f3101eebb93fcd4cffdf5edd62d647b1871c08a30017618f826a3",
+      "finalSha256": "0cc53c6df94f3101eebb93fcd4cffdf5edd62d647b1871c08a30017618f826a3",
+      "candidates": 236,
+      "status": "retained"
+    },
+    {
+      "path": "lib/project/index.ts",
+      "sourceSha256": "82f88c8966f0db689d3709e53bbcd04a900d8b7b1268fc7de33cae2d8c96f044",
+      "finalSha256": "82f88c8966f0db689d3709e53bbcd04a900d8b7b1268fc7de33cae2d8c96f044",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/project/intent-profile.ts",
+      "sourceSha256": "0c319bdf541a5885f2bcc08a8df25d55dee495a55aead53341c81bc0814510f5",
+      "finalSha256": "0c319bdf541a5885f2bcc08a8df25d55dee495a55aead53341c81bc0814510f5",
+      "candidates": 14,
+      "status": "retained"
+    },
+    {
+      "path": "lib/project/interpreter.ts",
+      "sourceSha256": "f0d4a6feaf3ef0e0d2078fdc05e28aec019886b74ae418c0dc681b52b60d7c27",
+      "finalSha256": "f0d4a6feaf3ef0e0d2078fdc05e28aec019886b74ae418c0dc681b52b60d7c27",
+      "candidates": 144,
+      "status": "retained"
+    },
+    {
+      "path": "lib/project/navigation-context.ts",
+      "sourceSha256": "0111e1f6fb9ab9ecfb5ac97e3f2dca35c9a8dcfa1d84adbc0e32eb048616c688",
+      "finalSha256": "f4c86fc1447e9f9aec97f1619fed191d520b0d856e505d6c775cb3ff998e64df",
+      "candidates": 5,
+      "status": "changed"
+    },
+    {
+      "path": "lib/project/progress.ts",
+      "sourceSha256": "7fc2c58c1a4a0298610c28dbb37269466dcaafb4bc3cad91d9776f995da7a682",
+      "finalSha256": "7fc2c58c1a4a0298610c28dbb37269466dcaafb4bc3cad91d9776f995da7a682",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/project/providers/cloudflare.ts",
+      "sourceSha256": "d6c7edebbf2f3f318898a45b2726d8425a4d0e5245bcac1f2dcfb637e1854067",
+      "finalSha256": "d6c7edebbf2f3f318898a45b2726d8425a4d0e5245bcac1f2dcfb637e1854067",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/project/providers/index.ts",
+      "sourceSha256": "4b5f575473d0fbc4f4c20c7fd1c23ba6e11ef324ce7e7bbac6df44179d67dd41",
+      "finalSha256": "4b5f575473d0fbc4f4c20c7fd1c23ba6e11ef324ce7e7bbac6df44179d67dd41",
+      "candidates": 2,
+      "status": "retained"
+    },
+    {
+      "path": "lib/project/providers/rate-limit.ts",
+      "sourceSha256": "83e16cc1fd3b130844e92cfbf90b2f9233a237cacdda99f682efa833844f10be",
+      "finalSha256": "83e16cc1fd3b130844e92cfbf90b2f9233a237cacdda99f682efa833844f10be",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/project/providers/types.ts",
+      "sourceSha256": "95934a926877d5dedb934abde0778878d244db6a0623659ec88ce7c020a15a5e",
+      "finalSha256": "95934a926877d5dedb934abde0778878d244db6a0623659ec88ce7c020a15a5e",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/project/share.ts",
+      "sourceSha256": "423f98b31ffe6b440ed3ee451f7a432c705936bef9622a948cc36fce25f211c8",
+      "finalSha256": "423f98b31ffe6b440ed3ee451f7a432c705936bef9622a948cc36fce25f211c8",
+      "candidates": 1,
+      "status": "retained"
+    },
+    {
+      "path": "lib/project/stack-handoff.ts",
+      "sourceSha256": "d2553255199229e913a66259d1be72eba405d000a51b08bce2fb3502d4e95f53",
+      "finalSha256": "d2553255199229e913a66259d1be72eba405d000a51b08bce2fb3502d4e95f53",
+      "candidates": 23,
+      "status": "retained"
+    },
+    {
+      "path": "lib/project/types.ts",
+      "sourceSha256": "7553781c350e39e1ad55610c7ca6d5817a66351bf034a5cbcd67e29482608efc",
+      "finalSha256": "7553781c350e39e1ad55610c7ca6d5817a66351bf034a5cbcd67e29482608efc",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/recommendation/engine.ts",
+      "sourceSha256": "9687befec258a0f0387b45e5afae6a9f7e15d73ed6b106ca5c03408a28560ba4",
+      "finalSha256": "9687befec258a0f0387b45e5afae6a9f7e15d73ed6b106ca5c03408a28560ba4",
+      "candidates": 204,
+      "status": "retained"
+    },
+    {
+      "path": "lib/recommendation/index.ts",
+      "sourceSha256": "4e74ba804f514140eee2a6ae692a57f1d00ba798c6c6efad11f313063ba087d9",
+      "finalSha256": "4e74ba804f514140eee2a6ae692a57f1d00ba798c6c6efad11f313063ba087d9",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/recommendation/query.ts",
+      "sourceSha256": "65e1a212eed338ef2b91628929f2585a665a5c8241f6e379c2750eac1c9e9881",
+      "finalSha256": "65e1a212eed338ef2b91628929f2585a665a5c8241f6e379c2750eac1c9e9881",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/recommendation/types.ts",
+      "sourceSha256": "b76f520a23dcc24cdffb6d71418e8bd381b85d4f388e832bc087aa10fff4e4ed",
+      "finalSha256": "b76f520a23dcc24cdffb6d71418e8bd381b85d4f388e832bc087aa10fff4e4ed",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/safe-project-return.ts",
+      "sourceSha256": "a52d03269ad281c609dffbf8d3e5b3d902f60da49a4b7f775f1619dedf54f786",
+      "finalSha256": "a52d03269ad281c609dffbf8d3e5b3d902f60da49a4b7f775f1619dedf54f786",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/schema.ts",
+      "sourceSha256": "2f7b4da578ca2ed98ae26f6faf90c1eb676ff2b502cfe3786e09ab80451fa5a3",
+      "finalSha256": "2f7b4da578ca2ed98ae26f6faf90c1eb676ff2b502cfe3786e09ab80451fa5a3",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/service-labels.ts",
+      "sourceSha256": "e7d11d047daae59c528f81d66dc8c72b594d16561819fa1e3aacf72909a0b2ed",
+      "finalSha256": "e7d11d047daae59c528f81d66dc8c72b594d16561819fa1e3aacf72909a0b2ed",
+      "candidates": 20,
+      "status": "retained"
+    },
+    {
+      "path": "lib/service-provenance.ts",
+      "sourceSha256": "3c611049415e4fa8df42e9169d56d9d2b614156e6f5592d43cf96265061823b0",
+      "finalSha256": "3c611049415e4fa8df42e9169d56d9d2b614156e6f5592d43cf96265061823b0",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/services.ts",
+      "sourceSha256": "bb3778c5d2831980ff6762c035612ce64452c80bb4aa08c70cc61996e004a0ee",
+      "finalSha256": "bb3778c5d2831980ff6762c035612ce64452c80bb4aa08c70cc61996e004a0ee",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "lib/site.ts",
+      "sourceSha256": "c98095342c723943fa630b54efc64eb92fbcf2d2c6f009ac3a9b35b90ad0094a",
+      "finalSha256": "c98095342c723943fa630b54efc64eb92fbcf2d2c6f009ac3a9b35b90ad0094a",
+      "candidates": 4,
+      "status": "retained"
+    },
+    {
+      "path": "lib/verification-status.ts",
+      "sourceSha256": "bf8fe25cc1c2a57561ba50a7330c307e4557691481b9b7d497aaa23a3285b029",
+      "finalSha256": "bf8fe25cc1c2a57561ba50a7330c307e4557691481b9b7d497aaa23a3285b029",
+      "candidates": 4,
+      "status": "retained"
+    },
+    {
+      "path": "public/visual-v2/icons/model.svg",
+      "sourceSha256": "35536c47c1a726f77b85983e89de4b0379a880177aa8e6cd891bb82553712b9a",
+      "finalSha256": "35536c47c1a726f77b85983e89de4b0379a880177aa8e6cd891bb82553712b9a",
+      "candidates": 0,
+      "status": "retained"
+    },
+    {
+      "path": "public/visual-v2/icons/voice.svg",
+      "sourceSha256": "18085014fd74a5304bba168b1c9a1744ff1a1c2fd618ebf3d450887e59d1caef",
+      "finalSha256": "18085014fd74a5304bba168b1c9a1744ff1a1c2fd618ebf3d450887e59d1caef",
+      "candidates": 0,
+      "status": "retained"
+    }
+  ]
+}

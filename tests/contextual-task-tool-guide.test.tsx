@@ -117,7 +117,7 @@ describe("ContextualTaskToolGuide", () => {
       fireEvent.change(screen.getByLabelText("作る対象（必須）"), {
         target: { value: "明示した対象" },
       });
-      fireEvent.change(screen.getByLabelText("外観description（必須）"), {
+      fireEvent.change(screen.getByLabelText("見た目の説明（必須）"), {
         target: { value: "明示した外観" },
       });
     }
@@ -138,12 +138,12 @@ describe("ContextualTaskToolGuide", () => {
     expect(screen.queryByRole("link", { name: /広告リンク/ })).toBeNull();
     fireEvent.change(screen.getByLabelText("作る対象（必須）"), { target: { value: "Projectで決めた対象" } });
     expect(screen.queryByRole("link", { name: /広告リンク/ })).toBeNull();
-    fireEvent.change(screen.getByLabelText("外観description（必須）"), { target: { value: "Projectで決めた外観" } });
+    fireEvent.change(screen.getByLabelText("見た目の説明（必須）"), { target: { value: "Projectで決めた外観" } });
     const generation = document.querySelector(".generation-prompt")!;
     const inspection = document.querySelector(".tool-inspection")!;
-    expect(generation.textContent).toMatch(/対象:.*外観description:/s);
-    expect(generation.textContent).not.toContain("collisionを設定して確認");
-    expect(inspection.textContent).toContain("collisionを設定して確認");
+    expect(generation.textContent).toMatch(/対象:.*見た目の説明:/s);
+    expect(generation.textContent).not.toContain("衝突判定を設定して確認");
+    expect(inspection.textContent).toContain("衝突判定を設定して確認");
   });
 
   it("keeps one CTA when the current roadmap detail is the primary work area", () => {
