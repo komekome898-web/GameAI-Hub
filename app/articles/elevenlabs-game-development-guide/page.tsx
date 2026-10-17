@@ -160,6 +160,14 @@ export default function ElevenLabsGameDevelopmentGuide() {
           </p>
         </section>
 
+        <section aria-labelledby="voice-volume-example">
+          <h2 id="voice-volume-example">量産前の記入例：30本×40文字×3take＝3,600文字</h2>
+          <p>仮にセリフ30本、1本平均40文字、各3takeを生成する計画なら、入力の延べ文字数は3,600文字です。これは計画例で、実際に生成した音声や消費creditsの実測ではありません。まず代表1〜3本で検品してから必要量を見直します。</p>
+          <p>3,600文字をそのまま3,600creditsや必要契約額には換算しません。モデル、voice、再生成の扱い、他機能との共有枠によって消費は変わります。生成画面に出る消費見込みと契約画面の残量を照合し、足りなければ本数・take数を減らす案も比較してください。</p>
+          <p>非商用の練習はFreeの利用条件で足りるかを先に確認し、バージョン情報を読むだけなら契約は不要です。商用収録する場合に、必要な機能とライセンスを満たす最小の契約を検討します。2026年10月17日の公式PricingではStarterにCommercial Licenseと30k credits、通常月額$6の表示があります。初月割引や年払いの月換算を通常月額と混ぜず、契約直前の請求単位・総額を確認してください。Freeの容量に収まる文字数でも、商用収録に適合するとは限りません。</p>
+          <p>記録する項目は、セリフID、本数・文字数・take数、モデル/voice、生成日と当時のプラン、表示された消費量、採用ファイルです。音声を固定ファイルで使うだけなら、不要なAPI連携や継続契約を前提にしません。</p>
+        </section>
+
         <section
           className="article-inline-handoff"
           aria-labelledby="elevenlabs-first-test"
@@ -167,12 +175,16 @@ export default function ElevenLabsGameDevelopmentGuide() {
           <p className="section-label">FIRST PRODUCTION TEST</p>
           <h2 id="elevenlabs-first-test">ここで代表セリフだけを実際に試す</h2>
           <p>
-            声と代表セリフが決まったら、最初は1〜3本だけ生成します。利用できる機能、無料枠、出力条件は現在の公式画面で確認してください。
+            声と代表セリフが決まったら、最初は1〜3本だけ試します。商用ゲームへ収録する音声は、先に生成時のプランと素材の権利を確認してください。
+          </p>
+          <p>
+            <a href="https://elevenlabs.io/pricing" target="_blank" rel="noopener">公式Pricingで料金・credits・対象機能を確認</a>し、<Link href="/articles/elevenlabs-commercial-use-game/">商用利用の確認手順</Link>も読んでから進みます。以下はElevenLabsへの広告リンクです。
           </p>
           <OutboundLink
             service={elevenlabs}
             page="/articles/elevenlabs-game-development-guide"
             placement="voice_first_test"
+            label="ElevenLabsで代表セリフを試す"
           />
         </section>
 
@@ -220,6 +232,7 @@ export default function ElevenLabsGameDevelopmentGuide() {
             100件修正」という手戻りを避け、3件、10件、30件のように同じ基準で増やします。
           </p>
         </section>
+
 
         <section>
           <h2>APIはいつ使えばいい？</h2>
