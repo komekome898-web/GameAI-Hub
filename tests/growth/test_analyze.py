@@ -243,6 +243,15 @@ class DiagnosticsTests(unittest.TestCase):
         self.assertEqual(result['table_reconciliation'], [])
         self.assertNotIn('TABLE_TOTAL_MISMATCH', [w['code'] for w in result['warnings']])
 
+    def test_users_above_pageviews_prompts_scope_check_not_bot_label(self):
+        bundle = fixture()
+        ga = row('ga-synthetic', '/articles/example-a/', 0, 0, 0)
+        ga.update(scope='ga_page', metrics={'pv': 2, 'active_users': 5})
+        bundle['observations'].append(ga)
+        warning = next(w for w in growth.diagnose(bundle)['warnings'] if w['code'] == 'PV_USER_SCOPE')
+        self.assertEqual(warning['evidence'], ['ga-synthetic'])
+        self.assertIn('Do not infer bots', warning['action'])
+
     def test_brief_must_have_known_evidence_and_comparison(self):
         with self.assertRaises(growth.EvidenceError):
             growth.validate_brief({'target_url': 'https://game-ai-hub.vercel.app/'}, fixture())

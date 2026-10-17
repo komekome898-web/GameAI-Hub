@@ -185,6 +185,9 @@ def diagnose(bundle):
                 warnings.append({'code': state.upper(), 'evidence': [row['id']], 'action': 'Preserve observation state separately from measured zero.'})
         if any(v is None for v in row['metrics'].values()):
             warnings.append({'code': 'MISSING', 'evidence': [row['id']], 'action': 'Keep null; request the named metric, never replace with zero.'})
+        pv, users = row['metrics'].get('pv'), row['metrics'].get('active_users')
+        if pv is not None and users is not None and users > pv:
+            warnings.append({'code': 'PV_USER_SCOPE', 'evidence': [row['id']], 'action': 'Inspect metric/dimension scope and collection. Do not infer bots, popularity or a reader conversion rate.'})
         if row['scope'] == 'ga_hub' and 'history_changes' in row['quality']:
             warnings.append({'code': 'HISTORY_PV', 'evidence': [row['id']], 'action': 'PV includes history changes; use same-cohort sessions and actual article opens for hub transition analysis.'})
         if 'unreconciled_testing' in row['quality']:
