@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import math
+import subprocess
 from datetime import date
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -129,6 +130,71 @@ def aggregate_search(rows):
 def observed_pairs(bundle):
     # No Cartesian join between separate page and query exports.
     return [r for r in bundle['observations'] if r['scope'] == 'sc_page_query']
+
+
+def page_query_coverage(bundle):
+    """Visible literal query rows only; absence never becomes an invented query."""
+    groups = {}
+    for row in observed_pairs(bundle):
+        key = (row['source'], row['period'], row['dimensions']['page'])
+        groups.setdefault(key, []).append(row)
+    pages = {(r['source'], r['period'], r['dimensions']['page']): r
+             for r in bundle['observations'] if r['scope'] == 'sc_page'}
+    result = []
+    for key, rows in groups.items():
+        page = pages.get(key)
+        partial = aggregate_search(rows)
+        eligible = all(recommendation_eligibility(r, key[1])['eligible'] for r in rows)
+        eligible = eligible and page is not None and recommendation_eligibility(page, key[1])['eligible']
+        checks = {metric: partial[metric] <= page['metrics'][metric]
+                  if eligible and partial[metric] is not None and page['metrics'][metric] is not None else None
+                  for metric in ('clicks', 'impressions')}
+        result.append({'source': key[0], 'period': key[1], 'page': key[2],
+                       'literal_query_evidence': [r['id'] for r in rows],
+                       'visible_literal_row_count': len(rows), 'visible_partial_sum': partial,
+                       'page_evidence': page['id'] if page else None,
+                       'reported_page_metrics': page['metrics'] if page else None,
+                       'comparison_eligible': bool(eligible), 'within_page_counts': checks,
+                       'status': 'compatible_partial_coverage' if eligible and all(v is True for v in checks.values())
+                                 else 'inspect_count_compatibility' if eligible else 'unmatched_or_ineligible',
+                       'interpretation': 'Partial visible literal query rows; equality is not required. Anonymization, omitted rows and aggregation may differ. No residual is assigned to unseen queries. Source metadata is retained unchanged.'})
+    return result
+
+
+def git_root(path):
+    """Discover an actual checkout, including worktrees; no assumed directory depth."""
+    directory = path.resolve()
+    while not directory.is_dir() and directory != directory.parent:
+        directory = directory.parent
+    try:
+        result = subprocess.run(['git', '-C', str(directory), 'rev-parse', '--show-toplevel'],
+                                capture_output=True, text=True, check=False)
+    except FileNotFoundError:
+        # Without git, existing checkout markers still protect files conservatively.
+        return next((p for p in (directory, *directory.parents) if (p / '.git').exists()), None)
+    return Path(result.stdout.strip()).resolve() if result.returncode == 0 else None
+
+
+def protect_private_paths(evidence, output, brief=None, public_repo_root=None, script=None):
+    require(output is not None, 'private diagnostics require --output outside the public repository')
+    paths = [evidence, output] + ([brief] if brief is not None else [])
+    roots = set()
+    for path in [script or Path(__file__), *paths]:
+        lexical_parent = path.absolute().parent
+        directories = [lexical_parent, path.resolve().parent]
+        # A directory symlink may leave the checkout before git sees it.
+        directories.extend(p for p in (lexical_parent, *lexical_parent.parents) if (p / '.git').exists())
+        roots.update(root for directory in directories if (root := git_root(directory)) is not None)
+    if public_repo_root is not None:
+        root = public_repo_root.resolve()
+        require(git_root(root) == root, '--public-repo-root must name an actual Git checkout root')
+        roots.add(root)
+    for path in paths:
+        # Check lexical and resolved locations: neither a repo symlink to private data
+        # nor an external symlink into a checkout is an allowed private path.
+        locations = (path.absolute(), path.resolve())
+        require(not any(location.is_relative_to(root) for root in roots for location in locations),
+                'private evidence, brief and diagnostics must stay outside Git repositories')
 
 
 def cohort_rate(numerator, denominator):
@@ -345,6 +411,7 @@ def diagnose(bundle):
         'opportunity_assessment': assess_opportunities(bundle),
         'search_pages': [{'evidence': r['id'], 'dimensions': r['dimensions'], 'metrics': r['metrics'], 'ctr': ctr(r), 'source': r['source'], 'period': r['period'], 'quality': r['quality']} for r in rows if r['scope'] == 'sc_page'],
         'observed_page_query_pairs': observed_pairs(bundle),
+        'page_query_coverage': page_query_coverage(bundle),
         'reported_search_totals': [r for r in rows if r['scope'] in ('sc_property_total', 'sc_page_total', 'sc_query_total')],
         'query_coverage': coverage, 'table_reconciliation': reconciliation, 'warnings': warnings,
         'definitions': {'pv': 'GA screenPageViews; repeated page/history events, not readers', 'active_users': 'GA active users; non-additive across rows, not proven external humans', 'clicks': 'Search Console Google search clicks, not GA sessions', 'missing': 'null = not observed; 0 = reported zero', 'hub_transition': 'requires matched sessions/actual link opens, never article PV / hub PV'},
@@ -372,15 +439,13 @@ def main():
     parser.add_argument('evidence', type=Path)
     parser.add_argument('--brief', type=Path)
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--public-repo-root', type=Path, help='Optional actual checkout root when running a private extracted snapshot')
     args = parser.parse_args()
     try:
         payload = args.evidence.read_bytes()
         bundle = json.loads(payload)
-        repo = Path(__file__).resolve().parents[2]
         if bundle.get('synthetic') is not True:
-            require(not args.evidence.resolve().is_relative_to(repo), 'private evidence must stay outside the public repository')
-            require(args.output is not None and not args.output.resolve().is_relative_to(repo), 'private diagnostics require --output outside the public repository')
-            require(args.brief is None or not args.brief.resolve().is_relative_to(repo), 'private brief must stay outside the public repository')
+            protect_private_paths(args.evidence, args.output, args.brief, args.public_repo_root)
         result = diagnose(bundle)
         result['input_sha256'] = hashlib.sha256(payload).hexdigest()
         if args.brief:

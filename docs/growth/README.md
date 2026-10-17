@@ -13,7 +13,7 @@ python -m unittest discover -s tests/growth -v
 
 ## 実データを使う
 
-このrepoはpublicです。**GA/GSCの原値・私的会話・診断・戦略の私的根拠はrepo外**に置きます。CLIは非合成入力について、入力・brief・出力のrepo内配置を拒否し、出力先の明示を要求します。合成を装って実データへ`synthetic: true`を付けないでください。CIでは合成fixtureだけを使います。
+このrepoはpublicです。**GA/GSCの原値・私的会話・診断・戦略の私的根拠はrepo外**に置きます。CLIは非合成入力について、入力・brief・出力のrepo内配置を拒否し、出力先の明示を要求します。合成を装って実データへ`synthetic: true`を付けないでください。CIでは合成fixtureだけを使います。実際のGit checkout rootを検出し、入力・brief・出力についてsymlink解決前後の配置を確認します。安全側に全Git repo内の私的ファイルを拒否します。repo外へ抽出したsnapshotでは固定の親階層をpublic repoと仮定しません。必要なら`--public-repo-root /actual/checkout`で実Git rootを明示できます。
 
 ```bash
 python scripts/growth/analyze.py /owner-only/observations.json \
@@ -37,7 +37,7 @@ python scripts/growth/analyze.py /owner-only/observations.json \
 
 コードは、観測がつながるアクセス障害→未完タスク→意図不一致の順で、同じ区分なら実観測page×query→page、その次に小さい変更を先にします。これは公開された編集方針であり、効果の点数化ではありません。既に満たす要素はretain、未検証やAPI失敗/遅延/null/0表示しかない候補はinvestigateへ戻します。これは調査担当が入力した分類のルーティング検査です。coverageラベルを変えるテストは、原文を読んで原因を診断する能力の証明にはしません。本文・検索意図の診断は原資料を読むCodexの専門調査と別担当の照合で検証します。各候補の対象periodと一致し、品質上も適格な観測だけを根拠に使います。unreconciled_testing、PVよりusersが大きい不整合、履歴由来のPV、失敗/遅延/unknownは警告だけでなく推薦根拠から除外し、除外理由を出力します。新規獲得は既存の検索母数に閉じません。`acquisition_evidence`にreader_demand/owned_asset/incremental_value/distribution_routeの4項目を設け、それぞれの出典IDを付けます。さらに`delta_status`（verified/duplicates_existing/unverified）と`delta_description`で既存本文・既存配布先と新素材の実差分を明示します。自サイトに未掲載でも、既存の本人noteに同じ答えがあれば新規価値の証拠にはしません。役割ごとに適切な資料種別（読者反応、所有作品、実行結果、配布観測等）と保持したobserved_text/そのSHA256が必要です。既知IDだけ、API失敗の指標、別periodの数値で代用できません。さらに`independent_review_id`で、別担当の原資料照合記録を参照します。reviews配列のreviewer/producer、review_source（保持した独立レビュー本文）、verdict=supported、reviewed_input_sha256が候補・対象period・参照した原資料と一致したときだけ昇格します。digestは`review_input_digest(bundle,candidate)`で計算し、資料や候補が変わればレビューは失効します。この記録はレビュアー本人性の暗号証明や意味的正しさの自動判定ではなく、実際の独立照合を残す契約です。ラベル自己申告だけではprimary_experimentへ昇格しません。全項目と原資料の独立照合が揃う候補を`acquisition_experiments`へ出し、一つなら`primary_experiment`として分離します。複数なら自動で勝手に一つへ決めず、原資料と工数を比較して選びます。既に同じ価値を満たす反例でcoverageがcompleteになれば主実験候補から外れます。既存入口の改善は`first_action`として別に保持します。候補自体を発見する専門調査と、最後の施策採否は人が原資料を照合する工程です。
 
-出力は入力SHA256、出典・期間、ページ別CTR、実観測page×query、出典別の原表合計照合、警告を含みます。異なる取得元/期間を混ぜません。0クリック時のbinomial感度値は独立同分布という仮定を明記した説明補助で、効果予測にもtitle診断にも使いません。
+出力は入力SHA256、出典・期間、ページ別CTR、実観測page×query、出典別の原表合計照合、警告を含みます。`page_query_coverage`は同じsource・period ID・pageに対応する可視literal query行の部分合計とpage総計を比較します。部分合計に全一致を要求せず、匿名化・省略・aggregation差を残し、差分を未知queryの実績へ割り当てません。literal未提供の観測はsources内のメタ資料に残し、query行を捏造しません。境界状態が異なる同日付period IDも別物です。異なる取得元/期間を混ぜません。0クリック時のbinomial感度値は独立同分布という仮定を明記した説明補助で、効果予測にもtitle診断にも使いません。
 
 `--brief`は実行案の必須フィールドと証拠IDを検査します。`target_url`、`reader_problem`、`changes`、`reader_value`、`effort`、`mechanism`、3つ以上の`alternatives`（option/decision/reason/evidence）、`observation_plan`、`reversal_condition`、`evidence`を含めます。無根拠の予測値を入れないため`effect_estimate`はnull。contract passは構造チェックであり、成果の正しさを採点する機能ではありません。
 

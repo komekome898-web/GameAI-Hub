@@ -160,6 +160,91 @@ class DiagnosticsTests(unittest.TestCase):
             self.assertEqual(accepted.stdout, b'')
             self.assertTrue(output.exists())
 
+    def test_nonrepo_snapshot_accepts_private_sibling_paths(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            private = Path(tmp)
+            script = private / 'scripts/growth/analyze.py'
+            script.parent.mkdir(parents=True)
+            script.write_bytes((ROOT / 'scripts/growth/analyze.py').read_bytes())
+            data = private / 'observations.json'
+            bundle = fixture()
+            bundle.pop('synthetic')
+            data.write_text(json.dumps(bundle))
+            output = private / 'result.json'
+            run = subprocess.run([sys.executable, str(script), str(data), '--output', str(output)], capture_output=True)
+            self.assertEqual(run.returncode, 0, run.stderr)
+            self.assertTrue(output.exists())
+
+    def test_private_paths_respect_git_roots_symlinks_and_boundaries(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            base = Path(tmp)
+            repo, outside = base / 'public', base / 'public-sibling'
+            repo.mkdir()
+            outside.mkdir()
+            subprocess.run(['git', 'init', '-q', str(repo)], check=True)
+            script = outside / 'analyze.py'
+            data, output = outside / 'input.json', outside / 'out.json'
+            data.write_text('{}')
+            growth.protect_private_paths(data, output, public_repo_root=repo, script=script)
+            for path in (repo / 'private.json', repo / 'nested/out.json'):
+                with self.assertRaises(growth.EvidenceError):
+                    growth.protect_private_paths(data, path, script=script)
+            external_link = outside / 'into-repo'
+            external_link.symlink_to(repo, target_is_directory=True)
+            with self.assertRaises(growth.EvidenceError):
+                growth.protect_private_paths(data, external_link / 'output.json', script=script)
+            repo_dir_link = repo / 'private-directory'
+            repo_dir_link.symlink_to(outside, target_is_directory=True)
+            with self.assertRaises(growth.EvidenceError):
+                growth.protect_private_paths(data, repo_dir_link / 'output.json', script=script)
+            repo_link = repo / 'points-out.json'
+            repo_link.symlink_to(data)
+            with self.assertRaises(growth.EvidenceError):
+                growth.protect_private_paths(repo_link, output, script=script)
+            with self.assertRaises(growth.EvidenceError):
+                growth.protect_private_paths(data, output, public_repo_root=outside, script=script)
+
+    def test_literal_query_partial_coverage_preserves_unprovided_metadata(self):
+        bundle = fixture()
+        page = bundle['observations'][0]
+        page['metrics'].update(clicks=0, impressions=57)
+        bundle['observations'] = [page]
+        bundle['sources']['synthetic']['unprovided_query_metadata'] = [
+            {'operator': 'site:', 'impressions': 1, 'literal_query': None},
+            {'operator': 'site:', 'impressions': 1, 'literal_query': None}]
+        for i, impressions in enumerate([26, 2, 1, 1, 1, 1]):
+            q = row('q' + str(i), '/articles/example-a/', 0, impressions, 7)
+            q.update(scope='sc_page_query', dimensions={'page': '/articles/example-a/', 'query': 'literal-' + str(i)})
+            bundle['observations'].append(q)
+        result = growth.diagnose(bundle)
+        coverage = result['page_query_coverage'][0]
+        self.assertEqual(coverage['visible_partial_sum']['impressions'], 32)
+        self.assertEqual(coverage['reported_page_metrics']['impressions'], 57)
+        self.assertEqual(coverage['status'], 'compatible_partial_coverage')
+        self.assertEqual(coverage['visible_literal_row_count'], 6)
+        self.assertEqual(len(result['observed_page_query_pairs']), 6)
+        self.assertEqual(result['sources'], bundle['sources'])
+        self.assertNotIn('residual', coverage)
+        self.assertNotIn('TABLE_TOTAL_MISMATCH', [w['code'] for w in result['warnings']])
+        for field in ('period', 'source'):
+            changed = copy.deepcopy(bundle)
+            if field == 'period':
+                changed['periods']['same-dates-other-boundary'] = dict(bundle['periods']['test'])
+                changed['observations'][0]['period'] = 'same-dates-other-boundary'
+            else:
+                changed['sources']['other'] = dict(bundle['sources']['synthetic'])
+                changed['observations'][0]['source'] = 'other'
+            self.assertFalse(growth.diagnose(changed)['page_query_coverage'][0]['comparison_eligible'])
+        changed = copy.deepcopy(bundle)
+        changed['observations'][0]['dimensions']['page'] = '/other/'
+        self.assertFalse(growth.diagnose(changed)['page_query_coverage'][0]['comparison_eligible'])
+        changed = copy.deepcopy(bundle)
+        changed['observations'][0]['quality'] = ['api_failure']
+        self.assertFalse(growth.diagnose(changed)['page_query_coverage'][0]['comparison_eligible'])
+        changed = copy.deepcopy(bundle)
+        changed['observations'][0]['metrics']['impressions'] = 20
+        self.assertEqual(growth.diagnose(changed)['page_query_coverage'][0]['status'], 'inspect_count_compatibility')
+
     def test_declared_classification_routes_actions_not_semantic_analysis(self):
         # Routing contract only: these labels are supplied by an analyst.
         # This is not a test of interpreting primary text or diagnosing causes.
