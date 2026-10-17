@@ -1,0 +1,46 @@
+{
+  "synthetic": true,
+  "target_url": "https://game-ai-hub.vercel.app/articles/example-a/",
+  "reader_problem": "Synthetic task gap",
+  "changes": [
+    "Add fictional follow-on instructions"
+  ],
+  "reader_value": "Synthetic example can finish one task",
+  "effort": {
+    "estimate": "Example only; no site estimate"
+  },
+  "mechanism": "Synthetic case demonstrates a missing-step decision",
+  "alternatives": [
+    {
+      "option": "new article",
+      "decision": "defer in synthetic example",
+      "reason": "Synthetic comparison only",
+      "evidence": [
+        "synthetic"
+      ]
+    },
+    {
+      "option": "hub redesign",
+      "decision": "defer in synthetic example",
+      "reason": "Synthetic comparison only",
+      "evidence": [
+        "synthetic"
+      ]
+    },
+    {
+      "option": "external distribution",
+      "decision": "defer in synthetic example",
+      "reason": "Synthetic comparison only",
+      "evidence": [
+        "synthetic"
+      ]
+    }
+  ],
+  "observation_plan": "Synthetic only: observe task completion and comparable reader proxy",
+  "reversal_condition": "If original page already covers the step, retain existing content",
+  "evidence": [
+    "a",
+    "synthetic"
+  ],
+  "effect_estimate": null
+}

@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "synthetic": true,
+  "site": "https://game-ai-hub.vercel.app",
+  "sources": {
+    "synthetic": {
+      "locator": "synthetic fixture, not real analytics",
+      "retrieved_at": "2026-01-01",
+      "method": "test construction",
+      "coverage": "synthetic only"
+    }
+  },
+  "periods": {
+    "test": {
+      "start": "2026-01-01",
+      "end": "2026-01-28",
+      "timezone": "test-only UTC"
+    }
+  },
+  "observations": [
+    {
+      "id": "a",
+      "source": "synthetic",
+      "period": "test",
+      "scope": "sc_page",
+      "dimensions": {
+        "page": "/articles/example-a/"
+      },
+      "metrics": {
+        "clicks": 2,
+        "impressions": 20,
+        "position": 4
+      },
+      "quality": [
+        "synthetic"
+      ]
+    },
+    {
+      "id": "b",
+      "source": "synthetic",
+      "period": "test",
+      "scope": "sc_page",
+      "dimensions": {
+        "page": "/articles/example-b/"
+      },
+      "metrics": {
+        "clicks": 1,
+        "impressions": 5,
+        "position": 9
+      },
+      "quality": [
+        "synthetic"
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "synthetic-publish-step",
+      "target_url": "https://game-ai-hub.vercel.app/articles/example-a/",
+      "reader_question": "How can the saved synthetic sample be shared?",
+      "current_location": "Synthetic example section4",
+      "finding": "Synthetic case: saved file has no follow-on publishing instructions",
+      "proposed_change": "Add a branch-aware optional publishing section",
+      "evidence": [
+        "a",
+        "synthetic"
+      ],
+      "coverage": "missing",
+      "finding_status": "verified",
+      "change_size": "section"
+    }
+  ]
+}
