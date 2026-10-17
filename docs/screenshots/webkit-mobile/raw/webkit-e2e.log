@@ -1,0 +1,319 @@
+
+> gameai-hub@0.1.0 test:e2e:webkit
+> playwright test --project=webkit-mobile-320 --project=webkit-mobile-375
+
+[WebServer] (node:5335) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:5335) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:5373) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:5385) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:5379) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:5372) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:5449) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 10 tests using 2 workers
+
+(node:5466) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:5465) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/10] [webkit-mobile-320] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (no-preference)
+[2/10] [webkit-mobile-375] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (no-preference)
+  1) [webkit-mobile-375] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (no-preference) 
+
+    Error: browserType.launch: Executable doesn't exist at /tmp/gameai-playwright/webkit-2336/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/webkit-mobile-all-ten-Home-b0916-ble-position-no-preference--webkit-mobile-375/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/webkit-mobile-all-ten-Home-b0916-ble-position-no-preference--webkit-mobile-375/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/webkit-mobile-all-ten-Home-b0916-ble-position-no-preference--webkit-mobile-375/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  2) [webkit-mobile-320] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (no-preference) 
+
+    Error: browserType.launch: Executable doesn't exist at /tmp/gameai-playwright/webkit-2336/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/webkit-mobile-all-ten-Home-b0916-ble-position-no-preference--webkit-mobile-320/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/webkit-mobile-all-ten-Home-b0916-ble-position-no-preference--webkit-mobile-320/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/webkit-mobile-all-ten-Home-b0916-ble-position-no-preference--webkit-mobile-320/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:5489) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:5495) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/10] [webkit-mobile-375] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (reduce)
+[4/10] [webkit-mobile-320] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (reduce)
+  3) [webkit-mobile-375] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (reduce) 
+
+    Error: browserType.launch: Executable doesn't exist at /tmp/gameai-playwright/webkit-2336/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/webkit-mobile-all-ten-Home-5d275-nd-visible-position-reduce--webkit-mobile-375/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/webkit-mobile-all-ten-Home-5d275-nd-visible-position-reduce--webkit-mobile-375/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/webkit-mobile-all-ten-Home-5d275-nd-visible-position-reduce--webkit-mobile-375/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  4) [webkit-mobile-320] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (reduce) 
+
+    Error: browserType.launch: Executable doesn't exist at /tmp/gameai-playwright/webkit-2336/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/webkit-mobile-all-ten-Home-5d275-nd-visible-position-reduce--webkit-mobile-320/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/webkit-mobile-all-ten-Home-5d275-nd-visible-position-reduce--webkit-mobile-320/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/webkit-mobile-all-ten-Home-5d275-nd-visible-position-reduce--webkit-mobile-320/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:5513) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:5519) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[5/10] [webkit-mobile-375] › e2e/webkit-mobile.spec.ts:81:5 › list mode restores the same later game through repeated detail visits
+[6/10] [webkit-mobile-320] › e2e/webkit-mobile.spec.ts:81:5 › list mode restores the same later game through repeated detail visits
+  5) [webkit-mobile-320] › e2e/webkit-mobile.spec.ts:81:5 › list mode restores the same later game through repeated detail visits 
+
+    Error: browserType.launch: Executable doesn't exist at /tmp/gameai-playwright/webkit-2336/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/webkit-mobile-list-mode-re-28443-ough-repeated-detail-visits-webkit-mobile-320/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/webkit-mobile-list-mode-re-28443-ough-repeated-detail-visits-webkit-mobile-320/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/webkit-mobile-list-mode-re-28443-ough-repeated-detail-visits-webkit-mobile-320/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  6) [webkit-mobile-375] › e2e/webkit-mobile.spec.ts:81:5 › list mode restores the same later game through repeated detail visits 
+
+    Error: browserType.launch: Executable doesn't exist at /tmp/gameai-playwright/webkit-2336/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/webkit-mobile-list-mode-re-28443-ough-repeated-detail-visits-webkit-mobile-375/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/webkit-mobile-list-mode-re-28443-ough-repeated-detail-visits-webkit-mobile-375/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/webkit-mobile-list-mode-re-28443-ough-repeated-detail-visits-webkit-mobile-375/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:5537) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:5538) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[7/10] [webkit-mobile-320] › e2e/webkit-mobile.spec.ts:100:5 › article list restores a later item after breadcrumb and browser Back
+[8/10] [webkit-mobile-375] › e2e/webkit-mobile.spec.ts:100:5 › article list restores a later item after breadcrumb and browser Back
+  7) [webkit-mobile-320] › e2e/webkit-mobile.spec.ts:100:5 › article list restores a later item after breadcrumb and browser Back 
+
+    Error: browserType.launch: Executable doesn't exist at /tmp/gameai-playwright/webkit-2336/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/webkit-mobile-article-list-8b3f7-breadcrumb-and-browser-Back-webkit-mobile-320/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/webkit-mobile-article-list-8b3f7-breadcrumb-and-browser-Back-webkit-mobile-320/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/webkit-mobile-article-list-8b3f7-breadcrumb-and-browser-Back-webkit-mobile-320/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  8) [webkit-mobile-375] › e2e/webkit-mobile.spec.ts:100:5 › article list restores a later item after breadcrumb and browser Back 
+
+    Error: browserType.launch: Executable doesn't exist at /tmp/gameai-playwright/webkit-2336/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/webkit-mobile-article-list-8b3f7-breadcrumb-and-browser-Back-webkit-mobile-375/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/webkit-mobile-article-list-8b3f7-breadcrumb-and-browser-Back-webkit-mobile-375/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/webkit-mobile-article-list-8b3f7-breadcrumb-and-browser-Back-webkit-mobile-375/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:5561) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:5567) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[9/10] [webkit-mobile-320] › e2e/webkit-mobile.spec.ts:122:5 › menu traps focus, closes repeatedly and releases the page after navigation
+[10/10] [webkit-mobile-375] › e2e/webkit-mobile.spec.ts:122:5 › menu traps focus, closes repeatedly and releases the page after navigation
+  9) [webkit-mobile-320] › e2e/webkit-mobile.spec.ts:122:5 › menu traps focus, closes repeatedly and releases the page after navigation 
+
+    Error: browserType.launch: Executable doesn't exist at /tmp/gameai-playwright/webkit-2336/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/webkit-mobile-menu-traps-f-dcecb-s-the-page-after-navigation-webkit-mobile-320/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/webkit-mobile-menu-traps-f-dcecb-s-the-page-after-navigation-webkit-mobile-320/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/webkit-mobile-menu-traps-f-dcecb-s-the-page-after-navigation-webkit-mobile-320/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  10) [webkit-mobile-375] › e2e/webkit-mobile.spec.ts:122:5 › menu traps focus, closes repeatedly and releases the page after navigation 
+
+    Error: browserType.launch: Executable doesn't exist at /tmp/gameai-playwright/webkit-2336/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/webkit-mobile-menu-traps-f-dcecb-s-the-page-after-navigation-webkit-mobile-375/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/webkit-mobile-menu-traps-f-dcecb-s-the-page-after-navigation-webkit-mobile-375/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/webkit-mobile-menu-traps-f-dcecb-s-the-page-after-navigation-webkit-mobile-375/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  10 failed
+    [webkit-mobile-320] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (no-preference) 
+    [webkit-mobile-320] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (reduce) 
+    [webkit-mobile-320] › e2e/webkit-mobile.spec.ts:81:5 › list mode restores the same later game through repeated detail visits 
+    [webkit-mobile-320] › e2e/webkit-mobile.spec.ts:100:5 › article list restores a later item after breadcrumb and browser Back 
+    [webkit-mobile-320] › e2e/webkit-mobile.spec.ts:122:5 › menu traps focus, closes repeatedly and releases the page after navigation 
+    [webkit-mobile-375] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (no-preference) 
+    [webkit-mobile-375] › e2e/webkit-mobile.spec.ts:39:7 › all ten Home introductions restore focus and visible position (reduce) 
+    [webkit-mobile-375] › e2e/webkit-mobile.spec.ts:81:5 › list mode restores the same later game through repeated detail visits 
+    [webkit-mobile-375] › e2e/webkit-mobile.spec.ts:100:5 › article list restores a later item after breadcrumb and browser Back 
+    [webkit-mobile-375] › e2e/webkit-mobile.spec.ts:122:5 › menu traps focus, closes repeatedly and releases the page after navigation 

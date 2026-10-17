@@ -52,6 +52,8 @@ body.b3-system {
 .b3-system main:not(:has(.home-b3)) :is(.page-head h1,.page-hero h1,.builder-head h1,.trust-header h1,.stack-hero h1,.tool-hero h1) { font-size:var(--type-h1); line-height:var(--leading-h1); }
 .b3-system main:not(:has(.home-b3))>.directory-page { padding-top:0; }
 .b3-system main:not(:has(.home-b3)) .article-shell { background:transparent; padding-inline:0; }
+/* Game introductions remain paper content after leaving the dark Home deck. */
+.b3-system .game-detail .page-head { color:var(--b3-ink); }
 .b3-system main:not(:has(.home-b3)) :is(.page-head,.page-hero,.builder-head,.trust-header,.stack-hero,.tool-hero) { padding-top:32px; }
 /* A raised control shares the Home play button's amber face and physical edge. */
 body.b3-system main .button {

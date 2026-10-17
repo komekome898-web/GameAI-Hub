@@ -12,6 +12,30 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  mobile-webkit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps webkit
+      - run: npm run test:e2e:webkit
+      - name: Preserve WebKit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: webkit-mobile-evidence
+          path: |
+            test-results/
+            docs/screenshots/webkit-mobile/
+          if-no-files-found: warn
+          retention-days: 14
   e2e:
     runs-on: ubuntu-latest
     timeout-minutes: 30

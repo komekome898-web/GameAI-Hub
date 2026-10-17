@@ -1,0 +1,27 @@
+[WebServer] (node:11162) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 12 tests using 2 workers
+
+(node:11178) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:11179) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/12] [chromium-crosscheck-320] › e2e/webkit-mobile.spec.ts:69:7 › all ten Home introductions restore focus and visible position (no-preference)
+[2/12] [chromium-crosscheck-375] › e2e/webkit-mobile.spec.ts:69:7 › all ten Home introductions restore focus and visible position (no-preference)
+[3/12] [chromium-crosscheck-320] › e2e/webkit-mobile.spec.ts:69:7 › all ten Home introductions restore focus and visible position (reduce)
+[4/12] [chromium-crosscheck-375] › e2e/webkit-mobile.spec.ts:69:7 › all ten Home introductions restore focus and visible position (reduce)
+[5/12] [chromium-crosscheck-320] › e2e/webkit-mobile.spec.ts:115:5 › list mode restores the same later game through repeated detail visits
+[6/12] [chromium-crosscheck-375] › e2e/webkit-mobile.spec.ts:115:5 › list mode restores the same later game through repeated detail visits
+[7/12] [chromium-crosscheck-320] › e2e/webkit-mobile.spec.ts:134:5 › article list restores a later item after breadcrumb and browser Back
+[8/12] [chromium-crosscheck-375] › e2e/webkit-mobile.spec.ts:134:5 › article list restores a later item after breadcrumb and browser Back
+[9/12] [chromium-crosscheck-320] › e2e/webkit-mobile.spec.ts:157:5 › menu traps focus, closes repeatedly and releases the page after navigation
+[10/12] [chromium-crosscheck-375] › e2e/webkit-mobile.spec.ts:157:5 › menu traps focus, closes repeatedly and releases the page after navigation
+[11/12] [chromium-crosscheck-320] › e2e/webkit-mobile.spec.ts:188:5 › shared header retains readable actions at synthetic 200% root text size
+[12/12] [chromium-crosscheck-375] › e2e/webkit-mobile.spec.ts:188:5 › shared header retains readable actions at synthetic 200% root text size
+  12 passed (55.4s)

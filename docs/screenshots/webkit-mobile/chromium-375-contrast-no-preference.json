@@ -1,0 +1,430 @@
+[
+  {
+    "slug": "monster-construction",
+    "measurements": [
+      {
+        "text": "AIで作ったゲームを遊ぶ",
+        "foreground": "rgb(49, 90, 66)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 7.401170396881645
+      },
+      {
+        "text": "モンスターコンストラクション",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "モンスターを育成・合体させ、勝利後のカード交換で自分だけの40枚をつくるカードバトルです。",
+        "foreground": "rgb(82, 96, 75)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 6.31045763076855
+      },
+      {
+        "text": "カードバトル／戦略／モンスター育成・合体",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      }
+    ]
+  },
+  {
+    "slug": "aramon",
+    "measurements": [
+      {
+        "text": "AIで作ったゲームを遊ぶ",
+        "foreground": "rgb(49, 90, 66)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 7.401170396881645
+      },
+      {
+        "text": "荒野モン動",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "モンスターを操作し、3Dの荒野で技を放って戦うTPSバトルロイヤル。",
+        "foreground": "rgb(82, 96, 75)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 6.31045763076855
+      },
+      {
+        "text": "TPS・バトルロイヤル",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      }
+    ]
+  },
+  {
+    "slug": "create-monsters",
+    "measurements": [
+      {
+        "text": "AIで作ったゲームを遊ぶ",
+        "foreground": "rgb(49, 90, 66)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 7.401170396881645
+      },
+      {
+        "text": "クリエイトモンスターズ",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "集めて、育てて、どこまでも行ける。",
+        "foreground": "rgb(82, 96, 75)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 6.31045763076855
+      },
+      {
+        "text": "ロールプレイング",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      }
+    ]
+  },
+  {
+    "slug": "aura-connect-battle",
+    "measurements": [
+      {
+        "text": "AIで作ったゲームを遊ぶ",
+        "foreground": "rgb(49, 90, 66)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 7.401170396881645
+      },
+      {
+        "text": "オーラコネクト・バトル",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "同じ色のオーラをつないで消し、仲間とダンジョンを攻略するパズルRPGです。",
+        "foreground": "rgb(82, 96, 75)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 6.31045763076855
+      },
+      {
+        "text": "パズルRPG／キャラクター育成／チーム編成",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      }
+    ]
+  },
+  {
+    "slug": "tomoshibi",
+    "measurements": [
+      {
+        "text": "AIで作ったゲームを遊ぶ",
+        "foreground": "rgb(49, 90, 66)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 7.401170396881645
+      },
+      {
+        "text": "灯のルミナ",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "少女ルミナを守り、灯りを頼りに暗い地下聖堂を進む謎解きアクションです。",
+        "foreground": "rgb(82, 96, 75)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 6.31045763076855
+      },
+      {
+        "text": "謎解きアクション／横スクロール／冒険",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      }
+    ]
+  },
+  {
+    "slug": "punching",
+    "measurements": [
+      {
+        "text": "AIで作ったゲームを遊ぶ",
+        "foreground": "rgb(49, 90, 66)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 7.401170396881645
+      },
+      {
+        "text": "ぶっ飛ばせ！ムカつくアイツ！",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "5回のミニゲームでパンチ力をためて、キャラクターを宇宙の向こうまでぶっ飛ばす爽快ゲームです。",
+        "foreground": "rgb(82, 96, 75)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 6.31045763076855
+      },
+      {
+        "text": "ハイパーカジュアル／ミニゲーム／スコアアタック",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      }
+    ]
+  },
+  {
+    "slug": "rakugaction",
+    "measurements": [
+      {
+        "text": "AIで作ったゲームを遊ぶ",
+        "foreground": "rgb(49, 90, 66)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 7.401170396881645
+      },
+      {
+        "text": "ラクガキアクション",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "描いたラクガキが立体になって、5つのステージを冒険する3Dアクションです。",
+        "foreground": "rgb(82, 96, 75)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 6.31045763076855
+      },
+      {
+        "text": "お絵かき／3Dアクション／探索／タイムアタック",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      }
+    ]
+  },
+  {
+    "slug": "sumaraku",
+    "measurements": [
+      {
+        "text": "AIで作ったゲームを遊ぶ",
+        "foreground": "rgb(49, 90, 66)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 7.401170396881645
+      },
+      {
+        "text": "ラクガキ大乱闘",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "自分で描いたラクガキを3Dファイターにして戦わせる、お絵かき対戦アクションです。",
+        "foreground": "rgb(82, 96, 75)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 6.31045763076855
+      },
+      {
+        "text": "お絵かき／対戦アクション／3D",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "プレイ無料、インストールなし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      }
+    ]
+  },
+  {
+    "slug": "swarm-front",
+    "measurements": [
+      {
+        "text": "AIで作ったゲームを遊ぶ",
+        "foreground": "rgb(49, 90, 66)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 7.401170396881645
+      },
+      {
+        "text": "SWARM FRONT.（スワフロ）",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "異形の敵「ANOMALY」の大群に挑む「生存」と、多彩なステージを攻略する「進撃」を、ソロでも最大4人協力でも楽しめる3Dアクションシューティング。",
+        "foreground": "rgb(82, 96, 75)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 6.31045763076855
+      },
+      {
+        "text": "3Dアクション／サバイバル／協力シューティング",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "無料（2026年10月10日時点）",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "無料（2026年10月10日時点）",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      }
+    ]
+  },
+  {
+    "slug": "monhero",
+    "measurements": [
+      {
+        "text": "AIで作ったゲームを遊ぶ",
+        "foreground": "rgb(49, 90, 66)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 7.401170396881645
+      },
+      {
+        "text": "モンスターヒーロー（モンヒロ）",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "モンスター",
+        "foreground": "rgb(49, 90, 66)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 7.401170396881645
+      },
+      {
+        "text": "ヒーロー",
+        "foreground": "rgb(49, 90, 66)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 7.401170396881645
+      },
+      {
+        "text": "（モンヒロ）",
+        "foreground": "rgb(49, 90, 66)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 7.401170396881645
+      },
+      {
+        "text": "モンスターを育てて絆を深め、技とカードで敵のWAVEを勝ち抜くカードバトルに、親指2本で遊ぶ音ゲーも入ったスマホ向けブラウザゲーム。",
+        "foreground": "rgb(82, 96, 75)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 6.31045763076855
+      },
+      {
+        "text": "カードバトル／育成／リズムゲーム",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "無料・課金なし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      },
+      {
+        "text": "無料・課金なし",
+        "foreground": "rgb(35, 53, 41)",
+        "background": "rgb(250, 248, 242)",
+        "ratio": 12.261183500341136
+      }
+    ]
+  }
+]
