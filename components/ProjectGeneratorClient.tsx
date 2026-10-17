@@ -833,7 +833,7 @@ export function ProjectGeneratorClient() {
               ? "外部AIは設定されていません。Project Generatorはそのまま利用できます。"
               : interpretationStatus.fallbackReason === "rate_limited"
                 ? "利用集中のため外部AIを呼ばず、安全なルール判定を使用しました。"
-                : "外部AIを利用できなかったため、安全なフォールバックを使用しました。"}
+                : "外部AIを利用できなかったため、安全な代替処理を使いました。"}
         </p>
       )}
       {sharedDraft && (
@@ -1416,7 +1416,7 @@ export function ContextualTaskToolGuide({
             ? "実際に読み上げる台詞を決める"
             : "実際に生成するモデルを決める"}
         </h4>
-        <p>ここで入力した内容はanalyticsへ送信されません。必須項目を決めるまで外部ツールへのCTAは表示されません。</p>
+        <p>ここで入力した内容はアクセス解析へ送信されません。必須項目を決めるまで、外部ツールへの案内ボタンは表示されません。</p>
         {recommendation.kind === "voice" ? (
           <div className="generation-fields">
             <label>
@@ -1452,7 +1452,7 @@ export function ContextualTaskToolGuide({
         ) : (
           <div className="generation-fields">
             <label><span>作る対象（必須）</span><input value={generationInput.subject ?? ""} maxLength={120} onChange={(event) => setInput("subject", event.target.value)} placeholder="Projectに必要な代表物体を1つ入力" /></label>
-            <label><span>外観description（必須）</span><textarea value={generationInput.appearance ?? ""} maxLength={240} rows={3} onChange={(event) => setInput("appearance", event.target.value)} placeholder="形、素材、色、表面状態など決めた見た目を入力" /></label>
+            <label><span>見た目の説明（必須）</span><textarea value={generationInput.appearance ?? ""} maxLength={240} rows={3} onChange={(event) => setInput("appearance", event.target.value)} placeholder="形、素材、色、表面状態など決めた見た目を入力" /></label>
             <label><span>ゲーム内の用途（任意）</span><input value={generationInput.purpose ?? ""} maxLength={120} onChange={(event) => setInput("purpose", event.target.value)} /></label>
             <label><span>スタイル（明示済みの場合のみ）</span><input value={generationInput.style ?? ""} maxLength={120} onChange={(event) => setInput("style", event.target.value)} /></label>
           </div>
@@ -1479,7 +1479,7 @@ export function ContextualTaskToolGuide({
             )}
           </>
         ) : (
-          <p role="status">必須項目を入力すると、素材生成用の入力とCTAを表示します。</p>
+          <p role="status">必須項目を入力すると、素材生成用の入力文と案内ボタンを表示します。</p>
         )}
         {onCopy && generationPrompt && (
           <button
@@ -2513,7 +2513,7 @@ function ProjectResult({
         {privateSaveFailed && (
           <div className="form-error" role="status">
             <p>
-              非公開下書きをこの端末に保存できませんでした。ページを閉じる前にMarkdownで計画を退避してください。
+              非公開下書きをこの端末に保存できませんでした。ページを閉じる前に、Markdownで計画を保存してください。
             </p>
             <button type="button" onClick={download}>
               Markdownを今すぐ保存
@@ -2819,7 +2819,7 @@ function PhaseTools({ tools, phase }: { tools: PlanTool[]; phase: string }) {
     <section className="phase-tools">
       <h4>AI / ツール候補</h4>
       <p className="fit-disclaimer">
-        適合度は入力条件と確認済み製品情報の決定論的な一致です。品質、人気、法的許諾の評価ではありません。
+        適合度は、入力条件と確認済みの製品情報が、決まったルールでどれだけ一致するかを示します。品質、人気、法的許諾の評価ではありません。
       </p>
       {primary && (
         <PlanToolCard

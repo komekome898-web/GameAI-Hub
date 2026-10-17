@@ -66,10 +66,10 @@ describe("contextual Project tools", () => {
     expect(found[0].recommendation?.alternative).toContain("仮モデル");
     expect(buildContextualGenerationPrompt(found[0].recommendation!, { subject: "明示した対象" })).toBeNull();
     const modelPrompt = buildContextualGenerationPrompt(found[0].recommendation!, { subject: "明示した対象", appearance: "明示した外観" })!;
-    expect(modelPrompt).toMatch(/対象: 明示した対象.*外観description: 明示した外観/s);
+    expect(modelPrompt).toMatch(/対象: 明示した対象.*見た目の説明: 明示した外観/s);
     expect(modelPrompt).toContain("rigは動かすキャラクター等、本当に必要な場合だけ");
     expect(modelPrompt).not.toContain("collision");
-    expect(found[0].recommendation?.inspectionItems.join(" ")).toMatch(/scale.*material.*collision.*performance/);
+    expect(found[0].recommendation?.inspectionItems.join(" ")).toMatch(/スケール.*材質.*衝突判定.*描画性能/);
     expect(modelPrompt).not.toContain("古い木製の宝箱");
   });
 

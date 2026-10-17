@@ -222,9 +222,9 @@ export default function ElevenLabsV4GameVoice() {
         <section>
           <h2>VN / RPGカットシーンの複数話者</h2>
           <p>
-            Text to Dialogueでは各turnに本文と<code>voice_id</code>
-            を割り当て、turnごとにAudio
-            Tagsを置けます。公式の概要FAQはdialogueの話者数に上限なしと説明する一方、Text to DialogueのCreate dialogue APIは1リクエストにつき異なるvoice IDを最大10個に制限しています。概要の説明をAPIリクエストの上限なしとは解釈せず、この10個の制限をUIやモデル全体の上限とも扱いません。大人数のcastを1つの制作単位にまとめず、場面単位に分け、話者別の編集や差し替えが必要かを先に決めます。出力は非決定的で、seedは一貫性を改善し得ますが同一結果を保証しません。
+            Text to Dialogueでは各発話に本文と<code>voice_id</code>
+            を割り当て、発話ごとにAudio
+            Tagsを置けます。公式の概要FAQはdialogueの話者数に上限なしと説明する一方、Text to DialogueのCreate dialogue APIは1リクエストにつき異なるvoice IDを最大10個に制限しています。概要の説明を、APIリクエストにも上限がないという意味では解釈しません。また、この10個の制限をUIやモデル全体の上限とも扱いません。大人数の登場人物を1つの制作単位にまとめず、場面単位に分けます。話者別の編集や差し替えが必要かは、先に決めます。出力は非決定的で、seedは一貫性を改善し得ますが同一結果を保証しません。
           </p>
           <p>
             長い会話は場面単位に分けます。公式資料は、大規模な会話生成の信頼性のため1リクエストの

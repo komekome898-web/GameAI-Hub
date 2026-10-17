@@ -1,0 +1,1124 @@
+[
+  {
+    "id": "000",
+    "path": "app/affiliate-disclosure/page.tsx",
+    "startEntry": 1,
+    "endEntry": 17
+  },
+  {
+    "id": "001",
+    "path": "app/articles/ai-auto-trading-reality/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "002",
+    "path": "app/articles/ai-auto-trading-reality/page.tsx",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "003",
+    "path": "app/articles/ai-auto-trading-reality/page.tsx",
+    "startEntry": 81,
+    "endEntry": 120
+  },
+  {
+    "id": "004",
+    "path": "app/articles/ai-auto-trading-reality/page.tsx",
+    "startEntry": 121,
+    "endEntry": 124
+  },
+  {
+    "id": "005",
+    "path": "app/articles/ai-browser-game-how-to/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "006",
+    "path": "app/articles/ai-browser-game-how-to/page.tsx",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "007",
+    "path": "app/articles/ai-browser-game-how-to/page.tsx",
+    "startEntry": 81,
+    "endEntry": 99
+  },
+  {
+    "id": "008",
+    "path": "app/articles/ai-completion-claim/page.tsx",
+    "startEntry": 1,
+    "endEntry": 22
+  },
+  {
+    "id": "009",
+    "path": "app/articles/ai-delegation-trap/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "010",
+    "path": "app/articles/ai-delegation-trap/page.tsx",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "011",
+    "path": "app/articles/ai-delegation-trap/page.tsx",
+    "startEntry": 81,
+    "endEntry": 90
+  },
+  {
+    "id": "012",
+    "path": "app/articles/ai-fantasy/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "013",
+    "path": "app/articles/ai-fantasy/page.tsx",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "014",
+    "path": "app/articles/ai-fantasy/page.tsx",
+    "startEntry": 81,
+    "endEntry": 91
+  },
+  {
+    "id": "015",
+    "path": "app/articles/ai-html-game-not-working/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "016",
+    "path": "app/articles/ai-html-game-not-working/page.tsx",
+    "startEntry": 41,
+    "endEntry": 50
+  },
+  {
+    "id": "017",
+    "path": "app/articles/ai-tool-comparison-later/page.tsx",
+    "startEntry": 1,
+    "endEntry": 26
+  },
+  {
+    "id": "018",
+    "path": "app/articles/ai-usage-guide/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "019",
+    "path": "app/articles/ai-usage-guide/page.tsx",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "020",
+    "path": "app/articles/ai-usage-guide/page.tsx",
+    "startEntry": 81,
+    "endEntry": 120
+  },
+  {
+    "id": "021",
+    "path": "app/articles/ai-usage-guide/page.tsx",
+    "startEntry": 121,
+    "endEntry": 138
+  },
+  {
+    "id": "022",
+    "path": "app/articles/aramon-production-story/images.ts",
+    "startEntry": 1,
+    "endEntry": 6
+  },
+  {
+    "id": "023",
+    "path": "app/articles/aramon-production-story/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "024",
+    "path": "app/articles/aramon-production-story/page.tsx",
+    "startEntry": 41,
+    "endEntry": 58
+  },
+  {
+    "id": "025",
+    "path": "app/articles/before-asking-ai-build-game/page.tsx",
+    "startEntry": 1,
+    "endEntry": 26
+  },
+  {
+    "id": "026",
+    "path": "app/articles/elevenlabs-commercial-use-game/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "027",
+    "path": "app/articles/elevenlabs-commercial-use-game/page.tsx",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "028",
+    "path": "app/articles/elevenlabs-commercial-use-game/page.tsx",
+    "startEntry": 81,
+    "endEntry": 85
+  },
+  {
+    "id": "029",
+    "path": "app/articles/elevenlabs-game-development-guide/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "030",
+    "path": "app/articles/elevenlabs-game-development-guide/page.tsx",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "031",
+    "path": "app/articles/elevenlabs-game-development-guide/page.tsx",
+    "startEntry": 81,
+    "endEntry": 101
+  },
+  {
+    "id": "032",
+    "path": "app/articles/elevenlabs-v4-game-voice/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "033",
+    "path": "app/articles/elevenlabs-v4-game-voice/page.tsx",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "034",
+    "path": "app/articles/elevenlabs-v4-game-voice/page.tsx",
+    "startEntry": 81,
+    "endEntry": 110
+  },
+  {
+    "id": "035",
+    "path": "app/articles/github-beginner-game-development/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "036",
+    "path": "app/articles/github-beginner-game-development/page.tsx",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "037",
+    "path": "app/articles/github-beginner-game-development/page.tsx",
+    "startEntry": 81,
+    "endEntry": 120
+  },
+  {
+    "id": "038",
+    "path": "app/articles/github-beginner-game-development/page.tsx",
+    "startEntry": 121,
+    "endEntry": 135
+  },
+  {
+    "id": "039",
+    "path": "app/articles/meshy-commercial-use-game/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "040",
+    "path": "app/articles/meshy-commercial-use-game/page.tsx",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "041",
+    "path": "app/articles/meshy-commercial-use-game/page.tsx",
+    "startEntry": 81,
+    "endEntry": 112
+  },
+  {
+    "id": "042",
+    "path": "app/articles/meshy-game-development-guide/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "043",
+    "path": "app/articles/meshy-game-development-guide/page.tsx",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "044",
+    "path": "app/articles/meshy-game-development-guide/page.tsx",
+    "startEntry": 81,
+    "endEntry": 92
+  },
+  {
+    "id": "045",
+    "path": "app/articles/meshy-pricing-credits-game/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "046",
+    "path": "app/articles/meshy-pricing-credits-game/page.tsx",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "047",
+    "path": "app/articles/meshy-pricing-credits-game/page.tsx",
+    "startEntry": 81,
+    "endEntry": 120
+  },
+  {
+    "id": "048",
+    "path": "app/articles/meshy-pricing-credits-game/page.tsx",
+    "startEntry": 121,
+    "endEntry": 147
+  },
+  {
+    "id": "049",
+    "path": "app/articles/page.tsx",
+    "startEntry": 1,
+    "endEntry": 9
+  },
+  {
+    "id": "050",
+    "path": "app/articles/small-first-success/page.tsx",
+    "startEntry": 1,
+    "endEntry": 24
+  },
+  {
+    "id": "051",
+    "path": "app/builder/page.tsx",
+    "startEntry": 1,
+    "endEntry": 2
+  },
+  {
+    "id": "052",
+    "path": "app/compare/page.tsx",
+    "startEntry": 1,
+    "endEntry": 8
+  },
+  {
+    "id": "053",
+    "path": "app/games/[slug]/page.tsx",
+    "startEntry": 1,
+    "endEntry": 22
+  },
+  {
+    "id": "054",
+    "path": "app/guides/[slug]/page.tsx",
+    "startEntry": 1,
+    "endEntry": 16
+  },
+  {
+    "id": "055",
+    "path": "app/guides/error.tsx",
+    "startEntry": 1,
+    "endEntry": 2
+  },
+  {
+    "id": "056",
+    "path": "app/guides/page.tsx",
+    "startEntry": 1,
+    "endEntry": 12
+  },
+  {
+    "id": "057",
+    "path": "app/layout.tsx",
+    "startEntry": 1,
+    "endEntry": 13
+  },
+  {
+    "id": "058",
+    "path": "app/methodology/page.tsx",
+    "startEntry": 1,
+    "endEntry": 29
+  },
+  {
+    "id": "059",
+    "path": "app/not-found.tsx",
+    "startEntry": 1,
+    "endEntry": 3
+  },
+  {
+    "id": "060",
+    "path": "app/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "061",
+    "path": "app/page.tsx",
+    "startEntry": 41,
+    "endEntry": 76
+  },
+  {
+    "id": "062",
+    "path": "app/privacy/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "063",
+    "path": "app/privacy/page.tsx",
+    "startEntry": 41,
+    "endEntry": 42
+  },
+  {
+    "id": "064",
+    "path": "app/project/page.tsx",
+    "startEntry": 1,
+    "endEntry": 1
+  },
+  {
+    "id": "065",
+    "path": "app/stacks/[slug]/page.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "066",
+    "path": "app/stacks/[slug]/page.tsx",
+    "startEntry": 41,
+    "endEntry": 59
+  },
+  {
+    "id": "067",
+    "path": "app/stacks/page.tsx",
+    "startEntry": 1,
+    "endEntry": 12
+  },
+  {
+    "id": "068",
+    "path": "app/tools/[slug]/page.tsx",
+    "startEntry": 1,
+    "endEntry": 39
+  },
+  {
+    "id": "069",
+    "path": "app/tools/error.tsx",
+    "startEntry": 1,
+    "endEntry": 2
+  },
+  {
+    "id": "070",
+    "path": "app/tools/page.tsx",
+    "startEntry": 1,
+    "endEntry": 8
+  },
+  {
+    "id": "071",
+    "path": "components/AnalyticsExclusionControl.tsx",
+    "startEntry": 1,
+    "endEntry": 7
+  },
+  {
+    "id": "072",
+    "path": "components/ArticleAffiliateCtas.tsx",
+    "startEntry": 1,
+    "endEntry": 26
+  },
+  {
+    "id": "073",
+    "path": "components/ArticleFrame.tsx",
+    "startEntry": 1,
+    "endEntry": 22
+  },
+  {
+    "id": "074",
+    "path": "components/ArticleHeader.tsx",
+    "startEntry": 1,
+    "endEntry": 3
+  },
+  {
+    "id": "075",
+    "path": "components/ArticleHub.tsx",
+    "startEntry": 1,
+    "endEntry": 16
+  },
+  {
+    "id": "076",
+    "path": "components/ArticleProjectCta.tsx",
+    "startEntry": 1,
+    "endEntry": 2
+  },
+  {
+    "id": "077",
+    "path": "components/ArticlePromotions.tsx",
+    "startEntry": 1,
+    "endEntry": 2
+  },
+  {
+    "id": "078",
+    "path": "components/ArticleReadingGuide.tsx",
+    "startEntry": 1,
+    "endEntry": 12
+  },
+  {
+    "id": "079",
+    "path": "components/ArticleReturnLink.tsx",
+    "startEntry": 1,
+    "endEntry": 1
+  },
+  {
+    "id": "080",
+    "path": "components/BeginnerGameWorkspace.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "081",
+    "path": "components/BeginnerGameWorkspace.tsx",
+    "startEntry": 41,
+    "endEntry": 52
+  },
+  {
+    "id": "082",
+    "path": "components/BuilderClient.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "083",
+    "path": "components/BuilderClient.tsx",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "084",
+    "path": "components/BuilderClient.tsx",
+    "startEntry": 81,
+    "endEntry": 120
+  },
+  {
+    "id": "085",
+    "path": "components/BuilderClient.tsx",
+    "startEntry": 121,
+    "endEntry": 160
+  },
+  {
+    "id": "086",
+    "path": "components/BuilderClient.tsx",
+    "startEntry": 161,
+    "endEntry": 200
+  },
+  {
+    "id": "087",
+    "path": "components/BuilderClient.tsx",
+    "startEntry": 201,
+    "endEntry": 213
+  },
+  {
+    "id": "088",
+    "path": "components/CompareClient.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "089",
+    "path": "components/CompareClient.tsx",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "090",
+    "path": "components/CompareClient.tsx",
+    "startEntry": 81,
+    "endEntry": 109
+  },
+  {
+    "id": "091",
+    "path": "components/ConversationEvidence.tsx",
+    "startEntry": 1,
+    "endEntry": 6
+  },
+  {
+    "id": "092",
+    "path": "components/CopyTextButton.tsx",
+    "startEntry": 1,
+    "endEntry": 3
+  },
+  {
+    "id": "093",
+    "path": "components/CreationDeck.tsx",
+    "startEntry": 1,
+    "endEntry": 28
+  },
+  {
+    "id": "094",
+    "path": "components/DirectoryState.tsx",
+    "startEntry": 1,
+    "endEntry": 2
+  },
+  {
+    "id": "095",
+    "path": "components/GamePlayLink.tsx",
+    "startEntry": 1,
+    "endEntry": 2
+  },
+  {
+    "id": "096",
+    "path": "components/GameShowcase.tsx",
+    "startEntry": 1,
+    "endEntry": 16
+  },
+  {
+    "id": "097",
+    "path": "components/GuidesExplorer.tsx",
+    "startEntry": 1,
+    "endEntry": 36
+  },
+  {
+    "id": "098",
+    "path": "components/Header.tsx",
+    "startEntry": 1,
+    "endEntry": 27
+  },
+  {
+    "id": "099",
+    "path": "components/HtmlGameDebugDemo.tsx",
+    "startEntry": 1,
+    "endEntry": 7
+  },
+  {
+    "id": "100",
+    "path": "components/OutboundLink.tsx",
+    "startEntry": 1,
+    "endEntry": 4
+  },
+  {
+    "id": "101",
+    "path": "components/ProjectGeneratorClient.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "102",
+    "path": "components/ProjectGeneratorClient.tsx",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "103",
+    "path": "components/ProjectGeneratorClient.tsx",
+    "startEntry": 81,
+    "endEntry": 120
+  },
+  {
+    "id": "104",
+    "path": "components/ProjectGeneratorClient.tsx",
+    "startEntry": 121,
+    "endEntry": 160
+  },
+  {
+    "id": "105",
+    "path": "components/ProjectGeneratorClient.tsx",
+    "startEntry": 161,
+    "endEntry": 200
+  },
+  {
+    "id": "106",
+    "path": "components/ProjectGeneratorClient.tsx",
+    "startEntry": 201,
+    "endEntry": 240
+  },
+  {
+    "id": "107",
+    "path": "components/ProjectGeneratorClient.tsx",
+    "startEntry": 241,
+    "endEntry": 280
+  },
+  {
+    "id": "108",
+    "path": "components/ProjectGeneratorClient.tsx",
+    "startEntry": 281,
+    "endEntry": 320
+  },
+  {
+    "id": "109",
+    "path": "components/ProjectGeneratorClient.tsx",
+    "startEntry": 321,
+    "endEntry": 360
+  },
+  {
+    "id": "110",
+    "path": "components/ProjectGeneratorClient.tsx",
+    "startEntry": 361,
+    "endEntry": 400
+  },
+  {
+    "id": "111",
+    "path": "components/ProjectGeneratorClient.tsx",
+    "startEntry": 401,
+    "endEntry": 440
+  },
+  {
+    "id": "112",
+    "path": "components/ProjectGeneratorClient.tsx",
+    "startEntry": 441,
+    "endEntry": 451
+  },
+  {
+    "id": "113",
+    "path": "components/ToolsExplorer.tsx",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "114",
+    "path": "components/ToolsExplorer.tsx",
+    "startEntry": 41,
+    "endEntry": 69
+  },
+  {
+    "id": "115",
+    "path": "components/TrustPage.tsx",
+    "startEntry": 1,
+    "endEntry": 3
+  },
+  {
+    "id": "116",
+    "path": "components/ui/Foundation.tsx",
+    "startEntry": 1,
+    "endEntry": 1
+  },
+  {
+    "id": "117",
+    "path": "data/article-purposes.ts",
+    "startEntry": 1,
+    "endEntry": 10
+  },
+  {
+    "id": "118",
+    "path": "data/articles.ts",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "119",
+    "path": "data/articles.ts",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "120",
+    "path": "data/articles.ts",
+    "startEntry": 81,
+    "endEntry": 120
+  },
+  {
+    "id": "121",
+    "path": "data/articles.ts",
+    "startEntry": 121,
+    "endEntry": 160
+  },
+  {
+    "id": "122",
+    "path": "data/articles.ts",
+    "startEntry": 161,
+    "endEntry": 200
+  },
+  {
+    "id": "123",
+    "path": "data/articles.ts",
+    "startEntry": 201,
+    "endEntry": 240
+  },
+  {
+    "id": "124",
+    "path": "data/articles.ts",
+    "startEntry": 241,
+    "endEntry": 280
+  },
+  {
+    "id": "125",
+    "path": "data/articles.ts",
+    "startEntry": 281,
+    "endEntry": 293
+  },
+  {
+    "id": "126",
+    "path": "data/game-introductions.ts",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "127",
+    "path": "data/game-introductions.ts",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "128",
+    "path": "data/game-introductions.ts",
+    "startEntry": 81,
+    "endEntry": 120
+  },
+  {
+    "id": "129",
+    "path": "data/game-introductions.ts",
+    "startEntry": 121,
+    "endEntry": 160
+  },
+  {
+    "id": "130",
+    "path": "data/game-introductions.ts",
+    "startEntry": 161,
+    "endEntry": 169
+  },
+  {
+    "id": "131",
+    "path": "data/games.ts",
+    "startEntry": 1,
+    "endEntry": 29
+  },
+  {
+    "id": "132",
+    "path": "data/guides.ts",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "133",
+    "path": "data/guides.ts",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "134",
+    "path": "data/html-game-debug-examples.ts",
+    "startEntry": 1,
+    "endEntry": 21
+  },
+  {
+    "id": "135",
+    "path": "data/recommendation-rules.ts",
+    "startEntry": 1,
+    "endEntry": 12
+  },
+  {
+    "id": "136",
+    "path": "data/services.json",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "137",
+    "path": "data/services.json",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "138",
+    "path": "data/services.json",
+    "startEntry": 81,
+    "endEntry": 120
+  },
+  {
+    "id": "139",
+    "path": "data/services.json",
+    "startEntry": 121,
+    "endEntry": 160
+  },
+  {
+    "id": "140",
+    "path": "data/services.json",
+    "startEntry": 161,
+    "endEntry": 200
+  },
+  {
+    "id": "141",
+    "path": "data/services.json",
+    "startEntry": 201,
+    "endEntry": 240
+  },
+  {
+    "id": "142",
+    "path": "data/services.json",
+    "startEntry": 241,
+    "endEntry": 280
+  },
+  {
+    "id": "143",
+    "path": "data/services.json",
+    "startEntry": 281,
+    "endEntry": 320
+  },
+  {
+    "id": "144",
+    "path": "data/services.json",
+    "startEntry": 321,
+    "endEntry": 360
+  },
+  {
+    "id": "145",
+    "path": "data/services.json",
+    "startEntry": 361,
+    "endEntry": 389
+  },
+  {
+    "id": "146",
+    "path": "data/stack-templates.ts",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "147",
+    "path": "data/stack-templates.ts",
+    "startEntry": 41,
+    "endEntry": 49
+  },
+  {
+    "id": "148",
+    "path": "data/swarm-monhero-introductions.ts",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "149",
+    "path": "data/swarm-monhero-introductions.ts",
+    "startEntry": 41,
+    "endEntry": 59
+  },
+  {
+    "id": "150",
+    "path": "lib/domain.ts",
+    "startEntry": 1,
+    "endEntry": 23
+  },
+  {
+    "id": "151",
+    "path": "lib/project/beginner-workflow.ts",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "152",
+    "path": "lib/project/beginner-workflow.ts",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "153",
+    "path": "lib/project/beginner-workflow.ts",
+    "startEntry": 81,
+    "endEntry": 120
+  },
+  {
+    "id": "154",
+    "path": "lib/project/beginner-workflow.ts",
+    "startEntry": 121,
+    "endEntry": 160
+  },
+  {
+    "id": "155",
+    "path": "lib/project/beginner-workflow.ts",
+    "startEntry": 161,
+    "endEntry": 186
+  },
+  {
+    "id": "156",
+    "path": "lib/project/checklist.ts",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "157",
+    "path": "lib/project/checklist.ts",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "158",
+    "path": "lib/project/checklist.ts",
+    "startEntry": 81,
+    "endEntry": 120
+  },
+  {
+    "id": "159",
+    "path": "lib/project/checklist.ts",
+    "startEntry": 121,
+    "endEntry": 160
+  },
+  {
+    "id": "160",
+    "path": "lib/project/checklist.ts",
+    "startEntry": 161,
+    "endEntry": 200
+  },
+  {
+    "id": "161",
+    "path": "lib/project/checklist.ts",
+    "startEntry": 201,
+    "endEntry": 212
+  },
+  {
+    "id": "162",
+    "path": "lib/project/contextual-tool.ts",
+    "startEntry": 1,
+    "endEntry": 26
+  },
+  {
+    "id": "163",
+    "path": "lib/project/generator.ts",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "164",
+    "path": "lib/project/generator.ts",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "165",
+    "path": "lib/project/generator.ts",
+    "startEntry": 81,
+    "endEntry": 120
+  },
+  {
+    "id": "166",
+    "path": "lib/project/generator.ts",
+    "startEntry": 121,
+    "endEntry": 160
+  },
+  {
+    "id": "167",
+    "path": "lib/project/generator.ts",
+    "startEntry": 161,
+    "endEntry": 200
+  },
+  {
+    "id": "168",
+    "path": "lib/project/generator.ts",
+    "startEntry": 201,
+    "endEntry": 236
+  },
+  {
+    "id": "169",
+    "path": "lib/project/intent-profile.ts",
+    "startEntry": 1,
+    "endEntry": 14
+  },
+  {
+    "id": "170",
+    "path": "lib/project/interpreter.ts",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "171",
+    "path": "lib/project/interpreter.ts",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "172",
+    "path": "lib/project/interpreter.ts",
+    "startEntry": 81,
+    "endEntry": 120
+  },
+  {
+    "id": "173",
+    "path": "lib/project/interpreter.ts",
+    "startEntry": 121,
+    "endEntry": 144
+  },
+  {
+    "id": "174",
+    "path": "lib/project/navigation-context.ts",
+    "startEntry": 1,
+    "endEntry": 5
+  },
+  {
+    "id": "175",
+    "path": "lib/project/providers/index.ts",
+    "startEntry": 1,
+    "endEntry": 2
+  },
+  {
+    "id": "176",
+    "path": "lib/project/share.ts",
+    "startEntry": 1,
+    "endEntry": 1
+  },
+  {
+    "id": "177",
+    "path": "lib/project/stack-handoff.ts",
+    "startEntry": 1,
+    "endEntry": 23
+  },
+  {
+    "id": "178",
+    "path": "lib/recommendation/engine.ts",
+    "startEntry": 1,
+    "endEntry": 40
+  },
+  {
+    "id": "179",
+    "path": "lib/recommendation/engine.ts",
+    "startEntry": 41,
+    "endEntry": 80
+  },
+  {
+    "id": "180",
+    "path": "lib/recommendation/engine.ts",
+    "startEntry": 81,
+    "endEntry": 120
+  },
+  {
+    "id": "181",
+    "path": "lib/recommendation/engine.ts",
+    "startEntry": 121,
+    "endEntry": 160
+  },
+  {
+    "id": "182",
+    "path": "lib/recommendation/engine.ts",
+    "startEntry": 161,
+    "endEntry": 200
+  },
+  {
+    "id": "183",
+    "path": "lib/recommendation/engine.ts",
+    "startEntry": 201,
+    "endEntry": 204
+  },
+  {
+    "id": "184",
+    "path": "lib/service-labels.ts",
+    "startEntry": 1,
+    "endEntry": 20
+  },
+  {
+    "id": "185",
+    "path": "lib/site.ts",
+    "startEntry": 1,
+    "endEntry": 4
+  },
+  {
+    "id": "186",
+    "path": "lib/verification-status.ts",
+    "startEntry": 1,
+    "endEntry": 4
+  }
+]

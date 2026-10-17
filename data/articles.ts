@@ -774,7 +774,7 @@ export const articles = [
     lastVerifiedAt: "2026-10-04",
     author: "AI Iterproof編集部",
     editorialNote:
-      "GitHub公式Docsをもとに構成しています。2026-10-04にリポジトリ作成・ファイル保存・branch・Pull requestの説明だけを再確認しました。その他の項目は今回再確認していません。ログイン後の所有者画面で全手順を通した実測はしていないため 表示や配置が異なる場合があります。各出典の確認日は下記のとおりです",
+      "GitHub公式Docsをもとに構成しています。2026-10-04にリポジトリ作成・ファイル保存・branch・Pull requestの説明だけを再確認しました。その他の項目は今回再確認していません。ログイン後の所有者画面で全手順を通した実測はしていないため、表示や配置が異なる場合があります。各出典の確認日は下記のとおりです。",
     sources: [
       {
         label: "GitHub Docs: Creating an account on GitHub",

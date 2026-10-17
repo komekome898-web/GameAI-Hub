@@ -1,0 +1,442 @@
+[
+  {
+    "path": "app/articles/elevenlabs-v4-game-voice/page.tsx",
+    "entry": 68,
+    "sourceLine": 225,
+    "finalLine": 225,
+    "before": "Text to Dialogueでは各turnに本文と",
+    "after": "Text to Dialogueでは各発話に本文と"
+  },
+  {
+    "path": "app/articles/elevenlabs-v4-game-voice/page.tsx",
+    "entry": 69,
+    "sourceLine": 226,
+    "finalLine": 226,
+    "before": "を割り当て、turnごとにAudio Tagsを置けます。公式の概要FAQはdialogueの話者数に上限なしと説明する一方、Text to DialogueのCreate dialogue APIは1リクエストにつき異なるvoice IDを最大10個に制限しています。概要の説明をAPIリクエストの上限なしとは解釈せず、この10個の制限をUIやモデル全体の上限とも扱いません。大人数のcastを1つの制作単位にまとめず、場面単位に分け、話者別の編集や差し替えが必要かを先に決めます。出力は非決定的で、seedは一貫性を改善し得ますが同一結果を保証しません。",
+    "after": "を割り当て、発話ごとにAudio Tagsを置けます。公式の概要FAQはdialogueの話者数に上限なしと説明する一方、Text to DialogueのCreate dialogue APIは1リクエストにつき異なるvoice IDを最大10個に制限しています。概要の説明を、APIリクエストにも上限がないという意味では解釈しません。また、この10個の制限をUIやモデル全体の上限とも扱いません。大人数の登場人物を1つの制作単位にまとめず、場面単位に分けます。話者別の編集や差し替えが必要かは、先に決めます。出力は非決定的で、seedは一貫性を改善し得ますが同一結果を保証しません。"
+  },
+  {
+    "path": "app/articles/github-beginner-game-development/page.tsx",
+    "entry": 11,
+    "sourceLine": 42,
+    "finalLine": 42,
+    "before": "をGitHubに保存するためのガイドです。コマンドは使わず アカウントの準備から保存場所とCode画面を見ていきます。先にゲームを動かしたい人は",
+    "after": "をGitHubに保存するためのガイドです。コマンドは使わず、アカウントの準備から保存場所とCode画面を見ていきます。先にゲームを動かしたい人は、"
+  },
+  {
+    "path": "app/articles/github-beginner-game-development/page.tsx",
+    "entry": 13,
+    "sourceLine": 42,
+    "finalLine": 42,
+    "before": "へ進めます。Projectから来た人は 元の制作タブへ戻って続けられます",
+    "after": "へ進めます。Projectから来た人は、元の制作タブへ戻って続けられます。"
+  },
+  {
+    "path": "app/articles/github-beginner-game-development/page.tsx",
+    "entry": 14,
+    "sourceLine": 45,
+    "finalLine": 45,
+    "before": "画面名と手順はGitHub公式Docsをもとにしています。ログイン後の所有者画面で全手順を通した実測はしていないため 表示や配置が異なる場合があります",
+    "after": "画面名と手順はGitHub公式Docsをもとにしています。ログイン後の所有者画面で全手順を通した実測はしていないため、表示や配置が異なる場合があります。"
+  },
+  {
+    "path": "app/articles/meshy-game-development-guide/page.tsx",
+    "entry": 19,
+    "sourceLine": 66,
+    "finalLine": 66,
+    "before": "自作のコンセプト画など、守りたい輪郭や視覚方向がすでにあるとき。",
+    "after": "自作のコンセプト画など、保ちたい輪郭や見た目の方向性がすでにあるとき。"
+  },
+  {
+    "path": "app/articles/meshy-game-development-guide/page.tsx",
+    "entry": 47,
+    "sourceLine": 149,
+    "finalLine": 149,
+    "before": "形式名だけで材料が必ず再現されるとは限りません。modelファイルとtextureの構成を確認し、読み込み先でmaterialを割り当て直せるよう元ファイルを保管します。",
+    "after": "形式名だけでマテリアルが必ず再現されるとは限りません。モデルファイルとテクスチャの構成を確認し、読み込み先でマテリアルを割り当て直せるよう、元ファイルを保管します。"
+  },
+  {
+    "path": "app/articles/meshy-game-development-guide/page.tsx",
+    "entry": 91,
+    "sourceLine": 275,
+    "finalLine": 275,
+    "before": "取り込んだ1点について、当たり判定、操作との連携、実機負荷、周囲とのstyle統一のどれかを次のtaskにします。合格する前に同系統のassetを量産しません。",
+    "after": "取り込んだ1点について、当たり判定、操作との連携、実機負荷、周囲とのスタイル統一のどれかを次のタスクにします。合格する前に同系統のアセットを量産しません。"
+  },
+  {
+    "path": "app/articles/meshy-pricing-credits-game/page.tsx",
+    "entry": 4,
+    "sourceLine": 18,
+    "finalLine": 18,
+    "before": "。価格・付与量・対象モデルは変わるため、決済前は必ずライブの公式料金を確認してください。",
+    "after": "。価格・付与量・対象モデルは変わるため、決済前は必ず公式の最新料金を確認してください。"
+  },
+  {
+    "path": "app/articles/meshy-pricing-credits-game/page.tsx",
+    "entry": 117,
+    "sourceLine": 63,
+    "finalLine": 63,
+    "before": "いずれも成功率を仮定せず、post-processing、手修正、追加textureを含めない下限例です。実際のproduction-ready数はこれより少なくなり得ます。",
+    "after": "いずれも成功率を仮定せず、後処理、手修正、追加テクスチャを含めない下限例です。実際に制作で使える数は、これより少なくなり得ます。"
+  },
+  {
+    "path": "app/compare/page.tsx",
+    "entry": 4,
+    "sourceLine": 12,
+    "finalLine": 12,
+    "before": "選んだ候補の注意点を先に確認。その後で料金・権利・APIなどの差分を、公式情報への導線つきで検証します。",
+    "after": "選んだ候補の注意点を先に確認。その後で料金・権利・APIなどの差分を、公式情報へのリンクつきで検証します。"
+  },
+  {
+    "path": "app/guides/error.tsx",
+    "entry": 2,
+    "sourceLine": 6,
+    "finalLine": 6,
+    "before": "選んだ制作段階はURLに残っています。再読み込しても解決しない場合はProjectに戻れます。",
+    "after": "選んだ制作段階はURLに残っています。再読み込みしても解決しない場合はProjectに戻れます。"
+  },
+  {
+    "path": "app/guides/page.tsx",
+    "entry": 5,
+    "sourceLine": 8,
+    "finalLine": 8,
+    "before": "制作段階を選び、必要な入力、手順、得られる成果を確認できます。読み物のArticles、製品を選ぶToolsとは役割を分けています。",
+    "after": "制作段階を選び、必要な入力、手順、得られる成果を確認できます。読み物はArticles、製品選びはToolsで扱います。"
+  },
+  {
+    "path": "app/stacks/page.tsx",
+    "entry": 2,
+    "sourceLine": 6,
+    "finalLine": 6,
+    "before": "ゲーム種別ごとに、対象、制作順、必要なAIツール候補、費用の見え方、商用利用の注意点を確認できます。",
+    "after": "ゲーム種別ごとに、対象、制作順、必要なAIツール候補、費用について分かること、商用利用の注意点を確認できます。"
+  },
+  {
+    "path": "app/stacks/page.tsx",
+    "entry": 5,
+    "sourceLine": 10,
+    "finalLine": 10,
+    "before": "似た企画の工程案を出発点に、必要・任意のツール、制約、費用の確認範囲を把握できます。条件に合わせる場合はBuilderへ進んでください。",
+    "after": "似た企画の工程案を出発点に、必要・任意のツール、制約、費用の確認範囲を把握できます。自分の条件に合わせる場合はBuilderへ進んでください。"
+  },
+  {
+    "path": "app/tools/error.tsx",
+    "entry": 2,
+    "sourceLine": 6,
+    "finalLine": 6,
+    "before": "入力した条件はURLに残っています。再読み込しても解決しない場合はProjectに戻れます。",
+    "after": "入力した条件はURLに残っています。再読み込みしても解決しない場合はProjectに戻れます。"
+  },
+  {
+    "path": "app/tools/page.tsx",
+    "entry": 2,
+    "sourceLine": 7,
+    "finalLine": 7,
+    "before": "コード、声、2D、3Dなど作りたい成果物からAIゲーム開発ツールを絞り、公式根拠と未確認条件を調べられます。",
+    "after": "コード、声、2D、3Dなど、作りたい成果物からAIゲーム開発ツールを絞り、公式根拠と未確認条件を調べられます。"
+  },
+  {
+    "path": "components/ProjectGeneratorClient.tsx",
+    "entry": 87,
+    "sourceLine": 836,
+    "finalLine": 836,
+    "before": "外部AIを利用できなかったため、安全なフォールバックを使用しました。",
+    "after": "外部AIを利用できなかったため、安全な代替処理を使いました。"
+  },
+  {
+    "path": "components/ProjectGeneratorClient.tsx",
+    "entry": 189,
+    "sourceLine": 1419,
+    "finalLine": 1419,
+    "before": "ここで入力した内容はanalyticsへ送信されません。必須項目を決めるまで外部ツールへのCTAは表示されません。",
+    "after": "ここで入力した内容はアクセス解析へ送信されません。必須項目を決めるまで、外部ツールへの案内ボタンは表示されません。"
+  },
+  {
+    "path": "components/ProjectGeneratorClient.tsx",
+    "entry": 201,
+    "sourceLine": 1455,
+    "finalLine": 1455,
+    "before": "外観description（必須）",
+    "after": "見た目の説明（必須）"
+  },
+  {
+    "path": "components/ProjectGeneratorClient.tsx",
+    "entry": 217,
+    "sourceLine": 1482,
+    "finalLine": 1482,
+    "before": "必須項目を入力すると、素材生成用の入力とCTAを表示します。",
+    "after": "必須項目を入力すると、素材生成用の入力文と案内ボタンを表示します。"
+  },
+  {
+    "path": "components/ProjectGeneratorClient.tsx",
+    "entry": 356,
+    "sourceLine": 2516,
+    "finalLine": 2516,
+    "before": "非公開下書きをこの端末に保存できませんでした。ページを閉じる前にMarkdownで計画を退避してください。",
+    "after": "非公開下書きをこの端末に保存できませんでした。ページを閉じる前に、Markdownで計画を保存してください。"
+  },
+  {
+    "path": "components/ProjectGeneratorClient.tsx",
+    "entry": 410,
+    "sourceLine": 2822,
+    "finalLine": 2822,
+    "before": "適合度は入力条件と確認済み製品情報の決定論的な一致です。品質、人気、法的許諾の評価ではありません。",
+    "after": "適合度は、入力条件と確認済みの製品情報が、決まったルールでどれだけ一致するかを示します。品質、人気、法的許諾の評価ではありません。"
+  },
+  {
+    "path": "data/articles.ts",
+    "entry": 115,
+    "sourceLine": 777,
+    "finalLine": 777,
+    "before": "GitHub公式Docsをもとに構成しています。2026-10-04にリポジトリ作成・ファイル保存・branch・Pull requestの説明だけを再確認しました。その他の項目は今回再確認していません。ログイン後の所有者画面で全手順を通した実測はしていないため 表示や配置が異なる場合があります。各出典の確認日は下記のとおりです",
+    "after": "GitHub公式Docsをもとに構成しています。2026-10-04にリポジトリ作成・ファイル保存・branch・Pull requestの説明だけを再確認しました。その他の項目は今回再確認していません。ログイン後の所有者画面で全手順を通した実測はしていないため、表示や配置が異なる場合があります。各出典の確認日は下記のとおりです。"
+  },
+  {
+    "path": "data/guides.ts",
+    "entry": 70,
+    "sourceLine": 29,
+    "finalLine": 29,
+    "before": "4. 不足素材には契約を与える",
+    "after": "4. 不足素材の仕様と差し替え箇所を決める"
+  },
+  {
+    "path": "data/guides.ts",
+    "entry": 76,
+    "sourceLine": 29,
+    "finalLine": 29,
+    "before": "最終素材への差し替えがロジック変更を要求しない",
+    "after": "最終素材へ差し替えても、ロジックを変更せずに済む"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 140,
+    "sourceLine": 692,
+    "finalLine": 692,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 155,
+    "sourceLine": 770,
+    "finalLine": 770,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 170,
+    "sourceLine": 848,
+    "finalLine": 848,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 184,
+    "sourceLine": 921,
+    "finalLine": 921,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 197,
+    "sourceLine": 988,
+    "finalLine": 988,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 211,
+    "sourceLine": 1061,
+    "finalLine": 1061,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 223,
+    "sourceLine": 1124,
+    "finalLine": 1124,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 235,
+    "sourceLine": 1186,
+    "finalLine": 1186,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 248,
+    "sourceLine": 1253,
+    "finalLine": 1253,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 262,
+    "sourceLine": 1326,
+    "finalLine": 1326,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 277,
+    "sourceLine": 1405,
+    "finalLine": 1405,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 291,
+    "sourceLine": 1479,
+    "finalLine": 1479,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 304,
+    "sourceLine": 1546,
+    "finalLine": 1546,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 317,
+    "sourceLine": 1614,
+    "finalLine": 1614,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 329,
+    "sourceLine": 1676,
+    "finalLine": 1676,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 343,
+    "sourceLine": 1749,
+    "finalLine": 1749,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 356,
+    "sourceLine": 1816,
+    "finalLine": 1816,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 368,
+    "sourceLine": 1879,
+    "finalLine": 1879,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/services.json",
+    "entry": 379,
+    "sourceLine": 1936,
+    "finalLine": 1936,
+    "before": "価格額は未登録です。採用前に公式料金ページで確認してください。",
+    "after": "価格は未登録です。採用前に公式料金ページで確認してください。"
+  },
+  {
+    "path": "data/stack-templates.ts",
+    "entry": 15,
+    "sourceLine": 10,
+    "finalLine": 10,
+    "before": "掲載サービスは価格額を構造化していません。無料プランの有無と最新料金を各公式ページで確認し、確定額として扱わないでください。",
+    "after": "掲載サービスの価格は、金額を比較できる形では登録していません。無料プランの有無と最新料金を各公式ページで確認し、確定額として扱わないでください。"
+  },
+  {
+    "path": "data/stack-templates.ts",
+    "entry": 44,
+    "sourceLine": 20,
+    "finalLine": 20,
+    "before": "無料は費用ゼロや商用利用可を意味しません。画像制作を含む全工程はこの構成だけでは完結しません。",
+    "after": "無料プランがあることは、費用ゼロや商用利用可を意味しません。画像制作を含む全工程はこの構成だけでは完結しません。"
+  },
+  {
+    "path": "lib/project/contextual-tool.ts",
+    "entry": 2,
+    "sourceLine": 20,
+    "finalLine": 20,
+    "before": "CTAを開く前に、実際に読み上げる代表台詞を1〜3本決め、読み方、感情、話者の同意を準備します。",
+    "after": "案内先を開く前に、実際に読み上げる代表台詞を1〜3本決め、読み方、感情、話者の同意を準備します。"
+  },
+  {
+    "path": "lib/project/contextual-tool.ts",
+    "entry": 10,
+    "sourceLine": 39,
+    "finalLine": 39,
+    "before": "CTAを開く前に、生成対象を1つ選び、その用途と外観を短く決めます。UV・texture・rigは必要な場合だけ指定します。",
+    "after": "案内先を開く前に、生成対象を1つ選び、その用途と外観を短く決めます。UV・texture・rigは必要な場合だけ指定します。"
+  },
+  {
+    "path": "lib/project/contextual-tool.ts",
+    "entry": 11,
+    "sourceLine": 41,
+    "finalLine": 41,
+    "before": "このQuestでは、対象環境へimportしてスケール・材質・性能を検品できる3Dモデルが必要なためです。",
+    "after": "このQuestでは、対象環境へ取り込み、スケール・材質・性能を検品できる3Dモデルが必要なためです。"
+  },
+  {
+    "path": "lib/project/contextual-tool.ts",
+    "entry": 12,
+    "sourceLine": 43,
+    "finalLine": 43,
+    "before": "import後のscale、orientation、material、textureを確認する",
+    "after": "取り込み後のスケール、向き、材質、テクスチャを確認する"
+  },
+  {
+    "path": "lib/project/contextual-tool.ts",
+    "entry": 13,
+    "sourceLine": 44,
+    "finalLine": 44,
+    "before": "ゲーム側で必要なcollisionを設定して確認する",
+    "after": "ゲーム側で必要な衝突判定を設定して確認する"
+  },
+  {
+    "path": "lib/project/contextual-tool.ts",
+    "entry": 14,
+    "sourceLine": 45,
+    "finalLine": 45,
+    "before": "対象端末でpolygon数と描画performanceを確認する",
+    "after": "対象端末でポリゴン数と描画性能を確認する"
+  },
+  {
+    "path": "lib/project/contextual-tool.ts",
+    "entry": 20,
+    "sourceLine": 101,
+    "finalLine": 101,
+    "before": "外観description:",
+    "after": "見た目の説明:"
+  },
+  {
+    "path": "lib/project/navigation-context.ts",
+    "entry": 4,
+    "sourceLine": 107,
+    "finalLine": 107,
+    "before": "掲載情報はパソコンに入れる開発ツールです。ブラウザ上のチャットから始める今回の手順とは異なり、導入とファイルを開く準備が必要です。",
+    "after": "掲載されているのは、パソコンに入れる開発ツールです。ブラウザ上のチャットから始める今回の手順とは異なり、導入とファイルを開く準備が必要です。"
+  }
+]

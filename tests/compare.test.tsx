@@ -35,7 +35,7 @@ describe('compare', () => {
     navigation.params = new URLSearchParams('ids=github-copilot,cursor&goal=code&stage=code');
     render(<CompareClient services={getServices()} />);
     expect(screen.getByRole('heading', { name: '今回の選び方：ブラウザでAIへ依頼する' })).toBeTruthy();
-    expect(screen.getByText(/掲載情報はパソコンに入れる開発ツールです/)).toBeTruthy();
+    expect(screen.getByText(/掲載されているのは、パソコンに入れる開発ツールです/)).toBeTruthy();
     expect(screen.getByRole('link', { name: '制作中のゲームに戻る →' }).getAttribute('href')).toBe(`${route}#beginner-action-title`);
     expect(screen.getByLabelText('主要な差分').textContent).not.toContain('契約前に公式料金ページ');
     fireEvent.click(screen.getByLabelText('差分のみ表示'));

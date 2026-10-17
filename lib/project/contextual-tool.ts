@@ -17,7 +17,7 @@ const contextualRules = {
     serviceSlug: "elevenlabs",
     artifact: "台詞ID付きの代表音声3件（WAVまたはMP3など、公式対応形式を確認）",
     preparation:
-      "CTAを開く前に、実際に読み上げる代表台詞を1〜3本決め、読み方、感情、話者の同意を準備します。",
+      "案内先を開く前に、実際に読み上げる代表台詞を1〜3本決め、読み方、感情、話者の同意を準備します。",
     reason:
       "このQuestでは、ゲーム内で再生して発音と音量を検品できる音声ファイルが必要なためです。",
     inspectionItems: [
@@ -36,13 +36,13 @@ const contextualRules = {
     artifact:
       "対象エンジンへ取り込める代表3Dモデル1点（対応形式は公式情報で確認）",
     preparation:
-      "CTAを開く前に、生成対象を1つ選び、その用途と外観を短く決めます。UV・texture・rigは必要な場合だけ指定します。",
+      "案内先を開く前に、生成対象を1つ選び、その用途と外観を短く決めます。UV・texture・rigは必要な場合だけ指定します。",
     reason:
-      "このQuestでは、対象環境へimportしてスケール・材質・性能を検品できる3Dモデルが必要なためです。",
+      "このQuestでは、対象環境へ取り込み、スケール・材質・性能を検品できる3Dモデルが必要なためです。",
     inspectionItems: [
-      "import後のscale、orientation、material、textureを確認する",
-      "ゲーム側で必要なcollisionを設定して確認する",
-      "対象端末でpolygon数と描画performanceを確認する",
+      "取り込み後のスケール、向き、材質、テクスチャを確認する",
+      "ゲーム側で必要な衝突判定を設定して確認する",
+      "対象端末でポリゴン数と描画性能を確認する",
     ],
     returnInstruction:
       "生成したモデルと利用条件の記録を保存し、このProjectへ戻ってimportと実機検品を続けます。",
@@ -98,7 +98,7 @@ export function buildContextualGenerationPrompt(
   return [
     `対象: ${subject}`,
     ...optional,
-    `外観description: ${appearance}`,
+    `見た目の説明: ${appearance}`,
     "必要条件:",
     "- game-readyで、対象エンジンが公式対応する形式でimportできること",
     "- 過剰なpolygon数を避けること",
