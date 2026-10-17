@@ -14,3 +14,5 @@
 - Current phase: coordinator reviews the public tooling and separately evaluates private strategy/application evidence.
 - Remaining: coordinator's independent acceptance and explicit adoption of any application proposal. No PR requested.
 - Resume: inspect current remote head and private handoff from coordinator; do not reconstruct private observations from synthetic fixtures.
+
+- Profitability extension: keeps reader recommendations separate from economic comparison; typed contract/observation/assumption/unknown quantities, conditional fixed/rate/discount-phase arithmetic, future cash/time and sunk-cost separation, approved/paid distinction, and independently reviewed comparison bound to all case periods/sources. Public fixtures remain fictional.

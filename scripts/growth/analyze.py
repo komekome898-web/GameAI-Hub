@@ -5,6 +5,7 @@ import hashlib
 import json
 import math
 import subprocess
+from decimal import Decimal, InvalidOperation, ROUND_CEILING
 from datetime import date
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -21,7 +22,7 @@ SOURCE_KINDS = {
     'measurement_report', 'reader_feedback', 'demand_research',
     'repository_source', 'owned_publication', 'execution_result',
     'independent_review', 'distribution_observation', 'competitor_document',
-    'primary_document',
+    'primary_document', 'commercial_terms', 'financial_record', 'cost_estimate',
 }
 ROLE_KINDS = {
     'reader_demand': {'reader_feedback', 'demand_research'},
@@ -359,11 +360,16 @@ def assess_opportunities(bundle):
         require(candidate.get('delta_description'), 'acquisition needs a concrete existing/new artifact comparison')
         if candidate['finding_status'] == 'verified' and candidate['coverage'] in ('missing', 'mismatch') and candidate['delta_status'] == 'verified' and all(r['usable_refs'] for r in acquisition_eligibility.values()) and artifact_backed_delta and review['supported']:
             acquisition.append(candidate['id'])
-    return {'policy': 'Verified access blocker > observed unmet reader task > observed intent mismatch; prefer direct page-query evidence then existing page and narrower change. Metric evidence must match target_period and pass quality checks; failed/delayed/unknown/unreconciled testing, history and PV_USER_SCOPE evidence is excluded. This routes analyst-declared findings, not semantic diagnosis from primary text or an impact score. Acquisition experiments require separately cited demand, owned asset, incremental value and distribution; existing search counts are not a market ceiling.',
+    output = {'policy': 'Verified access blocker > observed unmet reader task > observed intent mismatch; prefer direct page-query evidence then existing page and narrower change. Metric evidence must match target_period and pass quality checks; failed/delayed/unknown/unreconciled testing, history and PV_USER_SCOPE evidence is excluded. This routes analyst-declared findings, not semantic diagnosis from primary text or an impact score. Acquisition experiments require separately cited demand, owned asset, incremental value and distribution; existing search counts are not a market ceiling.',
             'first_action': next((r['id'] for r in assessed if r['action'] not in ('retain', 'investigate') and not r.get('acquisition_evidence')), None),
             'acquisition_experiments': acquisition,
             'primary_experiment': acquisition[0] if len(acquisition) == 1 else None,
             'candidates': assessed}
+    if bundle.get('decision_objective') == 'profitability':
+        output['reader_task_first_action'] = output.pop('first_action')
+        output['reader_acquisition_primary_experiment'] = output.pop('primary_experiment')
+        output['recommendation_scope'] = 'Reader utility/acquisition only. These are not profitability recommendations; compare commercial cases in the private brief.'
+    return output
 
 
 def diagnose(bundle):
@@ -414,8 +420,218 @@ def diagnose(bundle):
         'page_query_coverage': page_query_coverage(bundle),
         'reported_search_totals': [r for r in rows if r['scope'] in ('sc_property_total', 'sc_page_total', 'sc_query_total')],
         'query_coverage': coverage, 'table_reconciliation': reconciliation, 'warnings': warnings,
+        'profitability_analysis': profitability_cases(bundle),
         'definitions': {'pv': 'GA screenPageViews; repeated page/history events, not readers', 'active_users': 'GA active users; non-additive across rows, not proven external humans', 'clicks': 'Search Console Google search clicks, not GA sessions', 'missing': 'null = not observed; 0 = reported zero', 'hub_transition': 'requires matched sessions/actual link opens, never article PV / hub PV'},
     }
+
+
+def commercial_quantity(item, unit, bundle, states=None):
+    """Typed inputs: contract terms, observations, assumptions and unknowns stay distinct."""
+    require(isinstance(item, dict), 'commercial quantity must be an object')
+    state = item.get('state')
+    require(state in (states or {'contractual', 'observed', 'assumption', 'unknown'}), 'invalid commercial quantity state')
+    require(item.get('unit') == unit, 'commercial unit/currency mismatch')
+    refs = item.get('evidence')
+    require(isinstance(refs, list) and all(isinstance(r, str) and r in bundle['sources'] for r in refs), 'invalid commercial source references')
+    require(isinstance(item.get('basis'), str) and bool(item['basis'].strip()), 'commercial quantity requires basis or missing reason')
+    if state == 'unknown':
+        require(item.get('value') is None, 'unknown commercial value must be null')
+        return None
+    require(isinstance(item.get('value'), str), 'commercial decimal values must be explicit strings')
+    try:
+        value = Decimal(item['value'])
+    except InvalidOperation:
+        raise EvidenceError('invalid commercial decimal') from None
+    require(value.is_finite() and value >= 0, 'commercial value must be finite and nonnegative')
+    if state in ('contractual', 'observed'):
+        require(bool(refs), 'contract/observation requires retained evidence')
+        kinds = {'commercial_terms'} if state == 'contractual' else {'financial_record', 'measurement_report'}
+        for ref in refs:
+            source = bundle['sources'][ref]
+            text = source.get('observed_text')
+            require(source.get('evidence_kind') in kinds and isinstance(text, str) and bool(text.strip())
+                    and source.get('observed_text_sha256') == hashlib.sha256(text.encode()).hexdigest(),
+                    'contract/observation requires appropriate retained source content and hash')
+    if unit == 'fraction':
+        require(value <= 1, 'fraction exceeds one')
+    if unit in ('outcomes', 'periods', 'readers'):
+        require(value == value.to_integral_value(), 'count must be an integer')
+    return value
+
+
+def commercial_case_digest(bundle, case):
+    refs = set()
+    def visit(value):
+        if isinstance(value, dict):
+            if isinstance(value.get('evidence'), list):
+                refs.update(value['evidence'])
+            for child in value.values():
+                visit(child)
+        elif isinstance(value, list):
+            for child in value:
+                visit(child)
+    visit(case)
+    payload = {'case': case, 'periods': {id: bundle['periods'][id] for id in sorted({case['period'], case['actuals']['period']})},
+               'sources': {ref: bundle['sources'][ref] for ref in sorted(refs)}}
+    return hashlib.sha256(json.dumps(payload, sort_keys=True, ensure_ascii=False, separators=(',', ':')).encode()).hexdigest()
+
+
+def profitability_cases(bundle):
+    objective = bundle.get('decision_objective', 'reader_growth')
+    require(objective in ('reader_growth', 'profitability'), 'unknown decision objective')
+    cases = bundle.get('profitability_cases', [])
+    require(isinstance(cases, list), 'profitability_cases must be an array')
+    ids = set()
+    candidates = {c['id'] for c in bundle.get('opportunities', [])}
+    results = []
+    def render(value):
+        return str(value) if value is not None else None
+    for case in cases:
+        require(isinstance(case, dict) and isinstance(case.get('id'), str) and case['id'] not in ids, 'invalid/duplicate commercial case')
+        ids.add(case['id'])
+        require(case.get('candidate_id') is None or case['candidate_id'] in candidates, 'unknown commercial candidate')
+        require(case.get('period') in bundle['periods'], 'commercial case needs explicit horizon period')
+        currency = case.get('currency')
+        require(isinstance(currency, str) and len(currency) == 3 and currency.isalpha() and currency.isupper(), 'commercial currency must be explicit')
+        require(case.get('revenue_source') in ('affiliate', 'ads', 'own_product', 'service', 'none'), 'unknown revenue source')
+        require(case.get('availability') in ('available', 'pending', 'unavailable', 'unknown'), 'revenue availability required')
+        for field in ('buyer_problem', 'conversion_path', 'terms_conditions', 'opportunity_cost', 'adoption_conditions'):
+            require(bool(case.get(field)), f'commercial case missing {field}')
+        # Descriptive fields require cited sources; their meaning is reviewed separately.
+        for field in ('buyer_problem', 'terms_conditions', 'opportunity_cost', 'adoption_conditions'):
+            packet = case[field]
+            require(isinstance(packet, dict) and bool(packet.get('text')) and isinstance(packet.get('evidence'), list)
+                    and all(ref in bundle['sources'] for ref in packet['evidence']), 'commercial narrative needs text and source references')
+        require(isinstance(case['conversion_path'], list), 'conversion_path must be an array')
+        for stage in case['conversion_path']:
+            require(isinstance(stage, dict) and stage.get('stage') and stage.get('status') in ('implemented', 'observed', 'unknown', 'missing')
+                    and isinstance(stage.get('evidence'), list) and all(ref in bundle['sources'] for ref in stage['evidence']), 'invalid conversion stage')
+        require(case.get('cost_scope'), 'commercial case needs production and maintenance cost scope')
+        costs = case['costs']
+        cash = commercial_quantity(costs['future_cash'], currency, bundle, {'contractual', 'assumption', 'unknown'})
+        hours = commercial_quantity(costs['future_hours'], 'hours', bundle, {'assumption', 'unknown'})
+        wage = commercial_quantity(costs['hourly_value'], currency + '/hour', bundle, {'contractual', 'assumption', 'unknown'})
+        variable = commercial_quantity(costs['per_outcome'], currency, bundle, {'contractual', 'assumption', 'unknown'})
+        require(costs.get('per_outcome_stage') in ('approved', 'paid'), 'variable cost needs approved/paid outcome stage')
+        if 'sunk_cash' in costs:
+            commercial_quantity(costs['sunk_cash'], currency, bundle)
+        model = case['reward_model']
+        require(model.get('accrual_horizon') == 'within_case_period', 'reward accrual must be limited to case horizon')
+        require(model.get('outcome_stage') in ('approved', 'paid'), 'reward needs approved/paid outcome stage')
+        require(costs['per_outcome_stage'] == model['outcome_stage'], 'reward and variable cost outcome stages differ')
+        if model.get('kind') == 'fixed':
+            reward = commercial_quantity(model['amount'], currency, bundle)
+        else:
+            require(model.get('kind') == 'revenue_share', 'unknown reward model')
+            basis = model['eligible_sale_basis']
+            require(isinstance(basis, dict) and all(isinstance(basis.get(k), str) and basis[k].strip()
+                    for k in ('plan', 'price_basis', 'discount_basis', 'excluded_components', 'recurrence_basis')), 'rate reward requires eligible sale/plan/discount/recurrence basis')
+            rate = commercial_quantity(model['rate'], 'fraction', bundle, {'contractual', 'assumption', 'unknown'})
+            if 'sale_schedule' in model:
+                schedule = model['sale_schedule']
+                require(isinstance(schedule, list) and bool(schedule), 'sale schedule needs explicit phases')
+                require('eligible_sale_per_period' not in model and 'commission_periods' not in model,
+                        'use either phased schedule or uniform sale periods, not both')
+                phase_totals = []
+                phase_ids = set()
+                for phase in schedule:
+                    require(phase.get('id') and phase['id'] not in phase_ids and phase.get('basis'), 'sale phase needs unique id and discount/renewal basis')
+                    phase_ids.add(phase['id'])
+                    sale = commercial_quantity(phase['eligible_sale'], currency, bundle)
+                    periods = commercial_quantity(phase['periods'], 'periods', bundle, {'contractual', 'assumption', 'unknown'})
+                    phase_totals.append(sale * periods if sale is not None and periods is not None else None)
+                eligible_total = sum(phase_totals) if all(value is not None for value in phase_totals) else None
+            else:
+                sale = commercial_quantity(model['eligible_sale_per_period'], currency, bundle)
+                periods = commercial_quantity(model['commission_periods'], 'periods', bundle, {'contractual', 'assumption', 'unknown'})
+                eligible_total = sale * periods if sale is not None and periods is not None else None
+            reward = rate * eligible_total if rate is not None and eligible_total is not None else None
+        actuals = case.get('actuals', {})
+        require(isinstance(actuals, dict) and actuals.get('period') in bundle['periods'], 'actuals need explicit observation period')
+        for key, unit in (('eligible_readers', 'readers'), ('approved_count', 'outcomes'), ('paid_count', 'outcomes'), ('paid_revenue', currency)):
+            require(key in actuals, f'actuals must explicitly preserve {key}, including unknown')
+            commercial_quantity(actuals[key], unit, bundle, {'observed', 'unknown'})
+            if key in ('approved_count', 'paid_count', 'paid_revenue') and actuals[key]['state'] == 'observed':
+                require(all(bundle['sources'][ref].get('evidence_kind') == 'financial_record' for ref in actuals[key]['evidence']), 'approved/paid outcomes and paid revenue need financial records, not analytics proxies')
+        economic_cost = cash + hours * wage if all(v is not None for v in (cash, hours, wage)) else None
+        margin = reward - variable if reward is not None and variable is not None else None
+        def threshold(cost):
+            return int((cost / margin).to_integral_value(rounding=ROUND_CEILING)) if cost is not None and margin is not None and margin > 0 else None
+        cash_count, economic_count = threshold(cash), threshold(economic_cost)
+        scenarios = case.get('reader_scenarios', [])
+        require(isinstance(scenarios, list), 'reader_scenarios must be an array')
+        sensitivity = []
+        for scenario in scenarios:
+            require(scenario.get('id'), 'scenario requires id')
+            readers = commercial_quantity(scenario['eligible_readers'], 'readers', bundle, {'assumption', 'observed', 'unknown'})
+            sensitivity.append({'id': scenario['id'], 'input': scenario['eligible_readers'],
+                                'cash_required_outcome_rate': render(Decimal(cash_count) / readers) if readers and cash_count is not None else None,
+                                'economic_required_outcome_rate': render(Decimal(economic_count) / readers) if readers and economic_count is not None else None,
+                                'meaning': 'Integer required outcomes / eligible readers, not predicted CVR. Rates above one indicate infeasibility if at most one modeled outcome per reader.'})
+        results.append({'id': case['id'], 'candidate_id': case.get('candidate_id'), 'period': case['period'], 'currency': currency,
+                        'input_case': case, 'input_digest': commercial_case_digest(bundle, case),
+                        'calculation_kind': 'conditional_input_arithmetic_not_earnings_guarantee',
+                        'outcome_stage': model['outcome_stage'], 'approved_is_not_paid': True,
+                        'reward_per_outcome': render(reward), 'margin_per_outcome': render(margin),
+                        'future_cash_cost': render(cash), 'future_hours': render(hours), 'economic_cost': render(economic_cost),
+                        'cash_break_even_outcomes': cash_count, 'economic_break_even_outcomes': economic_count,
+                        'unknown_or_nonpositive_margin': margin is None or margin <= 0,
+                        'economic_cost_formula': 'future_cash + future_hours * hourly_value; sunk costs excluded',
+                        'economic_cost_symbolic': f"{render(cash) if cash is not None else 'C'} + {render(hours) if hours is not None else 'H'} * {render(wage) if wage is not None else 'w'}",
+                        'break_even_formula': 'ceil(future_cost / (reward_per_same_stage_outcome - per_same_stage_outcome_cost))',
+                        'reader_sensitivity': sensitivity,
+                        'interpretation': 'Only the named outcome stage is modeled. Approved outcomes do not establish paid outcomes or cash recovery. Contract terms do not establish sales, retention, approval or payment. Missing values remain null. No automatic economic ranking.'})
+    return {'objective': objective, 'cases': results, 'recommended_case': None,
+            'selection': 'Independent evidence-backed decision in private brief; arithmetic/contract pass does not establish strategic superiority.'}
+
+
+def validate_profitability_decision(decision, bundle):
+    require(isinstance(decision, dict), 'profitability brief requires explicit economic comparison')
+    results = profitability_cases(bundle)
+    cases = {case['id']: case for case in results['cases']}
+    require(decision.get('status') in ('maintain', 'change', 'bounded_research'), 'economic decision status required')
+    compared = decision.get('comparison')
+    require(isinstance(compared, list) and len(compared) >= 2, 'compare current strategy and a commercial alternative')
+    ids = [item.get('case_id') for item in compared]
+    require(len(set(ids)) == len(ids) and set(ids) <= set(cases), 'invalid/duplicate compared commercial case')
+    require(decision.get('previous_case_id') in ids, 'comparison must include previous strategy')
+    require(len({cases[id]['currency'] for id in ids}) == 1
+            and len({json.dumps(bundle['periods'][cases[id]['period']], sort_keys=True) for id in ids}) == 1,
+            'economic comparison requires the same currency and horizon definition; normalize inputs explicitly first')
+    require(decision.get('selected_role') in ('limited_profitability_test', 'business_core', 'research'),
+            'distinguish a limited profitability test from a business core or research')
+    selected = decision.get('selected_case_id')
+    require(selected in ids or (selected is None and decision['status'] == 'bounded_research'), 'selected commercial case must be compared')
+    require(decision['status'] != 'maintain' or selected == decision['previous_case_id'], 'maintain must select prior strategy')
+    require(decision['status'] != 'change' or selected != decision['previous_case_id'], 'change must select another strategy')
+    for item in compared:
+        require(item.get('reason') and isinstance(item.get('evidence'), list)
+                and all(ref in bundle['sources'] for ref in item['evidence']), 'comparison needs reasoning and known evidence')
+    for field in ('opportunity_cost', 'reversal_conditions', 'next_evidence_action'):
+        require(bool(decision.get(field)), f'economic decision missing {field}')
+    if decision['status'] == 'bounded_research':
+        require(bool(decision.get('research_budget')), 'bounded research requires explicit time/cash bound, unknown is not unlimited')
+    review = next((r for r in bundle.get('reviews', []) if r.get('id') == decision.get('independent_review_id')), None)
+    require(review is not None and review.get('verdict') == 'supported' and review.get('reviewer')
+            and review.get('producer') and review['reviewer'] != review['producer'], 'economic selection requires independent review')
+    source = bundle['sources'].get(review.get('review_source'), {})
+    text = source.get('observed_text')
+    require(source.get('evidence_kind') == 'independent_review' and isinstance(text, str) and bool(text.strip())
+            and source.get('observed_text_sha256') == hashlib.sha256(text.encode()).hexdigest(), 'economic review requires retained independent source')
+    digest = economic_decision_digest(bundle, decision)
+    require(review.get('reviewed_economic_decision_sha256') == digest, 'economic review stale or missing decision/case/source digest')
+    return digest
+
+
+def economic_decision_digest(bundle, decision):
+    """Fingerprint for a real independent reviewer, not an automatic review verdict."""
+    cases = {case['id']: case for case in profitability_cases(bundle)['cases']}
+    ids = [item['case_id'] for item in decision['comparison']]
+    refs = {ref for item in decision['comparison'] for ref in item['evidence']}
+    payload = {'objective': bundle.get('decision_objective'), 'decision': decision,
+               'case_digests': {id: cases[id]['input_digest'] for id in ids},
+               'comparison_sources': {ref: bundle['sources'][ref] for ref in sorted(refs)}}
+    return hashlib.sha256(json.dumps(payload, sort_keys=True, ensure_ascii=False, separators=(',', ':')).encode()).hexdigest()
 
 
 def validate_brief(brief, bundle):
@@ -431,6 +647,8 @@ def validate_brief(brief, bundle):
         require(all(alternative.get(k) for k in ('option', 'decision', 'reason', 'evidence')), 'incomplete alternative')
         require(set(alternative['evidence']) <= ids, 'unknown alternative evidence')
     require(brief.get('effect_estimate') is None, 'numerical effect prediction requires a separately reviewed model')
+    if bundle.get('decision_objective') == 'profitability':
+        validate_profitability_decision(brief.get('profitability_decision'), bundle)
     return {'contract': 'pass', 'meaning': 'Required fields and evidence IDs exist; does not certify strategy correctness.'}
 
 

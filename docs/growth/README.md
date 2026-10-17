@@ -47,3 +47,22 @@ python scripts/growth/analyze.py /owner-only/observations.json \
 2. 検索、導線、新記事、チャネル、技術の案を比較し、読者が完了できるタスクを根拠に一つ選ぶ。
 3. URL・変更本文/適用可能patch・工数・対案・観測計画を揃え、独立レビューで原資料と照合する。
 4. 公開は別途の指示に従う。採用後のSHA・日時と計測を対応させ、次回の判断材料と専門資料を更新する。
+
+
+## 収益判断層（条件付き計算）
+
+`decision_objective`はreader_growth（既定）またはprofitability。profitabilityでは既存`first_action`/`primary_experiment`を出力せず、`reader_task_first_action`/`reader_acquisition_primary_experiment`と明示し、収益推薦と区別します。`profitability_analysis.recommended_case`は常にnullで、計算コードは経済順位を選びません。
+
+合成入力：`python scripts/growth/analyze.py scripts/growth/profitability.synthetic.json`。架空契約・仮定値のみで実報酬ではありません。
+
+`profitability_cases`各要素の構造は合成fixtureを参照。id、candidate_id（既存候補またはnull）、period（回収horizon）、currency、revenue_source、availability、buyer_problem、conversion_path、terms_conditions、cost_scope、costs、reward_model、actuals、opportunity_cost、adoption_conditionsを保持します。実績期間actuals.periodは回収horizonと分離可能です。期間や通貨の異なるcaseを合算しません。cost_scopeには今後の制作と維持の内訳/対象を記す。
+
+数量は`{state,value,unit,basis,evidence}`。stateはcontractual/observed/assumption/unknown、valueは非負Decimal文字列、未知はnull。unitは指定通貨・通貨/hour・hours・fraction・periods・readers・outcomes。契約/観測値には適切な保持本文/hash付きsourceが必要です。仮定には理由を必要とし、観測実績と別に出します。future_hoursは見積りなのでassumption/unknown、actualsはobserved/unknown。時間単価を省略せずunknownで表し、0へ変換しません。
+
+固定報酬はreward_model.amount。率報酬はrate、eligible_sale_per_period、commission_periods、eligible_sale_basis（plan/price_basis/discount_basis/excluded_components/recurrence_basis）が必要。accrual_horizon=within_case_periodとoutcome_stage=approvedまたはpaidを指定し、per_outcome_stageを合わせます。初回割引と通常更新が異なる場合は、均一売上/期間数の代わりにsale_schedule配列（id/basis/eligible_sale/periods）で各phaseを指定します。初月価格を全期間へ、または定価を割引月へ流用しません。ここでの期間内売上/継続数は実績や将来の保証ではありません。期間との意味的一致は独立レビューで確認します。
+
+costsはfuture_cash、future_hours、hourly_value、per_outcome、per_outcome_stage、任意sunk_cash。cash_break_even_outcomesは将来現金支出を賄うため必要な指定段階の成果件数であり、approvedなら入金回収ではありません。economic_break_even_outcomesは時間価値を含む条件付き回収数。未知/非正限界利益はnullを返し理由を残します。reader_scenariosは明示した適格到達に対する必要成果率を返し、予想CVRやPV倍率を作りません。
+
+actualsはperiodとeligible_readers/approved_count/paid_count/paid_revenueを明示し、未取得は各unknown。承認/支払件数と支払額にmeasurement_reportを代用できません。source financial_recordが必要です。approved_countからpaid_countを推定しません。
+
+収益目標のbriefにはprofitability_decisionが必要。previous_case_id、selected_case_id、status（maintain/change/bounded_research）、comparison（case_id/reason/evidence）、opportunity_cost、reversal_conditions、next_evidence_action、independent_review_id、selected_role（limited_profitability_test/business_core/research）。比較するcaseは同一通貨・同一horizon定義へ揃え、現在案を含む複数case比較が必要で、bounded_researchにはresearch_budgetを付けます。reviewsのreviewed_economic_decision_sha256は`economic_decision_digest(bundle,decision)`で計算する入力fingerprintです。独立レビュー本文/別担当/支持記録が必要で、収益条件・case・判断・参照資料を変えると失効します。本人性や採否の意味的正しさの暗号証明ではありません。非公開の原値・契約・戦略はrepo外に保持してください。

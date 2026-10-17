@@ -1,0 +1,221 @@
+{
+  "version": 1,
+  "synthetic": true,
+  "site": "https://game-ai-hub.vercel.app",
+  "sources": {
+    "synthetic": {
+      "locator": "synthetic fixture, not real analytics",
+      "retrieved_at": "2026-01-01",
+      "method": "test construction",
+      "coverage": "synthetic only"
+    },
+    "terms": {
+      "locator": "synthetic fixture, not real analytics",
+      "retrieved_at": "2026-01-01",
+      "method": "test construction",
+      "coverage": "synthetic only",
+      "evidence_kind": "commercial_terms",
+      "observed_text": "Synthetic commercial_terms; fictional fixture, not an actual agreement or account.",
+      "observed_text_sha256": "2481e722ed9506ea77988b3dae54b1e1a6b8c0511ec563eea8c1c6ba45f14417"
+    },
+    "ledger": {
+      "locator": "synthetic fixture, not real analytics",
+      "retrieved_at": "2026-01-01",
+      "method": "test construction",
+      "coverage": "synthetic only",
+      "evidence_kind": "financial_record",
+      "observed_text": "Synthetic financial_record; fictional fixture, not an actual agreement or account.",
+      "observed_text_sha256": "99dbb11456b30ec65e0a93ee5770ce49fbef37288779bd7126473bc6844ec384"
+    },
+    "review": {
+      "locator": "synthetic fixture, not real analytics",
+      "retrieved_at": "2026-01-01",
+      "method": "test construction",
+      "coverage": "synthetic only",
+      "evidence_kind": "independent_review",
+      "observed_text": "Synthetic independent_review; fictional fixture, not an actual agreement or account.",
+      "observed_text_sha256": "a1c551b61150f7ad83f1c2a893144dd237a7265e12ebc82006b58b790c6a50de"
+    }
+  },
+  "periods": {
+    "test": {
+      "start": "2026-01-01",
+      "end": "2026-01-28",
+      "timezone": "test-only UTC"
+    }
+  },
+  "observations": [
+    {
+      "id": "a",
+      "source": "synthetic",
+      "period": "test",
+      "scope": "sc_page",
+      "dimensions": {
+        "page": "/articles/example-a/"
+      },
+      "metrics": {
+        "clicks": 2,
+        "impressions": 20,
+        "position": 4
+      },
+      "quality": [
+        "synthetic"
+      ]
+    },
+    {
+      "id": "b",
+      "source": "synthetic",
+      "period": "test",
+      "scope": "sc_page",
+      "dimensions": {
+        "page": "/articles/example-b/"
+      },
+      "metrics": {
+        "clicks": 1,
+        "impressions": 5,
+        "position": 9
+      },
+      "quality": [
+        "synthetic"
+      ]
+    }
+  ],
+  "decision_objective": "profitability",
+  "profitability_cases": [
+    {
+      "id": "current",
+      "candidate_id": null,
+      "period": "test",
+      "currency": "USD",
+      "revenue_source": "affiliate",
+      "availability": "pending",
+      "buyer_problem": {
+        "text": "Synthetic analyst statement; source-reading review remains required.",
+        "evidence": [
+          "synthetic"
+        ]
+      },
+      "terms_conditions": {
+        "text": "Synthetic analyst statement; source-reading review remains required.",
+        "evidence": [
+          "synthetic"
+        ]
+      },
+      "opportunity_cost": {
+        "text": "Synthetic analyst statement; source-reading review remains required.",
+        "evidence": [
+          "synthetic"
+        ]
+      },
+      "adoption_conditions": {
+        "text": "Synthetic analyst statement; source-reading review remains required.",
+        "evidence": [
+          "synthetic"
+        ]
+      },
+      "conversion_path": [
+        {
+          "stage": "reader to paid outcome",
+          "status": "unknown",
+          "evidence": []
+        }
+      ],
+      "cost_scope": "Synthetic future creation and maintenance within test horizon; paid ledger separate.",
+      "costs": {
+        "future_cash": {
+          "state": "assumption",
+          "value": "100",
+          "unit": "USD",
+          "basis": "Synthetic explicit scenario input; not an observed site result.",
+          "evidence": []
+        },
+        "future_hours": {
+          "state": "assumption",
+          "value": "5",
+          "unit": "hours",
+          "basis": "Synthetic explicit scenario input; not an observed site result.",
+          "evidence": []
+        },
+        "hourly_value": {
+          "state": "unknown",
+          "value": null,
+          "unit": "USD/hour",
+          "basis": "Synthetic explicit scenario input; not an observed site result.",
+          "evidence": []
+        },
+        "per_outcome": {
+          "state": "assumption",
+          "value": "2",
+          "unit": "USD",
+          "basis": "Synthetic explicit scenario input; not an observed site result.",
+          "evidence": []
+        },
+        "per_outcome_stage": "approved",
+        "sunk_cash": {
+          "state": "assumption",
+          "value": "9999",
+          "unit": "USD",
+          "basis": "Synthetic explicit scenario input; not an observed site result.",
+          "evidence": []
+        }
+      },
+      "reward_model": {
+        "kind": "fixed",
+        "accrual_horizon": "within_case_period",
+        "outcome_stage": "approved",
+        "amount": {
+          "state": "contractual",
+          "value": "12",
+          "unit": "USD",
+          "basis": "Synthetic explicit scenario input; not an observed site result.",
+          "evidence": [
+            "terms"
+          ]
+        }
+      },
+      "actuals": {
+        "period": "test",
+        "eligible_readers": {
+          "state": "unknown",
+          "value": null,
+          "unit": "readers",
+          "basis": "Synthetic explicit scenario input; not an observed site result.",
+          "evidence": []
+        },
+        "approved_count": {
+          "state": "unknown",
+          "value": null,
+          "unit": "outcomes",
+          "basis": "Synthetic explicit scenario input; not an observed site result.",
+          "evidence": []
+        },
+        "paid_count": {
+          "state": "unknown",
+          "value": null,
+          "unit": "outcomes",
+          "basis": "Synthetic explicit scenario input; not an observed site result.",
+          "evidence": []
+        },
+        "paid_revenue": {
+          "state": "unknown",
+          "value": null,
+          "unit": "USD",
+          "basis": "Synthetic explicit scenario input; not an observed site result.",
+          "evidence": []
+        }
+      },
+      "reader_scenarios": [
+        {
+          "id": "explicit-hypothesis",
+          "eligible_readers": {
+            "state": "assumption",
+            "value": "100",
+            "unit": "readers",
+            "basis": "Synthetic explicit scenario input; not an observed site result.",
+            "evidence": []
+          }
+        }
+      ]
+    }
+  ]
+}
