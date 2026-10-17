@@ -1,7 +1,5 @@
 {
-  "version": 1,
   "synthetic": true,
-  "site": "https://game-ai-hub.vercel.app",
   "sources": {
     "synthetic": {
       "locator": "synthetic fixture, not real analytics",
@@ -44,42 +42,6 @@
       "timezone": "test-only UTC"
     }
   },
-  "observations": [
-    {
-      "id": "a",
-      "source": "synthetic",
-      "period": "test",
-      "scope": "sc_page",
-      "dimensions": {
-        "page": "/articles/example-a/"
-      },
-      "metrics": {
-        "clicks": 2,
-        "impressions": 20,
-        "position": 4
-      },
-      "quality": [
-        "synthetic"
-      ]
-    },
-    {
-      "id": "b",
-      "source": "synthetic",
-      "period": "test",
-      "scope": "sc_page",
-      "dimensions": {
-        "page": "/articles/example-b/"
-      },
-      "metrics": {
-        "clicks": 1,
-        "impressions": 5,
-        "position": 9
-      },
-      "quality": [
-        "synthetic"
-      ]
-    }
-  ],
   "decision_objective": "profitability",
   "profitability_cases": [
     {
@@ -217,5 +179,6 @@
         }
       ]
     }
-  ]
+  ],
+  "example_scope": "Fictional profitability input fragment merged with the existing synthetic test harness; no real site or observed revenue."
 }

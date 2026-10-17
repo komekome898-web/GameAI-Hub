@@ -246,6 +246,10 @@ class ProfitabilityTests(unittest.TestCase):
         self.assertIsNone(result['profitability_analysis']['recommended_case'])
 
     def test_public_fixture_is_only_synthetic(self):
-        bundle = json.loads((Path(__file__).resolve().parents[2] / 'scripts/growth/profitability.synthetic.json').read_text())
+        fragment = json.loads((Path(__file__).resolve().parents[2] / 'scripts/growth/profitability.synthetic.json').read_text())
+        self.assertNotIn('site', fragment)
+        self.assertNotIn('observations', fragment)
+        bundle = fixture()
+        bundle.update(fragment)
         self.assertIs(bundle['synthetic'], True)
         self.assertEqual(growth.diagnose(bundle)['profitability_analysis']['cases'][0]['cash_break_even_outcomes'], 10)

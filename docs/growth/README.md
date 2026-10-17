@@ -53,7 +53,7 @@ python scripts/growth/analyze.py /owner-only/observations.json \
 
 `decision_objective`はreader_growth（既定）またはprofitability。profitabilityでは既存`first_action`/`primary_experiment`を出力せず、`reader_task_first_action`/`reader_acquisition_primary_experiment`と明示し、収益推薦と区別します。`profitability_analysis.recommended_case`は常にnullで、計算コードは経済順位を選びません。
 
-合成入力：`python scripts/growth/analyze.py scripts/growth/profitability.synthetic.json`。架空契約・仮定値のみで実報酬ではありません。
+収益層の合成入力断片は`scripts/growth/profitability.synthetic.json`。実サイト名・原観測を含めず、既存の合成test harnessへ結合して検査します（`python -m unittest discover -s tests/growth -v`）。架空契約・仮定値のみで実報酬ではありません。CLIの完全入力例は従来のexample.synthetic.jsonです。
 
 `profitability_cases`各要素の構造は合成fixtureを参照。id、candidate_id（既存候補またはnull）、period（回収horizon）、currency、revenue_source、availability、buyer_problem、conversion_path、terms_conditions、cost_scope、costs、reward_model、actuals、opportunity_cost、adoption_conditionsを保持します。実績期間actuals.periodは回収horizonと分離可能です。期間や通貨の異なるcaseを合算しません。cost_scopeには今後の制作と維持の内訳/対象を記す。
 
