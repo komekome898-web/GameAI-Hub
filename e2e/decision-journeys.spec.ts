@@ -104,8 +104,8 @@ test.describe('Project Interpreter provider states',()=>{
   });
 
   for(const scenario of [
-    {name:'provider error',reason:'provider_error' as const,copy:'安全なフォールバックを使用しました'},
-    {name:'provider timeout',reason:'timeout' as const,copy:'安全なフォールバックを使用しました'},
+    {name:'provider error',reason:'provider_error' as const,copy:'安全な代替処理を使いました'},
+    {name:'provider timeout',reason:'timeout' as const,copy:'安全な代替処理を使いました'},
     {name:'rate limited',reason:'rate_limited' as const,copy:'利用集中のため外部AIを呼ばず'},
   ])test(`${scenario.name} fallbackを375pxで正直に表示する`,async({page})=>{
     await page.setViewportSize(mobile);

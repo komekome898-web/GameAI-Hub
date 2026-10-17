@@ -12,3 +12,12 @@
 - Evidence: docs/editorial/yomiyasu-v2/README.md, review.md, inventory/changes/checks/source/final; docs/screenshots/yomiyasu-v2.
 - Current delivery phase: final coherent commit/push and draft PR. Production not visited/deployed; merge forbidden. Exact final pushed SHA/PR are supplied by git/GitHub and final handoff.
 - Next: create/verify draft PR, return scope/examples/check results/known limits; wait for separate owner merge decision.
+
+## PR #187 fallback E2E continuation (2026-10-17 UTC)
+
+- Resumed existing branch/PR at remote/local head `648d19f1ca1a568a5359005cc77c2d61bdf1d8c1`; clean tree, no parallel branch changes. Canonical origin/auth/fetch and remote head verified; origin/main remains `c7013491dc46f2a316bb4a79094a21f3802041f0`.
+- Prior beginner-acceptance run `38928548766` failed in `Run npm run test:e2e`; quality and Vercel Preview succeeded. Supplied failure evidence identifies two obsolete provider error/timeout text expectations. Signed log download returned HTTP403; no complete prior log claim.
+- Actual component fallback for deterministic provider_error/timeout is 「外部AIを利用できなかったため、安全な代替処理を使いました。」. Updated only two scenario copy strings in e2e/decision-journeys.spec.ts. Response fixtures, fallback reasons, form visibility, text visibility and375px overflow assertions unchanged; rate-limit and unconfigured scenarios unchanged.
+- Local validation: Playwright production build +4 related existing provider-state tests PASS (error/timeout/not configured/rate limited); targeted ESLint PASS; diff check PASS. Log: docs/editorial/yomiyasu-v2/fallback-e2e.txt.
+- No runtime/prose/CI/auth/billing changes. Previous corpus checks remain applicable because no application text changed.
+- Delivery: one tested push to same PR; rely on automatically triggered CI, no manual/duplicate workflow dispatch. Remaining phase: verify exact new remote head and CI results. No merge or production publication authorized/performed.
