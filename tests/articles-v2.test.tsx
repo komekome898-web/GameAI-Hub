@@ -12,10 +12,10 @@ vi.mock('next/link', () => ({ default: ({href, children, ...props}: React.Compon
 describe('published purpose registry', () => {
   it('projects every published article once, in approved category order', async () => {
     const groups = getArticleGroups();
-    expect(groups.map(g => [g.id, g.articles.length])).toEqual([['start',6],['3d',3],['voice',3],['practice',6],['games',0]]);
-    expect(groups[0].articles.map(a => a.slug)).toEqual(['ai-browser-game-how-to','before-asking-ai-build-game','small-first-success','github-beginner-game-development','ai-tool-comparison-later','ai-html-game-not-working']);
+    expect(groups.map(g => [g.id, g.articles.length])).toEqual([['start',7],['3d',3],['voice',3],['practice',6],['games',0]]);
+    expect(groups[0].articles.map(a => a.slug)).toEqual(['ai-browser-game-how-to','before-asking-ai-build-game','small-first-success','github-beginner-game-development','ai-tool-comparison-later','ai-html-game-not-working','chatgpt-cat-tap-game']);
     expect(groups[2].articles.map(a => a.slug)).toEqual(['elevenlabs-game-development-guide','elevenlabs-v4-game-voice','elevenlabs-commercial-use-game']);
-    expect(new Set(groups.flatMap(g => g.articles.map(a => a.slug))).size).toBe(18);
+    expect(new Set(groups.flatMap(g => g.articles.map(a => a.slug))).size).toBe(19);
     const html = await new Response(await renderToReadableStream(<ArticlesPage />)).text();
     for (const article of articles) expect(html.split(`href="/articles/${article.slug}/"`), article.slug).toHaveLength(article.publicationStatus === 'published' ? 2 : 1);
     expect(html).toContain('ゲーム制作外の検証事例');

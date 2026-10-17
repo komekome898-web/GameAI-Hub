@@ -15,8 +15,8 @@ const samples=[['home','/'],['articles','/articles/'],['article','/articles/mesh
 const output='docs/screenshots/b3-sitewide';
 
 for (const width of [1440,375,320]) {
- test(`B3 shell covers all 78 public UI URLs at ${width}`,async({page})=>{
-  test.setTimeout(600_000); expect(new Set(routes).size).toBe(78);
+ test(`B3 shell covers all 79 public UI URLs at ${width}`,async({page})=>{
+  test.setTimeout(600_000); expect(new Set(routes).size).toBe(79);
   await page.setViewportSize({width,height:width===1440?900:667});
   for(const route of routes) {
    const response=await page.goto(route);expect(response?.status(),route).toBe(200);

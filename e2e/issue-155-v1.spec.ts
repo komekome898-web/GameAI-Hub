@@ -27,6 +27,7 @@ const startHrefs = [
   "/articles/github-beginner-game-development/",
   "/articles/ai-tool-comparison-later/",
   "/articles/ai-html-game-not-working/",
+  "/articles/chatgpt-cat-tap-game/",
 ];
 
 test("Explicit START list retains complete responsive article cards", async ({
