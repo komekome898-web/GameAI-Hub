@@ -67,7 +67,8 @@
       ],
       "coverage": "missing",
       "finding_status": "verified",
-      "change_size": "section"
+      "change_size": "section",
+      "target_period": "test"
     }
   ]
 }

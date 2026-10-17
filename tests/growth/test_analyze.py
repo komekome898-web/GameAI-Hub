@@ -25,6 +25,33 @@ def row(id, page, clicks, impressions, position):
     return {'id': id, 'source': 'synthetic', 'period': 'test', 'scope': 'sc_page', 'dimensions': {'page': page}, 'metrics': {'clicks': clicks, 'impressions': impressions, 'position': position}, 'quality': ['synthetic']}
 
 
+def acquisition_fixture():
+    bundle = fixture()
+    kinds = {'demand': 'reader_feedback', 'asset': 'repository_source',
+             'delta': 'execution_result', 'distribution': 'distribution_observation', 'review': 'independent_review'}
+    for key, kind in kinds.items():
+        text = f'Synthetic retained {kind} content; not a site observation or semantic analysis benchmark.'
+        bundle['sources'][key] = {**bundle['sources']['synthetic'], 'evidence_kind': kind,
+                                  'observed_text': text, 'observed_text_sha256': growth.hashlib.sha256(text.encode()).hexdigest()}
+    candidate = {'id': 'new-reader-case', 'target_period': 'test', 'target_url': bundle['site'] + '/articles/example-a/',
+                 'reader_question': 'Synthetic reader task', 'current_location': 'Synthetic section',
+                 'finding': 'Analyst-declared synthetic finding', 'proposed_change': 'Synthetic traceable artifact',
+                 'delta_status': 'verified', 'delta_description': 'Synthetic explicit old/new artifact comparison',
+                 'evidence': ['demand', 'asset', 'delta', 'distribution'], 'coverage': 'missing',
+                 'finding_status': 'verified', 'change_size': 'article', 'independent_review_id': 'review-1',
+                 'acquisition_evidence': {'reader_demand': ['demand'], 'owned_asset': ['asset'],
+                                          'incremental_value': ['delta'], 'distribution_route': ['distribution']}}
+    bundle['opportunities'] = [candidate]
+    bundle['reviews'] = [{'id': 'review-1', 'candidate_id': candidate['id'], 'reviewer': 'synthetic-independent-reviewer',
+                          'producer': 'synthetic-producer', 'review_source': 'review', 'verdict': 'supported'}]
+    stamp_review(bundle)
+    return bundle
+
+
+def stamp_review(bundle):
+    bundle['reviews'][0]['reviewed_input_sha256'] = growth.review_input_digest(bundle, bundle['opportunities'][0])
+
+
 class DiagnosticsTests(unittest.TestCase):
     def test_weighted_position_and_ctr_are_recomputed(self):
         result = growth.aggregate_search(fixture()['observations'])
@@ -133,9 +160,11 @@ class DiagnosticsTests(unittest.TestCase):
             self.assertEqual(accepted.stdout, b'')
             self.assertTrue(output.exists())
 
-    def test_same_traffic_different_primary_findings_changes_action(self):
+    def test_declared_classification_routes_actions_not_semantic_analysis(self):
+        # Routing contract only: these labels are supplied by an analyst.
+        # This is not a test of interpreting primary text or diagnosing causes.
         bundle = fixture()
-        candidate = {'id': 'save-to-play', 'target_url': bundle['site'] + '/articles/example-a/',
+        candidate = {'id': 'save-to-play', 'target_period': 'test', 'target_url': bundle['site'] + '/articles/example-a/',
                      'reader_question': 'How do I share a working file?', 'current_location': 'section 4',
                      'finding': 'Source inspection shows a missing publishing step', 'proposed_change': 'Add branch-aware publication steps',
                      'evidence': ['a', 'synthetic'], 'coverage': 'missing', 'finding_status': 'verified', 'change_size': 'section'}
@@ -151,7 +180,7 @@ class DiagnosticsTests(unittest.TestCase):
 
     def test_existing_feature_counterexample_suppresses_addition(self):
         bundle = fixture()
-        bundle['opportunities'] = [{'id': 'runnable-example', 'target_url': bundle['site'] + '/articles/example-a/',
+        bundle['opportunities'] = [{'id': 'runnable-example', 'target_period': 'test', 'target_url': bundle['site'] + '/articles/example-a/',
             'reader_question': 'Can I play the example?', 'current_location': 'workspace section',
             'finding': 'Already has runnable example and recovery', 'proposed_change': 'Keep existing implementation',
             'evidence': ['a'], 'coverage': 'complete', 'finding_status': 'verified', 'change_size': 'section'}]
@@ -187,7 +216,7 @@ class DiagnosticsTests(unittest.TestCase):
 
     def test_failed_or_missing_reach_cannot_select_observed_opportunity(self):
         bundle = fixture()
-        bundle['opportunities'] = [{'id': 'missing-step', 'target_url': bundle['site'] + '/articles/example-a/',
+        bundle['opportunities'] = [{'id': 'missing-step', 'target_period': 'test', 'target_url': bundle['site'] + '/articles/example-a/',
             'reader_question': 'How to publish?', 'current_location': 'section 4', 'finding': 'missing step',
             'proposed_change': 'add verified steps', 'evidence': ['a'], 'coverage': 'missing',
             'finding_status': 'verified', 'change_size': 'section'}]
@@ -213,23 +242,92 @@ class DiagnosticsTests(unittest.TestCase):
             with self.assertRaises(growth.EvidenceError):
                 growth.validate_brief(altered, fixture())
 
-    def test_acquisition_requires_new_value_and_can_expand_beyond_current_queries(self):
-        bundle = fixture()
-        candidate = {'id': 'new-reader-case', 'target_url': bundle['site'] + '/articles/example-a/',
-            'reader_question': 'Can someone with only a phone build beyond a toy?', 'current_location': 'Existing case study',
-            'finding': 'Verified synthetic sources show unmet environment and repair questions',
-            'proposed_change': 'Use owned playable work with a concrete repair example and existing distribution',
-            'delta_status': 'verified', 'delta_description': 'Synthetic comparison: current text lacks the new traceable repair artifact',
-            'evidence': ['synthetic'], 'coverage': 'missing', 'finding_status': 'verified', 'change_size': 'article',
-            'acquisition_evidence': {key: ['synthetic'] for key in ['reader_demand', 'owned_asset', 'incremental_value', 'distribution_route']}}
-        bundle['opportunities'] = [candidate]
+    def test_acquisition_requires_new_value_and_independent_source_review(self):
+        bundle = acquisition_fixture()
+        candidate = bundle['opportunities'][0]
         self.assertEqual(growth.assess_opportunities(bundle)['primary_experiment'], 'new-reader-case')
         candidate['delta_status'] = 'duplicates_existing'
+        stamp_review(bundle)
         self.assertIsNone(growth.assess_opportunities(bundle)['primary_experiment'])
         candidate['delta_status'] = 'verified'
         candidate['coverage'] = 'complete'
+        stamp_review(bundle)
         self.assertIsNone(growth.assess_opportunities(bundle)['primary_experiment'])
         candidate['acquisition_evidence'].pop('incremental_value')
+        with self.assertRaises(growth.EvidenceError):
+            growth.assess_opportunities(bundle)
+
+    def test_acquisition_cannot_bypass_bad_metric_eligibility(self):
+        for quality, metrics in [(['api_failure'], {'clicks': None, 'impressions': None, 'position': None}),
+                                 (['unreconciled_testing'], {'clicks': 1, 'impressions': 20, 'position': 4})]:
+            bundle = acquisition_fixture()
+            bundle['observations'][0].update(scope='sc_page_query', dimensions={'page': '/articles/example-a/', 'query': 'synthetic query'}, quality=quality, metrics=metrics)
+            candidate = bundle['opportunities'][0]
+            candidate['evidence'] = ['a']
+            candidate['acquisition_evidence'] = {role: ['a'] for role in growth.ROLE_KINDS}
+            stamp_review(bundle)
+            result = growth.assess_opportunities(bundle)
+            self.assertIsNone(result['primary_experiment'])
+            self.assertEqual(result['candidates'][0]['action'], 'investigate')
+            self.assertTrue(all(not role['usable_refs'] for role in result['candidates'][0]['acquisition_evidence_eligibility'].values()))
+
+    def test_source_ids_and_verified_labels_alone_do_not_promote(self):
+        bundle = acquisition_fixture()
+        bundle.pop('reviews')
+        result = growth.assess_opportunities(bundle)
+        self.assertIsNone(result['primary_experiment'])
+        self.assertEqual(result['candidates'][0]['independent_review_eligibility']['reason'], 'requires_independent_primary_source_review')
+        bundle = acquisition_fixture()
+        candidate = bundle['opportunities'][0]
+        candidate['acquisition_evidence']['reader_demand'] = ['asset']
+        stamp_review(bundle)
+        self.assertIsNone(growth.assess_opportunities(bundle)['primary_experiment'])
+        self.assertIn('wrong_evidence_kind_for_role', growth.assess_opportunities(bundle)['candidates'][0]['acquisition_evidence_eligibility']['reader_demand']['rejected_observations']['asset'])
+
+    def test_review_invalidates_after_source_or_candidate_change(self):
+        for change in ('candidate', 'source'):
+            bundle = acquisition_fixture()
+            if change == 'candidate':
+                bundle['opportunities'][0]['proposed_change'] = 'different synthetic artifact'
+            else:
+                source = bundle['sources']['delta']
+                source['observed_text'] = 'Changed synthetic evidence content'
+                source['observed_text_sha256'] = growth.hashlib.sha256(source['observed_text'].encode()).hexdigest()
+            result = growth.assess_opportunities(bundle)
+            self.assertIsNone(result['primary_experiment'])
+            self.assertEqual(result['candidates'][0]['independent_review_eligibility']['reason'], 'review_stale_after_candidate_or_evidence_change')
+
+    def test_quality_requires_known_token_array_not_string_or_nested_data(self):
+        for bad in ['api_failure', True, ['unexpected_flag'], [{'api_failure': True}], [], None]:
+            bundle = fixture()
+            bundle['observations'][0]['quality'] = bad
+            with self.assertRaises(growth.EvidenceError):
+                growth.validate(bundle)
+
+    def test_scope_anomaly_or_testing_traffic_cannot_choose_first_action(self):
+        for quality, metrics, reason in [(['observed'], {'pv': 2, 'active_users': 5}, 'PV_USER_SCOPE'),
+                                         (['unreconciled_testing'], {'pv': 20, 'active_users': 5}, 'unreconciled_testing')]:
+            bundle = fixture()
+            bundle['observations'][0].update(scope='ga_page', quality=quality, metrics=metrics)
+            bundle['opportunities'] = [{'id': 'bad-pv', 'target_period': 'test', 'target_url': bundle['site'] + '/articles/example-a/',
+                'reader_question': 'Synthetic task', 'current_location': 'section', 'finding': 'Supplied classification',
+                'proposed_change': 'Change', 'evidence': ['a'], 'coverage': 'missing', 'finding_status': 'verified', 'change_size': 'section'}]
+            result = growth.assess_opportunities(bundle)
+            self.assertIsNone(result['first_action'])
+            self.assertIn(reason, result['candidates'][0]['metric_evidence_eligibility']['a']['reasons'])
+
+    def test_old_positive_row_cannot_support_current_period_candidate(self):
+        bundle = fixture()
+        bundle['periods']['old'] = {'start': '2025-01-01', 'end': '2025-01-28', 'timezone': 'UTC'}
+        bundle['observations'][0]['period'] = 'old'
+        candidate = {'id': 'stale', 'target_period': 'test', 'target_url': bundle['site'] + '/articles/example-a/',
+                     'reader_question': 'Synthetic task', 'current_location': 'section', 'finding': 'Supplied classification',
+                     'proposed_change': 'Change', 'evidence': ['a'], 'coverage': 'missing', 'finding_status': 'verified', 'change_size': 'section'}
+        bundle['opportunities'] = [candidate]
+        result = growth.assess_opportunities(bundle)
+        self.assertIsNone(result['first_action'])
+        self.assertIn('period_mismatch', result['candidates'][0]['metric_evidence_eligibility']['a']['reasons'])
+        candidate.pop('target_period')
         with self.assertRaises(growth.EvidenceError):
             growth.assess_opportunities(bundle)
 
@@ -251,6 +349,22 @@ class DiagnosticsTests(unittest.TestCase):
         warning = next(w for w in growth.diagnose(bundle)['warnings'] if w['code'] == 'PV_USER_SCOPE')
         self.assertEqual(warning['evidence'], ['ga-synthetic'])
         self.assertIn('Do not infer bots', warning['action'])
+
+    def test_review_binds_indirect_measurement_source_content(self):
+        bundle = acquisition_fixture()
+        bundle['opportunities'][0]['evidence'].append('a')
+        stamp_review(bundle)
+        self.assertEqual(growth.assess_opportunities(bundle)['primary_experiment'], 'new-reader-case')
+        bundle['sources']['synthetic']['coverage'] = 'Changed source coverage without changing observation values'
+        result = growth.assess_opportunities(bundle)
+        self.assertIsNone(result['primary_experiment'])
+        self.assertEqual(result['candidates'][0]['independent_review_eligibility']['reason'], 'review_stale_after_candidate_or_evidence_change')
+
+    def test_duplicate_candidate_ids_rejected(self):
+        bundle = acquisition_fixture()
+        bundle['opportunities'].append(copy.deepcopy(bundle['opportunities'][0]))
+        with self.assertRaises(growth.EvidenceError):
+            growth.assess_opportunities(bundle)
 
     def test_brief_must_have_known_evidence_and_comparison(self):
         with self.assertRaises(growth.EvidenceError):

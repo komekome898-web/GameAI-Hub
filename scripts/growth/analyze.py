@@ -9,6 +9,27 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 
+QUALITY_FLAGS = {
+    'observed', 'synthetic', 'api_failure', 'delayed', 'unknown',
+    'unreconciled_testing', 'metric_scope_pending_confirmation', 'history_changes',
+    'page_aggregation', 'partial_query_coverage', 'selected_rows',
+    'native_search_source', 'direct_zero_engagement_majority',
+    'session_source_attributed_pageviews_not_landing_sessions',
+}
+SOURCE_KINDS = {
+    'measurement_report', 'reader_feedback', 'demand_research',
+    'repository_source', 'owned_publication', 'execution_result',
+    'independent_review', 'distribution_observation', 'competitor_document',
+    'primary_document',
+}
+ROLE_KINDS = {
+    'reader_demand': {'reader_feedback', 'demand_research'},
+    'owned_asset': {'repository_source', 'owned_publication'},
+    'incremental_value': {'repository_source', 'execution_result', 'independent_review'},
+    'distribution_route': {'distribution_observation', 'owned_publication'},
+}
+
+
 class EvidenceError(ValueError):
     pass
 
@@ -27,14 +48,22 @@ def validate(bundle):
     require(bundle.get('site') == 'https://game-ai-hub.vercel.app', 'wrong site')
     sources = bundle['sources']
     periods = bundle['periods']
+    require(isinstance(sources, dict) and isinstance(periods, dict) and isinstance(bundle.get('observations'), list), 'sources/periods must be objects and observations an array')
     for key, source in sources.items():
+        require(isinstance(source, dict), f'{key}: source must be an object')
         require(all(source.get(x) for x in ('locator', 'retrieved_at', 'method', 'coverage')), f'{key}: incomplete provenance')
+        if source.get('evidence_kind') is not None:
+            require(isinstance(source['evidence_kind'], str) and source['evidence_kind'] in SOURCE_KINDS, f'{key}: unknown evidence kind')
+        if source.get('observed_text') is not None:
+            require(isinstance(source['observed_text'], str) and bool(source['observed_text'].strip()), f'{key}: invalid observed_text')
+            require(source.get('observed_text_sha256') == hashlib.sha256(source['observed_text'].encode()).hexdigest(), f'{key}: observed text hash mismatch')
     for key, period in periods.items():
         require(date.fromisoformat(period['start']) <= date.fromisoformat(period['end']), f'{key}: reversed dates')
         require(period.get('timezone'), f'{key}: missing timezone status')
     ids = set()
     dimension_keys = set()
     for row in bundle['observations']:
+        require(isinstance(row, dict), 'observation must be an object')
         require(row['id'] not in ids, f"duplicate observation {row['id']}")
         ids.add(row['id'])
         require(row['source'] in sources, f"{row['id']}: missing source")
@@ -50,7 +79,8 @@ def validate(bundle):
         require(required_dimensions is None or set(row['dimensions']) == required_dimensions, 'scope/dimension mismatch')
         if row['scope'].startswith('sc_'):
             require({'clicks', 'impressions', 'position'} <= row['metrics'].keys(), 'search metrics must be explicit; use null for missing')
-        require(row.get('quality'), f"{row['id']}: missing quality status")
+        quality = row.get('quality')
+        require(isinstance(quality, list) and bool(quality) and all(isinstance(q, str) and q in QUALITY_FLAGS for q in quality), f"{row['id']}: quality must be a nonempty array of known status tokens")
         for metric, value in row['metrics'].items():
             if metric == 'position':
                 require(value is None or (type(value) in (int, float) and math.isfinite(value) and value >= 0), 'invalid position')
@@ -62,6 +92,9 @@ def validate(bundle):
             require(c is None or i is None or c <= i, 'clicks exceed impressions')
         if row['scope'] == 'sc_page_query':
             require(set(row['dimensions']) == {'page', 'query'}, 'joined evidence requires BOTH observed dimensions')
+    reviews = bundle.get('reviews', [])
+    require(isinstance(reviews, list) and all(isinstance(r, dict) for r in reviews), 'reviews must be an array of objects')
+    require(len({r.get('id') for r in reviews}) == len(reviews), 'duplicate review id')
     return bundle
 
 
@@ -112,6 +145,74 @@ def cohort_rate(numerator, denominator):
     return n / d if n is not None and d is not None and d else None
 
 
+def recommendation_eligibility(row, target_period):
+    """Metric eligibility only; does not infer reader intent or a cause from prose."""
+    reasons = []
+    if row['period'] != target_period:
+        reasons.append('period_mismatch')
+    reasons.extend(sorted(set(row['quality']) & {
+        'api_failure', 'delayed', 'unknown', 'unreconciled_testing',
+        'metric_scope_pending_confirmation', 'history_changes',
+    }))
+    pv, users = row['metrics'].get('pv'), row['metrics'].get('active_users')
+    if pv is not None and users is not None and users > pv:
+        reasons.append('PV_USER_SCOPE')
+    if row.get('status', 'observed') != 'observed':
+        reasons.append('not_observed')
+    return {'eligible': not reasons, 'reasons': reasons}
+
+
+def review_input_digest(bundle, candidate):
+    refs = set(candidate['evidence'])
+    for values in candidate.get('acquisition_evidence', {}).values():
+        refs.update(values)
+    observations = {row['id']: row for row in bundle['observations']}
+    inputs = {ref: observations[ref] if ref in observations else bundle['sources'][ref] for ref in sorted(refs)}
+    source_ids = {observations[ref]['source'] for ref in refs if ref in observations}
+    linked_sources = {ref: bundle['sources'][ref] for ref in sorted(source_ids)}
+    payload = {'candidate': candidate, 'period': bundle['periods'][candidate['target_period']], 'evidence': inputs, 'linked_measurement_sources': linked_sources}
+    return hashlib.sha256(json.dumps(payload, sort_keys=True, ensure_ascii=False, separators=(',', ':')).encode()).hexdigest()
+
+
+def acquisition_reference_eligibility(bundle, observations, ref, role, target_period):
+    if ref in observations:
+        row = observations[ref]
+        result = recommendation_eligibility(row, target_period)
+        reasons = list(result['reasons'])
+        if role != 'reader_demand' or row['scope'] != 'sc_page_query':
+            reasons.append('metric_cannot_substitute_for_role_document')
+        if row['metrics'].get('impressions') is None or row['metrics'].get('impressions', 0) <= 0:
+            reasons.append('no_observed_query_demand')
+        return {'eligible': not reasons, 'reasons': reasons}
+    source = bundle['sources'][ref]
+    reasons = []
+    if source.get('evidence_kind') not in ROLE_KINDS[role]:
+        reasons.append('wrong_evidence_kind_for_role')
+    text = source.get('observed_text')
+    if not isinstance(text, str) or not text.strip():
+        reasons.append('missing_source_content')
+    elif source.get('observed_text_sha256') != hashlib.sha256(text.encode()).hexdigest():
+        reasons.append('source_content_hash_mismatch')
+    return {'eligible': not reasons, 'reasons': reasons}
+
+
+def acquisition_review_status(bundle, candidate):
+    record = next((r for r in bundle.get('reviews', []) if r.get('id') == candidate.get('independent_review_id')), None)
+    if record is None:
+        return {'supported': False, 'reason': 'requires_independent_primary_source_review'}
+    if record.get('candidate_id') != candidate['id'] or record.get('verdict') != 'supported':
+        return {'supported': False, 'reason': 'review_not_supporting_candidate'}
+    if not record.get('reviewer') or not record.get('producer') or record['reviewer'] == record['producer']:
+        return {'supported': False, 'reason': 'review_not_independent'}
+    source = bundle['sources'].get(record.get('review_source'), {})
+    text = source.get('observed_text')
+    if source.get('evidence_kind') != 'independent_review' or not isinstance(text, str) or not text.strip() or source.get('observed_text_sha256') != hashlib.sha256(text.encode()).hexdigest():
+        return {'supported': False, 'reason': 'review_requires_retained_source_content'}
+    if record.get('reviewed_input_sha256') != review_input_digest(bundle, candidate):
+        return {'supported': False, 'reason': 'review_stale_after_candidate_or_evidence_change'}
+    return {'supported': True, 'reason': 'independent_review_record_matches_inputs', 'review_id': record['id']}
+
+
 def assess_opportunities(bundle):
     """Choose a narrow useful action from cited findings, not traffic totals alone.
 
@@ -122,6 +223,7 @@ def assess_opportunities(bundle):
     evidence = {r['id']: r for r in bundle['observations']}
     valid_ids = set(evidence) | set(bundle['sources'])
     assessed = []
+    original_candidates = {}
     action = {'blocked': 'restore_access', 'missing': 'complete_reader_task',
               'mismatch': 'align_intent', 'complete': 'retain', 'unknown': 'investigate'}
     order = {'restore_access': 0, 'complete_reader_task': 1, 'align_intent': 2, 'investigate': 3, 'retain': 4}
@@ -130,6 +232,10 @@ def assess_opportunities(bundle):
         require(urlsplit(candidate['target_url']).netloc == urlsplit(bundle['site']).netloc, 'opportunity targets another host')
         for field in ('reader_question', 'current_location', 'finding', 'proposed_change'):
             require(bool(candidate.get(field)), f'opportunity missing {field}')
+        require(candidate['id'] not in original_candidates, 'duplicate candidate id')
+        original_candidates[candidate['id']] = candidate
+        target_period = candidate.get('target_period')
+        require(target_period in bundle['periods'], 'candidate requires a known target_period')
         refs = candidate['evidence']
         require(refs and set(refs) <= valid_ids, 'opportunity lacks known evidence')
         require(candidate['coverage'] in action, 'unknown coverage')
@@ -137,11 +243,13 @@ def assess_opportunities(bundle):
         require(candidate.get('finding_status') in ('verified', 'hypothesis'), 'finding needs verification state')
         chosen = action[candidate['coverage']] if candidate['finding_status'] == 'verified' else 'investigate'
         observed = []
+        eligibility = {}
         for ref in refs:
             if ref not in evidence:
                 continue
             row = evidence[ref]
-            if set(row['quality']) & {'api_failure', 'delayed', 'unknown'}:
+            eligibility[ref] = recommendation_eligibility(row, target_period)
+            if not eligibility[ref]['eligible']:
                 continue
             reach = row['metrics'].get('impressions') if row['scope'].startswith('sc_') else row['metrics'].get('pv')
             if reach is not None and reach > 0:
@@ -152,7 +260,7 @@ def assess_opportunities(bundle):
         strength = 0 if any(r['scope'] == 'sc_page_query' for r in connected) else 1 if any(r['scope'] in ('sc_page', 'ga_page') for r in connected) else 2
         if strength == 2 and chosen not in ('retain', 'investigate'):
             chosen = 'investigate'
-        assessed.append({**candidate, 'action': chosen, 'observed_connection': ['page_query', 'page', 'unconnected'][strength],
+        assessed.append({**candidate, 'metric_evidence_eligibility': eligibility, 'action': chosen, 'observed_connection': ['page_query', 'page', 'unconnected'][strength],
                          '_order': (order[chosen], strength, size[candidate['change_size']])})
     assessed.sort(key=lambda item: item['_order'])
     for item in assessed:
@@ -164,11 +272,28 @@ def assess_opportunities(bundle):
             continue
         require(set(package) == {'reader_demand', 'owned_asset', 'incremental_value', 'distribution_route'}, 'acquisition requires demand, asset, incremental value and distribution evidence')
         require(all(refs and set(refs) <= valid_ids for refs in package.values()), 'unknown acquisition evidence')
+        acquisition_eligibility = {}
+        for role, refs in package.items():
+            usable = []
+            rejected = {}
+            for ref in refs:
+                check = acquisition_reference_eligibility(bundle, evidence, ref, role, candidate['target_period'])
+                if check['eligible']:
+                    usable.append(ref)
+                else:
+                    rejected[ref] = check['reasons']
+            acquisition_eligibility[role] = {'usable_refs': usable, 'rejected_observations': rejected}
+        candidate['acquisition_evidence_eligibility'] = acquisition_eligibility
+        role_kinds = {bundle['sources'][ref].get('evidence_kind') for ref in acquisition_eligibility['incremental_value']['usable_refs'] if ref in bundle['sources']}
+        artifact_backed_delta = bool(role_kinds & {'repository_source', 'execution_result'})
+        candidate['incremental_value_has_concrete_artifact'] = artifact_backed_delta
+        review = acquisition_review_status(bundle, original_candidates[candidate['id']])
+        candidate['independent_review_eligibility'] = review
         require(candidate.get('delta_status') in ('verified', 'duplicates_existing', 'unverified'), 'acquisition needs explicit existing-content delta status')
         require(candidate.get('delta_description'), 'acquisition needs a concrete existing/new artifact comparison')
-        if candidate['finding_status'] == 'verified' and candidate['coverage'] in ('missing', 'mismatch') and candidate['delta_status'] == 'verified':
+        if candidate['finding_status'] == 'verified' and candidate['coverage'] in ('missing', 'mismatch') and candidate['delta_status'] == 'verified' and all(r['usable_refs'] for r in acquisition_eligibility.values()) and artifact_backed_delta and review['supported']:
             acquisition.append(candidate['id'])
-    return {'policy': 'Verified access blocker > observed unmet reader task > observed intent mismatch; prefer direct page-query evidence then existing page and narrower change. This is an inspectable editorial policy, not an impact score. Acquisition experiments require separately cited demand, owned asset, incremental value and distribution; existing search counts are not a market ceiling.',
+    return {'policy': 'Verified access blocker > observed unmet reader task > observed intent mismatch; prefer direct page-query evidence then existing page and narrower change. Metric evidence must match target_period and pass quality checks; failed/delayed/unknown/unreconciled testing, history and PV_USER_SCOPE evidence is excluded. This routes analyst-declared findings, not semantic diagnosis from primary text or an impact score. Acquisition experiments require separately cited demand, owned asset, incremental value and distribution; existing search counts are not a market ceiling.',
             'first_action': next((r['id'] for r in assessed if r['action'] not in ('retain', 'investigate') and not r.get('acquisition_evidence')), None),
             'acquisition_experiments': acquisition,
             'primary_experiment': acquisition[0] if len(acquisition) == 1 else None,

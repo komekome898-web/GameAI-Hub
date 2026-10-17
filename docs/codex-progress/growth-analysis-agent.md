@@ -9,6 +9,7 @@
 - Implemented: repository Skill, primary-reference methods, diagnostic and counterexample cases, offline aggregation/diagnosis/opportunity comparison, synthetic fixtures, regression tests and quality integration.
 - Privacy: public code and synthetic examples only. Private observations, strategy and application proposals stay outside this repository and its CI artifacts.
 - Validation: Python growth tests, repository quality and production build pass with the environment's existing Ruby runtime enabled for workflow validation. Independent source review found input-state/duplicate-total/provenance gaps; fixed with regressions.
+- Review hardening: excludes unsuitable metric quality and mismatched target periods from recommendations; validates quality tokens; requires role-appropriate retained source content and independent review bound to candidate, referenced evidence and indirect measurement sources. Duplicate candidate IDs are rejected. Label-routing tests do not claim semantic source understanding.
 - Application changes: separate review-only proposals; no production change, merge or publishing.
 - Current phase: coordinator reviews the public tooling and separately evaluates private strategy/application evidence.
 - Remaining: coordinator's independent acceptance and explicit adoption of any application proposal. No PR requested.
