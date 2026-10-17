@@ -119,6 +119,13 @@
           "unit": "USD",
           "basis": "Synthetic explicit scenario input; not an observed site result.",
           "evidence": []
+        },
+        "per_outcome_hours": {
+          "state": "assumption",
+          "value": "0",
+          "unit": "hours",
+          "basis": "Fictional zero support-time scenario, not observed service burden",
+          "evidence": []
         }
       },
       "reward_model": {
@@ -177,8 +184,18 @@
             "evidence": []
           }
         }
-      ]
+      ],
+      "revenue_attribution": {
+        "business": "fictional-publication",
+        "recognition": "included",
+        "settlement": "cash",
+        "basis": "Synthetic publication revenue only",
+        "evidence": [
+          "synthetic"
+        ]
+      }
     }
   ],
-  "example_scope": "Fictional profitability input fragment merged with the existing synthetic test harness; no real site or observed revenue."
+  "example_scope": "Fictional profitability input fragment merged with the existing synthetic test harness; no real site or observed revenue.",
+  "business_scope": "fictional-publication"
 }

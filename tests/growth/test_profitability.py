@@ -16,6 +16,7 @@ def quantity(value, unit, state='assumption', evidence=None):
 def commercial_fixture():
     bundle = fixture()
     bundle['decision_objective'] = 'profitability'
+    bundle['business_scope'] = 'fictional-publication'
     for id, kind in [('terms', 'commercial_terms'), ('ledger', 'financial_record'), ('review', 'independent_review')]:
         text = 'Synthetic ' + kind + '; fictional fixture, not an actual agreement or account.'
         bundle['sources'][id] = {**bundle['sources']['synthetic'], 'evidence_kind': kind,
@@ -23,11 +24,13 @@ def commercial_fixture():
     packet = {'text': 'Synthetic analyst statement; source-reading review remains required.', 'evidence': ['synthetic']}
     case = {'id': 'current', 'candidate_id': None, 'period': 'test', 'currency': 'USD',
             'revenue_source': 'affiliate', 'availability': 'pending',
+            'revenue_attribution': {'business': 'fictional-publication', 'recognition': 'included', 'settlement': 'cash', 'basis': 'Synthetic publication revenue only', 'evidence': ['synthetic']},
             'buyer_problem': packet, 'terms_conditions': packet, 'opportunity_cost': packet,
             'adoption_conditions': packet, 'conversion_path': [{'stage': 'reader to paid outcome', 'status': 'unknown', 'evidence': []}],
             'cost_scope': 'Synthetic future creation and maintenance within test horizon; paid ledger separate.',
             'costs': {'future_cash': quantity('100', 'USD'), 'future_hours': quantity('5', 'hours'),
                       'hourly_value': quantity(None, 'USD/hour', 'unknown'), 'per_outcome': quantity('2', 'USD'),
+                      'per_outcome_hours': quantity('0', 'hours'),
                       'per_outcome_stage': 'approved', 'sunk_cash': quantity('9999', 'USD')},
             'reward_model': {'kind': 'fixed', 'accrual_horizon': 'within_case_period', 'outcome_stage': 'approved',
                              'amount': quantity('12', 'USD', 'contractual', ['terms'])},
@@ -244,6 +247,87 @@ class ProfitabilityTests(unittest.TestCase):
         self.assertEqual(result['opportunity_assessment']['reader_acquisition_primary_experiment'], 'new-reader-case')
         self.assertNotIn('primary_experiment', result['opportunity_assessment'])
         self.assertIsNone(result['profitability_analysis']['recommended_case'])
+
+    def test_unprovided_product_is_not_available_or_business_core(self):
+        bundle = commercial_fixture()
+        case = bundle['profitability_cases'][0]
+        case['revenue_source'] = 'own_product'
+        case['product_status'] = {'state': 'prototype_only', 'sales_authorization': 'not_requested'}
+        case['availability'] = 'unavailable'
+        growth.profitability_cases(bundle)
+        case['availability'] = 'available'
+        with self.assertRaises(growth.EvidenceError):
+            growth.profitability_cases(bundle)
+        case['product_status'].update(state='offered', sales_authorization='approved')
+        with self.assertRaises(growth.EvidenceError):
+            growth.profitability_cases(bundle)  # Labels alone are insufficient.
+        case['availability'] = 'unavailable'
+        decision = decision_fixture(bundle)
+        decision.update(status='maintain', selected_role='business_core', selected_case_id='current')
+        with self.assertRaises(growth.EvidenceError):
+            growth.validate_profitability_decision(decision, bundle)
+
+    def test_offering_and_authorization_source_changes_invalidate_review(self):
+        for changed in ('offering', 'authorization'):
+            bundle = commercial_fixture()
+            case = bundle['profitability_cases'][0]
+            case.update(revenue_source='own_product', availability='available',
+                        product_status={'state': 'offered', 'sales_authorization': 'approved',
+                                        'offering_evidence': ['offering'], 'authorization_evidence': ['authorization']})
+            for id, kind in [('offering', 'owned_publication'), ('authorization', 'approval_record')]:
+                text = 'Fictional retained ' + id
+                bundle['sources'][id] = {**bundle['sources']['synthetic'], 'evidence_kind': kind,
+                    'observed_text': text, 'observed_text_sha256': hashlib.sha256(text.encode()).hexdigest()}
+            decision = decision_fixture(bundle)
+            growth.validate_profitability_decision(decision, bundle)
+            text = 'Changed fictional ' + changed
+            bundle['sources'][changed].update(observed_text=text,
+                observed_text_sha256=hashlib.sha256(text.encode()).hexdigest())
+            with self.assertRaises(growth.EvidenceError):
+                growth.validate_profitability_decision(decision, bundle)
+
+    def test_separate_game_revenue_and_noncash_credit_are_not_site_cash(self):
+        bundle = commercial_fixture()
+        case = bundle['profitability_cases'][0]
+        case['actuals']['paid_revenue'] = quantity('400', 'USD', 'observed', ['ledger'])
+        case['revenue_attribution'].update(business='another-game-business', recognition='included')
+        with self.assertRaises(growth.EvidenceError):
+            growth.profitability_cases(bundle)
+        case['revenue_attribution']['recognition'] = 'excluded'
+        result = growth.profitability_cases(bundle)['cases'][0]
+        self.assertIsNone(result['recognized_site_paid_revenue'])
+        self.assertEqual(result['input_case']['actuals']['paid_revenue']['value'], '400')
+        case['revenue_attribution'].update(business=bundle['business_scope'], recognition='included', settlement='noncash_credit')
+        self.assertIsNone(growth.profitability_cases(bundle)['cases'][0]['recognized_site_paid_revenue'])
+        self.assertIsNone(growth.profitability_cases(bundle)['cases'][0]['reward_per_outcome'])
+
+    def test_cross_currency_research_explicitly_forbids_profit_ranking(self):
+        bundle = commercial_fixture()
+        decision = decision_fixture(bundle)
+        case = bundle['profitability_cases'][1]
+        case['currency'] = 'JPY'
+        for q in [case['costs'][key] for key in ['future_cash', 'hourly_value', 'per_outcome', 'sunk_cash']] + [case['reward_model']['amount'], case['actuals']['paid_revenue']]:
+            q['unit'] = q['unit'].replace('USD', 'JPY')
+        decision['comparison_basis'] = {'kind': 'qualitative_research_priority', 'reason': 'No exchange rate supplied; compare validation burden, not nominal returns', 'no_cross_currency_profit_ranking': True}
+        bundle['reviews'][0]['reviewed_economic_decision_sha256'] = growth.economic_decision_digest(bundle, decision)
+        growth.validate_profitability_decision(decision, bundle)
+        decision['comparison_basis']['no_cross_currency_profit_ranking'] = False
+        with self.assertRaises(growth.EvidenceError):
+            growth.validate_profitability_decision(decision, bundle)
+
+    def test_support_time_changes_economic_not_cash_break_even(self):
+        bundle = commercial_fixture()
+        case = bundle['profitability_cases'][0]
+        case['costs']['hourly_value'] = quantity('20', 'USD/hour')
+        case['costs']['per_outcome_hours'] = quantity('0.25', 'hours')
+        result = growth.profitability_cases(bundle)['cases'][0]
+        self.assertEqual(result['cash_break_even_outcomes'], 10)
+        self.assertEqual(result['economic_margin_per_outcome'], '5.00')
+        self.assertEqual(result['economic_break_even_outcomes'], 40)
+        case['costs']['per_outcome_hours'] = quantity(None, 'hours', 'unknown')
+        result = growth.profitability_cases(bundle)['cases'][0]
+        self.assertIsNone(result['economic_break_even_outcomes'])
+        self.assertEqual(result['cash_break_even_outcomes'], 10)
 
     def test_public_fixture_is_only_synthetic(self):
         fragment = json.loads((Path(__file__).resolve().parents[2] / 'scripts/growth/profitability.synthetic.json').read_text())
